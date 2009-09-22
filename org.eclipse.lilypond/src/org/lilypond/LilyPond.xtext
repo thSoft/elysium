@@ -1,0 +1,9 @@
+grammar org.lilypond.LilyPond
+
+generate lilyPond "http://www.lilypond.org/LilyPond"
+
+import "http://www.eclipse.org/emf/2002/Ecore" as ecore
+
+LilyPond: content=DUMMY?;
+
+terminal DUMMY: ((!'\n')* '\n')* (!'\n')*;
