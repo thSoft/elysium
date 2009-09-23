@@ -3,6 +3,8 @@ package org.eclipse.lilypond.ide.internal;
 import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
+import java.util.Map;
 import org.eclipse.core.resources.IFile;
 import org.eclipse.jface.preference.IPreferenceStore;
 import org.eclipse.lilypond.ide.Activator;
@@ -35,6 +37,12 @@ public class CompilerProcessBuilderFactory {
 				command.add(filename);
 			}
 			result.command(command);
+
+			Map<String, String> environment = result.environment();
+			{
+				Locale locale = Locale.getDefault();
+				environment.put("LANG", locale.toString());
+			}
 		}
 		return result;
 	}
