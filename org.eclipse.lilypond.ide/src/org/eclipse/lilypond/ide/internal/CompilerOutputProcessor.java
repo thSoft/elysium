@@ -3,6 +3,8 @@ package org.eclipse.lilypond.ide.internal;
 import java.text.MessageFormat;
 import javax.util.process.OutputProcessor;
 import org.eclipse.core.resources.IFile;
+import org.eclipse.core.resources.IMarker;
+import org.eclipse.core.runtime.CoreException;
 import org.eclipse.jface.text.BadLocationException;
 import org.eclipse.jface.text.IDocument;
 import org.eclipse.jface.text.IDocumentPartitioningListener;
@@ -18,6 +20,7 @@ import org.eclipse.ui.console.MessageConsoleStream;
 import org.eclipse.ui.console.TextConsole;
 import org.eclipse.ui.part.FileEditorInput;
 import org.eclipse.util.ConsoleUtils;
+import org.eclipse.util.DocumentUtils;
 import org.eclipse.util.TextEditorHyperlink;
 
 /**
@@ -45,6 +48,11 @@ public class CompilerOutputProcessor implements OutputProcessor {
 	 */
 	private int offset = 0;
 
+	/**
+	 * LilyPond counts column numbers based on this tab width value.
+	 */
+	private static final int LILYPOND_TAB_WIDTH = 8;
+
 	public CompilerOutputProcessor(IFile file) {
 		this.file = file;
 		console = initConsole();
@@ -60,6 +68,8 @@ public class CompilerOutputProcessor implements OutputProcessor {
 			// The hyperlink must be added only when its text is already processed in a job by the console's document partitioner
 			HyperlinkAdder hyperlinkAdder = new HyperlinkAdder(console, hyperlink, offset, line.length());
 			console.getDocument().addDocumentPartitioningListener(hyperlinkAdder);
+
+			createMarkerFromProblem(problem);
 		}
 
 		offset += line.length() + 1;
@@ -89,14 +99,12 @@ public class CompilerOutputProcessor implements OutputProcessor {
 	// Hyperlink creation
 
 	/**
-	 * Creates a console hyperlink from a problem marker.
+	 * Creates a console hyperlink from a problem descriptor.
 	 */
 	private IHyperlink createHyperlinkFromProblem(ProblemDescriptor problem) {
 		IFileEditorInput editorInput = new FileEditorInput(problem.file);
-		int lineNumber = problem.lineNumber;
-		int columnNumber = problem.columnNumber;
-		TextEditorHyperlink result = new TextEditorHyperlink(editorInput, lineNumber, columnNumber);
-		result.setTabWidth(8); // LilyPond counts column numbers based on this tab width value
+		TextEditorHyperlink result = new TextEditorHyperlink(editorInput, problem.lineNumber, problem.columnNumber);
+		result.setTabWidth(LILYPOND_TAB_WIDTH);
 		return result;
 	}
 
@@ -126,10 +134,34 @@ public class CompilerOutputProcessor implements OutputProcessor {
 				document.removeDocumentPartitioningListener(this);
 				console.addHyperlink(hyperlink, offset, lineLength);
 			} catch (BadLocationException e) {
-				Activator.logError("Programming error", e);
+				Activator.logError("Incorrect location calculation", e);
 			}
 		}
 
+	}
+
+	// Marker creation
+
+	/**
+	 * Creates a resource marker from a problem descriptor.
+	 */
+	private IMarker createMarkerFromProblem(ProblemDescriptor problem) {
+		IMarker result = null;
+		try {
+			result = problem.file.createMarker(IMarker.PROBLEM);
+			result.setAttribute(IMarker.SEVERITY, problem.severity);
+			result.setAttribute(IMarker.MESSAGE, problem.message);
+			result.setAttribute(IMarker.LINE_NUMBER, problem.lineNumber + 1);
+			IDocument document = DocumentUtils.getDocumentFromFile(problem.file);
+			int charOffset = DocumentUtils.getOffsetOfPosition(document, problem.lineNumber, problem.columnNumber, LILYPOND_TAB_WIDTH);
+			result.setAttribute(IMarker.CHAR_START, charOffset);
+			result.setAttribute(IMarker.CHAR_END, charOffset);
+		} catch (CoreException e) {
+			Activator.logError("Couldn't create problem marker", e);
+		} catch (BadLocationException e) {
+			Activator.logError("Incorrect location calculation", e);
+		}
+		return result;
 	}
 
 }

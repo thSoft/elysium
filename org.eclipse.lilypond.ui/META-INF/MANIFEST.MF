@@ -22,6 +22,7 @@ Export-Package: org.lilypond;uses:="org.eclipse.emf.edit.provider,org.eclipse.co
    org.eclipse.emf.ecore",
  org.lilypond.contentassist.antlr,
  org.lilypond.labeling;uses:="org.lilypond.lilyPond,org.eclipse.xtext.ui.core",
- org.lilypond.outline;uses:="org.eclipse.xtext.ui.common.editor.outline.actions,org.eclipse.xtext.ui.common.editor.outline.transformer"
+ org.lilypond.outline;uses:="org.eclipse.xtext.ui.common.editor.outline.actions,org.eclipse.xtext.ui.common.editor.outline.transformer",
+ org.lilypond.validation
 Bundle-Activator: org.lilypond.internal.LilyPondActivator
 Bundle-Vendor: Open Source Community

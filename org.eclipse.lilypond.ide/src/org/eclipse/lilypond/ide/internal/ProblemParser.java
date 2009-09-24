@@ -123,7 +123,7 @@ public class ProblemParser {
 			// Line number
 			if (sections.length >= 2) {
 				int lineNumber = Integer.parseInt(sections[1]) - 1;
-				if (lineNumber == -1) {
+				if (lineNumber < 0) {
 					lineNumber = 0;
 				}
 				result.lineNumber = lineNumber;

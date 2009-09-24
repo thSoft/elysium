@@ -19,6 +19,8 @@ import org.eclipse.swt.widgets.Shell;
 import org.eclipse.ui.console.MessageConsoleStream;
 import org.eclipse.ui.dialogs.PreferencesUtil;
 import org.eclipse.ui.progress.IProgressConstants;
+import org.eclipse.xtext.ui.core.editor.reconciler.XtextReconciler;
+import org.lilypond.validation.LilyPondValidationJob;
 
 /**
  * Compiles a given file in a job because it can take a long time.
@@ -62,6 +64,11 @@ public class CompilerJob extends Job {
 
 	@Override
 	protected IStatus run(IProgressMonitor monitor) {
+		// Remove existing markers and prevent other jobs from creating new ones
+		MarkerRemover.deleteMarkers(file);
+		Job.getJobManager().cancel(XtextReconciler.class.getName());
+		Job.getJobManager().cancel(LilyPondValidationJob.class.getName());
+
 		try {
 			long start = System.currentTimeMillis();
 			ProcessUtils.runProcess(processBuilder, outputProcessor);
