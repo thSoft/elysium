@@ -43,7 +43,7 @@
       <command
             description="Compiles the currently open file with LilyPond"
             id="org.eclipse.lilypond.ide.commands.compile"
-            name="Compile">
+            name="&amp;Compile">
       </command>
    </extension>
    <extension
@@ -94,7 +94,7 @@
             locationURI="menu:org.eclipse.ui.main.menu">
          <menu
                id="org.eclipse.lilypond.ide.menu"
-               label="LilyPond">
+               label="&amp;LilyPond">
             <visibleWhen
                   checkEnabled="false">
                <with
