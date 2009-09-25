@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.text.MessageFormat;
 import javax.util.process.ProcessUtils;
 import org.eclipse.core.resources.IFile;
+import org.eclipse.core.resources.IMarker;
 import org.eclipse.core.resources.IResource;
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IProgressMonitor;
@@ -64,10 +65,10 @@ public class CompilerJob extends Job {
 
 	@Override
 	protected IStatus run(IProgressMonitor monitor) {
-		// Remove existing markers and prevent other jobs from creating new ones
-		MarkerRemover.deleteMarkers(file);
+		// Remove every existing problem marker and prevent other jobs from creating new ones
 		Job.getJobManager().cancel(XtextReconciler.class.getName());
 		Job.getJobManager().cancel(LilyPondValidationJob.class.getName());
+		MarkerRemover.deleteMarkers(file, IMarker.PROBLEM);
 
 		try {
 			long start = System.currentTimeMillis();
@@ -94,7 +95,7 @@ public class CompilerJob extends Job {
 	 */
 	private void handleInvalidExecutablePath() {
 		final Display display = Display.getDefault();
-		display.asyncExec(new Runnable() { // Run in UI thread
+		display.asyncExec(new Runnable() { // A dialog can be opened only in UI thread
 
 			public void run() {
 				Shell shell = display.getActiveShell();

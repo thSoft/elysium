@@ -1,6 +1,8 @@
 package org.eclipse.lilypond.ide.internal;
 
 import java.text.MessageFormat;
+import java.util.HashSet;
+import java.util.Set;
 import javax.util.process.OutputProcessor;
 import org.eclipse.core.resources.IFile;
 import org.eclipse.core.resources.IMarker;
@@ -22,6 +24,7 @@ import org.eclipse.ui.part.FileEditorInput;
 import org.eclipse.util.ConsoleUtils;
 import org.eclipse.util.DocumentUtils;
 import org.eclipse.util.TextEditorHyperlink;
+import org.lilypond.markers.LilyPondProblemMarker;
 
 /**
  * Processes the output of <code>lilypond</code>.
@@ -51,7 +54,12 @@ public class CompilerOutputProcessor implements OutputProcessor {
 	/**
 	 * LilyPond counts column numbers based on this tab width value.
 	 */
-	private static final int LILYPOND_TAB_WIDTH = 8;
+	public static final int LILYPOND_TAB_WIDTH = 8;
+
+	/**
+	 * The files which contain problems.
+	 */
+	private final Set<IFile> filesWithProblem = new HashSet<IFile>();
 
 	public CompilerOutputProcessor(IFile file) {
 		this.file = file;
@@ -70,6 +78,18 @@ public class CompilerOutputProcessor implements OutputProcessor {
 			console.getDocument().addDocumentPartitioningListener(hyperlinkAdder);
 
 			createMarkerFromProblem(problem);
+
+			// If a new file with a problem is detected, ensure that its markers will be removed
+			IFile fileWithProblem = problem.file;
+			if (!filesWithProblem.contains(fileWithProblem)) {
+				filesWithProblem.add(fileWithProblem);
+				try {
+					IDocument document = DocumentUtils.getDocumentFromFile(fileWithProblem);
+					document.addDocumentListener(new MarkerRemover(fileWithProblem));
+				} catch (CoreException e) {
+					Activator.logError("Can't access file", e);
+				}
+			}
 		}
 
 		offset += line.length() + 1;
@@ -101,7 +121,7 @@ public class CompilerOutputProcessor implements OutputProcessor {
 	/**
 	 * Creates a console hyperlink from a problem descriptor.
 	 */
-	private IHyperlink createHyperlinkFromProblem(ProblemDescriptor problem) {
+	private static IHyperlink createHyperlinkFromProblem(ProblemDescriptor problem) {
 		IFileEditorInput editorInput = new FileEditorInput(problem.file);
 		TextEditorHyperlink result = new TextEditorHyperlink(editorInput, problem.lineNumber, problem.columnNumber);
 		result.setTabWidth(LILYPOND_TAB_WIDTH);
@@ -145,13 +165,14 @@ public class CompilerOutputProcessor implements OutputProcessor {
 	/**
 	 * Creates a resource marker from a problem descriptor.
 	 */
-	private IMarker createMarkerFromProblem(ProblemDescriptor problem) {
+	private static IMarker createMarkerFromProblem(ProblemDescriptor problem) {
 		IMarker result = null;
 		try {
-			result = problem.file.createMarker(IMarker.PROBLEM);
+			result = problem.file.createMarker(LilyPondProblemMarker.TYPE);
 			result.setAttribute(IMarker.SEVERITY, problem.severity);
 			result.setAttribute(IMarker.MESSAGE, problem.message);
 			result.setAttribute(IMarker.LINE_NUMBER, problem.lineNumber + 1);
+			result.setAttribute(LilyPondProblemMarker.COLUMN_NUMBER, problem.columnNumber + 1);
 			IDocument document = DocumentUtils.getDocumentFromFile(problem.file);
 			int charOffset = DocumentUtils.getOffsetOfPosition(document, problem.lineNumber, problem.columnNumber, LILYPOND_TAB_WIDTH);
 			result.setAttribute(IMarker.CHAR_START, charOffset);
