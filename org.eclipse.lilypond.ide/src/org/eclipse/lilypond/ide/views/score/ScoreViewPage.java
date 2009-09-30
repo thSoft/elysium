@@ -57,9 +57,10 @@ public class ScoreViewPage extends Page {
 		innerContainer = new Composite(outerContainer, SWT.NONE);
 		innerContainer.setLayoutData(new GridData(SWT.CENTER, SWT.CENTER, true, true));
 
-		hyperlinks = new Composite(innerContainer, SWT.NO_BACKGROUND);
-
 		pdfDisplay = new Label(innerContainer, SWT.CENTER);
+
+		hyperlinks = new Composite(innerContainer, SWT.TRANSPARENT | SWT.NO_BACKGROUND);
+		hyperlinks.moveAbove(pdfDisplay);
 
 		reload();
 	}
