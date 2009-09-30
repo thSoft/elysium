@@ -42,4 +42,10 @@ public class ScoreView extends PageBookViewBase {
 		}
 	}
 
+	@Override
+	protected void doDestroyPage(IWorkbenchPart part, PageRec pageRecord) {
+		((ScoreViewPage)pageRecord.page).closeFile();
+		super.doDestroyPage(part, pageRecord);
+	}
+
 }

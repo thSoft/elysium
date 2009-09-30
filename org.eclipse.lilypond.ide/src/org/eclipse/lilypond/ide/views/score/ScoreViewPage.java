@@ -95,6 +95,10 @@ public class ScoreViewPage extends Page {
 		setFilename(getFilename());
 	}
 
+	public void closeFile() {
+		pdfDecoder.closePdfFile();
+	}
+
 	private int page = 1;
 
 	public int getPage() {
