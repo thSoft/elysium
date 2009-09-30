@@ -1,8 +1,11 @@
 package org.eclipse.lilypond.ide;
 
+import org.eclipse.core.resources.IResourceChangeEvent;
+import org.eclipse.core.resources.ResourcesPlugin;
 import org.eclipse.core.runtime.IStatus;
 import org.eclipse.core.runtime.Status;
 import org.eclipse.jface.resource.ImageDescriptor;
+import org.eclipse.lilypond.ide.internal.PdfResourceChangeListener;
 import org.eclipse.ui.plugin.AbstractUIPlugin;
 import org.osgi.framework.BundleContext;
 
@@ -25,6 +28,7 @@ public class Activator extends AbstractUIPlugin {
 	public void start(BundleContext context) throws Exception {
 		super.start(context);
 		plugin = this;
+		ResourcesPlugin.getWorkspace().addResourceChangeListener(new PdfResourceChangeListener(), IResourceChangeEvent.POST_CHANGE);
 	}
 
 	@Override
