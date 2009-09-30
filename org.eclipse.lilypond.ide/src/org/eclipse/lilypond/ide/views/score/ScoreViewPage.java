@@ -123,8 +123,8 @@ public class ScoreViewPage extends Page {
 					try {
 						URI uri = new URI(anchor.getTextStreamValue(PdfDictionary.URI));
 						if (uri.getScheme().equals("textedit")) { //$NON-NLS-1$
-							String[] sections = uri.getPath().split(":");
-							String targetFilename = sections[0];
+							String[] sections = uri.getPath().split(":"); //$NON-NLS-1$
+							String targetFilename = (uri.getAuthority() == null ? "" : uri.getAuthority()) + sections[0]; //$NON-NLS-1$
 							int lineNumber = Integer.parseInt(sections[1]) - 1;
 							int columnNumber = Integer.parseInt(sections[2]); // This column number is computed with 1 as tab width
 
