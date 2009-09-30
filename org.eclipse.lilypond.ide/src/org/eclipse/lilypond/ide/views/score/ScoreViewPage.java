@@ -29,14 +29,30 @@ import org.jpedal.objects.raw.PdfObject;
  */
 public class ScoreViewPage extends Page {
 
+	/**
+	 * The root composite which provides scrolling.
+	 */
 	private ScrolledComposite mainControl;
 
+	/**
+	 * The composite which is responsible for the center alignment.
+	 */
 	private Composite outerContainer;
 
+	/**
+	 * The composite which contains the PDF and the hyperlink layer.
+	 */
 	private Composite innerContainer;
 
+	/**
+	 * The label displaying the current page of the PDF file or an error message
+	 * if the PDF is missing.
+	 */
 	private Label pdfDisplay;
 
+	/**
+	 * The composite containing the point-and-click hyperlinks.
+	 */
 	private Composite hyperlinks;
 
 	@Override
@@ -59,7 +75,7 @@ public class ScoreViewPage extends Page {
 
 		pdfDisplay = new Label(innerContainer, SWT.CENTER);
 
-		hyperlinks = new Composite(innerContainer, SWT.TRANSPARENT | SWT.NO_BACKGROUND);
+		hyperlinks = new Composite(innerContainer, SWT.TRANSPARENT | SWT.NO_BACKGROUND); // Both styles are required for correct transparency
 		hyperlinks.moveAbove(pdfDisplay);
 
 		reload();
@@ -74,12 +90,18 @@ public class ScoreViewPage extends Page {
 	public void setFocus() {
 	}
 
+	/**
+	 * Handles the case of missing or unreadable PDF.
+	 */
 	protected void handlePdfException() {
 		clearHyperlinks();
 		pdfDisplay.setText("No score found.\nCompile the LilyPond source to see the score.\nMake sure the \\layout block exists besides the \\midi block.");
 		refreshLayout();
 	}
 
+	/**
+	 * The PDF engine which renders the pages.
+	 */
 	protected final PdfDecoder pdfDecoder = new PdfDecoder();
 
 	public void redraw() {
@@ -99,6 +121,10 @@ public class ScoreViewPage extends Page {
 		}
 	}
 
+	/**
+	 * Whenever the page size changes, this method has to be called to achieve the
+	 * correct layout.
+	 */
 	protected void refreshLayout() {
 		Point size = pdfDisplay.computeSize(SWT.DEFAULT, SWT.DEFAULT);
 		pdfDisplay.setBounds(0, 0, size.x, size.y);
@@ -107,6 +133,10 @@ public class ScoreViewPage extends Page {
 		mainControl.setMinSize(size);
 	}
 
+	/**
+	 * Creates point-and-click hyperlinks from the form annotations on the current
+	 * page.
+	 */
 	protected void createHyperlinks() {
 		float widthRatio = (float)pdfDisplay.getImage().getBounds().width / getPageWidth();
 		float heightRatio = (float)pdfDisplay.getImage().getBounds().height / getPageHeight();
@@ -127,7 +157,7 @@ public class ScoreViewPage extends Page {
 							String[] sections = uri.getPath().split(":"); //$NON-NLS-1$
 							String targetFilename = (uri.getAuthority() == null ? "" : uri.getAuthority()) + sections[0]; //$NON-NLS-1$
 							int lineNumber = Integer.parseInt(sections[1]) - 1;
-							int columnNumber = Integer.parseInt(sections[2]); // This column number is computed with 1 as tab width
+							int columnNumber = Integer.parseInt(sections[2]); // This value is independent of tab width
 
 							float[] rectangle = formObject.getFloatArray(PdfDictionary.Rect);
 							float left = rectangle[0];
@@ -141,7 +171,7 @@ public class ScoreViewPage extends Page {
 							float width = right - left;
 							float height = bottom - top;
 
-							Control scoreHyperlink = ScoreHyperlinkFactory.create(hyperlinks, targetFilename, lineNumber, columnNumber);
+							Control scoreHyperlink = new ScoreHyperlink(hyperlinks, targetFilename, lineNumber, columnNumber);
 							scoreHyperlink.setBounds(new Rectangle((int)left, (int)top, (int)width, (int)height));
 						}
 					} catch (URISyntaxException e) {
@@ -152,12 +182,18 @@ public class ScoreViewPage extends Page {
 		}
 	}
 
+	/**
+	 * Removes all hyperlinks from the hyperlink layer.
+	 */
 	protected void clearHyperlinks() {
 		for (Control oldHyperlink : hyperlinks.getChildren()) {
 			oldHyperlink.dispose();
 		}
 	}
 
+	/**
+	 * The full path of the open PDF file in the local file system.
+	 */
 	private String filename;
 
 	public ScoreViewPage(String filename) {
@@ -190,6 +226,9 @@ public class ScoreViewPage extends Page {
 		pdfDecoder.closePdfFile();
 	}
 
+	/**
+	 * The number of the currently viewed page.
+	 */
 	private int page = 1;
 
 	public int getPage() {
@@ -207,16 +246,30 @@ public class ScoreViewPage extends Page {
 		redraw();
 	}
 
+	/**
+	 * Returns the number of pages in the PDF file.
+	 */
 	public int getPageCount() {
 		return pdfDecoder.getPageCount();
 	}
 
+	/**
+	 * The current zoom factor.
+	 */
 	private float zoom = 1;
 
+	/**
+	 * Returns the real, zoom-independent height of the current page in PostScript
+	 * points.
+	 */
 	public int getPageHeight() {
 		return pdfDecoder.getPdfPageData().getMediaBoxHeight(getPage());
 	}
 
+	/**
+	 * Returns the real, zoom-independent width of the current page in PostScript
+	 * points.
+	 */
 	public int getPageWidth() {
 		return pdfDecoder.getPdfPageData().getMediaBoxWidth(getPage());
 	}
