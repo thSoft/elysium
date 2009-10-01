@@ -41,7 +41,7 @@ public class CompilerProcessBuilderFactory {
 			Map<String, String> environment = result.environment();
 			{
 				Locale locale = Locale.getDefault();
-				environment.put("LANG", locale.toString());
+				environment.put("LANG", locale.toString()); //$NON-NLS-1$
 			}
 		}
 		return result;

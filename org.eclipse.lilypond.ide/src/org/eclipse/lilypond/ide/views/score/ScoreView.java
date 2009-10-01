@@ -12,7 +12,7 @@ import org.eclipse.util.PageBookViewBase;
  */
 public class ScoreView extends PageBookViewBase {
 
-	public static final String ID = "org.eclipse.lilypond.ide.views.Score";
+	public static final String ID = "org.eclipse.lilypond.ide.views.Score"; //$NON-NLS-1$
 
 	private static IPathEditorInput getPathEditorInput(IWorkbenchPart part) {
 		if (part instanceof IEditorPart) {

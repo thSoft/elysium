@@ -154,7 +154,7 @@ public class ScoreViewPage extends Page {
 				if (subtype == PdfDictionary.Link) {
 					PdfObject anchor = formObject.getDictionary(PdfDictionary.A);
 					try {
-						byte[] uriDecodedBytes = anchor.getTextStreamValue(PdfDictionary.URI).getBytes("ISO-8859-1");
+						byte[] uriDecodedBytes = anchor.getTextStreamValue(PdfDictionary.URI).getBytes("ISO-8859-1"); //$NON-NLS-1$
 						URI uri = new URI(new String(uriDecodedBytes));
 						if (uri.getScheme().equals("textedit")) { //$NON-NLS-1$
 							String[] sections = uri.getPath().split(":"); //$NON-NLS-1$

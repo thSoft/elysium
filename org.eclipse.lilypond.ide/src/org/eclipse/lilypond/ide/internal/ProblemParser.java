@@ -12,28 +12,28 @@ public class ProblemParser {
 	/**
 	 * The common postfix of strings denoting problem.
 	 */
-	private static final String PROBLEM_POSTFIX = ": ";
+	private static final String PROBLEM_POSTFIX = ": "; //$NON-NLS-1$
 
 	/**
 	 * Strings denoting error in all locales LilyPond is available in.
 	 */
 	private static final Map<String, String> ERROR_STRINGS = new HashMap<String, String>();
 	static {
-		ERROR_STRINGS.put("cs", "chyba");
-		ERROR_STRINGS.put("da", "fejl");
-		ERROR_STRINGS.put("de", "Fehler");
-		ERROR_STRINGS.put("es", "error");
-		ERROR_STRINGS.put("fi", "virhe");
-		ERROR_STRINGS.put("fr", "Erreur ");
-		ERROR_STRINGS.put("it", "errore");
-		ERROR_STRINGS.put("ja", "���顼");
-		ERROR_STRINGS.put("nl", "fout");
-		ERROR_STRINGS.put("ru", "������");
-		ERROR_STRINGS.put("sv", "fel");
-		ERROR_STRINGS.put("tr", "hata");
-		ERROR_STRINGS.put("uk", "помилка");
-		ERROR_STRINGS.put("vi", "lỗi");
-		ERROR_STRINGS.put("zh", "錯誤");
+		ERROR_STRINGS.put("cs", "chyba"); //$NON-NLS-1$ //$NON-NLS-2$
+		ERROR_STRINGS.put("da", "fejl"); //$NON-NLS-1$ //$NON-NLS-2$
+		ERROR_STRINGS.put("de", "Fehler"); //$NON-NLS-1$ //$NON-NLS-2$
+		ERROR_STRINGS.put("es", "error"); //$NON-NLS-1$ //$NON-NLS-2$
+		ERROR_STRINGS.put("fi", "virhe"); //$NON-NLS-1$ //$NON-NLS-2$
+		ERROR_STRINGS.put("fr", "Erreur "); //$NON-NLS-1$ //$NON-NLS-2$
+		ERROR_STRINGS.put("it", "errore"); //$NON-NLS-1$ //$NON-NLS-2$
+		ERROR_STRINGS.put("ja", "���顼"); //$NON-NLS-1$ //$NON-NLS-2$
+		ERROR_STRINGS.put("nl", "fout"); //$NON-NLS-1$ //$NON-NLS-2$
+		ERROR_STRINGS.put("ru", "������"); //$NON-NLS-1$ //$NON-NLS-2$
+		ERROR_STRINGS.put("sv", "fel"); //$NON-NLS-1$ //$NON-NLS-2$
+		ERROR_STRINGS.put("tr", "hata"); //$NON-NLS-1$ //$NON-NLS-2$
+		ERROR_STRINGS.put("uk", "помилка"); //$NON-NLS-1$ //$NON-NLS-2$
+		ERROR_STRINGS.put("vi", "lỗi"); //$NON-NLS-1$ //$NON-NLS-2$
+		ERROR_STRINGS.put("zh", "錯誤"); //$NON-NLS-1$ //$NON-NLS-2$
 	}
 
 	/**
@@ -43,7 +43,7 @@ public class ProblemParser {
 	static {
 		ERROR_STRING = ERROR_STRINGS.get(Locale.getDefault().getLanguage());
 		if (ERROR_STRING == null) {
-			ERROR_STRING = "error";
+			ERROR_STRING = "error"; //$NON-NLS-1$
 		}
 		ERROR_STRING += PROBLEM_POSTFIX;
 	}
@@ -53,21 +53,21 @@ public class ProblemParser {
 	 */
 	private static final Map<String, String> WARNING_STRINGS = new HashMap<String, String>();
 	static {
-		WARNING_STRINGS.put("cs", "varování");
-		WARNING_STRINGS.put("da", "advarsel");
-		WARNING_STRINGS.put("de", "Warnung");
-		WARNING_STRINGS.put("es", "advertencia");
-		WARNING_STRINGS.put("fi", "varoitus");
-		WARNING_STRINGS.put("fr", "Avertissement ");
-		WARNING_STRINGS.put("it", "attenzione");
-		WARNING_STRINGS.put("ja", "�ٹ�");
-		WARNING_STRINGS.put("nl", "waarschuwing");
-		WARNING_STRINGS.put("ru", "������������");
-		WARNING_STRINGS.put("sv", "varning");
-		WARNING_STRINGS.put("tr", "uyarı");
-		WARNING_STRINGS.put("uk", "попередження");
-		WARNING_STRINGS.put("vi", "cảnh báo ");
-		WARNING_STRINGS.put("zh", "警告");
+		WARNING_STRINGS.put("cs", "varování"); //$NON-NLS-1$ //$NON-NLS-2$
+		WARNING_STRINGS.put("da", "advarsel"); //$NON-NLS-1$ //$NON-NLS-2$
+		WARNING_STRINGS.put("de", "Warnung"); //$NON-NLS-1$ //$NON-NLS-2$
+		WARNING_STRINGS.put("es", "advertencia"); //$NON-NLS-1$ //$NON-NLS-2$
+		WARNING_STRINGS.put("fi", "varoitus"); //$NON-NLS-1$ //$NON-NLS-2$
+		WARNING_STRINGS.put("fr", "Avertissement "); //$NON-NLS-1$ //$NON-NLS-2$
+		WARNING_STRINGS.put("it", "attenzione"); //$NON-NLS-1$ //$NON-NLS-2$
+		WARNING_STRINGS.put("ja", "�ٹ�"); //$NON-NLS-1$ //$NON-NLS-2$
+		WARNING_STRINGS.put("nl", "waarschuwing"); //$NON-NLS-1$ //$NON-NLS-2$
+		WARNING_STRINGS.put("ru", "������������"); //$NON-NLS-1$ //$NON-NLS-2$
+		WARNING_STRINGS.put("sv", "varning"); //$NON-NLS-1$ //$NON-NLS-2$
+		WARNING_STRINGS.put("tr", "uyarı"); //$NON-NLS-1$ //$NON-NLS-2$
+		WARNING_STRINGS.put("uk", "попередження"); //$NON-NLS-1$ //$NON-NLS-2$
+		WARNING_STRINGS.put("vi", "cảnh báo "); //$NON-NLS-1$ //$NON-NLS-2$
+		WARNING_STRINGS.put("zh", "警告"); //$NON-NLS-1$ //$NON-NLS-2$
 	}
 
 	/**
@@ -77,7 +77,7 @@ public class ProblemParser {
 	static {
 		WARNING_STRING = WARNING_STRINGS.get(Locale.getDefault().getLanguage());
 		if (WARNING_STRING == null) {
-			WARNING_STRING = "warning";
+			WARNING_STRING = "warning"; //$NON-NLS-1$
 		}
 		WARNING_STRING += PROBLEM_POSTFIX;
 	}
@@ -103,10 +103,10 @@ public class ProblemParser {
 		if (severity != IMarker.SEVERITY_INFO) {
 			result = new ProblemDescriptor();
 			String info = line.substring(0, problemStringIndex);
-			String[] sections = info.split(":", 4);
+			String[] sections = info.split(":", 4); //$NON-NLS-1$
 			// File
 			result.file = file;
-			if ((sections.length >= 1) && (!sections[0].equals(""))) {
+			if ((sections.length >= 1) && (sections[0].length() > 0)) {
 				IResource includedFile = file.getParent().findMember(sections[0]);
 				if ((includedFile != null) && (includedFile instanceof IFile)) {
 					result.file = (IFile)includedFile;
