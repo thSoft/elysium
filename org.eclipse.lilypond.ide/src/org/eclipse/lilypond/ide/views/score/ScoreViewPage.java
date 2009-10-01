@@ -1,8 +1,10 @@
 package org.eclipse.lilypond.ide.views.score;
 
 import java.awt.image.BufferedImage;
+import java.io.UnsupportedEncodingException;
 import java.net.URI;
 import java.net.URISyntaxException;
+import org.eclipse.lilypond.ide.Activator;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.custom.ScrolledComposite;
 import org.eclipse.swt.graphics.Image;
@@ -152,7 +154,8 @@ public class ScoreViewPage extends Page {
 				if (subtype == PdfDictionary.Link) {
 					PdfObject anchor = formObject.getDictionary(PdfDictionary.A);
 					try {
-						URI uri = new URI(anchor.getTextStreamValue(PdfDictionary.URI));
+						byte[] uriDecodedBytes = anchor.getTextStreamValue(PdfDictionary.URI).getBytes("ISO-8859-1");
+						URI uri = new URI(new String(uriDecodedBytes));
 						if (uri.getScheme().equals("textedit")) { //$NON-NLS-1$
 							String[] sections = uri.getPath().split(":"); //$NON-NLS-1$
 							String targetFilename = (uri.getAuthority() == null ? "" : uri.getAuthority()) + sections[0]; //$NON-NLS-1$
@@ -175,7 +178,11 @@ public class ScoreViewPage extends Page {
 							scoreHyperlink.setBounds(new Rectangle((int)left, (int)top, (int)width, (int)height));
 						}
 					} catch (URISyntaxException e) {
-						// Not valid URI
+						Activator.logError("Invalid hyperlink URI", e);
+					} catch (UnsupportedEncodingException e) {
+						Activator.logError("Programming error", e);
+					} catch (ArrayIndexOutOfBoundsException e) {
+						Activator.logError("Error while parsing hyperlink URI", e);
 					}
 				}
 			}
@@ -227,7 +234,7 @@ public class ScoreViewPage extends Page {
 	}
 
 	/**
-	 * The number of the currently viewed page.
+	 * The number of the currently viewed page, 1-based.
 	 */
 	private int page = 1;
 
