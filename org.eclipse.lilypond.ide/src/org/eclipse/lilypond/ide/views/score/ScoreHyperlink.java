@@ -12,6 +12,9 @@ import org.eclipse.swt.widgets.Display;
 import org.eclipse.ui.part.FileEditorInput;
 import org.eclipse.util.EditorUtils;
 
+/**
+ * Represents a clickable hyperlink in a score.
+ */
 public class ScoreHyperlink extends Composite {
 
 	public ScoreHyperlink(Composite parent, String filename, final int lineNumber, final int columnNumber) {

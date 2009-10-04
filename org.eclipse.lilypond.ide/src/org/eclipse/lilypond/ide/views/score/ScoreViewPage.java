@@ -57,6 +57,8 @@ public class ScoreViewPage extends Page {
 	 */
 	private Composite hyperlinks;
 
+	private ScoreViewPageToolbarManager toolbarManager;
+
 	@Override
 	public void createControl(Composite parent) {
 		mainControl = new ScrolledComposite(parent, SWT.V_SCROLL | SWT.H_SCROLL);
@@ -80,6 +82,8 @@ public class ScoreViewPage extends Page {
 		hyperlinks = new Composite(innerContainer, SWT.TRANSPARENT | SWT.NO_BACKGROUND); // Both styles are required for correct transparency
 		hyperlinks.moveAbove(pdfDisplay);
 
+		toolbarManager = new ScoreViewPageToolbarManager(this);
+
 		reload();
 	}
 
@@ -99,6 +103,7 @@ public class ScoreViewPage extends Page {
 		clearHyperlinks();
 		pdfDisplay.setText("No score found.\nCompile the LilyPond source to see the score.\nMake sure the \\layout block exists besides the \\midi block.");
 		refreshLayout();
+		toolbarManager.refresh();
 	}
 
 	/**
@@ -107,7 +112,7 @@ public class ScoreViewPage extends Page {
 	protected final PdfDecoder pdfDecoder = new PdfDecoder();
 
 	public void redraw() {
-		if (pdfDecoder.isOpen()) {
+		if (isFileOpen()) {
 			try {
 				pdfDecoder.setPageParameters(zoom, getPage());
 				BufferedImage awtImage = pdfDecoder.getPageAsImage(getPage());
@@ -117,6 +122,8 @@ public class ScoreViewPage extends Page {
 
 				clearHyperlinks();
 				createHyperlinks();
+
+				toolbarManager.refresh();
 			} catch (PdfException e) {
 				handlePdfException();
 			}
@@ -231,6 +238,11 @@ public class ScoreViewPage extends Page {
 
 	public void closeFile() {
 		pdfDecoder.closePdfFile();
+		toolbarManager.refresh();
+	}
+
+	public boolean isFileOpen() {
+		return pdfDecoder.isOpen();
 	}
 
 	/**
@@ -261,11 +273,6 @@ public class ScoreViewPage extends Page {
 	}
 
 	/**
-	 * The current zoom factor.
-	 */
-	private float zoom = 1;
-
-	/**
 	 * Returns the real, zoom-independent height of the current page in PostScript
 	 * points.
 	 */
@@ -279,6 +286,34 @@ public class ScoreViewPage extends Page {
 	 */
 	public int getPageWidth() {
 		return pdfDecoder.getPdfPageData().getMediaBoxWidth(getPage());
+	}
+
+	/**
+	 * The current zoom factor.
+	 */
+	private float zoom = 1;
+
+	public float getZoom() {
+		return zoom;
+	}
+
+	/**
+	 * Checks whether the given zoom factor is in a sensible range.
+	 */
+	public boolean isZoomValid(float zoom) {
+		Rectangle screenSize = Display.getDefault().getBounds();
+		float newWidth = getPageWidth() * zoom;
+		float newHeight = getPageHeight() * zoom;
+		boolean tooBig = newWidth > screenSize.width;
+		boolean tooSmall = (newWidth < 1) || (newHeight < 1);
+		return !(tooBig || tooSmall);
+	}
+
+	public void setZoom(float zoom) {
+		if (isZoomValid(zoom)) {
+			this.zoom = zoom;
+			redraw();
+		}
 	}
 
 }
