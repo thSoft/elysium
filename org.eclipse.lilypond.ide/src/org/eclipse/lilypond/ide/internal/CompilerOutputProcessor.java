@@ -47,9 +47,9 @@ public class CompilerOutputProcessor implements OutputProcessor {
 	private final MessageConsoleStream messageStream;
 
 	/**
-	 * The character offset of the current line in the console.
+	 * The number of the current line in the console.
 	 */
-	private int offset = 0;
+	private int consoleLineNumber = 0;
 
 	/**
 	 * LilyPond counts column numbers based on this tab width value.
@@ -72,11 +72,13 @@ public class CompilerOutputProcessor implements OutputProcessor {
 
 		ProblemDescriptor problem = ProblemParser.parse(file, line);
 		if (problem != null) {
+			// Create hyperlink
 			IHyperlink hyperlink = createHyperlinkFromProblem(problem);
 			// The hyperlink must be added only when its text is already processed in a job by the console's document partitioner
-			HyperlinkAdder hyperlinkAdder = new HyperlinkAdder(console, hyperlink, offset, line.length());
+			HyperlinkAdder hyperlinkAdder = new HyperlinkAdder(console, hyperlink, consoleLineNumber);
 			console.getDocument().addDocumentPartitioningListener(hyperlinkAdder);
 
+			// Create marker
 			createMarkerFromProblem(problem);
 
 			// If a new file with a problem is detected, ensure that its markers will be removed
@@ -92,7 +94,7 @@ public class CompilerOutputProcessor implements OutputProcessor {
 			}
 		}
 
-		offset += line.length() + 1;
+		consoleLineNumber++;
 	}
 
 	// Console handling
@@ -129,8 +131,8 @@ public class CompilerOutputProcessor implements OutputProcessor {
 	}
 
 	/**
-	 * Adds a hyperlink to a text console when its document is partitioned for the
-	 * first time.
+	 * Adds a line of hyperlink to a text console when its document is partitioned
+	 * for the first time.
 	 */
 	private class HyperlinkAdder implements IDocumentPartitioningListener {
 
@@ -138,20 +140,19 @@ public class CompilerOutputProcessor implements OutputProcessor {
 
 		private final IHyperlink hyperlink;
 
-		private final int offset;
+		private final int lineNumber;
 
-		private final int lineLength;
-
-		public HyperlinkAdder(TextConsole console, IHyperlink hyperlink, int offset, int lineLength) {
+		public HyperlinkAdder(TextConsole console, IHyperlink hyperlink, int lineNumber) {
 			this.console = console;
 			this.hyperlink = hyperlink;
-			this.offset = offset;
-			this.lineLength = lineLength;
+			this.lineNumber = lineNumber;
 		}
 
 		public void documentPartitioningChanged(IDocument document) {
 			try {
 				document.removeDocumentPartitioningListener(this);
+				int offset = document.getLineOffset(lineNumber);
+				int lineLength = document.getLineLength(lineNumber);
 				console.addHyperlink(hyperlink, offset, lineLength);
 			} catch (BadLocationException e) {
 				Activator.logError("Incorrect location calculation", e);
