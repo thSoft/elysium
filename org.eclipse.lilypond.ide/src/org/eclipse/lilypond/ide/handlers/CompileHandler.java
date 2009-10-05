@@ -27,8 +27,10 @@ public class CompileHandler extends AbstractHandler {
 		}
 
 		ScoreView scoreView = (ScoreView)PlatformUI.getWorkbench().getActiveWorkbenchWindow().getActivePage().findView(ScoreView.ID);
-		ScoreViewPage scoreViewPage = (ScoreViewPage)scoreView.getPageForPart(activeEditor);
-		scoreViewPage.closeFile();
+		if (scoreView != null) {
+			ScoreViewPage scoreViewPage = (ScoreViewPage)scoreView.getPageForPart(activeEditor);
+			scoreViewPage.closeFile();
+		}
 
 		CompilerJob.Family compilerJobFamily = new CompilerJob.Family(currentlyOpenFile);
 		if (Job.getJobManager().find(compilerJobFamily).length == 0) { // Do not process the same file more than one time at once
