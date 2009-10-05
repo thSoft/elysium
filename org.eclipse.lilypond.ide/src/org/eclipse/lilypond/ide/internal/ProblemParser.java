@@ -122,19 +122,19 @@ public class ProblemParser {
 			result.message = message;
 			// Line number
 			if (sections.length >= 2) {
-				int lineNumber = Integer.parseInt(sections[1]) - 1;
-				if (lineNumber < 0) {
-					lineNumber = 0;
-				}
-				result.lineNumber = lineNumber;
-				// Column number
-				if (sections.length >= 3) {
-					try {
+				try {
+					int lineNumber = Integer.parseInt(sections[1]) - 1;
+					if (lineNumber < 0) {
+						lineNumber = 0;
+					}
+					result.lineNumber = lineNumber;
+					// Column number
+					if (sections.length >= 3) {
 						int columnNumber = Integer.parseInt(sections[2]);
 						result.columnNumber = columnNumber;
-					} catch (NumberFormatException e) {
-						// No column number available
 					}
+				} catch (NumberFormatException e) {
+					// No line or column number available
 				}
 			}
 		}
