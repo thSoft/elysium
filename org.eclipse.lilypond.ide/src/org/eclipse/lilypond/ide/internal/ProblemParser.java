@@ -26,7 +26,6 @@ public class ProblemParser {
 		ERROR_STRINGS.put("fi", "virhe"); //$NON-NLS-1$ //$NON-NLS-2$
 		ERROR_STRINGS.put("fr", "Erreur "); //$NON-NLS-1$ //$NON-NLS-2$
 		ERROR_STRINGS.put("it", "errore"); //$NON-NLS-1$ //$NON-NLS-2$
-		ERROR_STRINGS.put("ja", "���顼"); //$NON-NLS-1$ //$NON-NLS-2$
 		ERROR_STRINGS.put("nl", "fout"); //$NON-NLS-1$ //$NON-NLS-2$
 		ERROR_STRINGS.put("ru", "������"); //$NON-NLS-1$ //$NON-NLS-2$
 		ERROR_STRINGS.put("sv", "fel"); //$NON-NLS-1$ //$NON-NLS-2$
@@ -49,6 +48,31 @@ public class ProblemParser {
 	}
 
 	/**
+	 * Strings with which programming error messages start in the appropriate
+	 * locales LilyPond is available in.
+	 */
+	private static final Map<String, String> PROGRAMMING_ERROR_PREFIXES = new HashMap<String, String>();
+	static {
+		PROGRAMMING_ERROR_PREFIXES.put("da", "programmerings"); //$NON-NLS-1$ //$NON-NLS-2$
+		PROGRAMMING_ERROR_PREFIXES.put("fi", "ohjelmointi"); //$NON-NLS-1$ //$NON-NLS-2$
+		PROGRAMMING_ERROR_PREFIXES.put("nl", "programmeer"); //$NON-NLS-1$ //$NON-NLS-2$
+		PROGRAMMING_ERROR_PREFIXES.put("sv", "programmerings"); //$NON-NLS-1$ //$NON-NLS-2$
+		PROGRAMMING_ERROR_PREFIXES.put("zh", "程式"); //$NON-NLS-1$ //$NON-NLS-2$
+	}
+
+	/**
+	 * The string with which programming error messages start in the locale used
+	 * by LilyPond.
+	 */
+	protected static String PROGRAMMING_ERROR_PREFIX;
+	static {
+		PROGRAMMING_ERROR_PREFIX = PROGRAMMING_ERROR_PREFIXES.get(Locale.getDefault().getLanguage());
+		if (PROGRAMMING_ERROR_PREFIX == null) {
+			PROGRAMMING_ERROR_PREFIX = "programming "; //$NON-NLS-1$
+		}
+	}
+
+	/**
 	 * Strings denoting warning in all locales LilyPond is available in.
 	 */
 	private static final Map<String, String> WARNING_STRINGS = new HashMap<String, String>();
@@ -60,7 +84,6 @@ public class ProblemParser {
 		WARNING_STRINGS.put("fi", "varoitus"); //$NON-NLS-1$ //$NON-NLS-2$
 		WARNING_STRINGS.put("fr", "Avertissement "); //$NON-NLS-1$ //$NON-NLS-2$
 		WARNING_STRINGS.put("it", "attenzione"); //$NON-NLS-1$ //$NON-NLS-2$
-		WARNING_STRINGS.put("ja", "�ٹ�"); //$NON-NLS-1$ //$NON-NLS-2$
 		WARNING_STRINGS.put("nl", "waarschuwing"); //$NON-NLS-1$ //$NON-NLS-2$
 		WARNING_STRINGS.put("ru", "������������"); //$NON-NLS-1$ //$NON-NLS-2$
 		WARNING_STRINGS.put("sv", "varning"); //$NON-NLS-1$ //$NON-NLS-2$
@@ -93,7 +116,7 @@ public class ProblemParser {
 		int severity = IMarker.SEVERITY_INFO;
 		int problemStringIndex = -1;
 		int messageIndex = -1;
-		if ((problemStringIndex = line.indexOf(ERROR_STRING)) != -1) {
+		if (((problemStringIndex = line.indexOf(ERROR_STRING)) != -1) && !line.startsWith(PROGRAMMING_ERROR_PREFIX)) {
 			messageIndex = problemStringIndex + ERROR_STRING.length();
 			severity = IMarker.SEVERITY_ERROR;
 		} else if ((problemStringIndex = line.indexOf(WARNING_STRING)) != -1) {
