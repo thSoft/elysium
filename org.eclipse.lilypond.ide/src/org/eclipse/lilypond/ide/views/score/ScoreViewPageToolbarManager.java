@@ -17,6 +17,8 @@ import org.eclipse.swt.events.MouseAdapter;
 import org.eclipse.swt.events.MouseEvent;
 import org.eclipse.swt.events.VerifyEvent;
 import org.eclipse.swt.events.VerifyListener;
+import org.eclipse.swt.layout.GridData;
+import org.eclipse.swt.layout.GridLayout;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Control;
 import org.eclipse.swt.widgets.Label;
@@ -203,9 +205,18 @@ public class ScoreViewPageToolbarManager {
 
 		@Override
 		protected Control createControl(Composite parent) {
-			label = new Label(parent, SWT.NONE);
+			Composite container = new Composite(parent, SWT.NONE);
+			GridLayout layout = new GridLayout();
+			layout.marginHeight = 0;
+			layout.marginWidth = 1;
+			container.setLayout(layout);
+			label = new Label(container, SWT.CENTER);
+			GridData layoutData = new GridData();
+			layoutData.verticalAlignment = SWT.CENTER;
+			layoutData.grabExcessVerticalSpace = true;
+			label.setLayoutData(layoutData);
 			update();
-			return label;
+			return container;
 		}
 
 		@Override
