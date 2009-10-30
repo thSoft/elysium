@@ -7,6 +7,7 @@ import org.eclipse.core.resources.IFile;
 import org.eclipse.core.resources.IMarker;
 import org.eclipse.core.resources.IResource;
 import org.eclipse.core.runtime.CoreException;
+import org.eclipse.core.runtime.IPath;
 import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.core.runtime.IStatus;
 import org.eclipse.core.runtime.Status;
@@ -22,6 +23,7 @@ import org.eclipse.ui.progress.IProgressConstants;
 import org.eclipse.xtext.ui.core.editor.reconciler.XtextReconciler;
 import org.lilypond.Activator;
 import org.lilypond.problems.ProblemMarkerRemover;
+import org.lilypond.score.ScoreView;
 import org.lilypond.validation.LilyPondValidationJob;
 
 /**
@@ -80,6 +82,15 @@ public class CompilerJob extends Job {
 			metaStream.print(MessageFormat.format("LilyPond terminated in {0} seconds.", executionTimeInSeconds));
 
 			file.getProject().refreshLocal(IResource.DEPTH_INFINITE, null);
+
+			if (outputProcessor.isFailed()) {
+				IPath sourcePath = file.getFullPath();
+				IPath scorePath = ScoreView.getScorePath(sourcePath);
+				IFile scoreFile = file.getWorkspace().getRoot().getFile(scorePath);
+				if (scoreFile.exists()) {
+					scoreFile.touch(monitor);
+				}
+			}
 		} catch (IOException e) {
 			handleInvalidExecutablePath();
 		} catch (InterruptedException e) {

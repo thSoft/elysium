@@ -1,9 +1,7 @@
 package org.lilypond.compiler;
 
 import java.text.MessageFormat;
-import java.util.ArrayList;
 import java.util.HashSet;
-import java.util.List;
 import java.util.Set;
 import javax.util.process.OutputProcessor;
 import org.eclipse.core.resources.IFile;
@@ -66,7 +64,10 @@ public class CompilerOutputProcessor implements OutputProcessor {
 	 */
 	private final Set<IFile> filesWithProblem = new HashSet<IFile>();
 
-	private final List<HyperlinkAdder> hyperlinks = new ArrayList<HyperlinkAdder>();
+	/**
+	 * Whether there were compilation errors.
+	 */
+	private boolean failed;
 
 	public CompilerOutputProcessor(IFile file) {
 		this.file = file;
@@ -79,6 +80,11 @@ public class CompilerOutputProcessor implements OutputProcessor {
 
 		ProblemDescriptor problem = ProblemParser.parse(file, line);
 		if (problem != null) {
+			// Set error flag if necessary
+			if (problem.severity == IMarker.SEVERITY_ERROR) {
+				setFailed(true);
+			}
+
 			// Create hyperlink
 			IHyperlink hyperlink = createHyperlinkFromProblem(problem);
 			// The hyperlink must be added only when its text is already processed in a job by the console's document partitioner
@@ -198,8 +204,12 @@ public class CompilerOutputProcessor implements OutputProcessor {
 		return result;
 	}
 
-	public List<HyperlinkAdder> getHyperlinks() {
-		return hyperlinks;
+	protected void setFailed(boolean failed) {
+		this.failed = failed;
+	}
+
+	public boolean isFailed() {
+		return failed;
 	}
 
 }
