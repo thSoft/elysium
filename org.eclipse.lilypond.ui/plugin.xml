@@ -65,7 +65,7 @@
             <view
              id="org.lilypond.views.Score"
              minimized="false"
-             ratio="0.65"
+             ratio="0.54"
              relationship="right"
              relative="org.eclipse.ui.editorss">
             </view>
@@ -205,13 +205,6 @@
         </page>
         <page
          category="org.lilypond.preferencePages.LilyPond"
-         class="org.lilypond.LilyPondExecutableExtensionFactory:org.eclipse.xtext.ui.common.editor.syntaxcoloring.SyntaxColoringPreferencePage"
-         id="org.lilypond.preferencePages.SyntaxColoring"
-         name="Syntax Coloring">
-            <keywordReference id="org.lilypond.keywords.LilyPond"/>
-        </page>
-        <page
-         category="org.lilypond.preferencePages.LilyPond"
          class="org.lilypond.LilyPondExecutableExtensionFactory:org.eclipse.xtext.ui.common.editor.templates.XtextTemplatePreferencePage"
          id="org.lilypond.preferencePages.Templates"
          name="Templates">
@@ -266,16 +259,5 @@
         <persistent
               value="true">
         </persistent>
-    </extension>
-    <extension
-     point="org.eclipse.ui.activities">
-        <activity
-         id="org.lilypond.activities.Editing"
-         name="LilyPond Editing">
-        </activity>
-        <activityPatternBinding
-         activityId="org.lilypond.activities.Editing"
-         pattern="org.eclipse.lilypond.ui/org.lilypond.preferencePages.SyntaxColoring">
-        </activityPatternBinding>
     </extension>
 </plugin>
