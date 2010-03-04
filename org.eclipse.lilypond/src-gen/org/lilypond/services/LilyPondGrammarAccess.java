@@ -18,23 +18,27 @@ public class LilyPondGrammarAccess implements IGrammarAccess {
 	
 	public class LilyPondElements implements IParserRuleAccess {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "LilyPond");
-		private final Assignment cContentAssignment = (Assignment)rule.eContents().get(1);
-		private final RuleCall cContentDUMMYTerminalRuleCall_0 = (RuleCall)cContentAssignment.eContents().get(0);
+		private final Assignment cExpressionsAssignment = (Assignment)rule.eContents().get(1);
+		private final RuleCall cExpressionsTopLevelExpressionTerminalRuleCall_0 = (RuleCall)cExpressionsAssignment.eContents().get(0);
 		
 		//LilyPond:
-		//  content=DUMMY?;
+		//  expressions+=TopLevelExpression*;
 		public ParserRule getRule() { return rule; }
 
-		//content=DUMMY?
-		public Assignment getContentAssignment() { return cContentAssignment; }
+		//expressions+=TopLevelExpression*
+		public Assignment getExpressionsAssignment() { return cExpressionsAssignment; }
 
-		//DUMMY
-		public RuleCall getContentDUMMYTerminalRuleCall_0() { return cContentDUMMYTerminalRuleCall_0; }
+		//TopLevelExpression
+		public RuleCall getExpressionsTopLevelExpressionTerminalRuleCall_0() { return cExpressionsTopLevelExpressionTerminalRuleCall_0; }
 	}
 	
 	
 	private LilyPondElements pLilyPond;
-	private TerminalRule tDUMMY;
+	private TerminalRule tWS;
+	private TerminalRule tWS_CHAR;
+	private TerminalRule tSL_COMMENT;
+	private TerminalRule tML_COMMENT;
+	private TerminalRule tTopLevelExpression;
 	
 	private final GrammarProvider grammarProvider;
 
@@ -50,7 +54,7 @@ public class LilyPondGrammarAccess implements IGrammarAccess {
 
 	
 	//LilyPond:
-	//  content=DUMMY?;
+	//  expressions+=TopLevelExpression*;
 	public LilyPondElements getLilyPondAccess() {
 		return (pLilyPond != null) ? pLilyPond : (pLilyPond = new LilyPondElements());
 	}
@@ -59,9 +63,33 @@ public class LilyPondGrammarAccess implements IGrammarAccess {
 		return getLilyPondAccess().getRule();
 	}
 
-	//terminal DUMMY:
-	//  (!"\n"* "\n")* !"\n"*;
-	public TerminalRule getDUMMYRule() {
-		return (tDUMMY != null) ? tDUMMY : (tDUMMY = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "DUMMY"));
+	//terminal WS:
+	//  WS_CHAR+;
+	public TerminalRule getWSRule() {
+		return (tWS != null) ? tWS : (tWS = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "WS"));
+	} 
+
+	//terminal WS_CHAR:
+	//  " " | "\t" | "\r" | "\n";
+	public TerminalRule getWS_CHARRule() {
+		return (tWS_CHAR != null) ? tWS_CHAR : (tWS_CHAR = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "WS_CHAR"));
+	} 
+
+	//terminal SL_COMMENT:
+	//  "%" !("\n" | "\r")* ("\r"? "\n")?;
+	public TerminalRule getSL_COMMENTRule() {
+		return (tSL_COMMENT != null) ? tSL_COMMENT : (tSL_COMMENT = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "SL_COMMENT"));
+	} 
+
+	//terminal ML_COMMENT:
+	//  "%{"->"%}";
+	public TerminalRule getML_COMMENTRule() {
+		return (tML_COMMENT != null) ? tML_COMMENT : (tML_COMMENT = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "ML_COMMENT"));
+	} 
+
+	//terminal TopLevelExpression:
+	//  !WS_CHAR+;
+	public TerminalRule getTopLevelExpressionRule() {
+		return (tTopLevelExpression != null) ? tTopLevelExpression : (tTopLevelExpression = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "TopLevelExpression"));
 	} 
 }

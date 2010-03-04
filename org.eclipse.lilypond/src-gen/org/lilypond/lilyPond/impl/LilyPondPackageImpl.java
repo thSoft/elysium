@@ -108,7 +108,7 @@ public class LilyPondPackageImpl extends EPackageImpl implements LilyPondPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getLilyPond_Content()
+  public EAttribute getLilyPond_Expressions()
   {
     return (EAttribute)lilyPondEClass.getEStructuralFeatures().get(0);
   }
@@ -144,7 +144,7 @@ public class LilyPondPackageImpl extends EPackageImpl implements LilyPondPackage
 
     // Create classes and their features
     lilyPondEClass = createEClass(LILY_POND);
-    createEAttribute(lilyPondEClass, LILY_POND__CONTENT);
+    createEAttribute(lilyPondEClass, LILY_POND__EXPRESSIONS);
   }
 
   /**
@@ -179,7 +179,7 @@ public class LilyPondPackageImpl extends EPackageImpl implements LilyPondPackage
 
     // Initialize classes and features; add operations and parameters
     initEClass(lilyPondEClass, LilyPond.class, "LilyPond", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getLilyPond_Content(), ecorePackage.getEString(), "content", null, 0, 1, LilyPond.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getLilyPond_Expressions(), ecorePackage.getEString(), "expressions", null, 0, -1, LilyPond.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     // Create resource
     createResource(eNS_URI);

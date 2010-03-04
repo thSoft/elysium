@@ -5,12 +5,15 @@
  */
 package org.lilypond.lilyPond.impl;
 
-import org.eclipse.emf.common.notify.Notification;
+import java.util.Collection;
+
+import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
 
-import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
+
+import org.eclipse.emf.ecore.util.EDataTypeEList;
 
 import org.lilypond.lilyPond.LilyPond;
 import org.lilypond.lilyPond.LilyPondPackage;
@@ -22,7 +25,7 @@ import org.lilypond.lilyPond.LilyPondPackage;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link org.lilypond.lilyPond.impl.LilyPondImpl#getContent <em>Content</em>}</li>
+ *   <li>{@link org.lilypond.lilyPond.impl.LilyPondImpl#getExpressions <em>Expressions</em>}</li>
  * </ul>
  * </p>
  *
@@ -31,24 +34,14 @@ import org.lilypond.lilyPond.LilyPondPackage;
 public class LilyPondImpl extends MinimalEObjectImpl.Container implements LilyPond
 {
   /**
-   * The default value of the '{@link #getContent() <em>Content</em>}' attribute.
+   * The cached value of the '{@link #getExpressions() <em>Expressions</em>}' attribute list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getContent()
+   * @see #getExpressions()
    * @generated
    * @ordered
    */
-  protected static final String CONTENT_EDEFAULT = null;
-
-  /**
-   * The cached value of the '{@link #getContent() <em>Content</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getContent()
-   * @generated
-   * @ordered
-   */
-  protected String content = CONTENT_EDEFAULT;
+  protected EList<String> expressions;
 
   /**
    * <!-- begin-user-doc -->
@@ -76,22 +69,13 @@ public class LilyPondImpl extends MinimalEObjectImpl.Container implements LilyPo
    * <!-- end-user-doc -->
    * @generated
    */
-  public String getContent()
+  public EList<String> getExpressions()
   {
-    return content;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public void setContent(String newContent)
-  {
-    String oldContent = content;
-    content = newContent;
-    if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, LilyPondPackage.LILY_POND__CONTENT, oldContent, content));
+    if (expressions == null)
+    {
+      expressions = new EDataTypeEList<String>(String.class, this, LilyPondPackage.LILY_POND__EXPRESSIONS);
+    }
+    return expressions;
   }
 
   /**
@@ -104,8 +88,8 @@ public class LilyPondImpl extends MinimalEObjectImpl.Container implements LilyPo
   {
     switch (featureID)
     {
-      case LilyPondPackage.LILY_POND__CONTENT:
-        return getContent();
+      case LilyPondPackage.LILY_POND__EXPRESSIONS:
+        return getExpressions();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -115,13 +99,15 @@ public class LilyPondImpl extends MinimalEObjectImpl.Container implements LilyPo
    * <!-- end-user-doc -->
    * @generated
    */
+  @SuppressWarnings("unchecked")
   @Override
   public void eSet(int featureID, Object newValue)
   {
     switch (featureID)
     {
-      case LilyPondPackage.LILY_POND__CONTENT:
-        setContent((String)newValue);
+      case LilyPondPackage.LILY_POND__EXPRESSIONS:
+        getExpressions().clear();
+        getExpressions().addAll((Collection<? extends String>)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -137,8 +123,8 @@ public class LilyPondImpl extends MinimalEObjectImpl.Container implements LilyPo
   {
     switch (featureID)
     {
-      case LilyPondPackage.LILY_POND__CONTENT:
-        setContent(CONTENT_EDEFAULT);
+      case LilyPondPackage.LILY_POND__EXPRESSIONS:
+        getExpressions().clear();
         return;
     }
     super.eUnset(featureID);
@@ -154,8 +140,8 @@ public class LilyPondImpl extends MinimalEObjectImpl.Container implements LilyPo
   {
     switch (featureID)
     {
-      case LilyPondPackage.LILY_POND__CONTENT:
-        return CONTENT_EDEFAULT == null ? content != null : !CONTENT_EDEFAULT.equals(content);
+      case LilyPondPackage.LILY_POND__EXPRESSIONS:
+        return expressions != null && !expressions.isEmpty();
     }
     return super.eIsSet(featureID);
   }
@@ -171,8 +157,8 @@ public class LilyPondImpl extends MinimalEObjectImpl.Container implements LilyPo
     if (eIsProxy()) return super.toString();
 
     StringBuffer result = new StringBuffer(super.toString());
-    result.append(" (content: ");
-    result.append(content);
+    result.append(" (expressions: ");
+    result.append(expressions);
     result.append(')');
     return result.toString();
   }

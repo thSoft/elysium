@@ -23,10 +23,14 @@ import java.util.ArrayList;
 
 public class InternalLilyPondParser extends AbstractInternalAntlrParser {
     public static final String[] tokenNames = new String[] {
-        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "RULE_DUMMY"
+        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "RULE_TOPLEVELEXPRESSION", "RULE_WS_CHAR", "RULE_WS", "RULE_SL_COMMENT", "RULE_ML_COMMENT"
     };
-    public static final int RULE_DUMMY=4;
+    public static final int RULE_WS_CHAR=5;
+    public static final int RULE_TOPLEVELEXPRESSION=4;
+    public static final int RULE_WS=6;
     public static final int EOF=-1;
+    public static final int RULE_SL_COMMENT=7;
+    public static final int RULE_ML_COMMENT=8;
 
         public InternalLilyPondParser(TokenStream input) {
             super(input);
@@ -96,51 +100,58 @@ public class InternalLilyPondParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start ruleLilyPond
-    // ../org.eclipse.lilypond/src-gen/org/lilypond/parser/antlr/internal/InternalLilyPond.g:80:1: ruleLilyPond returns [EObject current=null] : (lv_content_0= RULE_DUMMY )? ;
+    // ../org.eclipse.lilypond/src-gen/org/lilypond/parser/antlr/internal/InternalLilyPond.g:80:1: ruleLilyPond returns [EObject current=null] : (lv_expressions_0= RULE_TOPLEVELEXPRESSION )* ;
     public final EObject ruleLilyPond() throws RecognitionException {
         EObject current = null;
 
-        Token lv_content_0=null;
+        Token lv_expressions_0=null;
 
          EObject temp=null; setCurrentLookahead(); resetLookahead(); 
             
         try {
-            // ../org.eclipse.lilypond/src-gen/org/lilypond/parser/antlr/internal/InternalLilyPond.g:85:6: ( (lv_content_0= RULE_DUMMY )? )
-            // ../org.eclipse.lilypond/src-gen/org/lilypond/parser/antlr/internal/InternalLilyPond.g:86:1: (lv_content_0= RULE_DUMMY )?
+            // ../org.eclipse.lilypond/src-gen/org/lilypond/parser/antlr/internal/InternalLilyPond.g:85:6: ( (lv_expressions_0= RULE_TOPLEVELEXPRESSION )* )
+            // ../org.eclipse.lilypond/src-gen/org/lilypond/parser/antlr/internal/InternalLilyPond.g:86:1: (lv_expressions_0= RULE_TOPLEVELEXPRESSION )*
             {
-            // ../org.eclipse.lilypond/src-gen/org/lilypond/parser/antlr/internal/InternalLilyPond.g:86:1: (lv_content_0= RULE_DUMMY )?
-            int alt1=2;
-            int LA1_0 = input.LA(1);
+            // ../org.eclipse.lilypond/src-gen/org/lilypond/parser/antlr/internal/InternalLilyPond.g:86:1: (lv_expressions_0= RULE_TOPLEVELEXPRESSION )*
+            loop1:
+            do {
+                int alt1=2;
+                int LA1_0 = input.LA(1);
 
-            if ( (LA1_0==RULE_DUMMY) ) {
-                alt1=1;
-            }
-            switch (alt1) {
-                case 1 :
-                    // ../org.eclipse.lilypond/src-gen/org/lilypond/parser/antlr/internal/InternalLilyPond.g:88:6: lv_content_0= RULE_DUMMY
-                    {
-                    lv_content_0=(Token)input.LT(1);
-                    match(input,RULE_DUMMY,FOLLOW_RULE_DUMMY_in_ruleLilyPond129); 
+                if ( (LA1_0==RULE_TOPLEVELEXPRESSION) ) {
+                    alt1=1;
+                }
 
-                    		createLeafNode(grammarAccess.getLilyPondAccess().getContentDUMMYTerminalRuleCall_0(), "content"); 
-                    	
 
-                    	        if (current==null) {
-                    	            current = factory.create(grammarAccess.getLilyPondRule().getType().getClassifier());
-                    	            associateNodeWithAstElement(currentNode, current);
-                    	        }
-                    	        
-                    	        try {
-                    	       		set(current, "content", lv_content_0, "DUMMY", lastConsumedNode);
-                    	        } catch (ValueConverterException vce) {
-                    				handleValueConverterException(vce);
-                    	        }
-                    	    
+                switch (alt1) {
+            	case 1 :
+            	    // ../org.eclipse.lilypond/src-gen/org/lilypond/parser/antlr/internal/InternalLilyPond.g:88:6: lv_expressions_0= RULE_TOPLEVELEXPRESSION
+            	    {
+            	    lv_expressions_0=(Token)input.LT(1);
+            	    match(input,RULE_TOPLEVELEXPRESSION,FOLLOW_RULE_TOPLEVELEXPRESSION_in_ruleLilyPond129); 
 
-                    }
-                    break;
+            	    		createLeafNode(grammarAccess.getLilyPondAccess().getExpressionsTopLevelExpressionTerminalRuleCall_0(), "expressions"); 
+            	    	
 
-            }
+            	    	        if (current==null) {
+            	    	            current = factory.create(grammarAccess.getLilyPondRule().getType().getClassifier());
+            	    	            associateNodeWithAstElement(currentNode, current);
+            	    	        }
+            	    	        
+            	    	        try {
+            	    	       		add(current, "expressions", lv_expressions_0, "TopLevelExpression", lastConsumedNode);
+            	    	        } catch (ValueConverterException vce) {
+            	    				handleValueConverterException(vce);
+            	    	        }
+            	    	    
+
+            	    }
+            	    break;
+
+            	default :
+            	    break loop1;
+                }
+            } while (true);
 
 
             }
@@ -165,6 +176,6 @@ public class InternalLilyPondParser extends AbstractInternalAntlrParser {
 
     public static final BitSet FOLLOW_ruleLilyPond_in_entryRuleLilyPond73 = new BitSet(new long[]{0x0000000000000000L});
     public static final BitSet FOLLOW_EOF_in_entryRuleLilyPond83 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_RULE_DUMMY_in_ruleLilyPond129 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_RULE_TOPLEVELEXPRESSION_in_ruleLilyPond129 = new BitSet(new long[]{0x0000000000000012L});
 
 }

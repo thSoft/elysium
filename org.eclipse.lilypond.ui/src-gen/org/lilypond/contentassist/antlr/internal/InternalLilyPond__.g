@@ -8,6 +8,18 @@ import org.eclipse.xtext.ui.common.editor.contentassist.antlr.internal.Lexer;
 }
 
 // $ANTLR src "../org.eclipse.lilypond.ui/src-gen/org/lilypond/contentassist/antlr/internal/InternalLilyPond.g" 105
-RULE_DUMMY : (~('\n')* '\n')* ~('\n')*;
+RULE_WS : RULE_WS_CHAR+;
+
+// $ANTLR src "../org.eclipse.lilypond.ui/src-gen/org/lilypond/contentassist/antlr/internal/InternalLilyPond.g" 107
+RULE_WS_CHAR : (' '|'\t'|'\r'|'\n');
+
+// $ANTLR src "../org.eclipse.lilypond.ui/src-gen/org/lilypond/contentassist/antlr/internal/InternalLilyPond.g" 109
+RULE_SL_COMMENT : '%' ~(('\n'|'\r'))* ('\r'? '\n')?;
+
+// $ANTLR src "../org.eclipse.lilypond.ui/src-gen/org/lilypond/contentassist/antlr/internal/InternalLilyPond.g" 111
+RULE_ML_COMMENT : '%{' ( options {greedy=false;} : . )*'%}';
+
+// $ANTLR src "../org.eclipse.lilypond.ui/src-gen/org/lilypond/contentassist/antlr/internal/InternalLilyPond.g" 113
+RULE_TOPLEVELEXPRESSION : ~(RULE_WS_CHAR)+;
 
 

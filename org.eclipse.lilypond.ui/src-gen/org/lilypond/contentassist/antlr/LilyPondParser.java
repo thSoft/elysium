@@ -42,7 +42,7 @@ public class LilyPondParser extends AbstractContentAssistParser {
 		if (nameMappings == null) {
 			nameMappings = new HashMap<AbstractElement, String>() {
 				{
-					put(grammarAccess.getLilyPondAccess().getContentAssignment(), "rule__LilyPond__ContentAssignment");
+					put(grammarAccess.getLilyPondAccess().getExpressionsAssignment(), "rule__LilyPond__ExpressionsAssignment");
 				}
 			};
 		}
@@ -62,7 +62,7 @@ public class LilyPondParser extends AbstractContentAssistParser {
 	
 	@Override
 	protected String[] getInitialHiddenTokens() {
-		return new String[] {  };
+		return new String[] { "RULE_WS", "RULE_SL_COMMENT", "RULE_ML_COMMENT" };
 	}
 	
 	public LilyPondGrammarAccess getGrammarAccess() {

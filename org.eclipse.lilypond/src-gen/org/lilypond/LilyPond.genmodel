@@ -10,7 +10,7 @@
   <genPackages prefix="LilyPond" basePackage="org.lilypond" disposableProviderFactory="true"
       ecorePackage="LilyPond.ecore#/">
     <genClasses ecoreClass="LilyPond.ecore#//LilyPond">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute LilyPond.ecore#//LilyPond/content"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute LilyPond.ecore#//LilyPond/expressions"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>

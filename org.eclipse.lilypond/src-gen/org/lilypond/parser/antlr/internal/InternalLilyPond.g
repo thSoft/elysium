@@ -85,9 +85,9 @@ ruleLilyPond returns [EObject current=null]
     }:
 (	
 	
-	    lv_content_0=	RULE_DUMMY
+	    lv_expressions_0=	RULE_TOPLEVELEXPRESSION
 	{
-		createLeafNode(grammarAccess.getLilyPondAccess().getContentDUMMYTerminalRuleCall_0(), "content"); 
+		createLeafNode(grammarAccess.getLilyPondAccess().getExpressionsTopLevelExpressionTerminalRuleCall_0(), "expressions"); 
 	}
  
 	    {
@@ -97,18 +97,26 @@ ruleLilyPond returns [EObject current=null]
 	        }
 	        
 	        try {
-	       		set($current, "content", lv_content_0, "DUMMY", lastConsumedNode);
+	       		add($current, "expressions", lv_expressions_0, "TopLevelExpression", lastConsumedNode);
 	        } catch (ValueConverterException vce) {
 				handleValueConverterException(vce);
 	        }
 	    }
 	
-)?;
+)*;
 
 
 
 
 
-RULE_DUMMY : (~('\n')* '\n')* ~('\n')*;
+RULE_WS : RULE_WS_CHAR+;
+
+RULE_WS_CHAR : (' '|'\t'|'\r'|'\n');
+
+RULE_SL_COMMENT : '%' ~(('\n'|'\r'))* ('\r'? '\n')?;
+
+RULE_ML_COMMENT : '%{' ( options {greedy=false;} : . )*'%}';
+
+RULE_TOPLEVELEXPRESSION : ~(RULE_WS_CHAR)+;
 
 

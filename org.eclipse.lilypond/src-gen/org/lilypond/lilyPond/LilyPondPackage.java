@@ -69,13 +69,13 @@ public interface LilyPondPackage extends EPackage
   int LILY_POND = 0;
 
   /**
-   * The feature id for the '<em><b>Content</b></em>' attribute.
+   * The feature id for the '<em><b>Expressions</b></em>' attribute list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int LILY_POND__CONTENT = 0;
+  int LILY_POND__EXPRESSIONS = 0;
 
   /**
    * The number of structural features of the '<em>Lily Pond</em>' class.
@@ -98,15 +98,15 @@ public interface LilyPondPackage extends EPackage
   EClass getLilyPond();
 
   /**
-   * Returns the meta object for the attribute '{@link org.lilypond.lilyPond.LilyPond#getContent <em>Content</em>}'.
+   * Returns the meta object for the attribute list '{@link org.lilypond.lilyPond.LilyPond#getExpressions <em>Expressions</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Content</em>'.
-   * @see org.lilypond.lilyPond.LilyPond#getContent()
+   * @return the meta object for the attribute list '<em>Expressions</em>'.
+   * @see org.lilypond.lilyPond.LilyPond#getExpressions()
    * @see #getLilyPond()
    * @generated
    */
-  EAttribute getLilyPond_Content();
+  EAttribute getLilyPond_Expressions();
 
   /**
    * Returns the factory that creates the instances of the model.
@@ -142,12 +142,12 @@ public interface LilyPondPackage extends EPackage
     EClass LILY_POND = eINSTANCE.getLilyPond();
 
     /**
-     * The meta object literal for the '<em><b>Content</b></em>' attribute feature.
+     * The meta object literal for the '<em><b>Expressions</b></em>' attribute list feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EAttribute LILY_POND__CONTENT = eINSTANCE.getLilyPond_Content();
+    EAttribute LILY_POND__EXPRESSIONS = eINSTANCE.getLilyPond_Expressions();
 
   }
 

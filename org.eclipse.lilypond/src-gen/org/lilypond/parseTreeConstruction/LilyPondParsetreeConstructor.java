@@ -32,7 +32,7 @@ protected class ThisRootNode extends RootToken {
 	
 	public AbstractToken createFollower(int index, IInstanceDescription inst) {
 		switch(index) {
-			case 0: return new LilyPond_ContentAssignment(this, this, 0, inst);
+			case 0: return new LilyPond_ExpressionsAssignment(this, this, 0, inst);
 			default: return null;
 		}	
 	}	
@@ -42,24 +42,25 @@ protected class ThisRootNode extends RootToken {
 /************ begin Rule LilyPond ****************
  *
  * LilyPond:
- *   content=DUMMY?;
+ *   expressions+=TopLevelExpression*;
  *
  **/
 
-// content=DUMMY?
-protected class LilyPond_ContentAssignment extends AssignmentToken  {
+// expressions+=TopLevelExpression*
+protected class LilyPond_ExpressionsAssignment extends AssignmentToken  {
 	
-	public LilyPond_ContentAssignment(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
+	public LilyPond_ExpressionsAssignment(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
 		super(parent, next, no, current);
 	}
 	
 	public Assignment getGrammarElement() {
-		return grammarAccess.getLilyPondAccess().getContentAssignment();
+		return grammarAccess.getLilyPondAccess().getExpressionsAssignment();
 	}
 
 	public AbstractToken createFollower(int index, IInstanceDescription inst) {
 		switch(index) {
-			default: return parent.createParentFollower(this, index, index, inst);
+			case 0: return new LilyPond_ExpressionsAssignment(parent, this, 0, inst);
+			default: return parent.createParentFollower(this, index, index - 1, inst);
 		}	
 	}	
 		
@@ -68,11 +69,11 @@ protected class LilyPond_ContentAssignment extends AssignmentToken  {
 		return tryConsumeVal();
 	}
 	protected IInstanceDescription tryConsumeVal() {
-		if((value = current.getConsumable("content",false)) == null) return null;
-		IInstanceDescription obj = current.cloneAndConsume("content");
+		if((value = current.getConsumable("expressions",false)) == null) return null;
+		IInstanceDescription obj = current.cloneAndConsume("expressions");
 		if(Boolean.TRUE.booleanValue()) { // org::eclipse::xtext::impl::RuleCallImpl FIXME: check if value is valid for lexer rule
 			type = AssignmentType.LRC;
-			element = grammarAccess.getLilyPondAccess().getContentDUMMYTerminalRuleCall_0();
+			element = grammarAccess.getLilyPondAccess().getExpressionsTopLevelExpressionTerminalRuleCall_0();
 			return obj;
 		}
 		return null;

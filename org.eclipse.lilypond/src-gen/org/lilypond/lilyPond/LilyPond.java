@@ -5,6 +5,8 @@
  */
 package org.lilypond.lilyPond;
 
+import org.eclipse.emf.common.util.EList;
+
 import org.eclipse.emf.ecore.EObject;
 
 /**
@@ -15,7 +17,7 @@ import org.eclipse.emf.ecore.EObject;
  * <p>
  * The following features are supported:
  * <ul>
- *   <li>{@link org.lilypond.lilyPond.LilyPond#getContent <em>Content</em>}</li>
+ *   <li>{@link org.lilypond.lilyPond.LilyPond#getExpressions <em>Expressions</em>}</li>
  * </ul>
  * </p>
  *
@@ -26,29 +28,19 @@ import org.eclipse.emf.ecore.EObject;
 public interface LilyPond extends EObject
 {
   /**
-   * Returns the value of the '<em><b>Content</b></em>' attribute.
+   * Returns the value of the '<em><b>Expressions</b></em>' attribute list.
+   * The list contents are of type {@link java.lang.String}.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Content</em>' attribute isn't clear,
+   * If the meaning of the '<em>Expressions</em>' attribute list isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Content</em>' attribute.
-   * @see #setContent(String)
-   * @see org.lilypond.lilyPond.LilyPondPackage#getLilyPond_Content()
-   * @model
+   * @return the value of the '<em>Expressions</em>' attribute list.
+   * @see org.lilypond.lilyPond.LilyPondPackage#getLilyPond_Expressions()
+   * @model unique="false"
    * @generated
    */
-  String getContent();
-
-  /**
-   * Sets the value of the '{@link org.lilypond.lilyPond.LilyPond#getContent <em>Content</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Content</em>' attribute.
-   * @see #getContent()
-   * @generated
-   */
-  void setContent(String value);
+  EList<String> getExpressions();
 
 } // LilyPond
