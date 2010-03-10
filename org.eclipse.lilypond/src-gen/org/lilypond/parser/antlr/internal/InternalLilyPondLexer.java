@@ -13,41 +13,49 @@ import java.util.ArrayList;
 public class InternalLilyPondLexer extends Lexer {
     public static final int RULE_WS_CHAR=5;
     public static final int RULE_TOPLEVELEXPRESSION=4;
-    public static final int RULE_WS=6;
-    public static final int Tokens=9;
+    public static final int Tokens=8;
     public static final int EOF=-1;
-    public static final int RULE_SL_COMMENT=7;
-    public static final int RULE_ML_COMMENT=8;
+    public static final int RULE_SL_COMMENT=6;
+    public static final int RULE_ML_COMMENT=7;
     public InternalLilyPondLexer() {;} 
     public InternalLilyPondLexer(CharStream input) {
         super(input);
     }
     public String getGrammarFileName() { return "../org.eclipse.lilypond/src-gen/org/lilypond/parser/antlr/internal/InternalLilyPond.g"; }
 
-    // $ANTLR start RULE_WS
-    public final void mRULE_WS() throws RecognitionException {
+    // $ANTLR start RULE_TOPLEVELEXPRESSION
+    public final void mRULE_TOPLEVELEXPRESSION() throws RecognitionException {
         try {
-            int _type = RULE_WS;
-            // ../org.eclipse.lilypond/src-gen/org/lilypond/parser/antlr/internal/InternalLilyPond.g:112:9: ( ( RULE_WS_CHAR )+ )
-            // ../org.eclipse.lilypond/src-gen/org/lilypond/parser/antlr/internal/InternalLilyPond.g:112:11: ( RULE_WS_CHAR )+
+            int _type = RULE_TOPLEVELEXPRESSION;
+            // ../org.eclipse.lilypond/src-gen/org/lilypond/parser/antlr/internal/InternalLilyPond.g:114:25: ( (~ ( RULE_WS_CHAR ) )+ )
+            // ../org.eclipse.lilypond/src-gen/org/lilypond/parser/antlr/internal/InternalLilyPond.g:114:27: (~ ( RULE_WS_CHAR ) )+
             {
-            // ../org.eclipse.lilypond/src-gen/org/lilypond/parser/antlr/internal/InternalLilyPond.g:112:11: ( RULE_WS_CHAR )+
+            // ../org.eclipse.lilypond/src-gen/org/lilypond/parser/antlr/internal/InternalLilyPond.g:114:27: (~ ( RULE_WS_CHAR ) )+
             int cnt1=0;
             loop1:
             do {
                 int alt1=2;
                 int LA1_0 = input.LA(1);
 
-                if ( ((LA1_0>='\t' && LA1_0<='\n')||LA1_0=='\r'||LA1_0==' ') ) {
+                if ( ((LA1_0>='\u0000' && LA1_0<='\b')||(LA1_0>='\u000B' && LA1_0<='\f')||(LA1_0>='\u000E' && LA1_0<='\u001F')||(LA1_0>='!' && LA1_0<='\uFFFE')) ) {
                     alt1=1;
                 }
 
 
                 switch (alt1) {
             	case 1 :
-            	    // ../org.eclipse.lilypond/src-gen/org/lilypond/parser/antlr/internal/InternalLilyPond.g:112:11: RULE_WS_CHAR
+            	    // ../org.eclipse.lilypond/src-gen/org/lilypond/parser/antlr/internal/InternalLilyPond.g:114:27: ~ ( RULE_WS_CHAR )
             	    {
-            	    mRULE_WS_CHAR(); 
+            	    if ( (input.LA(1)>='\u0000' && input.LA(1)<='\b')||(input.LA(1)>='\u000B' && input.LA(1)<='\f')||(input.LA(1)>='\u000E' && input.LA(1)<='\u001F')||(input.LA(1)>='!' && input.LA(1)<='\uFFFE') ) {
+            	        input.consume();
+
+            	    }
+            	    else {
+            	        MismatchedSetException mse =
+            	            new MismatchedSetException(null,input);
+            	        recover(mse);    throw mse;
+            	    }
+
 
             	    }
             	    break;
@@ -69,14 +77,14 @@ public class InternalLilyPondLexer extends Lexer {
         finally {
         }
     }
-    // $ANTLR end RULE_WS
+    // $ANTLR end RULE_TOPLEVELEXPRESSION
 
     // $ANTLR start RULE_WS_CHAR
     public final void mRULE_WS_CHAR() throws RecognitionException {
         try {
             int _type = RULE_WS_CHAR;
-            // ../org.eclipse.lilypond/src-gen/org/lilypond/parser/antlr/internal/InternalLilyPond.g:114:14: ( ( ' ' | '\\t' | '\\r' | '\\n' ) )
-            // ../org.eclipse.lilypond/src-gen/org/lilypond/parser/antlr/internal/InternalLilyPond.g:114:16: ( ' ' | '\\t' | '\\r' | '\\n' )
+            // ../org.eclipse.lilypond/src-gen/org/lilypond/parser/antlr/internal/InternalLilyPond.g:116:14: ( ( ' ' | '\\t' | '\\r' | '\\n' ) )
+            // ../org.eclipse.lilypond/src-gen/org/lilypond/parser/antlr/internal/InternalLilyPond.g:116:16: ( ' ' | '\\t' | '\\r' | '\\n' )
             {
             if ( (input.LA(1)>='\t' && input.LA(1)<='\n')||input.LA(1)=='\r'||input.LA(1)==' ' ) {
                 input.consume();
@@ -102,11 +110,11 @@ public class InternalLilyPondLexer extends Lexer {
     public final void mRULE_SL_COMMENT() throws RecognitionException {
         try {
             int _type = RULE_SL_COMMENT;
-            // ../org.eclipse.lilypond/src-gen/org/lilypond/parser/antlr/internal/InternalLilyPond.g:116:17: ( '%' (~ ( ( '\\n' | '\\r' ) ) )* ( ( '\\r' )? '\\n' )? )
-            // ../org.eclipse.lilypond/src-gen/org/lilypond/parser/antlr/internal/InternalLilyPond.g:116:19: '%' (~ ( ( '\\n' | '\\r' ) ) )* ( ( '\\r' )? '\\n' )?
+            // ../org.eclipse.lilypond/src-gen/org/lilypond/parser/antlr/internal/InternalLilyPond.g:118:17: ( '%' (~ ( ( '\\n' | '\\r' ) ) )* ( ( '\\r' )? '\\n' )? )
+            // ../org.eclipse.lilypond/src-gen/org/lilypond/parser/antlr/internal/InternalLilyPond.g:118:19: '%' (~ ( ( '\\n' | '\\r' ) ) )* ( ( '\\r' )? '\\n' )?
             {
             match('%'); 
-            // ../org.eclipse.lilypond/src-gen/org/lilypond/parser/antlr/internal/InternalLilyPond.g:116:23: (~ ( ( '\\n' | '\\r' ) ) )*
+            // ../org.eclipse.lilypond/src-gen/org/lilypond/parser/antlr/internal/InternalLilyPond.g:118:23: (~ ( ( '\\n' | '\\r' ) ) )*
             loop2:
             do {
                 int alt2=2;
@@ -119,7 +127,7 @@ public class InternalLilyPondLexer extends Lexer {
 
                 switch (alt2) {
             	case 1 :
-            	    // ../org.eclipse.lilypond/src-gen/org/lilypond/parser/antlr/internal/InternalLilyPond.g:116:23: ~ ( ( '\\n' | '\\r' ) )
+            	    // ../org.eclipse.lilypond/src-gen/org/lilypond/parser/antlr/internal/InternalLilyPond.g:118:23: ~ ( ( '\\n' | '\\r' ) )
             	    {
             	    if ( (input.LA(1)>='\u0000' && input.LA(1)<='\t')||(input.LA(1)>='\u000B' && input.LA(1)<='\f')||(input.LA(1)>='\u000E' && input.LA(1)<='\uFFFE') ) {
             	        input.consume();
@@ -140,7 +148,7 @@ public class InternalLilyPondLexer extends Lexer {
                 }
             } while (true);
 
-            // ../org.eclipse.lilypond/src-gen/org/lilypond/parser/antlr/internal/InternalLilyPond.g:116:39: ( ( '\\r' )? '\\n' )?
+            // ../org.eclipse.lilypond/src-gen/org/lilypond/parser/antlr/internal/InternalLilyPond.g:118:39: ( ( '\\r' )? '\\n' )?
             int alt4=2;
             int LA4_0 = input.LA(1);
 
@@ -149,9 +157,9 @@ public class InternalLilyPondLexer extends Lexer {
             }
             switch (alt4) {
                 case 1 :
-                    // ../org.eclipse.lilypond/src-gen/org/lilypond/parser/antlr/internal/InternalLilyPond.g:116:40: ( '\\r' )? '\\n'
+                    // ../org.eclipse.lilypond/src-gen/org/lilypond/parser/antlr/internal/InternalLilyPond.g:118:40: ( '\\r' )? '\\n'
                     {
-                    // ../org.eclipse.lilypond/src-gen/org/lilypond/parser/antlr/internal/InternalLilyPond.g:116:40: ( '\\r' )?
+                    // ../org.eclipse.lilypond/src-gen/org/lilypond/parser/antlr/internal/InternalLilyPond.g:118:40: ( '\\r' )?
                     int alt3=2;
                     int LA3_0 = input.LA(1);
 
@@ -160,7 +168,7 @@ public class InternalLilyPondLexer extends Lexer {
                     }
                     switch (alt3) {
                         case 1 :
-                            // ../org.eclipse.lilypond/src-gen/org/lilypond/parser/antlr/internal/InternalLilyPond.g:116:40: '\\r'
+                            // ../org.eclipse.lilypond/src-gen/org/lilypond/parser/antlr/internal/InternalLilyPond.g:118:40: '\\r'
                             {
                             match('\r'); 
 
@@ -190,12 +198,12 @@ public class InternalLilyPondLexer extends Lexer {
     public final void mRULE_ML_COMMENT() throws RecognitionException {
         try {
             int _type = RULE_ML_COMMENT;
-            // ../org.eclipse.lilypond/src-gen/org/lilypond/parser/antlr/internal/InternalLilyPond.g:118:17: ( '%{' ( options {greedy=false; } : . )* '%}' )
-            // ../org.eclipse.lilypond/src-gen/org/lilypond/parser/antlr/internal/InternalLilyPond.g:118:19: '%{' ( options {greedy=false; } : . )* '%}'
+            // ../org.eclipse.lilypond/src-gen/org/lilypond/parser/antlr/internal/InternalLilyPond.g:120:17: ( '%{' ( options {greedy=false; } : . )* '%}' )
+            // ../org.eclipse.lilypond/src-gen/org/lilypond/parser/antlr/internal/InternalLilyPond.g:120:19: '%{' ( options {greedy=false; } : . )* '%}'
             {
             match("%{"); 
 
-            // ../org.eclipse.lilypond/src-gen/org/lilypond/parser/antlr/internal/InternalLilyPond.g:118:24: ( options {greedy=false; } : . )*
+            // ../org.eclipse.lilypond/src-gen/org/lilypond/parser/antlr/internal/InternalLilyPond.g:120:24: ( options {greedy=false; } : . )*
             loop5:
             do {
                 int alt5=2;
@@ -220,7 +228,7 @@ public class InternalLilyPondLexer extends Lexer {
 
                 switch (alt5) {
             	case 1 :
-            	    // ../org.eclipse.lilypond/src-gen/org/lilypond/parser/antlr/internal/InternalLilyPond.g:118:52: .
+            	    // ../org.eclipse.lilypond/src-gen/org/lilypond/parser/antlr/internal/InternalLilyPond.g:120:52: .
             	    {
             	    matchAny(); 
 
@@ -244,174 +252,110 @@ public class InternalLilyPondLexer extends Lexer {
     }
     // $ANTLR end RULE_ML_COMMENT
 
-    // $ANTLR start RULE_TOPLEVELEXPRESSION
-    public final void mRULE_TOPLEVELEXPRESSION() throws RecognitionException {
-        try {
-            int _type = RULE_TOPLEVELEXPRESSION;
-            // ../org.eclipse.lilypond/src-gen/org/lilypond/parser/antlr/internal/InternalLilyPond.g:120:25: ( (~ ( RULE_WS_CHAR ) )+ )
-            // ../org.eclipse.lilypond/src-gen/org/lilypond/parser/antlr/internal/InternalLilyPond.g:120:27: (~ ( RULE_WS_CHAR ) )+
-            {
-            // ../org.eclipse.lilypond/src-gen/org/lilypond/parser/antlr/internal/InternalLilyPond.g:120:27: (~ ( RULE_WS_CHAR ) )+
-            int cnt6=0;
-            loop6:
-            do {
-                int alt6=2;
-                int LA6_0 = input.LA(1);
-
-                if ( ((LA6_0>='\u0000' && LA6_0<='\b')||(LA6_0>='\u000B' && LA6_0<='\f')||(LA6_0>='\u000E' && LA6_0<='\u001F')||(LA6_0>='!' && LA6_0<='\uFFFE')) ) {
-                    alt6=1;
-                }
-
-
-                switch (alt6) {
-            	case 1 :
-            	    // ../org.eclipse.lilypond/src-gen/org/lilypond/parser/antlr/internal/InternalLilyPond.g:120:27: ~ ( RULE_WS_CHAR )
-            	    {
-            	    if ( (input.LA(1)>='\u0000' && input.LA(1)<='\b')||(input.LA(1)>='\u000B' && input.LA(1)<='\f')||(input.LA(1)>='\u000E' && input.LA(1)<='\u001F')||(input.LA(1)>='!' && input.LA(1)<='\uFFFE') ) {
-            	        input.consume();
-
-            	    }
-            	    else {
-            	        MismatchedSetException mse =
-            	            new MismatchedSetException(null,input);
-            	        recover(mse);    throw mse;
-            	    }
-
-
-            	    }
-            	    break;
-
-            	default :
-            	    if ( cnt6 >= 1 ) break loop6;
-                        EarlyExitException eee =
-                            new EarlyExitException(6, input);
-                        throw eee;
-                }
-                cnt6++;
-            } while (true);
-
-
-            }
-
-            this.type = _type;
-        }
-        finally {
-        }
-    }
-    // $ANTLR end RULE_TOPLEVELEXPRESSION
-
     public void mTokens() throws RecognitionException {
-        // ../org.eclipse.lilypond/src-gen/org/lilypond/parser/antlr/internal/InternalLilyPond.g:1:8: ( RULE_WS | RULE_WS_CHAR | RULE_SL_COMMENT | RULE_ML_COMMENT | RULE_TOPLEVELEXPRESSION )
-        int alt7=5;
-        alt7 = dfa7.predict(input);
-        switch (alt7) {
+        // ../org.eclipse.lilypond/src-gen/org/lilypond/parser/antlr/internal/InternalLilyPond.g:1:8: ( RULE_TOPLEVELEXPRESSION | RULE_WS_CHAR | RULE_SL_COMMENT | RULE_ML_COMMENT )
+        int alt6=4;
+        alt6 = dfa6.predict(input);
+        switch (alt6) {
             case 1 :
-                // ../org.eclipse.lilypond/src-gen/org/lilypond/parser/antlr/internal/InternalLilyPond.g:1:10: RULE_WS
+                // ../org.eclipse.lilypond/src-gen/org/lilypond/parser/antlr/internal/InternalLilyPond.g:1:10: RULE_TOPLEVELEXPRESSION
                 {
-                mRULE_WS(); 
+                mRULE_TOPLEVELEXPRESSION(); 
 
                 }
                 break;
             case 2 :
-                // ../org.eclipse.lilypond/src-gen/org/lilypond/parser/antlr/internal/InternalLilyPond.g:1:18: RULE_WS_CHAR
+                // ../org.eclipse.lilypond/src-gen/org/lilypond/parser/antlr/internal/InternalLilyPond.g:1:34: RULE_WS_CHAR
                 {
                 mRULE_WS_CHAR(); 
 
                 }
                 break;
             case 3 :
-                // ../org.eclipse.lilypond/src-gen/org/lilypond/parser/antlr/internal/InternalLilyPond.g:1:31: RULE_SL_COMMENT
+                // ../org.eclipse.lilypond/src-gen/org/lilypond/parser/antlr/internal/InternalLilyPond.g:1:47: RULE_SL_COMMENT
                 {
                 mRULE_SL_COMMENT(); 
 
                 }
                 break;
             case 4 :
-                // ../org.eclipse.lilypond/src-gen/org/lilypond/parser/antlr/internal/InternalLilyPond.g:1:47: RULE_ML_COMMENT
+                // ../org.eclipse.lilypond/src-gen/org/lilypond/parser/antlr/internal/InternalLilyPond.g:1:63: RULE_ML_COMMENT
                 {
                 mRULE_ML_COMMENT(); 
 
                 }
                 break;
-            case 5 :
-                // ../org.eclipse.lilypond/src-gen/org/lilypond/parser/antlr/internal/InternalLilyPond.g:1:63: RULE_TOPLEVELEXPRESSION
-                {
-                mRULE_TOPLEVELEXPRESSION(); 
-
-                }
-                break;
 
         }
 
     }
 
 
-    protected DFA7 dfa7 = new DFA7(this);
-    static final String DFA7_eotS =
-        "\2\uffff\1\7\2\uffff\2\7\2\uffff\4\7\1\uffff\3\7";
-    static final String DFA7_eofS =
-        "\21\uffff";
-    static final String DFA7_minS =
-        "\1\0\1\uffff\1\0\2\uffff\2\0\1\uffff\5\0\1\uffff\3\0";
-    static final String DFA7_maxS =
-        "\1\ufffe\1\uffff\1\ufffe\2\uffff\2\ufffe\1\uffff\5\ufffe\1\uffff"+
-        "\3\ufffe";
-    static final String DFA7_acceptS =
-        "\1\uffff\1\1\1\uffff\1\5\1\1\2\uffff\1\3\5\uffff\1\4\3\uffff";
-    static final String DFA7_specialS =
-        "\21\uffff}>";
-    static final String[] DFA7_transitionS = {
-            "\11\3\2\1\2\3\1\1\22\3\1\1\4\3\1\2\uffd9\3",
+    protected DFA6 dfa6 = new DFA6(this);
+    static final String DFA6_eotS =
+        "\1\uffff\1\3\2\uffff\2\3\1\uffff\1\3\1\uffff\1\6\1\3\1\6\1\3\1\uffff"+
+        "\2\6";
+    static final String DFA6_eofS =
+        "\20\uffff";
+    static final String DFA6_minS =
+        "\2\0\2\uffff\2\0\1\uffff\6\0\1\uffff\2\0";
+    static final String DFA6_maxS =
+        "\2\ufffe\2\uffff\2\ufffe\1\uffff\6\ufffe\1\uffff\2\ufffe";
+    static final String DFA6_acceptS =
+        "\2\uffff\1\2\1\1\2\uffff\1\3\6\uffff\1\4\2\uffff";
+    static final String DFA6_specialS =
+        "\20\uffff}>";
+    static final String[] DFA6_transitionS = {
+            "\11\3\2\2\2\3\1\2\22\3\1\2\4\3\1\1\uffd9\3",
+            "\11\5\2\6\2\5\1\6\22\5\1\6\132\5\1\4\uff83\5",
             "",
-            "\11\6\2\uffff\2\6\1\uffff\22\6\1\uffff\132\6\1\5\uff83\6",
             "",
+            "\11\12\1\13\1\11\2\12\1\10\22\12\1\13\4\12\1\7\uffd9\12",
+            "\11\5\2\6\2\5\1\6\22\5\1\6\uffde\5",
             "",
-            "\11\14\1\13\1\11\2\14\1\10\22\14\1\13\4\14\1\12\uffd9\14",
-            "\11\6\2\uffff\2\6\1\uffff\22\6\1\uffff\uffde\6",
-            "",
+            "\11\12\1\13\1\11\2\12\1\10\22\12\1\13\4\12\1\7\127\12\1\14\uff81"+
+            "\12",
             "\12\15\1\11\ufff4\15",
             "\uffff\15",
-            "\11\14\1\13\1\11\2\14\1\10\22\14\1\13\4\14\1\12\127\14\1\16"+
-            "\uff81\14",
-            "\12\13\1\11\2\13\1\10\27\13\1\17\uffd9\13",
-            "\11\14\1\13\1\11\2\14\1\10\22\14\1\13\4\14\1\12\uffd9\14",
+            "\11\12\1\13\1\11\2\12\1\10\22\12\1\13\4\12\1\7\uffd9\12",
+            "\12\13\1\11\2\13\1\10\27\13\1\16\uffd9\13",
+            "\11\12\1\13\1\11\2\12\1\10\22\12\1\13\4\12\1\7\uffd9\12",
             "",
-            "\11\14\1\13\1\11\2\14\1\10\22\14\1\13\4\14\1\12\uffd9\14",
-            "\12\13\1\11\2\13\1\10\27\13\1\17\127\13\1\20\uff81\13",
-            "\12\13\1\11\2\13\1\10\27\13\1\17\uffd9\13"
+            "\12\13\1\11\2\13\1\10\27\13\1\16\127\13\1\17\uff81\13",
+            "\12\13\1\11\2\13\1\10\27\13\1\16\uffd9\13"
     };
 
-    static final short[] DFA7_eot = DFA.unpackEncodedString(DFA7_eotS);
-    static final short[] DFA7_eof = DFA.unpackEncodedString(DFA7_eofS);
-    static final char[] DFA7_min = DFA.unpackEncodedStringToUnsignedChars(DFA7_minS);
-    static final char[] DFA7_max = DFA.unpackEncodedStringToUnsignedChars(DFA7_maxS);
-    static final short[] DFA7_accept = DFA.unpackEncodedString(DFA7_acceptS);
-    static final short[] DFA7_special = DFA.unpackEncodedString(DFA7_specialS);
-    static final short[][] DFA7_transition;
+    static final short[] DFA6_eot = DFA.unpackEncodedString(DFA6_eotS);
+    static final short[] DFA6_eof = DFA.unpackEncodedString(DFA6_eofS);
+    static final char[] DFA6_min = DFA.unpackEncodedStringToUnsignedChars(DFA6_minS);
+    static final char[] DFA6_max = DFA.unpackEncodedStringToUnsignedChars(DFA6_maxS);
+    static final short[] DFA6_accept = DFA.unpackEncodedString(DFA6_acceptS);
+    static final short[] DFA6_special = DFA.unpackEncodedString(DFA6_specialS);
+    static final short[][] DFA6_transition;
 
     static {
-        int numStates = DFA7_transitionS.length;
-        DFA7_transition = new short[numStates][];
+        int numStates = DFA6_transitionS.length;
+        DFA6_transition = new short[numStates][];
         for (int i=0; i<numStates; i++) {
-            DFA7_transition[i] = DFA.unpackEncodedString(DFA7_transitionS[i]);
+            DFA6_transition[i] = DFA.unpackEncodedString(DFA6_transitionS[i]);
         }
     }
 
-    class DFA7 extends DFA {
+    class DFA6 extends DFA {
 
-        public DFA7(BaseRecognizer recognizer) {
+        public DFA6(BaseRecognizer recognizer) {
             this.recognizer = recognizer;
-            this.decisionNumber = 7;
-            this.eot = DFA7_eot;
-            this.eof = DFA7_eof;
-            this.min = DFA7_min;
-            this.max = DFA7_max;
-            this.accept = DFA7_accept;
-            this.special = DFA7_special;
-            this.transition = DFA7_transition;
+            this.decisionNumber = 6;
+            this.eot = DFA6_eot;
+            this.eof = DFA6_eof;
+            this.min = DFA6_min;
+            this.max = DFA6_max;
+            this.accept = DFA6_accept;
+            this.special = DFA6_special;
+            this.transition = DFA6_transition;
         }
         public String getDescription() {
-            return "1:1: Tokens : ( RULE_WS | RULE_WS_CHAR | RULE_SL_COMMENT | RULE_ML_COMMENT | RULE_TOPLEVELEXPRESSION );";
+            return "1:1: Tokens : ( RULE_TOPLEVELEXPRESSION | RULE_WS_CHAR | RULE_SL_COMMENT | RULE_ML_COMMENT );";
         }
     }
  

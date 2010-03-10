@@ -19,26 +19,38 @@ public class LilyPondGrammarAccess implements IGrammarAccess {
 	public class LilyPondElements implements IParserRuleAccess {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "LilyPond");
 		private final Assignment cExpressionsAssignment = (Assignment)rule.eContents().get(1);
-		private final RuleCall cExpressionsTopLevelExpressionTerminalRuleCall_0 = (RuleCall)cExpressionsAssignment.eContents().get(0);
+		private final RuleCall cExpressionsToplevelExpressionTerminalRuleCall_0 = (RuleCall)cExpressionsAssignment.eContents().get(0);
 		
 		//LilyPond:
-		//  expressions+=TopLevelExpression*;
+		//  expressions+=ToplevelExpression*;
 		public ParserRule getRule() { return rule; }
 
-		//expressions+=TopLevelExpression*
+		//expressions+=ToplevelExpression*
 		public Assignment getExpressionsAssignment() { return cExpressionsAssignment; }
 
-		//TopLevelExpression
-		public RuleCall getExpressionsTopLevelExpressionTerminalRuleCall_0() { return cExpressionsTopLevelExpressionTerminalRuleCall_0; }
+		//ToplevelExpression
+		public RuleCall getExpressionsToplevelExpressionTerminalRuleCall_0() { return cExpressionsToplevelExpressionTerminalRuleCall_0; }
+	}
+
+	public class WSElements implements IParserRuleAccess {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "WS");
+		private final RuleCall cWS_CHARTerminalRuleCall = (RuleCall)rule.eContents().get(1);
+		
+		//WS returns ecore::EString:
+		//  WS_CHAR+;
+		public ParserRule getRule() { return rule; }
+
+		//WS_CHAR+
+		public RuleCall getWS_CHARTerminalRuleCall() { return cWS_CHARTerminalRuleCall; }
 	}
 	
 	
 	private LilyPondElements pLilyPond;
-	private TerminalRule tWS;
+	private TerminalRule tToplevelExpression;
+	private WSElements pWS;
 	private TerminalRule tWS_CHAR;
 	private TerminalRule tSL_COMMENT;
 	private TerminalRule tML_COMMENT;
-	private TerminalRule tTopLevelExpression;
 	
 	private final GrammarProvider grammarProvider;
 
@@ -54,7 +66,7 @@ public class LilyPondGrammarAccess implements IGrammarAccess {
 
 	
 	//LilyPond:
-	//  expressions+=TopLevelExpression*;
+	//  expressions+=ToplevelExpression*;
 	public LilyPondElements getLilyPondAccess() {
 		return (pLilyPond != null) ? pLilyPond : (pLilyPond = new LilyPondElements());
 	}
@@ -63,11 +75,21 @@ public class LilyPondGrammarAccess implements IGrammarAccess {
 		return getLilyPondAccess().getRule();
 	}
 
-	//terminal WS:
-	//  WS_CHAR+;
-	public TerminalRule getWSRule() {
-		return (tWS != null) ? tWS : (tWS = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "WS"));
+	//terminal ToplevelExpression:
+	//  !WS_CHAR+;
+	public TerminalRule getToplevelExpressionRule() {
+		return (tToplevelExpression != null) ? tToplevelExpression : (tToplevelExpression = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "ToplevelExpression"));
 	} 
+
+	//WS returns ecore::EString:
+	//  WS_CHAR+;
+	public WSElements getWSAccess() {
+		return (pWS != null) ? pWS : (pWS = new WSElements());
+	}
+	
+	public ParserRule getWSRule() {
+		return getWSAccess().getRule();
+	}
 
 	//terminal WS_CHAR:
 	//  " " | "\t" | "\r" | "\n";
@@ -85,11 +107,5 @@ public class LilyPondGrammarAccess implements IGrammarAccess {
 	//  "%{"->"%}";
 	public TerminalRule getML_COMMENTRule() {
 		return (tML_COMMENT != null) ? tML_COMMENT : (tML_COMMENT = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "ML_COMMENT"));
-	} 
-
-	//terminal TopLevelExpression:
-	//  !WS_CHAR+;
-	public TerminalRule getTopLevelExpressionRule() {
-		return (tTopLevelExpression != null) ? tTopLevelExpression : (tTopLevelExpression = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "TopLevelExpression"));
 	} 
 }

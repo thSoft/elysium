@@ -42,11 +42,11 @@ protected class ThisRootNode extends RootToken {
 /************ begin Rule LilyPond ****************
  *
  * LilyPond:
- *   expressions+=TopLevelExpression*;
+ *   expressions+=ToplevelExpression*;
  *
  **/
 
-// expressions+=TopLevelExpression*
+// expressions+=ToplevelExpression*
 protected class LilyPond_ExpressionsAssignment extends AssignmentToken  {
 	
 	public LilyPond_ExpressionsAssignment(AbstractToken parent, AbstractToken next, int no, IInstanceDescription current) {
@@ -73,7 +73,7 @@ protected class LilyPond_ExpressionsAssignment extends AssignmentToken  {
 		IInstanceDescription obj = current.cloneAndConsume("expressions");
 		if(Boolean.TRUE.booleanValue()) { // org::eclipse::xtext::impl::RuleCallImpl FIXME: check if value is valid for lexer rule
 			type = AssignmentType.LRC;
-			element = grammarAccess.getLilyPondAccess().getExpressionsTopLevelExpressionTerminalRuleCall_0();
+			element = grammarAccess.getLilyPondAccess().getExpressionsToplevelExpressionTerminalRuleCall_0();
 			return obj;
 		}
 		return null;
@@ -82,5 +82,6 @@ protected class LilyPond_ExpressionsAssignment extends AssignmentToken  {
 }
 
 /************ end Rule LilyPond ****************/
+
 
 }

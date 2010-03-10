@@ -86,14 +86,16 @@ finally {
 
 
 
+
+
 rule__LilyPond__ExpressionsAssignment
     @init {
 		int stackSize = keepStackSize();
     }
 :
 (
-{ before(grammarAccess.getLilyPondAccess().getExpressionsTopLevelExpressionTerminalRuleCall_0()); }
-	RULE_TOPLEVELEXPRESSION{ after(grammarAccess.getLilyPondAccess().getExpressionsTopLevelExpressionTerminalRuleCall_0()); }
+{ before(grammarAccess.getLilyPondAccess().getExpressionsToplevelExpressionTerminalRuleCall_0()); }
+	RULE_TOPLEVELEXPRESSION{ after(grammarAccess.getLilyPondAccess().getExpressionsToplevelExpressionTerminalRuleCall_0()); }
 )
 
 ;
@@ -102,14 +104,12 @@ finally {
 }
 
 
-RULE_WS : RULE_WS_CHAR+;
+RULE_TOPLEVELEXPRESSION : ~(RULE_WS_CHAR)+;
 
 RULE_WS_CHAR : (' '|'\t'|'\r'|'\n');
 
 RULE_SL_COMMENT : '%' ~(('\n'|'\r'))* ('\r'? '\n')?;
 
 RULE_ML_COMMENT : '%{' ( options {greedy=false;} : . )*'%}';
-
-RULE_TOPLEVELEXPRESSION : ~(RULE_WS_CHAR)+;
 
 

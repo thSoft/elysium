@@ -23,14 +23,13 @@ import java.util.ArrayList;
 
 public class InternalLilyPondParser extends AbstractInternalAntlrParser {
     public static final String[] tokenNames = new String[] {
-        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "RULE_TOPLEVELEXPRESSION", "RULE_WS_CHAR", "RULE_WS", "RULE_SL_COMMENT", "RULE_ML_COMMENT"
+        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "RULE_TOPLEVELEXPRESSION", "RULE_WS_CHAR", "RULE_SL_COMMENT", "RULE_ML_COMMENT"
     };
     public static final int RULE_WS_CHAR=5;
     public static final int RULE_TOPLEVELEXPRESSION=4;
-    public static final int RULE_WS=6;
     public static final int EOF=-1;
-    public static final int RULE_SL_COMMENT=7;
-    public static final int RULE_ML_COMMENT=8;
+    public static final int RULE_SL_COMMENT=6;
+    public static final int RULE_ML_COMMENT=7;
 
         public InternalLilyPondParser(TokenStream input) {
             super(input);
@@ -130,7 +129,7 @@ public class InternalLilyPondParser extends AbstractInternalAntlrParser {
             	    lv_expressions_0=(Token)input.LT(1);
             	    match(input,RULE_TOPLEVELEXPRESSION,FOLLOW_RULE_TOPLEVELEXPRESSION_in_ruleLilyPond129); 
 
-            	    		createLeafNode(grammarAccess.getLilyPondAccess().getExpressionsTopLevelExpressionTerminalRuleCall_0(), "expressions"); 
+            	    		createLeafNode(grammarAccess.getLilyPondAccess().getExpressionsToplevelExpressionTerminalRuleCall_0(), "expressions"); 
             	    	
 
             	    	        if (current==null) {
@@ -139,7 +138,7 @@ public class InternalLilyPondParser extends AbstractInternalAntlrParser {
             	    	        }
             	    	        
             	    	        try {
-            	    	       		add(current, "expressions", lv_expressions_0, "TopLevelExpression", lastConsumedNode);
+            	    	       		add(current, "expressions", lv_expressions_0, "ToplevelExpression", lastConsumedNode);
             	    	        } catch (ValueConverterException vce) {
             	    				handleValueConverterException(vce);
             	    	        }

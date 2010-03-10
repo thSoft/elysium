@@ -25,7 +25,7 @@ public class LilyPondParser extends org.eclipse.xtext.parser.antlr.AbstractAntlr
 	protected IParseResult parse(String ruleName, ANTLRInputStream in) {
 		org.lilypond.parser.antlr.internal.InternalLilyPondLexer lexer = new org.lilypond.parser.antlr.internal.InternalLilyPondLexer(in);
 		XtextTokenStream stream = new XtextTokenStream(lexer, antlrTokenDefProvider);
-		stream.setInitialHiddenTokens("RULE_WS", "RULE_SL_COMMENT", "RULE_ML_COMMENT");
+		stream.setInitialHiddenTokens("ruleWS", "RULE_SL_COMMENT", "RULE_ML_COMMENT");
 		org.lilypond.parser.antlr.internal.InternalLilyPondParser parser = new org.lilypond.parser.antlr.internal.InternalLilyPondParser(
 				stream, getElementFactory(), grammarAccess);
 		parser.setTokenTypeMap(antlrTokenDefProvider.getTokenDefMap());

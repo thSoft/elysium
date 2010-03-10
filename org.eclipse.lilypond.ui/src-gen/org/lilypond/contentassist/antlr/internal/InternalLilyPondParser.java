@@ -21,14 +21,13 @@ import java.util.ArrayList;
 
 public class InternalLilyPondParser extends AbstractInternalContentAssistParser {
     public static final String[] tokenNames = new String[] {
-        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "RULE_TOPLEVELEXPRESSION", "RULE_WS_CHAR", "RULE_WS", "RULE_SL_COMMENT", "RULE_ML_COMMENT"
+        "<invalid>", "<EOR>", "<DOWN>", "<UP>", "RULE_TOPLEVELEXPRESSION", "RULE_WS_CHAR", "RULE_SL_COMMENT", "RULE_ML_COMMENT"
     };
     public static final int RULE_WS_CHAR=5;
     public static final int RULE_TOPLEVELEXPRESSION=4;
-    public static final int RULE_WS=6;
     public static final int EOF=-1;
-    public static final int RULE_SL_COMMENT=7;
-    public static final int RULE_ML_COMMENT=8;
+    public static final int RULE_SL_COMMENT=6;
+    public static final int RULE_ML_COMMENT=7;
 
         public InternalLilyPondParser(TokenStream input) {
             super(input);
@@ -153,21 +152,21 @@ public class InternalLilyPondParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start rule__LilyPond__ExpressionsAssignment
-    // ../org.eclipse.lilypond.ui/src-gen/org/lilypond/contentassist/antlr/internal/InternalLilyPond.g:89:1: rule__LilyPond__ExpressionsAssignment : ( RULE_TOPLEVELEXPRESSION ) ;
+    // ../org.eclipse.lilypond.ui/src-gen/org/lilypond/contentassist/antlr/internal/InternalLilyPond.g:91:1: rule__LilyPond__ExpressionsAssignment : ( RULE_TOPLEVELEXPRESSION ) ;
     public final void rule__LilyPond__ExpressionsAssignment() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.eclipse.lilypond.ui/src-gen/org/lilypond/contentassist/antlr/internal/InternalLilyPond.g:93:1: ( ( RULE_TOPLEVELEXPRESSION ) )
-            // ../org.eclipse.lilypond.ui/src-gen/org/lilypond/contentassist/antlr/internal/InternalLilyPond.g:94:1: ( RULE_TOPLEVELEXPRESSION )
+            // ../org.eclipse.lilypond.ui/src-gen/org/lilypond/contentassist/antlr/internal/InternalLilyPond.g:95:1: ( ( RULE_TOPLEVELEXPRESSION ) )
+            // ../org.eclipse.lilypond.ui/src-gen/org/lilypond/contentassist/antlr/internal/InternalLilyPond.g:96:1: ( RULE_TOPLEVELEXPRESSION )
             {
-            // ../org.eclipse.lilypond.ui/src-gen/org/lilypond/contentassist/antlr/internal/InternalLilyPond.g:94:1: ( RULE_TOPLEVELEXPRESSION )
-            // ../org.eclipse.lilypond.ui/src-gen/org/lilypond/contentassist/antlr/internal/InternalLilyPond.g:95:1: RULE_TOPLEVELEXPRESSION
+            // ../org.eclipse.lilypond.ui/src-gen/org/lilypond/contentassist/antlr/internal/InternalLilyPond.g:96:1: ( RULE_TOPLEVELEXPRESSION )
+            // ../org.eclipse.lilypond.ui/src-gen/org/lilypond/contentassist/antlr/internal/InternalLilyPond.g:97:1: RULE_TOPLEVELEXPRESSION
             {
-             before(grammarAccess.getLilyPondAccess().getExpressionsTopLevelExpressionTerminalRuleCall_0()); 
-            match(input,RULE_TOPLEVELEXPRESSION,FOLLOW_RULE_TOPLEVELEXPRESSION_in_rule__LilyPond__ExpressionsAssignment133); 
-             after(grammarAccess.getLilyPondAccess().getExpressionsTopLevelExpressionTerminalRuleCall_0()); 
+             before(grammarAccess.getLilyPondAccess().getExpressionsToplevelExpressionTerminalRuleCall_0()); 
+            match(input,RULE_TOPLEVELEXPRESSION,FOLLOW_RULE_TOPLEVELEXPRESSION_in_rule__LilyPond__ExpressionsAssignment135); 
+             after(grammarAccess.getLilyPondAccess().getExpressionsToplevelExpressionTerminalRuleCall_0()); 
 
             }
 
@@ -194,6 +193,6 @@ public class InternalLilyPondParser extends AbstractInternalContentAssistParser 
     public static final BitSet FOLLOW_ruleLilyPond_in_entryRuleLilyPond60 = new BitSet(new long[]{0x0000000000000000L});
     public static final BitSet FOLLOW_EOF_in_entryRuleLilyPond67 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_rule__LilyPond__ExpressionsAssignment_in_ruleLilyPond94 = new BitSet(new long[]{0x0000000000000012L});
-    public static final BitSet FOLLOW_RULE_TOPLEVELEXPRESSION_in_rule__LilyPond__ExpressionsAssignment133 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_RULE_TOPLEVELEXPRESSION_in_rule__LilyPond__ExpressionsAssignment135 = new BitSet(new long[]{0x0000000000000002L});
 
 }

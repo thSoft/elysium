@@ -62,7 +62,7 @@ public class LilyPondParser extends AbstractContentAssistParser {
 	
 	@Override
 	protected String[] getInitialHiddenTokens() {
-		return new String[] { "RULE_WS", "RULE_SL_COMMENT", "RULE_ML_COMMENT" };
+		return new String[] { "ruleWS", "RULE_SL_COMMENT", "RULE_ML_COMMENT" };
 	}
 	
 	public LilyPondGrammarAccess getGrammarAccess() {

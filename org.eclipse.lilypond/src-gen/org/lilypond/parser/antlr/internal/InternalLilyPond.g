@@ -87,7 +87,7 @@ ruleLilyPond returns [EObject current=null]
 	
 	    lv_expressions_0=	RULE_TOPLEVELEXPRESSION
 	{
-		createLeafNode(grammarAccess.getLilyPondAccess().getExpressionsTopLevelExpressionTerminalRuleCall_0(), "expressions"); 
+		createLeafNode(grammarAccess.getLilyPondAccess().getExpressionsToplevelExpressionTerminalRuleCall_0(), "expressions"); 
 	}
  
 	    {
@@ -97,7 +97,7 @@ ruleLilyPond returns [EObject current=null]
 	        }
 	        
 	        try {
-	       		add($current, "expressions", lv_expressions_0, "TopLevelExpression", lastConsumedNode);
+	       		add($current, "expressions", lv_expressions_0, "ToplevelExpression", lastConsumedNode);
 	        } catch (ValueConverterException vce) {
 				handleValueConverterException(vce);
 	        }
@@ -109,14 +109,14 @@ ruleLilyPond returns [EObject current=null]
 
 
 
-RULE_WS : RULE_WS_CHAR+;
+
+
+RULE_TOPLEVELEXPRESSION : ~(RULE_WS_CHAR)+;
 
 RULE_WS_CHAR : (' '|'\t'|'\r'|'\n');
 
 RULE_SL_COMMENT : '%' ~(('\n'|'\r'))* ('\r'? '\n')?;
 
 RULE_ML_COMMENT : '%{' ( options {greedy=false;} : . )*'%}';
-
-RULE_TOPLEVELEXPRESSION : ~(RULE_WS_CHAR)+;
 
 
