@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<templates>
+ <template
+  id="polyphony"
+  autoinsert="true"
+  context="org.elysium.LilyPond.Block"
+  deleted="false"
+  description="Temporary two-voice polyphony in a staff"
+  enabled="true"
+  name="polyphony">&lt;&lt; { } \\ { } &gt;&gt; \oneVoice </template>
+</templates>

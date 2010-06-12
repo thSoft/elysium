@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/org.elysium/src-gen"
+    editDirectory="/org.elysium.edit/src" editorDirectory="/org.elysium.editor/src"
+    modelPluginID="org.elysium" forceOverwrite="true" modelName="LilyPond" updateClasspath="false"
+    rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container" complianceLevel="5.0"
+    copyrightFields="false" editPluginID="org.elysium.edit" editorPluginID="org.elysium.editor">
+  <genPackages prefix="LilyPond" basePackage="org.elysium" disposableProviderFactory="true"
+      ecorePackage="LilyPond.ecore#/">
+    <genClasses ecoreClass="LilyPond.ecore#//LilyPond">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference LilyPond.ecore#//LilyPond/expressions"/>
+    </genClasses>
+    <genClasses ecoreClass="LilyPond.ecore#//Expression">
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference LilyPond.ecore#//Expression/parentBlock"/>
+      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference LilyPond.ecore#//Expression/parentLilyPond"/>
+    </genClasses>
+    <genClasses ecoreClass="LilyPond.ecore#//Block">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference LilyPond.ecore#//Block/expressions"/>
+    </genClasses>
+    <genClasses ecoreClass="LilyPond.ecore#//SimpleBlock"/>
+    <genClasses ecoreClass="LilyPond.ecore#//SimultaneousBlock"/>
+    <genClasses ecoreClass="LilyPond.ecore#//Scheme">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference LilyPond.ecore#//Scheme/value"/>
+    </genClasses>
+    <genClasses ecoreClass="LilyPond.ecore#//SchemeExpression">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute LilyPond.ecore#//SchemeExpression/quoted"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference LilyPond.ecore#//SchemeExpression/value"/>
+    </genClasses>
+    <genClasses ecoreClass="LilyPond.ecore#//SchemeValue"/>
+    <genClasses ecoreClass="LilyPond.ecore#//SchemeBoolean">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute LilyPond.ecore#//SchemeBoolean/value"/>
+    </genClasses>
+    <genClasses ecoreClass="LilyPond.ecore#//SchemeList">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference LilyPond.ecore#//SchemeList/expressions"/>
+    </genClasses>
+    <genClasses ecoreClass="LilyPond.ecore#//SchemeText">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute LilyPond.ecore#//SchemeText/value"/>
+    </genClasses>
+    <genClasses ecoreClass="LilyPond.ecore#//Command">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute LilyPond.ecore#//Command/id"/>
+    </genClasses>
+    <genClasses ecoreClass="LilyPond.ecore#//CustomCommand"/>
+    <genClasses ecoreClass="LilyPond.ecore#//LongCommand"/>
+    <genClasses ecoreClass="LilyPond.ecore#//ShortCommand"/>
+    <genClasses ecoreClass="LilyPond.ecore#//PresetCommand"/>
+    <genClasses ecoreClass="LilyPond.ecore#//Include">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute LilyPond.ecore#//Include/importURI"/>
+    </genClasses>
+    <genClasses ecoreClass="LilyPond.ecore#//Version">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute LilyPond.ecore#//Version/version"/>
+    </genClasses>
+    <genClasses ecoreClass="LilyPond.ecore#//Text">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute LilyPond.ecore#//Text/value"/>
+    </genClasses>
+    <genClasses ecoreClass="LilyPond.ecore#//Number">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute LilyPond.ecore#//Number/value"/>
+    </genClasses>
+  </genPackages>
+</genmodel:GenModel>

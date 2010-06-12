@@ -1,0 +1,71 @@
+grammar org.elysium.LilyPond
+
+hidden(WS, SL_COMMENT, ML_COMMENT)
+
+generate lilyPond "http://www.elysium.org/LilyPond"
+
+import "http://www.eclipse.org/emf/2002/Ecore" as ecore
+
+LilyPond: expressions+=Expression*;
+
+Expression: Block | Scheme | Command | Text | Number;
+
+Block: SimpleBlock | SimultaneousBlock;
+
+SimpleBlock: {SimpleBlock} "{" expressions+=Expression* "}";
+
+SimultaneousBlock: {SimultaneousBlock} "<<" expressions+=Expression* ">>";
+
+Scheme: "#" value=SchemeExpression;
+
+SchemeExpression: quoted?="'"? value=SchemeValue;
+
+SchemeValue: SchemeBoolean | SchemeList | SchemeText | Number;
+
+SchemeBoolean: value=BOOL;
+
+SchemeList: "(" expressions+=SchemeExpression+ ")";
+
+SchemeText: value=SchemeTextLiterals;
+
+SchemeTextLiterals: "\\\\" | ID | STRING | ANY_OTHER;
+
+Command: CustomCommand | PresetCommand;
+
+CustomCommand: LongCommand | ShortCommand;
+
+LongCommand hidden(): "\\" id=ID;
+
+ShortCommand hidden(): "\\" id=("(" | ")" | ANY_OTHER);
+
+PresetCommand: Include | Version;
+
+Include: id=IncludeKeyword importURI=STRING;
+
+IncludeKeyword hidden(): "\\" "include";
+
+Version: id=VersionKeyword version=STRING;
+
+VersionKeyword hidden(): "\\" "version";
+
+// Keywords of preset commands must be defined this way to avoid clash with commands that share a common prefix with them due to eager parsing
+
+Text: value=(SchemeTextLiterals | "'" | "," | "(" | ")");
+
+Number: value=INT;
+
+terminal STRING: '"' ("\\" ("b" | "t" | "n" | " f" | "r" | '"' | "'" | "\\") | !("\\" | '"'))* '"';
+
+terminal INT returns ecore::EInt: ("0".."9")+;
+
+terminal BOOL returns ecore::EBoolean: "#f" | "#t";
+
+terminal ID: ("a".."z" | "A".."Z") ("a".."z" | "A".."Z" | "-")*;
+
+terminal WS: (" " | "\t" | "\r" | "\n")+;
+
+terminal SL_COMMENT: "%" !("\n" | "\r")* ("\r"? "\n")?;
+
+terminal ML_COMMENT: "%{" -> "%}";
+
+terminal ANY_OTHER:	.;

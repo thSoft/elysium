@@ -1,0 +1,78 @@
+module org.elysium.LilyPond
+
+import org.eclipse.emf.mwe.utils.*
+import org.eclipse.xtext.generator.*
+import org.eclipse.xtext.ui.generator.*
+
+var grammarURI = "classpath:/org/elysium/LilyPond.xtext"
+var file.extensions = "ly,ily"
+var projectName = "org.elysium"
+var runtimeProject = "../${projectName}"
+
+Workflow {
+
+	bean = StandaloneSetup {
+		platformUri = "${runtimeProject}/.."
+	}
+
+	component = DirectoryCleaner {
+		directory = "${runtimeProject}/src-gen"
+	}
+
+	component = DirectoryCleaner {
+		directory = "${runtimeProject}.ui/src-gen"
+	}
+
+	component = Generator {
+		pathRtProject = runtimeProject
+		pathUiProject = "${runtimeProject}.ui"
+		projectNameRt = projectName
+		projectNameUi = "${projectName}.ui"
+
+		language = {
+			uri = grammarURI
+			fileExtensions = file.extensions
+
+			fragment = grammarAccess.GrammarAccessFragment {}
+
+			fragment = ecore.EcoreGeneratorFragment {}
+
+			fragment = parseTreeConstructor.ParseTreeConstructorFragment {}
+
+			fragment = resourceFactory.ResourceFactoryFragment {
+				fileExtensions = file.extensions
+			}
+
+			fragment = de.itemis.xtext.antlr.XtextAntlrGeneratorFragment {
+				options = {
+					backtrack = true
+				}
+			}
+
+			fragment = validation.JavaValidatorFragment {
+				composedCheck = "org.eclipse.xtext.validation.ImportUriValidator"
+				composedCheck = "org.eclipse.xtext.validation.NamesAreUniqueValidator"
+			}
+
+			fragment = scoping.ImportURIScopingFragment {}
+			fragment = exporting.SimpleNamesFragment {}
+
+			fragment = formatting.FormatterFragment {}
+
+			fragment = labeling.LabelProviderFragment {}
+
+			fragment = outline.TransformerFragment {}
+			fragment = outline.OutlineNodeAdapterFactoryFragment {}
+			fragment = outline.QuickOutlineFragment {}
+
+			fragment = contentAssist.JavaBasedContentAssistFragment {}
+
+			fragment = de.itemis.xtext.antlr.XtextAntlrUiGeneratorFragment {}
+
+			fragment = builder.BuilderIntegrationFragment {}
+
+			fragment = quickfix.QuickfixProviderFragment {}
+		}
+	}
+
+}
