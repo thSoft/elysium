@@ -44,7 +44,7 @@ public class NewLilyPondProjectWizard extends Wizard implements INewWizard, IExe
 		addPage(projectCreationPage);
 	}
 
-	private static final String TEMPLATE = "\\version \"{0}\"\n\n\\relative c'' '{\n\tc\n}'"; // XXX avoid MessageFormat-escaping
+	private static final String TEMPLATE = "\\version \"{0}\"\n\n\\relative c'' '{\n\tc\n}'\n"; // XXX avoid MessageFormat-escaping
 
 	private static String getTemplate() {
 		return MessageFormat.format(TEMPLATE, LilyPondVersion.get());
