@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="ASCII"?>
-<xtext:Grammar xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:xtext="http://www.eclipse.org/2008/Xtext" name="org.elysium.LilyPond" definesHiddenTokens="true" hiddenTokens="//@rules.27 //@rules.28 //@rules.29">
+<xtext:Grammar xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:xtext="http://www.eclipse.org/2008/Xtext" name="org.elysium.LilyPond" definesHiddenTokens="true" hiddenTokens="//@rules.28 //@rules.29 //@rules.30">
   <metamodelDeclarations xsi:type="xtext:GeneratedMetamodel" name="lilyPond">
     <ePackage href="http://www.elysium.org/LilyPond#/"/>
   </metamodelDeclarations>
@@ -21,9 +21,9 @@
     <alternatives xsi:type="xtext:Alternatives">
       <elements xsi:type="xtext:RuleCall" rule="//@rules.2"/>
       <elements xsi:type="xtext:RuleCall" rule="//@rules.5"/>
-      <elements xsi:type="xtext:RuleCall" rule="//@rules.12"/>
-      <elements xsi:type="xtext:RuleCall" rule="//@rules.21"/>
+      <elements xsi:type="xtext:RuleCall" rule="//@rules.13"/>
       <elements xsi:type="xtext:RuleCall" rule="//@rules.22"/>
+      <elements xsi:type="xtext:RuleCall" rule="//@rules.23"/>
     </alternatives>
   </rules>
   <rules xsi:type="xtext:ParserRule" name="Block">
@@ -101,7 +101,8 @@
       <elements xsi:type="xtext:RuleCall" rule="//@rules.8"/>
       <elements xsi:type="xtext:RuleCall" rule="//@rules.9"/>
       <elements xsi:type="xtext:RuleCall" rule="//@rules.10"/>
-      <elements xsi:type="xtext:RuleCall" rule="//@rules.22"/>
+      <elements xsi:type="xtext:RuleCall" rule="//@rules.11"/>
+      <elements xsi:type="xtext:RuleCall" rule="//@rules.23"/>
     </alternatives>
   </rules>
   <rules xsi:type="xtext:ParserRule" name="SchemeBoolean">
@@ -109,7 +110,7 @@
       <classifier xsi:type="ecore:EClass" href="http://www.elysium.org/LilyPond#//SchemeBoolean"/>
     </type>
     <alternatives xsi:type="xtext:Assignment" feature="value" operator="=">
-      <terminal xsi:type="xtext:RuleCall" rule="//@rules.25"/>
+      <terminal xsi:type="xtext:RuleCall" rule="//@rules.26"/>
     </alternatives>
   </rules>
   <rules xsi:type="xtext:ParserRule" name="SchemeList">
@@ -124,12 +125,24 @@
       <elements xsi:type="xtext:Keyword" value=")"/>
     </alternatives>
   </rules>
+  <rules xsi:type="xtext:ParserRule" name="SchemeBlock">
+    <type metamodel="//@metamodelDeclarations.0">
+      <classifier xsi:type="ecore:EClass" href="http://www.elysium.org/LilyPond#//SchemeBlock"/>
+    </type>
+    <alternatives xsi:type="xtext:Group">
+      <elements xsi:type="xtext:Keyword" value="#{"/>
+      <elements xsi:type="xtext:Assignment" cardinality="+" feature="expressions" operator="+=">
+        <terminal xsi:type="xtext:RuleCall" rule="//@rules.1"/>
+      </elements>
+      <elements xsi:type="xtext:Keyword" value="#}"/>
+    </alternatives>
+  </rules>
   <rules xsi:type="xtext:ParserRule" name="SchemeText">
     <type metamodel="//@metamodelDeclarations.0">
       <classifier xsi:type="ecore:EClass" href="http://www.elysium.org/LilyPond#//SchemeText"/>
     </type>
     <alternatives xsi:type="xtext:Assignment" feature="value" operator="=">
-      <terminal xsi:type="xtext:RuleCall" rule="//@rules.11"/>
+      <terminal xsi:type="xtext:RuleCall" rule="//@rules.12"/>
     </alternatives>
   </rules>
   <rules xsi:type="xtext:ParserRule" name="SchemeTextLiterals">
@@ -138,9 +151,9 @@
     </type>
     <alternatives xsi:type="xtext:Alternatives">
       <elements xsi:type="xtext:Keyword" value="\\"/>
-      <elements xsi:type="xtext:RuleCall" rule="//@rules.26"/>
-      <elements xsi:type="xtext:RuleCall" rule="//@rules.23"/>
-      <elements xsi:type="xtext:RuleCall" rule="//@rules.30"/>
+      <elements xsi:type="xtext:RuleCall" rule="//@rules.27"/>
+      <elements xsi:type="xtext:RuleCall" rule="//@rules.24"/>
+      <elements xsi:type="xtext:RuleCall" rule="//@rules.31"/>
     </alternatives>
   </rules>
   <rules xsi:type="xtext:ParserRule" name="Command">
@@ -148,8 +161,8 @@
       <classifier xsi:type="ecore:EClass" href="http://www.elysium.org/LilyPond#//Command"/>
     </type>
     <alternatives xsi:type="xtext:Alternatives">
-      <elements xsi:type="xtext:RuleCall" rule="//@rules.13"/>
-      <elements xsi:type="xtext:RuleCall" rule="//@rules.16"/>
+      <elements xsi:type="xtext:RuleCall" rule="//@rules.14"/>
+      <elements xsi:type="xtext:RuleCall" rule="//@rules.17"/>
     </alternatives>
   </rules>
   <rules xsi:type="xtext:ParserRule" name="CustomCommand">
@@ -157,8 +170,8 @@
       <classifier xsi:type="ecore:EClass" href="http://www.elysium.org/LilyPond#//CustomCommand"/>
     </type>
     <alternatives xsi:type="xtext:Alternatives">
-      <elements xsi:type="xtext:RuleCall" rule="//@rules.14"/>
       <elements xsi:type="xtext:RuleCall" rule="//@rules.15"/>
+      <elements xsi:type="xtext:RuleCall" rule="//@rules.16"/>
     </alternatives>
   </rules>
   <rules xsi:type="xtext:ParserRule" name="LongCommand" definesHiddenTokens="true">
@@ -168,7 +181,7 @@
     <alternatives xsi:type="xtext:Group">
       <elements xsi:type="xtext:Keyword" value="\"/>
       <elements xsi:type="xtext:Assignment" feature="id" operator="=">
-        <terminal xsi:type="xtext:RuleCall" rule="//@rules.26"/>
+        <terminal xsi:type="xtext:RuleCall" rule="//@rules.27"/>
       </elements>
     </alternatives>
   </rules>
@@ -182,7 +195,7 @@
         <terminal xsi:type="xtext:Alternatives">
           <elements xsi:type="xtext:Keyword" value="("/>
           <elements xsi:type="xtext:Keyword" value=")"/>
-          <elements xsi:type="xtext:RuleCall" rule="//@rules.30"/>
+          <elements xsi:type="xtext:RuleCall" rule="//@rules.31"/>
         </terminal>
       </elements>
     </alternatives>
@@ -192,8 +205,8 @@
       <classifier xsi:type="ecore:EClass" href="http://www.elysium.org/LilyPond#//PresetCommand"/>
     </type>
     <alternatives xsi:type="xtext:Alternatives">
-      <elements xsi:type="xtext:RuleCall" rule="//@rules.17"/>
-      <elements xsi:type="xtext:RuleCall" rule="//@rules.19"/>
+      <elements xsi:type="xtext:RuleCall" rule="//@rules.18"/>
+      <elements xsi:type="xtext:RuleCall" rule="//@rules.20"/>
     </alternatives>
   </rules>
   <rules xsi:type="xtext:ParserRule" name="Include">
@@ -202,10 +215,10 @@
     </type>
     <alternatives xsi:type="xtext:Group">
       <elements xsi:type="xtext:Assignment" feature="id" operator="=">
-        <terminal xsi:type="xtext:RuleCall" rule="//@rules.18"/>
+        <terminal xsi:type="xtext:RuleCall" rule="//@rules.19"/>
       </elements>
       <elements xsi:type="xtext:Assignment" feature="importURI" operator="=">
-        <terminal xsi:type="xtext:RuleCall" rule="//@rules.23"/>
+        <terminal xsi:type="xtext:RuleCall" rule="//@rules.24"/>
       </elements>
     </alternatives>
   </rules>
@@ -224,10 +237,10 @@
     </type>
     <alternatives xsi:type="xtext:Group">
       <elements xsi:type="xtext:Assignment" feature="id" operator="=">
-        <terminal xsi:type="xtext:RuleCall" rule="//@rules.20"/>
+        <terminal xsi:type="xtext:RuleCall" rule="//@rules.21"/>
       </elements>
       <elements xsi:type="xtext:Assignment" feature="version" operator="=">
-        <terminal xsi:type="xtext:RuleCall" rule="//@rules.23"/>
+        <terminal xsi:type="xtext:RuleCall" rule="//@rules.24"/>
       </elements>
     </alternatives>
   </rules>
@@ -246,7 +259,7 @@
     </type>
     <alternatives xsi:type="xtext:Assignment" feature="value" operator="=">
       <terminal xsi:type="xtext:Alternatives">
-        <elements xsi:type="xtext:RuleCall" rule="//@rules.11"/>
+        <elements xsi:type="xtext:RuleCall" rule="//@rules.12"/>
         <elements xsi:type="xtext:Keyword" value="'"/>
         <elements xsi:type="xtext:Keyword" value=","/>
         <elements xsi:type="xtext:Keyword" value="("/>
@@ -259,7 +272,7 @@
       <classifier xsi:type="ecore:EClass" href="http://www.elysium.org/LilyPond#//Number"/>
     </type>
     <alternatives xsi:type="xtext:Assignment" feature="value" operator="=">
-      <terminal xsi:type="xtext:RuleCall" rule="//@rules.24"/>
+      <terminal xsi:type="xtext:RuleCall" rule="//@rules.25"/>
     </alternatives>
   </rules>
   <rules xsi:type="xtext:TerminalRule" name="STRING">

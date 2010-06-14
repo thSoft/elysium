@@ -23,6 +23,7 @@ import org.elysium.lilyPond.LilyPondPackage;
 import org.elysium.lilyPond.LongCommand;
 import org.elysium.lilyPond.PresetCommand;
 import org.elysium.lilyPond.Scheme;
+import org.elysium.lilyPond.SchemeBlock;
 import org.elysium.lilyPond.SchemeBoolean;
 import org.elysium.lilyPond.SchemeExpression;
 import org.elysium.lilyPond.SchemeList;
@@ -111,6 +112,13 @@ public class LilyPondPackageImpl extends EPackageImpl implements LilyPondPackage
    * @generated
    */
   private EClass schemeListEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass schemeBlockEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -440,6 +448,26 @@ public class LilyPondPackageImpl extends EPackageImpl implements LilyPondPackage
    * <!-- end-user-doc -->
    * @generated
    */
+  public EClass getSchemeBlock()
+  {
+    return schemeBlockEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getSchemeBlock_Expressions()
+  {
+    return (EReference)schemeBlockEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public EClass getSchemeText()
   {
     return schemeTextEClass;
@@ -654,6 +682,9 @@ public class LilyPondPackageImpl extends EPackageImpl implements LilyPondPackage
     schemeListEClass = createEClass(SCHEME_LIST);
     createEReference(schemeListEClass, SCHEME_LIST__EXPRESSIONS);
 
+    schemeBlockEClass = createEClass(SCHEME_BLOCK);
+    createEReference(schemeBlockEClass, SCHEME_BLOCK__EXPRESSIONS);
+
     schemeTextEClass = createEClass(SCHEME_TEXT);
     createEAttribute(schemeTextEClass, SCHEME_TEXT__VALUE);
 
@@ -716,6 +747,7 @@ public class LilyPondPackageImpl extends EPackageImpl implements LilyPondPackage
     schemeEClass.getESuperTypes().add(this.getExpression());
     schemeBooleanEClass.getESuperTypes().add(this.getSchemeValue());
     schemeListEClass.getESuperTypes().add(this.getSchemeValue());
+    schemeBlockEClass.getESuperTypes().add(this.getSchemeValue());
     schemeTextEClass.getESuperTypes().add(this.getSchemeValue());
     commandEClass.getESuperTypes().add(this.getExpression());
     customCommandEClass.getESuperTypes().add(this.getCommand());
@@ -757,6 +789,9 @@ public class LilyPondPackageImpl extends EPackageImpl implements LilyPondPackage
 
     initEClass(schemeListEClass, SchemeList.class, "SchemeList", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getSchemeList_Expressions(), this.getSchemeExpression(), null, "expressions", null, 0, -1, SchemeList.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(schemeBlockEClass, SchemeBlock.class, "SchemeBlock", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getSchemeBlock_Expressions(), this.getExpression(), null, "expressions", null, 0, -1, SchemeBlock.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(schemeTextEClass, SchemeText.class, "SchemeText", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getSchemeText_Value(), ecorePackage.getEString(), "value", null, 0, 1, SchemeText.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

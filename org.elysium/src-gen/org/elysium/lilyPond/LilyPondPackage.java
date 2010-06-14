@@ -421,6 +421,34 @@ public interface LilyPondPackage extends EPackage
   int SCHEME_LIST_FEATURE_COUNT = SCHEME_VALUE_FEATURE_COUNT + 1;
 
   /**
+   * The meta object id for the '{@link org.elysium.lilyPond.impl.SchemeBlockImpl <em>Scheme Block</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.elysium.lilyPond.impl.SchemeBlockImpl
+   * @see org.elysium.lilyPond.impl.LilyPondPackageImpl#getSchemeBlock()
+   * @generated
+   */
+  int SCHEME_BLOCK = 10;
+
+  /**
+   * The feature id for the '<em><b>Expressions</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int SCHEME_BLOCK__EXPRESSIONS = SCHEME_VALUE_FEATURE_COUNT + 0;
+
+  /**
+   * The number of structural features of the '<em>Scheme Block</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int SCHEME_BLOCK_FEATURE_COUNT = SCHEME_VALUE_FEATURE_COUNT + 1;
+
+  /**
    * The meta object id for the '{@link org.elysium.lilyPond.impl.SchemeTextImpl <em>Scheme Text</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -428,7 +456,7 @@ public interface LilyPondPackage extends EPackage
    * @see org.elysium.lilyPond.impl.LilyPondPackageImpl#getSchemeText()
    * @generated
    */
-  int SCHEME_TEXT = 10;
+  int SCHEME_TEXT = 11;
 
   /**
    * The feature id for the '<em><b>Value</b></em>' attribute.
@@ -456,7 +484,7 @@ public interface LilyPondPackage extends EPackage
    * @see org.elysium.lilyPond.impl.LilyPondPackageImpl#getCommand()
    * @generated
    */
-  int COMMAND = 11;
+  int COMMAND = 12;
 
   /**
    * The feature id for the '<em><b>Parent Block</b></em>' container reference.
@@ -502,7 +530,7 @@ public interface LilyPondPackage extends EPackage
    * @see org.elysium.lilyPond.impl.LilyPondPackageImpl#getCustomCommand()
    * @generated
    */
-  int CUSTOM_COMMAND = 12;
+  int CUSTOM_COMMAND = 13;
 
   /**
    * The feature id for the '<em><b>Parent Block</b></em>' container reference.
@@ -548,7 +576,7 @@ public interface LilyPondPackage extends EPackage
    * @see org.elysium.lilyPond.impl.LilyPondPackageImpl#getLongCommand()
    * @generated
    */
-  int LONG_COMMAND = 13;
+  int LONG_COMMAND = 14;
 
   /**
    * The feature id for the '<em><b>Parent Block</b></em>' container reference.
@@ -594,7 +622,7 @@ public interface LilyPondPackage extends EPackage
    * @see org.elysium.lilyPond.impl.LilyPondPackageImpl#getShortCommand()
    * @generated
    */
-  int SHORT_COMMAND = 14;
+  int SHORT_COMMAND = 15;
 
   /**
    * The feature id for the '<em><b>Parent Block</b></em>' container reference.
@@ -640,7 +668,7 @@ public interface LilyPondPackage extends EPackage
    * @see org.elysium.lilyPond.impl.LilyPondPackageImpl#getPresetCommand()
    * @generated
    */
-  int PRESET_COMMAND = 15;
+  int PRESET_COMMAND = 16;
 
   /**
    * The feature id for the '<em><b>Parent Block</b></em>' container reference.
@@ -686,7 +714,7 @@ public interface LilyPondPackage extends EPackage
    * @see org.elysium.lilyPond.impl.LilyPondPackageImpl#getInclude()
    * @generated
    */
-  int INCLUDE = 16;
+  int INCLUDE = 17;
 
   /**
    * The feature id for the '<em><b>Parent Block</b></em>' container reference.
@@ -741,7 +769,7 @@ public interface LilyPondPackage extends EPackage
    * @see org.elysium.lilyPond.impl.LilyPondPackageImpl#getVersion()
    * @generated
    */
-  int VERSION = 17;
+  int VERSION = 18;
 
   /**
    * The feature id for the '<em><b>Parent Block</b></em>' container reference.
@@ -796,7 +824,7 @@ public interface LilyPondPackage extends EPackage
    * @see org.elysium.lilyPond.impl.LilyPondPackageImpl#getText()
    * @generated
    */
-  int TEXT = 18;
+  int TEXT = 19;
 
   /**
    * The feature id for the '<em><b>Parent Block</b></em>' container reference.
@@ -842,7 +870,7 @@ public interface LilyPondPackage extends EPackage
    * @see org.elysium.lilyPond.impl.LilyPondPackageImpl#getNumber()
    * @generated
    */
-  int NUMBER = 19;
+  int NUMBER = 20;
 
   /**
    * The feature id for the '<em><b>Parent Block</b></em>' container reference.
@@ -1079,6 +1107,27 @@ public interface LilyPondPackage extends EPackage
    * @generated
    */
   EReference getSchemeList_Expressions();
+
+  /**
+   * Returns the meta object for class '{@link org.elysium.lilyPond.SchemeBlock <em>Scheme Block</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Scheme Block</em>'.
+   * @see org.elysium.lilyPond.SchemeBlock
+   * @generated
+   */
+  EClass getSchemeBlock();
+
+  /**
+   * Returns the meta object for the containment reference list '{@link org.elysium.lilyPond.SchemeBlock#getExpressions <em>Expressions</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>Expressions</em>'.
+   * @see org.elysium.lilyPond.SchemeBlock#getExpressions()
+   * @see #getSchemeBlock()
+   * @generated
+   */
+  EReference getSchemeBlock_Expressions();
 
   /**
    * Returns the meta object for class '{@link org.elysium.lilyPond.SchemeText <em>Scheme Text</em>}'.
@@ -1440,6 +1489,24 @@ public interface LilyPondPackage extends EPackage
      * @generated
      */
     EReference SCHEME_LIST__EXPRESSIONS = eINSTANCE.getSchemeList_Expressions();
+
+    /**
+     * The meta object literal for the '{@link org.elysium.lilyPond.impl.SchemeBlockImpl <em>Scheme Block</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.elysium.lilyPond.impl.SchemeBlockImpl
+     * @see org.elysium.lilyPond.impl.LilyPondPackageImpl#getSchemeBlock()
+     * @generated
+     */
+    EClass SCHEME_BLOCK = eINSTANCE.getSchemeBlock();
+
+    /**
+     * The meta object literal for the '<em><b>Expressions</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference SCHEME_BLOCK__EXPRESSIONS = eINSTANCE.getSchemeBlock_Expressions();
 
     /**
      * The meta object literal for the '{@link org.elysium.lilyPond.impl.SchemeTextImpl <em>Scheme Text</em>}' class.

@@ -34,6 +34,9 @@
     <genClasses ecoreClass="LilyPond.ecore#//SchemeList">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference LilyPond.ecore#//SchemeList/expressions"/>
     </genClasses>
+    <genClasses ecoreClass="LilyPond.ecore#//SchemeBlock">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference LilyPond.ecore#//SchemeBlock/expressions"/>
+    </genClasses>
     <genClasses ecoreClass="LilyPond.ecore#//SchemeText">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute LilyPond.ecore#//SchemeText/value"/>
     </genClasses>

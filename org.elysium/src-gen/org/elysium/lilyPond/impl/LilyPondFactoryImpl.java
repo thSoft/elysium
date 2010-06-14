@@ -24,6 +24,7 @@ import org.elysium.lilyPond.LilyPondPackage;
 import org.elysium.lilyPond.LongCommand;
 import org.elysium.lilyPond.PresetCommand;
 import org.elysium.lilyPond.Scheme;
+import org.elysium.lilyPond.SchemeBlock;
 import org.elysium.lilyPond.SchemeBoolean;
 import org.elysium.lilyPond.SchemeExpression;
 import org.elysium.lilyPond.SchemeList;
@@ -97,6 +98,7 @@ public class LilyPondFactoryImpl extends EFactoryImpl implements LilyPondFactory
       case LilyPondPackage.SCHEME_VALUE: return createSchemeValue();
       case LilyPondPackage.SCHEME_BOOLEAN: return createSchemeBoolean();
       case LilyPondPackage.SCHEME_LIST: return createSchemeList();
+      case LilyPondPackage.SCHEME_BLOCK: return createSchemeBlock();
       case LilyPondPackage.SCHEME_TEXT: return createSchemeText();
       case LilyPondPackage.COMMAND: return createCommand();
       case LilyPondPackage.CUSTOM_COMMAND: return createCustomCommand();
@@ -220,6 +222,17 @@ public class LilyPondFactoryImpl extends EFactoryImpl implements LilyPondFactory
   {
     SchemeListImpl schemeList = new SchemeListImpl();
     return schemeList;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public SchemeBlock createSchemeBlock()
+  {
+    SchemeBlockImpl schemeBlock = new SchemeBlockImpl();
+    return schemeBlock;
   }
 
   /**

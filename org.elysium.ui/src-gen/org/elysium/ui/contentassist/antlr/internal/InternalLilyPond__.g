@@ -17,32 +17,34 @@ T18 : '}' ;
 T19 : '<<' ;
 T20 : '>>' ;
 T21 : '#' ;
-T22 : '\\' ;
-T23 : 'include' ;
-T24 : 'version' ;
+T22 : '#{' ;
+T23 : '#}' ;
+T24 : '\\' ;
+T25 : 'include' ;
+T26 : 'version' ;
 
-// $ANTLR src "../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g" 2147
+// $ANTLR src "../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g" 2299
 RULE_STRING : '"' ('\\' ('b'|'t'|'n'|' f'|'r'|'"'|'\''|'\\')|~(('\\'|'"')))* '"';
 
-// $ANTLR src "../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g" 2149
+// $ANTLR src "../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g" 2301
 RULE_INT : ('0'..'9')+;
 
-// $ANTLR src "../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g" 2151
+// $ANTLR src "../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g" 2303
 RULE_BOOL : ('#f'|'#t');
 
-// $ANTLR src "../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g" 2153
+// $ANTLR src "../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g" 2305
 RULE_ID : ('a'..'z'|'A'..'Z') ('a'..'z'|'A'..'Z'|'-')*;
 
-// $ANTLR src "../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g" 2155
+// $ANTLR src "../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g" 2307
 RULE_WS : (' '|'\t'|'\r'|'\n')+;
 
-// $ANTLR src "../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g" 2157
+// $ANTLR src "../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g" 2309
 RULE_SL_COMMENT : '%' ~(('\n'|'\r'))* ('\r'? '\n')?;
 
-// $ANTLR src "../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g" 2159
+// $ANTLR src "../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g" 2311
 RULE_ML_COMMENT : '%{' ( options {greedy=false;} : . )*'%}';
 
-// $ANTLR src "../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g" 2161
+// $ANTLR src "../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g" 2313
 RULE_ANY_OTHER : .;
 
 

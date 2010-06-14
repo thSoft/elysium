@@ -116,6 +116,15 @@ public interface LilyPondFactory extends EFactory
   SchemeList createSchemeList();
 
   /**
+   * Returns a new object of class '<em>Scheme Block</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Scheme Block</em>'.
+   * @generated
+   */
+  SchemeBlock createSchemeBlock();
+
+  /**
    * Returns a new object of class '<em>Scheme Text</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->

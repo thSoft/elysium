@@ -20,11 +20,13 @@ Scheme: "#" value=SchemeExpression;
 
 SchemeExpression: quoted?="'"? value=SchemeValue;
 
-SchemeValue: SchemeBoolean | SchemeList | SchemeText | Number;
+SchemeValue: SchemeBoolean | SchemeList | SchemeBlock | SchemeText | Number;
 
 SchemeBoolean: value=BOOL;
 
 SchemeList: "(" expressions+=SchemeExpression+ ")";
+
+SchemeBlock: "#{" expressions+=Expression+ "#}";
 
 SchemeText: value=SchemeTextLiterals;
 

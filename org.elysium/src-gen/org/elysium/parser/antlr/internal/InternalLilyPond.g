@@ -565,11 +565,11 @@ ruleSchemeValue returns [EObject current=null]
 	  /* */ 
 	}
     { 
-        currentNode=createCompositeNode(grammarAccess.getSchemeValueAccess().getSchemeTextParserRuleCall_2(), currentNode); 
+        currentNode=createCompositeNode(grammarAccess.getSchemeValueAccess().getSchemeBlockParserRuleCall_2(), currentNode); 
     }
-    this_SchemeText_2=ruleSchemeText
+    this_SchemeBlock_2=ruleSchemeBlock
     { 
-        $current = $this_SchemeText_2.current; 
+        $current = $this_SchemeBlock_2.current; 
         currentNode = currentNode.getParent();
     }
 
@@ -578,11 +578,24 @@ ruleSchemeValue returns [EObject current=null]
 	  /* */ 
 	}
     { 
-        currentNode=createCompositeNode(grammarAccess.getSchemeValueAccess().getNumberParserRuleCall_3(), currentNode); 
+        currentNode=createCompositeNode(grammarAccess.getSchemeValueAccess().getSchemeTextParserRuleCall_3(), currentNode); 
     }
-    this_Number_3=ruleNumber
+    this_SchemeText_3=ruleSchemeText
     { 
-        $current = $this_Number_3.current; 
+        $current = $this_SchemeText_3.current; 
+        currentNode = currentNode.getParent();
+    }
+
+    |
+	{ 
+	  /* */ 
+	}
+    { 
+        currentNode=createCompositeNode(grammarAccess.getSchemeValueAccess().getNumberParserRuleCall_4(), currentNode); 
+    }
+    this_Number_4=ruleNumber
+    { 
+        $current = $this_Number_4.current; 
         currentNode = currentNode.getParent();
     }
 )
@@ -686,6 +699,61 @@ ruleSchemeList returns [EObject current=null]
 )+	')' 
     {
         createLeafNode(grammarAccess.getSchemeListAccess().getRightParenthesisKeyword_2(), null); 
+    }
+)
+;
+
+
+
+
+
+// Entry rule entryRuleSchemeBlock
+entryRuleSchemeBlock returns [EObject current=null] 
+	:
+	{ currentNode = createCompositeNode(grammarAccess.getSchemeBlockRule(), currentNode); }
+	 iv_ruleSchemeBlock=ruleSchemeBlock 
+	 { $current=$iv_ruleSchemeBlock.current; } 
+	 EOF 
+;
+
+// Rule SchemeBlock
+ruleSchemeBlock returns [EObject current=null] 
+    @init { EObject temp=null; setCurrentLookahead(); resetLookahead(); 
+    }
+    @after { resetLookahead(); 
+    	lastConsumedNode = currentNode;
+    }:
+(	'#{' 
+    {
+        createLeafNode(grammarAccess.getSchemeBlockAccess().getNumberSignLeftCurlyBracketKeyword_0(), null); 
+    }
+(
+(
+		{ 
+	        currentNode=createCompositeNode(grammarAccess.getSchemeBlockAccess().getExpressionsExpressionParserRuleCall_1_0(), currentNode); 
+	    }
+		lv_expressions_1_0=ruleExpression		{
+	        if ($current==null) {
+	            $current = factory.create(grammarAccess.getSchemeBlockRule().getType().getClassifier());
+	            associateNodeWithAstElement(currentNode.getParent(), $current);
+	        }
+	        try {
+	       		add(
+	       			$current, 
+	       			"expressions",
+	        		lv_expressions_1_0, 
+	        		"Expression", 
+	        		currentNode);
+	        } catch (ValueConverterException vce) {
+				handleValueConverterException(vce);
+	        }
+	        currentNode = currentNode.getParent();
+	    }
+
+)
+)+	'#}' 
+    {
+        createLeafNode(grammarAccess.getSchemeBlockAccess().getNumberSignRightCurlyBracketKeyword_2(), null); 
     }
 )
 ;

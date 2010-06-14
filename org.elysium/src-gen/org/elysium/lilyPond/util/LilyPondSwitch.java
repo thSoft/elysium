@@ -20,6 +20,7 @@ import org.elysium.lilyPond.LilyPondPackage;
 import org.elysium.lilyPond.LongCommand;
 import org.elysium.lilyPond.PresetCommand;
 import org.elysium.lilyPond.Scheme;
+import org.elysium.lilyPond.SchemeBlock;
 import org.elysium.lilyPond.SchemeBoolean;
 import org.elysium.lilyPond.SchemeExpression;
 import org.elysium.lilyPond.SchemeList;
@@ -189,6 +190,14 @@ public class LilyPondSwitch<T>
         SchemeList schemeList = (SchemeList)theEObject;
         T result = caseSchemeList(schemeList);
         if (result == null) result = caseSchemeValue(schemeList);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case LilyPondPackage.SCHEME_BLOCK:
+      {
+        SchemeBlock schemeBlock = (SchemeBlock)theEObject;
+        T result = caseSchemeBlock(schemeBlock);
+        if (result == null) result = caseSchemeValue(schemeBlock);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -443,6 +452,22 @@ public class LilyPondSwitch<T>
    * @generated
    */
   public T caseSchemeList(SchemeList object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Scheme Block</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Scheme Block</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseSchemeBlock(SchemeBlock object)
   {
     return null;
   }

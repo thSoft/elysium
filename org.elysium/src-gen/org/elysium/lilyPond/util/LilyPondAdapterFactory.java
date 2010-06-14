@@ -22,6 +22,7 @@ import org.elysium.lilyPond.LilyPondPackage;
 import org.elysium.lilyPond.LongCommand;
 import org.elysium.lilyPond.PresetCommand;
 import org.elysium.lilyPond.Scheme;
+import org.elysium.lilyPond.SchemeBlock;
 import org.elysium.lilyPond.SchemeBoolean;
 import org.elysium.lilyPond.SchemeExpression;
 import org.elysium.lilyPond.SchemeList;
@@ -145,6 +146,11 @@ public class LilyPondAdapterFactory extends AdapterFactoryImpl
       public Adapter caseSchemeList(SchemeList object)
       {
         return createSchemeListAdapter();
+      }
+      @Override
+      public Adapter caseSchemeBlock(SchemeBlock object)
+      {
+        return createSchemeBlockAdapter();
       }
       @Override
       public Adapter caseSchemeText(SchemeText object)
@@ -364,6 +370,21 @@ public class LilyPondAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createSchemeListAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.elysium.lilyPond.SchemeBlock <em>Scheme Block</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.elysium.lilyPond.SchemeBlock
+   * @generated
+   */
+  public Adapter createSchemeBlockAdapter()
   {
     return null;
   }
