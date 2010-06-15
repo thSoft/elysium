@@ -271,7 +271,7 @@
   point="org.eclipse.ui.commandImages">
   <image
    commandId="org.elysium.ui.commands.SetMainFileToCurrent"
-   icon="icons/mainfile/Set.png">
+   icon="icons/mainfile/SetToCurrent.png">
   </image>
   <image
    commandId="org.elysium.ui.commands.UnsetMainFile"
@@ -287,7 +287,7 @@
   </image>
   <image
    commandId="org.elysium.ui.commands.SetAsMainFile"
-   icon="icons/mainfile/Set.png">
+   icon="icons/mainfile/MainFile.png">
   </image>
  </extension>
  <extension
@@ -316,7 +316,7 @@
      </with>
     </visibleWhen>
     <menu
-     icon="icons/mainfile/Menu.png"
+     icon="icons/mainfile/MainFile.png"
      label="Main File">
      <command
       commandId="org.elysium.ui.commands.SetMainFileToCurrent"
