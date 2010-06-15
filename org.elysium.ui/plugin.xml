@@ -39,7 +39,7 @@
   </category>
   <view
    category="org.elysium.ui.viewCategories.LilyPond"
-   class="org.elysium.ui.score.ScoreView"
+   class="org.eclipse.ui.views.file.FileView"
    icon="icons/score/View.png"
    id="org.elysium.ui.views.Score"
    name="Score"
@@ -184,9 +184,9 @@
    name="Unset Main File">
   </command>
   <command
-   defaultHandler="org.elysium.ui.mainfile.handlers.SelectMainFileHandler"
-   id="org.elysium.ui.commands.SelectMainFile"
-   name="Select Main File">
+   defaultHandler="org.elysium.ui.mainfile.handlers.BrowseMainFileHandler"
+   id="org.elysium.ui.commands.BrowseMainFile"
+   name="Browse Main File">
   </command>
   <command
    defaultHandler="org.elysium.ui.mainfile.handlers.OpenMainFileHandler"
@@ -278,8 +278,8 @@
    icon="icons/mainfile/Unset.png">
   </image>
   <image
-   commandId="org.elysium.ui.commands.SelectMainFile"
-   icon="icons/mainfile/Select.png">
+   commandId="org.elysium.ui.commands.BrowseMainFile"
+   icon="icons/mainfile/Browse.png">
   </image>
   <image
    commandId="org.elysium.ui.commands.OpenMainFile"
@@ -316,7 +316,7 @@
      </with>
     </visibleWhen>
     <menu
-     icon="icons/mainfile/MainFile.png"
+     icon="icons/mainfile/Menu.png"
      label="Main File">
      <command
       commandId="org.elysium.ui.commands.SetMainFileToCurrent"
@@ -329,8 +329,8 @@
       style="push">
      </command>
      <command
-      commandId="org.elysium.ui.commands.SelectMainFile"
-      label="Select..."
+      commandId="org.elysium.ui.commands.BrowseMainFile"
+      label="Browse..."
       style="push">
      </command>
      <command
@@ -599,5 +599,41 @@
   <participant
    class="org.elysium.ui.LilyPondExecutableExtensionFactory:org.elysium.ui.compiler.LilyPondBuilder">
   </participant>
+ </extension>
+ <extension
+       point="org.eclipse.ui.views.file.bindings">
+    <binding
+          errorMessage="No score found.&#10;Save the LilyPond source to see the score.&#10;Make sure the \layout block exists besides the \midi block."
+          type="org.elysium.ui.score.ScoreViewType"
+          viewId="org.elysium.ui.views.Score">
+       <fileExtension
+             extension="pdf">
+       </fileExtension>
+       <source
+             id="org.elysium.ui.sources.CurrentScore">
+       </source>
+       <source
+             id="org.elysium.ui.sources.MainFileScore">
+       </source>
+       <source
+             id="org.eclipse.ui.views.file.sources.Direct">
+       </source>
+       <source
+             id="org.eclipse.ui.views.file.sources.Selected">
+       </source>
+    </binding>
+ </extension>
+ <extension
+       point="org.eclipse.ui.views.file.sources">
+    <source
+          class="org.elysium.ui.score.CurrentScoreViewSource"
+          icon="icons/sources/Current.png"
+          id="org.elysium.ui.sources.CurrentScore">
+    </source>
+    <source
+          class="org.elysium.ui.score.MainFileScoreViewSource"
+          icon="icons/sources/MainFile.png"
+          id="org.elysium.ui.sources.MainFileScore">
+    </source>
  </extension>
 </plugin>

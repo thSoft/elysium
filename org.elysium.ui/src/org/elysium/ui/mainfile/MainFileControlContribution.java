@@ -15,7 +15,7 @@ import org.elysium.ui.Activator;
  */
 public class MainFileControlContribution extends WorkbenchWindowControlContribution implements MainFileListener {
 
-	private static final Image ICON_SET = Activator.getImageDescriptor("icons/mainfile/Set.png").createImage(); //$NON-NLS-1$
+	private static final Image ICON_SET = Activator.getImageDescriptor("icons/mainfile/MainFile.png").createImage(); //$NON-NLS-1$
 
 	private static final Image ICON_UNSET = Activator.getImageDescriptor("icons/mainfile/Unset.png").createImage(); //$NON-NLS-1$
 

@@ -1,7 +1,7 @@
 package org.elysium.ui.score;
 
 import org.eclipse.core.resources.IFile;
-import org.eclipse.ui.views.file.CurrentFileViewSource;
+import org.eclipse.ui.views.file.source.CurrentFileViewSource;
 
 /**
  * A source for the score compiled from the currently edited file.
@@ -9,8 +9,13 @@ import org.eclipse.ui.views.file.CurrentFileViewSource;
 public class CurrentScoreViewSource extends CurrentFileViewSource {
 
 	@Override
-	protected IFile getFile(IFile currentFile) {
-		return ScoreView.getScoreFile(currentFile);
+	protected IFile deriveFile(IFile currentFile) {
+		return ScoreViewType.getScoreFile(currentFile);
+	}
+
+	@Override
+	public String getLongName() {
+		return "Score of the currently edited file";
 	}
 
 }

@@ -9,8 +9,13 @@ import org.elysium.ui.mainfile.MainFileViewSource;
 public class MainFileScoreViewSource extends MainFileViewSource {
 
 	@Override
-	protected IFile getFile(IFile mainFile) {
-		return ScoreView.getScoreFile(mainFile);
+	protected IFile deriveFile(IFile mainFile) {
+		return ScoreViewType.getScoreFile(mainFile);
+	}
+
+	@Override
+	public String getLongName() {
+		return "Score of the main file";
 	}
 
 }

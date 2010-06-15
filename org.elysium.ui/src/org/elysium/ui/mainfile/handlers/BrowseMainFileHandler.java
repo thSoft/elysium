@@ -12,7 +12,7 @@ import org.elysium.ui.mainfile.MainFile;
 /**
  * Lets the user choose the main file by browsing the workspace.
  */
-public class SelectMainFileHandler extends AbstractHandler {
+public class BrowseMainFileHandler extends AbstractHandler {
 
 	@Override
 	public Object execute(ExecutionEvent event) throws ExecutionException {

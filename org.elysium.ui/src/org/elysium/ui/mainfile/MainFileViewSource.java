@@ -1,17 +1,17 @@
 package org.elysium.ui.mainfile;
 
 import org.eclipse.core.resources.IFile;
-import org.eclipse.ui.views.file.AbstractFileViewSource;
 import org.eclipse.ui.views.file.FileView;
+import org.eclipse.ui.views.file.source.AbstractFileViewSource;
 
 /**
  * A source for the main file (or a file derived from it).
  */
-public class MainFileViewSource extends AbstractFileViewSource implements MainFileListener {
+public abstract class MainFileViewSource extends AbstractFileViewSource implements MainFileListener {
 
 	@Override
-	public void init(FileView fileView) {
-		super.init(fileView);
+	public void init(FileView fileView, boolean startup) {
+		super.init(fileView, startup);
 		MainFile.addListener(this);
 		handleMainFileChanged(null);
 	}
@@ -19,10 +19,17 @@ public class MainFileViewSource extends AbstractFileViewSource implements MainFi
 	@Override
 	public void handleMainFileChanged(IFile oldMainFile) {
 		IFile mainFile = MainFile.get();
-		getFileView().show(getFile(mainFile));
+		if (mainFile != null) {
+			getFileView().show(deriveFile(mainFile));
+		} else {
+			getFileView().hide();
+		}
 	}
 
-	protected IFile getFile(IFile mainFile) {
+	/**
+	 * Override to return another file derived from the main file.
+	 */
+	protected IFile deriveFile(IFile mainFile) {
 		return mainFile;
 	}
 
@@ -34,7 +41,7 @@ public class MainFileViewSource extends AbstractFileViewSource implements MainFi
 
 	@Override
 	public String getName() {
-		return "Main file";
+		return "Main File";
 	}
 
 }
