@@ -14,8 +14,8 @@ public class SourceToScoreHyperlink extends AbstractHyperlink {
 
 	@Override
 	public void open() {
-		// TODO if displayed file differs from score file then set direct file view source
-		// TODO navigate to page and highlight area
+		// TODO search for hyperlink in currently displayed score
+		// TODO navigate to page, reveal and highlight area
 	}
 
 }

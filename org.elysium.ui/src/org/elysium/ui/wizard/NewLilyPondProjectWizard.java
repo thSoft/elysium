@@ -11,10 +11,12 @@ import org.eclipse.core.runtime.IExecutableExtension;
 import org.eclipse.core.runtime.NullProgressMonitor;
 import org.eclipse.jface.viewers.IStructuredSelection;
 import org.eclipse.jface.wizard.Wizard;
+import org.eclipse.ui.IEditorPart;
 import org.eclipse.ui.INewWizard;
 import org.eclipse.ui.IWorkbench;
 import org.eclipse.ui.dialogs.WizardNewProjectCreationPage;
 import org.eclipse.ui.ide.IDE;
+import org.eclipse.ui.texteditor.ITextEditor;
 import org.eclipse.ui.wizards.newresource.BasicNewProjectResourceWizard;
 import org.eclipse.util.ProjectUtils;
 import org.eclipse.util.UiUtils;
@@ -28,6 +30,8 @@ import org.elysium.ui.version.LilyPondVersion;
  * New project wizard for creating LilyPond projects.
  */
 public class NewLilyPondProjectWizard extends Wizard implements INewWizard, IExecutableExtension {
+
+	private static final String CURSOR_POSITION_MARKER = "$"; //$NON-NLS-1$
 
 	@Override
 	public void init(IWorkbench workbench, IStructuredSelection selection) {
@@ -44,10 +48,10 @@ public class NewLilyPondProjectWizard extends Wizard implements INewWizard, IExe
 		addPage(projectCreationPage);
 	}
 
-	private static final String TEMPLATE = "\\version \"{0}\"\n\n\\relative c'' '{\n\tc\n}'\n"; // XXX avoid MessageFormat-escaping
+	private static final String TEMPLATE = "\\version \"{0}\"\n\n\\header '{\n\ttagline = \"\"\n}'\n\n\\relative c'' '{\n\tc{1}\n}'\n"; // XXX avoid MessageFormat-escaping
 
 	private static String getTemplate() {
-		return MessageFormat.format(TEMPLATE, LilyPondVersion.get());
+		return MessageFormat.format(TEMPLATE, LilyPondVersion.get(), CURSOR_POSITION_MARKER);
 	}
 
 	@Override
@@ -65,8 +69,16 @@ public class NewLilyPondProjectWizard extends Wizard implements INewWizard, IExe
 			ProjectUtils.addNatures(project, LilyPondNature.ID);
 			if (project.members().length == 1) { // XXX how to exclude .project from members?
 				IFile file = project.getFile("score.ly");
-				file.create(new StringInputStream(getTemplate()), false, new NullProgressMonitor());
-				IDE.openEditor(UiUtils.getWorkbenchPage(), file);
+				String template = getTemplate();
+				int cursorOffset = template.indexOf(CURSOR_POSITION_MARKER);
+				template = template.replace(CURSOR_POSITION_MARKER, ""); //$NON-NLS-1$
+				file.create(new StringInputStream(template), false, new NullProgressMonitor());
+				IEditorPart editor = IDE.openEditor(UiUtils.getWorkbenchPage(), file);
+				// FIXME editor is not focused
+				if (editor instanceof ITextEditor) {
+					ITextEditor textEditor = (ITextEditor)editor;
+					textEditor.selectAndReveal(cursorOffset, 0);
+				}
 			} else {
 				// If project was imported, just parse
 				project.setPersistentProperty(LilyPondBuilder.DO_NOT_PRINT_PAGES, ""); //$NON-NLS-1$
