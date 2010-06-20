@@ -1,9 +1,9 @@
 package org.elysium.ui.score;
 
 import org.eclipse.core.resources.IFile;
-import org.eclipse.ui.views.file.Activator;
 import org.eclipse.ui.views.pdf.PdfViewType;
 import org.eclipse.util.ResourceUtils;
+import org.elysium.ui.Activator;
 
 /**
  * Shows the PDF file compiled from a LilyPond source file.

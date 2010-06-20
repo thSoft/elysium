@@ -52,7 +52,7 @@ public class LilyPondHyperlinkHelper extends HyperlinkHelper {
 			hyperlinks = Arrays.asList(defaultHyperlinks);
 		}
 		// Add hyperlinks
-		AbstractNode node = NodeUtil.findLeafNodeAtOffset(xtextResource.getParseResult().getRootNode(), offset);
+		AbstractNode node = NodeUtil.findLeafNodeAtOffset(xtextResource.getParseResult().getRootNode(), offset + 1);
 		EObject object = NodeUtil.getNearestSemanticObject(node);
 		int nodeOffset = node.getOffset();
 		int nodeLength = node.getLength();
@@ -62,12 +62,16 @@ public class LilyPondHyperlinkHelper extends HyperlinkHelper {
 			Resource includedEResource = EcoreUtil2.getResource(xtextResource, include.getImportURI());
 			IResource includedResource = ResourceUtils.convertEResourceToPlatformResource(includedEResource);
 			if (includedResource != null) {
-				XtextHyperlink hyperlink = hyperlinkProvider.get();
-				hyperlink.setHyperlinkRegion(new Region(nodeOffset + 1, nodeLength - 2)); // Ignore the surrounding quotation marks
-				hyperlink.setHyperlinkText("Open included file");
-				URI importUri = includedEResource.getURI();
-				hyperlink.setURI(importUri);
-				hyperlinks.add(hyperlink);
+				int linkOffset = nodeOffset + 1; // Ignore the surrounding quotation marks
+				int linkLength = nodeLength - 2;
+				if ((linkOffset <= offset) && (offset < linkOffset + linkLength)) {
+					XtextHyperlink hyperlink = hyperlinkProvider.get();
+					hyperlink.setHyperlinkRegion(new Region(linkOffset, linkLength));
+					hyperlink.setHyperlinkText("Open included file");
+					URI importUri = includedEResource.getURI();
+					hyperlink.setURI(importUri);
+					hyperlinks.add(hyperlink);
+				}
 			}
 		}
 		// Source -> Score
@@ -88,13 +92,13 @@ public class LilyPondHyperlinkHelper extends HyperlinkHelper {
 								if (resource.equals(targetFile)) {
 									try {
 										int annotationOffset = DocumentUtils.getOffsetOfPosition(DocumentUtils.getDocumentFromFile(targetFile), pdfAnnotation.lineNumber, pdfAnnotation.columnNumber, 1);
-										if ((nodeOffset <= annotationOffset) && (annotationOffset <= nodeOffset + nodeLength)) {
+										if ((nodeOffset <= annotationOffset) && (annotationOffset < nodeOffset + nodeLength)) {
 											SourceToScoreHyperlink hyperlink = new SourceToScoreHyperlink(pdfViewPage, pdfAnnotation);
 											hyperlink.setHyperlinkRegion(new Region(nodeOffset, nodeLength));
 											hyperlinks.add(hyperlink);
 										}
 									} catch (Exception e) {
-										Activator.logError("Error while getting PDF annotation data", e);
+										Activator.logError("Error while calculating hyperlink offset", e);
 									}
 								}
 							}
@@ -109,5 +113,4 @@ public class LilyPondHyperlinkHelper extends HyperlinkHelper {
 			return Iterables.newArray(hyperlinks, IHyperlink.class);
 		}
 	}
-
 }
