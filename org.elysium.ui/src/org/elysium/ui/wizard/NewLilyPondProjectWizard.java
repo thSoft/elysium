@@ -31,8 +31,6 @@ import org.elysium.ui.version.LilyPondVersion;
  */
 public class NewLilyPondProjectWizard extends Wizard implements INewWizard, IExecutableExtension {
 
-	private static final String CURSOR_POSITION_MARKER = "$"; //$NON-NLS-1$
-
 	@Override
 	public void init(IWorkbench workbench, IStructuredSelection selection) {
 	}
@@ -48,7 +46,9 @@ public class NewLilyPondProjectWizard extends Wizard implements INewWizard, IExe
 		addPage(projectCreationPage);
 	}
 
-	private static final String TEMPLATE = "\\version \"{0}\"\n\n\\header '{\n\ttagline = \"\"\n}'\n\n\\relative c'' '{\n\tc{1}\n}'\n"; // XXX avoid MessageFormat-escaping
+	private static final String TEMPLATE = "\\version \"{0}\"\n\n\\header '{\n\ttagline = \"\"\n}'\n\n\\relative c'' '{\n\tc'{1}'\n}'\n"; // XXX avoid MessageFormat-escaping
+
+	private static final String CURSOR_POSITION_MARKER = "$"; //$NON-NLS-1$
 
 	private static String getTemplate() {
 		return MessageFormat.format(TEMPLATE, LilyPondVersion.get(), CURSOR_POSITION_MARKER);

@@ -3,16 +3,23 @@ package org.elysium.ui.hyperlinks;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-import org.eclipse.core.resources.IMarker;
+import org.eclipse.core.resources.IFile;
 import org.eclipse.core.resources.IResource;
-import org.eclipse.core.runtime.CoreException;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.util.ResourceUtils;
 import org.eclipse.jface.text.Region;
 import org.eclipse.jface.text.hyperlink.IHyperlink;
+import org.eclipse.ui.IViewPart;
 import org.eclipse.ui.views.file.Activator;
+import org.eclipse.ui.views.file.FileView;
+import org.eclipse.ui.views.file.IFileViewType;
+import org.eclipse.ui.views.pdf.PdfAnnotation;
+import org.eclipse.ui.views.pdf.PdfViewPage;
+import org.eclipse.ui.views.pdf.PdfViewType;
+import org.eclipse.util.DocumentUtils;
+import org.eclipse.util.UiUtils;
 import org.eclipse.xtext.EcoreUtil2;
 import org.eclipse.xtext.parsetree.AbstractNode;
 import org.eclipse.xtext.parsetree.NodeUtil;
@@ -21,8 +28,7 @@ import org.eclipse.xtext.ui.editor.hyperlinking.HyperlinkHelper;
 import org.eclipse.xtext.ui.editor.hyperlinking.XtextHyperlink;
 import org.elysium.lilyPond.Include;
 import org.elysium.lilyPond.LilyPondPackage;
-import org.elysium.ui.markers.MarkerTypes;
-import org.elysium.ui.score.hyperlinks.SourceToScoreHyperlink;
+import org.elysium.ui.score.ScoreViewType;
 import com.google.common.collect.Iterables;
 import com.google.inject.Inject;
 import com.google.inject.Provider;
@@ -48,6 +54,8 @@ public class LilyPondHyperlinkHelper extends HyperlinkHelper {
 		// Add hyperlinks
 		AbstractNode node = NodeUtil.findLeafNodeAtOffset(xtextResource.getParseResult().getRootNode(), offset);
 		EObject object = NodeUtil.getNearestSemanticObject(node);
+		int nodeOffset = node.getOffset();
+		int nodeLength = node.getLength();
 		// Include -> File
 		if ((object instanceof Include) && NodeUtil.findNodesForFeature(object, LilyPondPackage.eINSTANCE.getInclude_ImportURI()).contains(node)) {
 			Include include = (Include)object;
@@ -55,7 +63,7 @@ public class LilyPondHyperlinkHelper extends HyperlinkHelper {
 			IResource includedResource = ResourceUtils.convertEResourceToPlatformResource(includedEResource);
 			if (includedResource != null) {
 				XtextHyperlink hyperlink = hyperlinkProvider.get();
-				hyperlink.setHyperlinkRegion(new Region(node.getOffset() + 1, node.getLength() - 2)); // Ignore the surrounding quotation marks
+				hyperlink.setHyperlinkRegion(new Region(nodeOffset + 1, nodeLength - 2)); // Ignore the surrounding quotation marks
 				hyperlink.setHyperlinkText("Open included file");
 				URI importUri = includedEResource.getURI();
 				hyperlink.setURI(importUri);
@@ -66,19 +74,32 @@ public class LilyPondHyperlinkHelper extends HyperlinkHelper {
 		else {
 			IResource resource = ResourceUtils.convertEResourceToPlatformResource(xtextResource);
 			if (resource != null) {
-				try {
-					IMarker[] sourceToScoreMarkers = resource.findMarkers(MarkerTypes.SOURCE_TO_SCORE, false, IResource.DEPTH_ZERO);
-					for (IMarker marker : sourceToScoreMarkers) {
-						int charStart = marker.getAttribute(IMarker.CHAR_START, 0);
-						int charEnd = marker.getAttribute(IMarker.CHAR_END, 0);
-						if ((charStart <= offset) && (offset <= charEnd)) {
-							SourceToScoreHyperlink hyperlink = new SourceToScoreHyperlink(marker);
-							hyperlink.setHyperlinkRegion(new Region(node.getOffset(), node.getLength()));
-							hyperlinks.add(hyperlink);
+				IViewPart view = UiUtils.getWorkbenchPage().findView(ScoreViewType.ID);
+				if (view instanceof FileView) {
+					FileView fileView = (FileView)view;
+					IFileViewType<?> fileViewType = fileView.getType();
+					if (fileViewType instanceof PdfViewType) {
+						PdfViewType pdfViewType = (PdfViewType)fileViewType;
+						PdfViewPage pdfViewPage = pdfViewType.getPage();
+						if (pdfViewPage != null) {
+							PdfAnnotation[] pdfAnnotations = pdfViewPage.getAnnotations();
+							for (PdfAnnotation pdfAnnotation : pdfAnnotations) {
+								IFile targetFile = pdfAnnotation.file;
+								if (resource.equals(targetFile)) {
+									try {
+										int annotationOffset = DocumentUtils.getOffsetOfPosition(DocumentUtils.getDocumentFromFile(targetFile), pdfAnnotation.lineNumber, pdfAnnotation.columnNumber, 1);
+										if ((nodeOffset <= annotationOffset) && (annotationOffset <= nodeOffset + nodeLength)) {
+											SourceToScoreHyperlink hyperlink = new SourceToScoreHyperlink(pdfViewPage, pdfAnnotation);
+											hyperlink.setHyperlinkRegion(new Region(nodeOffset, nodeLength));
+											hyperlinks.add(hyperlink);
+										}
+									} catch (Exception e) {
+										Activator.logError("Error while getting PDF annotation data", e);
+									}
+								}
+							}
 						}
 					}
-				} catch (CoreException e) {
-					Activator.logError("Couldn't query source-to-score markers", e);
 				}
 			}
 		}

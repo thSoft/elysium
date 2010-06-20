@@ -18,8 +18,4 @@ public class MarkerTypes {
 
 	public static final String OUTDATED = get("Outdated"); //$NON-NLS-1$
 
-	public static final String SCORE_TO_SOURCE = get("ScoreToSource"); //$NON-NLS-1$
-
-	public static final String SOURCE_TO_SCORE = get("SourceToScore"); //$NON-NLS-1$
-
 }
