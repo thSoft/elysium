@@ -48,11 +48,6 @@ public class CompilerJob extends Job {
 	private final IFile file;
 
 	/**
-	 * Indicates whether PDF output should be generated.
-	 */
-	private final boolean printPages;
-
-	/**
 	 * The console where the compiler's output is printed.
 	 */
 	private final CompilerConsole console;
@@ -62,11 +57,10 @@ public class CompilerJob extends Job {
 	 */
 	private Process process;
 
-	public CompilerJob(IFile file, boolean printPages) {
+	public CompilerJob(IFile file) {
 		super(MessageFormat.format("Compiling {0}", file.getFullPath().toString()));
 		setProperty(IProgressConstants.ICON_PROPERTY, Activator.getImageDescriptor("icons/compiler/Command.png")); //$NON-NLS-1$
 		this.file = file;
-		this.printPages = printPages;
 		console = CompilerConsole.get(file);
 	}
 
@@ -79,7 +73,7 @@ public class CompilerJob extends Job {
 			long start = System.currentTimeMillis();
 			preprocess();
 
-			ProcessBuilder processBuilder = CompilerProcessBuilderFactory.get(file, printPages);
+			ProcessBuilder processBuilder = CompilerProcessBuilderFactory.get(file);
 			prepareProcessBuilder(processBuilder);
 
 			OutputProcessor outputProcessor = new CompilerOutputProcessor(file, console);

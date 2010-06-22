@@ -12,8 +12,6 @@ import org.eclipse.core.resources.IResourceChangeListener;
 import org.eclipse.core.resources.IResourceDelta;
 import org.eclipse.core.resources.IResourceDeltaVisitor;
 import org.eclipse.core.runtime.CoreException;
-import org.eclipse.emf.ecore.resource.ResourceSet;
-import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
 import org.elysium.LilyPondConstants;
 import org.elysium.ui.Activator;
 import org.elysium.ui.compiler.LilyPondBuilder;
@@ -35,8 +33,7 @@ public class OutdatedMarkerAdder implements IResourceChangeListener {
 					IProject project = delta.getResource().getProject();
 					Set<IFile> files = new HashSet<IFile>();
 					files.add((IFile)resource);
-					ResourceSet resourceSet = new ResourceSetImpl();
-					LilyPondBuilder.addAllIncludingFiles(project, files, resourceSet);
+					LilyPondBuilder.addAllIncludingFiles(project, files);
 					for (IFile file : files) {
 						if (file.findMarkers(MarkerTypes.OUTDATED, false, IResource.DEPTH_ZERO).length == 0) {
 							IMarker outdatedMarker = file.createMarker(MarkerTypes.OUTDATED);

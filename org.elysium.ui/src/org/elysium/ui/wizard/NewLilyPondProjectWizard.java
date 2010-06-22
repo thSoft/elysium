@@ -22,7 +22,6 @@ import org.eclipse.util.ProjectUtils;
 import org.eclipse.util.UiUtils;
 import org.eclipse.xtext.util.StringInputStream;
 import org.elysium.ui.Activator;
-import org.elysium.ui.compiler.LilyPondBuilder;
 import org.elysium.ui.project.LilyPondNature;
 import org.elysium.ui.version.LilyPondVersion;
 
@@ -46,7 +45,7 @@ public class NewLilyPondProjectWizard extends Wizard implements INewWizard, IExe
 		addPage(projectCreationPage);
 	}
 
-	private static final String TEMPLATE = "\\version \"{0}\"\n\n\\header '{\n\ttagline = \"\"\n}'\n\n\\relative c'' '{\n\tc'{1}'\n}'\n"; // XXX avoid MessageFormat-escaping
+	private static final String TEMPLATE = "\\version \"{0}\"\n\n\\header '{\n\ttagline = \"\"\n}'\n\n\\relative c'' '{\n\t'{1}'\n}'\n"; // XXX avoid MessageFormat-escaping
 
 	private static final String CURSOR_POSITION_MARKER = "$"; //$NON-NLS-1$
 
@@ -74,14 +73,10 @@ public class NewLilyPondProjectWizard extends Wizard implements INewWizard, IExe
 				template = template.replace(CURSOR_POSITION_MARKER, ""); //$NON-NLS-1$
 				file.create(new StringInputStream(template), false, new NullProgressMonitor());
 				IEditorPart editor = IDE.openEditor(UiUtils.getWorkbenchPage(), file);
-				// FIXME editor is not focused
+				UiUtils.getWorkbenchPage().activate(editor); // FIXME editor is not focused
 				if (editor instanceof ITextEditor) {
-					ITextEditor textEditor = (ITextEditor)editor;
-					textEditor.selectAndReveal(cursorOffset, 0);
+					((ITextEditor)editor).selectAndReveal(cursorOffset, 0);
 				}
-			} else {
-				// If project was imported, just parse
-				project.setPersistentProperty(LilyPondBuilder.DO_NOT_PRINT_PAGES, ""); //$NON-NLS-1$
 			}
 			BasicNewProjectResourceWizard.updatePerspective(configurationElement);
 		} catch (CoreException e) {

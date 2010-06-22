@@ -10,47 +10,39 @@ import org.eclipse.core.resources.IProject;
 import org.eclipse.core.resources.IResource;
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IProgressMonitor;
-import org.eclipse.core.runtime.QualifiedName;
 import org.eclipse.core.runtime.jobs.Job;
-import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.Resource;
-import org.eclipse.emf.ecore.resource.ResourceSet;
+import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
 import org.eclipse.emf.util.ResourceUtils;
 import org.eclipse.xtext.EcoreUtil2;
 import org.eclipse.xtext.builder.IXtextBuilderParticipant;
+import org.eclipse.xtext.resource.IResourceDescription.Delta;
 import org.elysium.LilyPondConstants;
 import org.elysium.lilyPond.Include;
-import org.elysium.ui.Activator;
 
 /**
  * Performs automatic incremental build on LilyPond source files.
  */
 public class LilyPondBuilder implements IXtextBuilderParticipant {
 
-	public static final QualifiedName DO_NOT_PRINT_PAGES = new QualifiedName(Activator.getId(), "DoNotPrintPages"); //$NON-NLS-1$
-
 	@Override
 	public void build(final IBuildContext context, IProgressMonitor monitor) throws CoreException {
 		IProject builtProject = context.getBuiltProject();
-		boolean printPages = true;
-		if (builtProject.getPersistentProperty(DO_NOT_PRINT_PAGES) != null) {
-			builtProject.setPersistentProperty(DO_NOT_PRINT_PAGES, null);
-			printPages = false;
-		}
 		// Get all files to build
 		Set<IFile> filesToBuild = new HashSet<IFile>();
-		ResourceSet resourceSet = context.getResourceSet();
-		for (Resource eResource : resourceSet.getResources()) {
-			IResource resource = ResourceUtils.convertEResourceToPlatformResource(eResource);
-			if ((resource != null) && (resource instanceof IFile)) {
-				filesToBuild.add((IFile)resource);
+		for (Delta delta : context.getDeltas()) {
+			if ((delta.getNew() != null) && (delta.getOld() != null)) { // If file changed
+				IResource resource = ResourceUtils.findPlatformResource(delta.getUri());
+				if ((resource != null) && (resource instanceof IFile)) {
+					filesToBuild.add((IFile)resource);
+				}
 			}
 		}
-		addAllIncludingFiles(builtProject, filesToBuild, resourceSet);
+		addAllIncludingFiles(builtProject, filesToBuild);
 		// Build them
 		for (IFile file : filesToBuild) {
-			CompilerJob compilerJob = new CompilerJob(file, printPages);
+			CompilerJob compilerJob = new CompilerJob(file);
 			Job[] oldCompilerJobs = Job.getJobManager().find(compilerJob);
 			for (Job oldCompilerJob : oldCompilerJobs) {
 				oldCompilerJob.cancel();
@@ -63,12 +55,12 @@ public class LilyPondBuilder implements IXtextBuilderParticipant {
 	 * Adds all files in the workspace to the given list of files which (even
 	 * indirectly) include any file in the list.
 	 */
-	public static void addAllIncludingFiles(IProject project, Set<IFile> files, ResourceSet resourceSet) {
+	public static void addAllIncludingFiles(IProject project, Set<IFile> files) {
 		List<IProject> referencingProjects = new ArrayList<IProject>(Arrays.asList(project.getReferencingProjects()));
 		referencingProjects.add(project);
 		for (IProject referencingProject : referencingProjects) {
 			for (IFile file : org.eclipse.util.ResourceUtils.getAllFiles(referencingProject)) {
-				addIfNecessary(file, files, resourceSet);
+				addIfNecessary(file, files);
 			}
 		}
 	}
@@ -77,15 +69,15 @@ public class LilyPondBuilder implements IXtextBuilderParticipant {
 	 * Adds the given file to the list of files to build if it (even indirectly)
 	 * includes any of the files to build.
 	 */
-	private static void addIfNecessary(IFile file, Set<IFile> filesToBuild, ResourceSet resourceSet) {
+	private static void addIfNecessary(IFile file, Set<IFile> filesToBuild) {
 		if (!filesToBuild.contains(file) && Arrays.asList(LilyPondConstants.EXTENSIONS).contains(file.getFileExtension())) {
-			Set<IFile> includedFiles = getIncludedFiles(file, resourceSet);
+			Set<IFile> includedFiles = getIncludedFiles(file);
 			for (IFile includedFile : includedFiles) {
 				if (!includedFile.equals(file)) {
 					if (filesToBuild.contains(includedFile)) {
 						filesToBuild.add(file);
 					} else {
-						addIfNecessary(includedFile, filesToBuild, resourceSet);
+						addIfNecessary(includedFile, filesToBuild);
 						if (filesToBuild.contains(includedFile)) {
 							filesToBuild.add(file);
 						}
@@ -98,9 +90,9 @@ public class LilyPondBuilder implements IXtextBuilderParticipant {
 	/**
 	 * Returns the files directly included in the given file.
 	 */
-	private static Set<IFile> getIncludedFiles(IFile file, ResourceSet resourceSet) {
+	private static Set<IFile> getIncludedFiles(IFile file) {
 		Set<IFile> result = new HashSet<IFile>();
-		Resource eResource = resourceSet.getResource(URI.createPlatformResourceURI(file.getFullPath().toString(), true), true);
+		Resource eResource = new ResourceSetImpl().getResource(org.eclipse.emf.common.util.URI.createPlatformResourceURI(file.getFullPath().toString(), true), true);
 		if (eResource != null) {
 			for (EObject eObject : EcoreUtil2.eAllContentsAsList(eResource)) {
 				if (eObject instanceof Include) {

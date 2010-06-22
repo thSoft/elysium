@@ -12,7 +12,7 @@ import org.elysium.ui.compiler.preferences.CompilerPreferenceConstants;
  */
 public class CompilerProcessBuilderFactory {
 
-	public static ProcessBuilder get(IFile file, boolean printPages) {
+	public static ProcessBuilder get(IFile file) {
 		IPreferenceStore preferenceStore = Activator.getInstance().getPreferenceStore();
 		ProcessBuilder processBuilder = new ProcessBuilder();
 		List<String> command = new ArrayList<String>();
@@ -25,8 +25,6 @@ public class CompilerProcessBuilderFactory {
 
 			boolean pointAndClick = preferenceStore.getBoolean(CompilerPreferenceConstants.POINT_AND_CLICK.name());
 			command.add(OptionBuilder.build("point-and-click", pointAndClick)); //$NON-NLS-1$
-
-			command.add(OptionBuilder.build("print-pages", printPages)); //$NON-NLS-1$
 
 			boolean verbose = preferenceStore.getBoolean(CompilerPreferenceConstants.VERBOSE.name());
 			if (verbose) {
