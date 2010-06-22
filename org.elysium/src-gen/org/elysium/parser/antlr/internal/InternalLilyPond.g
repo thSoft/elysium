@@ -668,16 +668,30 @@ ruleSchemeList returns [EObject current=null]
     @after { resetLookahead(); 
     	lastConsumedNode = currentNode;
     }:
-(	'(' 
+((
+	{ 
+	  /* */ 
+	}
+    { 
+        temp=factory.create(grammarAccess.getSchemeListAccess().getSchemeListAction_0().getType().getClassifier());
+        $current = temp; 
+        temp = null;
+        CompositeNode newNode = createCompositeNode(grammarAccess.getSchemeListAccess().getSchemeListAction_0(), currentNode.getParent());
+    newNode.getChildren().add(currentNode);
+    moveLookaheadInfo(currentNode, newNode);
+    currentNode = newNode; 
+        associateNodeWithAstElement(currentNode, $current); 
+    }
+)	'(' 
     {
-        createLeafNode(grammarAccess.getSchemeListAccess().getLeftParenthesisKeyword_0(), null); 
+        createLeafNode(grammarAccess.getSchemeListAccess().getLeftParenthesisKeyword_1(), null); 
     }
 (
 (
 		{ 
-	        currentNode=createCompositeNode(grammarAccess.getSchemeListAccess().getExpressionsSchemeExpressionParserRuleCall_1_0(), currentNode); 
+	        currentNode=createCompositeNode(grammarAccess.getSchemeListAccess().getExpressionsSchemeExpressionParserRuleCall_2_0(), currentNode); 
 	    }
-		lv_expressions_1_0=ruleSchemeExpression		{
+		lv_expressions_2_0=ruleSchemeExpression		{
 	        if ($current==null) {
 	            $current = factory.create(grammarAccess.getSchemeListRule().getType().getClassifier());
 	            associateNodeWithAstElement(currentNode.getParent(), $current);
@@ -686,7 +700,7 @@ ruleSchemeList returns [EObject current=null]
 	       		add(
 	       			$current, 
 	       			"expressions",
-	        		lv_expressions_1_0, 
+	        		lv_expressions_2_0, 
 	        		"SchemeExpression", 
 	        		currentNode);
 	        } catch (ValueConverterException vce) {
@@ -696,9 +710,9 @@ ruleSchemeList returns [EObject current=null]
 	    }
 
 )
-)+	')' 
+)*	')' 
     {
-        createLeafNode(grammarAccess.getSchemeListAccess().getRightParenthesisKeyword_2(), null); 
+        createLeafNode(grammarAccess.getSchemeListAccess().getRightParenthesisKeyword_3(), null); 
     }
 )
 ;

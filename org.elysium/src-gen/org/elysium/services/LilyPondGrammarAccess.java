@@ -251,29 +251,33 @@ public class LilyPondGrammarAccess extends AbstractGrammarElementFinder {
 	public class SchemeListElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "SchemeList");
 		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Keyword cLeftParenthesisKeyword_0 = (Keyword)cGroup.eContents().get(0);
-		private final Assignment cExpressionsAssignment_1 = (Assignment)cGroup.eContents().get(1);
-		private final RuleCall cExpressionsSchemeExpressionParserRuleCall_1_0 = (RuleCall)cExpressionsAssignment_1.eContents().get(0);
-		private final Keyword cRightParenthesisKeyword_2 = (Keyword)cGroup.eContents().get(2);
+		private final Action cSchemeListAction_0 = (Action)cGroup.eContents().get(0);
+		private final Keyword cLeftParenthesisKeyword_1 = (Keyword)cGroup.eContents().get(1);
+		private final Assignment cExpressionsAssignment_2 = (Assignment)cGroup.eContents().get(2);
+		private final RuleCall cExpressionsSchemeExpressionParserRuleCall_2_0 = (RuleCall)cExpressionsAssignment_2.eContents().get(0);
+		private final Keyword cRightParenthesisKeyword_3 = (Keyword)cGroup.eContents().get(3);
 		
 		//SchemeList:
-		//	"(" expressions+=SchemeExpression+ ")";
+		//	{SchemeList} "(" expressions+=SchemeExpression* ")";
 		public ParserRule getRule() { return rule; }
 
-		//"(" expressions+=SchemeExpression+ ")"
+		//{SchemeList} "(" expressions+=SchemeExpression* ")"
 		public Group getGroup() { return cGroup; }
 
-		//"("
-		public Keyword getLeftParenthesisKeyword_0() { return cLeftParenthesisKeyword_0; }
+		//{SchemeList}
+		public Action getSchemeListAction_0() { return cSchemeListAction_0; }
 
-		//expressions+=SchemeExpression+
-		public Assignment getExpressionsAssignment_1() { return cExpressionsAssignment_1; }
+		//"("
+		public Keyword getLeftParenthesisKeyword_1() { return cLeftParenthesisKeyword_1; }
+
+		//expressions+=SchemeExpression*
+		public Assignment getExpressionsAssignment_2() { return cExpressionsAssignment_2; }
 
 		//SchemeExpression
-		public RuleCall getExpressionsSchemeExpressionParserRuleCall_1_0() { return cExpressionsSchemeExpressionParserRuleCall_1_0; }
+		public RuleCall getExpressionsSchemeExpressionParserRuleCall_2_0() { return cExpressionsSchemeExpressionParserRuleCall_2_0; }
 
 		//")"
-		public Keyword getRightParenthesisKeyword_2() { return cRightParenthesisKeyword_2; }
+		public Keyword getRightParenthesisKeyword_3() { return cRightParenthesisKeyword_3; }
 	}
 
 	public class SchemeBlockElements extends AbstractParserRuleElementFinder {
@@ -755,7 +759,7 @@ public class LilyPondGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//SchemeList:
-	//	"(" expressions+=SchemeExpression+ ")";
+	//	{SchemeList} "(" expressions+=SchemeExpression* ")";
 	public SchemeListElements getSchemeListAccess() {
 		return (pSchemeList != null) ? pSchemeList : (pSchemeList = new SchemeListElements());
 	}

@@ -24,7 +24,7 @@ SchemeValue: SchemeBoolean | SchemeList | SchemeBlock | SchemeText | Number;
 
 SchemeBoolean: value=BOOL;
 
-SchemeList: "(" expressions+=SchemeExpression+ ")";
+SchemeList: {SchemeList} "(" expressions+=SchemeExpression* ")";
 
 SchemeBlock: "#{" expressions+=Expression+ "#}";
 
