@@ -41,6 +41,7 @@ public class LilyPondLabelProvider extends DefaultEObjectLabelProvider {
 		if (siblings != null) {
 			int nodeIndex = siblings.indexOf(block);
 			boolean acceptCommands = true;
+			int commandIndex = -1;
 			for (int i = nodeIndex - 1; i >= 0; i--) {
 				Expression sibling = siblings.get(i);
 				if ((sibling instanceof LongCommand) && acceptCommands) {
@@ -52,18 +53,21 @@ public class LilyPondLabelProvider extends DefaultEObjectLabelProvider {
 							String contextName = ((Text)context).getValue();
 							label = MessageFormat.format("\\{0} {1} {2}", commandId, contextName, label); //$NON-NLS-1$
 							acceptCommands = false;
+							commandIndex = i;
 						}
 					} else if (block instanceof SimpleBlock) {
 						label = MessageFormat.format("\\{0} {1}", commandId, label); //$NON-NLS-1$
 						acceptCommands = false;
+						commandIndex = i;
 					}
 				} else if (sibling instanceof Text) {
 					Text text = (Text)sibling;
-					if ((i >= 1) && text.getValue().equals("=") && !(siblings.get(i + 1) instanceof Text)) { //$NON-NLS-1$
+					if ((i >= 1) && text.getValue().equals("=") && ((commandIndex == -1) || (i == commandIndex - 1)) && !(siblings.get(i + 1) instanceof Text)) { //$NON-NLS-1$
 						Expression assignmentId = siblings.get(i - 1);
 						if (assignmentId instanceof Text) {
 							Text assignmentIdText = (Text)assignmentId;
 							label = MessageFormat.format("{0} = {1}", assignmentIdText.getValue(), label); //$NON-NLS-1$
+							break;
 						}
 					}
 				} else if (sibling instanceof Block) {
