@@ -14,6 +14,7 @@ import org.eclipse.jface.wizard.Wizard;
 import org.eclipse.ui.IEditorPart;
 import org.eclipse.ui.INewWizard;
 import org.eclipse.ui.IWorkbench;
+import org.eclipse.ui.IWorkbenchPage;
 import org.eclipse.ui.dialogs.WizardNewProjectCreationPage;
 import org.eclipse.ui.ide.IDE;
 import org.eclipse.ui.texteditor.ITextEditor;
@@ -55,8 +56,8 @@ public class NewLilyPondProjectWizard extends Wizard implements INewWizard, IExe
 
 	@Override
 	public boolean performFinish() {
-		IProject project = projectCreationPage.getProjectHandle();
 		try {
+			IProject project = projectCreationPage.getProjectHandle();
 			if (projectCreationPage.useDefaults()) {
 				project.create(new NullProgressMonitor());
 			} else {
@@ -72,10 +73,13 @@ public class NewLilyPondProjectWizard extends Wizard implements INewWizard, IExe
 				int cursorOffset = template.indexOf(CURSOR_POSITION_MARKER);
 				template = template.replace(CURSOR_POSITION_MARKER, ""); //$NON-NLS-1$
 				file.create(new StringInputStream(template), false, new NullProgressMonitor());
-				IEditorPart editor = IDE.openEditor(UiUtils.getWorkbenchPage(), file);
-				UiUtils.getWorkbenchPage().activate(editor); // FIXME editor is not focused
-				if (editor instanceof ITextEditor) {
-					((ITextEditor)editor).selectAndReveal(cursorOffset, 0);
+				IWorkbenchPage workbenchPage = UiUtils.getWorkbenchPage();
+				if (workbenchPage != null) {
+					IEditorPart editor = IDE.openEditor(workbenchPage, file);
+					workbenchPage.activate(editor);
+					if (editor instanceof ITextEditor) {
+						((ITextEditor)editor).selectAndReveal(cursorOffset, 0);
+					}
 				}
 			}
 			BasicNewProjectResourceWizard.updatePerspective(configurationElement);
