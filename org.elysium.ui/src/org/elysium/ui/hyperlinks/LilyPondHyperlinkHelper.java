@@ -92,7 +92,7 @@ public class LilyPondHyperlinkHelper extends HyperlinkHelper {
 								if (resource.equals(targetFile)) {
 									try {
 										int annotationOffset = DocumentUtils.getOffsetOfPosition(DocumentUtils.getDocumentFromFile(targetFile), pdfAnnotation.lineNumber, pdfAnnotation.columnNumber, 1);
-										if ((nodeOffset <= annotationOffset) && (annotationOffset < nodeOffset + nodeLength)) {
+										if ((nodeOffset <= annotationOffset) && (annotationOffset < nodeOffset + nodeLength)) { // TODO smarter hyperlink region
 											SourceToScoreHyperlink hyperlink = new SourceToScoreHyperlink(pdfViewPage, pdfAnnotation);
 											hyperlink.setHyperlinkRegion(new Region(nodeOffset, nodeLength));
 											hyperlinks.add(hyperlink);
