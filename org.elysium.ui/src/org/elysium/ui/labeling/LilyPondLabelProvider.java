@@ -82,7 +82,7 @@ public class LilyPondLabelProvider extends DefaultEObjectLabelProvider {
 	}
 
 	public String text(Scheme scheme) {
-		String commandName = " ";
+		String commandName = " "; //$NON-NLS-1$
 		EList<SchemeExpression> expressions = ((SchemeList)scheme.getValue().getValue()).getExpressions();
 		if (!expressions.isEmpty()) {
 			SchemeExpression expression = expressions.get(0);
