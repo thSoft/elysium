@@ -11,14 +11,18 @@ import org.eclipse.core.runtime.IExecutableExtension;
 import org.eclipse.core.runtime.NullProgressMonitor;
 import org.eclipse.jface.viewers.IStructuredSelection;
 import org.eclipse.jface.wizard.Wizard;
+import org.eclipse.swt.widgets.Display;
 import org.eclipse.ui.IEditorPart;
 import org.eclipse.ui.INewWizard;
 import org.eclipse.ui.IWorkbench;
 import org.eclipse.ui.IWorkbenchPage;
+import org.eclipse.ui.PartInitException;
+import org.eclipse.ui.PlatformUI;
 import org.eclipse.ui.dialogs.WizardNewProjectCreationPage;
 import org.eclipse.ui.ide.IDE;
 import org.eclipse.ui.texteditor.ITextEditor;
 import org.eclipse.ui.wizards.newresource.BasicNewProjectResourceWizard;
+import org.eclipse.ui.wizards.newresource.BasicNewResourceWizard;
 import org.eclipse.util.ProjectUtils;
 import org.eclipse.util.UiUtils;
 import org.eclipse.xtext.util.StringInputStream;
@@ -67,22 +71,33 @@ public class NewLilyPondProjectWizard extends Wizard implements INewWizard, IExe
 			}
 			project.open(new NullProgressMonitor());
 			ProjectUtils.addNatures(project, LilyPondNature.ID);
+			BasicNewProjectResourceWizard.updatePerspective(configurationElement);
 			if (project.members().length == 1) { // XXX how to exclude .project from members?
-				IFile file = project.getFile("score.ly");
+				final IFile file = project.getFile("score.ly");
 				String template = getTemplate();
-				int cursorOffset = template.indexOf(CURSOR_POSITION_MARKER);
+				final int cursorOffset = template.indexOf(CURSOR_POSITION_MARKER);
 				template = template.replace(CURSOR_POSITION_MARKER, ""); //$NON-NLS-1$
 				file.create(new StringInputStream(template), false, new NullProgressMonitor());
-				IWorkbenchPage workbenchPage = UiUtils.getWorkbenchPage();
+				BasicNewResourceWizard.selectAndReveal(file, PlatformUI.getWorkbench().getActiveWorkbenchWindow());
+				final IWorkbenchPage workbenchPage = UiUtils.getWorkbenchPage();
 				if (workbenchPage != null) {
-					IEditorPart editor = IDE.openEditor(workbenchPage, file);
-					workbenchPage.activate(editor);
-					if (editor instanceof ITextEditor) {
-						((ITextEditor)editor).selectAndReveal(cursorOffset, 0);
-					}
+					Display.getDefault().asyncExec(new Runnable() { // Must be run in UI thread so that editor can be activated
+
+						@Override
+						public void run() {
+							try {
+								IEditorPart editor = IDE.openEditor(workbenchPage, file, true);
+								if (editor instanceof ITextEditor) {
+									((ITextEditor)editor).selectAndReveal(cursorOffset, 0);
+								}
+							} catch (PartInitException e) {
+								Activator.logError("Couldn't open editor", e);
+							}
+						}
+
+					});
 				}
 			}
-			BasicNewProjectResourceWizard.updatePerspective(configurationElement);
 		} catch (CoreException e) {
 			Activator.logError("Couldn't create LilyPond project", e);
 		}
