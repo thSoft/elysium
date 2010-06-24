@@ -32,7 +32,9 @@ public class LilyPondBuilder implements IXtextBuilderParticipant {
 		// Get all files to build
 		Set<IFile> filesToBuild = new HashSet<IFile>();
 		for (Delta delta : context.getDeltas()) {
-			if ((delta.getNew() != null) && (delta.getOld() != null)) { // If file changed
+			boolean lilyPond = Arrays.asList(LilyPondConstants.EXTENSIONS).contains(delta.getUri().fileExtension());
+			boolean changed = (delta.getNew() != null) && (delta.getOld() != null);
+			if (lilyPond && changed) {
 				IResource resource = ResourceUtils.findPlatformResource(delta.getUri());
 				if ((resource != null) && (resource instanceof IFile)) {
 					filesToBuild.add((IFile)resource);
