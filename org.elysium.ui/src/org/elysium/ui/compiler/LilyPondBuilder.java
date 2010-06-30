@@ -41,15 +41,17 @@ public class LilyPondBuilder implements IXtextBuilderParticipant {
 				}
 			}
 		}
-		addAllIncludingFiles(builtProject, filesToBuild);
-		// Build them
-		for (IFile file : filesToBuild) {
-			CompilerJob compilerJob = new CompilerJob(file);
-			Job[] oldCompilerJobs = Job.getJobManager().find(compilerJob);
-			for (Job oldCompilerJob : oldCompilerJobs) {
-				oldCompilerJob.cancel();
+		if (!filesToBuild.isEmpty()) {
+			addAllIncludingFiles(builtProject, filesToBuild);
+			// Build them
+			for (IFile file : filesToBuild) {
+				CompilerJob compilerJob = new CompilerJob(file);
+				Job[] oldCompilerJobs = Job.getJobManager().find(compilerJob);
+				for (Job oldCompilerJob : oldCompilerJobs) {
+					oldCompilerJob.cancel();
+				}
+				compilerJob.schedule();
 			}
-			compilerJob.schedule();
 		}
 	}
 
