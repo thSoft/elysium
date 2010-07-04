@@ -138,7 +138,7 @@
       </contentExtension>
       </excludes>
     </viewerContentBinding>
-    <viewerContentBinding viewerId="org.eclipse.ui.navigator.ProjectExplorer">
+    <viewerContentBinding viewerId="org.eclipse.jdt.ui.PackageExplorer">
       <includes>
         <contentExtension pattern="org.elysium.ui.filters.LilyPondProjects">
     </contentExtension>
