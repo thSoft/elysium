@@ -30,6 +30,8 @@ public class CompilerProcessBuilderFactory {
 			if (verbose) {
 				command.add("--verbose"); //$NON-NLS-1$
 			}
+
+			command.add(OptionBuilder.build("midi-extension", "midi")); //$NON-NLS-1$ //$NON-NLS-2$ // On Windows, the default extension is "mid" 
 		}
 		processBuilder.command(command);
 		return processBuilder;
@@ -42,12 +44,24 @@ public class CompilerProcessBuilderFactory {
 	public static class OptionBuilder {
 
 		public static String build(String name, boolean value) {
-			StringBuilder stringBuilder = new StringBuilder("-d"); //$NON-NLS-1$
+			StringBuilder stringBuilder = getPrefix();
 			if (!value) {
 				stringBuilder.append("no-"); //$NON-NLS-1$
 			}
 			stringBuilder.append(name);
 			return stringBuilder.toString();
+		}
+
+		public static String build(String name, String value) {
+			StringBuilder stringBuilder = getPrefix();
+			stringBuilder.append(name);
+			stringBuilder.append("="); //$NON-NLS-1$
+			stringBuilder.append(value);
+			return stringBuilder.toString();
+		}
+
+		private static StringBuilder getPrefix() {
+			return new StringBuilder("-d"); //$NON-NLS-1$
 		}
 
 	}

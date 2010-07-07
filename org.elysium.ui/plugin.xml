@@ -252,6 +252,31 @@
     <source class="org.elysium.ui.score.MainFileScoreViewSource" icon="icons/sources/MainFile.png" id="org.elysium.ui.sources.MainFileScore">
     </source>
   </extension>
+  <!-- Audio View -->
+  <extension point="org.eclipse.ui.views">
+    <view category="org.elysium.ui.viewCategories.LilyPond" class="org.eclipse.ui.views.file.FileView" icon="icons/audio/View.png" id="org.elysium.ui.views.Audio" name="Audio" restorable="true">
+  </view>
+  </extension>
+  <extension point="org.eclipse.ui.views.file.bindings">
+    <binding errorMessage="No audio found.&#10;Enter some music and save the LilyPond source to hear the audio.&#10;Make sure the \midi block exists besides the \layout block." type="org.elysium.ui.audio.AudioViewType" viewId="org.elysium.ui.views.Audio">
+      <fileExtension extension="midi">
+       </fileExtension>
+      <source id="org.elysium.ui.sources.CurrentAudio">
+       </source>
+      <source id="org.elysium.ui.sources.MainFileAudio">
+       </source>
+      <source id="org.eclipse.ui.views.file.sources.Direct">
+       </source>
+      <source id="org.eclipse.ui.views.file.sources.Selected">
+       </source>
+    </binding>
+  </extension>
+  <extension point="org.eclipse.ui.views.file.sources">
+    <source class="org.elysium.ui.audio.CurrentAudioViewSource" icon="icons/sources/Current.png" id="org.elysium.ui.sources.CurrentAudio">
+    </source>
+    <source class="org.elysium.ui.audio.MainFileAudioViewSource" icon="icons/sources/MainFile.png" id="org.elysium.ui.sources.MainFileAudio">
+    </source>
+  </extension>
   <!-- Project -->
   <extension id="natures.LilyPond" name="LilyPond Nature" point="org.eclipse.core.resources.natures">
     <runtime>
@@ -288,11 +313,15 @@
    </view>
       <view id="org.eclipse.ui.views.ProblemView" minimized="false" ratio="0.75" relationship="bottom" relative="org.eclipse.ui.editorss">
    </view>
-      <view id="org.eclipse.ui.console.ConsoleView" minimized="false" ratio="0.5" relationship="right" relative="org.eclipse.ui.views.ProblemView">
+      <view id="org.eclipse.ui.console.ConsoleView" minimized="false" relationship="stack" relative="org.eclipse.ui.views.ProblemView">
    </view>
       <view id="org.elysium.ui.views.Score" minimized="false" ratio="0.54" relationship="right" relative="org.eclipse.ui.editorss">
    </view>
+      <view id="org.elysium.ui.views.Audio" minimized="false" ratio="0.54" relationship="right" relative="org.eclipse.ui.views.ProblemView">
+   </view>
       <viewShortcut id="org.elysium.ui.views.Score">
+   </viewShortcut>
+      <viewShortcut id="org.elysium.ui.views.Audio">
    </viewShortcut>
       <viewShortcut id="org.elysium.ui.views.ScoreLibrary">
    </viewShortcut>
