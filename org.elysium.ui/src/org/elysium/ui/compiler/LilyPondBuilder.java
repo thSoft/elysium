@@ -28,6 +28,7 @@ public class LilyPondBuilder implements IXtextBuilderParticipant {
 
 	@Override
 	public void build(final IBuildContext context, IProgressMonitor monitor) throws CoreException {
+		// FIXME sometimes files aren't compiled
 		IProject builtProject = context.getBuiltProject();
 		// Get all files to build
 		Set<IFile> filesToBuild = new HashSet<IFile>();
@@ -35,6 +36,7 @@ public class LilyPondBuilder implements IXtextBuilderParticipant {
 			boolean lilyPond = Arrays.asList(LilyPondConstants.EXTENSIONS).contains(delta.getUri().fileExtension());
 			boolean changed = (delta.getNew() != null) && (delta.getOld() != null);
 			if (lilyPond && changed) {
+				// TODO only if semantic model changed
 				IResource resource = ResourceUtils.findPlatformResource(delta.getUri());
 				if ((resource != null) && (resource instanceof IFile)) {
 					filesToBuild.add((IFile)resource);

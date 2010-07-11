@@ -86,19 +86,21 @@ public class LilyPondHyperlinkHelper extends HyperlinkHelper {
 						PdfViewType pdfViewType = (PdfViewType)fileViewType;
 						PdfViewPage pdfViewPage = pdfViewType.getPage();
 						if (pdfViewPage != null) {
-							PdfAnnotation[] pdfAnnotations = pdfViewPage.getAnnotations();
-							for (PdfAnnotation pdfAnnotation : pdfAnnotations) {
-								IFile targetFile = pdfAnnotation.file;
-								if (resource.equals(targetFile)) {
-									try {
-										int annotationOffset = DocumentUtils.getOffsetOfPosition(DocumentUtils.getDocumentFromFile(targetFile), pdfAnnotation.lineNumber, pdfAnnotation.columnNumber, 1);
-										if ((nodeOffset <= annotationOffset) && (annotationOffset < nodeOffset + nodeLength)) { // TODO smarter hyperlink region
-											SourceToScoreHyperlink hyperlink = new SourceToScoreHyperlink(pdfViewPage, pdfAnnotation);
-											hyperlink.setHyperlinkRegion(new Region(nodeOffset, nodeLength));
-											hyperlinks.add(hyperlink);
+							for (int page = 1; page <= pdfViewPage.getPageCount(); page++) {
+								PdfAnnotation[] pdfAnnotations = pdfViewPage.getAnnotationsOnPage(page);
+								for (PdfAnnotation pdfAnnotation : pdfAnnotations) {
+									IFile targetFile = pdfAnnotation.file;
+									if (resource.equals(targetFile)) {
+										try {
+											int annotationOffset = DocumentUtils.getOffsetOfPosition(DocumentUtils.getDocumentFromFile(targetFile), pdfAnnotation.lineNumber, pdfAnnotation.columnNumber, 1);
+											if ((nodeOffset <= annotationOffset) && (annotationOffset < nodeOffset + nodeLength)) { // TODO smarter hyperlink region
+												SourceToScoreHyperlink hyperlink = new SourceToScoreHyperlink(pdfViewPage, pdfAnnotation);
+												hyperlink.setHyperlinkRegion(new Region(nodeOffset, nodeLength));
+												hyperlinks.add(hyperlink);
+											}
+										} catch (Exception e) {
+											Activator.logError("Error while calculating hyperlink offset", e);
 										}
-									} catch (Exception e) {
-										Activator.logError("Error while calculating hyperlink offset", e);
 									}
 								}
 							}
