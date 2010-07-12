@@ -138,12 +138,6 @@
       </contentExtension>
       </excludes>
     </viewerContentBinding>
-    <viewerContentBinding viewerId="org.eclipse.jdt.ui.PackageExplorer">
-      <includes>
-        <contentExtension pattern="org.elysium.ui.filters.LilyPondProjects">
-    </contentExtension>
-      </includes>
-    </viewerContentBinding>
   </extension>
   <extension point="org.eclipse.ui.navigator.navigatorContent">
     <commonFilter activeByDefault="true" id="org.elysium.ui.filters.NonLilyPondProjects" name="Non-LilyPond projects" visibleInUI="false">
@@ -152,12 +146,6 @@
           <test property="org.eclipse.core.resources.projectNature" value="org.elysium.ui.natures.LilyPond">
      </test>
         </not>
-      </filterExpression>
-    </commonFilter>
-    <commonFilter activeByDefault="false" id="org.elysium.ui.filters.LilyPondProjects" name="LilyPond projects" visibleInUI="true">
-      <filterExpression>
-        <test property="org.eclipse.core.resources.projectNature" value="org.elysium.ui.natures.LilyPond">
-     </test>
       </filterExpression>
     </commonFilter>
     <navigatorContent icon="icons/library/Sorter.png" id="org.elysium.ui.sorters.ByExtension" name="Sort By Extension" sortOnly="true">
