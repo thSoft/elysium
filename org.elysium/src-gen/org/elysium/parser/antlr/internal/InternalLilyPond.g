@@ -5,7 +5,6 @@ grammar InternalLilyPond;
 
 options {
 	superClass=AbstractInternalAntlrParser;
-	backtrack=true;
 	
 }
 
@@ -38,11 +37,6 @@ import org.elysium.services.LilyPondGrammarAccess;
 
 @parser::members {
 
-/*
-  This grammar contains a lot of empty actions to work around a bug in ANTLR.
-  Otherwise the ANTLR tool will create synpreds that cannot be compiled in some rare cases.
-*/
- 
  	private LilyPondGrammarAccess grammarAccess;
  	
     public InternalLilyPondParser(TokenStream input, IAstFactory factory, LilyPondGrammarAccess grammarAccess) {
@@ -143,9 +137,6 @@ ruleExpression returns [EObject current=null]
     	lastConsumedNode = currentNode;
     }:
 (
-	{ 
-	  /* */ 
-	}
     { 
         currentNode=createCompositeNode(grammarAccess.getExpressionAccess().getBlockParserRuleCall_0(), currentNode); 
     }
@@ -156,9 +147,6 @@ ruleExpression returns [EObject current=null]
     }
 
     |
-	{ 
-	  /* */ 
-	}
     { 
         currentNode=createCompositeNode(grammarAccess.getExpressionAccess().getSchemeParserRuleCall_1(), currentNode); 
     }
@@ -169,9 +157,6 @@ ruleExpression returns [EObject current=null]
     }
 
     |
-	{ 
-	  /* */ 
-	}
     { 
         currentNode=createCompositeNode(grammarAccess.getExpressionAccess().getCommandParserRuleCall_2(), currentNode); 
     }
@@ -182,9 +167,6 @@ ruleExpression returns [EObject current=null]
     }
 
     |
-	{ 
-	  /* */ 
-	}
     { 
         currentNode=createCompositeNode(grammarAccess.getExpressionAccess().getTextParserRuleCall_3(), currentNode); 
     }
@@ -195,9 +177,6 @@ ruleExpression returns [EObject current=null]
     }
 
     |
-	{ 
-	  /* */ 
-	}
     { 
         currentNode=createCompositeNode(grammarAccess.getExpressionAccess().getNumberParserRuleCall_4(), currentNode); 
     }
@@ -230,9 +209,6 @@ ruleBlock returns [EObject current=null]
     	lastConsumedNode = currentNode;
     }:
 (
-	{ 
-	  /* */ 
-	}
     { 
         currentNode=createCompositeNode(grammarAccess.getBlockAccess().getSimpleBlockParserRuleCall_0(), currentNode); 
     }
@@ -243,9 +219,6 @@ ruleBlock returns [EObject current=null]
     }
 
     |
-	{ 
-	  /* */ 
-	}
     { 
         currentNode=createCompositeNode(grammarAccess.getBlockAccess().getSimultaneousBlockParserRuleCall_1(), currentNode); 
     }
@@ -278,9 +251,6 @@ ruleSimpleBlock returns [EObject current=null]
     	lastConsumedNode = currentNode;
     }:
 ((
-	{ 
-	  /* */ 
-	}
     { 
         temp=factory.create(grammarAccess.getSimpleBlockAccess().getSimpleBlockAction_0().getType().getClassifier());
         $current = temp; 
@@ -347,9 +317,6 @@ ruleSimultaneousBlock returns [EObject current=null]
     	lastConsumedNode = currentNode;
     }:
 ((
-	{ 
-	  /* */ 
-	}
     { 
         temp=factory.create(grammarAccess.getSimultaneousBlockAccess().getSimultaneousBlockAction_0().getType().getClassifier());
         $current = temp; 
@@ -535,9 +502,6 @@ ruleSchemeValue returns [EObject current=null]
     	lastConsumedNode = currentNode;
     }:
 (
-	{ 
-	  /* */ 
-	}
     { 
         currentNode=createCompositeNode(grammarAccess.getSchemeValueAccess().getSchemeBooleanParserRuleCall_0(), currentNode); 
     }
@@ -548,9 +512,6 @@ ruleSchemeValue returns [EObject current=null]
     }
 
     |
-	{ 
-	  /* */ 
-	}
     { 
         currentNode=createCompositeNode(grammarAccess.getSchemeValueAccess().getSchemeListParserRuleCall_1(), currentNode); 
     }
@@ -561,9 +522,6 @@ ruleSchemeValue returns [EObject current=null]
     }
 
     |
-	{ 
-	  /* */ 
-	}
     { 
         currentNode=createCompositeNode(grammarAccess.getSchemeValueAccess().getSchemeBlockParserRuleCall_2(), currentNode); 
     }
@@ -574,9 +532,6 @@ ruleSchemeValue returns [EObject current=null]
     }
 
     |
-	{ 
-	  /* */ 
-	}
     { 
         currentNode=createCompositeNode(grammarAccess.getSchemeValueAccess().getSchemeTextParserRuleCall_3(), currentNode); 
     }
@@ -587,9 +542,6 @@ ruleSchemeValue returns [EObject current=null]
     }
 
     |
-	{ 
-	  /* */ 
-	}
     { 
         currentNode=createCompositeNode(grammarAccess.getSchemeValueAccess().getNumberParserRuleCall_4(), currentNode); 
     }
@@ -669,9 +621,6 @@ ruleSchemeList returns [EObject current=null]
     	lastConsumedNode = currentNode;
     }:
 ((
-	{ 
-	  /* */ 
-	}
     { 
         temp=factory.create(grammarAccess.getSchemeListAccess().getSchemeListAction_0().getType().getClassifier());
         $current = temp; 
@@ -893,9 +842,6 @@ ruleCommand returns [EObject current=null]
     	lastConsumedNode = currentNode;
     }:
 (
-	{ 
-	  /* */ 
-	}
     { 
         currentNode=createCompositeNode(grammarAccess.getCommandAccess().getCustomCommandParserRuleCall_0(), currentNode); 
     }
@@ -906,9 +852,6 @@ ruleCommand returns [EObject current=null]
     }
 
     |
-	{ 
-	  /* */ 
-	}
     { 
         currentNode=createCompositeNode(grammarAccess.getCommandAccess().getPresetCommandParserRuleCall_1(), currentNode); 
     }
@@ -941,9 +884,6 @@ ruleCustomCommand returns [EObject current=null]
     	lastConsumedNode = currentNode;
     }:
 (
-	{ 
-	  /* */ 
-	}
     { 
         currentNode=createCompositeNode(grammarAccess.getCustomCommandAccess().getLongCommandParserRuleCall_0(), currentNode); 
     }
@@ -954,9 +894,6 @@ ruleCustomCommand returns [EObject current=null]
     }
 
     |
-	{ 
-	  /* */ 
-	}
     { 
         currentNode=createCompositeNode(grammarAccess.getCustomCommandAccess().getShortCommandParserRuleCall_1(), currentNode); 
     }
@@ -1150,9 +1087,6 @@ rulePresetCommand returns [EObject current=null]
     	lastConsumedNode = currentNode;
     }:
 (
-	{ 
-	  /* */ 
-	}
     { 
         currentNode=createCompositeNode(grammarAccess.getPresetCommandAccess().getIncludeParserRuleCall_0(), currentNode); 
     }
@@ -1163,9 +1097,6 @@ rulePresetCommand returns [EObject current=null]
     }
 
     |
-	{ 
-	  /* */ 
-	}
     { 
         currentNode=createCompositeNode(grammarAccess.getPresetCommandAccess().getVersionParserRuleCall_1(), currentNode); 
     }

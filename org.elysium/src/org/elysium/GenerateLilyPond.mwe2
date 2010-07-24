@@ -43,11 +43,7 @@ Workflow {
 				fileExtensions = file.extensions
 			}
 
-			fragment = de.itemis.xtext.antlr.XtextAntlrGeneratorFragment {
-				options = {
-					backtrack = true
-				}
-			}
+			fragment = parser.antlr.XtextAntlrGeneratorFragment {}
 
 			fragment = validation.JavaValidatorFragment {
 				composedCheck = "org.eclipse.xtext.validation.ImportUriValidator"
@@ -67,7 +63,7 @@ Workflow {
 
 			fragment = contentAssist.JavaBasedContentAssistFragment {}
 
-			fragment = de.itemis.xtext.antlr.XtextAntlrUiGeneratorFragment {}
+			fragment = parser.antlr.XtextAntlrUiGeneratorFragment {}
 
 			fragment = builder.BuilderIntegrationFragment {}
 
