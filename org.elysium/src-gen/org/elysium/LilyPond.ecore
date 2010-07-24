@@ -44,16 +44,14 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Command" eSuperTypes="#//Expression">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="keyword" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="CustomCommand" eSuperTypes="#//Command"/>
-  <eClassifiers xsi:type="ecore:EClass" name="LongCommand" eSuperTypes="#//CustomCommand"/>
-  <eClassifiers xsi:type="ecore:EClass" name="ShortCommand" eSuperTypes="#//CustomCommand"/>
-  <eClassifiers xsi:type="ecore:EClass" name="PresetCommand" eSuperTypes="#//Command"/>
-  <eClassifiers xsi:type="ecore:EClass" name="Include" eSuperTypes="#//PresetCommand">
+  <eClassifiers xsi:type="ecore:EClass" name="ArbitraryCommand" eSuperTypes="#//Command"/>
+  <eClassifiers xsi:type="ecore:EClass" name="SpecialCommand" eSuperTypes="#//Command"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Include" eSuperTypes="#//SpecialCommand">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="importURI" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Version" eSuperTypes="#//PresetCommand">
+  <eClassifiers xsi:type="ecore:EClass" name="Version" eSuperTypes="#//SpecialCommand">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="version" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Text" eSuperTypes="#//Expression">

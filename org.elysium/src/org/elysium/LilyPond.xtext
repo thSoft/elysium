@@ -32,21 +32,19 @@ SchemeText: value=SchemeTextLiterals;
 
 SchemeTextLiterals: "\\\\" | ID | STRING | ANY_OTHER;
 
-Command: CustomCommand | PresetCommand;
+Command: ArbitraryCommand | SpecialCommand;
 
-CustomCommand: LongCommand | ShortCommand;
+ArbitraryCommand: keyword=ArbitraryCommandKeyword;
 
-LongCommand hidden(): "\\" id=ID;
+ArbitraryCommandKeyword hidden(): "\\" (ID | "(" | ")" | ANY_OTHER);
 
-ShortCommand hidden(): "\\" id=("(" | ")" | ANY_OTHER);
+SpecialCommand: Include | Version;
 
-PresetCommand: Include | Version;
-
-Include: id=IncludeKeyword importURI=STRING;
+Include: keyword=IncludeKeyword importURI=STRING;
 
 IncludeKeyword hidden(): "\\" "include";
 
-Version: id=VersionKeyword version=STRING;
+Version: keyword=VersionKeyword version=STRING;
 
 VersionKeyword hidden(): "\\" "version";
 

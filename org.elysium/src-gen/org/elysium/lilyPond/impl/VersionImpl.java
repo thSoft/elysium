@@ -27,7 +27,7 @@ import org.elysium.lilyPond.Version;
  *
  * @generated
  */
-public class VersionImpl extends PresetCommandImpl implements Version
+public class VersionImpl extends SpecialCommandImpl implements Version
 {
   /**
    * The default value of the '{@link #getVersion() <em>Version</em>}' attribute.

@@ -505,13 +505,13 @@ public interface LilyPondPackage extends EPackage
   int COMMAND__PARENT_LILY_POND = EXPRESSION__PARENT_LILY_POND;
 
   /**
-   * The feature id for the '<em><b>Id</b></em>' attribute.
+   * The feature id for the '<em><b>Keyword</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int COMMAND__ID = EXPRESSION_FEATURE_COUNT + 0;
+  int COMMAND__KEYWORD = EXPRESSION_FEATURE_COUNT + 0;
 
   /**
    * The number of structural features of the '<em>Command</em>' class.
@@ -523,14 +523,14 @@ public interface LilyPondPackage extends EPackage
   int COMMAND_FEATURE_COUNT = EXPRESSION_FEATURE_COUNT + 1;
 
   /**
-   * The meta object id for the '{@link org.elysium.lilyPond.impl.CustomCommandImpl <em>Custom Command</em>}' class.
+   * The meta object id for the '{@link org.elysium.lilyPond.impl.ArbitraryCommandImpl <em>Arbitrary Command</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see org.elysium.lilyPond.impl.CustomCommandImpl
-   * @see org.elysium.lilyPond.impl.LilyPondPackageImpl#getCustomCommand()
+   * @see org.elysium.lilyPond.impl.ArbitraryCommandImpl
+   * @see org.elysium.lilyPond.impl.LilyPondPackageImpl#getArbitraryCommand()
    * @generated
    */
-  int CUSTOM_COMMAND = 13;
+  int ARBITRARY_COMMAND = 13;
 
   /**
    * The feature id for the '<em><b>Parent Block</b></em>' container reference.
@@ -539,7 +539,7 @@ public interface LilyPondPackage extends EPackage
    * @generated
    * @ordered
    */
-  int CUSTOM_COMMAND__PARENT_BLOCK = COMMAND__PARENT_BLOCK;
+  int ARBITRARY_COMMAND__PARENT_BLOCK = COMMAND__PARENT_BLOCK;
 
   /**
    * The feature id for the '<em><b>Parent Lily Pond</b></em>' container reference.
@@ -548,35 +548,35 @@ public interface LilyPondPackage extends EPackage
    * @generated
    * @ordered
    */
-  int CUSTOM_COMMAND__PARENT_LILY_POND = COMMAND__PARENT_LILY_POND;
+  int ARBITRARY_COMMAND__PARENT_LILY_POND = COMMAND__PARENT_LILY_POND;
 
   /**
-   * The feature id for the '<em><b>Id</b></em>' attribute.
+   * The feature id for the '<em><b>Keyword</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int CUSTOM_COMMAND__ID = COMMAND__ID;
+  int ARBITRARY_COMMAND__KEYWORD = COMMAND__KEYWORD;
 
   /**
-   * The number of structural features of the '<em>Custom Command</em>' class.
+   * The number of structural features of the '<em>Arbitrary Command</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int CUSTOM_COMMAND_FEATURE_COUNT = COMMAND_FEATURE_COUNT + 0;
+  int ARBITRARY_COMMAND_FEATURE_COUNT = COMMAND_FEATURE_COUNT + 0;
 
   /**
-   * The meta object id for the '{@link org.elysium.lilyPond.impl.LongCommandImpl <em>Long Command</em>}' class.
+   * The meta object id for the '{@link org.elysium.lilyPond.impl.SpecialCommandImpl <em>Special Command</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see org.elysium.lilyPond.impl.LongCommandImpl
-   * @see org.elysium.lilyPond.impl.LilyPondPackageImpl#getLongCommand()
+   * @see org.elysium.lilyPond.impl.SpecialCommandImpl
+   * @see org.elysium.lilyPond.impl.LilyPondPackageImpl#getSpecialCommand()
    * @generated
    */
-  int LONG_COMMAND = 14;
+  int SPECIAL_COMMAND = 14;
 
   /**
    * The feature id for the '<em><b>Parent Block</b></em>' container reference.
@@ -585,7 +585,7 @@ public interface LilyPondPackage extends EPackage
    * @generated
    * @ordered
    */
-  int LONG_COMMAND__PARENT_BLOCK = CUSTOM_COMMAND__PARENT_BLOCK;
+  int SPECIAL_COMMAND__PARENT_BLOCK = COMMAND__PARENT_BLOCK;
 
   /**
    * The feature id for the '<em><b>Parent Lily Pond</b></em>' container reference.
@@ -594,117 +594,25 @@ public interface LilyPondPackage extends EPackage
    * @generated
    * @ordered
    */
-  int LONG_COMMAND__PARENT_LILY_POND = CUSTOM_COMMAND__PARENT_LILY_POND;
+  int SPECIAL_COMMAND__PARENT_LILY_POND = COMMAND__PARENT_LILY_POND;
 
   /**
-   * The feature id for the '<em><b>Id</b></em>' attribute.
+   * The feature id for the '<em><b>Keyword</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int LONG_COMMAND__ID = CUSTOM_COMMAND__ID;
+  int SPECIAL_COMMAND__KEYWORD = COMMAND__KEYWORD;
 
   /**
-   * The number of structural features of the '<em>Long Command</em>' class.
+   * The number of structural features of the '<em>Special Command</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int LONG_COMMAND_FEATURE_COUNT = CUSTOM_COMMAND_FEATURE_COUNT + 0;
-
-  /**
-   * The meta object id for the '{@link org.elysium.lilyPond.impl.ShortCommandImpl <em>Short Command</em>}' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see org.elysium.lilyPond.impl.ShortCommandImpl
-   * @see org.elysium.lilyPond.impl.LilyPondPackageImpl#getShortCommand()
-   * @generated
-   */
-  int SHORT_COMMAND = 15;
-
-  /**
-   * The feature id for the '<em><b>Parent Block</b></em>' container reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int SHORT_COMMAND__PARENT_BLOCK = CUSTOM_COMMAND__PARENT_BLOCK;
-
-  /**
-   * The feature id for the '<em><b>Parent Lily Pond</b></em>' container reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int SHORT_COMMAND__PARENT_LILY_POND = CUSTOM_COMMAND__PARENT_LILY_POND;
-
-  /**
-   * The feature id for the '<em><b>Id</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int SHORT_COMMAND__ID = CUSTOM_COMMAND__ID;
-
-  /**
-   * The number of structural features of the '<em>Short Command</em>' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int SHORT_COMMAND_FEATURE_COUNT = CUSTOM_COMMAND_FEATURE_COUNT + 0;
-
-  /**
-   * The meta object id for the '{@link org.elysium.lilyPond.impl.PresetCommandImpl <em>Preset Command</em>}' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see org.elysium.lilyPond.impl.PresetCommandImpl
-   * @see org.elysium.lilyPond.impl.LilyPondPackageImpl#getPresetCommand()
-   * @generated
-   */
-  int PRESET_COMMAND = 16;
-
-  /**
-   * The feature id for the '<em><b>Parent Block</b></em>' container reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int PRESET_COMMAND__PARENT_BLOCK = COMMAND__PARENT_BLOCK;
-
-  /**
-   * The feature id for the '<em><b>Parent Lily Pond</b></em>' container reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int PRESET_COMMAND__PARENT_LILY_POND = COMMAND__PARENT_LILY_POND;
-
-  /**
-   * The feature id for the '<em><b>Id</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int PRESET_COMMAND__ID = COMMAND__ID;
-
-  /**
-   * The number of structural features of the '<em>Preset Command</em>' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int PRESET_COMMAND_FEATURE_COUNT = COMMAND_FEATURE_COUNT + 0;
+  int SPECIAL_COMMAND_FEATURE_COUNT = COMMAND_FEATURE_COUNT + 0;
 
   /**
    * The meta object id for the '{@link org.elysium.lilyPond.impl.IncludeImpl <em>Include</em>}' class.
@@ -714,7 +622,7 @@ public interface LilyPondPackage extends EPackage
    * @see org.elysium.lilyPond.impl.LilyPondPackageImpl#getInclude()
    * @generated
    */
-  int INCLUDE = 17;
+  int INCLUDE = 15;
 
   /**
    * The feature id for the '<em><b>Parent Block</b></em>' container reference.
@@ -723,7 +631,7 @@ public interface LilyPondPackage extends EPackage
    * @generated
    * @ordered
    */
-  int INCLUDE__PARENT_BLOCK = PRESET_COMMAND__PARENT_BLOCK;
+  int INCLUDE__PARENT_BLOCK = SPECIAL_COMMAND__PARENT_BLOCK;
 
   /**
    * The feature id for the '<em><b>Parent Lily Pond</b></em>' container reference.
@@ -732,16 +640,16 @@ public interface LilyPondPackage extends EPackage
    * @generated
    * @ordered
    */
-  int INCLUDE__PARENT_LILY_POND = PRESET_COMMAND__PARENT_LILY_POND;
+  int INCLUDE__PARENT_LILY_POND = SPECIAL_COMMAND__PARENT_LILY_POND;
 
   /**
-   * The feature id for the '<em><b>Id</b></em>' attribute.
+   * The feature id for the '<em><b>Keyword</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int INCLUDE__ID = PRESET_COMMAND__ID;
+  int INCLUDE__KEYWORD = SPECIAL_COMMAND__KEYWORD;
 
   /**
    * The feature id for the '<em><b>Import URI</b></em>' attribute.
@@ -750,7 +658,7 @@ public interface LilyPondPackage extends EPackage
    * @generated
    * @ordered
    */
-  int INCLUDE__IMPORT_URI = PRESET_COMMAND_FEATURE_COUNT + 0;
+  int INCLUDE__IMPORT_URI = SPECIAL_COMMAND_FEATURE_COUNT + 0;
 
   /**
    * The number of structural features of the '<em>Include</em>' class.
@@ -759,7 +667,7 @@ public interface LilyPondPackage extends EPackage
    * @generated
    * @ordered
    */
-  int INCLUDE_FEATURE_COUNT = PRESET_COMMAND_FEATURE_COUNT + 1;
+  int INCLUDE_FEATURE_COUNT = SPECIAL_COMMAND_FEATURE_COUNT + 1;
 
   /**
    * The meta object id for the '{@link org.elysium.lilyPond.impl.VersionImpl <em>Version</em>}' class.
@@ -769,7 +677,7 @@ public interface LilyPondPackage extends EPackage
    * @see org.elysium.lilyPond.impl.LilyPondPackageImpl#getVersion()
    * @generated
    */
-  int VERSION = 18;
+  int VERSION = 16;
 
   /**
    * The feature id for the '<em><b>Parent Block</b></em>' container reference.
@@ -778,7 +686,7 @@ public interface LilyPondPackage extends EPackage
    * @generated
    * @ordered
    */
-  int VERSION__PARENT_BLOCK = PRESET_COMMAND__PARENT_BLOCK;
+  int VERSION__PARENT_BLOCK = SPECIAL_COMMAND__PARENT_BLOCK;
 
   /**
    * The feature id for the '<em><b>Parent Lily Pond</b></em>' container reference.
@@ -787,16 +695,16 @@ public interface LilyPondPackage extends EPackage
    * @generated
    * @ordered
    */
-  int VERSION__PARENT_LILY_POND = PRESET_COMMAND__PARENT_LILY_POND;
+  int VERSION__PARENT_LILY_POND = SPECIAL_COMMAND__PARENT_LILY_POND;
 
   /**
-   * The feature id for the '<em><b>Id</b></em>' attribute.
+   * The feature id for the '<em><b>Keyword</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int VERSION__ID = PRESET_COMMAND__ID;
+  int VERSION__KEYWORD = SPECIAL_COMMAND__KEYWORD;
 
   /**
    * The feature id for the '<em><b>Version</b></em>' attribute.
@@ -805,7 +713,7 @@ public interface LilyPondPackage extends EPackage
    * @generated
    * @ordered
    */
-  int VERSION__VERSION = PRESET_COMMAND_FEATURE_COUNT + 0;
+  int VERSION__VERSION = SPECIAL_COMMAND_FEATURE_COUNT + 0;
 
   /**
    * The number of structural features of the '<em>Version</em>' class.
@@ -814,7 +722,7 @@ public interface LilyPondPackage extends EPackage
    * @generated
    * @ordered
    */
-  int VERSION_FEATURE_COUNT = PRESET_COMMAND_FEATURE_COUNT + 1;
+  int VERSION_FEATURE_COUNT = SPECIAL_COMMAND_FEATURE_COUNT + 1;
 
   /**
    * The meta object id for the '{@link org.elysium.lilyPond.impl.TextImpl <em>Text</em>}' class.
@@ -824,7 +732,7 @@ public interface LilyPondPackage extends EPackage
    * @see org.elysium.lilyPond.impl.LilyPondPackageImpl#getText()
    * @generated
    */
-  int TEXT = 19;
+  int TEXT = 17;
 
   /**
    * The feature id for the '<em><b>Parent Block</b></em>' container reference.
@@ -870,7 +778,7 @@ public interface LilyPondPackage extends EPackage
    * @see org.elysium.lilyPond.impl.LilyPondPackageImpl#getNumber()
    * @generated
    */
-  int NUMBER = 20;
+  int NUMBER = 18;
 
   /**
    * The feature id for the '<em><b>Parent Block</b></em>' container reference.
@@ -1161,55 +1069,35 @@ public interface LilyPondPackage extends EPackage
   EClass getCommand();
 
   /**
-   * Returns the meta object for the attribute '{@link org.elysium.lilyPond.Command#getId <em>Id</em>}'.
+   * Returns the meta object for the attribute '{@link org.elysium.lilyPond.Command#getKeyword <em>Keyword</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Id</em>'.
-   * @see org.elysium.lilyPond.Command#getId()
+   * @return the meta object for the attribute '<em>Keyword</em>'.
+   * @see org.elysium.lilyPond.Command#getKeyword()
    * @see #getCommand()
    * @generated
    */
-  EAttribute getCommand_Id();
+  EAttribute getCommand_Keyword();
 
   /**
-   * Returns the meta object for class '{@link org.elysium.lilyPond.CustomCommand <em>Custom Command</em>}'.
+   * Returns the meta object for class '{@link org.elysium.lilyPond.ArbitraryCommand <em>Arbitrary Command</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Custom Command</em>'.
-   * @see org.elysium.lilyPond.CustomCommand
+   * @return the meta object for class '<em>Arbitrary Command</em>'.
+   * @see org.elysium.lilyPond.ArbitraryCommand
    * @generated
    */
-  EClass getCustomCommand();
+  EClass getArbitraryCommand();
 
   /**
-   * Returns the meta object for class '{@link org.elysium.lilyPond.LongCommand <em>Long Command</em>}'.
+   * Returns the meta object for class '{@link org.elysium.lilyPond.SpecialCommand <em>Special Command</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Long Command</em>'.
-   * @see org.elysium.lilyPond.LongCommand
+   * @return the meta object for class '<em>Special Command</em>'.
+   * @see org.elysium.lilyPond.SpecialCommand
    * @generated
    */
-  EClass getLongCommand();
-
-  /**
-   * Returns the meta object for class '{@link org.elysium.lilyPond.ShortCommand <em>Short Command</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Short Command</em>'.
-   * @see org.elysium.lilyPond.ShortCommand
-   * @generated
-   */
-  EClass getShortCommand();
-
-  /**
-   * Returns the meta object for class '{@link org.elysium.lilyPond.PresetCommand <em>Preset Command</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Preset Command</em>'.
-   * @see org.elysium.lilyPond.PresetCommand
-   * @generated
-   */
-  EClass getPresetCommand();
+  EClass getSpecialCommand();
 
   /**
    * Returns the meta object for class '{@link org.elysium.lilyPond.Include <em>Include</em>}'.
@@ -1537,52 +1425,32 @@ public interface LilyPondPackage extends EPackage
     EClass COMMAND = eINSTANCE.getCommand();
 
     /**
-     * The meta object literal for the '<em><b>Id</b></em>' attribute feature.
+     * The meta object literal for the '<em><b>Keyword</b></em>' attribute feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EAttribute COMMAND__ID = eINSTANCE.getCommand_Id();
+    EAttribute COMMAND__KEYWORD = eINSTANCE.getCommand_Keyword();
 
     /**
-     * The meta object literal for the '{@link org.elysium.lilyPond.impl.CustomCommandImpl <em>Custom Command</em>}' class.
+     * The meta object literal for the '{@link org.elysium.lilyPond.impl.ArbitraryCommandImpl <em>Arbitrary Command</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @see org.elysium.lilyPond.impl.CustomCommandImpl
-     * @see org.elysium.lilyPond.impl.LilyPondPackageImpl#getCustomCommand()
+     * @see org.elysium.lilyPond.impl.ArbitraryCommandImpl
+     * @see org.elysium.lilyPond.impl.LilyPondPackageImpl#getArbitraryCommand()
      * @generated
      */
-    EClass CUSTOM_COMMAND = eINSTANCE.getCustomCommand();
+    EClass ARBITRARY_COMMAND = eINSTANCE.getArbitraryCommand();
 
     /**
-     * The meta object literal for the '{@link org.elysium.lilyPond.impl.LongCommandImpl <em>Long Command</em>}' class.
+     * The meta object literal for the '{@link org.elysium.lilyPond.impl.SpecialCommandImpl <em>Special Command</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @see org.elysium.lilyPond.impl.LongCommandImpl
-     * @see org.elysium.lilyPond.impl.LilyPondPackageImpl#getLongCommand()
+     * @see org.elysium.lilyPond.impl.SpecialCommandImpl
+     * @see org.elysium.lilyPond.impl.LilyPondPackageImpl#getSpecialCommand()
      * @generated
      */
-    EClass LONG_COMMAND = eINSTANCE.getLongCommand();
-
-    /**
-     * The meta object literal for the '{@link org.elysium.lilyPond.impl.ShortCommandImpl <em>Short Command</em>}' class.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see org.elysium.lilyPond.impl.ShortCommandImpl
-     * @see org.elysium.lilyPond.impl.LilyPondPackageImpl#getShortCommand()
-     * @generated
-     */
-    EClass SHORT_COMMAND = eINSTANCE.getShortCommand();
-
-    /**
-     * The meta object literal for the '{@link org.elysium.lilyPond.impl.PresetCommandImpl <em>Preset Command</em>}' class.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see org.elysium.lilyPond.impl.PresetCommandImpl
-     * @see org.elysium.lilyPond.impl.LilyPondPackageImpl#getPresetCommand()
-     * @generated
-     */
-    EClass PRESET_COMMAND = eINSTANCE.getPresetCommand();
+    EClass SPECIAL_COMMAND = eINSTANCE.getSpecialCommand();
 
     /**
      * The meta object literal for the '{@link org.elysium.lilyPond.impl.IncludeImpl <em>Include</em>}' class.

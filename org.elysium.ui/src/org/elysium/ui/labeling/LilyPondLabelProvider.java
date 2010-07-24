@@ -5,16 +5,16 @@ import java.util.List;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.xtext.ui.label.DefaultEObjectLabelProvider;
+import org.elysium.lilyPond.ArbitraryCommand;
 import org.elysium.lilyPond.Block;
 import org.elysium.lilyPond.Expression;
 import org.elysium.lilyPond.LilyPond;
-import org.elysium.lilyPond.LongCommand;
-import org.elysium.lilyPond.PresetCommand;
 import org.elysium.lilyPond.Scheme;
 import org.elysium.lilyPond.SchemeExpression;
 import org.elysium.lilyPond.SchemeList;
 import org.elysium.lilyPond.SchemeText;
 import org.elysium.lilyPond.SimpleBlock;
+import org.elysium.lilyPond.SpecialCommand;
 import org.elysium.lilyPond.Text;
 
 /**
@@ -47,19 +47,19 @@ public class LilyPondLabelProvider extends DefaultEObjectLabelProvider {
 			boolean acceptCommands = true;
 			for (int i = nodeIndex - 1; i >= 0; i--) {
 				Expression sibling = siblings.get(i);
-				if ((sibling instanceof LongCommand) && acceptCommands) {
-					LongCommand command = (LongCommand)sibling;
-					String commandId = command.getId();
-					if (commandId.equals("new")) { //$NON-NLS-1$
+				if ((sibling instanceof ArbitraryCommand) && acceptCommands) {
+					ArbitraryCommand command = (ArbitraryCommand)sibling;
+					String commandKeyword = command.getKeyword();
+					if (commandKeyword.equals("\\new")) { //$NON-NLS-1$
 						Expression context = siblings.get(i + 1);
 						if (context instanceof Text) {
 							String contextName = ((Text)context).getValue();
-							label = MessageFormat.format("\\{0} {1} {2}", commandId, contextName, label); //$NON-NLS-1$
+							label = MessageFormat.format("{0} {1} {2}", commandKeyword, contextName, label); //$NON-NLS-1$
 							acceptCommands = false;
 							nodeIndex = i;
 						}
 					} else if (block instanceof SimpleBlock) {
-						label = MessageFormat.format("\\{0} {1}", commandId, label); //$NON-NLS-1$
+						label = MessageFormat.format("{0} {1}", commandKeyword, label); //$NON-NLS-1$
 						acceptCommands = false;
 						nodeIndex = i;
 					}
@@ -95,8 +95,8 @@ public class LilyPondLabelProvider extends DefaultEObjectLabelProvider {
 		// TODO search for assignment
 	}
 
-	public String text(PresetCommand command) {
-		return command.getId();
+	public String text(SpecialCommand specialCommand) {
+		return specialCommand.getKeyword();
 	}
 
 }

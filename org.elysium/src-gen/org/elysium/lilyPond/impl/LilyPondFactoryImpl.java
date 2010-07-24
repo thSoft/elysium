@@ -13,16 +13,14 @@ import org.eclipse.emf.ecore.impl.EFactoryImpl;
 
 import org.eclipse.emf.ecore.plugin.EcorePlugin;
 
+import org.elysium.lilyPond.ArbitraryCommand;
 import org.elysium.lilyPond.Block;
 import org.elysium.lilyPond.Command;
-import org.elysium.lilyPond.CustomCommand;
 import org.elysium.lilyPond.Expression;
 import org.elysium.lilyPond.Include;
 import org.elysium.lilyPond.LilyPond;
 import org.elysium.lilyPond.LilyPondFactory;
 import org.elysium.lilyPond.LilyPondPackage;
-import org.elysium.lilyPond.LongCommand;
-import org.elysium.lilyPond.PresetCommand;
 import org.elysium.lilyPond.Scheme;
 import org.elysium.lilyPond.SchemeBlock;
 import org.elysium.lilyPond.SchemeBoolean;
@@ -30,9 +28,9 @@ import org.elysium.lilyPond.SchemeExpression;
 import org.elysium.lilyPond.SchemeList;
 import org.elysium.lilyPond.SchemeText;
 import org.elysium.lilyPond.SchemeValue;
-import org.elysium.lilyPond.ShortCommand;
 import org.elysium.lilyPond.SimpleBlock;
 import org.elysium.lilyPond.SimultaneousBlock;
+import org.elysium.lilyPond.SpecialCommand;
 import org.elysium.lilyPond.Text;
 import org.elysium.lilyPond.Version;
 
@@ -101,10 +99,8 @@ public class LilyPondFactoryImpl extends EFactoryImpl implements LilyPondFactory
       case LilyPondPackage.SCHEME_BLOCK: return createSchemeBlock();
       case LilyPondPackage.SCHEME_TEXT: return createSchemeText();
       case LilyPondPackage.COMMAND: return createCommand();
-      case LilyPondPackage.CUSTOM_COMMAND: return createCustomCommand();
-      case LilyPondPackage.LONG_COMMAND: return createLongCommand();
-      case LilyPondPackage.SHORT_COMMAND: return createShortCommand();
-      case LilyPondPackage.PRESET_COMMAND: return createPresetCommand();
+      case LilyPondPackage.ARBITRARY_COMMAND: return createArbitraryCommand();
+      case LilyPondPackage.SPECIAL_COMMAND: return createSpecialCommand();
       case LilyPondPackage.INCLUDE: return createInclude();
       case LilyPondPackage.VERSION: return createVersion();
       case LilyPondPackage.TEXT: return createText();
@@ -262,10 +258,10 @@ public class LilyPondFactoryImpl extends EFactoryImpl implements LilyPondFactory
    * <!-- end-user-doc -->
    * @generated
    */
-  public CustomCommand createCustomCommand()
+  public ArbitraryCommand createArbitraryCommand()
   {
-    CustomCommandImpl customCommand = new CustomCommandImpl();
-    return customCommand;
+    ArbitraryCommandImpl arbitraryCommand = new ArbitraryCommandImpl();
+    return arbitraryCommand;
   }
 
   /**
@@ -273,32 +269,10 @@ public class LilyPondFactoryImpl extends EFactoryImpl implements LilyPondFactory
    * <!-- end-user-doc -->
    * @generated
    */
-  public LongCommand createLongCommand()
+  public SpecialCommand createSpecialCommand()
   {
-    LongCommandImpl longCommand = new LongCommandImpl();
-    return longCommand;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public ShortCommand createShortCommand()
-  {
-    ShortCommandImpl shortCommand = new ShortCommandImpl();
-    return shortCommand;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public PresetCommand createPresetCommand()
-  {
-    PresetCommandImpl presetCommand = new PresetCommandImpl();
-    return presetCommand;
+    SpecialCommandImpl specialCommand = new SpecialCommandImpl();
+    return specialCommand;
   }
 
   /**

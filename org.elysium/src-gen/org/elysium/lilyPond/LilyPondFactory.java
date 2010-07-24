@@ -143,40 +143,22 @@ public interface LilyPondFactory extends EFactory
   Command createCommand();
 
   /**
-   * Returns a new object of class '<em>Custom Command</em>'.
+   * Returns a new object of class '<em>Arbitrary Command</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>Custom Command</em>'.
+   * @return a new object of class '<em>Arbitrary Command</em>'.
    * @generated
    */
-  CustomCommand createCustomCommand();
+  ArbitraryCommand createArbitraryCommand();
 
   /**
-   * Returns a new object of class '<em>Long Command</em>'.
+   * Returns a new object of class '<em>Special Command</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>Long Command</em>'.
+   * @return a new object of class '<em>Special Command</em>'.
    * @generated
    */
-  LongCommand createLongCommand();
-
-  /**
-   * Returns a new object of class '<em>Short Command</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Short Command</em>'.
-   * @generated
-   */
-  ShortCommand createShortCommand();
-
-  /**
-   * Returns a new object of class '<em>Preset Command</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Preset Command</em>'.
-   * @generated
-   */
-  PresetCommand createPresetCommand();
+  SpecialCommand createSpecialCommand();
 
   /**
    * Returns a new object of class '<em>Include</em>'.

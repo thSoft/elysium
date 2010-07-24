@@ -22,7 +22,7 @@ package org.elysium.lilyPond;
  * @model
  * @generated
  */
-public interface Version extends PresetCommand
+public interface Version extends SpecialCommand
 {
   /**
    * Returns the value of the '<em><b>Version</b></em>' attribute.

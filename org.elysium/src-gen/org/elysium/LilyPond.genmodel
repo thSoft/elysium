@@ -41,12 +41,10 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute LilyPond.ecore#//SchemeText/value"/>
     </genClasses>
     <genClasses ecoreClass="LilyPond.ecore#//Command">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute LilyPond.ecore#//Command/id"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute LilyPond.ecore#//Command/keyword"/>
     </genClasses>
-    <genClasses ecoreClass="LilyPond.ecore#//CustomCommand"/>
-    <genClasses ecoreClass="LilyPond.ecore#//LongCommand"/>
-    <genClasses ecoreClass="LilyPond.ecore#//ShortCommand"/>
-    <genClasses ecoreClass="LilyPond.ecore#//PresetCommand"/>
+    <genClasses ecoreClass="LilyPond.ecore#//ArbitraryCommand"/>
+    <genClasses ecoreClass="LilyPond.ecore#//SpecialCommand"/>
     <genClasses ecoreClass="LilyPond.ecore#//Include">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute LilyPond.ecore#//Include/importURI"/>
     </genClasses>

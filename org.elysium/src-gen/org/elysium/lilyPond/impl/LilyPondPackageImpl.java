@@ -12,16 +12,14 @@ import org.eclipse.emf.ecore.EReference;
 
 import org.eclipse.emf.ecore.impl.EPackageImpl;
 
+import org.elysium.lilyPond.ArbitraryCommand;
 import org.elysium.lilyPond.Block;
 import org.elysium.lilyPond.Command;
-import org.elysium.lilyPond.CustomCommand;
 import org.elysium.lilyPond.Expression;
 import org.elysium.lilyPond.Include;
 import org.elysium.lilyPond.LilyPond;
 import org.elysium.lilyPond.LilyPondFactory;
 import org.elysium.lilyPond.LilyPondPackage;
-import org.elysium.lilyPond.LongCommand;
-import org.elysium.lilyPond.PresetCommand;
 import org.elysium.lilyPond.Scheme;
 import org.elysium.lilyPond.SchemeBlock;
 import org.elysium.lilyPond.SchemeBoolean;
@@ -29,9 +27,9 @@ import org.elysium.lilyPond.SchemeExpression;
 import org.elysium.lilyPond.SchemeList;
 import org.elysium.lilyPond.SchemeText;
 import org.elysium.lilyPond.SchemeValue;
-import org.elysium.lilyPond.ShortCommand;
 import org.elysium.lilyPond.SimpleBlock;
 import org.elysium.lilyPond.SimultaneousBlock;
+import org.elysium.lilyPond.SpecialCommand;
 import org.elysium.lilyPond.Text;
 import org.elysium.lilyPond.Version;
 
@@ -139,28 +137,14 @@ public class LilyPondPackageImpl extends EPackageImpl implements LilyPondPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  private EClass customCommandEClass = null;
+  private EClass arbitraryCommandEClass = null;
 
   /**
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
-  private EClass longCommandEClass = null;
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  private EClass shortCommandEClass = null;
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  private EClass presetCommandEClass = null;
+  private EClass specialCommandEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -498,7 +482,7 @@ public class LilyPondPackageImpl extends EPackageImpl implements LilyPondPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getCommand_Id()
+  public EAttribute getCommand_Keyword()
   {
     return (EAttribute)commandEClass.getEStructuralFeatures().get(0);
   }
@@ -508,9 +492,9 @@ public class LilyPondPackageImpl extends EPackageImpl implements LilyPondPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EClass getCustomCommand()
+  public EClass getArbitraryCommand()
   {
-    return customCommandEClass;
+    return arbitraryCommandEClass;
   }
 
   /**
@@ -518,29 +502,9 @@ public class LilyPondPackageImpl extends EPackageImpl implements LilyPondPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EClass getLongCommand()
+  public EClass getSpecialCommand()
   {
-    return longCommandEClass;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EClass getShortCommand()
-  {
-    return shortCommandEClass;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EClass getPresetCommand()
-  {
-    return presetCommandEClass;
+    return specialCommandEClass;
   }
 
   /**
@@ -689,15 +653,11 @@ public class LilyPondPackageImpl extends EPackageImpl implements LilyPondPackage
     createEAttribute(schemeTextEClass, SCHEME_TEXT__VALUE);
 
     commandEClass = createEClass(COMMAND);
-    createEAttribute(commandEClass, COMMAND__ID);
+    createEAttribute(commandEClass, COMMAND__KEYWORD);
 
-    customCommandEClass = createEClass(CUSTOM_COMMAND);
+    arbitraryCommandEClass = createEClass(ARBITRARY_COMMAND);
 
-    longCommandEClass = createEClass(LONG_COMMAND);
-
-    shortCommandEClass = createEClass(SHORT_COMMAND);
-
-    presetCommandEClass = createEClass(PRESET_COMMAND);
+    specialCommandEClass = createEClass(SPECIAL_COMMAND);
 
     includeEClass = createEClass(INCLUDE);
     createEAttribute(includeEClass, INCLUDE__IMPORT_URI);
@@ -750,12 +710,10 @@ public class LilyPondPackageImpl extends EPackageImpl implements LilyPondPackage
     schemeBlockEClass.getESuperTypes().add(this.getSchemeValue());
     schemeTextEClass.getESuperTypes().add(this.getSchemeValue());
     commandEClass.getESuperTypes().add(this.getExpression());
-    customCommandEClass.getESuperTypes().add(this.getCommand());
-    longCommandEClass.getESuperTypes().add(this.getCustomCommand());
-    shortCommandEClass.getESuperTypes().add(this.getCustomCommand());
-    presetCommandEClass.getESuperTypes().add(this.getCommand());
-    includeEClass.getESuperTypes().add(this.getPresetCommand());
-    versionEClass.getESuperTypes().add(this.getPresetCommand());
+    arbitraryCommandEClass.getESuperTypes().add(this.getCommand());
+    specialCommandEClass.getESuperTypes().add(this.getCommand());
+    includeEClass.getESuperTypes().add(this.getSpecialCommand());
+    versionEClass.getESuperTypes().add(this.getSpecialCommand());
     textEClass.getESuperTypes().add(this.getExpression());
     numberEClass.getESuperTypes().add(this.getExpression());
     numberEClass.getESuperTypes().add(this.getSchemeValue());
@@ -797,15 +755,11 @@ public class LilyPondPackageImpl extends EPackageImpl implements LilyPondPackage
     initEAttribute(getSchemeText_Value(), ecorePackage.getEString(), "value", null, 0, 1, SchemeText.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(commandEClass, Command.class, "Command", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getCommand_Id(), ecorePackage.getEString(), "id", null, 0, 1, Command.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getCommand_Keyword(), ecorePackage.getEString(), "keyword", null, 0, 1, Command.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-    initEClass(customCommandEClass, CustomCommand.class, "CustomCommand", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEClass(arbitraryCommandEClass, ArbitraryCommand.class, "ArbitraryCommand", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
-    initEClass(longCommandEClass, LongCommand.class, "LongCommand", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-
-    initEClass(shortCommandEClass, ShortCommand.class, "ShortCommand", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-
-    initEClass(presetCommandEClass, PresetCommand.class, "PresetCommand", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEClass(specialCommandEClass, SpecialCommand.class, "SpecialCommand", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
     initEClass(includeEClass, Include.class, "Include", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getInclude_ImportURI(), ecorePackage.getEString(), "importURI", null, 0, 1, Include.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

@@ -7,26 +7,26 @@ package org.elysium.lilyPond.impl;
 
 import org.eclipse.emf.ecore.EClass;
 
+import org.elysium.lilyPond.ArbitraryCommand;
 import org.elysium.lilyPond.LilyPondPackage;
-import org.elysium.lilyPond.LongCommand;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Long Command</b></em>'.
+ * An implementation of the model object '<em><b>Arbitrary Command</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * </p>
  *
  * @generated
  */
-public class LongCommandImpl extends CustomCommandImpl implements LongCommand
+public class ArbitraryCommandImpl extends CommandImpl implements ArbitraryCommand
 {
   /**
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
-  protected LongCommandImpl()
+  protected ArbitraryCommandImpl()
   {
     super();
   }
@@ -39,7 +39,7 @@ public class LongCommandImpl extends CustomCommandImpl implements LongCommand
   @Override
   protected EClass eStaticClass()
   {
-    return LilyPondPackage.Literals.LONG_COMMAND;
+    return LilyPondPackage.Literals.ARBITRARY_COMMAND;
   }
 
-} //LongCommandImpl
+} //ArbitraryCommandImpl

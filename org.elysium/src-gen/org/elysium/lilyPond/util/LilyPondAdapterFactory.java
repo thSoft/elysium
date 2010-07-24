@@ -12,15 +12,13 @@ import org.eclipse.emf.common.notify.impl.AdapterFactoryImpl;
 
 import org.eclipse.emf.ecore.EObject;
 
+import org.elysium.lilyPond.ArbitraryCommand;
 import org.elysium.lilyPond.Block;
 import org.elysium.lilyPond.Command;
-import org.elysium.lilyPond.CustomCommand;
 import org.elysium.lilyPond.Expression;
 import org.elysium.lilyPond.Include;
 import org.elysium.lilyPond.LilyPond;
 import org.elysium.lilyPond.LilyPondPackage;
-import org.elysium.lilyPond.LongCommand;
-import org.elysium.lilyPond.PresetCommand;
 import org.elysium.lilyPond.Scheme;
 import org.elysium.lilyPond.SchemeBlock;
 import org.elysium.lilyPond.SchemeBoolean;
@@ -28,9 +26,9 @@ import org.elysium.lilyPond.SchemeExpression;
 import org.elysium.lilyPond.SchemeList;
 import org.elysium.lilyPond.SchemeText;
 import org.elysium.lilyPond.SchemeValue;
-import org.elysium.lilyPond.ShortCommand;
 import org.elysium.lilyPond.SimpleBlock;
 import org.elysium.lilyPond.SimultaneousBlock;
+import org.elysium.lilyPond.SpecialCommand;
 import org.elysium.lilyPond.Text;
 import org.elysium.lilyPond.Version;
 
@@ -163,24 +161,14 @@ public class LilyPondAdapterFactory extends AdapterFactoryImpl
         return createCommandAdapter();
       }
       @Override
-      public Adapter caseCustomCommand(CustomCommand object)
+      public Adapter caseArbitraryCommand(ArbitraryCommand object)
       {
-        return createCustomCommandAdapter();
+        return createArbitraryCommandAdapter();
       }
       @Override
-      public Adapter caseLongCommand(LongCommand object)
+      public Adapter caseSpecialCommand(SpecialCommand object)
       {
-        return createLongCommandAdapter();
-      }
-      @Override
-      public Adapter caseShortCommand(ShortCommand object)
-      {
-        return createShortCommandAdapter();
-      }
-      @Override
-      public Adapter casePresetCommand(PresetCommand object)
-      {
-        return createPresetCommandAdapter();
+        return createSpecialCommandAdapter();
       }
       @Override
       public Adapter caseInclude(Include object)
@@ -420,61 +408,31 @@ public class LilyPondAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link org.elysium.lilyPond.CustomCommand <em>Custom Command</em>}'.
+   * Creates a new adapter for an object of class '{@link org.elysium.lilyPond.ArbitraryCommand <em>Arbitrary Command</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see org.elysium.lilyPond.CustomCommand
+   * @see org.elysium.lilyPond.ArbitraryCommand
    * @generated
    */
-  public Adapter createCustomCommandAdapter()
+  public Adapter createArbitraryCommandAdapter()
   {
     return null;
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link org.elysium.lilyPond.LongCommand <em>Long Command</em>}'.
+   * Creates a new adapter for an object of class '{@link org.elysium.lilyPond.SpecialCommand <em>Special Command</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see org.elysium.lilyPond.LongCommand
+   * @see org.elysium.lilyPond.SpecialCommand
    * @generated
    */
-  public Adapter createLongCommandAdapter()
-  {
-    return null;
-  }
-
-  /**
-   * Creates a new adapter for an object of class '{@link org.elysium.lilyPond.ShortCommand <em>Short Command</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see org.elysium.lilyPond.ShortCommand
-   * @generated
-   */
-  public Adapter createShortCommandAdapter()
-  {
-    return null;
-  }
-
-  /**
-   * Creates a new adapter for an object of class '{@link org.elysium.lilyPond.PresetCommand <em>Preset Command</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see org.elysium.lilyPond.PresetCommand
-   * @generated
-   */
-  public Adapter createPresetCommandAdapter()
+  public Adapter createSpecialCommandAdapter()
   {
     return null;
   }

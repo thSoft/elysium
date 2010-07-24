@@ -27,7 +27,7 @@ import org.elysium.lilyPond.LilyPondPackage;
  *
  * @generated
  */
-public class IncludeImpl extends PresetCommandImpl implements Include
+public class IncludeImpl extends SpecialCommandImpl implements Include
 {
   /**
    * The default value of the '{@link #getImportURI() <em>Import URI</em>}' attribute.

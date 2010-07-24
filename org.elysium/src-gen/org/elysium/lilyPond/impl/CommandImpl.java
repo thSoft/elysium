@@ -21,7 +21,7 @@ import org.elysium.lilyPond.LilyPondPackage;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link org.elysium.lilyPond.impl.CommandImpl#getId <em>Id</em>}</li>
+ *   <li>{@link org.elysium.lilyPond.impl.CommandImpl#getKeyword <em>Keyword</em>}</li>
  * </ul>
  * </p>
  *
@@ -30,24 +30,24 @@ import org.elysium.lilyPond.LilyPondPackage;
 public class CommandImpl extends ExpressionImpl implements Command
 {
   /**
-   * The default value of the '{@link #getId() <em>Id</em>}' attribute.
+   * The default value of the '{@link #getKeyword() <em>Keyword</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getId()
+   * @see #getKeyword()
    * @generated
    * @ordered
    */
-  protected static final String ID_EDEFAULT = null;
+  protected static final String KEYWORD_EDEFAULT = null;
 
   /**
-   * The cached value of the '{@link #getId() <em>Id</em>}' attribute.
+   * The cached value of the '{@link #getKeyword() <em>Keyword</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getId()
+   * @see #getKeyword()
    * @generated
    * @ordered
    */
-  protected String id = ID_EDEFAULT;
+  protected String keyword = KEYWORD_EDEFAULT;
 
   /**
    * <!-- begin-user-doc -->
@@ -75,9 +75,9 @@ public class CommandImpl extends ExpressionImpl implements Command
    * <!-- end-user-doc -->
    * @generated
    */
-  public String getId()
+  public String getKeyword()
   {
-    return id;
+    return keyword;
   }
 
   /**
@@ -85,12 +85,12 @@ public class CommandImpl extends ExpressionImpl implements Command
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setId(String newId)
+  public void setKeyword(String newKeyword)
   {
-    String oldId = id;
-    id = newId;
+    String oldKeyword = keyword;
+    keyword = newKeyword;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, LilyPondPackage.COMMAND__ID, oldId, id));
+      eNotify(new ENotificationImpl(this, Notification.SET, LilyPondPackage.COMMAND__KEYWORD, oldKeyword, keyword));
   }
 
   /**
@@ -103,8 +103,8 @@ public class CommandImpl extends ExpressionImpl implements Command
   {
     switch (featureID)
     {
-      case LilyPondPackage.COMMAND__ID:
-        return getId();
+      case LilyPondPackage.COMMAND__KEYWORD:
+        return getKeyword();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -119,8 +119,8 @@ public class CommandImpl extends ExpressionImpl implements Command
   {
     switch (featureID)
     {
-      case LilyPondPackage.COMMAND__ID:
-        setId((String)newValue);
+      case LilyPondPackage.COMMAND__KEYWORD:
+        setKeyword((String)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -136,8 +136,8 @@ public class CommandImpl extends ExpressionImpl implements Command
   {
     switch (featureID)
     {
-      case LilyPondPackage.COMMAND__ID:
-        setId(ID_EDEFAULT);
+      case LilyPondPackage.COMMAND__KEYWORD:
+        setKeyword(KEYWORD_EDEFAULT);
         return;
     }
     super.eUnset(featureID);
@@ -153,8 +153,8 @@ public class CommandImpl extends ExpressionImpl implements Command
   {
     switch (featureID)
     {
-      case LilyPondPackage.COMMAND__ID:
-        return ID_EDEFAULT == null ? id != null : !ID_EDEFAULT.equals(id);
+      case LilyPondPackage.COMMAND__KEYWORD:
+        return KEYWORD_EDEFAULT == null ? keyword != null : !KEYWORD_EDEFAULT.equals(keyword);
     }
     return super.eIsSet(featureID);
   }
@@ -170,8 +170,8 @@ public class CommandImpl extends ExpressionImpl implements Command
     if (eIsProxy()) return super.toString();
 
     StringBuffer result = new StringBuffer(super.toString());
-    result.append(" (id: ");
-    result.append(id);
+    result.append(" (keyword: ");
+    result.append(keyword);
     result.append(')');
     return result.toString();
   }

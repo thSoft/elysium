@@ -8,7 +8,6 @@ import org.eclipse.xtext.ui.editor.syntaxcoloring.DefaultHighlightingConfigurati
 import org.eclipse.xtext.ui.editor.syntaxcoloring.IHighlightedPositionAcceptor;
 import org.eclipse.xtext.ui.editor.syntaxcoloring.ISemanticHighlightingCalculator;
 import org.elysium.lilyPond.Command;
-import org.elysium.lilyPond.CustomCommand;
 
 /**
  * Assigns semantic highlighting styles to ranges of text based on LilyPond
@@ -23,8 +22,7 @@ public class LilyPondSemanticHighlightingCalculator implements ISemanticHighligh
 				EObject element = node.getElement();
 				if (element instanceof Command) {
 					Command command = (Command)element;
-					boolean includeBackslash = command instanceof CustomCommand;
-					acceptor.addPosition(node.getOffset(), command.getId().length() + (includeBackslash ? 1 : 0), DefaultHighlightingConfiguration.KEYWORD_ID);
+					acceptor.addPosition(node.getOffset(), command.getKeyword().length(), DefaultHighlightingConfiguration.KEYWORD_ID);
 				}
 			}
 		}

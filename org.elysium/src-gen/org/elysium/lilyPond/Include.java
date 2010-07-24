@@ -22,7 +22,7 @@ package org.elysium.lilyPond;
  * @model
  * @generated
  */
-public interface Include extends PresetCommand
+public interface Include extends SpecialCommand
 {
   /**
    * Returns the value of the '<em><b>Import URI</b></em>' attribute.

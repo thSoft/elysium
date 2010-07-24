@@ -14,7 +14,7 @@ package org.elysium.lilyPond;
  * <p>
  * The following features are supported:
  * <ul>
- *   <li>{@link org.elysium.lilyPond.Command#getId <em>Id</em>}</li>
+ *   <li>{@link org.elysium.lilyPond.Command#getKeyword <em>Keyword</em>}</li>
  * </ul>
  * </p>
  *
@@ -25,29 +25,29 @@ package org.elysium.lilyPond;
 public interface Command extends Expression
 {
   /**
-   * Returns the value of the '<em><b>Id</b></em>' attribute.
+   * Returns the value of the '<em><b>Keyword</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Id</em>' attribute isn't clear,
+   * If the meaning of the '<em>Keyword</em>' attribute isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Id</em>' attribute.
-   * @see #setId(String)
-   * @see org.elysium.lilyPond.LilyPondPackage#getCommand_Id()
+   * @return the value of the '<em>Keyword</em>' attribute.
+   * @see #setKeyword(String)
+   * @see org.elysium.lilyPond.LilyPondPackage#getCommand_Keyword()
    * @model
    * @generated
    */
-  String getId();
+  String getKeyword();
 
   /**
-   * Sets the value of the '{@link org.elysium.lilyPond.Command#getId <em>Id</em>}' attribute.
+   * Sets the value of the '{@link org.elysium.lilyPond.Command#getKeyword <em>Keyword</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Id</em>' attribute.
-   * @see #getId()
+   * @param value the new value of the '<em>Keyword</em>' attribute.
+   * @see #getKeyword()
    * @generated
    */
-  void setId(String value);
+  void setKeyword(String value);
 
 } // Command

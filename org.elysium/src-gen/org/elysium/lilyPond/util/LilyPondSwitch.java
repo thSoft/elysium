@@ -10,15 +10,13 @@ import java.util.List;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
 
+import org.elysium.lilyPond.ArbitraryCommand;
 import org.elysium.lilyPond.Block;
 import org.elysium.lilyPond.Command;
-import org.elysium.lilyPond.CustomCommand;
 import org.elysium.lilyPond.Expression;
 import org.elysium.lilyPond.Include;
 import org.elysium.lilyPond.LilyPond;
 import org.elysium.lilyPond.LilyPondPackage;
-import org.elysium.lilyPond.LongCommand;
-import org.elysium.lilyPond.PresetCommand;
 import org.elysium.lilyPond.Scheme;
 import org.elysium.lilyPond.SchemeBlock;
 import org.elysium.lilyPond.SchemeBoolean;
@@ -26,9 +24,9 @@ import org.elysium.lilyPond.SchemeExpression;
 import org.elysium.lilyPond.SchemeList;
 import org.elysium.lilyPond.SchemeText;
 import org.elysium.lilyPond.SchemeValue;
-import org.elysium.lilyPond.ShortCommand;
 import org.elysium.lilyPond.SimpleBlock;
 import org.elysium.lilyPond.SimultaneousBlock;
+import org.elysium.lilyPond.SpecialCommand;
 import org.elysium.lilyPond.Text;
 import org.elysium.lilyPond.Version;
 
@@ -217,41 +215,21 @@ public class LilyPondSwitch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case LilyPondPackage.CUSTOM_COMMAND:
+      case LilyPondPackage.ARBITRARY_COMMAND:
       {
-        CustomCommand customCommand = (CustomCommand)theEObject;
-        T result = caseCustomCommand(customCommand);
-        if (result == null) result = caseCommand(customCommand);
-        if (result == null) result = caseExpression(customCommand);
+        ArbitraryCommand arbitraryCommand = (ArbitraryCommand)theEObject;
+        T result = caseArbitraryCommand(arbitraryCommand);
+        if (result == null) result = caseCommand(arbitraryCommand);
+        if (result == null) result = caseExpression(arbitraryCommand);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case LilyPondPackage.LONG_COMMAND:
+      case LilyPondPackage.SPECIAL_COMMAND:
       {
-        LongCommand longCommand = (LongCommand)theEObject;
-        T result = caseLongCommand(longCommand);
-        if (result == null) result = caseCustomCommand(longCommand);
-        if (result == null) result = caseCommand(longCommand);
-        if (result == null) result = caseExpression(longCommand);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
-      case LilyPondPackage.SHORT_COMMAND:
-      {
-        ShortCommand shortCommand = (ShortCommand)theEObject;
-        T result = caseShortCommand(shortCommand);
-        if (result == null) result = caseCustomCommand(shortCommand);
-        if (result == null) result = caseCommand(shortCommand);
-        if (result == null) result = caseExpression(shortCommand);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
-      case LilyPondPackage.PRESET_COMMAND:
-      {
-        PresetCommand presetCommand = (PresetCommand)theEObject;
-        T result = casePresetCommand(presetCommand);
-        if (result == null) result = caseCommand(presetCommand);
-        if (result == null) result = caseExpression(presetCommand);
+        SpecialCommand specialCommand = (SpecialCommand)theEObject;
+        T result = caseSpecialCommand(specialCommand);
+        if (result == null) result = caseCommand(specialCommand);
+        if (result == null) result = caseExpression(specialCommand);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -259,7 +237,7 @@ public class LilyPondSwitch<T>
       {
         Include include = (Include)theEObject;
         T result = caseInclude(include);
-        if (result == null) result = casePresetCommand(include);
+        if (result == null) result = caseSpecialCommand(include);
         if (result == null) result = caseCommand(include);
         if (result == null) result = caseExpression(include);
         if (result == null) result = defaultCase(theEObject);
@@ -269,7 +247,7 @@ public class LilyPondSwitch<T>
       {
         Version version = (Version)theEObject;
         T result = caseVersion(version);
-        if (result == null) result = casePresetCommand(version);
+        if (result == null) result = caseSpecialCommand(version);
         if (result == null) result = caseCommand(version);
         if (result == null) result = caseExpression(version);
         if (result == null) result = defaultCase(theEObject);
@@ -505,65 +483,33 @@ public class LilyPondSwitch<T>
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>Custom Command</em>'.
+   * Returns the result of interpreting the object as an instance of '<em>Arbitrary Command</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
    * returning a non-null result will terminate the switch.
    * <!-- end-user-doc -->
    * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Custom Command</em>'.
+   * @return the result of interpreting the object as an instance of '<em>Arbitrary Command</em>'.
    * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
    * @generated
    */
-  public T caseCustomCommand(CustomCommand object)
+  public T caseArbitraryCommand(ArbitraryCommand object)
   {
     return null;
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>Long Command</em>'.
+   * Returns the result of interpreting the object as an instance of '<em>Special Command</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
    * returning a non-null result will terminate the switch.
    * <!-- end-user-doc -->
    * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Long Command</em>'.
+   * @return the result of interpreting the object as an instance of '<em>Special Command</em>'.
    * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
    * @generated
    */
-  public T caseLongCommand(LongCommand object)
-  {
-    return null;
-  }
-
-  /**
-   * Returns the result of interpreting the object as an instance of '<em>Short Command</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Short Command</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseShortCommand(ShortCommand object)
-  {
-    return null;
-  }
-
-  /**
-   * Returns the result of interpreting the object as an instance of '<em>Preset Command</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Preset Command</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T casePresetCommand(PresetCommand object)
+  public T caseSpecialCommand(SpecialCommand object)
   {
     return null;
   }
