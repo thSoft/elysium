@@ -50,7 +50,7 @@ public class NewLilyPondProjectWizard extends Wizard implements INewWizard, IExe
 		addPage(projectCreationPage);
 	}
 
-	private static final String TEMPLATE = "\\version \"{0}\"\n\n\\header '{\n\ttagline = \"\"\n}'\n\n\\relative c'' '{\n\t'{1}'\n}'\n"; // XXX avoid MessageFormat-escaping
+	private static final String TEMPLATE = "\\version \"{0}\"\n\n\\header '{\n\ttagline = \"\"\n}'\n\nmusic = \\relative c'' '{\n\t'{1}'\n}'\n\n\\score '{\n\t\\new Staff \\music\n\t\\layout {}\n\t\\midi {}\n}'\n"; // TODO model-based initialization
 
 	private static final String CURSOR_POSITION_MARKER = "$"; //$NON-NLS-1$
 
