@@ -136,6 +136,9 @@
       <excludes>
         <contentExtension pattern="org.eclipse.ui.navigator.resources.filters.endsWithClass">
       </contentExtension>
+        <contentExtension pattern="org.eclipse.jdt.java.ui.javaContent"/>
+        <contentExtension pattern="org.eclipse.jdt.java.ui.filters.*"/>
+        <contentExtension pattern="org.eclipse.jdt.java.ui.javaLinkHelper"/>
       </excludes>
     </viewerContentBinding>
   </extension>
