@@ -49,6 +49,5 @@ public class LilyPondStandaloneSetupGenerated implements ISetup {
 
 
 
-
 	}
 }

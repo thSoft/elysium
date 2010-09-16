@@ -58,7 +58,6 @@ Workflow {
 			fragment = labeling.LabelProviderFragment {}
 
 			fragment = outline.TransformerFragment {}
-			fragment = outline.OutlineNodeAdapterFactoryFragment {}
 			fragment = outline.QuickOutlineFragment {}
 
 			fragment = contentAssist.JavaBasedContentAssistFragment {}
