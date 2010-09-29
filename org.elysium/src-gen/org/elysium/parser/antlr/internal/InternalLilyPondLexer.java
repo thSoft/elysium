@@ -15,9 +15,10 @@ public class InternalLilyPondLexer extends Lexer {
     public static final int RULE_ID=5;
     public static final int RULE_ANY_OTHER=7;
     public static final int RULE_BOOL=4;
+    public static final int T27=27;
     public static final int T26=26;
     public static final int T25=25;
-    public static final int Tokens=27;
+    public static final int Tokens=28;
     public static final int T24=24;
     public static final int EOF=-1;
     public static final int RULE_SL_COMMENT=10;
@@ -250,10 +251,11 @@ public class InternalLilyPondLexer extends Lexer {
     public final void mT23() throws RecognitionException {
         try {
             int _type = T23;
-            // ../org.elysium/src-gen/org/elysium/parser/antlr/internal/InternalLilyPond.g:21:5: ( '\\\\' )
-            // ../org.elysium/src-gen/org/elysium/parser/antlr/internal/InternalLilyPond.g:21:7: '\\\\'
+            // ../org.elysium/src-gen/org/elysium/parser/antlr/internal/InternalLilyPond.g:21:5: ( '#x' )
+            // ../org.elysium/src-gen/org/elysium/parser/antlr/internal/InternalLilyPond.g:21:7: '#x'
             {
-            match('\\'); 
+            match("#x"); 
+
 
             }
 
@@ -268,11 +270,10 @@ public class InternalLilyPondLexer extends Lexer {
     public final void mT24() throws RecognitionException {
         try {
             int _type = T24;
-            // ../org.elysium/src-gen/org/elysium/parser/antlr/internal/InternalLilyPond.g:22:5: ( 'include' )
-            // ../org.elysium/src-gen/org/elysium/parser/antlr/internal/InternalLilyPond.g:22:7: 'include'
+            // ../org.elysium/src-gen/org/elysium/parser/antlr/internal/InternalLilyPond.g:22:5: ( '\\\\' )
+            // ../org.elysium/src-gen/org/elysium/parser/antlr/internal/InternalLilyPond.g:22:7: '\\\\'
             {
-            match("include"); 
-
+            match('\\'); 
 
             }
 
@@ -287,10 +288,10 @@ public class InternalLilyPondLexer extends Lexer {
     public final void mT25() throws RecognitionException {
         try {
             int _type = T25;
-            // ../org.elysium/src-gen/org/elysium/parser/antlr/internal/InternalLilyPond.g:23:5: ( 'version' )
-            // ../org.elysium/src-gen/org/elysium/parser/antlr/internal/InternalLilyPond.g:23:7: 'version'
+            // ../org.elysium/src-gen/org/elysium/parser/antlr/internal/InternalLilyPond.g:23:5: ( 'include' )
+            // ../org.elysium/src-gen/org/elysium/parser/antlr/internal/InternalLilyPond.g:23:7: 'include'
             {
-            match("version"); 
+            match("include"); 
 
 
             }
@@ -306,10 +307,11 @@ public class InternalLilyPondLexer extends Lexer {
     public final void mT26() throws RecognitionException {
         try {
             int _type = T26;
-            // ../org.elysium/src-gen/org/elysium/parser/antlr/internal/InternalLilyPond.g:24:5: ( ',' )
-            // ../org.elysium/src-gen/org/elysium/parser/antlr/internal/InternalLilyPond.g:24:7: ','
+            // ../org.elysium/src-gen/org/elysium/parser/antlr/internal/InternalLilyPond.g:24:5: ( 'version' )
+            // ../org.elysium/src-gen/org/elysium/parser/antlr/internal/InternalLilyPond.g:24:7: 'version'
             {
-            match(','); 
+            match("version"); 
+
 
             }
 
@@ -320,15 +322,33 @@ public class InternalLilyPondLexer extends Lexer {
     }
     // $ANTLR end T26
 
+    // $ANTLR start T27
+    public final void mT27() throws RecognitionException {
+        try {
+            int _type = T27;
+            // ../org.elysium/src-gen/org/elysium/parser/antlr/internal/InternalLilyPond.g:25:5: ( ',' )
+            // ../org.elysium/src-gen/org/elysium/parser/antlr/internal/InternalLilyPond.g:25:7: ','
+            {
+            match(','); 
+
+            }
+
+            this.type = _type;
+        }
+        finally {
+        }
+    }
+    // $ANTLR end T27
+
     // $ANTLR start RULE_STRING
     public final void mRULE_STRING() throws RecognitionException {
         try {
             int _type = RULE_STRING;
-            // ../org.elysium/src-gen/org/elysium/parser/antlr/internal/InternalLilyPond.g:1428:13: ( '\"' ( '\\\\' ( 'b' | 't' | 'n' | ' f' | 'r' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\"' ) ) )* '\"' )
-            // ../org.elysium/src-gen/org/elysium/parser/antlr/internal/InternalLilyPond.g:1428:15: '\"' ( '\\\\' ( 'b' | 't' | 'n' | ' f' | 'r' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\"' ) ) )* '\"'
+            // ../org.elysium/src-gen/org/elysium/parser/antlr/internal/InternalLilyPond.g:1506:13: ( '\"' ( '\\\\' ( 'b' | 't' | 'n' | ' f' | 'r' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\"' ) ) )* '\"' )
+            // ../org.elysium/src-gen/org/elysium/parser/antlr/internal/InternalLilyPond.g:1506:15: '\"' ( '\\\\' ( 'b' | 't' | 'n' | ' f' | 'r' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\"' ) ) )* '\"'
             {
             match('\"'); 
-            // ../org.elysium/src-gen/org/elysium/parser/antlr/internal/InternalLilyPond.g:1428:19: ( '\\\\' ( 'b' | 't' | 'n' | ' f' | 'r' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\"' ) ) )*
+            // ../org.elysium/src-gen/org/elysium/parser/antlr/internal/InternalLilyPond.g:1506:19: ( '\\\\' ( 'b' | 't' | 'n' | ' f' | 'r' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\"' ) ) )*
             loop2:
             do {
                 int alt2=3;
@@ -344,10 +364,10 @@ public class InternalLilyPondLexer extends Lexer {
 
                 switch (alt2) {
             	case 1 :
-            	    // ../org.elysium/src-gen/org/elysium/parser/antlr/internal/InternalLilyPond.g:1428:20: '\\\\' ( 'b' | 't' | 'n' | ' f' | 'r' | '\"' | '\\'' | '\\\\' )
+            	    // ../org.elysium/src-gen/org/elysium/parser/antlr/internal/InternalLilyPond.g:1506:20: '\\\\' ( 'b' | 't' | 'n' | ' f' | 'r' | '\"' | '\\'' | '\\\\' )
             	    {
             	    match('\\'); 
-            	    // ../org.elysium/src-gen/org/elysium/parser/antlr/internal/InternalLilyPond.g:1428:25: ( 'b' | 't' | 'n' | ' f' | 'r' | '\"' | '\\'' | '\\\\' )
+            	    // ../org.elysium/src-gen/org/elysium/parser/antlr/internal/InternalLilyPond.g:1506:25: ( 'b' | 't' | 'n' | ' f' | 'r' | '\"' | '\\'' | '\\\\' )
             	    int alt1=8;
             	    switch ( input.LA(1) ) {
             	    case 'b':
@@ -392,35 +412,35 @@ public class InternalLilyPondLexer extends Lexer {
             	        break;
             	    default:
             	        NoViableAltException nvae =
-            	            new NoViableAltException("1428:25: ( 'b' | 't' | 'n' | ' f' | 'r' | '\"' | '\\'' | '\\\\' )", 1, 0, input);
+            	            new NoViableAltException("1506:25: ( 'b' | 't' | 'n' | ' f' | 'r' | '\"' | '\\'' | '\\\\' )", 1, 0, input);
 
             	        throw nvae;
             	    }
 
             	    switch (alt1) {
             	        case 1 :
-            	            // ../org.elysium/src-gen/org/elysium/parser/antlr/internal/InternalLilyPond.g:1428:26: 'b'
+            	            // ../org.elysium/src-gen/org/elysium/parser/antlr/internal/InternalLilyPond.g:1506:26: 'b'
             	            {
             	            match('b'); 
 
             	            }
             	            break;
             	        case 2 :
-            	            // ../org.elysium/src-gen/org/elysium/parser/antlr/internal/InternalLilyPond.g:1428:30: 't'
+            	            // ../org.elysium/src-gen/org/elysium/parser/antlr/internal/InternalLilyPond.g:1506:30: 't'
             	            {
             	            match('t'); 
 
             	            }
             	            break;
             	        case 3 :
-            	            // ../org.elysium/src-gen/org/elysium/parser/antlr/internal/InternalLilyPond.g:1428:34: 'n'
+            	            // ../org.elysium/src-gen/org/elysium/parser/antlr/internal/InternalLilyPond.g:1506:34: 'n'
             	            {
             	            match('n'); 
 
             	            }
             	            break;
             	        case 4 :
-            	            // ../org.elysium/src-gen/org/elysium/parser/antlr/internal/InternalLilyPond.g:1428:38: ' f'
+            	            // ../org.elysium/src-gen/org/elysium/parser/antlr/internal/InternalLilyPond.g:1506:38: ' f'
             	            {
             	            match(" f"); 
 
@@ -428,28 +448,28 @@ public class InternalLilyPondLexer extends Lexer {
             	            }
             	            break;
             	        case 5 :
-            	            // ../org.elysium/src-gen/org/elysium/parser/antlr/internal/InternalLilyPond.g:1428:43: 'r'
+            	            // ../org.elysium/src-gen/org/elysium/parser/antlr/internal/InternalLilyPond.g:1506:43: 'r'
             	            {
             	            match('r'); 
 
             	            }
             	            break;
             	        case 6 :
-            	            // ../org.elysium/src-gen/org/elysium/parser/antlr/internal/InternalLilyPond.g:1428:47: '\"'
+            	            // ../org.elysium/src-gen/org/elysium/parser/antlr/internal/InternalLilyPond.g:1506:47: '\"'
             	            {
             	            match('\"'); 
 
             	            }
             	            break;
             	        case 7 :
-            	            // ../org.elysium/src-gen/org/elysium/parser/antlr/internal/InternalLilyPond.g:1428:51: '\\''
+            	            // ../org.elysium/src-gen/org/elysium/parser/antlr/internal/InternalLilyPond.g:1506:51: '\\''
             	            {
             	            match('\''); 
 
             	            }
             	            break;
             	        case 8 :
-            	            // ../org.elysium/src-gen/org/elysium/parser/antlr/internal/InternalLilyPond.g:1428:56: '\\\\'
+            	            // ../org.elysium/src-gen/org/elysium/parser/antlr/internal/InternalLilyPond.g:1506:56: '\\\\'
             	            {
             	            match('\\'); 
 
@@ -462,7 +482,7 @@ public class InternalLilyPondLexer extends Lexer {
             	    }
             	    break;
             	case 2 :
-            	    // ../org.elysium/src-gen/org/elysium/parser/antlr/internal/InternalLilyPond.g:1428:62: ~ ( ( '\\\\' | '\"' ) )
+            	    // ../org.elysium/src-gen/org/elysium/parser/antlr/internal/InternalLilyPond.g:1506:62: ~ ( ( '\\\\' | '\"' ) )
             	    {
             	    if ( (input.LA(1)>='\u0000' && input.LA(1)<='!')||(input.LA(1)>='#' && input.LA(1)<='[')||(input.LA(1)>=']' && input.LA(1)<='\uFFFE') ) {
             	        input.consume();
@@ -498,10 +518,10 @@ public class InternalLilyPondLexer extends Lexer {
     public final void mRULE_INT() throws RecognitionException {
         try {
             int _type = RULE_INT;
-            // ../org.elysium/src-gen/org/elysium/parser/antlr/internal/InternalLilyPond.g:1430:10: ( ( '0' .. '9' )+ )
-            // ../org.elysium/src-gen/org/elysium/parser/antlr/internal/InternalLilyPond.g:1430:12: ( '0' .. '9' )+
+            // ../org.elysium/src-gen/org/elysium/parser/antlr/internal/InternalLilyPond.g:1508:10: ( ( '0' .. '9' )+ )
+            // ../org.elysium/src-gen/org/elysium/parser/antlr/internal/InternalLilyPond.g:1508:12: ( '0' .. '9' )+
             {
-            // ../org.elysium/src-gen/org/elysium/parser/antlr/internal/InternalLilyPond.g:1430:12: ( '0' .. '9' )+
+            // ../org.elysium/src-gen/org/elysium/parser/antlr/internal/InternalLilyPond.g:1508:12: ( '0' .. '9' )+
             int cnt3=0;
             loop3:
             do {
@@ -515,7 +535,7 @@ public class InternalLilyPondLexer extends Lexer {
 
                 switch (alt3) {
             	case 1 :
-            	    // ../org.elysium/src-gen/org/elysium/parser/antlr/internal/InternalLilyPond.g:1430:13: '0' .. '9'
+            	    // ../org.elysium/src-gen/org/elysium/parser/antlr/internal/InternalLilyPond.g:1508:13: '0' .. '9'
             	    {
             	    matchRange('0','9'); 
 
@@ -545,10 +565,10 @@ public class InternalLilyPondLexer extends Lexer {
     public final void mRULE_BOOL() throws RecognitionException {
         try {
             int _type = RULE_BOOL;
-            // ../org.elysium/src-gen/org/elysium/parser/antlr/internal/InternalLilyPond.g:1432:11: ( ( '#f' | '#t' ) )
-            // ../org.elysium/src-gen/org/elysium/parser/antlr/internal/InternalLilyPond.g:1432:13: ( '#f' | '#t' )
+            // ../org.elysium/src-gen/org/elysium/parser/antlr/internal/InternalLilyPond.g:1510:11: ( ( '#f' | '#t' ) )
+            // ../org.elysium/src-gen/org/elysium/parser/antlr/internal/InternalLilyPond.g:1510:13: ( '#f' | '#t' )
             {
-            // ../org.elysium/src-gen/org/elysium/parser/antlr/internal/InternalLilyPond.g:1432:13: ( '#f' | '#t' )
+            // ../org.elysium/src-gen/org/elysium/parser/antlr/internal/InternalLilyPond.g:1510:13: ( '#f' | '#t' )
             int alt4=2;
             int LA4_0 = input.LA(1);
 
@@ -563,20 +583,20 @@ public class InternalLilyPondLexer extends Lexer {
                 }
                 else {
                     NoViableAltException nvae =
-                        new NoViableAltException("1432:13: ( '#f' | '#t' )", 4, 1, input);
+                        new NoViableAltException("1510:13: ( '#f' | '#t' )", 4, 1, input);
 
                     throw nvae;
                 }
             }
             else {
                 NoViableAltException nvae =
-                    new NoViableAltException("1432:13: ( '#f' | '#t' )", 4, 0, input);
+                    new NoViableAltException("1510:13: ( '#f' | '#t' )", 4, 0, input);
 
                 throw nvae;
             }
             switch (alt4) {
                 case 1 :
-                    // ../org.elysium/src-gen/org/elysium/parser/antlr/internal/InternalLilyPond.g:1432:14: '#f'
+                    // ../org.elysium/src-gen/org/elysium/parser/antlr/internal/InternalLilyPond.g:1510:14: '#f'
                     {
                     match("#f"); 
 
@@ -584,7 +604,7 @@ public class InternalLilyPondLexer extends Lexer {
                     }
                     break;
                 case 2 :
-                    // ../org.elysium/src-gen/org/elysium/parser/antlr/internal/InternalLilyPond.g:1432:19: '#t'
+                    // ../org.elysium/src-gen/org/elysium/parser/antlr/internal/InternalLilyPond.g:1510:19: '#t'
                     {
                     match("#t"); 
 
@@ -608,8 +628,8 @@ public class InternalLilyPondLexer extends Lexer {
     public final void mRULE_ID() throws RecognitionException {
         try {
             int _type = RULE_ID;
-            // ../org.elysium/src-gen/org/elysium/parser/antlr/internal/InternalLilyPond.g:1434:9: ( ( 'a' .. 'z' | 'A' .. 'Z' ) ( 'a' .. 'z' | 'A' .. 'Z' | '-' )* )
-            // ../org.elysium/src-gen/org/elysium/parser/antlr/internal/InternalLilyPond.g:1434:11: ( 'a' .. 'z' | 'A' .. 'Z' ) ( 'a' .. 'z' | 'A' .. 'Z' | '-' )*
+            // ../org.elysium/src-gen/org/elysium/parser/antlr/internal/InternalLilyPond.g:1512:9: ( ( 'a' .. 'z' | 'A' .. 'Z' ) ( 'a' .. 'z' | 'A' .. 'Z' | '-' )* )
+            // ../org.elysium/src-gen/org/elysium/parser/antlr/internal/InternalLilyPond.g:1512:11: ( 'a' .. 'z' | 'A' .. 'Z' ) ( 'a' .. 'z' | 'A' .. 'Z' | '-' )*
             {
             if ( (input.LA(1)>='A' && input.LA(1)<='Z')||(input.LA(1)>='a' && input.LA(1)<='z') ) {
                 input.consume();
@@ -621,7 +641,7 @@ public class InternalLilyPondLexer extends Lexer {
                 recover(mse);    throw mse;
             }
 
-            // ../org.elysium/src-gen/org/elysium/parser/antlr/internal/InternalLilyPond.g:1434:31: ( 'a' .. 'z' | 'A' .. 'Z' | '-' )*
+            // ../org.elysium/src-gen/org/elysium/parser/antlr/internal/InternalLilyPond.g:1512:31: ( 'a' .. 'z' | 'A' .. 'Z' | '-' )*
             loop5:
             do {
                 int alt5=2;
@@ -669,10 +689,10 @@ public class InternalLilyPondLexer extends Lexer {
     public final void mRULE_WS() throws RecognitionException {
         try {
             int _type = RULE_WS;
-            // ../org.elysium/src-gen/org/elysium/parser/antlr/internal/InternalLilyPond.g:1436:9: ( ( ' ' | '\\t' | '\\r' | '\\n' )+ )
-            // ../org.elysium/src-gen/org/elysium/parser/antlr/internal/InternalLilyPond.g:1436:11: ( ' ' | '\\t' | '\\r' | '\\n' )+
+            // ../org.elysium/src-gen/org/elysium/parser/antlr/internal/InternalLilyPond.g:1514:9: ( ( ' ' | '\\t' | '\\r' | '\\n' )+ )
+            // ../org.elysium/src-gen/org/elysium/parser/antlr/internal/InternalLilyPond.g:1514:11: ( ' ' | '\\t' | '\\r' | '\\n' )+
             {
-            // ../org.elysium/src-gen/org/elysium/parser/antlr/internal/InternalLilyPond.g:1436:11: ( ' ' | '\\t' | '\\r' | '\\n' )+
+            // ../org.elysium/src-gen/org/elysium/parser/antlr/internal/InternalLilyPond.g:1514:11: ( ' ' | '\\t' | '\\r' | '\\n' )+
             int cnt6=0;
             loop6:
             do {
@@ -725,11 +745,11 @@ public class InternalLilyPondLexer extends Lexer {
     public final void mRULE_SL_COMMENT() throws RecognitionException {
         try {
             int _type = RULE_SL_COMMENT;
-            // ../org.elysium/src-gen/org/elysium/parser/antlr/internal/InternalLilyPond.g:1438:17: ( '%' (~ ( ( '\\n' | '\\r' ) ) )* ( ( '\\r' )? '\\n' )? )
-            // ../org.elysium/src-gen/org/elysium/parser/antlr/internal/InternalLilyPond.g:1438:19: '%' (~ ( ( '\\n' | '\\r' ) ) )* ( ( '\\r' )? '\\n' )?
+            // ../org.elysium/src-gen/org/elysium/parser/antlr/internal/InternalLilyPond.g:1516:17: ( '%' (~ ( ( '\\n' | '\\r' ) ) )* ( ( '\\r' )? '\\n' )? )
+            // ../org.elysium/src-gen/org/elysium/parser/antlr/internal/InternalLilyPond.g:1516:19: '%' (~ ( ( '\\n' | '\\r' ) ) )* ( ( '\\r' )? '\\n' )?
             {
             match('%'); 
-            // ../org.elysium/src-gen/org/elysium/parser/antlr/internal/InternalLilyPond.g:1438:23: (~ ( ( '\\n' | '\\r' ) ) )*
+            // ../org.elysium/src-gen/org/elysium/parser/antlr/internal/InternalLilyPond.g:1516:23: (~ ( ( '\\n' | '\\r' ) ) )*
             loop7:
             do {
                 int alt7=2;
@@ -742,7 +762,7 @@ public class InternalLilyPondLexer extends Lexer {
 
                 switch (alt7) {
             	case 1 :
-            	    // ../org.elysium/src-gen/org/elysium/parser/antlr/internal/InternalLilyPond.g:1438:23: ~ ( ( '\\n' | '\\r' ) )
+            	    // ../org.elysium/src-gen/org/elysium/parser/antlr/internal/InternalLilyPond.g:1516:23: ~ ( ( '\\n' | '\\r' ) )
             	    {
             	    if ( (input.LA(1)>='\u0000' && input.LA(1)<='\t')||(input.LA(1)>='\u000B' && input.LA(1)<='\f')||(input.LA(1)>='\u000E' && input.LA(1)<='\uFFFE') ) {
             	        input.consume();
@@ -763,7 +783,7 @@ public class InternalLilyPondLexer extends Lexer {
                 }
             } while (true);
 
-            // ../org.elysium/src-gen/org/elysium/parser/antlr/internal/InternalLilyPond.g:1438:39: ( ( '\\r' )? '\\n' )?
+            // ../org.elysium/src-gen/org/elysium/parser/antlr/internal/InternalLilyPond.g:1516:39: ( ( '\\r' )? '\\n' )?
             int alt9=2;
             int LA9_0 = input.LA(1);
 
@@ -772,9 +792,9 @@ public class InternalLilyPondLexer extends Lexer {
             }
             switch (alt9) {
                 case 1 :
-                    // ../org.elysium/src-gen/org/elysium/parser/antlr/internal/InternalLilyPond.g:1438:40: ( '\\r' )? '\\n'
+                    // ../org.elysium/src-gen/org/elysium/parser/antlr/internal/InternalLilyPond.g:1516:40: ( '\\r' )? '\\n'
                     {
-                    // ../org.elysium/src-gen/org/elysium/parser/antlr/internal/InternalLilyPond.g:1438:40: ( '\\r' )?
+                    // ../org.elysium/src-gen/org/elysium/parser/antlr/internal/InternalLilyPond.g:1516:40: ( '\\r' )?
                     int alt8=2;
                     int LA8_0 = input.LA(1);
 
@@ -783,7 +803,7 @@ public class InternalLilyPondLexer extends Lexer {
                     }
                     switch (alt8) {
                         case 1 :
-                            // ../org.elysium/src-gen/org/elysium/parser/antlr/internal/InternalLilyPond.g:1438:40: '\\r'
+                            // ../org.elysium/src-gen/org/elysium/parser/antlr/internal/InternalLilyPond.g:1516:40: '\\r'
                             {
                             match('\r'); 
 
@@ -813,12 +833,12 @@ public class InternalLilyPondLexer extends Lexer {
     public final void mRULE_ML_COMMENT() throws RecognitionException {
         try {
             int _type = RULE_ML_COMMENT;
-            // ../org.elysium/src-gen/org/elysium/parser/antlr/internal/InternalLilyPond.g:1440:17: ( '%{' ( options {greedy=false; } : . )* '%}' )
-            // ../org.elysium/src-gen/org/elysium/parser/antlr/internal/InternalLilyPond.g:1440:19: '%{' ( options {greedy=false; } : . )* '%}'
+            // ../org.elysium/src-gen/org/elysium/parser/antlr/internal/InternalLilyPond.g:1518:17: ( '%{' ( options {greedy=false; } : . )* '%}' )
+            // ../org.elysium/src-gen/org/elysium/parser/antlr/internal/InternalLilyPond.g:1518:19: '%{' ( options {greedy=false; } : . )* '%}'
             {
             match("%{"); 
 
-            // ../org.elysium/src-gen/org/elysium/parser/antlr/internal/InternalLilyPond.g:1440:24: ( options {greedy=false; } : . )*
+            // ../org.elysium/src-gen/org/elysium/parser/antlr/internal/InternalLilyPond.g:1518:24: ( options {greedy=false; } : . )*
             loop10:
             do {
                 int alt10=2;
@@ -843,7 +863,7 @@ public class InternalLilyPondLexer extends Lexer {
 
                 switch (alt10) {
             	case 1 :
-            	    // ../org.elysium/src-gen/org/elysium/parser/antlr/internal/InternalLilyPond.g:1440:52: .
+            	    // ../org.elysium/src-gen/org/elysium/parser/antlr/internal/InternalLilyPond.g:1518:52: .
             	    {
             	    matchAny(); 
 
@@ -871,8 +891,8 @@ public class InternalLilyPondLexer extends Lexer {
     public final void mRULE_ANY_OTHER() throws RecognitionException {
         try {
             int _type = RULE_ANY_OTHER;
-            // ../org.elysium/src-gen/org/elysium/parser/antlr/internal/InternalLilyPond.g:1442:16: ( . )
-            // ../org.elysium/src-gen/org/elysium/parser/antlr/internal/InternalLilyPond.g:1442:18: .
+            // ../org.elysium/src-gen/org/elysium/parser/antlr/internal/InternalLilyPond.g:1520:16: ( . )
+            // ../org.elysium/src-gen/org/elysium/parser/antlr/internal/InternalLilyPond.g:1520:18: .
             {
             matchAny(); 
 
@@ -886,8 +906,8 @@ public class InternalLilyPondLexer extends Lexer {
     // $ANTLR end RULE_ANY_OTHER
 
     public void mTokens() throws RecognitionException {
-        // ../org.elysium/src-gen/org/elysium/parser/antlr/internal/InternalLilyPond.g:1:8: ( T12 | T13 | T14 | T15 | T16 | T17 | T18 | T19 | T20 | T21 | T22 | T23 | T24 | T25 | T26 | RULE_STRING | RULE_INT | RULE_BOOL | RULE_ID | RULE_WS | RULE_SL_COMMENT | RULE_ML_COMMENT | RULE_ANY_OTHER )
-        int alt11=23;
+        // ../org.elysium/src-gen/org/elysium/parser/antlr/internal/InternalLilyPond.g:1:8: ( T12 | T13 | T14 | T15 | T16 | T17 | T18 | T19 | T20 | T21 | T22 | T23 | T24 | T25 | T26 | T27 | RULE_STRING | RULE_INT | RULE_BOOL | RULE_ID | RULE_WS | RULE_SL_COMMENT | RULE_ML_COMMENT | RULE_ANY_OTHER )
+        int alt11=24;
         alt11 = dfa11.predict(input);
         switch (alt11) {
             case 1 :
@@ -996,56 +1016,63 @@ public class InternalLilyPondLexer extends Lexer {
                 }
                 break;
             case 16 :
-                // ../org.elysium/src-gen/org/elysium/parser/antlr/internal/InternalLilyPond.g:1:70: RULE_STRING
+                // ../org.elysium/src-gen/org/elysium/parser/antlr/internal/InternalLilyPond.g:1:70: T27
+                {
+                mT27(); 
+
+                }
+                break;
+            case 17 :
+                // ../org.elysium/src-gen/org/elysium/parser/antlr/internal/InternalLilyPond.g:1:74: RULE_STRING
                 {
                 mRULE_STRING(); 
 
                 }
                 break;
-            case 17 :
-                // ../org.elysium/src-gen/org/elysium/parser/antlr/internal/InternalLilyPond.g:1:82: RULE_INT
+            case 18 :
+                // ../org.elysium/src-gen/org/elysium/parser/antlr/internal/InternalLilyPond.g:1:86: RULE_INT
                 {
                 mRULE_INT(); 
 
                 }
                 break;
-            case 18 :
-                // ../org.elysium/src-gen/org/elysium/parser/antlr/internal/InternalLilyPond.g:1:91: RULE_BOOL
+            case 19 :
+                // ../org.elysium/src-gen/org/elysium/parser/antlr/internal/InternalLilyPond.g:1:95: RULE_BOOL
                 {
                 mRULE_BOOL(); 
 
                 }
                 break;
-            case 19 :
-                // ../org.elysium/src-gen/org/elysium/parser/antlr/internal/InternalLilyPond.g:1:101: RULE_ID
+            case 20 :
+                // ../org.elysium/src-gen/org/elysium/parser/antlr/internal/InternalLilyPond.g:1:105: RULE_ID
                 {
                 mRULE_ID(); 
 
                 }
                 break;
-            case 20 :
-                // ../org.elysium/src-gen/org/elysium/parser/antlr/internal/InternalLilyPond.g:1:109: RULE_WS
+            case 21 :
+                // ../org.elysium/src-gen/org/elysium/parser/antlr/internal/InternalLilyPond.g:1:113: RULE_WS
                 {
                 mRULE_WS(); 
 
                 }
                 break;
-            case 21 :
-                // ../org.elysium/src-gen/org/elysium/parser/antlr/internal/InternalLilyPond.g:1:117: RULE_SL_COMMENT
+            case 22 :
+                // ../org.elysium/src-gen/org/elysium/parser/antlr/internal/InternalLilyPond.g:1:121: RULE_SL_COMMENT
                 {
                 mRULE_SL_COMMENT(); 
 
                 }
                 break;
-            case 22 :
-                // ../org.elysium/src-gen/org/elysium/parser/antlr/internal/InternalLilyPond.g:1:133: RULE_ML_COMMENT
+            case 23 :
+                // ../org.elysium/src-gen/org/elysium/parser/antlr/internal/InternalLilyPond.g:1:137: RULE_ML_COMMENT
                 {
                 mRULE_ML_COMMENT(); 
 
                 }
                 break;
-            case 23 :
-                // ../org.elysium/src-gen/org/elysium/parser/antlr/internal/InternalLilyPond.g:1:149: RULE_ANY_OTHER
+            case 24 :
+                // ../org.elysium/src-gen/org/elysium/parser/antlr/internal/InternalLilyPond.g:1:153: RULE_ANY_OTHER
                 {
                 mRULE_ANY_OTHER(); 
 
@@ -1059,28 +1086,28 @@ public class InternalLilyPondLexer extends Lexer {
 
     protected DFA11 dfa11 = new DFA11(this);
     static final String DFA11_eotS =
-        "\3\uffff\2\22\1\32\3\uffff\1\37\2\41\1\uffff\1\22\3\uffff\1\50\16"+
-        "\uffff\1\41\1\uffff\1\41\4\uffff\1\50\1\uffff\2\41\1\uffff\3\50"+
-        "\2\41\1\uffff\1\50\4\41\1\71\1\72\2\uffff";
+        "\3\uffff\2\22\1\33\3\uffff\1\40\2\42\1\uffff\1\22\3\uffff\1\51\17"+
+        "\uffff\1\42\1\uffff\1\42\4\uffff\1\51\1\uffff\2\42\1\uffff\3\51"+
+        "\2\42\1\uffff\1\51\4\42\1\72\1\73\2\uffff";
     static final String DFA11_eofS =
-        "\73\uffff";
+        "\74\uffff";
     static final String DFA11_minS =
         "\1\0\2\uffff\1\74\1\76\1\146\3\uffff\1\134\1\156\1\145\1\uffff\1"+
-        "\0\3\uffff\1\173\16\uffff\1\143\1\uffff\1\162\4\uffff\1\0\1\uffff"+
+        "\0\3\uffff\1\173\17\uffff\1\143\1\uffff\1\162\4\uffff\1\0\1\uffff"+
         "\1\154\1\163\4\0\1\165\1\151\1\uffff\1\0\1\144\1\157\1\145\1\156"+
         "\2\55\2\uffff";
     static final String DFA11_maxS =
         "\1\ufffe\2\uffff\1\74\1\76\1\175\3\uffff\1\134\1\156\1\145\1\uffff"+
-        "\1\ufffe\3\uffff\1\173\16\uffff\1\143\1\uffff\1\162\4\uffff\1\ufffe"+
+        "\1\ufffe\3\uffff\1\173\17\uffff\1\143\1\uffff\1\162\4\uffff\1\ufffe"+
         "\1\uffff\1\154\1\163\4\ufffe\1\165\1\151\1\uffff\1\ufffe\1\144\1"+
         "\157\1\145\1\156\2\172\2\uffff";
     static final String DFA11_acceptS =
-        "\1\uffff\1\1\1\2\3\uffff\1\6\1\7\1\10\3\uffff\1\17\1\uffff\1\21"+
-        "\1\23\1\24\1\uffff\1\27\1\1\1\2\1\3\1\4\1\11\1\12\1\22\1\5\1\6\1"+
-        "\7\1\10\1\13\1\14\1\uffff\1\23\1\uffff\1\17\1\20\1\21\1\24\1\uffff"+
-        "\1\25\10\uffff\1\26\7\uffff\1\15\1\16";
+        "\1\uffff\1\1\1\2\3\uffff\1\6\1\7\1\10\3\uffff\1\20\1\uffff\1\22"+
+        "\1\24\1\25\1\uffff\1\30\1\1\1\2\1\3\1\4\1\12\1\11\1\14\1\23\1\5"+
+        "\1\6\1\7\1\10\1\13\1\15\1\uffff\1\24\1\uffff\1\20\1\21\1\22\1\25"+
+        "\1\uffff\1\26\10\uffff\1\27\7\uffff\1\16\1\17";
     static final String DFA11_specialS =
-        "\73\uffff}>";
+        "\74\uffff}>";
     static final String[] DFA11_transitionS = {
             "\11\22\2\20\2\22\1\20\22\22\1\20\1\22\1\15\1\5\1\22\1\21\1\22"+
             "\1\6\1\7\1\10\2\22\1\14\3\22\12\16\2\22\1\3\1\22\1\4\2\22\32"+
@@ -1090,23 +1117,19 @@ public class InternalLilyPondLexer extends Lexer {
             "",
             "\1\25",
             "\1\26",
-            "\1\31\15\uffff\1\31\6\uffff\1\27\1\uffff\1\30",
+            "\1\32\15\uffff\1\32\3\uffff\1\31\2\uffff\1\30\1\uffff\1\27",
             "",
             "",
             "",
-            "\1\36",
-            "\1\40",
-            "\1\42",
+            "\1\37",
+            "\1\41",
+            "\1\43",
             "",
-            "\uffff\44",
-            "",
-            "",
-            "",
-            "\1\47",
+            "\uffff\45",
             "",
             "",
             "",
-            "",
+            "\1\50",
             "",
             "",
             "",
@@ -1117,31 +1140,36 @@ public class InternalLilyPondLexer extends Lexer {
             "",
             "",
             "",
-            "\1\51",
+            "",
+            "",
+            "",
+            "",
             "",
             "\1\52",
             "",
+            "\1\53",
             "",
             "",
             "",
-            "\12\56\1\54\2\56\1\53\27\56\1\55\uffd9\56",
             "",
-            "\1\57",
+            "\12\57\1\55\2\57\1\54\27\57\1\56\uffd9\57",
+            "",
             "\1\60",
-            "\12\61\1\54\ufff4\61",
-            "\uffff\61",
-            "\12\56\1\54\2\56\1\53\27\56\1\55\127\56\1\62\uff81\56",
-            "\12\56\1\54\2\56\1\53\27\56\1\55\uffd9\56",
-            "\1\63",
+            "\1\61",
+            "\12\62\1\55\ufff4\62",
+            "\uffff\62",
+            "\12\57\1\55\2\57\1\54\27\57\1\56\127\57\1\63\uff81\57",
+            "\12\57\1\55\2\57\1\54\27\57\1\56\uffd9\57",
             "\1\64",
-            "",
-            "\12\56\1\54\2\56\1\53\27\56\1\55\uffd9\56",
             "\1\65",
+            "",
+            "\12\57\1\55\2\57\1\54\27\57\1\56\uffd9\57",
             "\1\66",
             "\1\67",
             "\1\70",
-            "\1\41\23\uffff\32\41\6\uffff\32\41",
-            "\1\41\23\uffff\32\41\6\uffff\32\41",
+            "\1\71",
+            "\1\42\23\uffff\32\42\6\uffff\32\42",
+            "\1\42\23\uffff\32\42\6\uffff\32\42",
             "",
             ""
     };
@@ -1176,7 +1204,7 @@ public class InternalLilyPondLexer extends Lexer {
             this.transition = DFA11_transition;
         }
         public String getDescription() {
-            return "1:1: Tokens : ( T12 | T13 | T14 | T15 | T16 | T17 | T18 | T19 | T20 | T21 | T22 | T23 | T24 | T25 | T26 | RULE_STRING | RULE_INT | RULE_BOOL | RULE_ID | RULE_WS | RULE_SL_COMMENT | RULE_ML_COMMENT | RULE_ANY_OTHER );";
+            return "1:1: Tokens : ( T12 | T13 | T14 | T15 | T16 | T17 | T18 | T19 | T20 | T21 | T22 | T23 | T24 | T25 | T26 | T27 | RULE_STRING | RULE_INT | RULE_BOOL | RULE_ID | RULE_WS | RULE_SL_COMMENT | RULE_ML_COMMENT | RULE_ANY_OTHER );";
         }
     }
  

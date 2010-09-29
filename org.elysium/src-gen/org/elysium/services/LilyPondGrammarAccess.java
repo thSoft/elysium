@@ -207,13 +207,13 @@ public class LilyPondGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cSchemeListParserRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
 		private final RuleCall cSchemeBlockParserRuleCall_2 = (RuleCall)cAlternatives.eContents().get(2);
 		private final RuleCall cSchemeTextParserRuleCall_3 = (RuleCall)cAlternatives.eContents().get(3);
-		private final RuleCall cNumberParserRuleCall_4 = (RuleCall)cAlternatives.eContents().get(4);
+		private final RuleCall cSchemeNumberParserRuleCall_4 = (RuleCall)cAlternatives.eContents().get(4);
 		
 		//SchemeValue:
-		//	SchemeBoolean | SchemeList | SchemeBlock | SchemeText | Number;
+		//	SchemeBoolean | SchemeList | SchemeBlock | SchemeText | SchemeNumber;
 		public ParserRule getRule() { return rule; }
 
-		//SchemeBoolean | SchemeList | SchemeBlock | SchemeText | Number
+		//SchemeBoolean | SchemeList | SchemeBlock | SchemeText | SchemeNumber
 		public Alternatives getAlternatives() { return cAlternatives; }
 
 		//SchemeBoolean
@@ -228,8 +228,8 @@ public class LilyPondGrammarAccess extends AbstractGrammarElementFinder {
 		//SchemeText
 		public RuleCall getSchemeTextParserRuleCall_3() { return cSchemeTextParserRuleCall_3; }
 
-		//Number
-		public RuleCall getNumberParserRuleCall_4() { return cNumberParserRuleCall_4; }
+		//SchemeNumber
+		public RuleCall getSchemeNumberParserRuleCall_4() { return cSchemeNumberParserRuleCall_4; }
 	}
 
 	public class SchemeBooleanElements extends AbstractParserRuleElementFinder {
@@ -350,6 +350,34 @@ public class LilyPondGrammarAccess extends AbstractGrammarElementFinder {
 
 		//ANY_OTHER
 		public RuleCall getANY_OTHERTerminalRuleCall_3() { return cANY_OTHERTerminalRuleCall_3; }
+	}
+
+	public class SchemeNumberElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "SchemeNumber");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Assignment cHexadecimalAssignment_0 = (Assignment)cGroup.eContents().get(0);
+		private final Keyword cHexadecimalXKeyword_0_0 = (Keyword)cHexadecimalAssignment_0.eContents().get(0);
+		private final Assignment cValueAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cValueINTTerminalRuleCall_1_0 = (RuleCall)cValueAssignment_1.eContents().get(0);
+		
+		//SchemeNumber hidden():
+		//	hexadecimal?="#x"? value=INT;
+		public ParserRule getRule() { return rule; }
+
+		//hexadecimal?="#x"? value=INT
+		public Group getGroup() { return cGroup; }
+
+		//hexadecimal?="#x"?
+		public Assignment getHexadecimalAssignment_0() { return cHexadecimalAssignment_0; }
+
+		//"#x"
+		public Keyword getHexadecimalXKeyword_0_0() { return cHexadecimalXKeyword_0_0; }
+
+		//value=INT
+		public Assignment getValueAssignment_1() { return cValueAssignment_1; }
+
+		//INT
+		public RuleCall getValueINTTerminalRuleCall_1_0() { return cValueINTTerminalRuleCall_1_0; }
 	}
 
 	public class CommandElements extends AbstractParserRuleElementFinder {
@@ -607,6 +635,7 @@ public class LilyPondGrammarAccess extends AbstractGrammarElementFinder {
 	private SchemeBlockElements pSchemeBlock;
 	private SchemeTextElements pSchemeText;
 	private SchemeTextLiteralsElements pSchemeTextLiterals;
+	private SchemeNumberElements pSchemeNumber;
 	private CommandElements pCommand;
 	private ArbitraryCommandElements pArbitraryCommand;
 	private ArbitraryCommandKeywordElements pArbitraryCommandKeyword;
@@ -710,7 +739,7 @@ public class LilyPondGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//SchemeValue:
-	//	SchemeBoolean | SchemeList | SchemeBlock | SchemeText | Number;
+	//	SchemeBoolean | SchemeList | SchemeBlock | SchemeText | SchemeNumber;
 	public SchemeValueElements getSchemeValueAccess() {
 		return (pSchemeValue != null) ? pSchemeValue : (pSchemeValue = new SchemeValueElements());
 	}
@@ -767,6 +796,16 @@ public class LilyPondGrammarAccess extends AbstractGrammarElementFinder {
 	
 	public ParserRule getSchemeTextLiteralsRule() {
 		return getSchemeTextLiteralsAccess().getRule();
+	}
+
+	//SchemeNumber hidden():
+	//	hexadecimal?="#x"? value=INT;
+	public SchemeNumberElements getSchemeNumberAccess() {
+		return (pSchemeNumber != null) ? pSchemeNumber : (pSchemeNumber = new SchemeNumberElements());
+	}
+	
+	public ParserRule getSchemeNumberRule() {
+		return getSchemeNumberAccess().getRule();
 	}
 
 	//Command:

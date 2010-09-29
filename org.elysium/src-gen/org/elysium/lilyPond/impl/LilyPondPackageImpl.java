@@ -25,6 +25,7 @@ import org.elysium.lilyPond.SchemeBlock;
 import org.elysium.lilyPond.SchemeBoolean;
 import org.elysium.lilyPond.SchemeExpression;
 import org.elysium.lilyPond.SchemeList;
+import org.elysium.lilyPond.SchemeNumber;
 import org.elysium.lilyPond.SchemeText;
 import org.elysium.lilyPond.SchemeValue;
 import org.elysium.lilyPond.SimpleBlock;
@@ -124,6 +125,13 @@ public class LilyPondPackageImpl extends EPackageImpl implements LilyPondPackage
    * @generated
    */
   private EClass schemeTextEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass schemeNumberEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -472,6 +480,36 @@ public class LilyPondPackageImpl extends EPackageImpl implements LilyPondPackage
    * <!-- end-user-doc -->
    * @generated
    */
+  public EClass getSchemeNumber()
+  {
+    return schemeNumberEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getSchemeNumber_Hexadecimal()
+  {
+    return (EAttribute)schemeNumberEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getSchemeNumber_Value()
+  {
+    return (EAttribute)schemeNumberEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public EClass getCommand()
   {
     return commandEClass;
@@ -652,6 +690,10 @@ public class LilyPondPackageImpl extends EPackageImpl implements LilyPondPackage
     schemeTextEClass = createEClass(SCHEME_TEXT);
     createEAttribute(schemeTextEClass, SCHEME_TEXT__VALUE);
 
+    schemeNumberEClass = createEClass(SCHEME_NUMBER);
+    createEAttribute(schemeNumberEClass, SCHEME_NUMBER__HEXADECIMAL);
+    createEAttribute(schemeNumberEClass, SCHEME_NUMBER__VALUE);
+
     commandEClass = createEClass(COMMAND);
     createEAttribute(commandEClass, COMMAND__KEYWORD);
 
@@ -709,6 +751,7 @@ public class LilyPondPackageImpl extends EPackageImpl implements LilyPondPackage
     schemeListEClass.getESuperTypes().add(this.getSchemeValue());
     schemeBlockEClass.getESuperTypes().add(this.getSchemeValue());
     schemeTextEClass.getESuperTypes().add(this.getSchemeValue());
+    schemeNumberEClass.getESuperTypes().add(this.getSchemeValue());
     commandEClass.getESuperTypes().add(this.getExpression());
     arbitraryCommandEClass.getESuperTypes().add(this.getCommand());
     specialCommandEClass.getESuperTypes().add(this.getCommand());
@@ -716,7 +759,6 @@ public class LilyPondPackageImpl extends EPackageImpl implements LilyPondPackage
     versionEClass.getESuperTypes().add(this.getSpecialCommand());
     textEClass.getESuperTypes().add(this.getExpression());
     numberEClass.getESuperTypes().add(this.getExpression());
-    numberEClass.getESuperTypes().add(this.getSchemeValue());
 
     // Initialize classes and features; add operations and parameters
     initEClass(lilyPondEClass, LilyPond.class, "LilyPond", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -753,6 +795,10 @@ public class LilyPondPackageImpl extends EPackageImpl implements LilyPondPackage
 
     initEClass(schemeTextEClass, SchemeText.class, "SchemeText", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getSchemeText_Value(), ecorePackage.getEString(), "value", null, 0, 1, SchemeText.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(schemeNumberEClass, SchemeNumber.class, "SchemeNumber", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getSchemeNumber_Hexadecimal(), ecorePackage.getEBoolean(), "hexadecimal", null, 0, 1, SchemeNumber.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getSchemeNumber_Value(), ecorePackage.getEInt(), "value", null, 0, 1, SchemeNumber.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(commandEClass, Command.class, "Command", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getCommand_Keyword(), ecorePackage.getEString(), "keyword", null, 0, 1, Command.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

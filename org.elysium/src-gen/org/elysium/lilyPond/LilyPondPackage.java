@@ -477,6 +477,43 @@ public interface LilyPondPackage extends EPackage
   int SCHEME_TEXT_FEATURE_COUNT = SCHEME_VALUE_FEATURE_COUNT + 1;
 
   /**
+   * The meta object id for the '{@link org.elysium.lilyPond.impl.SchemeNumberImpl <em>Scheme Number</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.elysium.lilyPond.impl.SchemeNumberImpl
+   * @see org.elysium.lilyPond.impl.LilyPondPackageImpl#getSchemeNumber()
+   * @generated
+   */
+  int SCHEME_NUMBER = 12;
+
+  /**
+   * The feature id for the '<em><b>Hexadecimal</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int SCHEME_NUMBER__HEXADECIMAL = SCHEME_VALUE_FEATURE_COUNT + 0;
+
+  /**
+   * The feature id for the '<em><b>Value</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int SCHEME_NUMBER__VALUE = SCHEME_VALUE_FEATURE_COUNT + 1;
+
+  /**
+   * The number of structural features of the '<em>Scheme Number</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int SCHEME_NUMBER_FEATURE_COUNT = SCHEME_VALUE_FEATURE_COUNT + 2;
+
+  /**
    * The meta object id for the '{@link org.elysium.lilyPond.impl.CommandImpl <em>Command</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -484,7 +521,7 @@ public interface LilyPondPackage extends EPackage
    * @see org.elysium.lilyPond.impl.LilyPondPackageImpl#getCommand()
    * @generated
    */
-  int COMMAND = 12;
+  int COMMAND = 13;
 
   /**
    * The feature id for the '<em><b>Parent Block</b></em>' container reference.
@@ -530,7 +567,7 @@ public interface LilyPondPackage extends EPackage
    * @see org.elysium.lilyPond.impl.LilyPondPackageImpl#getArbitraryCommand()
    * @generated
    */
-  int ARBITRARY_COMMAND = 13;
+  int ARBITRARY_COMMAND = 14;
 
   /**
    * The feature id for the '<em><b>Parent Block</b></em>' container reference.
@@ -576,7 +613,7 @@ public interface LilyPondPackage extends EPackage
    * @see org.elysium.lilyPond.impl.LilyPondPackageImpl#getSpecialCommand()
    * @generated
    */
-  int SPECIAL_COMMAND = 14;
+  int SPECIAL_COMMAND = 15;
 
   /**
    * The feature id for the '<em><b>Parent Block</b></em>' container reference.
@@ -622,7 +659,7 @@ public interface LilyPondPackage extends EPackage
    * @see org.elysium.lilyPond.impl.LilyPondPackageImpl#getInclude()
    * @generated
    */
-  int INCLUDE = 15;
+  int INCLUDE = 16;
 
   /**
    * The feature id for the '<em><b>Parent Block</b></em>' container reference.
@@ -677,7 +714,7 @@ public interface LilyPondPackage extends EPackage
    * @see org.elysium.lilyPond.impl.LilyPondPackageImpl#getVersion()
    * @generated
    */
-  int VERSION = 16;
+  int VERSION = 17;
 
   /**
    * The feature id for the '<em><b>Parent Block</b></em>' container reference.
@@ -732,7 +769,7 @@ public interface LilyPondPackage extends EPackage
    * @see org.elysium.lilyPond.impl.LilyPondPackageImpl#getText()
    * @generated
    */
-  int TEXT = 17;
+  int TEXT = 18;
 
   /**
    * The feature id for the '<em><b>Parent Block</b></em>' container reference.
@@ -778,7 +815,7 @@ public interface LilyPondPackage extends EPackage
    * @see org.elysium.lilyPond.impl.LilyPondPackageImpl#getNumber()
    * @generated
    */
-  int NUMBER = 18;
+  int NUMBER = 19;
 
   /**
    * The feature id for the '<em><b>Parent Block</b></em>' container reference.
@@ -1057,6 +1094,38 @@ public interface LilyPondPackage extends EPackage
    * @generated
    */
   EAttribute getSchemeText_Value();
+
+  /**
+   * Returns the meta object for class '{@link org.elysium.lilyPond.SchemeNumber <em>Scheme Number</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Scheme Number</em>'.
+   * @see org.elysium.lilyPond.SchemeNumber
+   * @generated
+   */
+  EClass getSchemeNumber();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.elysium.lilyPond.SchemeNumber#isHexadecimal <em>Hexadecimal</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Hexadecimal</em>'.
+   * @see org.elysium.lilyPond.SchemeNumber#isHexadecimal()
+   * @see #getSchemeNumber()
+   * @generated
+   */
+  EAttribute getSchemeNumber_Hexadecimal();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.elysium.lilyPond.SchemeNumber#getValue <em>Value</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Value</em>'.
+   * @see org.elysium.lilyPond.SchemeNumber#getValue()
+   * @see #getSchemeNumber()
+   * @generated
+   */
+  EAttribute getSchemeNumber_Value();
 
   /**
    * Returns the meta object for class '{@link org.elysium.lilyPond.Command <em>Command</em>}'.
@@ -1413,6 +1482,32 @@ public interface LilyPondPackage extends EPackage
      * @generated
      */
     EAttribute SCHEME_TEXT__VALUE = eINSTANCE.getSchemeText_Value();
+
+    /**
+     * The meta object literal for the '{@link org.elysium.lilyPond.impl.SchemeNumberImpl <em>Scheme Number</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.elysium.lilyPond.impl.SchemeNumberImpl
+     * @see org.elysium.lilyPond.impl.LilyPondPackageImpl#getSchemeNumber()
+     * @generated
+     */
+    EClass SCHEME_NUMBER = eINSTANCE.getSchemeNumber();
+
+    /**
+     * The meta object literal for the '<em><b>Hexadecimal</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute SCHEME_NUMBER__HEXADECIMAL = eINSTANCE.getSchemeNumber_Hexadecimal();
+
+    /**
+     * The meta object literal for the '<em><b>Value</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute SCHEME_NUMBER__VALUE = eINSTANCE.getSchemeNumber_Value();
 
     /**
      * The meta object literal for the '{@link org.elysium.lilyPond.impl.CommandImpl <em>Command</em>}' class.

@@ -421,6 +421,42 @@ finally {
 
 
 
+// Entry rule entryRuleSchemeNumber
+entryRuleSchemeNumber 
+@init {
+	HiddenTokens myHiddenTokenState = ((XtextTokenStream)input).setHiddenTokens();
+}
+:
+{ before(grammarAccess.getSchemeNumberRule()); }
+	 ruleSchemeNumber
+{ after(grammarAccess.getSchemeNumberRule()); } 
+	 EOF 
+;
+finally {
+	myHiddenTokenState.restore();
+}
+
+// Rule SchemeNumber
+ruleSchemeNumber
+    @init {
+		HiddenTokens myHiddenTokenState = ((XtextTokenStream)input).setHiddenTokens();
+		int stackSize = keepStackSize();
+    }
+	:
+(
+{ before(grammarAccess.getSchemeNumberAccess().getGroup()); }
+(rule__SchemeNumber__Group__0)
+{ after(grammarAccess.getSchemeNumberAccess().getGroup()); }
+)
+
+;
+finally {
+	restoreStackSize(stackSize);
+	myHiddenTokenState.restore();
+}
+
+
+
 // Entry rule entryRuleCommand
 entryRuleCommand 
 :
@@ -818,9 +854,9 @@ rule__SchemeValue__Alternatives
 )
 
     |(
-{ before(grammarAccess.getSchemeValueAccess().getNumberParserRuleCall_4()); }
-	ruleNumber
-{ after(grammarAccess.getSchemeValueAccess().getNumberParserRuleCall_4()); }
+{ before(grammarAccess.getSchemeValueAccess().getSchemeNumberParserRuleCall_4()); }
+	ruleSchemeNumber
+{ after(grammarAccess.getSchemeValueAccess().getSchemeNumberParserRuleCall_4()); }
 )
 
 ;
@@ -1610,6 +1646,67 @@ finally {
 
 
 
+rule__SchemeNumber__Group__0
+    @init {
+		int stackSize = keepStackSize();
+    }
+:
+	rule__SchemeNumber__Group__0__Impl
+	rule__SchemeNumber__Group__1
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__SchemeNumber__Group__0__Impl
+    @init {
+		int stackSize = keepStackSize();
+    }
+:
+(
+{ before(grammarAccess.getSchemeNumberAccess().getHexadecimalAssignment_0()); }
+(rule__SchemeNumber__HexadecimalAssignment_0)?
+{ after(grammarAccess.getSchemeNumberAccess().getHexadecimalAssignment_0()); }
+)
+
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+
+rule__SchemeNumber__Group__1
+    @init {
+		int stackSize = keepStackSize();
+    }
+:
+	rule__SchemeNumber__Group__1__Impl
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__SchemeNumber__Group__1__Impl
+    @init {
+		int stackSize = keepStackSize();
+    }
+:
+(
+{ before(grammarAccess.getSchemeNumberAccess().getValueAssignment_1()); }
+(rule__SchemeNumber__ValueAssignment_1)
+{ after(grammarAccess.getSchemeNumberAccess().getValueAssignment_1()); }
+)
+
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+
+
+
+
+
 rule__ArbitraryCommandKeyword__Group__0
     @init {
 		int stackSize = keepStackSize();
@@ -2077,6 +2174,44 @@ rule__SchemeText__ValueAssignment
 (
 { before(grammarAccess.getSchemeTextAccess().getValueSchemeTextLiteralsParserRuleCall_0()); }
 	ruleSchemeTextLiterals{ after(grammarAccess.getSchemeTextAccess().getValueSchemeTextLiteralsParserRuleCall_0()); }
+)
+
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__SchemeNumber__HexadecimalAssignment_0
+    @init {
+		int stackSize = keepStackSize();
+    }
+:
+(
+{ before(grammarAccess.getSchemeNumberAccess().getHexadecimalXKeyword_0_0()); }
+(
+{ before(grammarAccess.getSchemeNumberAccess().getHexadecimalXKeyword_0_0()); }
+
+	'#x' 
+
+{ after(grammarAccess.getSchemeNumberAccess().getHexadecimalXKeyword_0_0()); }
+)
+
+{ after(grammarAccess.getSchemeNumberAccess().getHexadecimalXKeyword_0_0()); }
+)
+
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__SchemeNumber__ValueAssignment_1
+    @init {
+		int stackSize = keepStackSize();
+    }
+:
+(
+{ before(grammarAccess.getSchemeNumberAccess().getValueINTTerminalRuleCall_1_0()); }
+	RULE_INT{ after(grammarAccess.getSchemeNumberAccess().getValueINTTerminalRuleCall_1_0()); }
 )
 
 ;

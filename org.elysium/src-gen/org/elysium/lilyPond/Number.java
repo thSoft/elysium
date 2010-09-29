@@ -22,7 +22,7 @@ package org.elysium.lilyPond;
  * @model
  * @generated
  */
-public interface Number extends Expression, SchemeValue
+public interface Number extends Expression
 {
   /**
    * Returns the value of the '<em><b>Value</b></em>' attribute.

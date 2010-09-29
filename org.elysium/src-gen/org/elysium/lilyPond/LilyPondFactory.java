@@ -134,6 +134,15 @@ public interface LilyPondFactory extends EFactory
   SchemeText createSchemeText();
 
   /**
+   * Returns a new object of class '<em>Scheme Number</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Scheme Number</em>'.
+   * @generated
+   */
+  SchemeNumber createSchemeNumber();
+
+  /**
    * Returns a new object of class '<em>Command</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->

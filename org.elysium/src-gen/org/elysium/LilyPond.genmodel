@@ -40,6 +40,10 @@
     <genClasses ecoreClass="LilyPond.ecore#//SchemeText">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute LilyPond.ecore#//SchemeText/value"/>
     </genClasses>
+    <genClasses ecoreClass="LilyPond.ecore#//SchemeNumber">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute LilyPond.ecore#//SchemeNumber/hexadecimal"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute LilyPond.ecore#//SchemeNumber/value"/>
+    </genClasses>
     <genClasses ecoreClass="LilyPond.ecore#//Command">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute LilyPond.ecore#//Command/keyword"/>
     </genClasses>

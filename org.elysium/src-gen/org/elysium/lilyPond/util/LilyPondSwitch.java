@@ -22,6 +22,7 @@ import org.elysium.lilyPond.SchemeBlock;
 import org.elysium.lilyPond.SchemeBoolean;
 import org.elysium.lilyPond.SchemeExpression;
 import org.elysium.lilyPond.SchemeList;
+import org.elysium.lilyPond.SchemeNumber;
 import org.elysium.lilyPond.SchemeText;
 import org.elysium.lilyPond.SchemeValue;
 import org.elysium.lilyPond.SimpleBlock;
@@ -207,6 +208,14 @@ public class LilyPondSwitch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
+      case LilyPondPackage.SCHEME_NUMBER:
+      {
+        SchemeNumber schemeNumber = (SchemeNumber)theEObject;
+        T result = caseSchemeNumber(schemeNumber);
+        if (result == null) result = caseSchemeValue(schemeNumber);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
       case LilyPondPackage.COMMAND:
       {
         Command command = (Command)theEObject;
@@ -266,7 +275,6 @@ public class LilyPondSwitch<T>
         org.elysium.lilyPond.Number number = (org.elysium.lilyPond.Number)theEObject;
         T result = caseNumber(number);
         if (result == null) result = caseExpression(number);
-        if (result == null) result = caseSchemeValue(number);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -462,6 +470,22 @@ public class LilyPondSwitch<T>
    * @generated
    */
   public T caseSchemeText(SchemeText object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Scheme Number</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Scheme Number</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseSchemeNumber(SchemeNumber object)
   {
     return null;
   }

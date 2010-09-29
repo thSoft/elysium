@@ -543,11 +543,11 @@ ruleSchemeValue returns [EObject current=null]
 
     |
     { 
-        currentNode=createCompositeNode(grammarAccess.getSchemeValueAccess().getNumberParserRuleCall_4(), currentNode); 
+        currentNode=createCompositeNode(grammarAccess.getSchemeValueAccess().getSchemeNumberParserRuleCall_4(), currentNode); 
     }
-    this_Number_4=ruleNumber
+    this_SchemeNumber_4=ruleSchemeNumber
     { 
-        $current = $this_Number_4.current; 
+        $current = $this_SchemeNumber_4.current; 
         currentNode = currentNode.getParent();
     }
 )
@@ -820,6 +820,84 @@ ruleSchemeTextLiterals returns [AntlrDatatypeRuleToken current=new AntlrDatatype
     }
 )
     ;
+
+
+
+
+
+// Entry rule entryRuleSchemeNumber
+entryRuleSchemeNumber returns [EObject current=null] 
+	@init { 
+		HiddenTokens myHiddenTokenState = ((XtextTokenStream)input).setHiddenTokens();
+	}
+	:
+	{ currentNode = createCompositeNode(grammarAccess.getSchemeNumberRule(), currentNode); }
+	 iv_ruleSchemeNumber=ruleSchemeNumber 
+	 { $current=$iv_ruleSchemeNumber.current; } 
+	 EOF 
+;
+finally {
+	myHiddenTokenState.restore();
+}
+
+// Rule SchemeNumber
+ruleSchemeNumber returns [EObject current=null] 
+    @init { EObject temp=null; setCurrentLookahead(); resetLookahead(); 
+		HiddenTokens myHiddenTokenState = ((XtextTokenStream)input).setHiddenTokens();
+    }
+    @after { resetLookahead(); 
+    	lastConsumedNode = currentNode;
+    }:
+((
+(
+		lv_hexadecimal_0_0=	'#x' 
+    {
+        createLeafNode(grammarAccess.getSchemeNumberAccess().getHexadecimalXKeyword_0_0(), "hexadecimal"); 
+    }
+ 
+	    {
+	        if ($current==null) {
+	            $current = factory.create(grammarAccess.getSchemeNumberRule().getType().getClassifier());
+	            associateNodeWithAstElement(currentNode, $current);
+	        }
+	        
+	        try {
+	       		set($current, "hexadecimal", true, "#x", lastConsumedNode);
+	        } catch (ValueConverterException vce) {
+				handleValueConverterException(vce);
+	        }
+	    }
+
+)
+)?(
+(
+		lv_value_1_0=RULE_INT
+		{
+			createLeafNode(grammarAccess.getSchemeNumberAccess().getValueINTTerminalRuleCall_1_0(), "value"); 
+		}
+		{
+	        if ($current==null) {
+	            $current = factory.create(grammarAccess.getSchemeNumberRule().getType().getClassifier());
+	            associateNodeWithAstElement(currentNode, $current);
+	        }
+	        try {
+	       		set(
+	       			$current, 
+	       			"value",
+	        		lv_value_1_0, 
+	        		"INT", 
+	        		lastConsumedNode);
+	        } catch (ValueConverterException vce) {
+				handleValueConverterException(vce);
+	        }
+	    }
+
+)
+))
+;
+finally {
+	myHiddenTokenState.restore();
+}
 
 
 

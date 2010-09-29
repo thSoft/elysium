@@ -43,13 +43,14 @@ protected class ThisRootNode extends RootToken {
 			case 9: return new SchemeList_Group(this, this, 9, inst);
 			case 10: return new SchemeBlock_Group(this, this, 10, inst);
 			case 11: return new SchemeText_ValueAssignment(this, this, 11, inst);
-			case 12: return new Command_Alternatives(this, this, 12, inst);
-			case 13: return new ArbitraryCommand_KeywordAssignment(this, this, 13, inst);
-			case 14: return new SpecialCommand_Alternatives(this, this, 14, inst);
-			case 15: return new Include_Group(this, this, 15, inst);
-			case 16: return new Version_Group(this, this, 16, inst);
-			case 17: return new Text_ValueAssignment(this, this, 17, inst);
-			case 18: return new Number_ValueAssignment(this, this, 18, inst);
+			case 12: return new SchemeNumber_Group(this, this, 12, inst);
+			case 13: return new Command_Alternatives(this, this, 13, inst);
+			case 14: return new ArbitraryCommand_KeywordAssignment(this, this, 14, inst);
+			case 15: return new SpecialCommand_Alternatives(this, this, 15, inst);
+			case 16: return new Include_Group(this, this, 16, inst);
+			case 17: return new Version_Group(this, this, 17, inst);
+			case 18: return new Text_ValueAssignment(this, this, 18, inst);
+			case 19: return new Number_ValueAssignment(this, this, 19, inst);
 			default: return null;
 		}	
 	}	
@@ -1005,11 +1006,11 @@ protected class SchemeExpression_ValueAssignment_1 extends AssignmentToken  {
 /************ begin Rule SchemeValue ****************
  *
  * SchemeValue:
- * 	SchemeBoolean | SchemeList | SchemeBlock | SchemeText | Number;
+ * 	SchemeBoolean | SchemeList | SchemeBlock | SchemeText | SchemeNumber;
  *
  **/
 
-// SchemeBoolean | SchemeList | SchemeBlock | SchemeText | Number
+// SchemeBoolean | SchemeList | SchemeBlock | SchemeText | SchemeNumber
 protected class SchemeValue_Alternatives extends AlternativesToken {
 
 	public SchemeValue_Alternatives(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -1028,17 +1029,17 @@ protected class SchemeValue_Alternatives extends AlternativesToken {
 			case 1: return new SchemeValue_SchemeListParserRuleCall_1(lastRuleCallOrigin, this, 1, inst);
 			case 2: return new SchemeValue_SchemeBlockParserRuleCall_2(lastRuleCallOrigin, this, 2, inst);
 			case 3: return new SchemeValue_SchemeTextParserRuleCall_3(lastRuleCallOrigin, this, 3, inst);
-			case 4: return new SchemeValue_NumberParserRuleCall_4(lastRuleCallOrigin, this, 4, inst);
+			case 4: return new SchemeValue_SchemeNumberParserRuleCall_4(lastRuleCallOrigin, this, 4, inst);
 			default: return null;
 		}	
 	}
 
     @Override
 	public IEObjectConsumer tryConsume() {
-		if(getEObject().eClass() != grammarAccess.getNumberRule().getType().getClassifier() && 
-		   getEObject().eClass() != grammarAccess.getSchemeBlockRule().getType().getClassifier() && 
+		if(getEObject().eClass() != grammarAccess.getSchemeBlockRule().getType().getClassifier() && 
 		   getEObject().eClass() != grammarAccess.getSchemeBooleanRule().getType().getClassifier() && 
 		   getEObject().eClass() != grammarAccess.getSchemeListAccess().getSchemeListAction_0().getType().getClassifier() && 
+		   getEObject().eClass() != grammarAccess.getSchemeNumberRule().getType().getClassifier() && 
 		   getEObject().eClass() != grammarAccess.getSchemeTextRule().getType().getClassifier())
 			return null;
 		return eObjectConsumer;
@@ -1190,31 +1191,31 @@ protected class SchemeValue_SchemeTextParserRuleCall_3 extends RuleCallToken {
 	}	
 }
 
-// Number
-protected class SchemeValue_NumberParserRuleCall_4 extends RuleCallToken {
+// SchemeNumber
+protected class SchemeValue_SchemeNumberParserRuleCall_4 extends RuleCallToken {
 	
-	public SchemeValue_NumberParserRuleCall_4(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
+	public SchemeValue_SchemeNumberParserRuleCall_4(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
 		super(lastRuleCallOrigin, next, transitionIndex, eObjectConsumer);
 	}
 	
 	@Override
 	public RuleCall getGrammarElement() {
-		return grammarAccess.getSchemeValueAccess().getNumberParserRuleCall_4();
+		return grammarAccess.getSchemeValueAccess().getSchemeNumberParserRuleCall_4();
 	}
 
     @Override
 	public AbstractToken createFollower(int index, IEObjectConsumer inst) {
 		switch(index) {
-			case 0: return new Number_ValueAssignment(this, this, 0, inst);
+			case 0: return new SchemeNumber_Group(this, this, 0, inst);
 			default: return null;
 		}	
 	}
 
     @Override
 	public IEObjectConsumer tryConsume() {
-		if(getEObject().eClass() != grammarAccess.getNumberRule().getType().getClassifier())
+		if(getEObject().eClass() != grammarAccess.getSchemeNumberRule().getType().getClassifier())
 			return null;
-		if(checkForRecursion(Number_ValueAssignment.class, eObjectConsumer)) return null;
+		if(checkForRecursion(SchemeNumber_Group.class, eObjectConsumer)) return null;
 		return eObjectConsumer;
 	}
 	
@@ -1607,6 +1608,113 @@ protected class SchemeText_ValueAssignment extends AssignmentToken  {
 
 /************ end Rule SchemeText ****************/
 
+
+
+/************ begin Rule SchemeNumber ****************
+ *
+ * SchemeNumber hidden():
+ * 	hexadecimal?="#x"? value=INT;
+ *
+ **/
+
+// hexadecimal?="#x"? value=INT
+protected class SchemeNumber_Group extends GroupToken {
+	
+	public SchemeNumber_Group(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
+		super(lastRuleCallOrigin, next, transitionIndex, eObjectConsumer);
+	}
+	
+	@Override
+	public Group getGrammarElement() {
+		return grammarAccess.getSchemeNumberAccess().getGroup();
+	}
+
+    @Override
+	public AbstractToken createFollower(int index, IEObjectConsumer inst) {
+		switch(index) {
+			case 0: return new SchemeNumber_ValueAssignment_1(lastRuleCallOrigin, this, 0, inst);
+			default: return null;
+		}	
+	}
+
+    @Override
+	public IEObjectConsumer tryConsume() {
+		if(getEObject().eClass() != grammarAccess.getSchemeNumberRule().getType().getClassifier())
+			return null;
+		return eObjectConsumer;
+	}
+
+}
+
+// hexadecimal?="#x"?
+protected class SchemeNumber_HexadecimalAssignment_0 extends AssignmentToken  {
+	
+	public SchemeNumber_HexadecimalAssignment_0(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
+		super(lastRuleCallOrigin, next, transitionIndex, eObjectConsumer);
+	}
+	
+	@Override
+	public Assignment getGrammarElement() {
+		return grammarAccess.getSchemeNumberAccess().getHexadecimalAssignment_0();
+	}
+
+    @Override
+	public AbstractToken createFollower(int index, IEObjectConsumer inst) {
+		switch(index) {
+			default: return lastRuleCallOrigin.createFollowerAfterReturn(this, index, index, inst);
+		}	
+	}
+
+    @Override	
+	public IEObjectConsumer tryConsume() {
+		if((value = eObjectConsumer.getConsumable("hexadecimal",false)) == null) return null;
+		IEObjectConsumer obj = eObjectConsumer.cloneAndConsume("hexadecimal");
+		if(Boolean.TRUE.equals(value)) { // org::eclipse::xtext::impl::KeywordImpl
+			type = AssignmentType.KEYWORD;
+			element = grammarAccess.getSchemeNumberAccess().getHexadecimalXKeyword_0_0();
+			return obj;
+		}
+		return null;
+	}
+
+}
+
+// value=INT
+protected class SchemeNumber_ValueAssignment_1 extends AssignmentToken  {
+	
+	public SchemeNumber_ValueAssignment_1(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
+		super(lastRuleCallOrigin, next, transitionIndex, eObjectConsumer);
+	}
+	
+	@Override
+	public Assignment getGrammarElement() {
+		return grammarAccess.getSchemeNumberAccess().getValueAssignment_1();
+	}
+
+    @Override
+	public AbstractToken createFollower(int index, IEObjectConsumer inst) {
+		switch(index) {
+			case 0: return new SchemeNumber_HexadecimalAssignment_0(lastRuleCallOrigin, this, 0, inst);
+			default: return lastRuleCallOrigin.createFollowerAfterReturn(this, index, index - 1, inst);
+		}	
+	}
+
+    @Override	
+	public IEObjectConsumer tryConsume() {
+		if((value = eObjectConsumer.getConsumable("value",true)) == null) return null;
+		IEObjectConsumer obj = eObjectConsumer.cloneAndConsume("value");
+		if(valueSerializer.isValid(obj.getEObject(), grammarAccess.getSchemeNumberAccess().getValueINTTerminalRuleCall_1_0(), value, null)) {
+			type = AssignmentType.TERMINAL_RULE_CALL;
+			element = grammarAccess.getSchemeNumberAccess().getValueINTTerminalRuleCall_1_0();
+			return obj;
+		}
+		return null;
+	}
+
+}
+
+
+/************ end Rule SchemeNumber ****************/
 
 
 /************ begin Rule Command ****************

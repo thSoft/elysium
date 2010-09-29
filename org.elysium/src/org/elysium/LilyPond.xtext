@@ -20,7 +20,7 @@ Scheme: "#" value=SchemeExpression;
 
 SchemeExpression: quoted?="'"? value=SchemeValue;
 
-SchemeValue: SchemeBoolean | SchemeList | SchemeBlock | SchemeText | Number;
+SchemeValue: SchemeBoolean | SchemeList | SchemeBlock | SchemeText | SchemeNumber;
 
 SchemeBoolean: value=BOOL;
 
@@ -31,6 +31,8 @@ SchemeBlock: "#{" expressions+=Expression+ "#}";
 SchemeText: value=SchemeTextLiterals;
 
 SchemeTextLiterals: "\\\\" | ID | STRING | ANY_OTHER;
+
+SchemeNumber hidden(): hexadecimal?="#x"? value=INT;
 
 Command: ArbitraryCommand | SpecialCommand;
 

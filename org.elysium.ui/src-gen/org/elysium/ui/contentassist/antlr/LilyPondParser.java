@@ -51,6 +51,7 @@ public class LilyPondParser extends AbstractContentAssistParser {
 					put(grammarAccess.getSchemeExpressionAccess().getGroup(), "rule__SchemeExpression__Group__0");
 					put(grammarAccess.getSchemeListAccess().getGroup(), "rule__SchemeList__Group__0");
 					put(grammarAccess.getSchemeBlockAccess().getGroup(), "rule__SchemeBlock__Group__0");
+					put(grammarAccess.getSchemeNumberAccess().getGroup(), "rule__SchemeNumber__Group__0");
 					put(grammarAccess.getArbitraryCommandKeywordAccess().getGroup(), "rule__ArbitraryCommandKeyword__Group__0");
 					put(grammarAccess.getIncludeAccess().getGroup(), "rule__Include__Group__0");
 					put(grammarAccess.getIncludeKeywordAccess().getGroup(), "rule__IncludeKeyword__Group__0");
@@ -66,6 +67,8 @@ public class LilyPondParser extends AbstractContentAssistParser {
 					put(grammarAccess.getSchemeListAccess().getExpressionsAssignment_2(), "rule__SchemeList__ExpressionsAssignment_2");
 					put(grammarAccess.getSchemeBlockAccess().getExpressionsAssignment_1(), "rule__SchemeBlock__ExpressionsAssignment_1");
 					put(grammarAccess.getSchemeTextAccess().getValueAssignment(), "rule__SchemeText__ValueAssignment");
+					put(grammarAccess.getSchemeNumberAccess().getHexadecimalAssignment_0(), "rule__SchemeNumber__HexadecimalAssignment_0");
+					put(grammarAccess.getSchemeNumberAccess().getValueAssignment_1(), "rule__SchemeNumber__ValueAssignment_1");
 					put(grammarAccess.getArbitraryCommandAccess().getKeywordAssignment(), "rule__ArbitraryCommand__KeywordAssignment");
 					put(grammarAccess.getIncludeAccess().getKeywordAssignment_0(), "rule__Include__KeywordAssignment_0");
 					put(grammarAccess.getIncludeAccess().getImportURIAssignment_1(), "rule__Include__ImportURIAssignment_1");
