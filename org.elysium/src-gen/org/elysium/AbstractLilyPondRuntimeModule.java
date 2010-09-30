@@ -44,37 +44,37 @@ public abstract class AbstractLilyPondRuntimeModule extends DefaultRuntimeModule
 		return org.elysium.parseTreeConstruction.LilyPondParsetreeConstructor.class;
 	}
 
-	// contributed by org.eclipse.xtext.generator.parser.antlr.XtextAntlrGeneratorFragment
+	// contributed by org.eclipse.xtext.generator.parser.antlr.ex.rt.AntlrGeneratorFragment
 	public Class<? extends org.eclipse.xtext.parser.antlr.IAntlrParser> bindIAntlrParser() {
 		return org.elysium.parser.antlr.LilyPondParser.class;
 	}
 
-	// contributed by org.eclipse.xtext.generator.parser.antlr.XtextAntlrGeneratorFragment
+	// contributed by org.eclipse.xtext.generator.parser.antlr.ex.rt.AntlrGeneratorFragment
 	public Class<? extends org.eclipse.xtext.parser.ITokenToStringConverter> bindITokenToStringConverter() {
 		return org.eclipse.xtext.parser.antlr.AntlrTokenToStringConverter.class;
 	}
 
-	// contributed by org.eclipse.xtext.generator.parser.antlr.XtextAntlrGeneratorFragment
+	// contributed by org.eclipse.xtext.generator.parser.antlr.ex.rt.AntlrGeneratorFragment
 	public Class<? extends org.eclipse.xtext.parser.antlr.IAntlrTokenFileProvider> bindIAntlrTokenFileProvider() {
 		return org.elysium.parser.antlr.LilyPondAntlrTokenFileProvider.class;
 	}
 
-	// contributed by org.eclipse.xtext.generator.parser.antlr.XtextAntlrGeneratorFragment
+	// contributed by org.eclipse.xtext.generator.parser.antlr.ex.rt.AntlrGeneratorFragment
 	public Class<? extends org.eclipse.xtext.parser.antlr.Lexer> bindLexer() {
-		return org.elysium.parser.antlr.internal.InternalLilyPondLexer.class;
+		return org.elysium.parser.antlr.lexer.InternalLilyPondLexer.class;
 	}
 
-	// contributed by org.eclipse.xtext.generator.parser.antlr.XtextAntlrGeneratorFragment
-	public com.google.inject.Provider<org.elysium.parser.antlr.internal.InternalLilyPondLexer> provideInternalLilyPondLexer() {
-		return org.eclipse.xtext.parser.antlr.LexerProvider.create(org.elysium.parser.antlr.internal.InternalLilyPondLexer.class);
+	// contributed by org.eclipse.xtext.generator.parser.antlr.ex.rt.AntlrGeneratorFragment
+	public com.google.inject.Provider<org.elysium.parser.antlr.lexer.InternalLilyPondLexer> provideInternalLilyPondLexer() {
+		return org.eclipse.xtext.parser.antlr.LexerProvider.create(org.elysium.parser.antlr.lexer.InternalLilyPondLexer.class);
 	}
 
-	// contributed by org.eclipse.xtext.generator.parser.antlr.XtextAntlrGeneratorFragment
+	// contributed by org.eclipse.xtext.generator.parser.antlr.ex.rt.AntlrGeneratorFragment
 	public void configureRuntimeLexer(com.google.inject.Binder binder) {
-		binder.bind(org.eclipse.xtext.parser.antlr.Lexer.class).annotatedWith(com.google.inject.name.Names.named(org.eclipse.xtext.parser.antlr.LexerBindings.RUNTIME)).to(org.elysium.parser.antlr.internal.InternalLilyPondLexer.class);
+		binder.bind(org.eclipse.xtext.parser.antlr.Lexer.class).annotatedWith(com.google.inject.name.Names.named(org.eclipse.xtext.parser.antlr.LexerBindings.RUNTIME)).to(org.elysium.parser.antlr.lexer.InternalLilyPondLexer.class);
 	}
 
-	// contributed by org.eclipse.xtext.generator.parser.antlr.XtextAntlrGeneratorFragment
+	// contributed by org.eclipse.xtext.generator.parser.antlr.ex.rt.AntlrGeneratorFragment
 	public Class<? extends org.eclipse.xtext.parser.antlr.ITokenDefProvider> bindITokenDefProvider() {
 		return org.eclipse.xtext.parser.antlr.AntlrTokenDefProvider.class;
 	}

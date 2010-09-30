@@ -30,7 +30,7 @@ import org.elysium.lilyPond.SchemeExpression;
  *
  * @generated
  */
-public class SchemeImpl extends ExpressionImpl implements Scheme
+public class SchemeImpl extends ToplevelExpressionImpl implements Scheme
 {
   /**
    * The cached value of the '{@link #getValue() <em>Value</em>}' containment reference.

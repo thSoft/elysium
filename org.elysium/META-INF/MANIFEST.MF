@@ -31,4 +31,5 @@ Export-Package: org.elysium,
  org.elysium.parser.antlr,
  org.elysium.parser.antlr.internal,
  org.elysium.services,
- org.elysium.validation
+ org.elysium.validation,
+ org.elysium.parser.antlr.lexer

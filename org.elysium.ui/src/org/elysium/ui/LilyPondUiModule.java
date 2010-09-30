@@ -10,13 +10,11 @@ import org.eclipse.xtext.ui.editor.model.IResourceForEditorInputFactory;
 import org.eclipse.xtext.ui.editor.model.ResourceForIEditorInputFactory;
 import org.eclipse.xtext.ui.editor.syntaxcoloring.IHighlightingConfiguration;
 import org.eclipse.xtext.ui.editor.syntaxcoloring.ISemanticHighlightingCalculator;
-import org.eclipse.xtext.ui.editor.syntaxcoloring.antlr.AbstractAntlrTokenToAttributeIdMapper;
 import org.eclipse.xtext.ui.resource.IResourceSetProvider;
 import org.eclipse.xtext.ui.resource.SimpleResourceSetProvider;
 import org.eclipse.xtext.ui.shared.Access;
 import org.elysium.ui.autoedit.LilyPondAutoEditStrategy;
 import org.elysium.ui.hyperlinks.LilyPondHyperlinkHelper;
-import org.elysium.ui.syntaxcoloring.LilyPondAntlrTokenToAttributeIdMapper;
 import org.elysium.ui.syntaxcoloring.LilyPondHighlightingConfiguration;
 import org.elysium.ui.syntaxcoloring.LilyPondSemanticHighlightingCalculator;
 import com.google.inject.Binder;
@@ -43,7 +41,6 @@ public class LilyPondUiModule extends AbstractLilyPondUiModule {
 		binder.bind(IHyperlinkHelper.class).to(LilyPondHyperlinkHelper.class);
 		// Syntax coloring
 		binder.bind(IHighlightingConfiguration.class).to(LilyPondHighlightingConfiguration.class);
-		binder.bind(AbstractAntlrTokenToAttributeIdMapper.class).to(LilyPondAntlrTokenToAttributeIdMapper.class);
 		binder.bind(ISemanticHighlightingCalculator.class).to(LilyPondSemanticHighlightingCalculator.class);
 		// Import URI resolution
 		binder.bind(ImportUriResolver.class).to(LilyPondImportUriResolver.class);

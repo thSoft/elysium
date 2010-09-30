@@ -29,8 +29,7 @@ public interface LilyPond extends EObject
 {
   /**
    * Returns the value of the '<em><b>Expressions</b></em>' containment reference list.
-   * The list contents are of type {@link org.elysium.lilyPond.Expression}.
-   * It is bidirectional and its opposite is '{@link org.elysium.lilyPond.Expression#getParentLilyPond <em>Parent Lily Pond</em>}'.
+   * The list contents are of type {@link org.elysium.lilyPond.ToplevelExpression}.
    * <!-- begin-user-doc -->
    * <p>
    * If the meaning of the '<em>Expressions</em>' containment reference list isn't clear,
@@ -39,10 +38,9 @@ public interface LilyPond extends EObject
    * <!-- end-user-doc -->
    * @return the value of the '<em>Expressions</em>' containment reference list.
    * @see org.elysium.lilyPond.LilyPondPackage#getLilyPond_Expressions()
-   * @see org.elysium.lilyPond.Expression#getParentLilyPond
-   * @model opposite="parentLilyPond" containment="true"
+   * @model containment="true"
    * @generated
    */
-  EList<Expression> getExpressions();
+  EList<ToplevelExpression> getExpressions();
 
 } // LilyPond

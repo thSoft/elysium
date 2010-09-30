@@ -7,7 +7,8 @@ import org.eclipse.xtext.resource.XtextResource;
 import org.eclipse.xtext.ui.editor.syntaxcoloring.DefaultHighlightingConfiguration;
 import org.eclipse.xtext.ui.editor.syntaxcoloring.IHighlightedPositionAcceptor;
 import org.eclipse.xtext.ui.editor.syntaxcoloring.ISemanticHighlightingCalculator;
-import org.elysium.lilyPond.Command;
+import org.elysium.lilyPond.Assignment;
+import org.elysium.lilyPond.Reference;
 
 /**
  * Assigns semantic highlighting styles to ranges of text based on LilyPond
@@ -20,9 +21,15 @@ public class LilyPondSemanticHighlightingCalculator implements ISemanticHighligh
 		if (resource != null) {
 			for (AbstractNode node : NodeUtil.getAllContents(resource.getParseResult().getRootNode())) {
 				EObject element = node.getElement();
-				if (element instanceof Command) {
-					Command command = (Command)element;
-					acceptor.addPosition(node.getOffset(), command.getKeyword().length(), DefaultHighlightingConfiguration.KEYWORD_ID);
+				if (element instanceof Reference) {
+					Reference reference = (Reference)element;
+					Assignment assignment = reference.getAssignment();
+					if (assignment != null) {
+						String name = assignment.getName();
+						if (name != null) {
+							acceptor.addPosition(node.getOffset(), name.length() + 1, DefaultHighlightingConfiguration.KEYWORD_ID);
+						}
+					}
 				}
 			}
 		}

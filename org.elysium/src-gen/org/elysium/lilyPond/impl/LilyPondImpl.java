@@ -16,12 +16,12 @@ import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
-import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
+import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
-import org.elysium.lilyPond.Expression;
 import org.elysium.lilyPond.LilyPond;
 import org.elysium.lilyPond.LilyPondPackage;
+import org.elysium.lilyPond.ToplevelExpression;
 
 /**
  * <!-- begin-user-doc -->
@@ -46,7 +46,7 @@ public class LilyPondImpl extends MinimalEObjectImpl.Container implements LilyPo
    * @generated
    * @ordered
    */
-  protected EList<Expression> expressions;
+  protected EList<ToplevelExpression> expressions;
 
   /**
    * <!-- begin-user-doc -->
@@ -74,30 +74,13 @@ public class LilyPondImpl extends MinimalEObjectImpl.Container implements LilyPo
    * <!-- end-user-doc -->
    * @generated
    */
-  public EList<Expression> getExpressions()
+  public EList<ToplevelExpression> getExpressions()
   {
     if (expressions == null)
     {
-      expressions = new EObjectContainmentWithInverseEList<Expression>(Expression.class, this, LilyPondPackage.LILY_POND__EXPRESSIONS, LilyPondPackage.EXPRESSION__PARENT_LILY_POND);
+      expressions = new EObjectContainmentEList<ToplevelExpression>(ToplevelExpression.class, this, LilyPondPackage.LILY_POND__EXPRESSIONS);
     }
     return expressions;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @SuppressWarnings("unchecked")
-  @Override
-  public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs)
-  {
-    switch (featureID)
-    {
-      case LilyPondPackage.LILY_POND__EXPRESSIONS:
-        return ((InternalEList<InternalEObject>)(InternalEList<?>)getExpressions()).basicAdd(otherEnd, msgs);
-    }
-    return super.eInverseAdd(otherEnd, featureID, msgs);
   }
 
   /**
@@ -145,7 +128,7 @@ public class LilyPondImpl extends MinimalEObjectImpl.Container implements LilyPo
     {
       case LilyPondPackage.LILY_POND__EXPRESSIONS:
         getExpressions().clear();
-        getExpressions().addAll((Collection<? extends Expression>)newValue);
+        getExpressions().addAll((Collection<? extends ToplevelExpression>)newValue);
         return;
     }
     super.eSet(featureID, newValue);

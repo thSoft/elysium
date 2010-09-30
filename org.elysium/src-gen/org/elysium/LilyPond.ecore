@@ -5,21 +5,16 @@
     nsURI="http://www.elysium.org/LilyPond" nsPrefix="lilyPond">
   <eClassifiers xsi:type="ecore:EClass" name="LilyPond">
     <eStructuralFeatures xsi:type="ecore:EReference" name="expressions" upperBound="-1"
-        eType="#//Expression" containment="true" eOpposite="#//Expression/parentLilyPond"/>
+        eType="#//ToplevelExpression" containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Expression">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="parentBlock" eType="#//Block"
-        eOpposite="#//Block/expressions"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="parentLilyPond" eType="#//LilyPond"
-        eOpposite="#//LilyPond/expressions"/>
+  <eClassifiers xsi:type="ecore:EClass" name="ToplevelExpression"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Assignment" eSuperTypes="#//ToplevelExpression">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="value" eType="#//Value"
+        containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Block" eSuperTypes="#//Expression">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="expressions" upperBound="-1"
-        eType="#//Expression" containment="true" eOpposite="#//Expression/parentBlock"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="SimpleBlock" eSuperTypes="#//Block"/>
-  <eClassifiers xsi:type="ecore:EClass" name="SimultaneousBlock" eSuperTypes="#//Block"/>
-  <eClassifiers xsi:type="ecore:EClass" name="Scheme" eSuperTypes="#//Expression">
+  <eClassifiers xsi:type="ecore:EClass" name="Value"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Scheme" eSuperTypes="#//ToplevelExpression #//Value #//Scalar #//MusicOrScheme">
     <eStructuralFeatures xsi:type="ecore:EReference" name="value" eType="#//SchemeExpression"
         containment="true"/>
   </eClassifiers>
@@ -36,10 +31,6 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="expressions" upperBound="-1"
         eType="#//SchemeExpression" containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="SchemeBlock" eSuperTypes="#//SchemeValue">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="expressions" upperBound="-1"
-        eType="#//Expression" containment="true"/>
-  </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="SchemeText" eSuperTypes="#//SchemeValue">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
@@ -47,21 +38,295 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="hexadecimal" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Command" eSuperTypes="#//Expression">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="keyword" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  <eClassifiers xsi:type="ecore:EClass" name="ContextDefinition" eSuperTypes="#//Value #//OutputDefinitionElement">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="elements" upperBound="-1"
+        eType="#//ContextDefinitionElement" containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="ArbitraryCommand" eSuperTypes="#//Command"/>
-  <eClassifiers xsi:type="ecore:EClass" name="SpecialCommand" eSuperTypes="#//Command"/>
-  <eClassifiers xsi:type="ecore:EClass" name="Include" eSuperTypes="#//SpecialCommand">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="importURI" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  <eClassifiers xsi:type="ecore:EClass" name="ContextDefinitionElement"/>
+  <eClassifiers xsi:type="ecore:EClass" name="GrobDescriptions" eSuperTypes="#//ContextDefinitionElement">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="value" eType="#//Scheme"
+        containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Version" eSuperTypes="#//SpecialCommand">
+  <eClassifiers xsi:type="ecore:EClass" name="Header" eSuperTypes="#//ToplevelExpression #//ScoreElement #//BookPartElement">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="assignments" upperBound="-1"
+        eType="#//PropertyAssignment" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="PropertyAssignment" eSuperTypes="#//OutputDefinitionElement">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="property" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="value" eType="#//Value"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="OutputDefinition" eSuperTypes="#//ToplevelExpression #//Value #//ScoreElement">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="elements" upperBound="-1"
+        eType="#//OutputDefinitionElement" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="OutputDefinitionElement"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Paper" eSuperTypes="#//OutputDefinition #//BookPartElement"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Midi" eSuperTypes="#//OutputDefinition"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Layout" eSuperTypes="#//OutputDefinition"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Score" eSuperTypes="#//ToplevelExpression #//Value #//BookPartElement">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="music" eType="#//Music"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="other" upperBound="-1"
+        eType="#//ScoreElement" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ScoreElement"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Book" eSuperTypes="#//ToplevelExpression #//Value">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="elements" upperBound="-1"
+        eType="#//BookElement" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="BookElement"/>
+  <eClassifiers xsi:type="ecore:EClass" name="BookPart" eSuperTypes="#//ToplevelExpression #//Value #//BookElement">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="elements" upperBound="-1"
+        eType="#//BookPartElement" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="BookPartElement" eSuperTypes="#//BookElement"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Markup" eSuperTypes="#//ToplevelExpression #//Value #//BookPartElement #//GenTextDef #//TempoLabel #//Scalar"/>
+  <eClassifiers xsi:type="ecore:EClass" name="MarkupLines" eSuperTypes="#//ToplevelExpression #//BookPartElement"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Version" eSuperTypes="#//ToplevelExpression">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="version" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Text" eSuperTypes="#//Expression">
+  <eClassifiers xsi:type="ecore:EClass" name="Include" eSuperTypes="#//ToplevelExpression">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="importURI" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="SourceFileName" eSuperTypes="#//ToplevelExpression">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="filename" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="SourceFileLine" eSuperTypes="#//ToplevelExpression">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="line" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Music" eSuperTypes="#//Value #//ScoreElement #//MusicOrScheme"/>
+  <eClassifiers xsi:type="ecore:EClass" name="SimpleMusic" eSuperTypes="#//Music"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Event" eSuperTypes="#//SimpleMusic"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Note" eSuperTypes="#//Event">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="pitch" eType="#//Pitch"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="duration" eType="#//Duration"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="rest" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="postEvents" upperBound="-1"
+        eType="#//PostEvent" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Pitch">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="base" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="octaveCheck" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="octaveShift" eType="#//Octave"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="reminderAccidental" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="cautionaryAccidental" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Octave">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="up" unique="false" upperBound="-1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="down" unique="false" upperBound="-1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Rest" eSuperTypes="#//Event">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="duration" eType="#//Duration"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="postEvents" upperBound="-1"
+        eType="#//PostEvent" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Chord" eSuperTypes="#//Event">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="notes" upperBound="-1"
+        eType="#//Note" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="duration" eType="#//Duration"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="postEvents" upperBound="-1"
+        eType="#//PostEvent" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="PostEvent" eSuperTypes="#//Value">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="musicFunction" eType="#//Reference"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="direction" eType="#//Direction"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="event" eType="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EObject"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="Direction">
+    <eLiterals name="default" literal="-"/>
+    <eLiterals name="above" value="1" literal="^"/>
+    <eLiterals name="below" value="2" literal="_"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="EventWithRequiredDirection">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="script" eType="#//ScriptWithRequiredDirection"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="ScriptWithRequiredDirection">
+    <eLiterals name="marcato" literal="^"/>
+    <eLiterals name="stopped" value="1" literal="+"/>
+    <eLiterals name="tenuto" value="2" literal="-"/>
+    <eLiterals name="staccatissimo" value="3" literal="|"/>
+    <eLiterals name="accent" value="4" literal=">"/>
+    <eLiterals name="staccato" value="5" literal="."/>
+    <eLiterals name="portato" value="6" literal="_"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="GenTextDef" eSuperTypes="#//EventWithRequiredDirection"/>
+  <eClassifiers xsi:type="ecore:EClass" name="EventWithOptionalDirection">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="script" eType="#//ScriptWithOptionalDirection"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="ScriptWithOptionalDirection">
+    <eLiterals name="beamStart" literal="["/>
+    <eLiterals name="beamEnd" value="1" literal="]"/>
+    <eLiterals name="tie" value="2" literal="~"/>
+    <eLiterals name="slurStart" value="3" literal="("/>
+    <eLiterals name="slurEnd" value="4" literal=")"/>
+    <eLiterals name="phrasingSlurStart" value="5" literal="\("/>
+    <eLiterals name="phrasingSlurEnd" value="6" literal="\)"/>
+    <eLiterals name="diminuendo" value="7" literal="\>"/>
+    <eLiterals name="crescendo" value="8" literal="\&lt;"/>
+    <eLiterals name="dynamicChangeEnd" value="9" literal="\!"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Tremolo" eSuperTypes="#//EventWithOptionalDirection">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="division" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="KeySignature" eSuperTypes="#//Event">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="tonic" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="mode" eType="#//Reference"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="default" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="TimeSignature" eSuperTypes="#//Event">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="fraction" eType="#//Fraction"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Tempo" eSuperTypes="#//Event">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="label" eType="#//TempoLabel"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="value" eType="#//TempoValue"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="TempoLabel"/>
+  <eClassifiers xsi:type="ecore:EClass" name="TempoValue">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="duration" eType="#//Duration"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="bpm" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Partial" eSuperTypes="#//Event">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="duration" eType="#//Duration"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Mark" eSuperTypes="#//Event">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="mark" eType="#//Scalar"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Skip" eSuperTypes="#//Event">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="duration" eType="#//Duration"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Tie" eSuperTypes="#//Event"/>
+  <eClassifiers xsi:type="ecore:EClass" name="BeamStart" eSuperTypes="#//Event"/>
+  <eClassifiers xsi:type="ecore:EClass" name="BeamEnd" eSuperTypes="#//Event"/>
+  <eClassifiers xsi:type="ecore:EClass" name="BarCheck" eSuperTypes="#//Event"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Reference" eSuperTypes="#//Event">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="assignment" eType="#//Assignment"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="CompositeMusic" eSuperTypes="#//ToplevelExpression #//BookPartElement #//Music"/>
+  <eClassifiers xsi:type="ecore:EClass" name="SequentialMusic" eSuperTypes="#//CompositeMusic">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="music" upperBound="-1"
+        eType="#//Music" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="SimultaneousMusic" eSuperTypes="#//CompositeMusic">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="music" upperBound="-1"
+        eType="#//Music" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="NewContext" eSuperTypes="#//CompositeMusic">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="context" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="modification" eType="#//ContextModification"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="music" eType="#//Music"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ContextModification">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="modifiers" upperBound="-1"
+        eType="#//ContextModifier" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ContextModifier" eSuperTypes="#//ContextDefinitionElement"/>
+  <eClassifiers xsi:type="ecore:EClass" name="PropertyOperation" eSuperTypes="#//ContextModifier">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="property" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="SetProperty" eSuperTypes="#//PropertyOperation">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="value" eType="#//Scalar"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Scalar"/>
+  <eClassifiers xsi:type="ecore:EClass" name="UnsetProperty" eSuperTypes="#//PropertyOperation"/>
+  <eClassifiers xsi:type="ecore:EClass" name="OverrideProperty" eSuperTypes="#//PropertyOperation">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="path" eType="#//Scheme"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="value" eType="#//Scheme"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="RevertProperty" eSuperTypes="#//PropertyOperation">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="path" eType="#//Scheme"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ContextDefaultModifier" eSuperTypes="#//ContextModifier">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="type" eType="#//ContextDefaultModifierType"
+        containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Number" eSuperTypes="#//Expression">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+  <eClassifiers xsi:type="ecore:EClass" name="ContextDefaultModifierType"/>
+  <eClassifiers xsi:type="ecore:EClass" name="RelativeMusic" eSuperTypes="#//CompositeMusic">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="pitch" eType="#//Pitch"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="music" eType="#//CompositeMusic"
+        containment="true"/>
   </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="RepeatedMusic" eSuperTypes="#//CompositeMusic">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="number" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="music" eType="#//Music"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="alternative" eType="#//AlternativeMusic"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="AlternativeMusic">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="music" upperBound="-1"
+        eType="#//MusicOrScheme" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="MusicOrScheme"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Duration">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="base" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="dots" unique="false" upperBound="-1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="multipliers" upperBound="-1"
+        eType="#//DurationMultiplier" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="DurationMultiplier"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Fraction">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="numerator" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="denominator" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="FractionOrNumber" eSuperTypes="#//DurationMultiplier">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="numerator" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="denominator" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ContextChange" eSuperTypes="#//SimpleMusic">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="context" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="MusicPropertyDefinition" eSuperTypes="#//SimpleMusic">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="once" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="operation" eType="#//MusicPropertyOperation"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="MusicPropertyOperation">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="object" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="OverrideMusicProperty" eSuperTypes="#//MusicPropertyOperation">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="path" eType="#//Scheme"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="value" eType="#//Scalar"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="RevertMusicProperty" eSuperTypes="#//MusicPropertyOperation">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="path" eType="#//Scheme"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="SetMusicProperty" eSuperTypes="#//MusicPropertyOperation">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="value" eType="#//Scalar"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="UnsetMusicProperty" eSuperTypes="#//MusicPropertyOperation"/>
 </ecore:EPackage>

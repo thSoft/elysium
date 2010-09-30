@@ -22,7 +22,7 @@ package org.elysium.lilyPond;
  * @model
  * @generated
  */
-public interface Version extends SpecialCommand
+public interface Version extends ToplevelExpression
 {
   /**
    * Returns the value of the '<em><b>Version</b></em>' attribute.
