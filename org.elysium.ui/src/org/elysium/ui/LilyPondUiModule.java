@@ -3,6 +3,7 @@ package org.elysium.ui;
 import org.eclipse.jface.text.IAutoEditStrategy;
 import org.eclipse.ui.plugin.AbstractUIPlugin;
 import org.eclipse.xtext.resource.containers.IAllContainersState;
+import org.eclipse.xtext.scoping.impl.ImportUriResolver;
 import org.eclipse.xtext.ui.editor.IXtextEditorCallback;
 import org.eclipse.xtext.ui.editor.hyperlinking.IHyperlinkHelper;
 import org.eclipse.xtext.ui.editor.model.IResourceForEditorInputFactory;
@@ -44,6 +45,8 @@ public class LilyPondUiModule extends AbstractLilyPondUiModule {
 		binder.bind(IHighlightingConfiguration.class).to(LilyPondHighlightingConfiguration.class);
 		binder.bind(AbstractAntlrTokenToAttributeIdMapper.class).to(LilyPondAntlrTokenToAttributeIdMapper.class);
 		binder.bind(ISemanticHighlightingCalculator.class).to(LilyPondSemanticHighlightingCalculator.class);
+		// Import URI resolution
+		binder.bind(ImportUriResolver.class).to(LilyPondImportUriResolver.class);
 	}
 
 	@Override
