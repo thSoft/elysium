@@ -11,50 +11,50 @@ import org.eclipse.emf.ecore.EClass;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
-import org.elysium.lilyPond.Include;
 import org.elysium.lilyPond.LilyPondPackage;
+import org.elysium.lilyPond.Text;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Include</b></em>'.
+ * An implementation of the model object '<em><b>Text</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link org.elysium.lilyPond.impl.IncludeImpl#getImportURI <em>Import URI</em>}</li>
+ *   <li>{@link org.elysium.lilyPond.impl.TextImpl#getValue <em>Value</em>}</li>
  * </ul>
  * </p>
  *
  * @generated
  */
-public class IncludeImpl extends SpecialCommandImpl implements Include
+public class TextImpl extends ExpressionImpl implements Text
 {
   /**
-   * The default value of the '{@link #getImportURI() <em>Import URI</em>}' attribute.
+   * The default value of the '{@link #getValue() <em>Value</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getImportURI()
+   * @see #getValue()
    * @generated
    * @ordered
    */
-  protected static final String IMPORT_URI_EDEFAULT = null;
+  protected static final String VALUE_EDEFAULT = null;
 
   /**
-   * The cached value of the '{@link #getImportURI() <em>Import URI</em>}' attribute.
+   * The cached value of the '{@link #getValue() <em>Value</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getImportURI()
+   * @see #getValue()
    * @generated
    * @ordered
    */
-  protected String importURI = IMPORT_URI_EDEFAULT;
+  protected String value = VALUE_EDEFAULT;
 
   /**
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
-  protected IncludeImpl()
+  protected TextImpl()
   {
     super();
   }
@@ -67,7 +67,7 @@ public class IncludeImpl extends SpecialCommandImpl implements Include
   @Override
   protected EClass eStaticClass()
   {
-    return LilyPondPackage.Literals.INCLUDE;
+    return LilyPondPackage.Literals.TEXT;
   }
 
   /**
@@ -75,9 +75,9 @@ public class IncludeImpl extends SpecialCommandImpl implements Include
    * <!-- end-user-doc -->
    * @generated
    */
-  public String getImportURI()
+  public String getValue()
   {
-    return importURI;
+    return value;
   }
 
   /**
@@ -85,12 +85,12 @@ public class IncludeImpl extends SpecialCommandImpl implements Include
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setImportURI(String newImportURI)
+  public void setValue(String newValue)
   {
-    String oldImportURI = importURI;
-    importURI = newImportURI;
+    String oldValue = value;
+    value = newValue;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, LilyPondPackage.INCLUDE__IMPORT_URI, oldImportURI, importURI));
+      eNotify(new ENotificationImpl(this, Notification.SET, LilyPondPackage.TEXT__VALUE, oldValue, value));
   }
 
   /**
@@ -103,8 +103,8 @@ public class IncludeImpl extends SpecialCommandImpl implements Include
   {
     switch (featureID)
     {
-      case LilyPondPackage.INCLUDE__IMPORT_URI:
-        return getImportURI();
+      case LilyPondPackage.TEXT__VALUE:
+        return getValue();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -119,8 +119,8 @@ public class IncludeImpl extends SpecialCommandImpl implements Include
   {
     switch (featureID)
     {
-      case LilyPondPackage.INCLUDE__IMPORT_URI:
-        setImportURI((String)newValue);
+      case LilyPondPackage.TEXT__VALUE:
+        setValue((String)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -136,8 +136,8 @@ public class IncludeImpl extends SpecialCommandImpl implements Include
   {
     switch (featureID)
     {
-      case LilyPondPackage.INCLUDE__IMPORT_URI:
-        setImportURI(IMPORT_URI_EDEFAULT);
+      case LilyPondPackage.TEXT__VALUE:
+        setValue(VALUE_EDEFAULT);
         return;
     }
     super.eUnset(featureID);
@@ -153,8 +153,8 @@ public class IncludeImpl extends SpecialCommandImpl implements Include
   {
     switch (featureID)
     {
-      case LilyPondPackage.INCLUDE__IMPORT_URI:
-        return IMPORT_URI_EDEFAULT == null ? importURI != null : !IMPORT_URI_EDEFAULT.equals(importURI);
+      case LilyPondPackage.TEXT__VALUE:
+        return VALUE_EDEFAULT == null ? value != null : !VALUE_EDEFAULT.equals(value);
     }
     return super.eIsSet(featureID);
   }
@@ -170,10 +170,10 @@ public class IncludeImpl extends SpecialCommandImpl implements Include
     if (eIsProxy()) return super.toString();
 
     StringBuffer result = new StringBuffer(super.toString());
-    result.append(" (importURI: ");
-    result.append(importURI);
+    result.append(" (value: ");
+    result.append(value);
     result.append(')');
     return result.toString();
   }
 
-} //IncludeImpl
+} //TextImpl

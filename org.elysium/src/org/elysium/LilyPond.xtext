@@ -6,13 +6,15 @@ generate lilyPond "http://www.elysium.org/LilyPond"
 
 import "http://www.eclipse.org/emf/2002/Ecore" as ecore
 
-LilyPond: expressions+=ToplevelExpression*;
+LilyPond: expressions+=Expression*;
 
-ToplevelExpression: Assignment | Scheme | Header | Book | BookPart | Score | CompositeMusic | Markup | MarkupLines | OutputDefinition | Version | Include | SourceFileName | SourceFileLine;
+Expression: Block | Scheme | Command | Text | Number;
 
-Assignment: name=IdOrString "=" value=Value;
+Block: SimpleBlock | SimultaneousBlock;
 
-Value: Score | Book | BookPart | OutputDefinition | ContextDefinition | Music | PostEvent | STRING | Scheme | Markup | INT; /* TODO string '+' string */
+SimpleBlock: {SimpleBlock} "{" expressions+=Expression* "}";
+
+SimultaneousBlock: {SimultaneousBlock} "<<" expressions+=Expression* ">>";
 
 Scheme: "#" value=SchemeExpression;
 
@@ -24,179 +26,31 @@ SchemeBoolean: value=BOOL;
 
 SchemeList: {SchemeList} "(" expressions+=SchemeExpression* ")";
 
-SchemeBlock: "#{" /* TODO notemode */ "#}";
+SchemeBlock: "#{" expressions+=Expression+ "#}";
 
 SchemeText: value=SchemeTextLiterals;
 
-SchemeTextLiterals: "\\\\" | IdOrString | ANY_OTHER;
+SchemeTextLiterals: "\\\\" | ID | STRING | ANY_OTHER;
 
 SchemeNumber hidden(): hexadecimal?="#x"? value=INT;
 
-ContextDefinition: {ContextDefinition} "\\context" "{" elements+=ContextDefinitionElement* "}";
+Command: ArbitraryCommand | SpecialCommand;
 
-ContextDefinitionElement: GrobDescriptions | ContextModifier;
+ArbitraryCommand: keyword=ArbitraryCommandKeyword;
 
-GrobDescriptions: "\\grobdescriptions" value=Scheme;
+ArbitraryCommandKeyword hidden(): "\\" (ID | "(" | ")" | ANY_OTHER);
 
-Header: {Header} "\\header" "{" assignments+=PropertyAssignment* "}";
-
-PropertyAssignment: property=IdOrString "=" value=Value;
-
-OutputDefinition: Paper | Midi | Layout;
-
-OutputDefinitionElement: PropertyAssignment | ContextDefinition;
-
-Paper: {Paper} "\\paper" "{" elements+=OutputDefinitionElement* "}";
-
-Midi: {Midi} "\\midi" "{" elements+=OutputDefinitionElement* "}";
-
-Layout: {Layout} "\\layout" "{" elements+=OutputDefinitionElement* "}";
-
-Score: "\\score" "{" music=Music other+=ScoreElement* "}";
-
-ScoreElement: Music | Header | OutputDefinition;
-
-Book: {Book} "\\book" "{" elements+=BookElement* "}";
-
-BookElement: BookPart | BookPartElement;
-
-BookPart: {BookPart} "\\bookpart" "{" elements+=BookPartElement* "}";
-
-BookPartElement: Paper | Score | CompositeMusic | Markup | MarkupLines | Header; 
-
-Markup: {Markup} "\\markup" "{" /* TODO */ "}";
-
-MarkupLines: {MarkupLines} "\\markuplines" "{" /* TODO */ "}";
-
-Version: "\\version" version=STRING;
+SpecialCommand: Include | Version;
 
 Include: "\\include" importURI=STRING;
 
-SourceFileName: "\\sourcefilename" filename=STRING;
+Version: "\\version" version=STRING;
 
-SourceFileLine: "\\sourcefileline" line=INT;
+Text: value=(SchemeTextLiterals | "'" | "," | "(" | ")");
 
-Music: SimpleMusic | CompositeMusic;
+Number: value=INT;
 
-SimpleMusic: Event | ContextChange | MusicPropertyDefinition;
-
-Event: Note | Rest | Chord | KeySignature | TimeSignature | Tempo | Partial | Mark | Skip | Tie | BeamStart | BeamEnd | BarCheck | Reference;
-
-Note: pitch=Pitch duration=Duration? rest?="\\rest"? postEvents+=PostEvent*;
-
-Pitch: base=ID octaveCheck?="="? octaveShift=Octave? reminderAccidental?="!"? cautionaryAccidental?="?"?;
-
-Octave: up+="'"+ | down+=","+;
-
-Rest: type=ID duration=Duration? postEvents+=PostEvent*;
-
-Chord: {Chord} "<" notes+=Note* ">" duration=Duration? postEvents+=PostEvent*;
-
-PostEvent: "-" musicFunction=Reference | direction=Direction event=EventWithRequiredDirection | direction=Direction? event=EventWithOptionalDirection;
-
-enum Direction: default="-" | above="^" | below="_";
-
-EventWithRequiredDirection: script=ScriptWithRequiredDirection | GenTextDef;
-
-enum ScriptWithRequiredDirection: marcato="^" | stopped="+" | tenuto="-" | staccatissimo="|" | accent=">" | staccato="." | portato="_";
-
-GenTextDef: Markup | STRING | INT;
-
-EventWithOptionalDirection: script=ScriptWithOptionalDirection | Tremolo;
-
-enum ScriptWithOptionalDirection: beamStart='[' | beamEnd=']' | tie='~' | slurStart='(' | slurEnd=')' | phrasingSlurStart="\\(" | phrasingSlurEnd="\\)" | diminuendo="\\>" | crescendo="\\<" | dynamicChangeEnd="\\!";
-
-Tremolo: {Tremolo} ":" division=INT?;
-
-KeySignature: "\\key" ((tonic=ID mode=Reference) | default?="\\default");
-
-TimeSignature: "\\time" fraction=Fraction;
-
-Tempo: "\\tempo" ((label=TempoLabel? value=TempoValue) | (label=TempoLabel));  
-
-TempoLabel: STRING | Markup;
-
-TempoValue: duration=Duration "=" bpm=INT;
-
-Partial: {Partial} "\\partial" duration=Duration;
-
-Mark: {Mark} "\\mark" mark=Scalar;
-
-Skip: "\\skip" duration=Duration;
-
-Tie: {Tie} "\\~";
-
-BeamStart: {BeamStart} "\\[";
-
-BeamEnd: {BeamEnd} "\\]";
-
-BarCheck: {BarCheck} "|";
-
-Reference hidden(): "\\" assignment=[Assignment];
-
-CompositeMusic: SequentialMusic | SimultaneousMusic | NewContext | RelativeMusic | RepeatedMusic;
-
-SequentialMusic: {SequentialMusic} ("\\sequential" "{" music+=Music* "}" | "{" music+=Music* "}");
-
-SimultaneousMusic: {SimultaneousMusic} ("\\simultaneous" "{" music+=Music* "}" | "<<" music+=Music* ">>");
-
-NewContext: "\\new" context=IdOrString ("=" id=IdOrString)? modification=ContextModification? music=Music;
-
-ContextModification: {ContextModification} "\\with" "{" modifiers+=ContextModifier* "}";
-
-ContextModifier: PropertyOperation | ContextDefaultModifier;
-
-PropertyOperation: SetProperty | UnsetProperty | OverrideProperty | RevertProperty;
-
-SetProperty: property=ID "=" value=Scalar;
-
-Scalar: IdOrString | INT | Scheme | Markup;
-
-UnsetProperty: "\\unset" property=IdOrString;
-
-OverrideProperty: "\\override" property=IdOrString path=Scheme "=" value=Scheme;
-  
-RevertProperty: "\\revert" property=IdOrString path=Scheme;
-
-ContextDefaultModifier: {ContextDefaultModifier} type=ContextDefaultModifierType value=ID;
-
-ContextDefaultModifierType: {ContextDefaultModifierType} ("\\consists" | "\\remove" | "\\accepts" | "\\defaultchild" | "\\denies" | "\\alias" | "\\type" | "\\description" | "\\name");
-
-RelativeMusic: "\\relative" pitch=Pitch? music=CompositeMusic;
-
-RepeatedMusic: "\\repeat" type=ID number=INT music=Music alternative=AlternativeMusic?;
-
-AlternativeMusic: {AlternativeMusic} "\\alternative" "{" music+=MusicOrScheme* "}";
-
-MusicOrScheme: Music | Scheme;
-
-Duration: base=INT dots+="."* multipliers+=DurationMultiplier*;
-
-DurationMultiplier: "*" FractionOrNumber;
-
-Fraction hidden(): numerator=INT "/" denominator=INT;
-
-FractionOrNumber hidden(): numerator=INT ("/" denominator=INT)?;
-
-ContextChange: "\\change" context=ID "=" id=ID;
-
-MusicPropertyDefinition: once?="\\once"? operation=MusicPropertyOperation;
-
-MusicPropertyOperation: OverrideMusicProperty | RevertMusicProperty | SetMusicProperty | UnsetMusicProperty;
-
-OverrideMusicProperty: "\\override" object=ContextPropertySpecification path=Scheme "=" value=Scalar;
-
-RevertMusicProperty: "\\revert" object=ContextPropertySpecification path=Scheme;
-
-SetMusicProperty: "\\set" object=ContextPropertySpecification "=" value=Scalar;
-
-UnsetMusicProperty: "\\unset" object=ContextPropertySpecification;
-
-ContextPropertySpecification: IdOrString ("." IdOrString);
-
-IdOrString: ID | STRING;
-
-terminal STRING: '"' ("\\" ("b" | "t" | "n" | "f" | "r" | '"' | "'" | "\\") | !("\\" | '"'))* '"';
+terminal STRING: '"' ("\\" ("b" | "t" | "n" | " f" | "r" | '"' | "'" | "\\") | !("\\" | '"'))* '"';
 
 terminal INT returns ecore::EInt: ("0".."9")+;
 

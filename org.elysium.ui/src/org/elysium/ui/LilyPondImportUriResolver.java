@@ -14,12 +14,12 @@ public class LilyPondImportUriResolver extends ImportUriResolver {
 
 	@Override
 	public String resolve(EObject object) {
-		String importUriString = super.resolve(object);
-		if (importUriString != null) {
+		String importUri = super.resolve(object);
+		if (importUri != null) {
 			String path = Activator.getInstance().getPreferenceStore().getString(CompilerPreferenceConstants.LILYPOND_PATH.name());
 			try {
 				URI uri = new URI("file", path, null); //$NON-NLS-1$
-				URI newImportUri = uri.resolve("../share/lilypond/current/ly/").resolve(importUriString); //$NON-NLS-1$
+				URI newImportUri = uri.resolve("../share/lilypond/current/ly/").resolve(importUri); //$NON-NLS-1$
 				File importedFile = new File(newImportUri);
 				if (importedFile.exists()) {
 					return newImportUri.toString();
@@ -28,7 +28,7 @@ public class LilyPondImportUriResolver extends ImportUriResolver {
 				// Ignore
 			}
 		}
-		return importUriString;
+		return importUri;
 	}
 
 }

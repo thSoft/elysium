@@ -27,7 +27,7 @@ public class LilyPondFormatter extends AbstractDeclarativeFormatter {
 		for (Keyword keyword : noSpaceBefore) {
 			config.setNoSpace().before(keyword);
 		}
-		config.setNoSpace().before(grammar.getINTRule());
+		config.setNoSpace().before(grammar.getNumberRule());
 		config.setNoSpace().before(grammar.getANY_OTHERRule()); // FIXME doesn't seem to apply
 		// Line break after
 		config.setLinewrap().after(grammar.getIncludeRule());

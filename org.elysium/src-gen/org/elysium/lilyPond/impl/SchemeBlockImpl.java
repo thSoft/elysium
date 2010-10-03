@@ -14,29 +14,27 @@ import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
-import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
-
-import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
+import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
 import org.elysium.lilyPond.Expression;
-import org.elysium.lilyPond.LilyPond;
 import org.elysium.lilyPond.LilyPondPackage;
+import org.elysium.lilyPond.SchemeBlock;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Lily Pond</b></em>'.
+ * An implementation of the model object '<em><b>Scheme Block</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link org.elysium.lilyPond.impl.LilyPondImpl#getExpressions <em>Expressions</em>}</li>
+ *   <li>{@link org.elysium.lilyPond.impl.SchemeBlockImpl#getExpressions <em>Expressions</em>}</li>
  * </ul>
  * </p>
  *
  * @generated
  */
-public class LilyPondImpl extends MinimalEObjectImpl.Container implements LilyPond
+public class SchemeBlockImpl extends SchemeValueImpl implements SchemeBlock
 {
   /**
    * The cached value of the '{@link #getExpressions() <em>Expressions</em>}' containment reference list.
@@ -53,7 +51,7 @@ public class LilyPondImpl extends MinimalEObjectImpl.Container implements LilyPo
    * <!-- end-user-doc -->
    * @generated
    */
-  protected LilyPondImpl()
+  protected SchemeBlockImpl()
   {
     super();
   }
@@ -66,7 +64,7 @@ public class LilyPondImpl extends MinimalEObjectImpl.Container implements LilyPo
   @Override
   protected EClass eStaticClass()
   {
-    return LilyPondPackage.Literals.LILY_POND;
+    return LilyPondPackage.Literals.SCHEME_BLOCK;
   }
 
   /**
@@ -78,26 +76,9 @@ public class LilyPondImpl extends MinimalEObjectImpl.Container implements LilyPo
   {
     if (expressions == null)
     {
-      expressions = new EObjectContainmentWithInverseEList<Expression>(Expression.class, this, LilyPondPackage.LILY_POND__EXPRESSIONS, LilyPondPackage.EXPRESSION__PARENT_LILY_POND);
+      expressions = new EObjectContainmentEList<Expression>(Expression.class, this, LilyPondPackage.SCHEME_BLOCK__EXPRESSIONS);
     }
     return expressions;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @SuppressWarnings("unchecked")
-  @Override
-  public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs)
-  {
-    switch (featureID)
-    {
-      case LilyPondPackage.LILY_POND__EXPRESSIONS:
-        return ((InternalEList<InternalEObject>)(InternalEList<?>)getExpressions()).basicAdd(otherEnd, msgs);
-    }
-    return super.eInverseAdd(otherEnd, featureID, msgs);
   }
 
   /**
@@ -110,7 +91,7 @@ public class LilyPondImpl extends MinimalEObjectImpl.Container implements LilyPo
   {
     switch (featureID)
     {
-      case LilyPondPackage.LILY_POND__EXPRESSIONS:
+      case LilyPondPackage.SCHEME_BLOCK__EXPRESSIONS:
         return ((InternalEList<?>)getExpressions()).basicRemove(otherEnd, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
@@ -126,7 +107,7 @@ public class LilyPondImpl extends MinimalEObjectImpl.Container implements LilyPo
   {
     switch (featureID)
     {
-      case LilyPondPackage.LILY_POND__EXPRESSIONS:
+      case LilyPondPackage.SCHEME_BLOCK__EXPRESSIONS:
         return getExpressions();
     }
     return super.eGet(featureID, resolve, coreType);
@@ -143,7 +124,7 @@ public class LilyPondImpl extends MinimalEObjectImpl.Container implements LilyPo
   {
     switch (featureID)
     {
-      case LilyPondPackage.LILY_POND__EXPRESSIONS:
+      case LilyPondPackage.SCHEME_BLOCK__EXPRESSIONS:
         getExpressions().clear();
         getExpressions().addAll((Collection<? extends Expression>)newValue);
         return;
@@ -161,7 +142,7 @@ public class LilyPondImpl extends MinimalEObjectImpl.Container implements LilyPo
   {
     switch (featureID)
     {
-      case LilyPondPackage.LILY_POND__EXPRESSIONS:
+      case LilyPondPackage.SCHEME_BLOCK__EXPRESSIONS:
         getExpressions().clear();
         return;
     }
@@ -178,10 +159,10 @@ public class LilyPondImpl extends MinimalEObjectImpl.Container implements LilyPo
   {
     switch (featureID)
     {
-      case LilyPondPackage.LILY_POND__EXPRESSIONS:
+      case LilyPondPackage.SCHEME_BLOCK__EXPRESSIONS:
         return expressions != null && !expressions.isEmpty();
     }
     return super.eIsSet(featureID);
   }
 
-} //LilyPondImpl
+} //SchemeBlockImpl

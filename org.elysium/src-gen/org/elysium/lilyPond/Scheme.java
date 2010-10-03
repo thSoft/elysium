@@ -22,7 +22,7 @@ package org.elysium.lilyPond;
  * @model
  * @generated
  */
-public interface Scheme extends ToplevelExpression, Value, Scalar, MusicOrScheme
+public interface Scheme extends Expression
 {
   /**
    * Returns the value of the '<em><b>Value</b></em>' containment reference.
