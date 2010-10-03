@@ -40,11 +40,15 @@ ArbitraryCommand: keyword=ArbitraryCommandKeyword;
 
 ArbitraryCommandKeyword hidden(): "\\" (ID | "(" | ")" | ANY_OTHER);
 
-SpecialCommand: Include | Version;
+SpecialCommand: Include | Version | SourceFileName | SourceFileLine;
 
 Include: "\\include" importURI=STRING;
 
 Version: "\\version" version=STRING;
+
+SourceFileName: "\\sourcefilename" filename=STRING;
+
+SourceFileLine: "\\sourcefileline" line=INT;
 
 Text: value=(SchemeTextLiterals | "'" | "," | "(" | ")");
 

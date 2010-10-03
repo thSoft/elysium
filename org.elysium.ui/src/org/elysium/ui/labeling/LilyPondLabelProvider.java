@@ -96,7 +96,7 @@ public class LilyPondLabelProvider extends DefaultEObjectLabelProvider {
 	}
 
 	public String text(SpecialCommand specialCommand) {
-		return specialCommand.getKeyword();
+		return "\\" + specialCommand.eClass().getName().toLowerCase();
 	}
 
 }

@@ -27,6 +27,8 @@ import org.elysium.lilyPond.SchemeText;
 import org.elysium.lilyPond.SchemeValue;
 import org.elysium.lilyPond.SimpleBlock;
 import org.elysium.lilyPond.SimultaneousBlock;
+import org.elysium.lilyPond.SourceFileLine;
+import org.elysium.lilyPond.SourceFileName;
 import org.elysium.lilyPond.SpecialCommand;
 import org.elysium.lilyPond.Text;
 import org.elysium.lilyPond.Version;
@@ -259,6 +261,26 @@ public class LilyPondSwitch<T>
         if (result == null) result = caseSpecialCommand(version);
         if (result == null) result = caseCommand(version);
         if (result == null) result = caseExpression(version);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case LilyPondPackage.SOURCE_FILE_NAME:
+      {
+        SourceFileName sourceFileName = (SourceFileName)theEObject;
+        T result = caseSourceFileName(sourceFileName);
+        if (result == null) result = caseSpecialCommand(sourceFileName);
+        if (result == null) result = caseCommand(sourceFileName);
+        if (result == null) result = caseExpression(sourceFileName);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case LilyPondPackage.SOURCE_FILE_LINE:
+      {
+        SourceFileLine sourceFileLine = (SourceFileLine)theEObject;
+        T result = caseSourceFileLine(sourceFileLine);
+        if (result == null) result = caseSpecialCommand(sourceFileLine);
+        if (result == null) result = caseCommand(sourceFileLine);
+        if (result == null) result = caseExpression(sourceFileLine);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -566,6 +588,38 @@ public class LilyPondSwitch<T>
    * @generated
    */
   public T caseVersion(Version object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Source File Name</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Source File Name</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseSourceFileName(SourceFileName object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Source File Line</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Source File Line</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseSourceFileLine(SourceFileLine object)
   {
     return null;
   }

@@ -11,50 +11,50 @@ import org.eclipse.emf.ecore.EClass;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
-import org.elysium.lilyPond.ArbitraryCommand;
 import org.elysium.lilyPond.LilyPondPackage;
+import org.elysium.lilyPond.SourceFileLine;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Arbitrary Command</b></em>'.
+ * An implementation of the model object '<em><b>Source File Line</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link org.elysium.lilyPond.impl.ArbitraryCommandImpl#getKeyword <em>Keyword</em>}</li>
+ *   <li>{@link org.elysium.lilyPond.impl.SourceFileLineImpl#getLine <em>Line</em>}</li>
  * </ul>
  * </p>
  *
  * @generated
  */
-public class ArbitraryCommandImpl extends CommandImpl implements ArbitraryCommand
+public class SourceFileLineImpl extends SpecialCommandImpl implements SourceFileLine
 {
   /**
-   * The default value of the '{@link #getKeyword() <em>Keyword</em>}' attribute.
+   * The default value of the '{@link #getLine() <em>Line</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getKeyword()
+   * @see #getLine()
    * @generated
    * @ordered
    */
-  protected static final String KEYWORD_EDEFAULT = null;
+  protected static final int LINE_EDEFAULT = 0;
 
   /**
-   * The cached value of the '{@link #getKeyword() <em>Keyword</em>}' attribute.
+   * The cached value of the '{@link #getLine() <em>Line</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getKeyword()
+   * @see #getLine()
    * @generated
    * @ordered
    */
-  protected String keyword = KEYWORD_EDEFAULT;
+  protected int line = LINE_EDEFAULT;
 
   /**
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
-  protected ArbitraryCommandImpl()
+  protected SourceFileLineImpl()
   {
     super();
   }
@@ -67,7 +67,7 @@ public class ArbitraryCommandImpl extends CommandImpl implements ArbitraryComman
   @Override
   protected EClass eStaticClass()
   {
-    return LilyPondPackage.Literals.ARBITRARY_COMMAND;
+    return LilyPondPackage.Literals.SOURCE_FILE_LINE;
   }
 
   /**
@@ -75,9 +75,9 @@ public class ArbitraryCommandImpl extends CommandImpl implements ArbitraryComman
    * <!-- end-user-doc -->
    * @generated
    */
-  public String getKeyword()
+  public int getLine()
   {
-    return keyword;
+    return line;
   }
 
   /**
@@ -85,12 +85,12 @@ public class ArbitraryCommandImpl extends CommandImpl implements ArbitraryComman
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setKeyword(String newKeyword)
+  public void setLine(int newLine)
   {
-    String oldKeyword = keyword;
-    keyword = newKeyword;
+    int oldLine = line;
+    line = newLine;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, LilyPondPackage.ARBITRARY_COMMAND__KEYWORD, oldKeyword, keyword));
+      eNotify(new ENotificationImpl(this, Notification.SET, LilyPondPackage.SOURCE_FILE_LINE__LINE, oldLine, line));
   }
 
   /**
@@ -103,8 +103,8 @@ public class ArbitraryCommandImpl extends CommandImpl implements ArbitraryComman
   {
     switch (featureID)
     {
-      case LilyPondPackage.ARBITRARY_COMMAND__KEYWORD:
-        return getKeyword();
+      case LilyPondPackage.SOURCE_FILE_LINE__LINE:
+        return getLine();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -119,8 +119,8 @@ public class ArbitraryCommandImpl extends CommandImpl implements ArbitraryComman
   {
     switch (featureID)
     {
-      case LilyPondPackage.ARBITRARY_COMMAND__KEYWORD:
-        setKeyword((String)newValue);
+      case LilyPondPackage.SOURCE_FILE_LINE__LINE:
+        setLine((Integer)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -136,8 +136,8 @@ public class ArbitraryCommandImpl extends CommandImpl implements ArbitraryComman
   {
     switch (featureID)
     {
-      case LilyPondPackage.ARBITRARY_COMMAND__KEYWORD:
-        setKeyword(KEYWORD_EDEFAULT);
+      case LilyPondPackage.SOURCE_FILE_LINE__LINE:
+        setLine(LINE_EDEFAULT);
         return;
     }
     super.eUnset(featureID);
@@ -153,8 +153,8 @@ public class ArbitraryCommandImpl extends CommandImpl implements ArbitraryComman
   {
     switch (featureID)
     {
-      case LilyPondPackage.ARBITRARY_COMMAND__KEYWORD:
-        return KEYWORD_EDEFAULT == null ? keyword != null : !KEYWORD_EDEFAULT.equals(keyword);
+      case LilyPondPackage.SOURCE_FILE_LINE__LINE:
+        return line != LINE_EDEFAULT;
     }
     return super.eIsSet(featureID);
   }
@@ -170,10 +170,10 @@ public class ArbitraryCommandImpl extends CommandImpl implements ArbitraryComman
     if (eIsProxy()) return super.toString();
 
     StringBuffer result = new StringBuffer(super.toString());
-    result.append(" (keyword: ");
-    result.append(keyword);
+    result.append(" (line: ");
+    result.append(line);
     result.append(')');
     return result.toString();
   }
 
-} //ArbitraryCommandImpl
+} //SourceFileLineImpl

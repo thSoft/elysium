@@ -49,8 +49,10 @@ protected class ThisRootNode extends RootToken {
 			case 15: return new SpecialCommand_Alternatives(this, this, 15, inst);
 			case 16: return new Include_Group(this, this, 16, inst);
 			case 17: return new Version_Group(this, this, 17, inst);
-			case 18: return new Text_ValueAssignment(this, this, 18, inst);
-			case 19: return new Number_ValueAssignment(this, this, 19, inst);
+			case 18: return new SourceFileName_Group(this, this, 18, inst);
+			case 19: return new SourceFileLine_Group(this, this, 19, inst);
+			case 20: return new Text_ValueAssignment(this, this, 20, inst);
+			case 21: return new Number_ValueAssignment(this, this, 21, inst);
 			default: return null;
 		}	
 	}	
@@ -152,6 +154,8 @@ protected class Expression_Alternatives extends AlternativesToken {
 		   getEObject().eClass() != grammarAccess.getSchemeRule().getType().getClassifier() && 
 		   getEObject().eClass() != grammarAccess.getSimpleBlockAccess().getSimpleBlockAction_0().getType().getClassifier() && 
 		   getEObject().eClass() != grammarAccess.getSimultaneousBlockAccess().getSimultaneousBlockAction_0().getType().getClassifier() && 
+		   getEObject().eClass() != grammarAccess.getSourceFileLineRule().getType().getClassifier() && 
+		   getEObject().eClass() != grammarAccess.getSourceFileNameRule().getType().getClassifier() && 
 		   getEObject().eClass() != grammarAccess.getTextRule().getType().getClassifier() && 
 		   getEObject().eClass() != grammarAccess.getVersionRule().getType().getClassifier())
 			return null;
@@ -257,6 +261,8 @@ protected class Expression_CommandParserRuleCall_2 extends RuleCallToken {
 	public IEObjectConsumer tryConsume() {
 		if(getEObject().eClass() != grammarAccess.getArbitraryCommandRule().getType().getClassifier() && 
 		   getEObject().eClass() != grammarAccess.getIncludeRule().getType().getClassifier() && 
+		   getEObject().eClass() != grammarAccess.getSourceFileLineRule().getType().getClassifier() && 
+		   getEObject().eClass() != grammarAccess.getSourceFileNameRule().getType().getClassifier() && 
 		   getEObject().eClass() != grammarAccess.getVersionRule().getType().getClassifier())
 			return null;
 		if(checkForRecursion(Command_Alternatives.class, eObjectConsumer)) return null;
@@ -1749,6 +1755,8 @@ protected class Command_Alternatives extends AlternativesToken {
 	public IEObjectConsumer tryConsume() {
 		if(getEObject().eClass() != grammarAccess.getArbitraryCommandRule().getType().getClassifier() && 
 		   getEObject().eClass() != grammarAccess.getIncludeRule().getType().getClassifier() && 
+		   getEObject().eClass() != grammarAccess.getSourceFileLineRule().getType().getClassifier() && 
+		   getEObject().eClass() != grammarAccess.getSourceFileNameRule().getType().getClassifier() && 
 		   getEObject().eClass() != grammarAccess.getVersionRule().getType().getClassifier())
 			return null;
 		return eObjectConsumer;
@@ -1815,6 +1823,8 @@ protected class Command_SpecialCommandParserRuleCall_1 extends RuleCallToken {
     @Override
 	public IEObjectConsumer tryConsume() {
 		if(getEObject().eClass() != grammarAccess.getIncludeRule().getType().getClassifier() && 
+		   getEObject().eClass() != grammarAccess.getSourceFileLineRule().getType().getClassifier() && 
+		   getEObject().eClass() != grammarAccess.getSourceFileNameRule().getType().getClassifier() && 
 		   getEObject().eClass() != grammarAccess.getVersionRule().getType().getClassifier())
 			return null;
 		if(checkForRecursion(SpecialCommand_Alternatives.class, eObjectConsumer)) return null;
@@ -1882,11 +1892,11 @@ protected class ArbitraryCommand_KeywordAssignment extends AssignmentToken  {
 /************ begin Rule SpecialCommand ****************
  *
  * SpecialCommand:
- * 	Include | Version;
+ * 	Include | Version | SourceFileName | SourceFileLine;
  *
  **/
 
-// Include | Version
+// Include | Version | SourceFileName | SourceFileLine
 protected class SpecialCommand_Alternatives extends AlternativesToken {
 
 	public SpecialCommand_Alternatives(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -1903,6 +1913,8 @@ protected class SpecialCommand_Alternatives extends AlternativesToken {
 		switch(index) {
 			case 0: return new SpecialCommand_IncludeParserRuleCall_0(lastRuleCallOrigin, this, 0, inst);
 			case 1: return new SpecialCommand_VersionParserRuleCall_1(lastRuleCallOrigin, this, 1, inst);
+			case 2: return new SpecialCommand_SourceFileNameParserRuleCall_2(lastRuleCallOrigin, this, 2, inst);
+			case 3: return new SpecialCommand_SourceFileLineParserRuleCall_3(lastRuleCallOrigin, this, 3, inst);
 			default: return null;
 		}	
 	}
@@ -1910,6 +1922,8 @@ protected class SpecialCommand_Alternatives extends AlternativesToken {
     @Override
 	public IEObjectConsumer tryConsume() {
 		if(getEObject().eClass() != grammarAccess.getIncludeRule().getType().getClassifier() && 
+		   getEObject().eClass() != grammarAccess.getSourceFileLineRule().getType().getClassifier() && 
+		   getEObject().eClass() != grammarAccess.getSourceFileNameRule().getType().getClassifier() && 
 		   getEObject().eClass() != grammarAccess.getVersionRule().getType().getClassifier())
 			return null;
 		return eObjectConsumer;
@@ -1989,6 +2003,78 @@ protected class SpecialCommand_VersionParserRuleCall_1 extends RuleCallToken {
 	}	
 }
 
+// SourceFileName
+protected class SpecialCommand_SourceFileNameParserRuleCall_2 extends RuleCallToken {
+	
+	public SpecialCommand_SourceFileNameParserRuleCall_2(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
+		super(lastRuleCallOrigin, next, transitionIndex, eObjectConsumer);
+	}
+	
+	@Override
+	public RuleCall getGrammarElement() {
+		return grammarAccess.getSpecialCommandAccess().getSourceFileNameParserRuleCall_2();
+	}
+
+    @Override
+	public AbstractToken createFollower(int index, IEObjectConsumer inst) {
+		switch(index) {
+			case 0: return new SourceFileName_Group(this, this, 0, inst);
+			default: return null;
+		}	
+	}
+
+    @Override
+	public IEObjectConsumer tryConsume() {
+		if(getEObject().eClass() != grammarAccess.getSourceFileNameRule().getType().getClassifier())
+			return null;
+		if(checkForRecursion(SourceFileName_Group.class, eObjectConsumer)) return null;
+		return eObjectConsumer;
+	}
+	
+    @Override
+	public AbstractToken createFollowerAfterReturn(AbstractToken next,	int actIndex, int index, IEObjectConsumer inst) {
+		switch(index) {
+			default: return lastRuleCallOrigin.createFollowerAfterReturn(next, actIndex , index, inst);
+		}	
+	}	
+}
+
+// SourceFileLine
+protected class SpecialCommand_SourceFileLineParserRuleCall_3 extends RuleCallToken {
+	
+	public SpecialCommand_SourceFileLineParserRuleCall_3(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
+		super(lastRuleCallOrigin, next, transitionIndex, eObjectConsumer);
+	}
+	
+	@Override
+	public RuleCall getGrammarElement() {
+		return grammarAccess.getSpecialCommandAccess().getSourceFileLineParserRuleCall_3();
+	}
+
+    @Override
+	public AbstractToken createFollower(int index, IEObjectConsumer inst) {
+		switch(index) {
+			case 0: return new SourceFileLine_Group(this, this, 0, inst);
+			default: return null;
+		}	
+	}
+
+    @Override
+	public IEObjectConsumer tryConsume() {
+		if(getEObject().eClass() != grammarAccess.getSourceFileLineRule().getType().getClassifier())
+			return null;
+		if(checkForRecursion(SourceFileLine_Group.class, eObjectConsumer)) return null;
+		return eObjectConsumer;
+	}
+	
+    @Override
+	public AbstractToken createFollowerAfterReturn(AbstractToken next,	int actIndex, int index, IEObjectConsumer inst) {
+		switch(index) {
+			default: return lastRuleCallOrigin.createFollowerAfterReturn(next, actIndex , index, inst);
+		}	
+	}	
+}
+
 
 /************ end Rule SpecialCommand ****************/
 
@@ -1996,11 +2082,11 @@ protected class SpecialCommand_VersionParserRuleCall_1 extends RuleCallToken {
 /************ begin Rule Include ****************
  *
  * Include:
- * 	keyword="\\include" importURI=STRING;
+ * 	"\\include" importURI=STRING;
  *
  **/
 
-// keyword="\\include" importURI=STRING
+// "\\include" importURI=STRING
 protected class Include_Group extends GroupToken {
 	
 	public Include_Group(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -2029,16 +2115,16 @@ protected class Include_Group extends GroupToken {
 
 }
 
-// keyword="\\include"
-protected class Include_KeywordAssignment_0 extends AssignmentToken  {
+// "\\include"
+protected class Include_IncludeKeyword_0 extends KeywordToken  {
 	
-	public Include_KeywordAssignment_0(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
+	public Include_IncludeKeyword_0(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
 		super(lastRuleCallOrigin, next, transitionIndex, eObjectConsumer);
 	}
 	
 	@Override
-	public Assignment getGrammarElement() {
-		return grammarAccess.getIncludeAccess().getKeywordAssignment_0();
+	public Keyword getGrammarElement() {
+		return grammarAccess.getIncludeAccess().getIncludeKeyword_0();
 	}
 
     @Override
@@ -2046,18 +2132,6 @@ protected class Include_KeywordAssignment_0 extends AssignmentToken  {
 		switch(index) {
 			default: return lastRuleCallOrigin.createFollowerAfterReturn(this, index, index, inst);
 		}	
-	}
-
-    @Override	
-	public IEObjectConsumer tryConsume() {
-		if((value = eObjectConsumer.getConsumable("keyword",true)) == null) return null;
-		IEObjectConsumer obj = eObjectConsumer.cloneAndConsume("keyword");
-		if(keywordSerializer.isValid(obj.getEObject(), grammarAccess.getIncludeAccess().getKeywordIncludeKeyword_0_0(), value, null)) {
-			type = AssignmentType.KEYWORD;
-			element = grammarAccess.getIncludeAccess().getKeywordIncludeKeyword_0_0();
-			return obj;
-		}
-		return null;
 	}
 
 }
@@ -2077,7 +2151,7 @@ protected class Include_ImportURIAssignment_1 extends AssignmentToken  {
     @Override
 	public AbstractToken createFollower(int index, IEObjectConsumer inst) {
 		switch(index) {
-			case 0: return new Include_KeywordAssignment_0(lastRuleCallOrigin, this, 0, inst);
+			case 0: return new Include_IncludeKeyword_0(lastRuleCallOrigin, this, 0, inst);
 			default: return null;
 		}	
 	}
@@ -2103,11 +2177,11 @@ protected class Include_ImportURIAssignment_1 extends AssignmentToken  {
 /************ begin Rule Version ****************
  *
  * Version:
- * 	keyword="\\version" version=STRING;
+ * 	"\\version" version=STRING;
  *
  **/
 
-// keyword="\\version" version=STRING
+// "\\version" version=STRING
 protected class Version_Group extends GroupToken {
 	
 	public Version_Group(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -2136,16 +2210,16 @@ protected class Version_Group extends GroupToken {
 
 }
 
-// keyword="\\version"
-protected class Version_KeywordAssignment_0 extends AssignmentToken  {
+// "\\version"
+protected class Version_VersionKeyword_0 extends KeywordToken  {
 	
-	public Version_KeywordAssignment_0(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
+	public Version_VersionKeyword_0(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
 		super(lastRuleCallOrigin, next, transitionIndex, eObjectConsumer);
 	}
 	
 	@Override
-	public Assignment getGrammarElement() {
-		return grammarAccess.getVersionAccess().getKeywordAssignment_0();
+	public Keyword getGrammarElement() {
+		return grammarAccess.getVersionAccess().getVersionKeyword_0();
 	}
 
     @Override
@@ -2153,18 +2227,6 @@ protected class Version_KeywordAssignment_0 extends AssignmentToken  {
 		switch(index) {
 			default: return lastRuleCallOrigin.createFollowerAfterReturn(this, index, index, inst);
 		}	
-	}
-
-    @Override	
-	public IEObjectConsumer tryConsume() {
-		if((value = eObjectConsumer.getConsumable("keyword",true)) == null) return null;
-		IEObjectConsumer obj = eObjectConsumer.cloneAndConsume("keyword");
-		if(keywordSerializer.isValid(obj.getEObject(), grammarAccess.getVersionAccess().getKeywordVersionKeyword_0_0(), value, null)) {
-			type = AssignmentType.KEYWORD;
-			element = grammarAccess.getVersionAccess().getKeywordVersionKeyword_0_0();
-			return obj;
-		}
-		return null;
 	}
 
 }
@@ -2184,7 +2246,7 @@ protected class Version_VersionAssignment_1 extends AssignmentToken  {
     @Override
 	public AbstractToken createFollower(int index, IEObjectConsumer inst) {
 		switch(index) {
-			case 0: return new Version_KeywordAssignment_0(lastRuleCallOrigin, this, 0, inst);
+			case 0: return new Version_VersionKeyword_0(lastRuleCallOrigin, this, 0, inst);
 			default: return null;
 		}	
 	}
@@ -2207,9 +2269,198 @@ protected class Version_VersionAssignment_1 extends AssignmentToken  {
 /************ end Rule Version ****************/
 
 
+/************ begin Rule SourceFileName ****************
+ *
+ * SourceFileName:
+ * 	"\\sourcefilename" filename=STRING;
+ *
+ **/
+
+// "\\sourcefilename" filename=STRING
+protected class SourceFileName_Group extends GroupToken {
+	
+	public SourceFileName_Group(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
+		super(lastRuleCallOrigin, next, transitionIndex, eObjectConsumer);
+	}
+	
+	@Override
+	public Group getGrammarElement() {
+		return grammarAccess.getSourceFileNameAccess().getGroup();
+	}
+
+    @Override
+	public AbstractToken createFollower(int index, IEObjectConsumer inst) {
+		switch(index) {
+			case 0: return new SourceFileName_FilenameAssignment_1(lastRuleCallOrigin, this, 0, inst);
+			default: return null;
+		}	
+	}
+
+    @Override
+	public IEObjectConsumer tryConsume() {
+		if(getEObject().eClass() != grammarAccess.getSourceFileNameRule().getType().getClassifier())
+			return null;
+		return eObjectConsumer;
+	}
+
+}
+
+// "\\sourcefilename"
+protected class SourceFileName_SourcefilenameKeyword_0 extends KeywordToken  {
+	
+	public SourceFileName_SourcefilenameKeyword_0(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
+		super(lastRuleCallOrigin, next, transitionIndex, eObjectConsumer);
+	}
+	
+	@Override
+	public Keyword getGrammarElement() {
+		return grammarAccess.getSourceFileNameAccess().getSourcefilenameKeyword_0();
+	}
+
+    @Override
+	public AbstractToken createFollower(int index, IEObjectConsumer inst) {
+		switch(index) {
+			default: return lastRuleCallOrigin.createFollowerAfterReturn(this, index, index, inst);
+		}	
+	}
+
+}
+
+// filename=STRING
+protected class SourceFileName_FilenameAssignment_1 extends AssignmentToken  {
+	
+	public SourceFileName_FilenameAssignment_1(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
+		super(lastRuleCallOrigin, next, transitionIndex, eObjectConsumer);
+	}
+	
+	@Override
+	public Assignment getGrammarElement() {
+		return grammarAccess.getSourceFileNameAccess().getFilenameAssignment_1();
+	}
+
+    @Override
+	public AbstractToken createFollower(int index, IEObjectConsumer inst) {
+		switch(index) {
+			case 0: return new SourceFileName_SourcefilenameKeyword_0(lastRuleCallOrigin, this, 0, inst);
+			default: return null;
+		}	
+	}
+
+    @Override	
+	public IEObjectConsumer tryConsume() {
+		if((value = eObjectConsumer.getConsumable("filename",true)) == null) return null;
+		IEObjectConsumer obj = eObjectConsumer.cloneAndConsume("filename");
+		if(valueSerializer.isValid(obj.getEObject(), grammarAccess.getSourceFileNameAccess().getFilenameSTRINGTerminalRuleCall_1_0(), value, null)) {
+			type = AssignmentType.TERMINAL_RULE_CALL;
+			element = grammarAccess.getSourceFileNameAccess().getFilenameSTRINGTerminalRuleCall_1_0();
+			return obj;
+		}
+		return null;
+	}
+
+}
+
+
+/************ end Rule SourceFileName ****************/
+
+
+/************ begin Rule SourceFileLine ****************
+ *
+ * SourceFileLine:
+ * 	"\\sourcefileline" line=INT;
+ *
+ **/
+
+// "\\sourcefileline" line=INT
+protected class SourceFileLine_Group extends GroupToken {
+	
+	public SourceFileLine_Group(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
+		super(lastRuleCallOrigin, next, transitionIndex, eObjectConsumer);
+	}
+	
+	@Override
+	public Group getGrammarElement() {
+		return grammarAccess.getSourceFileLineAccess().getGroup();
+	}
+
+    @Override
+	public AbstractToken createFollower(int index, IEObjectConsumer inst) {
+		switch(index) {
+			case 0: return new SourceFileLine_LineAssignment_1(lastRuleCallOrigin, this, 0, inst);
+			default: return null;
+		}	
+	}
+
+    @Override
+	public IEObjectConsumer tryConsume() {
+		if(getEObject().eClass() != grammarAccess.getSourceFileLineRule().getType().getClassifier())
+			return null;
+		return eObjectConsumer;
+	}
+
+}
+
+// "\\sourcefileline"
+protected class SourceFileLine_SourcefilelineKeyword_0 extends KeywordToken  {
+	
+	public SourceFileLine_SourcefilelineKeyword_0(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
+		super(lastRuleCallOrigin, next, transitionIndex, eObjectConsumer);
+	}
+	
+	@Override
+	public Keyword getGrammarElement() {
+		return grammarAccess.getSourceFileLineAccess().getSourcefilelineKeyword_0();
+	}
+
+    @Override
+	public AbstractToken createFollower(int index, IEObjectConsumer inst) {
+		switch(index) {
+			default: return lastRuleCallOrigin.createFollowerAfterReturn(this, index, index, inst);
+		}	
+	}
+
+}
+
+// line=INT
+protected class SourceFileLine_LineAssignment_1 extends AssignmentToken  {
+	
+	public SourceFileLine_LineAssignment_1(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
+		super(lastRuleCallOrigin, next, transitionIndex, eObjectConsumer);
+	}
+	
+	@Override
+	public Assignment getGrammarElement() {
+		return grammarAccess.getSourceFileLineAccess().getLineAssignment_1();
+	}
+
+    @Override
+	public AbstractToken createFollower(int index, IEObjectConsumer inst) {
+		switch(index) {
+			case 0: return new SourceFileLine_SourcefilelineKeyword_0(lastRuleCallOrigin, this, 0, inst);
+			default: return null;
+		}	
+	}
+
+    @Override	
+	public IEObjectConsumer tryConsume() {
+		if((value = eObjectConsumer.getConsumable("line",true)) == null) return null;
+		IEObjectConsumer obj = eObjectConsumer.cloneAndConsume("line");
+		if(valueSerializer.isValid(obj.getEObject(), grammarAccess.getSourceFileLineAccess().getLineINTTerminalRuleCall_1_0(), value, null)) {
+			type = AssignmentType.TERMINAL_RULE_CALL;
+			element = grammarAccess.getSourceFileLineAccess().getLineINTTerminalRuleCall_1_0();
+			return obj;
+		}
+		return null;
+	}
+
+}
+
+
+/************ end Rule SourceFileLine ****************/
+
+
 /************ begin Rule Text ****************
  *
- * // Keywords of preset commands must be defined this way to avoid clash with commands that share a common prefix with them due to eager parsing
  * Text:
  * 	value=(SchemeTextLiterals | "\'" | "," | "(" | ")");
  *

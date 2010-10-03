@@ -542,22 +542,13 @@ public interface LilyPondPackage extends EPackage
   int COMMAND__PARENT_LILY_POND = EXPRESSION__PARENT_LILY_POND;
 
   /**
-   * The feature id for the '<em><b>Keyword</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int COMMAND__KEYWORD = EXPRESSION_FEATURE_COUNT + 0;
-
-  /**
    * The number of structural features of the '<em>Command</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int COMMAND_FEATURE_COUNT = EXPRESSION_FEATURE_COUNT + 1;
+  int COMMAND_FEATURE_COUNT = EXPRESSION_FEATURE_COUNT + 0;
 
   /**
    * The meta object id for the '{@link org.elysium.lilyPond.impl.ArbitraryCommandImpl <em>Arbitrary Command</em>}' class.
@@ -594,7 +585,7 @@ public interface LilyPondPackage extends EPackage
    * @generated
    * @ordered
    */
-  int ARBITRARY_COMMAND__KEYWORD = COMMAND__KEYWORD;
+  int ARBITRARY_COMMAND__KEYWORD = COMMAND_FEATURE_COUNT + 0;
 
   /**
    * The number of structural features of the '<em>Arbitrary Command</em>' class.
@@ -603,7 +594,7 @@ public interface LilyPondPackage extends EPackage
    * @generated
    * @ordered
    */
-  int ARBITRARY_COMMAND_FEATURE_COUNT = COMMAND_FEATURE_COUNT + 0;
+  int ARBITRARY_COMMAND_FEATURE_COUNT = COMMAND_FEATURE_COUNT + 1;
 
   /**
    * The meta object id for the '{@link org.elysium.lilyPond.impl.SpecialCommandImpl <em>Special Command</em>}' class.
@@ -632,15 +623,6 @@ public interface LilyPondPackage extends EPackage
    * @ordered
    */
   int SPECIAL_COMMAND__PARENT_LILY_POND = COMMAND__PARENT_LILY_POND;
-
-  /**
-   * The feature id for the '<em><b>Keyword</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int SPECIAL_COMMAND__KEYWORD = COMMAND__KEYWORD;
 
   /**
    * The number of structural features of the '<em>Special Command</em>' class.
@@ -678,15 +660,6 @@ public interface LilyPondPackage extends EPackage
    * @ordered
    */
   int INCLUDE__PARENT_LILY_POND = SPECIAL_COMMAND__PARENT_LILY_POND;
-
-  /**
-   * The feature id for the '<em><b>Keyword</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int INCLUDE__KEYWORD = SPECIAL_COMMAND__KEYWORD;
 
   /**
    * The feature id for the '<em><b>Import URI</b></em>' attribute.
@@ -735,15 +708,6 @@ public interface LilyPondPackage extends EPackage
   int VERSION__PARENT_LILY_POND = SPECIAL_COMMAND__PARENT_LILY_POND;
 
   /**
-   * The feature id for the '<em><b>Keyword</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int VERSION__KEYWORD = SPECIAL_COMMAND__KEYWORD;
-
-  /**
    * The feature id for the '<em><b>Version</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -762,6 +726,98 @@ public interface LilyPondPackage extends EPackage
   int VERSION_FEATURE_COUNT = SPECIAL_COMMAND_FEATURE_COUNT + 1;
 
   /**
+   * The meta object id for the '{@link org.elysium.lilyPond.impl.SourceFileNameImpl <em>Source File Name</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.elysium.lilyPond.impl.SourceFileNameImpl
+   * @see org.elysium.lilyPond.impl.LilyPondPackageImpl#getSourceFileName()
+   * @generated
+   */
+  int SOURCE_FILE_NAME = 18;
+
+  /**
+   * The feature id for the '<em><b>Parent Block</b></em>' container reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int SOURCE_FILE_NAME__PARENT_BLOCK = SPECIAL_COMMAND__PARENT_BLOCK;
+
+  /**
+   * The feature id for the '<em><b>Parent Lily Pond</b></em>' container reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int SOURCE_FILE_NAME__PARENT_LILY_POND = SPECIAL_COMMAND__PARENT_LILY_POND;
+
+  /**
+   * The feature id for the '<em><b>Filename</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int SOURCE_FILE_NAME__FILENAME = SPECIAL_COMMAND_FEATURE_COUNT + 0;
+
+  /**
+   * The number of structural features of the '<em>Source File Name</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int SOURCE_FILE_NAME_FEATURE_COUNT = SPECIAL_COMMAND_FEATURE_COUNT + 1;
+
+  /**
+   * The meta object id for the '{@link org.elysium.lilyPond.impl.SourceFileLineImpl <em>Source File Line</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.elysium.lilyPond.impl.SourceFileLineImpl
+   * @see org.elysium.lilyPond.impl.LilyPondPackageImpl#getSourceFileLine()
+   * @generated
+   */
+  int SOURCE_FILE_LINE = 19;
+
+  /**
+   * The feature id for the '<em><b>Parent Block</b></em>' container reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int SOURCE_FILE_LINE__PARENT_BLOCK = SPECIAL_COMMAND__PARENT_BLOCK;
+
+  /**
+   * The feature id for the '<em><b>Parent Lily Pond</b></em>' container reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int SOURCE_FILE_LINE__PARENT_LILY_POND = SPECIAL_COMMAND__PARENT_LILY_POND;
+
+  /**
+   * The feature id for the '<em><b>Line</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int SOURCE_FILE_LINE__LINE = SPECIAL_COMMAND_FEATURE_COUNT + 0;
+
+  /**
+   * The number of structural features of the '<em>Source File Line</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int SOURCE_FILE_LINE_FEATURE_COUNT = SPECIAL_COMMAND_FEATURE_COUNT + 1;
+
+  /**
    * The meta object id for the '{@link org.elysium.lilyPond.impl.TextImpl <em>Text</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -769,7 +825,7 @@ public interface LilyPondPackage extends EPackage
    * @see org.elysium.lilyPond.impl.LilyPondPackageImpl#getText()
    * @generated
    */
-  int TEXT = 18;
+  int TEXT = 20;
 
   /**
    * The feature id for the '<em><b>Parent Block</b></em>' container reference.
@@ -815,7 +871,7 @@ public interface LilyPondPackage extends EPackage
    * @see org.elysium.lilyPond.impl.LilyPondPackageImpl#getNumber()
    * @generated
    */
-  int NUMBER = 19;
+  int NUMBER = 21;
 
   /**
    * The feature id for the '<em><b>Parent Block</b></em>' container reference.
@@ -1138,17 +1194,6 @@ public interface LilyPondPackage extends EPackage
   EClass getCommand();
 
   /**
-   * Returns the meta object for the attribute '{@link org.elysium.lilyPond.Command#getKeyword <em>Keyword</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Keyword</em>'.
-   * @see org.elysium.lilyPond.Command#getKeyword()
-   * @see #getCommand()
-   * @generated
-   */
-  EAttribute getCommand_Keyword();
-
-  /**
    * Returns the meta object for class '{@link org.elysium.lilyPond.ArbitraryCommand <em>Arbitrary Command</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -1157,6 +1202,17 @@ public interface LilyPondPackage extends EPackage
    * @generated
    */
   EClass getArbitraryCommand();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.elysium.lilyPond.ArbitraryCommand#getKeyword <em>Keyword</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Keyword</em>'.
+   * @see org.elysium.lilyPond.ArbitraryCommand#getKeyword()
+   * @see #getArbitraryCommand()
+   * @generated
+   */
+  EAttribute getArbitraryCommand_Keyword();
 
   /**
    * Returns the meta object for class '{@link org.elysium.lilyPond.SpecialCommand <em>Special Command</em>}'.
@@ -1209,6 +1265,48 @@ public interface LilyPondPackage extends EPackage
    * @generated
    */
   EAttribute getVersion_Version();
+
+  /**
+   * Returns the meta object for class '{@link org.elysium.lilyPond.SourceFileName <em>Source File Name</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Source File Name</em>'.
+   * @see org.elysium.lilyPond.SourceFileName
+   * @generated
+   */
+  EClass getSourceFileName();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.elysium.lilyPond.SourceFileName#getFilename <em>Filename</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Filename</em>'.
+   * @see org.elysium.lilyPond.SourceFileName#getFilename()
+   * @see #getSourceFileName()
+   * @generated
+   */
+  EAttribute getSourceFileName_Filename();
+
+  /**
+   * Returns the meta object for class '{@link org.elysium.lilyPond.SourceFileLine <em>Source File Line</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Source File Line</em>'.
+   * @see org.elysium.lilyPond.SourceFileLine
+   * @generated
+   */
+  EClass getSourceFileLine();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.elysium.lilyPond.SourceFileLine#getLine <em>Line</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Line</em>'.
+   * @see org.elysium.lilyPond.SourceFileLine#getLine()
+   * @see #getSourceFileLine()
+   * @generated
+   */
+  EAttribute getSourceFileLine_Line();
 
   /**
    * Returns the meta object for class '{@link org.elysium.lilyPond.Text <em>Text</em>}'.
@@ -1520,14 +1618,6 @@ public interface LilyPondPackage extends EPackage
     EClass COMMAND = eINSTANCE.getCommand();
 
     /**
-     * The meta object literal for the '<em><b>Keyword</b></em>' attribute feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EAttribute COMMAND__KEYWORD = eINSTANCE.getCommand_Keyword();
-
-    /**
      * The meta object literal for the '{@link org.elysium.lilyPond.impl.ArbitraryCommandImpl <em>Arbitrary Command</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -1536,6 +1626,14 @@ public interface LilyPondPackage extends EPackage
      * @generated
      */
     EClass ARBITRARY_COMMAND = eINSTANCE.getArbitraryCommand();
+
+    /**
+     * The meta object literal for the '<em><b>Keyword</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute ARBITRARY_COMMAND__KEYWORD = eINSTANCE.getArbitraryCommand_Keyword();
 
     /**
      * The meta object literal for the '{@link org.elysium.lilyPond.impl.SpecialCommandImpl <em>Special Command</em>}' class.
@@ -1582,6 +1680,42 @@ public interface LilyPondPackage extends EPackage
      * @generated
      */
     EAttribute VERSION__VERSION = eINSTANCE.getVersion_Version();
+
+    /**
+     * The meta object literal for the '{@link org.elysium.lilyPond.impl.SourceFileNameImpl <em>Source File Name</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.elysium.lilyPond.impl.SourceFileNameImpl
+     * @see org.elysium.lilyPond.impl.LilyPondPackageImpl#getSourceFileName()
+     * @generated
+     */
+    EClass SOURCE_FILE_NAME = eINSTANCE.getSourceFileName();
+
+    /**
+     * The meta object literal for the '<em><b>Filename</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute SOURCE_FILE_NAME__FILENAME = eINSTANCE.getSourceFileName_Filename();
+
+    /**
+     * The meta object literal for the '{@link org.elysium.lilyPond.impl.SourceFileLineImpl <em>Source File Line</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.elysium.lilyPond.impl.SourceFileLineImpl
+     * @see org.elysium.lilyPond.impl.LilyPondPackageImpl#getSourceFileLine()
+     * @generated
+     */
+    EClass SOURCE_FILE_LINE = eINSTANCE.getSourceFileLine();
+
+    /**
+     * The meta object literal for the '<em><b>Line</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute SOURCE_FILE_LINE__LINE = eINSTANCE.getSourceFileLine_Line();
 
     /**
      * The meta object literal for the '{@link org.elysium.lilyPond.impl.TextImpl <em>Text</em>}' class.

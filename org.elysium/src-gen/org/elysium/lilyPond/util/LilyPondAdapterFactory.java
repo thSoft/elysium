@@ -29,6 +29,8 @@ import org.elysium.lilyPond.SchemeText;
 import org.elysium.lilyPond.SchemeValue;
 import org.elysium.lilyPond.SimpleBlock;
 import org.elysium.lilyPond.SimultaneousBlock;
+import org.elysium.lilyPond.SourceFileLine;
+import org.elysium.lilyPond.SourceFileName;
 import org.elysium.lilyPond.SpecialCommand;
 import org.elysium.lilyPond.Text;
 import org.elysium.lilyPond.Version;
@@ -185,6 +187,16 @@ public class LilyPondAdapterFactory extends AdapterFactoryImpl
       public Adapter caseVersion(Version object)
       {
         return createVersionAdapter();
+      }
+      @Override
+      public Adapter caseSourceFileName(SourceFileName object)
+      {
+        return createSourceFileNameAdapter();
+      }
+      @Override
+      public Adapter caseSourceFileLine(SourceFileLine object)
+      {
+        return createSourceFileLineAdapter();
       }
       @Override
       public Adapter caseText(Text object)
@@ -484,6 +496,36 @@ public class LilyPondAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createVersionAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.elysium.lilyPond.SourceFileName <em>Source File Name</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.elysium.lilyPond.SourceFileName
+   * @generated
+   */
+  public Adapter createSourceFileNameAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.elysium.lilyPond.SourceFileLine <em>Source File Line</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.elysium.lilyPond.SourceFileLine
+   * @generated
+   */
+  public Adapter createSourceFileLineAdapter()
   {
     return null;
   }

@@ -30,6 +30,8 @@ import org.elysium.lilyPond.SchemeText;
 import org.elysium.lilyPond.SchemeValue;
 import org.elysium.lilyPond.SimpleBlock;
 import org.elysium.lilyPond.SimultaneousBlock;
+import org.elysium.lilyPond.SourceFileLine;
+import org.elysium.lilyPond.SourceFileName;
 import org.elysium.lilyPond.SpecialCommand;
 import org.elysium.lilyPond.Text;
 import org.elysium.lilyPond.Version;
@@ -167,6 +169,20 @@ public class LilyPondPackageImpl extends EPackageImpl implements LilyPondPackage
    * @generated
    */
   private EClass versionEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass sourceFileNameEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass sourceFileLineEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -520,9 +536,9 @@ public class LilyPondPackageImpl extends EPackageImpl implements LilyPondPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getCommand_Keyword()
+  public EClass getArbitraryCommand()
   {
-    return (EAttribute)commandEClass.getEStructuralFeatures().get(0);
+    return arbitraryCommandEClass;
   }
 
   /**
@@ -530,9 +546,9 @@ public class LilyPondPackageImpl extends EPackageImpl implements LilyPondPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EClass getArbitraryCommand()
+  public EAttribute getArbitraryCommand_Keyword()
   {
-    return arbitraryCommandEClass;
+    return (EAttribute)arbitraryCommandEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -583,6 +599,46 @@ public class LilyPondPackageImpl extends EPackageImpl implements LilyPondPackage
   public EAttribute getVersion_Version()
   {
     return (EAttribute)versionEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getSourceFileName()
+  {
+    return sourceFileNameEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getSourceFileName_Filename()
+  {
+    return (EAttribute)sourceFileNameEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getSourceFileLine()
+  {
+    return sourceFileLineEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getSourceFileLine_Line()
+  {
+    return (EAttribute)sourceFileLineEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -695,9 +751,9 @@ public class LilyPondPackageImpl extends EPackageImpl implements LilyPondPackage
     createEAttribute(schemeNumberEClass, SCHEME_NUMBER__VALUE);
 
     commandEClass = createEClass(COMMAND);
-    createEAttribute(commandEClass, COMMAND__KEYWORD);
 
     arbitraryCommandEClass = createEClass(ARBITRARY_COMMAND);
+    createEAttribute(arbitraryCommandEClass, ARBITRARY_COMMAND__KEYWORD);
 
     specialCommandEClass = createEClass(SPECIAL_COMMAND);
 
@@ -706,6 +762,12 @@ public class LilyPondPackageImpl extends EPackageImpl implements LilyPondPackage
 
     versionEClass = createEClass(VERSION);
     createEAttribute(versionEClass, VERSION__VERSION);
+
+    sourceFileNameEClass = createEClass(SOURCE_FILE_NAME);
+    createEAttribute(sourceFileNameEClass, SOURCE_FILE_NAME__FILENAME);
+
+    sourceFileLineEClass = createEClass(SOURCE_FILE_LINE);
+    createEAttribute(sourceFileLineEClass, SOURCE_FILE_LINE__LINE);
 
     textEClass = createEClass(TEXT);
     createEAttribute(textEClass, TEXT__VALUE);
@@ -757,6 +819,8 @@ public class LilyPondPackageImpl extends EPackageImpl implements LilyPondPackage
     specialCommandEClass.getESuperTypes().add(this.getCommand());
     includeEClass.getESuperTypes().add(this.getSpecialCommand());
     versionEClass.getESuperTypes().add(this.getSpecialCommand());
+    sourceFileNameEClass.getESuperTypes().add(this.getSpecialCommand());
+    sourceFileLineEClass.getESuperTypes().add(this.getSpecialCommand());
     textEClass.getESuperTypes().add(this.getExpression());
     numberEClass.getESuperTypes().add(this.getExpression());
 
@@ -801,9 +865,9 @@ public class LilyPondPackageImpl extends EPackageImpl implements LilyPondPackage
     initEAttribute(getSchemeNumber_Value(), ecorePackage.getEInt(), "value", null, 0, 1, SchemeNumber.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(commandEClass, Command.class, "Command", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getCommand_Keyword(), ecorePackage.getEString(), "keyword", null, 0, 1, Command.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(arbitraryCommandEClass, ArbitraryCommand.class, "ArbitraryCommand", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getArbitraryCommand_Keyword(), ecorePackage.getEString(), "keyword", null, 0, 1, ArbitraryCommand.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(specialCommandEClass, SpecialCommand.class, "SpecialCommand", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
@@ -812,6 +876,12 @@ public class LilyPondPackageImpl extends EPackageImpl implements LilyPondPackage
 
     initEClass(versionEClass, Version.class, "Version", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getVersion_Version(), ecorePackage.getEString(), "version", null, 0, 1, Version.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(sourceFileNameEClass, SourceFileName.class, "SourceFileName", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getSourceFileName_Filename(), ecorePackage.getEString(), "filename", null, 0, 1, SourceFileName.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(sourceFileLineEClass, SourceFileLine.class, "SourceFileLine", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getSourceFileLine_Line(), ecorePackage.getEInt(), "line", null, 0, 1, SourceFileLine.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(textEClass, Text.class, "Text", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getText_Value(), ecorePackage.getEString(), "value", null, 0, 1, Text.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

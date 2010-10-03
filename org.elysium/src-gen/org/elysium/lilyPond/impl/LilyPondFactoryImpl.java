@@ -31,6 +31,8 @@ import org.elysium.lilyPond.SchemeText;
 import org.elysium.lilyPond.SchemeValue;
 import org.elysium.lilyPond.SimpleBlock;
 import org.elysium.lilyPond.SimultaneousBlock;
+import org.elysium.lilyPond.SourceFileLine;
+import org.elysium.lilyPond.SourceFileName;
 import org.elysium.lilyPond.SpecialCommand;
 import org.elysium.lilyPond.Text;
 import org.elysium.lilyPond.Version;
@@ -105,6 +107,8 @@ public class LilyPondFactoryImpl extends EFactoryImpl implements LilyPondFactory
       case LilyPondPackage.SPECIAL_COMMAND: return createSpecialCommand();
       case LilyPondPackage.INCLUDE: return createInclude();
       case LilyPondPackage.VERSION: return createVersion();
+      case LilyPondPackage.SOURCE_FILE_NAME: return createSourceFileName();
+      case LilyPondPackage.SOURCE_FILE_LINE: return createSourceFileLine();
       case LilyPondPackage.TEXT: return createText();
       case LilyPondPackage.NUMBER: return createNumber();
       default:
@@ -308,6 +312,28 @@ public class LilyPondFactoryImpl extends EFactoryImpl implements LilyPondFactory
   {
     VersionImpl version = new VersionImpl();
     return version;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public SourceFileName createSourceFileName()
+  {
+    SourceFileNameImpl sourceFileName = new SourceFileNameImpl();
+    return sourceFileName;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public SourceFileLine createSourceFileLine()
+  {
+    SourceFileLineImpl sourceFileLine = new SourceFileLineImpl();
+    return sourceFileLine;
   }
 
   /**

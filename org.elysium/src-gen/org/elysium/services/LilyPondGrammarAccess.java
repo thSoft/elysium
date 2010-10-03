@@ -457,12 +457,14 @@ public class LilyPondGrammarAccess extends AbstractGrammarElementFinder {
 		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
 		private final RuleCall cIncludeParserRuleCall_0 = (RuleCall)cAlternatives.eContents().get(0);
 		private final RuleCall cVersionParserRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
+		private final RuleCall cSourceFileNameParserRuleCall_2 = (RuleCall)cAlternatives.eContents().get(2);
+		private final RuleCall cSourceFileLineParserRuleCall_3 = (RuleCall)cAlternatives.eContents().get(3);
 		
 		//SpecialCommand:
-		//	Include | Version;
+		//	Include | Version | SourceFileName | SourceFileLine;
 		public ParserRule getRule() { return rule; }
 
-		//Include | Version
+		//Include | Version | SourceFileName | SourceFileLine
 		public Alternatives getAlternatives() { return cAlternatives; }
 
 		//Include
@@ -470,28 +472,30 @@ public class LilyPondGrammarAccess extends AbstractGrammarElementFinder {
 
 		//Version
 		public RuleCall getVersionParserRuleCall_1() { return cVersionParserRuleCall_1; }
+
+		//SourceFileName
+		public RuleCall getSourceFileNameParserRuleCall_2() { return cSourceFileNameParserRuleCall_2; }
+
+		//SourceFileLine
+		public RuleCall getSourceFileLineParserRuleCall_3() { return cSourceFileLineParserRuleCall_3; }
 	}
 
 	public class IncludeElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "Include");
 		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Assignment cKeywordAssignment_0 = (Assignment)cGroup.eContents().get(0);
-		private final Keyword cKeywordIncludeKeyword_0_0 = (Keyword)cKeywordAssignment_0.eContents().get(0);
+		private final Keyword cIncludeKeyword_0 = (Keyword)cGroup.eContents().get(0);
 		private final Assignment cImportURIAssignment_1 = (Assignment)cGroup.eContents().get(1);
 		private final RuleCall cImportURISTRINGTerminalRuleCall_1_0 = (RuleCall)cImportURIAssignment_1.eContents().get(0);
 		
 		//Include:
-		//	keyword="\\include" importURI=STRING;
+		//	"\\include" importURI=STRING;
 		public ParserRule getRule() { return rule; }
 
-		//keyword="\\include" importURI=STRING
+		//"\\include" importURI=STRING
 		public Group getGroup() { return cGroup; }
 
-		//keyword="\\include"
-		public Assignment getKeywordAssignment_0() { return cKeywordAssignment_0; }
-
 		//"\\include"
-		public Keyword getKeywordIncludeKeyword_0_0() { return cKeywordIncludeKeyword_0_0; }
+		public Keyword getIncludeKeyword_0() { return cIncludeKeyword_0; }
 
 		//importURI=STRING
 		public Assignment getImportURIAssignment_1() { return cImportURIAssignment_1; }
@@ -503,29 +507,73 @@ public class LilyPondGrammarAccess extends AbstractGrammarElementFinder {
 	public class VersionElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "Version");
 		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Assignment cKeywordAssignment_0 = (Assignment)cGroup.eContents().get(0);
-		private final Keyword cKeywordVersionKeyword_0_0 = (Keyword)cKeywordAssignment_0.eContents().get(0);
+		private final Keyword cVersionKeyword_0 = (Keyword)cGroup.eContents().get(0);
 		private final Assignment cVersionAssignment_1 = (Assignment)cGroup.eContents().get(1);
 		private final RuleCall cVersionSTRINGTerminalRuleCall_1_0 = (RuleCall)cVersionAssignment_1.eContents().get(0);
 		
 		//Version:
-		//	keyword="\\version" version=STRING;
+		//	"\\version" version=STRING;
 		public ParserRule getRule() { return rule; }
 
-		//keyword="\\version" version=STRING
+		//"\\version" version=STRING
 		public Group getGroup() { return cGroup; }
 
-		//keyword="\\version"
-		public Assignment getKeywordAssignment_0() { return cKeywordAssignment_0; }
-
 		//"\\version"
-		public Keyword getKeywordVersionKeyword_0_0() { return cKeywordVersionKeyword_0_0; }
+		public Keyword getVersionKeyword_0() { return cVersionKeyword_0; }
 
 		//version=STRING
 		public Assignment getVersionAssignment_1() { return cVersionAssignment_1; }
 
 		//STRING
 		public RuleCall getVersionSTRINGTerminalRuleCall_1_0() { return cVersionSTRINGTerminalRuleCall_1_0; }
+	}
+
+	public class SourceFileNameElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "SourceFileName");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Keyword cSourcefilenameKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final Assignment cFilenameAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cFilenameSTRINGTerminalRuleCall_1_0 = (RuleCall)cFilenameAssignment_1.eContents().get(0);
+		
+		//SourceFileName:
+		//	"\\sourcefilename" filename=STRING;
+		public ParserRule getRule() { return rule; }
+
+		//"\\sourcefilename" filename=STRING
+		public Group getGroup() { return cGroup; }
+
+		//"\\sourcefilename"
+		public Keyword getSourcefilenameKeyword_0() { return cSourcefilenameKeyword_0; }
+
+		//filename=STRING
+		public Assignment getFilenameAssignment_1() { return cFilenameAssignment_1; }
+
+		//STRING
+		public RuleCall getFilenameSTRINGTerminalRuleCall_1_0() { return cFilenameSTRINGTerminalRuleCall_1_0; }
+	}
+
+	public class SourceFileLineElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "SourceFileLine");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Keyword cSourcefilelineKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final Assignment cLineAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cLineINTTerminalRuleCall_1_0 = (RuleCall)cLineAssignment_1.eContents().get(0);
+		
+		//SourceFileLine:
+		//	"\\sourcefileline" line=INT;
+		public ParserRule getRule() { return rule; }
+
+		//"\\sourcefileline" line=INT
+		public Group getGroup() { return cGroup; }
+
+		//"\\sourcefileline"
+		public Keyword getSourcefilelineKeyword_0() { return cSourcefilelineKeyword_0; }
+
+		//line=INT
+		public Assignment getLineAssignment_1() { return cLineAssignment_1; }
+
+		//INT
+		public RuleCall getLineINTTerminalRuleCall_1_0() { return cLineINTTerminalRuleCall_1_0; }
 	}
 
 	public class TextElements extends AbstractParserRuleElementFinder {
@@ -538,7 +586,6 @@ public class LilyPondGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cValueLeftParenthesisKeyword_0_3 = (Keyword)cValueAlternatives_0.eContents().get(3);
 		private final Keyword cValueRightParenthesisKeyword_0_4 = (Keyword)cValueAlternatives_0.eContents().get(4);
 		
-		//// Keywords of preset commands must be defined this way to avoid clash with commands that share a common prefix with them due to eager parsing
 		//Text:
 		//	value=(SchemeTextLiterals | "\'" | "," | "(" | ")");
 		public ParserRule getRule() { return rule; }
@@ -602,6 +649,8 @@ public class LilyPondGrammarAccess extends AbstractGrammarElementFinder {
 	private SpecialCommandElements pSpecialCommand;
 	private IncludeElements pInclude;
 	private VersionElements pVersion;
+	private SourceFileNameElements pSourceFileName;
+	private SourceFileLineElements pSourceFileLine;
 	private TextElements pText;
 	private NumberElements pNumber;
 	private TerminalRule tSTRING;
@@ -797,7 +846,7 @@ public class LilyPondGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//SpecialCommand:
-	//	Include | Version;
+	//	Include | Version | SourceFileName | SourceFileLine;
 	public SpecialCommandElements getSpecialCommandAccess() {
 		return (pSpecialCommand != null) ? pSpecialCommand : (pSpecialCommand = new SpecialCommandElements());
 	}
@@ -807,7 +856,7 @@ public class LilyPondGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//Include:
-	//	keyword="\\include" importURI=STRING;
+	//	"\\include" importURI=STRING;
 	public IncludeElements getIncludeAccess() {
 		return (pInclude != null) ? pInclude : (pInclude = new IncludeElements());
 	}
@@ -817,7 +866,7 @@ public class LilyPondGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//Version:
-	//	keyword="\\version" version=STRING;
+	//	"\\version" version=STRING;
 	public VersionElements getVersionAccess() {
 		return (pVersion != null) ? pVersion : (pVersion = new VersionElements());
 	}
@@ -826,7 +875,26 @@ public class LilyPondGrammarAccess extends AbstractGrammarElementFinder {
 		return getVersionAccess().getRule();
 	}
 
-	//// Keywords of preset commands must be defined this way to avoid clash with commands that share a common prefix with them due to eager parsing
+	//SourceFileName:
+	//	"\\sourcefilename" filename=STRING;
+	public SourceFileNameElements getSourceFileNameAccess() {
+		return (pSourceFileName != null) ? pSourceFileName : (pSourceFileName = new SourceFileNameElements());
+	}
+	
+	public ParserRule getSourceFileNameRule() {
+		return getSourceFileNameAccess().getRule();
+	}
+
+	//SourceFileLine:
+	//	"\\sourcefileline" line=INT;
+	public SourceFileLineElements getSourceFileLineAccess() {
+		return (pSourceFileLine != null) ? pSourceFileLine : (pSourceFileLine = new SourceFileLineElements());
+	}
+	
+	public ParserRule getSourceFileLineRule() {
+		return getSourceFileLineAccess().getRule();
+	}
+
 	//Text:
 	//	value=(SchemeTextLiterals | "\'" | "," | "(" | ")");
 	public TextElements getTextAccess() {

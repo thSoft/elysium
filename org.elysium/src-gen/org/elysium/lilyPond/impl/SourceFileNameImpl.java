@@ -11,50 +11,50 @@ import org.eclipse.emf.ecore.EClass;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
-import org.elysium.lilyPond.ArbitraryCommand;
 import org.elysium.lilyPond.LilyPondPackage;
+import org.elysium.lilyPond.SourceFileName;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Arbitrary Command</b></em>'.
+ * An implementation of the model object '<em><b>Source File Name</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link org.elysium.lilyPond.impl.ArbitraryCommandImpl#getKeyword <em>Keyword</em>}</li>
+ *   <li>{@link org.elysium.lilyPond.impl.SourceFileNameImpl#getFilename <em>Filename</em>}</li>
  * </ul>
  * </p>
  *
  * @generated
  */
-public class ArbitraryCommandImpl extends CommandImpl implements ArbitraryCommand
+public class SourceFileNameImpl extends SpecialCommandImpl implements SourceFileName
 {
   /**
-   * The default value of the '{@link #getKeyword() <em>Keyword</em>}' attribute.
+   * The default value of the '{@link #getFilename() <em>Filename</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getKeyword()
+   * @see #getFilename()
    * @generated
    * @ordered
    */
-  protected static final String KEYWORD_EDEFAULT = null;
+  protected static final String FILENAME_EDEFAULT = null;
 
   /**
-   * The cached value of the '{@link #getKeyword() <em>Keyword</em>}' attribute.
+   * The cached value of the '{@link #getFilename() <em>Filename</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getKeyword()
+   * @see #getFilename()
    * @generated
    * @ordered
    */
-  protected String keyword = KEYWORD_EDEFAULT;
+  protected String filename = FILENAME_EDEFAULT;
 
   /**
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
-  protected ArbitraryCommandImpl()
+  protected SourceFileNameImpl()
   {
     super();
   }
@@ -67,7 +67,7 @@ public class ArbitraryCommandImpl extends CommandImpl implements ArbitraryComman
   @Override
   protected EClass eStaticClass()
   {
-    return LilyPondPackage.Literals.ARBITRARY_COMMAND;
+    return LilyPondPackage.Literals.SOURCE_FILE_NAME;
   }
 
   /**
@@ -75,9 +75,9 @@ public class ArbitraryCommandImpl extends CommandImpl implements ArbitraryComman
    * <!-- end-user-doc -->
    * @generated
    */
-  public String getKeyword()
+  public String getFilename()
   {
-    return keyword;
+    return filename;
   }
 
   /**
@@ -85,12 +85,12 @@ public class ArbitraryCommandImpl extends CommandImpl implements ArbitraryComman
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setKeyword(String newKeyword)
+  public void setFilename(String newFilename)
   {
-    String oldKeyword = keyword;
-    keyword = newKeyword;
+    String oldFilename = filename;
+    filename = newFilename;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, LilyPondPackage.ARBITRARY_COMMAND__KEYWORD, oldKeyword, keyword));
+      eNotify(new ENotificationImpl(this, Notification.SET, LilyPondPackage.SOURCE_FILE_NAME__FILENAME, oldFilename, filename));
   }
 
   /**
@@ -103,8 +103,8 @@ public class ArbitraryCommandImpl extends CommandImpl implements ArbitraryComman
   {
     switch (featureID)
     {
-      case LilyPondPackage.ARBITRARY_COMMAND__KEYWORD:
-        return getKeyword();
+      case LilyPondPackage.SOURCE_FILE_NAME__FILENAME:
+        return getFilename();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -119,8 +119,8 @@ public class ArbitraryCommandImpl extends CommandImpl implements ArbitraryComman
   {
     switch (featureID)
     {
-      case LilyPondPackage.ARBITRARY_COMMAND__KEYWORD:
-        setKeyword((String)newValue);
+      case LilyPondPackage.SOURCE_FILE_NAME__FILENAME:
+        setFilename((String)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -136,8 +136,8 @@ public class ArbitraryCommandImpl extends CommandImpl implements ArbitraryComman
   {
     switch (featureID)
     {
-      case LilyPondPackage.ARBITRARY_COMMAND__KEYWORD:
-        setKeyword(KEYWORD_EDEFAULT);
+      case LilyPondPackage.SOURCE_FILE_NAME__FILENAME:
+        setFilename(FILENAME_EDEFAULT);
         return;
     }
     super.eUnset(featureID);
@@ -153,8 +153,8 @@ public class ArbitraryCommandImpl extends CommandImpl implements ArbitraryComman
   {
     switch (featureID)
     {
-      case LilyPondPackage.ARBITRARY_COMMAND__KEYWORD:
-        return KEYWORD_EDEFAULT == null ? keyword != null : !KEYWORD_EDEFAULT.equals(keyword);
+      case LilyPondPackage.SOURCE_FILE_NAME__FILENAME:
+        return FILENAME_EDEFAULT == null ? filename != null : !FILENAME_EDEFAULT.equals(filename);
     }
     return super.eIsSet(featureID);
   }
@@ -170,10 +170,10 @@ public class ArbitraryCommandImpl extends CommandImpl implements ArbitraryComman
     if (eIsProxy()) return super.toString();
 
     StringBuffer result = new StringBuffer(super.toString());
-    result.append(" (keyword: ");
-    result.append(keyword);
+    result.append(" (filename: ");
+    result.append(filename);
     result.append(')');
     return result.toString();
   }
 
-} //ArbitraryCommandImpl
+} //SourceFileNameImpl

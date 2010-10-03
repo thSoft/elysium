@@ -1163,6 +1163,32 @@ ruleSpecialCommand returns [EObject current=null]
         $current = $this_Version_1.current;
         currentNode = currentNode.getParent();
     }
+
+    |
+	{ 
+	  /* */ 
+	}
+    { 
+        currentNode=createCompositeNode(grammarAccess.getSpecialCommandAccess().getSourceFileNameParserRuleCall_2(), currentNode); 
+    }
+    this_SourceFileName_2=ruleSourceFileName
+    {
+        $current = $this_SourceFileName_2.current;
+        currentNode = currentNode.getParent();
+    }
+
+    |
+	{ 
+	  /* */ 
+	}
+    { 
+        currentNode=createCompositeNode(grammarAccess.getSpecialCommandAccess().getSourceFileLineParserRuleCall_3(), currentNode); 
+    }
+    this_SourceFileLine_3=ruleSourceFileLine
+    {
+        $current = $this_SourceFileLine_3.current;
+        currentNode = currentNode.getParent();
+    }
 )
 ;
 
@@ -1186,29 +1212,12 @@ ruleInclude returns [EObject current=null]
     @after { resetLookahead(); 
     	lastConsumedNode = currentNode;
     }:
-((
 (
-		lv_keyword_0_0=
 	KEYWORD_15 
     {
-        createLeafNode(grammarAccess.getIncludeAccess().getKeywordIncludeKeyword_0_0(), "keyword"); 
+        createLeafNode(grammarAccess.getIncludeAccess().getIncludeKeyword_0(), null); 
     }
- 
-	    {
-	        if ($current==null) {
-	            $current = factory.create(grammarAccess.getIncludeRule().getType().getClassifier());
-	            associateNodeWithAstElement(currentNode, $current);
-	        }
-	        
-	        try {
-	       		set($current, "keyword", lv_keyword_0_0, "\\include", lastConsumedNode);
-	        } catch (ValueConverterException vce) {
-				handleValueConverterException(vce);
-	        }
-	    }
-
-)
-)(
+(
 (
 		lv_importURI_1_0=RULE_STRING
 		{
@@ -1255,29 +1264,12 @@ ruleVersion returns [EObject current=null]
     @after { resetLookahead(); 
     	lastConsumedNode = currentNode;
     }:
-((
 (
-		lv_keyword_0_0=
 	KEYWORD_16 
     {
-        createLeafNode(grammarAccess.getVersionAccess().getKeywordVersionKeyword_0_0(), "keyword"); 
+        createLeafNode(grammarAccess.getVersionAccess().getVersionKeyword_0(), null); 
     }
- 
-	    {
-	        if ($current==null) {
-	            $current = factory.create(grammarAccess.getVersionRule().getType().getClassifier());
-	            associateNodeWithAstElement(currentNode, $current);
-	        }
-	        
-	        try {
-	       		set($current, "keyword", lv_keyword_0_0, "\\version", lastConsumedNode);
-	        } catch (ValueConverterException vce) {
-				handleValueConverterException(vce);
-	        }
-	    }
-
-)
-)(
+(
 (
 		lv_version_1_0=RULE_STRING
 		{
@@ -1294,6 +1286,110 @@ ruleVersion returns [EObject current=null]
 	       			"version",
 	        		lv_version_1_0, 
 	        		"STRING", 
+	        		lastConsumedNode);
+	        } catch (ValueConverterException vce) {
+				handleValueConverterException(vce);
+	        }
+	    }
+
+)
+))
+;
+
+
+
+
+
+// Entry rule entryRuleSourceFileName
+entryRuleSourceFileName returns [EObject current=null]
+	:
+	{ currentNode = createCompositeNode(grammarAccess.getSourceFileNameRule(), currentNode); }
+	 iv_ruleSourceFileName=ruleSourceFileName 
+	 { $current=$iv_ruleSourceFileName.current; } 
+	 EOF 
+;
+
+// Rule SourceFileName
+ruleSourceFileName returns [EObject current=null] 
+    @init { EObject temp=null; setCurrentLookahead(); resetLookahead(); 
+    }
+    @after { resetLookahead(); 
+    	lastConsumedNode = currentNode;
+    }:
+(
+	KEYWORD_18 
+    {
+        createLeafNode(grammarAccess.getSourceFileNameAccess().getSourcefilenameKeyword_0(), null); 
+    }
+(
+(
+		lv_filename_1_0=RULE_STRING
+		{
+			createLeafNode(grammarAccess.getSourceFileNameAccess().getFilenameSTRINGTerminalRuleCall_1_0(), "filename"); 
+		}
+		{
+	        if ($current==null) {
+	            $current = factory.create(grammarAccess.getSourceFileNameRule().getType().getClassifier());
+	            associateNodeWithAstElement(currentNode, $current);
+	        }
+	        try {
+	       		set(
+	       			$current, 
+	       			"filename",
+	        		lv_filename_1_0, 
+	        		"STRING", 
+	        		lastConsumedNode);
+	        } catch (ValueConverterException vce) {
+				handleValueConverterException(vce);
+	        }
+	    }
+
+)
+))
+;
+
+
+
+
+
+// Entry rule entryRuleSourceFileLine
+entryRuleSourceFileLine returns [EObject current=null]
+	:
+	{ currentNode = createCompositeNode(grammarAccess.getSourceFileLineRule(), currentNode); }
+	 iv_ruleSourceFileLine=ruleSourceFileLine 
+	 { $current=$iv_ruleSourceFileLine.current; } 
+	 EOF 
+;
+
+// Rule SourceFileLine
+ruleSourceFileLine returns [EObject current=null] 
+    @init { EObject temp=null; setCurrentLookahead(); resetLookahead(); 
+    }
+    @after { resetLookahead(); 
+    	lastConsumedNode = currentNode;
+    }:
+(
+	KEYWORD_17 
+    {
+        createLeafNode(grammarAccess.getSourceFileLineAccess().getSourcefilelineKeyword_0(), null); 
+    }
+(
+(
+		lv_line_1_0=RULE_INT
+		{
+			createLeafNode(grammarAccess.getSourceFileLineAccess().getLineINTTerminalRuleCall_1_0(), "line"); 
+		}
+		{
+	        if ($current==null) {
+	            $current = factory.create(grammarAccess.getSourceFileLineRule().getType().getClassifier());
+	            associateNodeWithAstElement(currentNode, $current);
+	        }
+	        try {
+	       		set(
+	       			$current, 
+	       			"line",
+	        		lv_line_1_0, 
+	        		"INT", 
 	        		lastConsumedNode);
 	        } catch (ValueConverterException vce) {
 				handleValueConverterException(vce);

@@ -55,6 +55,8 @@ public class LilyPondParser extends AbstractContentAssistParser {
 					put(grammarAccess.getArbitraryCommandKeywordAccess().getGroup(), "rule__ArbitraryCommandKeyword__Group__0");
 					put(grammarAccess.getIncludeAccess().getGroup(), "rule__Include__Group__0");
 					put(grammarAccess.getVersionAccess().getGroup(), "rule__Version__Group__0");
+					put(grammarAccess.getSourceFileNameAccess().getGroup(), "rule__SourceFileName__Group__0");
+					put(grammarAccess.getSourceFileLineAccess().getGroup(), "rule__SourceFileLine__Group__0");
 					put(grammarAccess.getLilyPondAccess().getExpressionsAssignment(), "rule__LilyPond__ExpressionsAssignment");
 					put(grammarAccess.getSimpleBlockAccess().getExpressionsAssignment_2(), "rule__SimpleBlock__ExpressionsAssignment_2");
 					put(grammarAccess.getSimultaneousBlockAccess().getExpressionsAssignment_2(), "rule__SimultaneousBlock__ExpressionsAssignment_2");
@@ -68,10 +70,10 @@ public class LilyPondParser extends AbstractContentAssistParser {
 					put(grammarAccess.getSchemeNumberAccess().getHexadecimalAssignment_0(), "rule__SchemeNumber__HexadecimalAssignment_0");
 					put(grammarAccess.getSchemeNumberAccess().getValueAssignment_1(), "rule__SchemeNumber__ValueAssignment_1");
 					put(grammarAccess.getArbitraryCommandAccess().getKeywordAssignment(), "rule__ArbitraryCommand__KeywordAssignment");
-					put(grammarAccess.getIncludeAccess().getKeywordAssignment_0(), "rule__Include__KeywordAssignment_0");
 					put(grammarAccess.getIncludeAccess().getImportURIAssignment_1(), "rule__Include__ImportURIAssignment_1");
-					put(grammarAccess.getVersionAccess().getKeywordAssignment_0(), "rule__Version__KeywordAssignment_0");
 					put(grammarAccess.getVersionAccess().getVersionAssignment_1(), "rule__Version__VersionAssignment_1");
+					put(grammarAccess.getSourceFileNameAccess().getFilenameAssignment_1(), "rule__SourceFileName__FilenameAssignment_1");
+					put(grammarAccess.getSourceFileLineAccess().getLineAssignment_1(), "rule__SourceFileLine__LineAssignment_1");
 					put(grammarAccess.getTextAccess().getValueAssignment(), "rule__Text__ValueAssignment");
 					put(grammarAccess.getNumberAccess().getValueAssignment(), "rule__Number__ValueAssignment");
 				}
