@@ -16,6 +16,8 @@ import org.eclipse.emf.ecore.EObject;
  * The following features are supported:
  * <ul>
  *   <li>{@link org.elysium.lilyPond.SchemeExpression#isQuoted <em>Quoted</em>}</li>
+ *   <li>{@link org.elysium.lilyPond.SchemeExpression#isQuasiquoted <em>Quasiquoted</em>}</li>
+ *   <li>{@link org.elysium.lilyPond.SchemeExpression#isUnquoted <em>Unquoted</em>}</li>
  *   <li>{@link org.elysium.lilyPond.SchemeExpression#getValue <em>Value</em>}</li>
  * </ul>
  * </p>
@@ -51,6 +53,58 @@ public interface SchemeExpression extends EObject
    * @generated
    */
   void setQuoted(boolean value);
+
+  /**
+   * Returns the value of the '<em><b>Quasiquoted</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Quasiquoted</em>' attribute isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Quasiquoted</em>' attribute.
+   * @see #setQuasiquoted(boolean)
+   * @see org.elysium.lilyPond.LilyPondPackage#getSchemeExpression_Quasiquoted()
+   * @model
+   * @generated
+   */
+  boolean isQuasiquoted();
+
+  /**
+   * Sets the value of the '{@link org.elysium.lilyPond.SchemeExpression#isQuasiquoted <em>Quasiquoted</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Quasiquoted</em>' attribute.
+   * @see #isQuasiquoted()
+   * @generated
+   */
+  void setQuasiquoted(boolean value);
+
+  /**
+   * Returns the value of the '<em><b>Unquoted</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Unquoted</em>' attribute isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Unquoted</em>' attribute.
+   * @see #setUnquoted(boolean)
+   * @see org.elysium.lilyPond.LilyPondPackage#getSchemeExpression_Unquoted()
+   * @model
+   * @generated
+   */
+  boolean isUnquoted();
+
+  /**
+   * Sets the value of the '{@link org.elysium.lilyPond.SchemeExpression#isUnquoted <em>Unquoted</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Unquoted</em>' attribute.
+   * @see #isUnquoted()
+   * @generated
+   */
+  void setUnquoted(boolean value);
 
   /**
    * Returns the value of the '<em><b>Value</b></em>' containment reference.

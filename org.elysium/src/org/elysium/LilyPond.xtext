@@ -18,7 +18,7 @@ SimultaneousBlock: {SimultaneousBlock} "<<" expressions+=Expression* ">>";
 
 Scheme: "#" value=SchemeExpression;
 
-SchemeExpression: quoted?="'"? value=SchemeValue;
+SchemeExpression: (quoted?="'"? | quasiquoted?="`"? | unquoted?=","?) value=SchemeValue;
 
 SchemeValue: SchemeBoolean | SchemeList | SchemeBlock | SchemeText | SchemeNumber;
 

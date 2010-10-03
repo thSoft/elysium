@@ -26,6 +26,8 @@ import org.elysium.lilyPond.SchemeValue;
  * The following features are implemented:
  * <ul>
  *   <li>{@link org.elysium.lilyPond.impl.SchemeExpressionImpl#isQuoted <em>Quoted</em>}</li>
+ *   <li>{@link org.elysium.lilyPond.impl.SchemeExpressionImpl#isQuasiquoted <em>Quasiquoted</em>}</li>
+ *   <li>{@link org.elysium.lilyPond.impl.SchemeExpressionImpl#isUnquoted <em>Unquoted</em>}</li>
  *   <li>{@link org.elysium.lilyPond.impl.SchemeExpressionImpl#getValue <em>Value</em>}</li>
  * </ul>
  * </p>
@@ -53,6 +55,46 @@ public class SchemeExpressionImpl extends MinimalEObjectImpl.Container implement
    * @ordered
    */
   protected boolean quoted = QUOTED_EDEFAULT;
+
+  /**
+   * The default value of the '{@link #isQuasiquoted() <em>Quasiquoted</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #isQuasiquoted()
+   * @generated
+   * @ordered
+   */
+  protected static final boolean QUASIQUOTED_EDEFAULT = false;
+
+  /**
+   * The cached value of the '{@link #isQuasiquoted() <em>Quasiquoted</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #isQuasiquoted()
+   * @generated
+   * @ordered
+   */
+  protected boolean quasiquoted = QUASIQUOTED_EDEFAULT;
+
+  /**
+   * The default value of the '{@link #isUnquoted() <em>Unquoted</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #isUnquoted()
+   * @generated
+   * @ordered
+   */
+  protected static final boolean UNQUOTED_EDEFAULT = false;
+
+  /**
+   * The cached value of the '{@link #isUnquoted() <em>Unquoted</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #isUnquoted()
+   * @generated
+   * @ordered
+   */
+  protected boolean unquoted = UNQUOTED_EDEFAULT;
 
   /**
    * The cached value of the '{@link #getValue() <em>Value</em>}' containment reference.
@@ -106,6 +148,52 @@ public class SchemeExpressionImpl extends MinimalEObjectImpl.Container implement
     quoted = newQuoted;
     if (eNotificationRequired())
       eNotify(new ENotificationImpl(this, Notification.SET, LilyPondPackage.SCHEME_EXPRESSION__QUOTED, oldQuoted, quoted));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public boolean isQuasiquoted()
+  {
+    return quasiquoted;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setQuasiquoted(boolean newQuasiquoted)
+  {
+    boolean oldQuasiquoted = quasiquoted;
+    quasiquoted = newQuasiquoted;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, LilyPondPackage.SCHEME_EXPRESSION__QUASIQUOTED, oldQuasiquoted, quasiquoted));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public boolean isUnquoted()
+  {
+    return unquoted;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setUnquoted(boolean newUnquoted)
+  {
+    boolean oldUnquoted = unquoted;
+    unquoted = newUnquoted;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, LilyPondPackage.SCHEME_EXPRESSION__UNQUOTED, oldUnquoted, unquoted));
   }
 
   /**
@@ -184,6 +272,10 @@ public class SchemeExpressionImpl extends MinimalEObjectImpl.Container implement
     {
       case LilyPondPackage.SCHEME_EXPRESSION__QUOTED:
         return isQuoted();
+      case LilyPondPackage.SCHEME_EXPRESSION__QUASIQUOTED:
+        return isQuasiquoted();
+      case LilyPondPackage.SCHEME_EXPRESSION__UNQUOTED:
+        return isUnquoted();
       case LilyPondPackage.SCHEME_EXPRESSION__VALUE:
         return getValue();
     }
@@ -202,6 +294,12 @@ public class SchemeExpressionImpl extends MinimalEObjectImpl.Container implement
     {
       case LilyPondPackage.SCHEME_EXPRESSION__QUOTED:
         setQuoted((Boolean)newValue);
+        return;
+      case LilyPondPackage.SCHEME_EXPRESSION__QUASIQUOTED:
+        setQuasiquoted((Boolean)newValue);
+        return;
+      case LilyPondPackage.SCHEME_EXPRESSION__UNQUOTED:
+        setUnquoted((Boolean)newValue);
         return;
       case LilyPondPackage.SCHEME_EXPRESSION__VALUE:
         setValue((SchemeValue)newValue);
@@ -223,6 +321,12 @@ public class SchemeExpressionImpl extends MinimalEObjectImpl.Container implement
       case LilyPondPackage.SCHEME_EXPRESSION__QUOTED:
         setQuoted(QUOTED_EDEFAULT);
         return;
+      case LilyPondPackage.SCHEME_EXPRESSION__QUASIQUOTED:
+        setQuasiquoted(QUASIQUOTED_EDEFAULT);
+        return;
+      case LilyPondPackage.SCHEME_EXPRESSION__UNQUOTED:
+        setUnquoted(UNQUOTED_EDEFAULT);
+        return;
       case LilyPondPackage.SCHEME_EXPRESSION__VALUE:
         setValue((SchemeValue)null);
         return;
@@ -242,6 +346,10 @@ public class SchemeExpressionImpl extends MinimalEObjectImpl.Container implement
     {
       case LilyPondPackage.SCHEME_EXPRESSION__QUOTED:
         return quoted != QUOTED_EDEFAULT;
+      case LilyPondPackage.SCHEME_EXPRESSION__QUASIQUOTED:
+        return quasiquoted != QUASIQUOTED_EDEFAULT;
+      case LilyPondPackage.SCHEME_EXPRESSION__UNQUOTED:
+        return unquoted != UNQUOTED_EDEFAULT;
       case LilyPondPackage.SCHEME_EXPRESSION__VALUE:
         return value != null;
     }
@@ -261,6 +369,10 @@ public class SchemeExpressionImpl extends MinimalEObjectImpl.Container implement
     StringBuffer result = new StringBuffer(super.toString());
     result.append(" (quoted: ");
     result.append(quoted);
+    result.append(", quasiquoted: ");
+    result.append(quasiquoted);
+    result.append(", unquoted: ");
+    result.append(unquoted);
     result.append(')');
     return result.toString();
   }

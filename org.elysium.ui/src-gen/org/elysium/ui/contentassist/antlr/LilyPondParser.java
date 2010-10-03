@@ -39,6 +39,7 @@ public class LilyPondParser extends AbstractContentAssistParser {
 				{
 					put(grammarAccess.getExpressionAccess().getAlternatives(), "rule__Expression__Alternatives");
 					put(grammarAccess.getBlockAccess().getAlternatives(), "rule__Block__Alternatives");
+					put(grammarAccess.getSchemeExpressionAccess().getAlternatives_0(), "rule__SchemeExpression__Alternatives_0");
 					put(grammarAccess.getSchemeValueAccess().getAlternatives(), "rule__SchemeValue__Alternatives");
 					put(grammarAccess.getSchemeTextLiteralsAccess().getAlternatives(), "rule__SchemeTextLiterals__Alternatives");
 					put(grammarAccess.getCommandAccess().getAlternatives(), "rule__Command__Alternatives");
@@ -61,7 +62,9 @@ public class LilyPondParser extends AbstractContentAssistParser {
 					put(grammarAccess.getSimpleBlockAccess().getExpressionsAssignment_2(), "rule__SimpleBlock__ExpressionsAssignment_2");
 					put(grammarAccess.getSimultaneousBlockAccess().getExpressionsAssignment_2(), "rule__SimultaneousBlock__ExpressionsAssignment_2");
 					put(grammarAccess.getSchemeAccess().getValueAssignment_1(), "rule__Scheme__ValueAssignment_1");
-					put(grammarAccess.getSchemeExpressionAccess().getQuotedAssignment_0(), "rule__SchemeExpression__QuotedAssignment_0");
+					put(grammarAccess.getSchemeExpressionAccess().getQuotedAssignment_0_0(), "rule__SchemeExpression__QuotedAssignment_0_0");
+					put(grammarAccess.getSchemeExpressionAccess().getQuasiquotedAssignment_0_1(), "rule__SchemeExpression__QuasiquotedAssignment_0_1");
+					put(grammarAccess.getSchemeExpressionAccess().getUnquotedAssignment_0_2(), "rule__SchemeExpression__UnquotedAssignment_0_2");
 					put(grammarAccess.getSchemeExpressionAccess().getValueAssignment_1(), "rule__SchemeExpression__ValueAssignment_1");
 					put(grammarAccess.getSchemeBooleanAccess().getValueAssignment(), "rule__SchemeBoolean__ValueAssignment");
 					put(grammarAccess.getSchemeListAccess().getExpressionsAssignment_2(), "rule__SchemeList__ExpressionsAssignment_2");

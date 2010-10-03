@@ -44,18 +44,19 @@ import org.elysium.services.LilyPondGrammarAccess;
 		tokenNameToValue.put("KEYWORD_4", "')'");
 		tokenNameToValue.put("KEYWORD_5", "','");
 		tokenNameToValue.put("KEYWORD_6", "'\\'");
-		tokenNameToValue.put("KEYWORD_7", "'{'");
-		tokenNameToValue.put("KEYWORD_8", "'}'");
-		tokenNameToValue.put("KEYWORD_9", "'#x'");
-		tokenNameToValue.put("KEYWORD_10", "'#{'");
-		tokenNameToValue.put("KEYWORD_11", "'#}'");
-		tokenNameToValue.put("KEYWORD_12", "'<<'");
-		tokenNameToValue.put("KEYWORD_13", "'>>'");
-		tokenNameToValue.put("KEYWORD_14", "'\\\\'");
-		tokenNameToValue.put("KEYWORD_15", "'\\include'");
-		tokenNameToValue.put("KEYWORD_16", "'\\version'");
-		tokenNameToValue.put("KEYWORD_17", "'\\sourcefileline'");
-		tokenNameToValue.put("KEYWORD_18", "'\\sourcefilename'");
+		tokenNameToValue.put("KEYWORD_7", "'`'");
+		tokenNameToValue.put("KEYWORD_8", "'{'");
+		tokenNameToValue.put("KEYWORD_9", "'}'");
+		tokenNameToValue.put("KEYWORD_10", "'#x'");
+		tokenNameToValue.put("KEYWORD_11", "'#{'");
+		tokenNameToValue.put("KEYWORD_12", "'#}'");
+		tokenNameToValue.put("KEYWORD_13", "'<<'");
+		tokenNameToValue.put("KEYWORD_14", "'>>'");
+		tokenNameToValue.put("KEYWORD_15", "'\\\\'");
+		tokenNameToValue.put("KEYWORD_16", "'\\include'");
+		tokenNameToValue.put("KEYWORD_17", "'\\version'");
+		tokenNameToValue.put("KEYWORD_18", "'\\sourcefileline'");
+		tokenNameToValue.put("KEYWORD_19", "'\\sourcefilename'");
  	}
  	
     public void setGrammarAccess(LilyPondGrammarAccess grammarAccess) {
@@ -830,6 +831,34 @@ finally {
 	restoreStackSize(stackSize);
 }
 
+rule__SchemeExpression__Alternatives_0
+    @init {
+		int stackSize = keepStackSize();
+    }
+:
+(
+{ before(grammarAccess.getSchemeExpressionAccess().getQuotedAssignment_0_0()); }
+(rule__SchemeExpression__QuotedAssignment_0_0)?
+{ after(grammarAccess.getSchemeExpressionAccess().getQuotedAssignment_0_0()); }
+)
+
+    |(
+{ before(grammarAccess.getSchemeExpressionAccess().getQuasiquotedAssignment_0_1()); }
+(rule__SchemeExpression__QuasiquotedAssignment_0_1)?
+{ after(grammarAccess.getSchemeExpressionAccess().getQuasiquotedAssignment_0_1()); }
+)
+
+    |(
+{ before(grammarAccess.getSchemeExpressionAccess().getUnquotedAssignment_0_2()); }
+(rule__SchemeExpression__UnquotedAssignment_0_2)?
+{ after(grammarAccess.getSchemeExpressionAccess().getUnquotedAssignment_0_2()); }
+)
+
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
 rule__SchemeValue__Alternatives
     @init {
 		int stackSize = keepStackSize();
@@ -878,7 +907,7 @@ rule__SchemeTextLiterals__Alternatives
 (
 { before(grammarAccess.getSchemeTextLiteralsAccess().getReverseSolidusReverseSolidusKeyword_0()); }
 
-	KEYWORD_14 
+	KEYWORD_15 
 
 { after(grammarAccess.getSchemeTextLiteralsAccess().getReverseSolidusReverseSolidusKeyword_0()); }
 )
@@ -1101,7 +1130,7 @@ rule__SimpleBlock__Group__1__Impl
 (
 { before(grammarAccess.getSimpleBlockAccess().getLeftCurlyBracketKeyword_1()); }
 
-	KEYWORD_7 
+	KEYWORD_8 
 
 { after(grammarAccess.getSimpleBlockAccess().getLeftCurlyBracketKeyword_1()); }
 )
@@ -1160,7 +1189,7 @@ rule__SimpleBlock__Group__3__Impl
 (
 { before(grammarAccess.getSimpleBlockAccess().getRightCurlyBracketKeyword_3()); }
 
-	KEYWORD_8 
+	KEYWORD_9 
 
 { after(grammarAccess.getSimpleBlockAccess().getRightCurlyBracketKeyword_3()); }
 )
@@ -1230,7 +1259,7 @@ rule__SimultaneousBlock__Group__1__Impl
 (
 { before(grammarAccess.getSimultaneousBlockAccess().getLessThanSignLessThanSignKeyword_1()); }
 
-	KEYWORD_12 
+	KEYWORD_13 
 
 { after(grammarAccess.getSimultaneousBlockAccess().getLessThanSignLessThanSignKeyword_1()); }
 )
@@ -1289,7 +1318,7 @@ rule__SimultaneousBlock__Group__3__Impl
 (
 { before(grammarAccess.getSimultaneousBlockAccess().getGreaterThanSignGreaterThanSignKeyword_3()); }
 
-	KEYWORD_13 
+	KEYWORD_14 
 
 { after(grammarAccess.getSimultaneousBlockAccess().getGreaterThanSignGreaterThanSignKeyword_3()); }
 )
@@ -1389,9 +1418,9 @@ rule__SchemeExpression__Group__0__Impl
     }
 :
 (
-{ before(grammarAccess.getSchemeExpressionAccess().getQuotedAssignment_0()); }
-(rule__SchemeExpression__QuotedAssignment_0)?
-{ after(grammarAccess.getSchemeExpressionAccess().getQuotedAssignment_0()); }
+{ before(grammarAccess.getSchemeExpressionAccess().getAlternatives_0()); }
+(rule__SchemeExpression__Alternatives_0)
+{ after(grammarAccess.getSchemeExpressionAccess().getAlternatives_0()); }
 )
 
 ;
@@ -1581,7 +1610,7 @@ rule__SchemeBlock__Group__0__Impl
 (
 { before(grammarAccess.getSchemeBlockAccess().getNumberSignLeftCurlyBracketKeyword_0()); }
 
-	KEYWORD_10 
+	KEYWORD_11 
 
 { after(grammarAccess.getSchemeBlockAccess().getNumberSignLeftCurlyBracketKeyword_0()); }
 )
@@ -1647,7 +1676,7 @@ rule__SchemeBlock__Group__2__Impl
 (
 { before(grammarAccess.getSchemeBlockAccess().getNumberSignRightCurlyBracketKeyword_2()); }
 
-	KEYWORD_11 
+	KEYWORD_12 
 
 { after(grammarAccess.getSchemeBlockAccess().getNumberSignRightCurlyBracketKeyword_2()); }
 )
@@ -1808,7 +1837,7 @@ rule__Include__Group__0__Impl
 (
 { before(grammarAccess.getIncludeAccess().getIncludeKeyword_0()); }
 
-	KEYWORD_15 
+	KEYWORD_16 
 
 { after(grammarAccess.getIncludeAccess().getIncludeKeyword_0()); }
 )
@@ -1871,7 +1900,7 @@ rule__Version__Group__0__Impl
 (
 { before(grammarAccess.getVersionAccess().getVersionKeyword_0()); }
 
-	KEYWORD_16 
+	KEYWORD_17 
 
 { after(grammarAccess.getVersionAccess().getVersionKeyword_0()); }
 )
@@ -1934,7 +1963,7 @@ rule__SourceFileName__Group__0__Impl
 (
 { before(grammarAccess.getSourceFileNameAccess().getSourcefilenameKeyword_0()); }
 
-	KEYWORD_18 
+	KEYWORD_19 
 
 { after(grammarAccess.getSourceFileNameAccess().getSourcefilenameKeyword_0()); }
 )
@@ -1997,7 +2026,7 @@ rule__SourceFileLine__Group__0__Impl
 (
 { before(grammarAccess.getSourceFileLineAccess().getSourcefilelineKeyword_0()); }
 
-	KEYWORD_17 
+	KEYWORD_18 
 
 { after(grammarAccess.getSourceFileLineAccess().getSourcefilelineKeyword_0()); }
 )
@@ -2101,22 +2130,68 @@ finally {
 	restoreStackSize(stackSize);
 }
 
-rule__SchemeExpression__QuotedAssignment_0
+rule__SchemeExpression__QuotedAssignment_0_0
     @init {
 		int stackSize = keepStackSize();
     }
 :
 (
-{ before(grammarAccess.getSchemeExpressionAccess().getQuotedApostropheKeyword_0_0()); }
+{ before(grammarAccess.getSchemeExpressionAccess().getQuotedApostropheKeyword_0_0_0()); }
 (
-{ before(grammarAccess.getSchemeExpressionAccess().getQuotedApostropheKeyword_0_0()); }
+{ before(grammarAccess.getSchemeExpressionAccess().getQuotedApostropheKeyword_0_0_0()); }
 
 	KEYWORD_2 
 
-{ after(grammarAccess.getSchemeExpressionAccess().getQuotedApostropheKeyword_0_0()); }
+{ after(grammarAccess.getSchemeExpressionAccess().getQuotedApostropheKeyword_0_0_0()); }
 )
 
-{ after(grammarAccess.getSchemeExpressionAccess().getQuotedApostropheKeyword_0_0()); }
+{ after(grammarAccess.getSchemeExpressionAccess().getQuotedApostropheKeyword_0_0_0()); }
+)
+
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__SchemeExpression__QuasiquotedAssignment_0_1
+    @init {
+		int stackSize = keepStackSize();
+    }
+:
+(
+{ before(grammarAccess.getSchemeExpressionAccess().getQuasiquotedGraveAccentKeyword_0_1_0()); }
+(
+{ before(grammarAccess.getSchemeExpressionAccess().getQuasiquotedGraveAccentKeyword_0_1_0()); }
+
+	KEYWORD_7 
+
+{ after(grammarAccess.getSchemeExpressionAccess().getQuasiquotedGraveAccentKeyword_0_1_0()); }
+)
+
+{ after(grammarAccess.getSchemeExpressionAccess().getQuasiquotedGraveAccentKeyword_0_1_0()); }
+)
+
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__SchemeExpression__UnquotedAssignment_0_2
+    @init {
+		int stackSize = keepStackSize();
+    }
+:
+(
+{ before(grammarAccess.getSchemeExpressionAccess().getUnquotedCommaKeyword_0_2_0()); }
+(
+{ before(grammarAccess.getSchemeExpressionAccess().getUnquotedCommaKeyword_0_2_0()); }
+
+	KEYWORD_5 
+
+{ after(grammarAccess.getSchemeExpressionAccess().getUnquotedCommaKeyword_0_2_0()); }
+)
+
+{ after(grammarAccess.getSchemeExpressionAccess().getUnquotedCommaKeyword_0_2_0()); }
 )
 
 ;
@@ -2209,7 +2284,7 @@ rule__SchemeNumber__HexadecimalAssignment_0
 (
 { before(grammarAccess.getSchemeNumberAccess().getHexadecimalXKeyword_0_0()); }
 
-	KEYWORD_9 
+	KEYWORD_10 
 
 { after(grammarAccess.getSchemeNumberAccess().getHexadecimalXKeyword_0_0()); }
 )

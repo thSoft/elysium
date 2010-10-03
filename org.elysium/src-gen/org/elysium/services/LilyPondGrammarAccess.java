@@ -175,23 +175,43 @@ public class LilyPondGrammarAccess extends AbstractGrammarElementFinder {
 	public class SchemeExpressionElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "SchemeExpression");
 		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Assignment cQuotedAssignment_0 = (Assignment)cGroup.eContents().get(0);
-		private final Keyword cQuotedApostropheKeyword_0_0 = (Keyword)cQuotedAssignment_0.eContents().get(0);
+		private final Alternatives cAlternatives_0 = (Alternatives)cGroup.eContents().get(0);
+		private final Assignment cQuotedAssignment_0_0 = (Assignment)cAlternatives_0.eContents().get(0);
+		private final Keyword cQuotedApostropheKeyword_0_0_0 = (Keyword)cQuotedAssignment_0_0.eContents().get(0);
+		private final Assignment cQuasiquotedAssignment_0_1 = (Assignment)cAlternatives_0.eContents().get(1);
+		private final Keyword cQuasiquotedGraveAccentKeyword_0_1_0 = (Keyword)cQuasiquotedAssignment_0_1.eContents().get(0);
+		private final Assignment cUnquotedAssignment_0_2 = (Assignment)cAlternatives_0.eContents().get(2);
+		private final Keyword cUnquotedCommaKeyword_0_2_0 = (Keyword)cUnquotedAssignment_0_2.eContents().get(0);
 		private final Assignment cValueAssignment_1 = (Assignment)cGroup.eContents().get(1);
 		private final RuleCall cValueSchemeValueParserRuleCall_1_0 = (RuleCall)cValueAssignment_1.eContents().get(0);
 		
 		//SchemeExpression:
-		//	quoted?="\'"? value=SchemeValue;
+		//	(quoted?="\'"? | quasiquoted?="`"? | unquoted?=","?) value=SchemeValue;
 		public ParserRule getRule() { return rule; }
 
-		//quoted?="\'"? value=SchemeValue
+		//(quoted?="\'"? | quasiquoted?="`"? | unquoted?=","?) value=SchemeValue
 		public Group getGroup() { return cGroup; }
 
+		//quoted?="\'"? | quasiquoted?="`"? | unquoted?=","?
+		public Alternatives getAlternatives_0() { return cAlternatives_0; }
+
 		//quoted?="\'"?
-		public Assignment getQuotedAssignment_0() { return cQuotedAssignment_0; }
+		public Assignment getQuotedAssignment_0_0() { return cQuotedAssignment_0_0; }
 
 		//"\'"
-		public Keyword getQuotedApostropheKeyword_0_0() { return cQuotedApostropheKeyword_0_0; }
+		public Keyword getQuotedApostropheKeyword_0_0_0() { return cQuotedApostropheKeyword_0_0_0; }
+
+		//quasiquoted?="`"?
+		public Assignment getQuasiquotedAssignment_0_1() { return cQuasiquotedAssignment_0_1; }
+
+		//"`"
+		public Keyword getQuasiquotedGraveAccentKeyword_0_1_0() { return cQuasiquotedGraveAccentKeyword_0_1_0; }
+
+		//unquoted?=","?
+		public Assignment getUnquotedAssignment_0_2() { return cUnquotedAssignment_0_2; }
+
+		//","
+		public Keyword getUnquotedCommaKeyword_0_2_0() { return cUnquotedCommaKeyword_0_2_0; }
 
 		//value=SchemeValue
 		public Assignment getValueAssignment_1() { return cValueAssignment_1; }
@@ -736,7 +756,7 @@ public class LilyPondGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//SchemeExpression:
-	//	quoted?="\'"? value=SchemeValue;
+	//	(quoted?="\'"? | quasiquoted?="`"? | unquoted?=","?) value=SchemeValue;
 	public SchemeExpressionElements getSchemeExpressionAccess() {
 		return (pSchemeExpression != null) ? pSchemeExpression : (pSchemeExpression = new SchemeExpressionElements());
 	}

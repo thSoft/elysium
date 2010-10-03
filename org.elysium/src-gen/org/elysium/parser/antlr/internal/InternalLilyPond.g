@@ -286,7 +286,7 @@ ruleSimpleBlock returns [EObject current=null]
         associateNodeWithAstElement(currentNode, $current); 
     }
 )
-	KEYWORD_7 
+	KEYWORD_8 
     {
         createLeafNode(grammarAccess.getSimpleBlockAccess().getLeftCurlyBracketKeyword_1(), null); 
     }
@@ -315,7 +315,7 @@ ruleSimpleBlock returns [EObject current=null]
 
 )
 )*
-	KEYWORD_8 
+	KEYWORD_9 
     {
         createLeafNode(grammarAccess.getSimpleBlockAccess().getRightCurlyBracketKeyword_3(), null); 
     }
@@ -357,7 +357,7 @@ ruleSimultaneousBlock returns [EObject current=null]
         associateNodeWithAstElement(currentNode, $current); 
     }
 )
-	KEYWORD_12 
+	KEYWORD_13 
     {
         createLeafNode(grammarAccess.getSimultaneousBlockAccess().getLessThanSignLessThanSignKeyword_1(), null); 
     }
@@ -386,7 +386,7 @@ ruleSimultaneousBlock returns [EObject current=null]
 
 )
 )*
-	KEYWORD_13 
+	KEYWORD_14 
     {
         createLeafNode(grammarAccess.getSimultaneousBlockAccess().getGreaterThanSignGreaterThanSignKeyword_3(), null); 
     }
@@ -465,12 +465,12 @@ ruleSchemeExpression returns [EObject current=null]
     @after { resetLookahead(); 
     	lastConsumedNode = currentNode;
     }:
-((
+(((
 (
 		lv_quoted_0_0=
 	KEYWORD_2 
     {
-        createLeafNode(grammarAccess.getSchemeExpressionAccess().getQuotedApostropheKeyword_0_0(), "quoted"); 
+        createLeafNode(grammarAccess.getSchemeExpressionAccess().getQuotedApostropheKeyword_0_0_0(), "quoted"); 
     }
  
 	    {
@@ -487,12 +487,58 @@ ruleSchemeExpression returns [EObject current=null]
 	    }
 
 )
-)?(
+)?
+    |(
+(
+		lv_quasiquoted_1_0=
+	KEYWORD_7 
+    {
+        createLeafNode(grammarAccess.getSchemeExpressionAccess().getQuasiquotedGraveAccentKeyword_0_1_0(), "quasiquoted"); 
+    }
+ 
+	    {
+	        if ($current==null) {
+	            $current = factory.create(grammarAccess.getSchemeExpressionRule().getType().getClassifier());
+	            associateNodeWithAstElement(currentNode, $current);
+	        }
+	        
+	        try {
+	       		set($current, "quasiquoted", true, "`", lastConsumedNode);
+	        } catch (ValueConverterException vce) {
+				handleValueConverterException(vce);
+	        }
+	    }
+
+)
+)?
+    |(
+(
+		lv_unquoted_2_0=
+	KEYWORD_5 
+    {
+        createLeafNode(grammarAccess.getSchemeExpressionAccess().getUnquotedCommaKeyword_0_2_0(), "unquoted"); 
+    }
+ 
+	    {
+	        if ($current==null) {
+	            $current = factory.create(grammarAccess.getSchemeExpressionRule().getType().getClassifier());
+	            associateNodeWithAstElement(currentNode, $current);
+	        }
+	        
+	        try {
+	       		set($current, "unquoted", true, ",", lastConsumedNode);
+	        } catch (ValueConverterException vce) {
+				handleValueConverterException(vce);
+	        }
+	    }
+
+)
+)?)(
 (
 		{ 
 	        currentNode=createCompositeNode(grammarAccess.getSchemeExpressionAccess().getValueSchemeValueParserRuleCall_1_0(), currentNode); 
 	    }
-		lv_value_1_0=ruleSchemeValue		{
+		lv_value_3_0=ruleSchemeValue		{
 	        if ($current==null) {
 	            $current = factory.create(grammarAccess.getSchemeExpressionRule().getType().getClassifier());
 	            associateNodeWithAstElement(currentNode.getParent(), $current);
@@ -501,7 +547,7 @@ ruleSchemeExpression returns [EObject current=null]
 	       		set(
 	       			$current, 
 	       			"value",
-	        		lv_value_1_0, 
+	        		lv_value_3_0, 
 	        		"SchemeValue", 
 	        		currentNode);
 	        } catch (ValueConverterException vce) {
@@ -740,7 +786,7 @@ ruleSchemeBlock returns [EObject current=null]
     	lastConsumedNode = currentNode;
     }:
 (
-	KEYWORD_10 
+	KEYWORD_11 
     {
         createLeafNode(grammarAccess.getSchemeBlockAccess().getNumberSignLeftCurlyBracketKeyword_0(), null); 
     }
@@ -769,7 +815,7 @@ ruleSchemeBlock returns [EObject current=null]
 
 )
 )+
-	KEYWORD_11 
+	KEYWORD_12 
     {
         createLeafNode(grammarAccess.getSchemeBlockAccess().getNumberSignRightCurlyBracketKeyword_2(), null); 
     }
@@ -844,7 +890,7 @@ ruleSchemeTextLiterals returns [AntlrDatatypeRuleToken current=new AntlrDatatype
 	    lastConsumedNode = currentNode;
     }:
 (
-	kw=KEYWORD_14 
+	kw=KEYWORD_15 
     {
         $current.merge(kw);
         createLeafNode(grammarAccess.getSchemeTextLiteralsAccess().getReverseSolidusReverseSolidusKeyword_0(), null); 
@@ -906,7 +952,7 @@ ruleSchemeNumber returns [EObject current=null]
 ((
 (
 		lv_hexadecimal_0_0=
-	KEYWORD_9 
+	KEYWORD_10 
     {
         createLeafNode(grammarAccess.getSchemeNumberAccess().getHexadecimalXKeyword_0_0(), "hexadecimal"); 
     }
@@ -1213,7 +1259,7 @@ ruleInclude returns [EObject current=null]
     	lastConsumedNode = currentNode;
     }:
 (
-	KEYWORD_15 
+	KEYWORD_16 
     {
         createLeafNode(grammarAccess.getIncludeAccess().getIncludeKeyword_0(), null); 
     }
@@ -1265,7 +1311,7 @@ ruleVersion returns [EObject current=null]
     	lastConsumedNode = currentNode;
     }:
 (
-	KEYWORD_16 
+	KEYWORD_17 
     {
         createLeafNode(grammarAccess.getVersionAccess().getVersionKeyword_0(), null); 
     }
@@ -1317,7 +1363,7 @@ ruleSourceFileName returns [EObject current=null]
     	lastConsumedNode = currentNode;
     }:
 (
-	KEYWORD_18 
+	KEYWORD_19 
     {
         createLeafNode(grammarAccess.getSourceFileNameAccess().getSourcefilenameKeyword_0(), null); 
     }
@@ -1369,7 +1415,7 @@ ruleSourceFileLine returns [EObject current=null]
     	lastConsumedNode = currentNode;
     }:
 (
-	KEYWORD_17 
+	KEYWORD_18 
     {
         createLeafNode(grammarAccess.getSourceFileLineAccess().getSourcefilelineKeyword_0(), null); 
     }

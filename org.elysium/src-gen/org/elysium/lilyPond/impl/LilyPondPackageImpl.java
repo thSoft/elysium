@@ -396,9 +396,29 @@ public class LilyPondPackageImpl extends EPackageImpl implements LilyPondPackage
    * <!-- end-user-doc -->
    * @generated
    */
+  public EAttribute getSchemeExpression_Quasiquoted()
+  {
+    return (EAttribute)schemeExpressionEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getSchemeExpression_Unquoted()
+  {
+    return (EAttribute)schemeExpressionEClass.getEStructuralFeatures().get(2);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public EReference getSchemeExpression_Value()
   {
-    return (EReference)schemeExpressionEClass.getEStructuralFeatures().get(1);
+    return (EReference)schemeExpressionEClass.getEStructuralFeatures().get(3);
   }
 
   /**
@@ -730,6 +750,8 @@ public class LilyPondPackageImpl extends EPackageImpl implements LilyPondPackage
 
     schemeExpressionEClass = createEClass(SCHEME_EXPRESSION);
     createEAttribute(schemeExpressionEClass, SCHEME_EXPRESSION__QUOTED);
+    createEAttribute(schemeExpressionEClass, SCHEME_EXPRESSION__QUASIQUOTED);
+    createEAttribute(schemeExpressionEClass, SCHEME_EXPRESSION__UNQUOTED);
     createEReference(schemeExpressionEClass, SCHEME_EXPRESSION__VALUE);
 
     schemeValueEClass = createEClass(SCHEME_VALUE);
@@ -844,6 +866,8 @@ public class LilyPondPackageImpl extends EPackageImpl implements LilyPondPackage
 
     initEClass(schemeExpressionEClass, SchemeExpression.class, "SchemeExpression", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getSchemeExpression_Quoted(), ecorePackage.getEBoolean(), "quoted", null, 0, 1, SchemeExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getSchemeExpression_Quasiquoted(), ecorePackage.getEBoolean(), "quasiquoted", null, 0, 1, SchemeExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getSchemeExpression_Unquoted(), ecorePackage.getEBoolean(), "unquoted", null, 0, 1, SchemeExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getSchemeExpression_Value(), this.getSchemeValue(), null, "value", null, 0, 1, SchemeExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(schemeValueEClass, SchemeValue.class, "SchemeValue", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
