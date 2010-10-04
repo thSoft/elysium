@@ -12,49 +12,49 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 import org.elysium.lilyPond.LilyPondPackage;
-import org.elysium.lilyPond.SourceFileName;
+import org.elysium.lilyPond.SchemeMarkupCommand;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Source File Name</b></em>'.
+ * An implementation of the model object '<em><b>Scheme Markup Command</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link org.elysium.lilyPond.impl.SourceFileNameImpl#getFilename <em>Filename</em>}</li>
+ *   <li>{@link org.elysium.lilyPond.impl.SchemeMarkupCommandImpl#getCommand <em>Command</em>}</li>
  * </ul>
  * </p>
  *
  * @generated
  */
-public class SourceFileNameImpl extends SpecialCommandImpl implements SourceFileName
+public class SchemeMarkupCommandImpl extends SchemeValueImpl implements SchemeMarkupCommand
 {
   /**
-   * The default value of the '{@link #getFilename() <em>Filename</em>}' attribute.
+   * The default value of the '{@link #getCommand() <em>Command</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getFilename()
+   * @see #getCommand()
    * @generated
    * @ordered
    */
-  protected static final String FILENAME_EDEFAULT = null;
+  protected static final String COMMAND_EDEFAULT = null;
 
   /**
-   * The cached value of the '{@link #getFilename() <em>Filename</em>}' attribute.
+   * The cached value of the '{@link #getCommand() <em>Command</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getFilename()
+   * @see #getCommand()
    * @generated
    * @ordered
    */
-  protected String filename = FILENAME_EDEFAULT;
+  protected String command = COMMAND_EDEFAULT;
 
   /**
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
-  protected SourceFileNameImpl()
+  protected SchemeMarkupCommandImpl()
   {
     super();
   }
@@ -67,7 +67,7 @@ public class SourceFileNameImpl extends SpecialCommandImpl implements SourceFile
   @Override
   protected EClass eStaticClass()
   {
-    return LilyPondPackage.Literals.SOURCE_FILE_NAME;
+    return LilyPondPackage.Literals.SCHEME_MARKUP_COMMAND;
   }
 
   /**
@@ -75,9 +75,9 @@ public class SourceFileNameImpl extends SpecialCommandImpl implements SourceFile
    * <!-- end-user-doc -->
    * @generated
    */
-  public String getFilename()
+  public String getCommand()
   {
-    return filename;
+    return command;
   }
 
   /**
@@ -85,12 +85,12 @@ public class SourceFileNameImpl extends SpecialCommandImpl implements SourceFile
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setFilename(String newFilename)
+  public void setCommand(String newCommand)
   {
-    String oldFilename = filename;
-    filename = newFilename;
+    String oldCommand = command;
+    command = newCommand;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, LilyPondPackage.SOURCE_FILE_NAME__FILENAME, oldFilename, filename));
+      eNotify(new ENotificationImpl(this, Notification.SET, LilyPondPackage.SCHEME_MARKUP_COMMAND__COMMAND, oldCommand, command));
   }
 
   /**
@@ -103,8 +103,8 @@ public class SourceFileNameImpl extends SpecialCommandImpl implements SourceFile
   {
     switch (featureID)
     {
-      case LilyPondPackage.SOURCE_FILE_NAME__FILENAME:
-        return getFilename();
+      case LilyPondPackage.SCHEME_MARKUP_COMMAND__COMMAND:
+        return getCommand();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -119,8 +119,8 @@ public class SourceFileNameImpl extends SpecialCommandImpl implements SourceFile
   {
     switch (featureID)
     {
-      case LilyPondPackage.SOURCE_FILE_NAME__FILENAME:
-        setFilename((String)newValue);
+      case LilyPondPackage.SCHEME_MARKUP_COMMAND__COMMAND:
+        setCommand((String)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -136,8 +136,8 @@ public class SourceFileNameImpl extends SpecialCommandImpl implements SourceFile
   {
     switch (featureID)
     {
-      case LilyPondPackage.SOURCE_FILE_NAME__FILENAME:
-        setFilename(FILENAME_EDEFAULT);
+      case LilyPondPackage.SCHEME_MARKUP_COMMAND__COMMAND:
+        setCommand(COMMAND_EDEFAULT);
         return;
     }
     super.eUnset(featureID);
@@ -153,8 +153,8 @@ public class SourceFileNameImpl extends SpecialCommandImpl implements SourceFile
   {
     switch (featureID)
     {
-      case LilyPondPackage.SOURCE_FILE_NAME__FILENAME:
-        return FILENAME_EDEFAULT == null ? filename != null : !FILENAME_EDEFAULT.equals(filename);
+      case LilyPondPackage.SCHEME_MARKUP_COMMAND__COMMAND:
+        return COMMAND_EDEFAULT == null ? command != null : !COMMAND_EDEFAULT.equals(command);
     }
     return super.eIsSet(featureID);
   }
@@ -170,10 +170,10 @@ public class SourceFileNameImpl extends SpecialCommandImpl implements SourceFile
     if (eIsProxy()) return super.toString();
 
     StringBuffer result = new StringBuffer(super.toString());
-    result.append(" (filename: ");
-    result.append(filename);
+    result.append(" (command: ");
+    result.append(command);
     result.append(')');
     return result.toString();
   }
 
-} //SourceFileNameImpl
+} //SchemeMarkupCommandImpl

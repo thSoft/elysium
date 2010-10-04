@@ -10,8 +10,6 @@ import org.elysium.lilyPond.Number;
 import org.elysium.lilyPond.Scheme;
 import org.elysium.lilyPond.SchemeExpression;
 import org.elysium.lilyPond.SchemeList;
-import org.elysium.lilyPond.SourceFileLine;
-import org.elysium.lilyPond.SourceFileName;
 import org.elysium.lilyPond.Text;
 
 /**
@@ -33,7 +31,7 @@ public class LilyPondTransformer extends AbstractDeclarativeSemanticModelTransfo
 	}
 
 	public boolean consumeNode(Expression expression) {
-		return !((expression instanceof ArbitraryCommand) || (expression instanceof Text) || (expression instanceof Number) || (expression instanceof SourceFileName) || (expression instanceof SourceFileLine));
+		return !((expression instanceof ArbitraryCommand) || (expression instanceof Text) || (expression instanceof Number));
 	}
 
 }

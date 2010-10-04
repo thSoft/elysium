@@ -25,13 +25,12 @@ import org.elysium.lilyPond.SchemeBlock;
 import org.elysium.lilyPond.SchemeBoolean;
 import org.elysium.lilyPond.SchemeExpression;
 import org.elysium.lilyPond.SchemeList;
+import org.elysium.lilyPond.SchemeMarkupCommand;
 import org.elysium.lilyPond.SchemeNumber;
 import org.elysium.lilyPond.SchemeText;
 import org.elysium.lilyPond.SchemeValue;
 import org.elysium.lilyPond.SimpleBlock;
 import org.elysium.lilyPond.SimultaneousBlock;
-import org.elysium.lilyPond.SourceFileLine;
-import org.elysium.lilyPond.SourceFileName;
 import org.elysium.lilyPond.SpecialCommand;
 import org.elysium.lilyPond.Text;
 import org.elysium.lilyPond.Version;
@@ -126,6 +125,13 @@ public class LilyPondPackageImpl extends EPackageImpl implements LilyPondPackage
    * <!-- end-user-doc -->
    * @generated
    */
+  private EClass schemeMarkupCommandEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   private EClass schemeTextEClass = null;
 
   /**
@@ -169,20 +175,6 @@ public class LilyPondPackageImpl extends EPackageImpl implements LilyPondPackage
    * @generated
    */
   private EClass versionEClass = null;
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  private EClass sourceFileNameEClass = null;
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  private EClass sourceFileLineEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -496,6 +488,26 @@ public class LilyPondPackageImpl extends EPackageImpl implements LilyPondPackage
    * <!-- end-user-doc -->
    * @generated
    */
+  public EClass getSchemeMarkupCommand()
+  {
+    return schemeMarkupCommandEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getSchemeMarkupCommand_Command()
+  {
+    return (EAttribute)schemeMarkupCommandEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public EClass getSchemeText()
   {
     return schemeTextEClass;
@@ -626,46 +638,6 @@ public class LilyPondPackageImpl extends EPackageImpl implements LilyPondPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EClass getSourceFileName()
-  {
-    return sourceFileNameEClass;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EAttribute getSourceFileName_Filename()
-  {
-    return (EAttribute)sourceFileNameEClass.getEStructuralFeatures().get(0);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EClass getSourceFileLine()
-  {
-    return sourceFileLineEClass;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EAttribute getSourceFileLine_Line()
-  {
-    return (EAttribute)sourceFileLineEClass.getEStructuralFeatures().get(0);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
   public EClass getText()
   {
     return textEClass;
@@ -765,6 +737,9 @@ public class LilyPondPackageImpl extends EPackageImpl implements LilyPondPackage
     schemeBlockEClass = createEClass(SCHEME_BLOCK);
     createEReference(schemeBlockEClass, SCHEME_BLOCK__EXPRESSIONS);
 
+    schemeMarkupCommandEClass = createEClass(SCHEME_MARKUP_COMMAND);
+    createEAttribute(schemeMarkupCommandEClass, SCHEME_MARKUP_COMMAND__COMMAND);
+
     schemeTextEClass = createEClass(SCHEME_TEXT);
     createEAttribute(schemeTextEClass, SCHEME_TEXT__VALUE);
 
@@ -784,12 +759,6 @@ public class LilyPondPackageImpl extends EPackageImpl implements LilyPondPackage
 
     versionEClass = createEClass(VERSION);
     createEAttribute(versionEClass, VERSION__VERSION);
-
-    sourceFileNameEClass = createEClass(SOURCE_FILE_NAME);
-    createEAttribute(sourceFileNameEClass, SOURCE_FILE_NAME__FILENAME);
-
-    sourceFileLineEClass = createEClass(SOURCE_FILE_LINE);
-    createEAttribute(sourceFileLineEClass, SOURCE_FILE_LINE__LINE);
 
     textEClass = createEClass(TEXT);
     createEAttribute(textEClass, TEXT__VALUE);
@@ -834,6 +803,7 @@ public class LilyPondPackageImpl extends EPackageImpl implements LilyPondPackage
     schemeBooleanEClass.getESuperTypes().add(this.getSchemeValue());
     schemeListEClass.getESuperTypes().add(this.getSchemeValue());
     schemeBlockEClass.getESuperTypes().add(this.getSchemeValue());
+    schemeMarkupCommandEClass.getESuperTypes().add(this.getSchemeValue());
     schemeTextEClass.getESuperTypes().add(this.getSchemeValue());
     schemeNumberEClass.getESuperTypes().add(this.getSchemeValue());
     commandEClass.getESuperTypes().add(this.getExpression());
@@ -841,8 +811,6 @@ public class LilyPondPackageImpl extends EPackageImpl implements LilyPondPackage
     specialCommandEClass.getESuperTypes().add(this.getCommand());
     includeEClass.getESuperTypes().add(this.getSpecialCommand());
     versionEClass.getESuperTypes().add(this.getSpecialCommand());
-    sourceFileNameEClass.getESuperTypes().add(this.getSpecialCommand());
-    sourceFileLineEClass.getESuperTypes().add(this.getSpecialCommand());
     textEClass.getESuperTypes().add(this.getExpression());
     numberEClass.getESuperTypes().add(this.getExpression());
 
@@ -881,6 +849,9 @@ public class LilyPondPackageImpl extends EPackageImpl implements LilyPondPackage
     initEClass(schemeBlockEClass, SchemeBlock.class, "SchemeBlock", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getSchemeBlock_Expressions(), this.getExpression(), null, "expressions", null, 0, -1, SchemeBlock.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
+    initEClass(schemeMarkupCommandEClass, SchemeMarkupCommand.class, "SchemeMarkupCommand", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getSchemeMarkupCommand_Command(), ecorePackage.getEString(), "command", null, 0, 1, SchemeMarkupCommand.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
     initEClass(schemeTextEClass, SchemeText.class, "SchemeText", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getSchemeText_Value(), ecorePackage.getEString(), "value", null, 0, 1, SchemeText.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
@@ -900,12 +871,6 @@ public class LilyPondPackageImpl extends EPackageImpl implements LilyPondPackage
 
     initEClass(versionEClass, Version.class, "Version", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getVersion_Version(), ecorePackage.getEString(), "version", null, 0, 1, Version.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-    initEClass(sourceFileNameEClass, SourceFileName.class, "SourceFileName", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getSourceFileName_Filename(), ecorePackage.getEString(), "filename", null, 0, 1, SourceFileName.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-    initEClass(sourceFileLineEClass, SourceFileLine.class, "SourceFileLine", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getSourceFileLine_Line(), ecorePackage.getEInt(), "line", null, 0, 1, SourceFileLine.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(textEClass, Text.class, "Text", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getText_Value(), ecorePackage.getEString(), "value", null, 0, 1, Text.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

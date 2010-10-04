@@ -125,6 +125,15 @@ public interface LilyPondFactory extends EFactory
   SchemeBlock createSchemeBlock();
 
   /**
+   * Returns a new object of class '<em>Scheme Markup Command</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Scheme Markup Command</em>'.
+   * @generated
+   */
+  SchemeMarkupCommand createSchemeMarkupCommand();
+
+  /**
    * Returns a new object of class '<em>Scheme Text</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -186,24 +195,6 @@ public interface LilyPondFactory extends EFactory
    * @generated
    */
   Version createVersion();
-
-  /**
-   * Returns a new object of class '<em>Source File Name</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Source File Name</em>'.
-   * @generated
-   */
-  SourceFileName createSourceFileName();
-
-  /**
-   * Returns a new object of class '<em>Source File Line</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Source File Line</em>'.
-   * @generated
-   */
-  SourceFileLine createSourceFileLine();
 
   /**
    * Returns a new object of class '<em>Text</em>'.

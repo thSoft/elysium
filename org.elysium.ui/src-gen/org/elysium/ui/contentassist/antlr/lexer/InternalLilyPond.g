@@ -28,7 +28,6 @@ tokens {
 	KEYWORD_16;
 	KEYWORD_17;
 	KEYWORD_18;
-	KEYWORD_19;
 	RULE_STRING;
 	RULE_INT;
 	RULE_BOOL;
@@ -68,7 +67,6 @@ SYNTHETIC_ALL_KEYWORDS :
 	(FRAGMENT_KEYWORD_16)=> FRAGMENT_KEYWORD_16 {$type = KEYWORD_16; } |
 	(FRAGMENT_KEYWORD_17)=> FRAGMENT_KEYWORD_17 {$type = KEYWORD_17; } |
 	(FRAGMENT_KEYWORD_18)=> FRAGMENT_KEYWORD_18 {$type = KEYWORD_18; } |
-	(FRAGMENT_KEYWORD_19)=> FRAGMENT_KEYWORD_19 {$type = KEYWORD_19; } |
 	(FRAGMENT_RULE_STRING)=> FRAGMENT_RULE_STRING {$type = RULE_STRING; } |
 	(FRAGMENT_RULE_INT)=> FRAGMENT_RULE_INT {$type = RULE_INT; } |
 	(FRAGMENT_RULE_BOOL)=> FRAGMENT_RULE_BOOL {$type = RULE_BOOL; } |
@@ -96,25 +94,23 @@ fragment FRAGMENT_KEYWORD_8 : '{';
 
 fragment FRAGMENT_KEYWORD_9 : '}';
 
-fragment FRAGMENT_KEYWORD_10 : '#x';
+fragment FRAGMENT_KEYWORD_10 : '#:';
 
-fragment FRAGMENT_KEYWORD_11 : '#{';
+fragment FRAGMENT_KEYWORD_11 : '#x';
 
-fragment FRAGMENT_KEYWORD_12 : '#}';
+fragment FRAGMENT_KEYWORD_12 : '#{';
 
-fragment FRAGMENT_KEYWORD_13 : '<<';
+fragment FRAGMENT_KEYWORD_13 : '#}';
 
-fragment FRAGMENT_KEYWORD_14 : '>>';
+fragment FRAGMENT_KEYWORD_14 : '<<';
 
-fragment FRAGMENT_KEYWORD_15 : '\\\\';
+fragment FRAGMENT_KEYWORD_15 : '>>';
 
-fragment FRAGMENT_KEYWORD_16 : '\\include';
+fragment FRAGMENT_KEYWORD_16 : '\\\\';
 
-fragment FRAGMENT_KEYWORD_17 : '\\version';
+fragment FRAGMENT_KEYWORD_17 : '\\include';
 
-fragment FRAGMENT_KEYWORD_18 : '\\sourcefileline';
-
-fragment FRAGMENT_KEYWORD_19 : '\\sourcefilename';
+fragment FRAGMENT_KEYWORD_18 : '\\version';
 
 
 // Rules duplicated to allow inter-rule references

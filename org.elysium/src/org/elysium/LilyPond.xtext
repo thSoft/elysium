@@ -20,13 +20,15 @@ Scheme: "#" value=SchemeExpression;
 
 SchemeExpression: (quoted?="'"? | quasiquoted?="`"? | unquoted?=","?) value=SchemeValue;
 
-SchemeValue: SchemeBoolean | SchemeList | SchemeBlock | SchemeText | SchemeNumber;
+SchemeValue: SchemeBoolean | SchemeList | SchemeBlock | SchemeMarkupCommand | SchemeText | SchemeNumber;
 
 SchemeBoolean: value=BOOL;
 
 SchemeList: {SchemeList} "(" expressions+=SchemeExpression* ")";
 
 SchemeBlock: "#{" expressions+=Expression+ "#}";
+
+SchemeMarkupCommand hidden(): "#:" command=ID;
 
 SchemeText: value=SchemeTextLiterals;
 
@@ -40,15 +42,11 @@ ArbitraryCommand: keyword=ArbitraryCommandKeyword;
 
 ArbitraryCommandKeyword hidden(): "\\" (ID | "(" | ")" | ANY_OTHER);
 
-SpecialCommand: Include | Version | SourceFileName | SourceFileLine;
+SpecialCommand: Include | Version;
 
 Include: "\\include" importURI=STRING;
 
 Version: "\\version" version=STRING;
-
-SourceFileName: "\\sourcefilename" filename=STRING;
-
-SourceFileLine: "\\sourcefileline" line=INT;
 
 Text: value=(SchemeTextLiterals | "'" | "," | "(" | ")");
 

@@ -226,14 +226,15 @@ public class LilyPondGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cSchemeBooleanParserRuleCall_0 = (RuleCall)cAlternatives.eContents().get(0);
 		private final RuleCall cSchemeListParserRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
 		private final RuleCall cSchemeBlockParserRuleCall_2 = (RuleCall)cAlternatives.eContents().get(2);
-		private final RuleCall cSchemeTextParserRuleCall_3 = (RuleCall)cAlternatives.eContents().get(3);
-		private final RuleCall cSchemeNumberParserRuleCall_4 = (RuleCall)cAlternatives.eContents().get(4);
+		private final RuleCall cSchemeMarkupCommandParserRuleCall_3 = (RuleCall)cAlternatives.eContents().get(3);
+		private final RuleCall cSchemeTextParserRuleCall_4 = (RuleCall)cAlternatives.eContents().get(4);
+		private final RuleCall cSchemeNumberParserRuleCall_5 = (RuleCall)cAlternatives.eContents().get(5);
 		
 		//SchemeValue:
-		//	SchemeBoolean | SchemeList | SchemeBlock | SchemeText | SchemeNumber;
+		//	SchemeBoolean | SchemeList | SchemeBlock | SchemeMarkupCommand | SchemeText | SchemeNumber;
 		public ParserRule getRule() { return rule; }
 
-		//SchemeBoolean | SchemeList | SchemeBlock | SchemeText | SchemeNumber
+		//SchemeBoolean | SchemeList | SchemeBlock | SchemeMarkupCommand | SchemeText | SchemeNumber
 		public Alternatives getAlternatives() { return cAlternatives; }
 
 		//SchemeBoolean
@@ -245,11 +246,14 @@ public class LilyPondGrammarAccess extends AbstractGrammarElementFinder {
 		//SchemeBlock
 		public RuleCall getSchemeBlockParserRuleCall_2() { return cSchemeBlockParserRuleCall_2; }
 
+		//SchemeMarkupCommand
+		public RuleCall getSchemeMarkupCommandParserRuleCall_3() { return cSchemeMarkupCommandParserRuleCall_3; }
+
 		//SchemeText
-		public RuleCall getSchemeTextParserRuleCall_3() { return cSchemeTextParserRuleCall_3; }
+		public RuleCall getSchemeTextParserRuleCall_4() { return cSchemeTextParserRuleCall_4; }
 
 		//SchemeNumber
-		public RuleCall getSchemeNumberParserRuleCall_4() { return cSchemeNumberParserRuleCall_4; }
+		public RuleCall getSchemeNumberParserRuleCall_5() { return cSchemeNumberParserRuleCall_5; }
 	}
 
 	public class SchemeBooleanElements extends AbstractParserRuleElementFinder {
@@ -326,6 +330,30 @@ public class LilyPondGrammarAccess extends AbstractGrammarElementFinder {
 
 		//"#}"
 		public Keyword getNumberSignRightCurlyBracketKeyword_2() { return cNumberSignRightCurlyBracketKeyword_2; }
+	}
+
+	public class SchemeMarkupCommandElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "SchemeMarkupCommand");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Keyword cNumberSignColonKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final Assignment cCommandAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cCommandIDTerminalRuleCall_1_0 = (RuleCall)cCommandAssignment_1.eContents().get(0);
+		
+		//SchemeMarkupCommand hidden():
+		//	"#:" command=ID;
+		public ParserRule getRule() { return rule; }
+
+		//"#:" command=ID
+		public Group getGroup() { return cGroup; }
+
+		//"#:"
+		public Keyword getNumberSignColonKeyword_0() { return cNumberSignColonKeyword_0; }
+
+		//command=ID
+		public Assignment getCommandAssignment_1() { return cCommandAssignment_1; }
+
+		//ID
+		public RuleCall getCommandIDTerminalRuleCall_1_0() { return cCommandIDTerminalRuleCall_1_0; }
 	}
 
 	public class SchemeTextElements extends AbstractParserRuleElementFinder {
@@ -477,14 +505,12 @@ public class LilyPondGrammarAccess extends AbstractGrammarElementFinder {
 		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
 		private final RuleCall cIncludeParserRuleCall_0 = (RuleCall)cAlternatives.eContents().get(0);
 		private final RuleCall cVersionParserRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
-		private final RuleCall cSourceFileNameParserRuleCall_2 = (RuleCall)cAlternatives.eContents().get(2);
-		private final RuleCall cSourceFileLineParserRuleCall_3 = (RuleCall)cAlternatives.eContents().get(3);
 		
 		//SpecialCommand:
-		//	Include | Version | SourceFileName | SourceFileLine;
+		//	Include | Version;
 		public ParserRule getRule() { return rule; }
 
-		//Include | Version | SourceFileName | SourceFileLine
+		//Include | Version
 		public Alternatives getAlternatives() { return cAlternatives; }
 
 		//Include
@@ -492,12 +518,6 @@ public class LilyPondGrammarAccess extends AbstractGrammarElementFinder {
 
 		//Version
 		public RuleCall getVersionParserRuleCall_1() { return cVersionParserRuleCall_1; }
-
-		//SourceFileName
-		public RuleCall getSourceFileNameParserRuleCall_2() { return cSourceFileNameParserRuleCall_2; }
-
-		//SourceFileLine
-		public RuleCall getSourceFileLineParserRuleCall_3() { return cSourceFileLineParserRuleCall_3; }
 	}
 
 	public class IncludeElements extends AbstractParserRuleElementFinder {
@@ -546,54 +566,6 @@ public class LilyPondGrammarAccess extends AbstractGrammarElementFinder {
 
 		//STRING
 		public RuleCall getVersionSTRINGTerminalRuleCall_1_0() { return cVersionSTRINGTerminalRuleCall_1_0; }
-	}
-
-	public class SourceFileNameElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "SourceFileName");
-		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Keyword cSourcefilenameKeyword_0 = (Keyword)cGroup.eContents().get(0);
-		private final Assignment cFilenameAssignment_1 = (Assignment)cGroup.eContents().get(1);
-		private final RuleCall cFilenameSTRINGTerminalRuleCall_1_0 = (RuleCall)cFilenameAssignment_1.eContents().get(0);
-		
-		//SourceFileName:
-		//	"\\sourcefilename" filename=STRING;
-		public ParserRule getRule() { return rule; }
-
-		//"\\sourcefilename" filename=STRING
-		public Group getGroup() { return cGroup; }
-
-		//"\\sourcefilename"
-		public Keyword getSourcefilenameKeyword_0() { return cSourcefilenameKeyword_0; }
-
-		//filename=STRING
-		public Assignment getFilenameAssignment_1() { return cFilenameAssignment_1; }
-
-		//STRING
-		public RuleCall getFilenameSTRINGTerminalRuleCall_1_0() { return cFilenameSTRINGTerminalRuleCall_1_0; }
-	}
-
-	public class SourceFileLineElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "SourceFileLine");
-		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Keyword cSourcefilelineKeyword_0 = (Keyword)cGroup.eContents().get(0);
-		private final Assignment cLineAssignment_1 = (Assignment)cGroup.eContents().get(1);
-		private final RuleCall cLineINTTerminalRuleCall_1_0 = (RuleCall)cLineAssignment_1.eContents().get(0);
-		
-		//SourceFileLine:
-		//	"\\sourcefileline" line=INT;
-		public ParserRule getRule() { return rule; }
-
-		//"\\sourcefileline" line=INT
-		public Group getGroup() { return cGroup; }
-
-		//"\\sourcefileline"
-		public Keyword getSourcefilelineKeyword_0() { return cSourcefilelineKeyword_0; }
-
-		//line=INT
-		public Assignment getLineAssignment_1() { return cLineAssignment_1; }
-
-		//INT
-		public RuleCall getLineINTTerminalRuleCall_1_0() { return cLineINTTerminalRuleCall_1_0; }
 	}
 
 	public class TextElements extends AbstractParserRuleElementFinder {
@@ -660,6 +632,7 @@ public class LilyPondGrammarAccess extends AbstractGrammarElementFinder {
 	private SchemeBooleanElements pSchemeBoolean;
 	private SchemeListElements pSchemeList;
 	private SchemeBlockElements pSchemeBlock;
+	private SchemeMarkupCommandElements pSchemeMarkupCommand;
 	private SchemeTextElements pSchemeText;
 	private SchemeTextLiteralsElements pSchemeTextLiterals;
 	private SchemeNumberElements pSchemeNumber;
@@ -669,8 +642,6 @@ public class LilyPondGrammarAccess extends AbstractGrammarElementFinder {
 	private SpecialCommandElements pSpecialCommand;
 	private IncludeElements pInclude;
 	private VersionElements pVersion;
-	private SourceFileNameElements pSourceFileName;
-	private SourceFileLineElements pSourceFileLine;
 	private TextElements pText;
 	private NumberElements pNumber;
 	private TerminalRule tSTRING;
@@ -766,7 +737,7 @@ public class LilyPondGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//SchemeValue:
-	//	SchemeBoolean | SchemeList | SchemeBlock | SchemeText | SchemeNumber;
+	//	SchemeBoolean | SchemeList | SchemeBlock | SchemeMarkupCommand | SchemeText | SchemeNumber;
 	public SchemeValueElements getSchemeValueAccess() {
 		return (pSchemeValue != null) ? pSchemeValue : (pSchemeValue = new SchemeValueElements());
 	}
@@ -803,6 +774,16 @@ public class LilyPondGrammarAccess extends AbstractGrammarElementFinder {
 	
 	public ParserRule getSchemeBlockRule() {
 		return getSchemeBlockAccess().getRule();
+	}
+
+	//SchemeMarkupCommand hidden():
+	//	"#:" command=ID;
+	public SchemeMarkupCommandElements getSchemeMarkupCommandAccess() {
+		return (pSchemeMarkupCommand != null) ? pSchemeMarkupCommand : (pSchemeMarkupCommand = new SchemeMarkupCommandElements());
+	}
+	
+	public ParserRule getSchemeMarkupCommandRule() {
+		return getSchemeMarkupCommandAccess().getRule();
 	}
 
 	//SchemeText:
@@ -866,7 +847,7 @@ public class LilyPondGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//SpecialCommand:
-	//	Include | Version | SourceFileName | SourceFileLine;
+	//	Include | Version;
 	public SpecialCommandElements getSpecialCommandAccess() {
 		return (pSpecialCommand != null) ? pSpecialCommand : (pSpecialCommand = new SpecialCommandElements());
 	}
@@ -893,26 +874,6 @@ public class LilyPondGrammarAccess extends AbstractGrammarElementFinder {
 	
 	public ParserRule getVersionRule() {
 		return getVersionAccess().getRule();
-	}
-
-	//SourceFileName:
-	//	"\\sourcefilename" filename=STRING;
-	public SourceFileNameElements getSourceFileNameAccess() {
-		return (pSourceFileName != null) ? pSourceFileName : (pSourceFileName = new SourceFileNameElements());
-	}
-	
-	public ParserRule getSourceFileNameRule() {
-		return getSourceFileNameAccess().getRule();
-	}
-
-	//SourceFileLine:
-	//	"\\sourcefileline" line=INT;
-	public SourceFileLineElements getSourceFileLineAccess() {
-		return (pSourceFileLine != null) ? pSourceFileLine : (pSourceFileLine = new SourceFileLineElements());
-	}
-	
-	public ParserRule getSourceFileLineRule() {
-		return getSourceFileLineAccess().getRule();
 	}
 
 	//Text:
