@@ -3,12 +3,12 @@
  * </copyright>
  *
  */
-package org.elysium.lilyPond.impl;
+package org.elysium.lilypond.impl;
 
 import org.eclipse.emf.ecore.EClass;
 
-import org.elysium.lilyPond.LilyPondPackage;
-import org.elysium.lilyPond.SimpleBlock;
+import org.elysium.lilypond.LilypondPackage;
+import org.elysium.lilypond.SimpleBlock;
 
 /**
  * <!-- begin-user-doc -->
@@ -39,7 +39,7 @@ public class SimpleBlockImpl extends BlockImpl implements SimpleBlock
   @Override
   protected EClass eStaticClass()
   {
-    return LilyPondPackage.Literals.SIMPLE_BLOCK;
+    return LilypondPackage.Literals.SIMPLE_BLOCK;
   }
 
 } //SimpleBlockImpl

@@ -3,7 +3,7 @@
  * </copyright>
  *
  */
-package org.elysium.lilyPond.impl;
+package org.elysium.lilypond.impl;
 
 import org.eclipse.emf.common.notify.Notification;
 
@@ -11,7 +11,7 @@ import org.eclipse.emf.ecore.EClass;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
-import org.elysium.lilyPond.LilyPondPackage;
+import org.elysium.lilypond.LilypondPackage;
 
 /**
  * <!-- begin-user-doc -->
@@ -20,13 +20,13 @@ import org.elysium.lilyPond.LilyPondPackage;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link org.elysium.lilyPond.impl.NumberImpl#getValue <em>Value</em>}</li>
+ *   <li>{@link org.elysium.lilypond.impl.NumberImpl#getValue <em>Value</em>}</li>
  * </ul>
  * </p>
  *
  * @generated
  */
-public class NumberImpl extends ExpressionImpl implements org.elysium.lilyPond.Number
+public class NumberImpl extends CommonExpressionImpl implements org.elysium.lilypond.Number
 {
   /**
    * The default value of the '{@link #getValue() <em>Value</em>}' attribute.
@@ -66,7 +66,7 @@ public class NumberImpl extends ExpressionImpl implements org.elysium.lilyPond.N
   @Override
   protected EClass eStaticClass()
   {
-    return LilyPondPackage.Literals.NUMBER;
+    return LilypondPackage.Literals.NUMBER;
   }
 
   /**
@@ -89,7 +89,7 @@ public class NumberImpl extends ExpressionImpl implements org.elysium.lilyPond.N
     int oldValue = value;
     value = newValue;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, LilyPondPackage.NUMBER__VALUE, oldValue, value));
+      eNotify(new ENotificationImpl(this, Notification.SET, LilypondPackage.NUMBER__VALUE, oldValue, value));
   }
 
   /**
@@ -102,7 +102,7 @@ public class NumberImpl extends ExpressionImpl implements org.elysium.lilyPond.N
   {
     switch (featureID)
     {
-      case LilyPondPackage.NUMBER__VALUE:
+      case LilypondPackage.NUMBER__VALUE:
         return getValue();
     }
     return super.eGet(featureID, resolve, coreType);
@@ -118,7 +118,7 @@ public class NumberImpl extends ExpressionImpl implements org.elysium.lilyPond.N
   {
     switch (featureID)
     {
-      case LilyPondPackage.NUMBER__VALUE:
+      case LilypondPackage.NUMBER__VALUE:
         setValue((Integer)newValue);
         return;
     }
@@ -135,7 +135,7 @@ public class NumberImpl extends ExpressionImpl implements org.elysium.lilyPond.N
   {
     switch (featureID)
     {
-      case LilyPondPackage.NUMBER__VALUE:
+      case LilypondPackage.NUMBER__VALUE:
         setValue(VALUE_EDEFAULT);
         return;
     }
@@ -152,7 +152,7 @@ public class NumberImpl extends ExpressionImpl implements org.elysium.lilyPond.N
   {
     switch (featureID)
     {
-      case LilyPondPackage.NUMBER__VALUE:
+      case LilypondPackage.NUMBER__VALUE:
         return value != VALUE_EDEFAULT;
     }
     return super.eIsSet(featureID);

@@ -3,7 +3,7 @@
  * </copyright>
  *
  */
-package org.elysium.lilyPond;
+package org.elysium.lilypond;
 
 
 /**
@@ -14,11 +14,11 @@ package org.elysium.lilyPond;
  * <p>
  * The following features are supported:
  * <ul>
- *   <li>{@link org.elysium.lilyPond.SchemeMarkupCommand#getCommand <em>Command</em>}</li>
+ *   <li>{@link org.elysium.lilypond.SchemeMarkupCommand#getCommand <em>Command</em>}</li>
  * </ul>
  * </p>
  *
- * @see org.elysium.lilyPond.LilyPondPackage#getSchemeMarkupCommand()
+ * @see org.elysium.lilypond.LilypondPackage#getSchemeMarkupCommand()
  * @model
  * @generated
  */
@@ -34,14 +34,14 @@ public interface SchemeMarkupCommand extends SchemeValue
    * <!-- end-user-doc -->
    * @return the value of the '<em>Command</em>' attribute.
    * @see #setCommand(String)
-   * @see org.elysium.lilyPond.LilyPondPackage#getSchemeMarkupCommand_Command()
+   * @see org.elysium.lilypond.LilypondPackage#getSchemeMarkupCommand_Command()
    * @model
    * @generated
    */
   String getCommand();
 
   /**
-   * Sets the value of the '{@link org.elysium.lilyPond.SchemeMarkupCommand#getCommand <em>Command</em>}' attribute.
+   * Sets the value of the '{@link org.elysium.lilypond.SchemeMarkupCommand#getCommand <em>Command</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @param value the new value of the '<em>Command</em>' attribute.

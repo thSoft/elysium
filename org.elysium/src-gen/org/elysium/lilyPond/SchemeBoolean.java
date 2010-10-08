@@ -3,7 +3,7 @@
  * </copyright>
  *
  */
-package org.elysium.lilyPond;
+package org.elysium.lilypond;
 
 
 /**
@@ -14,11 +14,11 @@ package org.elysium.lilyPond;
  * <p>
  * The following features are supported:
  * <ul>
- *   <li>{@link org.elysium.lilyPond.SchemeBoolean#isValue <em>Value</em>}</li>
+ *   <li>{@link org.elysium.lilypond.SchemeBoolean#isValue <em>Value</em>}</li>
  * </ul>
  * </p>
  *
- * @see org.elysium.lilyPond.LilyPondPackage#getSchemeBoolean()
+ * @see org.elysium.lilypond.LilypondPackage#getSchemeBoolean()
  * @model
  * @generated
  */
@@ -34,14 +34,14 @@ public interface SchemeBoolean extends SchemeValue
    * <!-- end-user-doc -->
    * @return the value of the '<em>Value</em>' attribute.
    * @see #setValue(boolean)
-   * @see org.elysium.lilyPond.LilyPondPackage#getSchemeBoolean_Value()
+   * @see org.elysium.lilypond.LilypondPackage#getSchemeBoolean_Value()
    * @model
    * @generated
    */
   boolean isValue();
 
   /**
-   * Sets the value of the '{@link org.elysium.lilyPond.SchemeBoolean#isValue <em>Value</em>}' attribute.
+   * Sets the value of the '{@link org.elysium.lilypond.SchemeBoolean#isValue <em>Value</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @param value the new value of the '<em>Value</em>' attribute.

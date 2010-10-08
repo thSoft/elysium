@@ -3,14 +3,14 @@
  * </copyright>
  *
  */
-package org.elysium.lilyPond.impl;
+package org.elysium.lilypond.impl;
 
 import org.eclipse.emf.ecore.EClass;
 
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
-import org.elysium.lilyPond.LilyPondPackage;
-import org.elysium.lilyPond.SchemeValue;
+import org.elysium.lilypond.LilypondPackage;
+import org.elysium.lilypond.SchemeValue;
 
 /**
  * <!-- begin-user-doc -->
@@ -41,7 +41,7 @@ public class SchemeValueImpl extends MinimalEObjectImpl.Container implements Sch
   @Override
   protected EClass eStaticClass()
   {
-    return LilyPondPackage.Literals.SCHEME_VALUE;
+    return LilypondPackage.Literals.SCHEME_VALUE;
   }
 
 } //SchemeValueImpl

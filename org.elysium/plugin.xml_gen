@@ -6,7 +6,7 @@
   <extension point="org.eclipse.emf.ecore.generated_package">
     <package 
        uri = "http://www.elysium.org/LilyPond" 
-       class = "org.elysium.lilyPond.LilyPondPackage"
+       class = "org.elysium.lilypond.LilypondPackage"
        genModel = "org/elysium/LilyPond.genmodel" /> 
 	
   </extension>

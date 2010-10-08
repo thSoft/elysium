@@ -3,10 +3,11 @@
  * </copyright>
  *
  */
-package org.elysium.lilyPond.impl;
+package org.elysium.lilypond.impl;
 
 import java.util.Collection;
 
+import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
 import org.eclipse.emf.common.util.EList;
@@ -14,12 +15,14 @@ import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
+import org.eclipse.emf.ecore.impl.ENotificationImpl;
+
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
-import org.elysium.lilyPond.LilyPondPackage;
-import org.elysium.lilyPond.SchemeExpression;
-import org.elysium.lilyPond.SchemeList;
+import org.elysium.lilypond.LilypondPackage;
+import org.elysium.lilypond.SchemeExpression;
+import org.elysium.lilypond.SchemeList;
 
 /**
  * <!-- begin-user-doc -->
@@ -28,7 +31,8 @@ import org.elysium.lilyPond.SchemeList;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link org.elysium.lilyPond.impl.SchemeListImpl#getExpressions <em>Expressions</em>}</li>
+ *   <li>{@link org.elysium.lilypond.impl.SchemeListImpl#isVector <em>Vector</em>}</li>
+ *   <li>{@link org.elysium.lilypond.impl.SchemeListImpl#getExpressions <em>Expressions</em>}</li>
  * </ul>
  * </p>
  *
@@ -36,6 +40,26 @@ import org.elysium.lilyPond.SchemeList;
  */
 public class SchemeListImpl extends SchemeValueImpl implements SchemeList
 {
+  /**
+   * The default value of the '{@link #isVector() <em>Vector</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #isVector()
+   * @generated
+   * @ordered
+   */
+  protected static final boolean VECTOR_EDEFAULT = false;
+
+  /**
+   * The cached value of the '{@link #isVector() <em>Vector</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #isVector()
+   * @generated
+   * @ordered
+   */
+  protected boolean vector = VECTOR_EDEFAULT;
+
   /**
    * The cached value of the '{@link #getExpressions() <em>Expressions</em>}' containment reference list.
    * <!-- begin-user-doc -->
@@ -64,7 +88,30 @@ public class SchemeListImpl extends SchemeValueImpl implements SchemeList
   @Override
   protected EClass eStaticClass()
   {
-    return LilyPondPackage.Literals.SCHEME_LIST;
+    return LilypondPackage.Literals.SCHEME_LIST;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public boolean isVector()
+  {
+    return vector;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setVector(boolean newVector)
+  {
+    boolean oldVector = vector;
+    vector = newVector;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, LilypondPackage.SCHEME_LIST__VECTOR, oldVector, vector));
   }
 
   /**
@@ -76,7 +123,7 @@ public class SchemeListImpl extends SchemeValueImpl implements SchemeList
   {
     if (expressions == null)
     {
-      expressions = new EObjectContainmentEList<SchemeExpression>(SchemeExpression.class, this, LilyPondPackage.SCHEME_LIST__EXPRESSIONS);
+      expressions = new EObjectContainmentEList<SchemeExpression>(SchemeExpression.class, this, LilypondPackage.SCHEME_LIST__EXPRESSIONS);
     }
     return expressions;
   }
@@ -91,7 +138,7 @@ public class SchemeListImpl extends SchemeValueImpl implements SchemeList
   {
     switch (featureID)
     {
-      case LilyPondPackage.SCHEME_LIST__EXPRESSIONS:
+      case LilypondPackage.SCHEME_LIST__EXPRESSIONS:
         return ((InternalEList<?>)getExpressions()).basicRemove(otherEnd, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
@@ -107,7 +154,9 @@ public class SchemeListImpl extends SchemeValueImpl implements SchemeList
   {
     switch (featureID)
     {
-      case LilyPondPackage.SCHEME_LIST__EXPRESSIONS:
+      case LilypondPackage.SCHEME_LIST__VECTOR:
+        return isVector();
+      case LilypondPackage.SCHEME_LIST__EXPRESSIONS:
         return getExpressions();
     }
     return super.eGet(featureID, resolve, coreType);
@@ -124,7 +173,10 @@ public class SchemeListImpl extends SchemeValueImpl implements SchemeList
   {
     switch (featureID)
     {
-      case LilyPondPackage.SCHEME_LIST__EXPRESSIONS:
+      case LilypondPackage.SCHEME_LIST__VECTOR:
+        setVector((Boolean)newValue);
+        return;
+      case LilypondPackage.SCHEME_LIST__EXPRESSIONS:
         getExpressions().clear();
         getExpressions().addAll((Collection<? extends SchemeExpression>)newValue);
         return;
@@ -142,7 +194,10 @@ public class SchemeListImpl extends SchemeValueImpl implements SchemeList
   {
     switch (featureID)
     {
-      case LilyPondPackage.SCHEME_LIST__EXPRESSIONS:
+      case LilypondPackage.SCHEME_LIST__VECTOR:
+        setVector(VECTOR_EDEFAULT);
+        return;
+      case LilypondPackage.SCHEME_LIST__EXPRESSIONS:
         getExpressions().clear();
         return;
     }
@@ -159,10 +214,29 @@ public class SchemeListImpl extends SchemeValueImpl implements SchemeList
   {
     switch (featureID)
     {
-      case LilyPondPackage.SCHEME_LIST__EXPRESSIONS:
+      case LilypondPackage.SCHEME_LIST__VECTOR:
+        return vector != VECTOR_EDEFAULT;
+      case LilypondPackage.SCHEME_LIST__EXPRESSIONS:
         return expressions != null && !expressions.isEmpty();
     }
     return super.eIsSet(featureID);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public String toString()
+  {
+    if (eIsProxy()) return super.toString();
+
+    StringBuffer result = new StringBuffer(super.toString());
+    result.append(" (vector: ");
+    result.append(vector);
+    result.append(')');
+    return result.toString();
   }
 
 } //SchemeListImpl

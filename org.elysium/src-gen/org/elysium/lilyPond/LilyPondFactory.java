@@ -3,7 +3,7 @@
  * </copyright>
  *
  */
-package org.elysium.lilyPond;
+package org.elysium.lilypond;
 
 import org.eclipse.emf.ecore.EFactory;
 
@@ -12,10 +12,10 @@ import org.eclipse.emf.ecore.EFactory;
  * The <b>Factory</b> for the model.
  * It provides a create method for each non-abstract class of the model.
  * <!-- end-user-doc -->
- * @see org.elysium.lilyPond.LilyPondPackage
+ * @see org.elysium.lilypond.LilypondPackage
  * @generated
  */
-public interface LilyPondFactory extends EFactory
+public interface LilypondFactory extends EFactory
 {
   /**
    * The singleton instance of the factory.
@@ -23,7 +23,7 @@ public interface LilyPondFactory extends EFactory
    * <!-- end-user-doc -->
    * @generated
    */
-  LilyPondFactory eINSTANCE = org.elysium.lilyPond.impl.LilyPondFactoryImpl.init();
+  LilypondFactory eINSTANCE = org.elysium.lilypond.impl.LilypondFactoryImpl.init();
 
   /**
    * Returns a new object of class '<em>Lily Pond</em>'.
@@ -35,6 +35,15 @@ public interface LilyPondFactory extends EFactory
   LilyPond createLilyPond();
 
   /**
+   * Returns a new object of class '<em>Toplevel Expression</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Toplevel Expression</em>'.
+   * @generated
+   */
+  ToplevelExpression createToplevelExpression();
+
+  /**
    * Returns a new object of class '<em>Expression</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -42,6 +51,33 @@ public interface LilyPondFactory extends EFactory
    * @generated
    */
   Expression createExpression();
+
+  /**
+   * Returns a new object of class '<em>Common Expression</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Common Expression</em>'.
+   * @generated
+   */
+  CommonExpression createCommonExpression();
+
+  /**
+   * Returns a new object of class '<em>Assignment</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Assignment</em>'.
+   * @generated
+   */
+  Assignment createAssignment();
+
+  /**
+   * Returns a new object of class '<em>Property Assignment</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Property Assignment</em>'.
+   * @generated
+   */
+  PropertyAssignment createPropertyAssignment();
 
   /**
    * Returns a new object of class '<em>Block</em>'.
@@ -69,6 +105,105 @@ public interface LilyPondFactory extends EFactory
    * @generated
    */
   SimultaneousBlock createSimultaneousBlock();
+
+  /**
+   * Returns a new object of class '<em>Command</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Command</em>'.
+   * @generated
+   */
+  Command createCommand();
+
+  /**
+   * Returns a new object of class '<em>Special Command</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Special Command</em>'.
+   * @generated
+   */
+  SpecialCommand createSpecialCommand();
+
+  /**
+   * Returns a new object of class '<em>Include</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Include</em>'.
+   * @generated
+   */
+  Include createInclude();
+
+  /**
+   * Returns a new object of class '<em>Version</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Version</em>'.
+   * @generated
+   */
+  Version createVersion();
+
+  /**
+   * Returns a new object of class '<em>Markup</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Markup</em>'.
+   * @generated
+   */
+  Markup createMarkup();
+
+  /**
+   * Returns a new object of class '<em>Markup Block</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Markup Block</em>'.
+   * @generated
+   */
+  MarkupBlock createMarkupBlock();
+
+  /**
+   * Returns a new object of class '<em>Markup Expression</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Markup Expression</em>'.
+   * @generated
+   */
+  MarkupExpression createMarkupExpression();
+
+  /**
+   * Returns a new object of class '<em>Markup Command</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Markup Command</em>'.
+   * @generated
+   */
+  MarkupCommand createMarkupCommand();
+
+  /**
+   * Returns a new object of class '<em>Reference</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Reference</em>'.
+   * @generated
+   */
+  Reference createReference();
+
+  /**
+   * Returns a new object of class '<em>Text</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Text</em>'.
+   * @generated
+   */
+  Text createText();
+
+  /**
+   * Returns a new object of class '<em>Number</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Number</em>'.
+   * @generated
+   */
+  Number createNumber();
 
   /**
    * Returns a new object of class '<em>Scheme</em>'.
@@ -125,13 +260,13 @@ public interface LilyPondFactory extends EFactory
   SchemeBlock createSchemeBlock();
 
   /**
-   * Returns a new object of class '<em>Scheme Markup Command</em>'.
+   * Returns a new object of class '<em>Scheme Character</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>Scheme Markup Command</em>'.
+   * @return a new object of class '<em>Scheme Character</em>'.
    * @generated
    */
-  SchemeMarkupCommand createSchemeMarkupCommand();
+  SchemeCharacter createSchemeCharacter();
 
   /**
    * Returns a new object of class '<em>Scheme Text</em>'.
@@ -152,67 +287,13 @@ public interface LilyPondFactory extends EFactory
   SchemeNumber createSchemeNumber();
 
   /**
-   * Returns a new object of class '<em>Command</em>'.
+   * Returns a new object of class '<em>Scheme Markup Command</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>Command</em>'.
+   * @return a new object of class '<em>Scheme Markup Command</em>'.
    * @generated
    */
-  Command createCommand();
-
-  /**
-   * Returns a new object of class '<em>Arbitrary Command</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Arbitrary Command</em>'.
-   * @generated
-   */
-  ArbitraryCommand createArbitraryCommand();
-
-  /**
-   * Returns a new object of class '<em>Special Command</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Special Command</em>'.
-   * @generated
-   */
-  SpecialCommand createSpecialCommand();
-
-  /**
-   * Returns a new object of class '<em>Include</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Include</em>'.
-   * @generated
-   */
-  Include createInclude();
-
-  /**
-   * Returns a new object of class '<em>Version</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Version</em>'.
-   * @generated
-   */
-  Version createVersion();
-
-  /**
-   * Returns a new object of class '<em>Text</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Text</em>'.
-   * @generated
-   */
-  Text createText();
-
-  /**
-   * Returns a new object of class '<em>Number</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Number</em>'.
-   * @generated
-   */
-  Number createNumber();
+  SchemeMarkupCommand createSchemeMarkupCommand();
 
   /**
    * Returns the package supported by this factory.
@@ -221,6 +302,6 @@ public interface LilyPondFactory extends EFactory
    * @return the package supported by this factory.
    * @generated
    */
-  LilyPondPackage getLilyPondPackage();
+  LilypondPackage getLilypondPackage();
 
-} //LilyPondFactory
+} //LilypondFactory

@@ -3,7 +3,7 @@
  * </copyright>
  *
  */
-package org.elysium.lilyPond;
+package org.elysium.lilypond;
 
 import org.eclipse.emf.common.util.EList;
 
@@ -15,20 +15,19 @@ import org.eclipse.emf.common.util.EList;
  * <p>
  * The following features are supported:
  * <ul>
- *   <li>{@link org.elysium.lilyPond.Block#getExpressions <em>Expressions</em>}</li>
+ *   <li>{@link org.elysium.lilypond.Block#getExpressions <em>Expressions</em>}</li>
  * </ul>
  * </p>
  *
- * @see org.elysium.lilyPond.LilyPondPackage#getBlock()
+ * @see org.elysium.lilypond.LilypondPackage#getBlock()
  * @model
  * @generated
  */
-public interface Block extends Expression
+public interface Block extends CommonExpression
 {
   /**
    * Returns the value of the '<em><b>Expressions</b></em>' containment reference list.
-   * The list contents are of type {@link org.elysium.lilyPond.Expression}.
-   * It is bidirectional and its opposite is '{@link org.elysium.lilyPond.Expression#getParentBlock <em>Parent Block</em>}'.
+   * The list contents are of type {@link org.elysium.lilypond.Expression}.
    * <!-- begin-user-doc -->
    * <p>
    * If the meaning of the '<em>Expressions</em>' containment reference list isn't clear,
@@ -36,9 +35,8 @@ public interface Block extends Expression
    * </p>
    * <!-- end-user-doc -->
    * @return the value of the '<em>Expressions</em>' containment reference list.
-   * @see org.elysium.lilyPond.LilyPondPackage#getBlock_Expressions()
-   * @see org.elysium.lilyPond.Expression#getParentBlock
-   * @model opposite="parentBlock" containment="true"
+   * @see org.elysium.lilypond.LilypondPackage#getBlock_Expressions()
+   * @model containment="true"
    * @generated
    */
   EList<Expression> getExpressions();

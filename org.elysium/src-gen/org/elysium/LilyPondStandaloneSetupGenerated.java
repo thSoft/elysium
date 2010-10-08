@@ -36,7 +36,7 @@ public class LilyPondStandaloneSetupGenerated implements ISetup {
 	
 	public void register(Injector injector) {
 	if (!EPackage.Registry.INSTANCE.containsKey("http://www.elysium.org/LilyPond")) {
-		EPackage.Registry.INSTANCE.put("http://www.elysium.org/LilyPond", org.elysium.lilyPond.LilyPondPackage.eINSTANCE);
+		EPackage.Registry.INSTANCE.put("http://www.elysium.org/LilyPond", org.elysium.lilypond.LilypondPackage.eINSTANCE);
 	}
 
 		org.eclipse.xtext.resource.IResourceFactory resourceFactory = injector.getInstance(org.eclipse.xtext.resource.IResourceFactory.class);

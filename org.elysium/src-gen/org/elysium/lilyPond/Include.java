@@ -3,7 +3,7 @@
  * </copyright>
  *
  */
-package org.elysium.lilyPond;
+package org.elysium.lilypond;
 
 
 /**
@@ -14,11 +14,11 @@ package org.elysium.lilyPond;
  * <p>
  * The following features are supported:
  * <ul>
- *   <li>{@link org.elysium.lilyPond.Include#getImportURI <em>Import URI</em>}</li>
+ *   <li>{@link org.elysium.lilypond.Include#getImportURI <em>Import URI</em>}</li>
  * </ul>
  * </p>
  *
- * @see org.elysium.lilyPond.LilyPondPackage#getInclude()
+ * @see org.elysium.lilypond.LilypondPackage#getInclude()
  * @model
  * @generated
  */
@@ -34,14 +34,14 @@ public interface Include extends SpecialCommand
    * <!-- end-user-doc -->
    * @return the value of the '<em>Import URI</em>' attribute.
    * @see #setImportURI(String)
-   * @see org.elysium.lilyPond.LilyPondPackage#getInclude_ImportURI()
+   * @see org.elysium.lilypond.LilypondPackage#getInclude_ImportURI()
    * @model
    * @generated
    */
   String getImportURI();
 
   /**
-   * Sets the value of the '{@link org.elysium.lilyPond.Include#getImportURI <em>Import URI</em>}' attribute.
+   * Sets the value of the '{@link org.elysium.lilypond.Include#getImportURI <em>Import URI</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @param value the new value of the '<em>Import URI</em>' attribute.

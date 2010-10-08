@@ -6,20 +6,56 @@
     modelPluginID="org.elysium" forceOverwrite="true" modelName="LilyPond" updateClasspath="false"
     rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container" complianceLevel="5.0"
     copyrightFields="false" editPluginID="org.elysium.edit" editorPluginID="org.elysium.editor">
-  <genPackages prefix="LilyPond" basePackage="org.elysium" disposableProviderFactory="true"
+  <genPackages prefix="Lilypond" basePackage="org.elysium" disposableProviderFactory="true"
       ecorePackage="LilyPond.ecore#/">
     <genClasses ecoreClass="LilyPond.ecore#//LilyPond">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference LilyPond.ecore#//LilyPond/expressions"/>
     </genClasses>
-    <genClasses ecoreClass="LilyPond.ecore#//Expression">
-      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference LilyPond.ecore#//Expression/parentBlock"/>
-      <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference LilyPond.ecore#//Expression/parentLilyPond"/>
+    <genClasses ecoreClass="LilyPond.ecore#//ToplevelExpression"/>
+    <genClasses ecoreClass="LilyPond.ecore#//Expression"/>
+    <genClasses ecoreClass="LilyPond.ecore#//CommonExpression"/>
+    <genClasses ecoreClass="LilyPond.ecore#//Assignment">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute LilyPond.ecore#//Assignment/name"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference LilyPond.ecore#//Assignment/value"/>
+    </genClasses>
+    <genClasses ecoreClass="LilyPond.ecore#//PropertyAssignment">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute LilyPond.ecore#//PropertyAssignment/id"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference LilyPond.ecore#//PropertyAssignment/value"/>
     </genClasses>
     <genClasses ecoreClass="LilyPond.ecore#//Block">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference LilyPond.ecore#//Block/expressions"/>
     </genClasses>
     <genClasses ecoreClass="LilyPond.ecore#//SimpleBlock"/>
     <genClasses ecoreClass="LilyPond.ecore#//SimultaneousBlock"/>
+    <genClasses ecoreClass="LilyPond.ecore#//Command"/>
+    <genClasses ecoreClass="LilyPond.ecore#//SpecialCommand">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute LilyPond.ecore#//SpecialCommand/keyword"/>
+    </genClasses>
+    <genClasses ecoreClass="LilyPond.ecore#//Include">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute LilyPond.ecore#//Include/importURI"/>
+    </genClasses>
+    <genClasses ecoreClass="LilyPond.ecore#//Version">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute LilyPond.ecore#//Version/version"/>
+    </genClasses>
+    <genClasses ecoreClass="LilyPond.ecore#//Markup">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference LilyPond.ecore#//Markup/block"/>
+    </genClasses>
+    <genClasses ecoreClass="LilyPond.ecore#//MarkupBlock">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference LilyPond.ecore#//MarkupBlock/expressions"/>
+    </genClasses>
+    <genClasses ecoreClass="LilyPond.ecore#//MarkupExpression"/>
+    <genClasses ecoreClass="LilyPond.ecore#//MarkupCommand">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute LilyPond.ecore#//MarkupCommand/command"/>
+    </genClasses>
+    <genClasses ecoreClass="LilyPond.ecore#//Reference">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference LilyPond.ecore#//Reference/assignment"/>
+    </genClasses>
+    <genClasses ecoreClass="LilyPond.ecore#//Text">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute LilyPond.ecore#//Text/value"/>
+    </genClasses>
+    <genClasses ecoreClass="LilyPond.ecore#//Number">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute LilyPond.ecore#//Number/value"/>
+    </genClasses>
     <genClasses ecoreClass="LilyPond.ecore#//Scheme">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference LilyPond.ecore#//Scheme/value"/>
     </genClasses>
@@ -27,6 +63,7 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute LilyPond.ecore#//SchemeExpression/quoted"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute LilyPond.ecore#//SchemeExpression/quasiquoted"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute LilyPond.ecore#//SchemeExpression/unquoted"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute LilyPond.ecore#//SchemeExpression/variable"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference LilyPond.ecore#//SchemeExpression/value"/>
     </genClasses>
     <genClasses ecoreClass="LilyPond.ecore#//SchemeValue"/>
@@ -34,37 +71,24 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute LilyPond.ecore#//SchemeBoolean/value"/>
     </genClasses>
     <genClasses ecoreClass="LilyPond.ecore#//SchemeList">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute LilyPond.ecore#//SchemeList/vector"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference LilyPond.ecore#//SchemeList/expressions"/>
     </genClasses>
     <genClasses ecoreClass="LilyPond.ecore#//SchemeBlock">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference LilyPond.ecore#//SchemeBlock/expressions"/>
     </genClasses>
-    <genClasses ecoreClass="LilyPond.ecore#//SchemeMarkupCommand">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute LilyPond.ecore#//SchemeMarkupCommand/command"/>
+    <genClasses ecoreClass="LilyPond.ecore#//SchemeCharacter">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute LilyPond.ecore#//SchemeCharacter/value"/>
     </genClasses>
     <genClasses ecoreClass="LilyPond.ecore#//SchemeText">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute LilyPond.ecore#//SchemeText/value"/>
     </genClasses>
     <genClasses ecoreClass="LilyPond.ecore#//SchemeNumber">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute LilyPond.ecore#//SchemeNumber/hexadecimal"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute LilyPond.ecore#//SchemeNumber/radix"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute LilyPond.ecore#//SchemeNumber/value"/>
     </genClasses>
-    <genClasses ecoreClass="LilyPond.ecore#//Command"/>
-    <genClasses ecoreClass="LilyPond.ecore#//ArbitraryCommand">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute LilyPond.ecore#//ArbitraryCommand/keyword"/>
-    </genClasses>
-    <genClasses ecoreClass="LilyPond.ecore#//SpecialCommand"/>
-    <genClasses ecoreClass="LilyPond.ecore#//Include">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute LilyPond.ecore#//Include/importURI"/>
-    </genClasses>
-    <genClasses ecoreClass="LilyPond.ecore#//Version">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute LilyPond.ecore#//Version/version"/>
-    </genClasses>
-    <genClasses ecoreClass="LilyPond.ecore#//Text">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute LilyPond.ecore#//Text/value"/>
-    </genClasses>
-    <genClasses ecoreClass="LilyPond.ecore#//Number">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute LilyPond.ecore#//Number/value"/>
+    <genClasses ecoreClass="LilyPond.ecore#//SchemeMarkupCommand">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute LilyPond.ecore#//SchemeMarkupCommand/command"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>

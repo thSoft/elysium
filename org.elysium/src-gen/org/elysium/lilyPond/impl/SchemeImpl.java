@@ -3,7 +3,7 @@
  * </copyright>
  *
  */
-package org.elysium.lilyPond.impl;
+package org.elysium.lilypond.impl;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
@@ -13,9 +13,9 @@ import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
-import org.elysium.lilyPond.LilyPondPackage;
-import org.elysium.lilyPond.Scheme;
-import org.elysium.lilyPond.SchemeExpression;
+import org.elysium.lilypond.LilypondPackage;
+import org.elysium.lilypond.Scheme;
+import org.elysium.lilypond.SchemeExpression;
 
 /**
  * <!-- begin-user-doc -->
@@ -24,13 +24,13 @@ import org.elysium.lilyPond.SchemeExpression;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link org.elysium.lilyPond.impl.SchemeImpl#getValue <em>Value</em>}</li>
+ *   <li>{@link org.elysium.lilypond.impl.SchemeImpl#getValue <em>Value</em>}</li>
  * </ul>
  * </p>
  *
  * @generated
  */
-public class SchemeImpl extends ExpressionImpl implements Scheme
+public class SchemeImpl extends CommonExpressionImpl implements Scheme
 {
   /**
    * The cached value of the '{@link #getValue() <em>Value</em>}' containment reference.
@@ -60,7 +60,7 @@ public class SchemeImpl extends ExpressionImpl implements Scheme
   @Override
   protected EClass eStaticClass()
   {
-    return LilyPondPackage.Literals.SCHEME;
+    return LilypondPackage.Literals.SCHEME;
   }
 
   /**
@@ -84,7 +84,7 @@ public class SchemeImpl extends ExpressionImpl implements Scheme
     value = newValue;
     if (eNotificationRequired())
     {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, LilyPondPackage.SCHEME__VALUE, oldValue, newValue);
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, LilypondPackage.SCHEME__VALUE, oldValue, newValue);
       if (msgs == null) msgs = notification; else msgs.add(notification);
     }
     return msgs;
@@ -101,14 +101,14 @@ public class SchemeImpl extends ExpressionImpl implements Scheme
     {
       NotificationChain msgs = null;
       if (value != null)
-        msgs = ((InternalEObject)value).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - LilyPondPackage.SCHEME__VALUE, null, msgs);
+        msgs = ((InternalEObject)value).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - LilypondPackage.SCHEME__VALUE, null, msgs);
       if (newValue != null)
-        msgs = ((InternalEObject)newValue).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - LilyPondPackage.SCHEME__VALUE, null, msgs);
+        msgs = ((InternalEObject)newValue).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - LilypondPackage.SCHEME__VALUE, null, msgs);
       msgs = basicSetValue(newValue, msgs);
       if (msgs != null) msgs.dispatch();
     }
     else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, LilyPondPackage.SCHEME__VALUE, newValue, newValue));
+      eNotify(new ENotificationImpl(this, Notification.SET, LilypondPackage.SCHEME__VALUE, newValue, newValue));
   }
 
   /**
@@ -121,7 +121,7 @@ public class SchemeImpl extends ExpressionImpl implements Scheme
   {
     switch (featureID)
     {
-      case LilyPondPackage.SCHEME__VALUE:
+      case LilypondPackage.SCHEME__VALUE:
         return basicSetValue(null, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
@@ -137,7 +137,7 @@ public class SchemeImpl extends ExpressionImpl implements Scheme
   {
     switch (featureID)
     {
-      case LilyPondPackage.SCHEME__VALUE:
+      case LilypondPackage.SCHEME__VALUE:
         return getValue();
     }
     return super.eGet(featureID, resolve, coreType);
@@ -153,7 +153,7 @@ public class SchemeImpl extends ExpressionImpl implements Scheme
   {
     switch (featureID)
     {
-      case LilyPondPackage.SCHEME__VALUE:
+      case LilypondPackage.SCHEME__VALUE:
         setValue((SchemeExpression)newValue);
         return;
     }
@@ -170,7 +170,7 @@ public class SchemeImpl extends ExpressionImpl implements Scheme
   {
     switch (featureID)
     {
-      case LilyPondPackage.SCHEME__VALUE:
+      case LilypondPackage.SCHEME__VALUE:
         setValue((SchemeExpression)null);
         return;
     }
@@ -187,7 +187,7 @@ public class SchemeImpl extends ExpressionImpl implements Scheme
   {
     switch (featureID)
     {
-      case LilyPondPackage.SCHEME__VALUE:
+      case LilypondPackage.SCHEME__VALUE:
         return value != null;
     }
     return super.eIsSet(featureID);

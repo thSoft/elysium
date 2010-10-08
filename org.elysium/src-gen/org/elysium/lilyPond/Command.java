@@ -3,7 +3,7 @@
  * </copyright>
  *
  */
-package org.elysium.lilyPond;
+package org.elysium.lilypond;
 
 
 /**
@@ -12,10 +12,10 @@ package org.elysium.lilyPond;
  * <!-- end-user-doc -->
  *
  *
- * @see org.elysium.lilyPond.LilyPondPackage#getCommand()
+ * @see org.elysium.lilypond.LilypondPackage#getCommand()
  * @model
  * @generated
  */
-public interface Command extends Expression
+public interface Command extends CommonExpression
 {
 } // Command

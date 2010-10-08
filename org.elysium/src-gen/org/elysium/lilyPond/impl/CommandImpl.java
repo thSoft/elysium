@@ -3,12 +3,12 @@
  * </copyright>
  *
  */
-package org.elysium.lilyPond.impl;
+package org.elysium.lilypond.impl;
 
 import org.eclipse.emf.ecore.EClass;
 
-import org.elysium.lilyPond.Command;
-import org.elysium.lilyPond.LilyPondPackage;
+import org.elysium.lilypond.Command;
+import org.elysium.lilypond.LilypondPackage;
 
 /**
  * <!-- begin-user-doc -->
@@ -19,7 +19,7 @@ import org.elysium.lilyPond.LilyPondPackage;
  *
  * @generated
  */
-public class CommandImpl extends ExpressionImpl implements Command
+public class CommandImpl extends CommonExpressionImpl implements Command
 {
   /**
    * <!-- begin-user-doc -->
@@ -39,7 +39,7 @@ public class CommandImpl extends ExpressionImpl implements Command
   @Override
   protected EClass eStaticClass()
   {
-    return LilyPondPackage.Literals.COMMAND;
+    return LilypondPackage.Literals.COMMAND;
   }
 
 } //CommandImpl

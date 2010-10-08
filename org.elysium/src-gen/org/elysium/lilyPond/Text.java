@@ -3,7 +3,7 @@
  * </copyright>
  *
  */
-package org.elysium.lilyPond;
+package org.elysium.lilypond;
 
 
 /**
@@ -14,15 +14,15 @@ package org.elysium.lilyPond;
  * <p>
  * The following features are supported:
  * <ul>
- *   <li>{@link org.elysium.lilyPond.Text#getValue <em>Value</em>}</li>
+ *   <li>{@link org.elysium.lilypond.Text#getValue <em>Value</em>}</li>
  * </ul>
  * </p>
  *
- * @see org.elysium.lilyPond.LilyPondPackage#getText()
+ * @see org.elysium.lilypond.LilypondPackage#getText()
  * @model
  * @generated
  */
-public interface Text extends Expression
+public interface Text extends CommonExpression, MarkupExpression
 {
   /**
    * Returns the value of the '<em><b>Value</b></em>' attribute.
@@ -34,14 +34,14 @@ public interface Text extends Expression
    * <!-- end-user-doc -->
    * @return the value of the '<em>Value</em>' attribute.
    * @see #setValue(String)
-   * @see org.elysium.lilyPond.LilyPondPackage#getText_Value()
+   * @see org.elysium.lilypond.LilypondPackage#getText_Value()
    * @model
    * @generated
    */
   String getValue();
 
   /**
-   * Sets the value of the '{@link org.elysium.lilyPond.Text#getValue <em>Value</em>}' attribute.
+   * Sets the value of the '{@link org.elysium.lilypond.Text#getValue <em>Value</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @param value the new value of the '<em>Value</em>' attribute.

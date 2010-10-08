@@ -19,7 +19,7 @@ import org.eclipse.xtext.EcoreUtil2;
 import org.eclipse.xtext.builder.IXtextBuilderParticipant;
 import org.eclipse.xtext.resource.IResourceDescription.Delta;
 import org.elysium.LilyPondConstants;
-import org.elysium.lilyPond.Include;
+import org.elysium.lilypond.Include;
 
 /**
  * Performs automatic incremental build on LilyPond source files.

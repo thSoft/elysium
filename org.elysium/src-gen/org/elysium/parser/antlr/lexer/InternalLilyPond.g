@@ -28,13 +28,25 @@ tokens {
 	KEYWORD_16;
 	KEYWORD_17;
 	KEYWORD_18;
+	KEYWORD_19;
+	KEYWORD_20;
+	KEYWORD_21;
+	KEYWORD_22;
+	KEYWORD_23;
+	KEYWORD_24;
+	KEYWORD_25;
+	KEYWORD_26;
+	KEYWORD_27;
+	KEYWORD_28;
+	KEYWORD_29;
 	RULE_STRING;
 	RULE_INT;
-	RULE_BOOL;
 	RULE_ID;
 	RULE_WS;
 	RULE_SL_COMMENT;
 	RULE_ML_COMMENT;
+	RULE_SCHEME_SL_COMMENT;
+	RULE_SCHEME_ML_COMMENT;
 	RULE_ANY_OTHER;
 }
 
@@ -67,62 +79,93 @@ SYNTHETIC_ALL_KEYWORDS :
 	(FRAGMENT_KEYWORD_16)=> FRAGMENT_KEYWORD_16 {$type = KEYWORD_16; } |
 	(FRAGMENT_KEYWORD_17)=> FRAGMENT_KEYWORD_17 {$type = KEYWORD_17; } |
 	(FRAGMENT_KEYWORD_18)=> FRAGMENT_KEYWORD_18 {$type = KEYWORD_18; } |
+	(FRAGMENT_KEYWORD_19)=> FRAGMENT_KEYWORD_19 {$type = KEYWORD_19; } |
+	(FRAGMENT_KEYWORD_20)=> FRAGMENT_KEYWORD_20 {$type = KEYWORD_20; } |
+	(FRAGMENT_KEYWORD_21)=> FRAGMENT_KEYWORD_21 {$type = KEYWORD_21; } |
+	(FRAGMENT_KEYWORD_22)=> FRAGMENT_KEYWORD_22 {$type = KEYWORD_22; } |
+	(FRAGMENT_KEYWORD_23)=> FRAGMENT_KEYWORD_23 {$type = KEYWORD_23; } |
+	(FRAGMENT_KEYWORD_24)=> FRAGMENT_KEYWORD_24 {$type = KEYWORD_24; } |
+	(FRAGMENT_KEYWORD_25)=> FRAGMENT_KEYWORD_25 {$type = KEYWORD_25; } |
+	(FRAGMENT_KEYWORD_26)=> FRAGMENT_KEYWORD_26 {$type = KEYWORD_26; } |
+	(FRAGMENT_KEYWORD_27)=> FRAGMENT_KEYWORD_27 {$type = KEYWORD_27; } |
+	(FRAGMENT_KEYWORD_28)=> FRAGMENT_KEYWORD_28 {$type = KEYWORD_28; } |
+	(FRAGMENT_KEYWORD_29)=> FRAGMENT_KEYWORD_29 {$type = KEYWORD_29; } |
 	(FRAGMENT_RULE_STRING)=> FRAGMENT_RULE_STRING {$type = RULE_STRING; } |
 	(FRAGMENT_RULE_INT)=> FRAGMENT_RULE_INT {$type = RULE_INT; } |
-	(FRAGMENT_RULE_BOOL)=> FRAGMENT_RULE_BOOL {$type = RULE_BOOL; } |
 	(FRAGMENT_RULE_ID)=> FRAGMENT_RULE_ID {$type = RULE_ID; } |
 	(FRAGMENT_RULE_WS)=> FRAGMENT_RULE_WS {$type = RULE_WS; } |
 	(FRAGMENT_RULE_SL_COMMENT)=> FRAGMENT_RULE_SL_COMMENT {$type = RULE_SL_COMMENT; } |
 	(FRAGMENT_RULE_ML_COMMENT)=> FRAGMENT_RULE_ML_COMMENT {$type = RULE_ML_COMMENT; } |
+	(FRAGMENT_RULE_SCHEME_SL_COMMENT)=> FRAGMENT_RULE_SCHEME_SL_COMMENT {$type = RULE_SCHEME_SL_COMMENT; } |
+	(FRAGMENT_RULE_SCHEME_ML_COMMENT)=> FRAGMENT_RULE_SCHEME_ML_COMMENT {$type = RULE_SCHEME_ML_COMMENT; } |
 	(FRAGMENT_RULE_ANY_OTHER)=> FRAGMENT_RULE_ANY_OTHER {$type = RULE_ANY_OTHER; } ;
 
-fragment FRAGMENT_KEYWORD_1 : '#';
+fragment FRAGMENT_KEYWORD_1 : '!';
 
-fragment FRAGMENT_KEYWORD_2 : '\'';
+fragment FRAGMENT_KEYWORD_2 : '#';
 
-fragment FRAGMENT_KEYWORD_3 : '(';
+fragment FRAGMENT_KEYWORD_3 : '$';
 
-fragment FRAGMENT_KEYWORD_4 : ')';
+fragment FRAGMENT_KEYWORD_4 : '\'';
 
-fragment FRAGMENT_KEYWORD_5 : ',';
+fragment FRAGMENT_KEYWORD_5 : '(';
 
-fragment FRAGMENT_KEYWORD_6 : '\\';
+fragment FRAGMENT_KEYWORD_6 : ')';
 
-fragment FRAGMENT_KEYWORD_7 : '`';
+fragment FRAGMENT_KEYWORD_7 : '+';
 
-fragment FRAGMENT_KEYWORD_8 : '{';
+fragment FRAGMENT_KEYWORD_8 : ',';
 
-fragment FRAGMENT_KEYWORD_9 : '}';
+fragment FRAGMENT_KEYWORD_9 : '<';
 
-fragment FRAGMENT_KEYWORD_10 : '#:';
+fragment FRAGMENT_KEYWORD_10 : '=';
 
-fragment FRAGMENT_KEYWORD_11 : '#x';
+fragment FRAGMENT_KEYWORD_11 : '>';
 
-fragment FRAGMENT_KEYWORD_12 : '#{';
+fragment FRAGMENT_KEYWORD_12 : '[';
 
-fragment FRAGMENT_KEYWORD_13 : '#}';
+fragment FRAGMENT_KEYWORD_13 : '\\';
 
-fragment FRAGMENT_KEYWORD_14 : '<<';
+fragment FRAGMENT_KEYWORD_14 : ']';
 
-fragment FRAGMENT_KEYWORD_15 : '>>';
+fragment FRAGMENT_KEYWORD_15 : '`';
 
-fragment FRAGMENT_KEYWORD_16 : '\\\\';
+fragment FRAGMENT_KEYWORD_16 : '{';
 
-fragment FRAGMENT_KEYWORD_17 : '\\include';
+fragment FRAGMENT_KEYWORD_17 : '}';
 
-fragment FRAGMENT_KEYWORD_18 : '\\version';
+fragment FRAGMENT_KEYWORD_18 : '~';
+
+fragment FRAGMENT_KEYWORD_19 : '#:';
+
+fragment FRAGMENT_KEYWORD_20 : '#\\';
+
+fragment FRAGMENT_KEYWORD_21 : '#{';
+
+fragment FRAGMENT_KEYWORD_22 : '#}';
+
+fragment FRAGMENT_KEYWORD_23 : '<<';
+
+fragment FRAGMENT_KEYWORD_24 : '>>';
+
+fragment FRAGMENT_KEYWORD_25 : '\\\\';
+
+fragment FRAGMENT_KEYWORD_26 : 'lines';
+
+fragment FRAGMENT_KEYWORD_27 : '\\markup';
+
+fragment FRAGMENT_KEYWORD_28 : '\\include';
+
+fragment FRAGMENT_KEYWORD_29 : '\\version';
 
 
 // Rules duplicated to allow inter-rule references
 
 fragment RULE_STRING : FRAGMENT_RULE_STRING;
-fragment FRAGMENT_RULE_STRING : '"' ('\\' ('b'|'t'|'n'|' f'|'r'|'"'|'\''|'\\')|~(('\\'|'"')))* '"';
+fragment FRAGMENT_RULE_STRING : '"' ('\\' ('b'|'t'|'n'|'f'|'r'|'"'|'\''|'\\')|~(('\\'|'"')))* '"';
 
 fragment RULE_INT : FRAGMENT_RULE_INT;
 fragment FRAGMENT_RULE_INT : ('0'..'9')+;
-
-fragment RULE_BOOL : FRAGMENT_RULE_BOOL;
-fragment FRAGMENT_RULE_BOOL : ('#f'|'#t');
 
 fragment RULE_ID : FRAGMENT_RULE_ID;
 fragment FRAGMENT_RULE_ID : ('a'..'z'|'A'..'Z') ('a'..'z'|'A'..'Z'|'-')*;
@@ -135,6 +178,12 @@ fragment FRAGMENT_RULE_SL_COMMENT : '%' ~(('\n'|'\r'))* ('\r'? '\n')?;
 
 fragment RULE_ML_COMMENT : FRAGMENT_RULE_ML_COMMENT;
 fragment FRAGMENT_RULE_ML_COMMENT : '%{' ( options {greedy=false;} : . )*'%}';
+
+fragment RULE_SCHEME_SL_COMMENT : FRAGMENT_RULE_SCHEME_SL_COMMENT;
+fragment FRAGMENT_RULE_SCHEME_SL_COMMENT : ';' ~(('\n'|'\r'))* ('\r'? '\n')?;
+
+fragment RULE_SCHEME_ML_COMMENT : FRAGMENT_RULE_SCHEME_ML_COMMENT;
+fragment FRAGMENT_RULE_SCHEME_ML_COMMENT : '#!' ( options {greedy=false;} : . )*'!#';
 
 fragment RULE_ANY_OTHER : FRAGMENT_RULE_ANY_OTHER;
 fragment FRAGMENT_RULE_ANY_OTHER : .;

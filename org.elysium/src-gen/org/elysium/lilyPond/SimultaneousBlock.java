@@ -3,7 +3,7 @@
  * </copyright>
  *
  */
-package org.elysium.lilyPond;
+package org.elysium.lilypond;
 
 
 /**
@@ -12,7 +12,7 @@ package org.elysium.lilyPond;
  * <!-- end-user-doc -->
  *
  *
- * @see org.elysium.lilyPond.LilyPondPackage#getSimultaneousBlock()
+ * @see org.elysium.lilypond.LilypondPackage#getSimultaneousBlock()
  * @model
  * @generated
  */

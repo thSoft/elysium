@@ -3,7 +3,7 @@
  * </copyright>
  *
  */
-package org.elysium.lilyPond.impl;
+package org.elysium.lilypond.impl;
 
 import org.eclipse.emf.common.notify.Notification;
 
@@ -11,8 +11,8 @@ import org.eclipse.emf.ecore.EClass;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
-import org.elysium.lilyPond.Include;
-import org.elysium.lilyPond.LilyPondPackage;
+import org.elysium.lilypond.Include;
+import org.elysium.lilypond.LilypondPackage;
 
 /**
  * <!-- begin-user-doc -->
@@ -21,7 +21,7 @@ import org.elysium.lilyPond.LilyPondPackage;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link org.elysium.lilyPond.impl.IncludeImpl#getImportURI <em>Import URI</em>}</li>
+ *   <li>{@link org.elysium.lilypond.impl.IncludeImpl#getImportURI <em>Import URI</em>}</li>
  * </ul>
  * </p>
  *
@@ -67,7 +67,7 @@ public class IncludeImpl extends SpecialCommandImpl implements Include
   @Override
   protected EClass eStaticClass()
   {
-    return LilyPondPackage.Literals.INCLUDE;
+    return LilypondPackage.Literals.INCLUDE;
   }
 
   /**
@@ -90,7 +90,7 @@ public class IncludeImpl extends SpecialCommandImpl implements Include
     String oldImportURI = importURI;
     importURI = newImportURI;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, LilyPondPackage.INCLUDE__IMPORT_URI, oldImportURI, importURI));
+      eNotify(new ENotificationImpl(this, Notification.SET, LilypondPackage.INCLUDE__IMPORT_URI, oldImportURI, importURI));
   }
 
   /**
@@ -103,7 +103,7 @@ public class IncludeImpl extends SpecialCommandImpl implements Include
   {
     switch (featureID)
     {
-      case LilyPondPackage.INCLUDE__IMPORT_URI:
+      case LilypondPackage.INCLUDE__IMPORT_URI:
         return getImportURI();
     }
     return super.eGet(featureID, resolve, coreType);
@@ -119,7 +119,7 @@ public class IncludeImpl extends SpecialCommandImpl implements Include
   {
     switch (featureID)
     {
-      case LilyPondPackage.INCLUDE__IMPORT_URI:
+      case LilypondPackage.INCLUDE__IMPORT_URI:
         setImportURI((String)newValue);
         return;
     }
@@ -136,7 +136,7 @@ public class IncludeImpl extends SpecialCommandImpl implements Include
   {
     switch (featureID)
     {
-      case LilyPondPackage.INCLUDE__IMPORT_URI:
+      case LilypondPackage.INCLUDE__IMPORT_URI:
         setImportURI(IMPORT_URI_EDEFAULT);
         return;
     }
@@ -153,7 +153,7 @@ public class IncludeImpl extends SpecialCommandImpl implements Include
   {
     switch (featureID)
     {
-      case LilyPondPackage.INCLUDE__IMPORT_URI:
+      case LilypondPackage.INCLUDE__IMPORT_URI:
         return IMPORT_URI_EDEFAULT == null ? importURI != null : !IMPORT_URI_EDEFAULT.equals(importURI);
     }
     return super.eIsSet(featureID);

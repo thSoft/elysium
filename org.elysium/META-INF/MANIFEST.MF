@@ -24,12 +24,12 @@ Import-Package: org.apache.log4j
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
 Export-Package: org.elysium,
  org.elysium.formatting,
- org.elysium.lilyPond,
- org.elysium.lilyPond.impl,
- org.elysium.lilyPond.util,
+ org.elysium.lilypond,
+ org.elysium.lilypond.impl,
+ org.elysium.lilypond.util,
  org.elysium.parseTreeConstruction,
  org.elysium.parser.antlr,
  org.elysium.parser.antlr.internal,
+ org.elysium.parser.antlr.lexer,
  org.elysium.services,
- org.elysium.validation,
- org.elysium.parser.antlr.lexer
+ org.elysium.validation

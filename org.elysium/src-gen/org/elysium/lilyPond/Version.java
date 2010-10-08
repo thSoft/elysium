@@ -3,7 +3,7 @@
  * </copyright>
  *
  */
-package org.elysium.lilyPond;
+package org.elysium.lilypond;
 
 
 /**
@@ -14,11 +14,11 @@ package org.elysium.lilyPond;
  * <p>
  * The following features are supported:
  * <ul>
- *   <li>{@link org.elysium.lilyPond.Version#getVersion <em>Version</em>}</li>
+ *   <li>{@link org.elysium.lilypond.Version#getVersion <em>Version</em>}</li>
  * </ul>
  * </p>
  *
- * @see org.elysium.lilyPond.LilyPondPackage#getVersion()
+ * @see org.elysium.lilypond.LilypondPackage#getVersion()
  * @model
  * @generated
  */
@@ -34,14 +34,14 @@ public interface Version extends SpecialCommand
    * <!-- end-user-doc -->
    * @return the value of the '<em>Version</em>' attribute.
    * @see #setVersion(String)
-   * @see org.elysium.lilyPond.LilyPondPackage#getVersion_Version()
+   * @see org.elysium.lilypond.LilypondPackage#getVersion_Version()
    * @model
    * @generated
    */
   String getVersion();
 
   /**
-   * Sets the value of the '{@link org.elysium.lilyPond.Version#getVersion <em>Version</em>}' attribute.
+   * Sets the value of the '{@link org.elysium.lilypond.Version#getVersion <em>Version</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @param value the new value of the '<em>Version</em>' attribute.

@@ -3,7 +3,7 @@
  * </copyright>
  *
  */
-package org.elysium.lilyPond.util;
+package org.elysium.lilypond.util;
 
 import org.eclipse.emf.common.notify.Adapter;
 import org.eclipse.emf.common.notify.Notifier;
@@ -12,37 +12,46 @@ import org.eclipse.emf.common.notify.impl.AdapterFactoryImpl;
 
 import org.eclipse.emf.ecore.EObject;
 
-import org.elysium.lilyPond.ArbitraryCommand;
-import org.elysium.lilyPond.Block;
-import org.elysium.lilyPond.Command;
-import org.elysium.lilyPond.Expression;
-import org.elysium.lilyPond.Include;
-import org.elysium.lilyPond.LilyPond;
-import org.elysium.lilyPond.LilyPondPackage;
-import org.elysium.lilyPond.Scheme;
-import org.elysium.lilyPond.SchemeBlock;
-import org.elysium.lilyPond.SchemeBoolean;
-import org.elysium.lilyPond.SchemeExpression;
-import org.elysium.lilyPond.SchemeList;
-import org.elysium.lilyPond.SchemeMarkupCommand;
-import org.elysium.lilyPond.SchemeNumber;
-import org.elysium.lilyPond.SchemeText;
-import org.elysium.lilyPond.SchemeValue;
-import org.elysium.lilyPond.SimpleBlock;
-import org.elysium.lilyPond.SimultaneousBlock;
-import org.elysium.lilyPond.SpecialCommand;
-import org.elysium.lilyPond.Text;
-import org.elysium.lilyPond.Version;
+import org.elysium.lilypond.Assignment;
+import org.elysium.lilypond.Block;
+import org.elysium.lilypond.Command;
+import org.elysium.lilypond.CommonExpression;
+import org.elysium.lilypond.Expression;
+import org.elysium.lilypond.Include;
+import org.elysium.lilypond.LilyPond;
+import org.elysium.lilypond.LilypondPackage;
+import org.elysium.lilypond.Markup;
+import org.elysium.lilypond.MarkupBlock;
+import org.elysium.lilypond.MarkupCommand;
+import org.elysium.lilypond.MarkupExpression;
+import org.elysium.lilypond.PropertyAssignment;
+import org.elysium.lilypond.Reference;
+import org.elysium.lilypond.Scheme;
+import org.elysium.lilypond.SchemeBlock;
+import org.elysium.lilypond.SchemeBoolean;
+import org.elysium.lilypond.SchemeCharacter;
+import org.elysium.lilypond.SchemeExpression;
+import org.elysium.lilypond.SchemeList;
+import org.elysium.lilypond.SchemeMarkupCommand;
+import org.elysium.lilypond.SchemeNumber;
+import org.elysium.lilypond.SchemeText;
+import org.elysium.lilypond.SchemeValue;
+import org.elysium.lilypond.SimpleBlock;
+import org.elysium.lilypond.SimultaneousBlock;
+import org.elysium.lilypond.SpecialCommand;
+import org.elysium.lilypond.Text;
+import org.elysium.lilypond.ToplevelExpression;
+import org.elysium.lilypond.Version;
 
 /**
  * <!-- begin-user-doc -->
  * The <b>Adapter Factory</b> for the model.
  * It provides an adapter <code>createXXX</code> method for each class of the model.
  * <!-- end-user-doc -->
- * @see org.elysium.lilyPond.LilyPondPackage
+ * @see org.elysium.lilypond.LilypondPackage
  * @generated
  */
-public class LilyPondAdapterFactory extends AdapterFactoryImpl
+public class LilypondAdapterFactory extends AdapterFactoryImpl
 {
   /**
    * The cached model package.
@@ -50,7 +59,7 @@ public class LilyPondAdapterFactory extends AdapterFactoryImpl
    * <!-- end-user-doc -->
    * @generated
    */
-  protected static LilyPondPackage modelPackage;
+  protected static LilypondPackage modelPackage;
 
   /**
    * Creates an instance of the adapter factory.
@@ -58,11 +67,11 @@ public class LilyPondAdapterFactory extends AdapterFactoryImpl
    * <!-- end-user-doc -->
    * @generated
    */
-  public LilyPondAdapterFactory()
+  public LilypondAdapterFactory()
   {
     if (modelPackage == null)
     {
-      modelPackage = LilyPondPackage.eINSTANCE;
+      modelPackage = LilypondPackage.eINSTANCE;
     }
   }
 
@@ -94,8 +103,8 @@ public class LilyPondAdapterFactory extends AdapterFactoryImpl
    * <!-- end-user-doc -->
    * @generated
    */
-  protected LilyPondSwitch<Adapter> modelSwitch =
-    new LilyPondSwitch<Adapter>()
+  protected LilypondSwitch<Adapter> modelSwitch =
+    new LilypondSwitch<Adapter>()
     {
       @Override
       public Adapter caseLilyPond(LilyPond object)
@@ -103,9 +112,29 @@ public class LilyPondAdapterFactory extends AdapterFactoryImpl
         return createLilyPondAdapter();
       }
       @Override
+      public Adapter caseToplevelExpression(ToplevelExpression object)
+      {
+        return createToplevelExpressionAdapter();
+      }
+      @Override
       public Adapter caseExpression(Expression object)
       {
         return createExpressionAdapter();
+      }
+      @Override
+      public Adapter caseCommonExpression(CommonExpression object)
+      {
+        return createCommonExpressionAdapter();
+      }
+      @Override
+      public Adapter caseAssignment(Assignment object)
+      {
+        return createAssignmentAdapter();
+      }
+      @Override
+      public Adapter casePropertyAssignment(PropertyAssignment object)
+      {
+        return createPropertyAssignmentAdapter();
       }
       @Override
       public Adapter caseBlock(Block object)
@@ -121,6 +150,61 @@ public class LilyPondAdapterFactory extends AdapterFactoryImpl
       public Adapter caseSimultaneousBlock(SimultaneousBlock object)
       {
         return createSimultaneousBlockAdapter();
+      }
+      @Override
+      public Adapter caseCommand(Command object)
+      {
+        return createCommandAdapter();
+      }
+      @Override
+      public Adapter caseSpecialCommand(SpecialCommand object)
+      {
+        return createSpecialCommandAdapter();
+      }
+      @Override
+      public Adapter caseInclude(Include object)
+      {
+        return createIncludeAdapter();
+      }
+      @Override
+      public Adapter caseVersion(Version object)
+      {
+        return createVersionAdapter();
+      }
+      @Override
+      public Adapter caseMarkup(Markup object)
+      {
+        return createMarkupAdapter();
+      }
+      @Override
+      public Adapter caseMarkupBlock(MarkupBlock object)
+      {
+        return createMarkupBlockAdapter();
+      }
+      @Override
+      public Adapter caseMarkupExpression(MarkupExpression object)
+      {
+        return createMarkupExpressionAdapter();
+      }
+      @Override
+      public Adapter caseMarkupCommand(MarkupCommand object)
+      {
+        return createMarkupCommandAdapter();
+      }
+      @Override
+      public Adapter caseReference(Reference object)
+      {
+        return createReferenceAdapter();
+      }
+      @Override
+      public Adapter caseText(Text object)
+      {
+        return createTextAdapter();
+      }
+      @Override
+      public Adapter caseNumber(org.elysium.lilypond.Number object)
+      {
+        return createNumberAdapter();
       }
       @Override
       public Adapter caseScheme(Scheme object)
@@ -153,9 +237,9 @@ public class LilyPondAdapterFactory extends AdapterFactoryImpl
         return createSchemeBlockAdapter();
       }
       @Override
-      public Adapter caseSchemeMarkupCommand(SchemeMarkupCommand object)
+      public Adapter caseSchemeCharacter(SchemeCharacter object)
       {
-        return createSchemeMarkupCommandAdapter();
+        return createSchemeCharacterAdapter();
       }
       @Override
       public Adapter caseSchemeText(SchemeText object)
@@ -168,39 +252,9 @@ public class LilyPondAdapterFactory extends AdapterFactoryImpl
         return createSchemeNumberAdapter();
       }
       @Override
-      public Adapter caseCommand(Command object)
+      public Adapter caseSchemeMarkupCommand(SchemeMarkupCommand object)
       {
-        return createCommandAdapter();
-      }
-      @Override
-      public Adapter caseArbitraryCommand(ArbitraryCommand object)
-      {
-        return createArbitraryCommandAdapter();
-      }
-      @Override
-      public Adapter caseSpecialCommand(SpecialCommand object)
-      {
-        return createSpecialCommandAdapter();
-      }
-      @Override
-      public Adapter caseInclude(Include object)
-      {
-        return createIncludeAdapter();
-      }
-      @Override
-      public Adapter caseVersion(Version object)
-      {
-        return createVersionAdapter();
-      }
-      @Override
-      public Adapter caseText(Text object)
-      {
-        return createTextAdapter();
-      }
-      @Override
-      public Adapter caseNumber(org.elysium.lilyPond.Number object)
-      {
-        return createNumberAdapter();
+        return createSchemeMarkupCommandAdapter();
       }
       @Override
       public Adapter defaultCase(EObject object)
@@ -225,13 +279,13 @@ public class LilyPondAdapterFactory extends AdapterFactoryImpl
 
 
   /**
-   * Creates a new adapter for an object of class '{@link org.elysium.lilyPond.LilyPond <em>Lily Pond</em>}'.
+   * Creates a new adapter for an object of class '{@link org.elysium.lilypond.LilyPond <em>Lily Pond</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see org.elysium.lilyPond.LilyPond
+   * @see org.elysium.lilypond.LilyPond
    * @generated
    */
   public Adapter createLilyPondAdapter()
@@ -240,13 +294,28 @@ public class LilyPondAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link org.elysium.lilyPond.Expression <em>Expression</em>}'.
+   * Creates a new adapter for an object of class '{@link org.elysium.lilypond.ToplevelExpression <em>Toplevel Expression</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see org.elysium.lilyPond.Expression
+   * @see org.elysium.lilypond.ToplevelExpression
+   * @generated
+   */
+  public Adapter createToplevelExpressionAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.elysium.lilypond.Expression <em>Expression</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.elysium.lilypond.Expression
    * @generated
    */
   public Adapter createExpressionAdapter()
@@ -255,13 +324,58 @@ public class LilyPondAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link org.elysium.lilyPond.Block <em>Block</em>}'.
+   * Creates a new adapter for an object of class '{@link org.elysium.lilypond.CommonExpression <em>Common Expression</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see org.elysium.lilyPond.Block
+   * @see org.elysium.lilypond.CommonExpression
+   * @generated
+   */
+  public Adapter createCommonExpressionAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.elysium.lilypond.Assignment <em>Assignment</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.elysium.lilypond.Assignment
+   * @generated
+   */
+  public Adapter createAssignmentAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.elysium.lilypond.PropertyAssignment <em>Property Assignment</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.elysium.lilypond.PropertyAssignment
+   * @generated
+   */
+  public Adapter createPropertyAssignmentAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.elysium.lilypond.Block <em>Block</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.elysium.lilypond.Block
    * @generated
    */
   public Adapter createBlockAdapter()
@@ -270,13 +384,13 @@ public class LilyPondAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link org.elysium.lilyPond.SimpleBlock <em>Simple Block</em>}'.
+   * Creates a new adapter for an object of class '{@link org.elysium.lilypond.SimpleBlock <em>Simple Block</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see org.elysium.lilyPond.SimpleBlock
+   * @see org.elysium.lilypond.SimpleBlock
    * @generated
    */
   public Adapter createSimpleBlockAdapter()
@@ -285,13 +399,13 @@ public class LilyPondAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link org.elysium.lilyPond.SimultaneousBlock <em>Simultaneous Block</em>}'.
+   * Creates a new adapter for an object of class '{@link org.elysium.lilypond.SimultaneousBlock <em>Simultaneous Block</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see org.elysium.lilyPond.SimultaneousBlock
+   * @see org.elysium.lilypond.SimultaneousBlock
    * @generated
    */
   public Adapter createSimultaneousBlockAdapter()
@@ -300,148 +414,13 @@ public class LilyPondAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link org.elysium.lilyPond.Scheme <em>Scheme</em>}'.
+   * Creates a new adapter for an object of class '{@link org.elysium.lilypond.Command <em>Command</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see org.elysium.lilyPond.Scheme
-   * @generated
-   */
-  public Adapter createSchemeAdapter()
-  {
-    return null;
-  }
-
-  /**
-   * Creates a new adapter for an object of class '{@link org.elysium.lilyPond.SchemeExpression <em>Scheme Expression</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see org.elysium.lilyPond.SchemeExpression
-   * @generated
-   */
-  public Adapter createSchemeExpressionAdapter()
-  {
-    return null;
-  }
-
-  /**
-   * Creates a new adapter for an object of class '{@link org.elysium.lilyPond.SchemeValue <em>Scheme Value</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see org.elysium.lilyPond.SchemeValue
-   * @generated
-   */
-  public Adapter createSchemeValueAdapter()
-  {
-    return null;
-  }
-
-  /**
-   * Creates a new adapter for an object of class '{@link org.elysium.lilyPond.SchemeBoolean <em>Scheme Boolean</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see org.elysium.lilyPond.SchemeBoolean
-   * @generated
-   */
-  public Adapter createSchemeBooleanAdapter()
-  {
-    return null;
-  }
-
-  /**
-   * Creates a new adapter for an object of class '{@link org.elysium.lilyPond.SchemeList <em>Scheme List</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see org.elysium.lilyPond.SchemeList
-   * @generated
-   */
-  public Adapter createSchemeListAdapter()
-  {
-    return null;
-  }
-
-  /**
-   * Creates a new adapter for an object of class '{@link org.elysium.lilyPond.SchemeBlock <em>Scheme Block</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see org.elysium.lilyPond.SchemeBlock
-   * @generated
-   */
-  public Adapter createSchemeBlockAdapter()
-  {
-    return null;
-  }
-
-  /**
-   * Creates a new adapter for an object of class '{@link org.elysium.lilyPond.SchemeMarkupCommand <em>Scheme Markup Command</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see org.elysium.lilyPond.SchemeMarkupCommand
-   * @generated
-   */
-  public Adapter createSchemeMarkupCommandAdapter()
-  {
-    return null;
-  }
-
-  /**
-   * Creates a new adapter for an object of class '{@link org.elysium.lilyPond.SchemeText <em>Scheme Text</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see org.elysium.lilyPond.SchemeText
-   * @generated
-   */
-  public Adapter createSchemeTextAdapter()
-  {
-    return null;
-  }
-
-  /**
-   * Creates a new adapter for an object of class '{@link org.elysium.lilyPond.SchemeNumber <em>Scheme Number</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see org.elysium.lilyPond.SchemeNumber
-   * @generated
-   */
-  public Adapter createSchemeNumberAdapter()
-  {
-    return null;
-  }
-
-  /**
-   * Creates a new adapter for an object of class '{@link org.elysium.lilyPond.Command <em>Command</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see org.elysium.lilyPond.Command
+   * @see org.elysium.lilypond.Command
    * @generated
    */
   public Adapter createCommandAdapter()
@@ -450,28 +429,13 @@ public class LilyPondAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link org.elysium.lilyPond.ArbitraryCommand <em>Arbitrary Command</em>}'.
+   * Creates a new adapter for an object of class '{@link org.elysium.lilypond.SpecialCommand <em>Special Command</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see org.elysium.lilyPond.ArbitraryCommand
-   * @generated
-   */
-  public Adapter createArbitraryCommandAdapter()
-  {
-    return null;
-  }
-
-  /**
-   * Creates a new adapter for an object of class '{@link org.elysium.lilyPond.SpecialCommand <em>Special Command</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see org.elysium.lilyPond.SpecialCommand
+   * @see org.elysium.lilypond.SpecialCommand
    * @generated
    */
   public Adapter createSpecialCommandAdapter()
@@ -480,13 +444,13 @@ public class LilyPondAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link org.elysium.lilyPond.Include <em>Include</em>}'.
+   * Creates a new adapter for an object of class '{@link org.elysium.lilypond.Include <em>Include</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see org.elysium.lilyPond.Include
+   * @see org.elysium.lilypond.Include
    * @generated
    */
   public Adapter createIncludeAdapter()
@@ -495,13 +459,13 @@ public class LilyPondAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link org.elysium.lilyPond.Version <em>Version</em>}'.
+   * Creates a new adapter for an object of class '{@link org.elysium.lilypond.Version <em>Version</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see org.elysium.lilyPond.Version
+   * @see org.elysium.lilypond.Version
    * @generated
    */
   public Adapter createVersionAdapter()
@@ -510,13 +474,88 @@ public class LilyPondAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link org.elysium.lilyPond.Text <em>Text</em>}'.
+   * Creates a new adapter for an object of class '{@link org.elysium.lilypond.Markup <em>Markup</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see org.elysium.lilyPond.Text
+   * @see org.elysium.lilypond.Markup
+   * @generated
+   */
+  public Adapter createMarkupAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.elysium.lilypond.MarkupBlock <em>Markup Block</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.elysium.lilypond.MarkupBlock
+   * @generated
+   */
+  public Adapter createMarkupBlockAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.elysium.lilypond.MarkupExpression <em>Markup Expression</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.elysium.lilypond.MarkupExpression
+   * @generated
+   */
+  public Adapter createMarkupExpressionAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.elysium.lilypond.MarkupCommand <em>Markup Command</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.elysium.lilypond.MarkupCommand
+   * @generated
+   */
+  public Adapter createMarkupCommandAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.elysium.lilypond.Reference <em>Reference</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.elysium.lilypond.Reference
+   * @generated
+   */
+  public Adapter createReferenceAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.elysium.lilypond.Text <em>Text</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.elysium.lilypond.Text
    * @generated
    */
   public Adapter createTextAdapter()
@@ -525,16 +564,166 @@ public class LilyPondAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link org.elysium.lilyPond.Number <em>Number</em>}'.
+   * Creates a new adapter for an object of class '{@link org.elysium.lilypond.Number <em>Number</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see org.elysium.lilyPond.Number
+   * @see org.elysium.lilypond.Number
    * @generated
    */
   public Adapter createNumberAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.elysium.lilypond.Scheme <em>Scheme</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.elysium.lilypond.Scheme
+   * @generated
+   */
+  public Adapter createSchemeAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.elysium.lilypond.SchemeExpression <em>Scheme Expression</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.elysium.lilypond.SchemeExpression
+   * @generated
+   */
+  public Adapter createSchemeExpressionAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.elysium.lilypond.SchemeValue <em>Scheme Value</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.elysium.lilypond.SchemeValue
+   * @generated
+   */
+  public Adapter createSchemeValueAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.elysium.lilypond.SchemeBoolean <em>Scheme Boolean</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.elysium.lilypond.SchemeBoolean
+   * @generated
+   */
+  public Adapter createSchemeBooleanAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.elysium.lilypond.SchemeList <em>Scheme List</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.elysium.lilypond.SchemeList
+   * @generated
+   */
+  public Adapter createSchemeListAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.elysium.lilypond.SchemeBlock <em>Scheme Block</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.elysium.lilypond.SchemeBlock
+   * @generated
+   */
+  public Adapter createSchemeBlockAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.elysium.lilypond.SchemeCharacter <em>Scheme Character</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.elysium.lilypond.SchemeCharacter
+   * @generated
+   */
+  public Adapter createSchemeCharacterAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.elysium.lilypond.SchemeText <em>Scheme Text</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.elysium.lilypond.SchemeText
+   * @generated
+   */
+  public Adapter createSchemeTextAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.elysium.lilypond.SchemeNumber <em>Scheme Number</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.elysium.lilypond.SchemeNumber
+   * @generated
+   */
+  public Adapter createSchemeNumberAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.elysium.lilypond.SchemeMarkupCommand <em>Scheme Markup Command</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.elysium.lilypond.SchemeMarkupCommand
+   * @generated
+   */
+  public Adapter createSchemeMarkupCommandAdapter()
   {
     return null;
   }
@@ -552,4 +741,4 @@ public class LilyPondAdapterFactory extends AdapterFactoryImpl
     return null;
   }
 
-} //LilyPondAdapterFactory
+} //LilypondAdapterFactory

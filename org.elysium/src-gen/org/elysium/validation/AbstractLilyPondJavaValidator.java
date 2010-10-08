@@ -13,7 +13,7 @@ public class AbstractLilyPondJavaValidator extends AbstractDeclarativeValidator 
 @Override
 	protected List<EPackage> getEPackages() {
 	    List<EPackage> result = new ArrayList<EPackage>();
-	    result.add(org.elysium.lilyPond.LilyPondPackage.eINSTANCE);
+	    result.add(org.elysium.lilypond.LilypondPackage.eINSTANCE);
 		return result;
 	}
 

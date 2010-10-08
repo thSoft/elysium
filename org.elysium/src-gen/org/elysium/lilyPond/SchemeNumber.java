@@ -3,7 +3,7 @@
  * </copyright>
  *
  */
-package org.elysium.lilyPond;
+package org.elysium.lilypond;
 
 
 /**
@@ -14,42 +14,42 @@ package org.elysium.lilyPond;
  * <p>
  * The following features are supported:
  * <ul>
- *   <li>{@link org.elysium.lilyPond.SchemeNumber#isHexadecimal <em>Hexadecimal</em>}</li>
- *   <li>{@link org.elysium.lilyPond.SchemeNumber#getValue <em>Value</em>}</li>
+ *   <li>{@link org.elysium.lilypond.SchemeNumber#getRadix <em>Radix</em>}</li>
+ *   <li>{@link org.elysium.lilypond.SchemeNumber#getValue <em>Value</em>}</li>
  * </ul>
  * </p>
  *
- * @see org.elysium.lilyPond.LilyPondPackage#getSchemeNumber()
+ * @see org.elysium.lilypond.LilypondPackage#getSchemeNumber()
  * @model
  * @generated
  */
 public interface SchemeNumber extends SchemeValue
 {
   /**
-   * Returns the value of the '<em><b>Hexadecimal</b></em>' attribute.
+   * Returns the value of the '<em><b>Radix</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Hexadecimal</em>' attribute isn't clear,
+   * If the meaning of the '<em>Radix</em>' attribute isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Hexadecimal</em>' attribute.
-   * @see #setHexadecimal(boolean)
-   * @see org.elysium.lilyPond.LilyPondPackage#getSchemeNumber_Hexadecimal()
+   * @return the value of the '<em>Radix</em>' attribute.
+   * @see #setRadix(String)
+   * @see org.elysium.lilypond.LilypondPackage#getSchemeNumber_Radix()
    * @model
    * @generated
    */
-  boolean isHexadecimal();
+  String getRadix();
 
   /**
-   * Sets the value of the '{@link org.elysium.lilyPond.SchemeNumber#isHexadecimal <em>Hexadecimal</em>}' attribute.
+   * Sets the value of the '{@link org.elysium.lilypond.SchemeNumber#getRadix <em>Radix</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Hexadecimal</em>' attribute.
-   * @see #isHexadecimal()
+   * @param value the new value of the '<em>Radix</em>' attribute.
+   * @see #getRadix()
    * @generated
    */
-  void setHexadecimal(boolean value);
+  void setRadix(String value);
 
   /**
    * Returns the value of the '<em><b>Value</b></em>' attribute.
@@ -61,14 +61,14 @@ public interface SchemeNumber extends SchemeValue
    * <!-- end-user-doc -->
    * @return the value of the '<em>Value</em>' attribute.
    * @see #setValue(int)
-   * @see org.elysium.lilyPond.LilyPondPackage#getSchemeNumber_Value()
+   * @see org.elysium.lilypond.LilypondPackage#getSchemeNumber_Value()
    * @model
    * @generated
    */
   int getValue();
 
   /**
-   * Sets the value of the '{@link org.elysium.lilyPond.SchemeNumber#getValue <em>Value</em>}' attribute.
+   * Sets the value of the '{@link org.elysium.lilypond.SchemeNumber#getValue <em>Value</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @param value the new value of the '<em>Value</em>' attribute.

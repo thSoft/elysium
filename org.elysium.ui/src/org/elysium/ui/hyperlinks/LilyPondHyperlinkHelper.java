@@ -26,8 +26,8 @@ import org.eclipse.xtext.parsetree.NodeUtil;
 import org.eclipse.xtext.resource.XtextResource;
 import org.eclipse.xtext.ui.editor.hyperlinking.HyperlinkHelper;
 import org.eclipse.xtext.ui.editor.hyperlinking.XtextHyperlink;
-import org.elysium.lilyPond.Include;
-import org.elysium.lilyPond.LilyPondPackage;
+import org.elysium.lilypond.Include;
+import org.elysium.lilypond.LilypondPackage;
 import org.elysium.ui.score.ScoreViewType;
 import com.google.common.collect.Iterables;
 import com.google.inject.Inject;
@@ -57,7 +57,7 @@ public class LilyPondHyperlinkHelper extends HyperlinkHelper {
 		int nodeOffset = node.getOffset();
 		int nodeLength = node.getLength();
 		// Include -> File
-		if ((object instanceof Include) && NodeUtil.findNodesForFeature(object, LilyPondPackage.eINSTANCE.getInclude_ImportURI()).contains(node)) {
+		if ((object instanceof Include) && NodeUtil.findNodesForFeature(object, LilypondPackage.eINSTANCE.getInclude_ImportURI()).contains(node)) {
 			Include include = (Include)object;
 			Resource includedEResource = EcoreUtil2.getResource(xtextResource, include.getImportURI());
 			IResource includedResource = ResourceUtils.convertEResourceToPlatformResource(includedEResource);

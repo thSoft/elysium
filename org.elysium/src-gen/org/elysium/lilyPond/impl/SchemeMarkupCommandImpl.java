@@ -3,7 +3,7 @@
  * </copyright>
  *
  */
-package org.elysium.lilyPond.impl;
+package org.elysium.lilypond.impl;
 
 import org.eclipse.emf.common.notify.Notification;
 
@@ -11,8 +11,8 @@ import org.eclipse.emf.ecore.EClass;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
-import org.elysium.lilyPond.LilyPondPackage;
-import org.elysium.lilyPond.SchemeMarkupCommand;
+import org.elysium.lilypond.LilypondPackage;
+import org.elysium.lilypond.SchemeMarkupCommand;
 
 /**
  * <!-- begin-user-doc -->
@@ -21,7 +21,7 @@ import org.elysium.lilyPond.SchemeMarkupCommand;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link org.elysium.lilyPond.impl.SchemeMarkupCommandImpl#getCommand <em>Command</em>}</li>
+ *   <li>{@link org.elysium.lilypond.impl.SchemeMarkupCommandImpl#getCommand <em>Command</em>}</li>
  * </ul>
  * </p>
  *
@@ -67,7 +67,7 @@ public class SchemeMarkupCommandImpl extends SchemeValueImpl implements SchemeMa
   @Override
   protected EClass eStaticClass()
   {
-    return LilyPondPackage.Literals.SCHEME_MARKUP_COMMAND;
+    return LilypondPackage.Literals.SCHEME_MARKUP_COMMAND;
   }
 
   /**
@@ -90,7 +90,7 @@ public class SchemeMarkupCommandImpl extends SchemeValueImpl implements SchemeMa
     String oldCommand = command;
     command = newCommand;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, LilyPondPackage.SCHEME_MARKUP_COMMAND__COMMAND, oldCommand, command));
+      eNotify(new ENotificationImpl(this, Notification.SET, LilypondPackage.SCHEME_MARKUP_COMMAND__COMMAND, oldCommand, command));
   }
 
   /**
@@ -103,7 +103,7 @@ public class SchemeMarkupCommandImpl extends SchemeValueImpl implements SchemeMa
   {
     switch (featureID)
     {
-      case LilyPondPackage.SCHEME_MARKUP_COMMAND__COMMAND:
+      case LilypondPackage.SCHEME_MARKUP_COMMAND__COMMAND:
         return getCommand();
     }
     return super.eGet(featureID, resolve, coreType);
@@ -119,7 +119,7 @@ public class SchemeMarkupCommandImpl extends SchemeValueImpl implements SchemeMa
   {
     switch (featureID)
     {
-      case LilyPondPackage.SCHEME_MARKUP_COMMAND__COMMAND:
+      case LilypondPackage.SCHEME_MARKUP_COMMAND__COMMAND:
         setCommand((String)newValue);
         return;
     }
@@ -136,7 +136,7 @@ public class SchemeMarkupCommandImpl extends SchemeValueImpl implements SchemeMa
   {
     switch (featureID)
     {
-      case LilyPondPackage.SCHEME_MARKUP_COMMAND__COMMAND:
+      case LilypondPackage.SCHEME_MARKUP_COMMAND__COMMAND:
         setCommand(COMMAND_EDEFAULT);
         return;
     }
@@ -153,7 +153,7 @@ public class SchemeMarkupCommandImpl extends SchemeValueImpl implements SchemeMa
   {
     switch (featureID)
     {
-      case LilyPondPackage.SCHEME_MARKUP_COMMAND__COMMAND:
+      case LilypondPackage.SCHEME_MARKUP_COMMAND__COMMAND:
         return COMMAND_EDEFAULT == null ? command != null : !COMMAND_EDEFAULT.equals(command);
     }
     return super.eIsSet(featureID);

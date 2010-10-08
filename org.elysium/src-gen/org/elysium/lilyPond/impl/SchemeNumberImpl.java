@@ -3,7 +3,7 @@
  * </copyright>
  *
  */
-package org.elysium.lilyPond.impl;
+package org.elysium.lilypond.impl;
 
 import org.eclipse.emf.common.notify.Notification;
 
@@ -11,8 +11,8 @@ import org.eclipse.emf.ecore.EClass;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
-import org.elysium.lilyPond.LilyPondPackage;
-import org.elysium.lilyPond.SchemeNumber;
+import org.elysium.lilypond.LilypondPackage;
+import org.elysium.lilypond.SchemeNumber;
 
 /**
  * <!-- begin-user-doc -->
@@ -21,8 +21,8 @@ import org.elysium.lilyPond.SchemeNumber;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link org.elysium.lilyPond.impl.SchemeNumberImpl#isHexadecimal <em>Hexadecimal</em>}</li>
- *   <li>{@link org.elysium.lilyPond.impl.SchemeNumberImpl#getValue <em>Value</em>}</li>
+ *   <li>{@link org.elysium.lilypond.impl.SchemeNumberImpl#getRadix <em>Radix</em>}</li>
+ *   <li>{@link org.elysium.lilypond.impl.SchemeNumberImpl#getValue <em>Value</em>}</li>
  * </ul>
  * </p>
  *
@@ -31,24 +31,24 @@ import org.elysium.lilyPond.SchemeNumber;
 public class SchemeNumberImpl extends SchemeValueImpl implements SchemeNumber
 {
   /**
-   * The default value of the '{@link #isHexadecimal() <em>Hexadecimal</em>}' attribute.
+   * The default value of the '{@link #getRadix() <em>Radix</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #isHexadecimal()
+   * @see #getRadix()
    * @generated
    * @ordered
    */
-  protected static final boolean HEXADECIMAL_EDEFAULT = false;
+  protected static final String RADIX_EDEFAULT = null;
 
   /**
-   * The cached value of the '{@link #isHexadecimal() <em>Hexadecimal</em>}' attribute.
+   * The cached value of the '{@link #getRadix() <em>Radix</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #isHexadecimal()
+   * @see #getRadix()
    * @generated
    * @ordered
    */
-  protected boolean hexadecimal = HEXADECIMAL_EDEFAULT;
+  protected String radix = RADIX_EDEFAULT;
 
   /**
    * The default value of the '{@link #getValue() <em>Value</em>}' attribute.
@@ -88,7 +88,7 @@ public class SchemeNumberImpl extends SchemeValueImpl implements SchemeNumber
   @Override
   protected EClass eStaticClass()
   {
-    return LilyPondPackage.Literals.SCHEME_NUMBER;
+    return LilypondPackage.Literals.SCHEME_NUMBER;
   }
 
   /**
@@ -96,9 +96,9 @@ public class SchemeNumberImpl extends SchemeValueImpl implements SchemeNumber
    * <!-- end-user-doc -->
    * @generated
    */
-  public boolean isHexadecimal()
+  public String getRadix()
   {
-    return hexadecimal;
+    return radix;
   }
 
   /**
@@ -106,12 +106,12 @@ public class SchemeNumberImpl extends SchemeValueImpl implements SchemeNumber
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setHexadecimal(boolean newHexadecimal)
+  public void setRadix(String newRadix)
   {
-    boolean oldHexadecimal = hexadecimal;
-    hexadecimal = newHexadecimal;
+    String oldRadix = radix;
+    radix = newRadix;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, LilyPondPackage.SCHEME_NUMBER__HEXADECIMAL, oldHexadecimal, hexadecimal));
+      eNotify(new ENotificationImpl(this, Notification.SET, LilypondPackage.SCHEME_NUMBER__RADIX, oldRadix, radix));
   }
 
   /**
@@ -134,7 +134,7 @@ public class SchemeNumberImpl extends SchemeValueImpl implements SchemeNumber
     int oldValue = value;
     value = newValue;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, LilyPondPackage.SCHEME_NUMBER__VALUE, oldValue, value));
+      eNotify(new ENotificationImpl(this, Notification.SET, LilypondPackage.SCHEME_NUMBER__VALUE, oldValue, value));
   }
 
   /**
@@ -147,9 +147,9 @@ public class SchemeNumberImpl extends SchemeValueImpl implements SchemeNumber
   {
     switch (featureID)
     {
-      case LilyPondPackage.SCHEME_NUMBER__HEXADECIMAL:
-        return isHexadecimal();
-      case LilyPondPackage.SCHEME_NUMBER__VALUE:
+      case LilypondPackage.SCHEME_NUMBER__RADIX:
+        return getRadix();
+      case LilypondPackage.SCHEME_NUMBER__VALUE:
         return getValue();
     }
     return super.eGet(featureID, resolve, coreType);
@@ -165,10 +165,10 @@ public class SchemeNumberImpl extends SchemeValueImpl implements SchemeNumber
   {
     switch (featureID)
     {
-      case LilyPondPackage.SCHEME_NUMBER__HEXADECIMAL:
-        setHexadecimal((Boolean)newValue);
+      case LilypondPackage.SCHEME_NUMBER__RADIX:
+        setRadix((String)newValue);
         return;
-      case LilyPondPackage.SCHEME_NUMBER__VALUE:
+      case LilypondPackage.SCHEME_NUMBER__VALUE:
         setValue((Integer)newValue);
         return;
     }
@@ -185,10 +185,10 @@ public class SchemeNumberImpl extends SchemeValueImpl implements SchemeNumber
   {
     switch (featureID)
     {
-      case LilyPondPackage.SCHEME_NUMBER__HEXADECIMAL:
-        setHexadecimal(HEXADECIMAL_EDEFAULT);
+      case LilypondPackage.SCHEME_NUMBER__RADIX:
+        setRadix(RADIX_EDEFAULT);
         return;
-      case LilyPondPackage.SCHEME_NUMBER__VALUE:
+      case LilypondPackage.SCHEME_NUMBER__VALUE:
         setValue(VALUE_EDEFAULT);
         return;
     }
@@ -205,9 +205,9 @@ public class SchemeNumberImpl extends SchemeValueImpl implements SchemeNumber
   {
     switch (featureID)
     {
-      case LilyPondPackage.SCHEME_NUMBER__HEXADECIMAL:
-        return hexadecimal != HEXADECIMAL_EDEFAULT;
-      case LilyPondPackage.SCHEME_NUMBER__VALUE:
+      case LilypondPackage.SCHEME_NUMBER__RADIX:
+        return RADIX_EDEFAULT == null ? radix != null : !RADIX_EDEFAULT.equals(radix);
+      case LilypondPackage.SCHEME_NUMBER__VALUE:
         return value != VALUE_EDEFAULT;
     }
     return super.eIsSet(featureID);
@@ -224,8 +224,8 @@ public class SchemeNumberImpl extends SchemeValueImpl implements SchemeNumber
     if (eIsProxy()) return super.toString();
 
     StringBuffer result = new StringBuffer(super.toString());
-    result.append(" (hexadecimal: ");
-    result.append(hexadecimal);
+    result.append(" (radix: ");
+    result.append(radix);
     result.append(", value: ");
     result.append(value);
     result.append(')');

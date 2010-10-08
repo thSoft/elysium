@@ -2,13 +2,21 @@ grammar org.elysium.LilyPond
 
 hidden(WS, SL_COMMENT, ML_COMMENT)
 
-generate lilyPond "http://www.elysium.org/LilyPond"
+generate lilypond "http://www.elysium.org/LilyPond"
 
 import "http://www.eclipse.org/emf/2002/Ecore" as ecore
 
-LilyPond: expressions+=Expression*;
+LilyPond: expressions+=ToplevelExpression*;
 
-Expression: Block | Scheme | Command | Text | Number;
+ToplevelExpression: Assignment | CommonExpression;
+
+Expression: PropertyAssignment | CommonExpression;
+
+CommonExpression: Command | Block | Scheme | Text | Number;
+
+Assignment: name=(ID | STRING) "=" value=Expression;
+
+PropertyAssignment: id=(ID | STRING) "=" value=Expression;
 
 Block: SimpleBlock | SimultaneousBlock;
 
@@ -16,47 +24,63 @@ SimpleBlock: {SimpleBlock} "{" expressions+=Expression* "}";
 
 SimultaneousBlock: {SimultaneousBlock} "<<" expressions+=Expression* ">>";
 
-Scheme: "#" value=SchemeExpression;
+Command: SpecialCommand | Reference;
 
-SchemeExpression: (quoted?="'"? | quasiquoted?="`"? | unquoted?=","?) value=SchemeValue;
+SpecialCommand: Include | Version | Markup;
 
-SchemeValue: SchemeBoolean | SchemeList | SchemeBlock | SchemeMarkupCommand | SchemeText | SchemeNumber;
+Include: keyword="\\include" importURI=STRING;
 
-SchemeBoolean: value=BOOL;
+Version: keyword="\\version" version=STRING;
 
-SchemeList: {SchemeList} "(" expressions+=SchemeExpression* ")";
+Markup: keyword=MarkupKeyword block=MarkupBlock;
 
-SchemeBlock: "#{" expressions+=Expression+ "#}";
+MarkupKeyword hidden(): "\\markup" "lines"?;
 
-SchemeMarkupCommand hidden(): "#:" command=ID;
+MarkupBlock: {MarkupBlock} "{" expressions+=MarkupExpression* "}";
 
-SchemeText: value=SchemeTextLiterals;
+MarkupExpression: MarkupCommand | MarkupBlock | Scheme | Text | Number;
 
-SchemeTextLiterals: "\\\\" | ID | STRING | ANY_OTHER;
+MarkupCommand hidden(): "\\" command=ID;
 
-SchemeNumber hidden(): hexadecimal?="#x"? value=INT;
+Reference hidden(): "\\" assignment=[Assignment|ReferenceName];
 
-Command: ArbitraryCommand | SpecialCommand;
+ReferenceName: ID | "(" | ")" | SpecialCharacter;
 
-ArbitraryCommand: keyword=ArbitraryCommandKeyword;
+SpecialCharacter: "!" | "+" | "<" | ">" | "[" | "]" | "~";
 
-ArbitraryCommandKeyword hidden(): "\\" (ID | "(" | ")" | ANY_OTHER);
-
-SpecialCommand: Include | Version;
-
-Include: "\\include" importURI=STRING;
-
-Version: "\\version" version=STRING;
-
-Text: value=(SchemeTextLiterals | "'" | "," | "(" | ")");
+Text: value=(SchemeTextLiterals | "'" | ",");
 
 Number: value=INT;
 
-terminal STRING: '"' ("\\" ("b" | "t" | "n" | " f" | "r" | '"' | "'" | "\\") | !("\\" | '"'))* '"';
+Scheme hidden(WS, SCHEME_SL_COMMENT, SCHEME_ML_COMMENT): "#" value=SchemeExpression;
+
+SchemeExpression: (quoted?="'"? | quasiquoted?="`"? | unquoted?=","? | variable?="$") value=SchemeValue;
+
+SchemeValue: SchemeBoolean | SchemeList | SchemeBlock | SchemeCharacter | SchemeText | SchemeNumber| SchemeMarkupCommand;
+
+SchemeBoolean: value=BOOL;
+
+SchemeList: {SchemeList} vector?="#"? "(" expressions+=SchemeExpression* ")";
+
+SchemeBlock: "#{" expressions+=Expression+ "#}";
+
+SchemeCharacter: "#\\" value=(ID | SpecialCharacter | ANY_OTHER);
+
+SchemeText: value=SchemeTextLiterals;
+
+SchemeTextLiterals: "\\\\" | "=" | SpecialCharacter | ID | STRING | ANY_OTHER;
+
+SchemeNumber hidden(): radix=SchemeNumberRadix? value=INT;
+
+SchemeNumberRadix hidden(): "#" ID;
+
+SchemeMarkupCommand hidden(): "#:" command=ID;
+
+terminal STRING: '"' ("\\" ("b" | "t" | "n" | "f" | "r" | '"' | "'" | "\\") | !("\\" | '"'))* '"';
 
 terminal INT returns ecore::EInt: ("0".."9")+;
 
-terminal BOOL returns ecore::EBoolean: "#f" | "#t";
+BOOL returns ecore::EBoolean: "#" ID;
 
 terminal ID: ("a".."z" | "A".."Z") ("a".."z" | "A".."Z" | "-")*;
 
@@ -65,5 +89,9 @@ terminal WS: (" " | "\t" | "\r" | "\n")+;
 terminal SL_COMMENT: "%" !("\n" | "\r")* ("\r"? "\n")?;
 
 terminal ML_COMMENT: "%{" -> "%}";
+
+terminal SCHEME_SL_COMMENT: ";" !("\n" | "\r")* ("\r"? "\n")?;
+
+terminal SCHEME_ML_COMMENT: "#!" -> "!#";
 
 terminal ANY_OTHER:	.;

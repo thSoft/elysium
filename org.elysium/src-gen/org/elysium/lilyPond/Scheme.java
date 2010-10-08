@@ -3,7 +3,7 @@
  * </copyright>
  *
  */
-package org.elysium.lilyPond;
+package org.elysium.lilypond;
 
 
 /**
@@ -14,15 +14,15 @@ package org.elysium.lilyPond;
  * <p>
  * The following features are supported:
  * <ul>
- *   <li>{@link org.elysium.lilyPond.Scheme#getValue <em>Value</em>}</li>
+ *   <li>{@link org.elysium.lilypond.Scheme#getValue <em>Value</em>}</li>
  * </ul>
  * </p>
  *
- * @see org.elysium.lilyPond.LilyPondPackage#getScheme()
+ * @see org.elysium.lilypond.LilypondPackage#getScheme()
  * @model
  * @generated
  */
-public interface Scheme extends Expression
+public interface Scheme extends CommonExpression, MarkupExpression
 {
   /**
    * Returns the value of the '<em><b>Value</b></em>' containment reference.
@@ -34,14 +34,14 @@ public interface Scheme extends Expression
    * <!-- end-user-doc -->
    * @return the value of the '<em>Value</em>' containment reference.
    * @see #setValue(SchemeExpression)
-   * @see org.elysium.lilyPond.LilyPondPackage#getScheme_Value()
+   * @see org.elysium.lilypond.LilypondPackage#getScheme_Value()
    * @model containment="true"
    * @generated
    */
   SchemeExpression getValue();
 
   /**
-   * Sets the value of the '{@link org.elysium.lilyPond.Scheme#getValue <em>Value</em>}' containment reference.
+   * Sets the value of the '{@link org.elysium.lilypond.Scheme#getValue <em>Value</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @param value the new value of the '<em>Value</em>' containment reference.

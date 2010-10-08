@@ -3,7 +3,7 @@
  * </copyright>
  *
  */
-package org.elysium.lilyPond.impl;
+package org.elysium.lilypond.impl;
 
 import org.eclipse.emf.common.notify.Notification;
 
@@ -11,50 +11,50 @@ import org.eclipse.emf.ecore.EClass;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
-import org.elysium.lilyPond.ArbitraryCommand;
-import org.elysium.lilyPond.LilyPondPackage;
+import org.elysium.lilypond.LilypondPackage;
+import org.elysium.lilypond.MarkupCommand;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Arbitrary Command</b></em>'.
+ * An implementation of the model object '<em><b>Markup Command</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link org.elysium.lilyPond.impl.ArbitraryCommandImpl#getKeyword <em>Keyword</em>}</li>
+ *   <li>{@link org.elysium.lilypond.impl.MarkupCommandImpl#getCommand <em>Command</em>}</li>
  * </ul>
  * </p>
  *
  * @generated
  */
-public class ArbitraryCommandImpl extends CommandImpl implements ArbitraryCommand
+public class MarkupCommandImpl extends MarkupExpressionImpl implements MarkupCommand
 {
   /**
-   * The default value of the '{@link #getKeyword() <em>Keyword</em>}' attribute.
+   * The default value of the '{@link #getCommand() <em>Command</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getKeyword()
+   * @see #getCommand()
    * @generated
    * @ordered
    */
-  protected static final String KEYWORD_EDEFAULT = null;
+  protected static final String COMMAND_EDEFAULT = null;
 
   /**
-   * The cached value of the '{@link #getKeyword() <em>Keyword</em>}' attribute.
+   * The cached value of the '{@link #getCommand() <em>Command</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getKeyword()
+   * @see #getCommand()
    * @generated
    * @ordered
    */
-  protected String keyword = KEYWORD_EDEFAULT;
+  protected String command = COMMAND_EDEFAULT;
 
   /**
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
-  protected ArbitraryCommandImpl()
+  protected MarkupCommandImpl()
   {
     super();
   }
@@ -67,7 +67,7 @@ public class ArbitraryCommandImpl extends CommandImpl implements ArbitraryComman
   @Override
   protected EClass eStaticClass()
   {
-    return LilyPondPackage.Literals.ARBITRARY_COMMAND;
+    return LilypondPackage.Literals.MARKUP_COMMAND;
   }
 
   /**
@@ -75,9 +75,9 @@ public class ArbitraryCommandImpl extends CommandImpl implements ArbitraryComman
    * <!-- end-user-doc -->
    * @generated
    */
-  public String getKeyword()
+  public String getCommand()
   {
-    return keyword;
+    return command;
   }
 
   /**
@@ -85,12 +85,12 @@ public class ArbitraryCommandImpl extends CommandImpl implements ArbitraryComman
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setKeyword(String newKeyword)
+  public void setCommand(String newCommand)
   {
-    String oldKeyword = keyword;
-    keyword = newKeyword;
+    String oldCommand = command;
+    command = newCommand;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, LilyPondPackage.ARBITRARY_COMMAND__KEYWORD, oldKeyword, keyword));
+      eNotify(new ENotificationImpl(this, Notification.SET, LilypondPackage.MARKUP_COMMAND__COMMAND, oldCommand, command));
   }
 
   /**
@@ -103,8 +103,8 @@ public class ArbitraryCommandImpl extends CommandImpl implements ArbitraryComman
   {
     switch (featureID)
     {
-      case LilyPondPackage.ARBITRARY_COMMAND__KEYWORD:
-        return getKeyword();
+      case LilypondPackage.MARKUP_COMMAND__COMMAND:
+        return getCommand();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -119,8 +119,8 @@ public class ArbitraryCommandImpl extends CommandImpl implements ArbitraryComman
   {
     switch (featureID)
     {
-      case LilyPondPackage.ARBITRARY_COMMAND__KEYWORD:
-        setKeyword((String)newValue);
+      case LilypondPackage.MARKUP_COMMAND__COMMAND:
+        setCommand((String)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -136,8 +136,8 @@ public class ArbitraryCommandImpl extends CommandImpl implements ArbitraryComman
   {
     switch (featureID)
     {
-      case LilyPondPackage.ARBITRARY_COMMAND__KEYWORD:
-        setKeyword(KEYWORD_EDEFAULT);
+      case LilypondPackage.MARKUP_COMMAND__COMMAND:
+        setCommand(COMMAND_EDEFAULT);
         return;
     }
     super.eUnset(featureID);
@@ -153,8 +153,8 @@ public class ArbitraryCommandImpl extends CommandImpl implements ArbitraryComman
   {
     switch (featureID)
     {
-      case LilyPondPackage.ARBITRARY_COMMAND__KEYWORD:
-        return KEYWORD_EDEFAULT == null ? keyword != null : !KEYWORD_EDEFAULT.equals(keyword);
+      case LilypondPackage.MARKUP_COMMAND__COMMAND:
+        return COMMAND_EDEFAULT == null ? command != null : !COMMAND_EDEFAULT.equals(command);
     }
     return super.eIsSet(featureID);
   }
@@ -170,10 +170,10 @@ public class ArbitraryCommandImpl extends CommandImpl implements ArbitraryComman
     if (eIsProxy()) return super.toString();
 
     StringBuffer result = new StringBuffer(super.toString());
-    result.append(" (keyword: ");
-    result.append(keyword);
+    result.append(" (command: ");
+    result.append(command);
     result.append(')');
     return result.toString();
   }
 
-} //ArbitraryCommandImpl
+} //MarkupCommandImpl

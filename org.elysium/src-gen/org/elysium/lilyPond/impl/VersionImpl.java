@@ -3,7 +3,7 @@
  * </copyright>
  *
  */
-package org.elysium.lilyPond.impl;
+package org.elysium.lilypond.impl;
 
 import org.eclipse.emf.common.notify.Notification;
 
@@ -11,8 +11,8 @@ import org.eclipse.emf.ecore.EClass;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
-import org.elysium.lilyPond.LilyPondPackage;
-import org.elysium.lilyPond.Version;
+import org.elysium.lilypond.LilypondPackage;
+import org.elysium.lilypond.Version;
 
 /**
  * <!-- begin-user-doc -->
@@ -21,7 +21,7 @@ import org.elysium.lilyPond.Version;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link org.elysium.lilyPond.impl.VersionImpl#getVersion <em>Version</em>}</li>
+ *   <li>{@link org.elysium.lilypond.impl.VersionImpl#getVersion <em>Version</em>}</li>
  * </ul>
  * </p>
  *
@@ -67,7 +67,7 @@ public class VersionImpl extends SpecialCommandImpl implements Version
   @Override
   protected EClass eStaticClass()
   {
-    return LilyPondPackage.Literals.VERSION;
+    return LilypondPackage.Literals.VERSION;
   }
 
   /**
@@ -90,7 +90,7 @@ public class VersionImpl extends SpecialCommandImpl implements Version
     String oldVersion = version;
     version = newVersion;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, LilyPondPackage.VERSION__VERSION, oldVersion, version));
+      eNotify(new ENotificationImpl(this, Notification.SET, LilypondPackage.VERSION__VERSION, oldVersion, version));
   }
 
   /**
@@ -103,7 +103,7 @@ public class VersionImpl extends SpecialCommandImpl implements Version
   {
     switch (featureID)
     {
-      case LilyPondPackage.VERSION__VERSION:
+      case LilypondPackage.VERSION__VERSION:
         return getVersion();
     }
     return super.eGet(featureID, resolve, coreType);
@@ -119,7 +119,7 @@ public class VersionImpl extends SpecialCommandImpl implements Version
   {
     switch (featureID)
     {
-      case LilyPondPackage.VERSION__VERSION:
+      case LilypondPackage.VERSION__VERSION:
         setVersion((String)newValue);
         return;
     }
@@ -136,7 +136,7 @@ public class VersionImpl extends SpecialCommandImpl implements Version
   {
     switch (featureID)
     {
-      case LilyPondPackage.VERSION__VERSION:
+      case LilypondPackage.VERSION__VERSION:
         setVersion(VERSION_EDEFAULT);
         return;
     }
@@ -153,7 +153,7 @@ public class VersionImpl extends SpecialCommandImpl implements Version
   {
     switch (featureID)
     {
-      case LilyPondPackage.VERSION__VERSION:
+      case LilypondPackage.VERSION__VERSION:
         return VERSION_EDEFAULT == null ? version != null : !VERSION_EDEFAULT.equals(version);
     }
     return super.eIsSet(featureID);

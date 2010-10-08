@@ -3,7 +3,7 @@
  * </copyright>
  *
  */
-package org.elysium.lilyPond;
+package org.elysium.lilypond;
 
 import org.eclipse.emf.common.util.EList;
 
@@ -15,11 +15,11 @@ import org.eclipse.emf.common.util.EList;
  * <p>
  * The following features are supported:
  * <ul>
- *   <li>{@link org.elysium.lilyPond.SchemeBlock#getExpressions <em>Expressions</em>}</li>
+ *   <li>{@link org.elysium.lilypond.SchemeBlock#getExpressions <em>Expressions</em>}</li>
  * </ul>
  * </p>
  *
- * @see org.elysium.lilyPond.LilyPondPackage#getSchemeBlock()
+ * @see org.elysium.lilypond.LilypondPackage#getSchemeBlock()
  * @model
  * @generated
  */
@@ -27,7 +27,7 @@ public interface SchemeBlock extends SchemeValue
 {
   /**
    * Returns the value of the '<em><b>Expressions</b></em>' containment reference list.
-   * The list contents are of type {@link org.elysium.lilyPond.Expression}.
+   * The list contents are of type {@link org.elysium.lilypond.Expression}.
    * <!-- begin-user-doc -->
    * <p>
    * If the meaning of the '<em>Expressions</em>' containment reference list isn't clear,
@@ -35,7 +35,7 @@ public interface SchemeBlock extends SchemeValue
    * </p>
    * <!-- end-user-doc -->
    * @return the value of the '<em>Expressions</em>' containment reference list.
-   * @see org.elysium.lilyPond.LilyPondPackage#getSchemeBlock_Expressions()
+   * @see org.elysium.lilypond.LilypondPackage#getSchemeBlock_Expressions()
    * @model containment="true"
    * @generated
    */

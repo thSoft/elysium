@@ -3,7 +3,7 @@
  * </copyright>
  *
  */
-package org.elysium.lilyPond;
+package org.elysium.lilypond;
 
 import org.eclipse.emf.ecore.EObject;
 
@@ -13,7 +13,7 @@ import org.eclipse.emf.ecore.EObject;
  * <!-- end-user-doc -->
  *
  *
- * @see org.elysium.lilyPond.LilyPondPackage#getSchemeValue()
+ * @see org.elysium.lilypond.LilypondPackage#getSchemeValue()
  * @model
  * @generated
  */

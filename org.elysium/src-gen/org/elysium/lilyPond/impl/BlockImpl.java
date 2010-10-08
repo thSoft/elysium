@@ -3,7 +3,7 @@
  * </copyright>
  *
  */
-package org.elysium.lilyPond.impl;
+package org.elysium.lilypond.impl;
 
 import java.util.Collection;
 
@@ -14,12 +14,12 @@ import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
-import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
+import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
-import org.elysium.lilyPond.Block;
-import org.elysium.lilyPond.Expression;
-import org.elysium.lilyPond.LilyPondPackage;
+import org.elysium.lilypond.Block;
+import org.elysium.lilypond.Expression;
+import org.elysium.lilypond.LilypondPackage;
 
 /**
  * <!-- begin-user-doc -->
@@ -28,13 +28,13 @@ import org.elysium.lilyPond.LilyPondPackage;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link org.elysium.lilyPond.impl.BlockImpl#getExpressions <em>Expressions</em>}</li>
+ *   <li>{@link org.elysium.lilypond.impl.BlockImpl#getExpressions <em>Expressions</em>}</li>
  * </ul>
  * </p>
  *
  * @generated
  */
-public class BlockImpl extends ExpressionImpl implements Block
+public class BlockImpl extends CommonExpressionImpl implements Block
 {
   /**
    * The cached value of the '{@link #getExpressions() <em>Expressions</em>}' containment reference list.
@@ -64,7 +64,7 @@ public class BlockImpl extends ExpressionImpl implements Block
   @Override
   protected EClass eStaticClass()
   {
-    return LilyPondPackage.Literals.BLOCK;
+    return LilypondPackage.Literals.BLOCK;
   }
 
   /**
@@ -76,26 +76,9 @@ public class BlockImpl extends ExpressionImpl implements Block
   {
     if (expressions == null)
     {
-      expressions = new EObjectContainmentWithInverseEList<Expression>(Expression.class, this, LilyPondPackage.BLOCK__EXPRESSIONS, LilyPondPackage.EXPRESSION__PARENT_BLOCK);
+      expressions = new EObjectContainmentEList<Expression>(Expression.class, this, LilypondPackage.BLOCK__EXPRESSIONS);
     }
     return expressions;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @SuppressWarnings("unchecked")
-  @Override
-  public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs)
-  {
-    switch (featureID)
-    {
-      case LilyPondPackage.BLOCK__EXPRESSIONS:
-        return ((InternalEList<InternalEObject>)(InternalEList<?>)getExpressions()).basicAdd(otherEnd, msgs);
-    }
-    return super.eInverseAdd(otherEnd, featureID, msgs);
   }
 
   /**
@@ -108,7 +91,7 @@ public class BlockImpl extends ExpressionImpl implements Block
   {
     switch (featureID)
     {
-      case LilyPondPackage.BLOCK__EXPRESSIONS:
+      case LilypondPackage.BLOCK__EXPRESSIONS:
         return ((InternalEList<?>)getExpressions()).basicRemove(otherEnd, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
@@ -124,7 +107,7 @@ public class BlockImpl extends ExpressionImpl implements Block
   {
     switch (featureID)
     {
-      case LilyPondPackage.BLOCK__EXPRESSIONS:
+      case LilypondPackage.BLOCK__EXPRESSIONS:
         return getExpressions();
     }
     return super.eGet(featureID, resolve, coreType);
@@ -141,7 +124,7 @@ public class BlockImpl extends ExpressionImpl implements Block
   {
     switch (featureID)
     {
-      case LilyPondPackage.BLOCK__EXPRESSIONS:
+      case LilypondPackage.BLOCK__EXPRESSIONS:
         getExpressions().clear();
         getExpressions().addAll((Collection<? extends Expression>)newValue);
         return;
@@ -159,7 +142,7 @@ public class BlockImpl extends ExpressionImpl implements Block
   {
     switch (featureID)
     {
-      case LilyPondPackage.BLOCK__EXPRESSIONS:
+      case LilypondPackage.BLOCK__EXPRESSIONS:
         getExpressions().clear();
         return;
     }
@@ -176,7 +159,7 @@ public class BlockImpl extends ExpressionImpl implements Block
   {
     switch (featureID)
     {
-      case LilyPondPackage.BLOCK__EXPRESSIONS:
+      case LilypondPackage.BLOCK__EXPRESSIONS:
         return expressions != null && !expressions.isEmpty();
     }
     return super.eIsSet(featureID);

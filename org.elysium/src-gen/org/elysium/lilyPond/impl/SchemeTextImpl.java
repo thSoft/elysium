@@ -3,7 +3,7 @@
  * </copyright>
  *
  */
-package org.elysium.lilyPond.impl;
+package org.elysium.lilypond.impl;
 
 import org.eclipse.emf.common.notify.Notification;
 
@@ -11,8 +11,8 @@ import org.eclipse.emf.ecore.EClass;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
-import org.elysium.lilyPond.LilyPondPackage;
-import org.elysium.lilyPond.SchemeText;
+import org.elysium.lilypond.LilypondPackage;
+import org.elysium.lilypond.SchemeText;
 
 /**
  * <!-- begin-user-doc -->
@@ -21,7 +21,7 @@ import org.elysium.lilyPond.SchemeText;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link org.elysium.lilyPond.impl.SchemeTextImpl#getValue <em>Value</em>}</li>
+ *   <li>{@link org.elysium.lilypond.impl.SchemeTextImpl#getValue <em>Value</em>}</li>
  * </ul>
  * </p>
  *
@@ -67,7 +67,7 @@ public class SchemeTextImpl extends SchemeValueImpl implements SchemeText
   @Override
   protected EClass eStaticClass()
   {
-    return LilyPondPackage.Literals.SCHEME_TEXT;
+    return LilypondPackage.Literals.SCHEME_TEXT;
   }
 
   /**
@@ -90,7 +90,7 @@ public class SchemeTextImpl extends SchemeValueImpl implements SchemeText
     String oldValue = value;
     value = newValue;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, LilyPondPackage.SCHEME_TEXT__VALUE, oldValue, value));
+      eNotify(new ENotificationImpl(this, Notification.SET, LilypondPackage.SCHEME_TEXT__VALUE, oldValue, value));
   }
 
   /**
@@ -103,7 +103,7 @@ public class SchemeTextImpl extends SchemeValueImpl implements SchemeText
   {
     switch (featureID)
     {
-      case LilyPondPackage.SCHEME_TEXT__VALUE:
+      case LilypondPackage.SCHEME_TEXT__VALUE:
         return getValue();
     }
     return super.eGet(featureID, resolve, coreType);
@@ -119,7 +119,7 @@ public class SchemeTextImpl extends SchemeValueImpl implements SchemeText
   {
     switch (featureID)
     {
-      case LilyPondPackage.SCHEME_TEXT__VALUE:
+      case LilypondPackage.SCHEME_TEXT__VALUE:
         setValue((String)newValue);
         return;
     }
@@ -136,7 +136,7 @@ public class SchemeTextImpl extends SchemeValueImpl implements SchemeText
   {
     switch (featureID)
     {
-      case LilyPondPackage.SCHEME_TEXT__VALUE:
+      case LilypondPackage.SCHEME_TEXT__VALUE:
         setValue(VALUE_EDEFAULT);
         return;
     }
@@ -153,7 +153,7 @@ public class SchemeTextImpl extends SchemeValueImpl implements SchemeText
   {
     switch (featureID)
     {
-      case LilyPondPackage.SCHEME_TEXT__VALUE:
+      case LilypondPackage.SCHEME_TEXT__VALUE:
         return VALUE_EDEFAULT == null ? value != null : !VALUE_EDEFAULT.equals(value);
     }
     return super.eIsSet(featureID);

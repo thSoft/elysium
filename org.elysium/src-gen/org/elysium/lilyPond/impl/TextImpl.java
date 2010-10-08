@@ -3,7 +3,7 @@
  * </copyright>
  *
  */
-package org.elysium.lilyPond.impl;
+package org.elysium.lilypond.impl;
 
 import org.eclipse.emf.common.notify.Notification;
 
@@ -11,8 +11,8 @@ import org.eclipse.emf.ecore.EClass;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
-import org.elysium.lilyPond.LilyPondPackage;
-import org.elysium.lilyPond.Text;
+import org.elysium.lilypond.LilypondPackage;
+import org.elysium.lilypond.Text;
 
 /**
  * <!-- begin-user-doc -->
@@ -21,13 +21,13 @@ import org.elysium.lilyPond.Text;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link org.elysium.lilyPond.impl.TextImpl#getValue <em>Value</em>}</li>
+ *   <li>{@link org.elysium.lilypond.impl.TextImpl#getValue <em>Value</em>}</li>
  * </ul>
  * </p>
  *
  * @generated
  */
-public class TextImpl extends ExpressionImpl implements Text
+public class TextImpl extends CommonExpressionImpl implements Text
 {
   /**
    * The default value of the '{@link #getValue() <em>Value</em>}' attribute.
@@ -67,7 +67,7 @@ public class TextImpl extends ExpressionImpl implements Text
   @Override
   protected EClass eStaticClass()
   {
-    return LilyPondPackage.Literals.TEXT;
+    return LilypondPackage.Literals.TEXT;
   }
 
   /**
@@ -90,7 +90,7 @@ public class TextImpl extends ExpressionImpl implements Text
     String oldValue = value;
     value = newValue;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, LilyPondPackage.TEXT__VALUE, oldValue, value));
+      eNotify(new ENotificationImpl(this, Notification.SET, LilypondPackage.TEXT__VALUE, oldValue, value));
   }
 
   /**
@@ -103,7 +103,7 @@ public class TextImpl extends ExpressionImpl implements Text
   {
     switch (featureID)
     {
-      case LilyPondPackage.TEXT__VALUE:
+      case LilypondPackage.TEXT__VALUE:
         return getValue();
     }
     return super.eGet(featureID, resolve, coreType);
@@ -119,7 +119,7 @@ public class TextImpl extends ExpressionImpl implements Text
   {
     switch (featureID)
     {
-      case LilyPondPackage.TEXT__VALUE:
+      case LilypondPackage.TEXT__VALUE:
         setValue((String)newValue);
         return;
     }
@@ -136,7 +136,7 @@ public class TextImpl extends ExpressionImpl implements Text
   {
     switch (featureID)
     {
-      case LilyPondPackage.TEXT__VALUE:
+      case LilypondPackage.TEXT__VALUE:
         setValue(VALUE_EDEFAULT);
         return;
     }
@@ -153,7 +153,7 @@ public class TextImpl extends ExpressionImpl implements Text
   {
     switch (featureID)
     {
-      case LilyPondPackage.TEXT__VALUE:
+      case LilypondPackage.TEXT__VALUE:
         return VALUE_EDEFAULT == null ? value != null : !VALUE_EDEFAULT.equals(value);
     }
     return super.eIsSet(featureID);

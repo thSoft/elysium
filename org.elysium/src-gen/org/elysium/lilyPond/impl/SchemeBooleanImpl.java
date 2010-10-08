@@ -3,7 +3,7 @@
  * </copyright>
  *
  */
-package org.elysium.lilyPond.impl;
+package org.elysium.lilypond.impl;
 
 import org.eclipse.emf.common.notify.Notification;
 
@@ -11,8 +11,8 @@ import org.eclipse.emf.ecore.EClass;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
-import org.elysium.lilyPond.LilyPondPackage;
-import org.elysium.lilyPond.SchemeBoolean;
+import org.elysium.lilypond.LilypondPackage;
+import org.elysium.lilypond.SchemeBoolean;
 
 /**
  * <!-- begin-user-doc -->
@@ -21,7 +21,7 @@ import org.elysium.lilyPond.SchemeBoolean;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link org.elysium.lilyPond.impl.SchemeBooleanImpl#isValue <em>Value</em>}</li>
+ *   <li>{@link org.elysium.lilypond.impl.SchemeBooleanImpl#isValue <em>Value</em>}</li>
  * </ul>
  * </p>
  *
@@ -67,7 +67,7 @@ public class SchemeBooleanImpl extends SchemeValueImpl implements SchemeBoolean
   @Override
   protected EClass eStaticClass()
   {
-    return LilyPondPackage.Literals.SCHEME_BOOLEAN;
+    return LilypondPackage.Literals.SCHEME_BOOLEAN;
   }
 
   /**
@@ -90,7 +90,7 @@ public class SchemeBooleanImpl extends SchemeValueImpl implements SchemeBoolean
     boolean oldValue = value;
     value = newValue;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, LilyPondPackage.SCHEME_BOOLEAN__VALUE, oldValue, value));
+      eNotify(new ENotificationImpl(this, Notification.SET, LilypondPackage.SCHEME_BOOLEAN__VALUE, oldValue, value));
   }
 
   /**
@@ -103,7 +103,7 @@ public class SchemeBooleanImpl extends SchemeValueImpl implements SchemeBoolean
   {
     switch (featureID)
     {
-      case LilyPondPackage.SCHEME_BOOLEAN__VALUE:
+      case LilypondPackage.SCHEME_BOOLEAN__VALUE:
         return isValue();
     }
     return super.eGet(featureID, resolve, coreType);
@@ -119,7 +119,7 @@ public class SchemeBooleanImpl extends SchemeValueImpl implements SchemeBoolean
   {
     switch (featureID)
     {
-      case LilyPondPackage.SCHEME_BOOLEAN__VALUE:
+      case LilypondPackage.SCHEME_BOOLEAN__VALUE:
         setValue((Boolean)newValue);
         return;
     }
@@ -136,7 +136,7 @@ public class SchemeBooleanImpl extends SchemeValueImpl implements SchemeBoolean
   {
     switch (featureID)
     {
-      case LilyPondPackage.SCHEME_BOOLEAN__VALUE:
+      case LilypondPackage.SCHEME_BOOLEAN__VALUE:
         setValue(VALUE_EDEFAULT);
         return;
     }
@@ -153,7 +153,7 @@ public class SchemeBooleanImpl extends SchemeValueImpl implements SchemeBoolean
   {
     switch (featureID)
     {
-      case LilyPondPackage.SCHEME_BOOLEAN__VALUE:
+      case LilypondPackage.SCHEME_BOOLEAN__VALUE:
         return value != VALUE_EDEFAULT;
     }
     return super.eIsSet(featureID);

@@ -3,12 +3,12 @@
  * </copyright>
  *
  */
-package org.elysium.lilyPond.impl;
+package org.elysium.lilypond.impl;
 
 import org.eclipse.emf.ecore.EClass;
 
-import org.elysium.lilyPond.LilyPondPackage;
-import org.elysium.lilyPond.SimultaneousBlock;
+import org.elysium.lilypond.LilypondPackage;
+import org.elysium.lilypond.SimultaneousBlock;
 
 /**
  * <!-- begin-user-doc -->
@@ -39,7 +39,7 @@ public class SimultaneousBlockImpl extends BlockImpl implements SimultaneousBloc
   @Override
   protected EClass eStaticClass()
   {
-    return LilyPondPackage.Literals.SIMULTANEOUS_BLOCK;
+    return LilypondPackage.Literals.SIMULTANEOUS_BLOCK;
   }
 
 } //SimultaneousBlockImpl

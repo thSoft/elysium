@@ -3,7 +3,7 @@
  * </copyright>
  *
  */
-package org.elysium.lilyPond.impl;
+package org.elysium.lilypond.impl;
 
 import java.util.Collection;
 
@@ -17,9 +17,9 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
-import org.elysium.lilyPond.Expression;
-import org.elysium.lilyPond.LilyPondPackage;
-import org.elysium.lilyPond.SchemeBlock;
+import org.elysium.lilypond.Expression;
+import org.elysium.lilypond.LilypondPackage;
+import org.elysium.lilypond.SchemeBlock;
 
 /**
  * <!-- begin-user-doc -->
@@ -28,7 +28,7 @@ import org.elysium.lilyPond.SchemeBlock;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link org.elysium.lilyPond.impl.SchemeBlockImpl#getExpressions <em>Expressions</em>}</li>
+ *   <li>{@link org.elysium.lilypond.impl.SchemeBlockImpl#getExpressions <em>Expressions</em>}</li>
  * </ul>
  * </p>
  *
@@ -64,7 +64,7 @@ public class SchemeBlockImpl extends SchemeValueImpl implements SchemeBlock
   @Override
   protected EClass eStaticClass()
   {
-    return LilyPondPackage.Literals.SCHEME_BLOCK;
+    return LilypondPackage.Literals.SCHEME_BLOCK;
   }
 
   /**
@@ -76,7 +76,7 @@ public class SchemeBlockImpl extends SchemeValueImpl implements SchemeBlock
   {
     if (expressions == null)
     {
-      expressions = new EObjectContainmentEList<Expression>(Expression.class, this, LilyPondPackage.SCHEME_BLOCK__EXPRESSIONS);
+      expressions = new EObjectContainmentEList<Expression>(Expression.class, this, LilypondPackage.SCHEME_BLOCK__EXPRESSIONS);
     }
     return expressions;
   }
@@ -91,7 +91,7 @@ public class SchemeBlockImpl extends SchemeValueImpl implements SchemeBlock
   {
     switch (featureID)
     {
-      case LilyPondPackage.SCHEME_BLOCK__EXPRESSIONS:
+      case LilypondPackage.SCHEME_BLOCK__EXPRESSIONS:
         return ((InternalEList<?>)getExpressions()).basicRemove(otherEnd, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
@@ -107,7 +107,7 @@ public class SchemeBlockImpl extends SchemeValueImpl implements SchemeBlock
   {
     switch (featureID)
     {
-      case LilyPondPackage.SCHEME_BLOCK__EXPRESSIONS:
+      case LilypondPackage.SCHEME_BLOCK__EXPRESSIONS:
         return getExpressions();
     }
     return super.eGet(featureID, resolve, coreType);
@@ -124,7 +124,7 @@ public class SchemeBlockImpl extends SchemeValueImpl implements SchemeBlock
   {
     switch (featureID)
     {
-      case LilyPondPackage.SCHEME_BLOCK__EXPRESSIONS:
+      case LilypondPackage.SCHEME_BLOCK__EXPRESSIONS:
         getExpressions().clear();
         getExpressions().addAll((Collection<? extends Expression>)newValue);
         return;
@@ -142,7 +142,7 @@ public class SchemeBlockImpl extends SchemeValueImpl implements SchemeBlock
   {
     switch (featureID)
     {
-      case LilyPondPackage.SCHEME_BLOCK__EXPRESSIONS:
+      case LilypondPackage.SCHEME_BLOCK__EXPRESSIONS:
         getExpressions().clear();
         return;
     }
@@ -159,7 +159,7 @@ public class SchemeBlockImpl extends SchemeValueImpl implements SchemeBlock
   {
     switch (featureID)
     {
-      case LilyPondPackage.SCHEME_BLOCK__EXPRESSIONS:
+      case LilypondPackage.SCHEME_BLOCK__EXPRESSIONS:
         return expressions != null && !expressions.isEmpty();
     }
     return super.eIsSet(featureID);
