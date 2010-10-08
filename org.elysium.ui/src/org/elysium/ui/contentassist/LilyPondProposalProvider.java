@@ -1,6 +1,5 @@
 package org.elysium.ui.contentassist;
 
-import java.util.Arrays;
 import org.eclipse.core.resources.IContainer;
 import org.eclipse.core.resources.IResource;
 import org.eclipse.core.resources.ResourcesPlugin;
