@@ -53,53 +53,55 @@ public class LilyPondHyperlinkHelper extends HyperlinkHelper {
 		}
 		// Add hyperlinks
 		AbstractNode node = NodeUtil.findLeafNodeAtOffset(xtextResource.getParseResult().getRootNode(), offset + 1);
-		EObject object = NodeUtil.getNearestSemanticObject(node);
-		int nodeOffset = node.getOffset();
-		int nodeLength = node.getLength();
-		// Include -> File
-		if ((object instanceof Include) && NodeUtil.findNodesForFeature(object, LilypondPackage.eINSTANCE.getInclude_ImportURI()).contains(node)) {
-			Include include = (Include)object;
-			Resource includedEResource = EcoreUtil2.getResource(xtextResource, include.getImportURI());
-			IResource includedResource = ResourceUtils.convertEResourceToPlatformResource(includedEResource);
-			if (includedResource != null) {
-				int linkOffset = nodeOffset + 1; // Ignore the surrounding quotation marks
-				int linkLength = nodeLength - 2;
-				if ((linkOffset <= offset) && (offset < linkOffset + linkLength)) {
-					XtextHyperlink hyperlink = hyperlinkProvider.get();
-					hyperlink.setHyperlinkRegion(new Region(linkOffset, linkLength));
-					hyperlink.setHyperlinkText("Open included file");
-					URI importUri = includedEResource.getURI();
-					hyperlink.setURI(importUri);
-					hyperlinks.add(hyperlink);
+		if (node != null) {
+			EObject object = NodeUtil.getNearestSemanticObject(node);
+			int nodeOffset = node.getOffset();
+			int nodeLength = node.getLength();
+			// Include -> File
+			if ((object instanceof Include) && NodeUtil.findNodesForFeature(object, LilypondPackage.eINSTANCE.getInclude_ImportURI()).contains(node)) {
+				Include include = (Include)object;
+				Resource includedEResource = EcoreUtil2.getResource(xtextResource, include.getImportURI());
+				IResource includedResource = ResourceUtils.convertEResourceToPlatformResource(includedEResource);
+				if (includedResource != null) {
+					int linkOffset = nodeOffset + 1; // Ignore the surrounding quotation marks
+					int linkLength = nodeLength - 2;
+					if ((linkOffset <= offset) && (offset < linkOffset + linkLength)) {
+						XtextHyperlink hyperlink = hyperlinkProvider.get();
+						hyperlink.setHyperlinkRegion(new Region(linkOffset, linkLength));
+						hyperlink.setHyperlinkText("Open included file");
+						URI importUri = includedEResource.getURI();
+						hyperlink.setURI(importUri);
+						hyperlinks.add(hyperlink);
+					}
 				}
 			}
-		}
-		// Source -> Score
-		else {
-			IResource resource = ResourceUtils.convertEResourceToPlatformResource(xtextResource);
-			if (resource != null) {
-				IViewPart view = UiUtils.getWorkbenchPage().findView(ScoreViewType.ID);
-				if (view instanceof FileView) {
-					FileView fileView = (FileView)view;
-					IFileViewType<?> fileViewType = fileView.getType();
-					if (fileViewType instanceof PdfViewType) {
-						PdfViewType pdfViewType = (PdfViewType)fileViewType;
-						PdfViewPage pdfViewPage = pdfViewType.getPage();
-						if (pdfViewPage != null) {
-							for (int page = 1; page <= pdfViewPage.getPageCount(); page++) {
-								PdfAnnotation[] pdfAnnotations = pdfViewPage.getAnnotationsOnPage(page);
-								for (PdfAnnotation pdfAnnotation : pdfAnnotations) {
-									IFile targetFile = pdfAnnotation.file;
-									if (resource.equals(targetFile)) {
-										try {
-											int annotationOffset = DocumentUtils.getOffsetOfPosition(DocumentUtils.getDocumentFromFile(targetFile), pdfAnnotation.lineNumber, pdfAnnotation.columnNumber, 1);
-											if ((nodeOffset <= annotationOffset) && (annotationOffset < nodeOffset + nodeLength)) { // TODO smarter hyperlink region
-												SourceToScoreHyperlink hyperlink = new SourceToScoreHyperlink(pdfViewPage, pdfAnnotation);
-												hyperlink.setHyperlinkRegion(new Region(nodeOffset, nodeLength));
-												hyperlinks.add(hyperlink);
+			// Source -> Score
+			else {
+				IResource resource = ResourceUtils.convertEResourceToPlatformResource(xtextResource);
+				if (resource != null) {
+					IViewPart view = UiUtils.getWorkbenchPage().findView(ScoreViewType.ID);
+					if (view instanceof FileView) {
+						FileView fileView = (FileView)view;
+						IFileViewType<?> fileViewType = fileView.getType();
+						if (fileViewType instanceof PdfViewType) {
+							PdfViewType pdfViewType = (PdfViewType)fileViewType;
+							PdfViewPage pdfViewPage = pdfViewType.getPage();
+							if (pdfViewPage != null) {
+								for (int page = 1; page <= pdfViewPage.getPageCount(); page++) {
+									PdfAnnotation[] pdfAnnotations = pdfViewPage.getAnnotationsOnPage(page);
+									for (PdfAnnotation pdfAnnotation : pdfAnnotations) {
+										IFile targetFile = pdfAnnotation.file;
+										if (resource.equals(targetFile)) {
+											try {
+												int annotationOffset = DocumentUtils.getOffsetOfPosition(DocumentUtils.getDocumentFromFile(targetFile), pdfAnnotation.lineNumber, pdfAnnotation.columnNumber, 1);
+												if ((nodeOffset <= annotationOffset) && (annotationOffset < nodeOffset + nodeLength)) { // TODO smarter hyperlink region
+													SourceToScoreHyperlink hyperlink = new SourceToScoreHyperlink(pdfViewPage, pdfAnnotation);
+													hyperlink.setHyperlinkRegion(new Region(nodeOffset, nodeLength));
+													hyperlinks.add(hyperlink);
+												}
+											} catch (Exception e) {
+												Activator.logError("Error while calculating hyperlink offset", e);
 											}
-										} catch (Exception e) {
-											Activator.logError("Error while calculating hyperlink offset", e);
 										}
 									}
 								}
