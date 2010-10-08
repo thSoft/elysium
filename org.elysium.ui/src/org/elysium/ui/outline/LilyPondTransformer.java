@@ -6,6 +6,7 @@ import org.eclipse.xtext.ui.editor.outline.transformer.AbstractDeclarativeSemant
 import org.elysium.lilypond.Expression;
 import org.elysium.lilypond.LilyPond;
 import org.elysium.lilypond.Number;
+import org.elysium.lilypond.Reference;
 import org.elysium.lilypond.Scheme;
 import org.elysium.lilypond.SchemeExpression;
 import org.elysium.lilypond.SchemeList;
@@ -31,6 +32,10 @@ public class LilyPondTransformer extends AbstractDeclarativeSemanticModelTransfo
 
 	public boolean consumeNode(Expression expression) {
 		return !((expression instanceof Text) || (expression instanceof Number));
+	}
+
+	public boolean consumeNode(Reference reference) {
+		return reference.getAssignment().getName() != null;
 	}
 
 }

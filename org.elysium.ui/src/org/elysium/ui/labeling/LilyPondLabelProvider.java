@@ -47,8 +47,7 @@ public class LilyPondLabelProvider extends DefaultEObjectLabelProvider {
 	}
 
 	public String text(Reference reference) {
-		Assignment assignment = reference.getAssignment();
-		return "\\" + (assignment == null ? "" : assignment.getName()); //$NON-NLS-1$
+		return "\\" + reference.getAssignment().getName(); //$NON-NLS-1$
 	}
 
 }
