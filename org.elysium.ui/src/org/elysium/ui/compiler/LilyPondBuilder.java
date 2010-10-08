@@ -33,7 +33,7 @@ public class LilyPondBuilder implements IXtextBuilderParticipant {
 		// Get all files to build
 		Set<IFile> filesToBuild = new HashSet<IFile>();
 		for (Delta delta : context.getDeltas()) {
-			boolean lilyPond = Arrays.asList(LilyPondConstants.EXTENSIONS).contains(delta.getUri().fileExtension());
+			boolean lilyPond = LilyPondConstants.EXTENSIONS.contains(delta.getUri().fileExtension());
 			boolean changed = (delta.getNew() != null) && (delta.getOld() != null);
 			if (lilyPond && changed) {
 				// TODO only if semantic model changed
@@ -76,7 +76,7 @@ public class LilyPondBuilder implements IXtextBuilderParticipant {
 	 * includes any of the files to build.
 	 */
 	private static void addIfNecessary(IFile file, Set<IFile> filesToBuild) {
-		if (!filesToBuild.contains(file) && Arrays.asList(LilyPondConstants.EXTENSIONS).contains(file.getFileExtension())) {
+		if (!filesToBuild.contains(file) && LilyPondConstants.EXTENSIONS.contains(file.getFileExtension())) {
 			Set<IFile> includedFiles = getIncludedFiles(file);
 			for (IFile includedFile : includedFiles) {
 				if (!includedFile.equals(file)) {

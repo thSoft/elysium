@@ -27,7 +27,7 @@ public class OutdatedMarkerAdder implements IResourceChangeListener {
 		@Override
 		public boolean visit(IResourceDelta delta) throws CoreException {
 			IResource resource = delta.getResource();
-			if ((resource instanceof IFile) && Arrays.asList(LilyPondConstants.EXTENSIONS).contains(resource.getFileExtension()) && (delta.getKind() == IResourceDelta.CHANGED)) {
+			if ((resource instanceof IFile) && LilyPondConstants.EXTENSIONS.contains(resource.getFileExtension()) && (delta.getKind() == IResourceDelta.CHANGED)) {
 				// Add marker to the file and all including files when its content changed
 				if ((delta.getFlags() & IResourceDelta.CONTENT) != 0) {
 					IProject project = delta.getResource().getProject();

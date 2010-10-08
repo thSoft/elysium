@@ -1,5 +1,8 @@
 package org.elysium;
 
+import java.util.Arrays;
+import java.util.List;
+
 public class LilyPondConstants {
 
 	private LilyPondConstants() {
@@ -18,7 +21,7 @@ public class LilyPondConstants {
 	/**
 	 * The official extensions of LilyPond files.
 	 */
-	public static final String[] EXTENSIONS = { EXTENSION, INCLUDED_EXTENSION };
+	public static final List<String> EXTENSIONS = Arrays.asList(EXTENSION, INCLUDED_EXTENSION);
 
 	/**
 	 * LilyPond counts column numbers based on this tab width value.

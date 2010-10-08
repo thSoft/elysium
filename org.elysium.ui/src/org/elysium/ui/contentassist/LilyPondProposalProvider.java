@@ -69,7 +69,7 @@ public class LilyPondProposalProvider extends AbstractLilyPondProposalProvider {
 					siblings = resource.getParent().members(); // Start of file name
 				}
 				for (IResource sibling : siblings) {
-					if (Arrays.asList(LilyPondConstants.EXTENSIONS).contains(sibling.getFileExtension()) && !sibling.equals(resource)) {
+					if (LilyPondConstants.EXTENSIONS.contains(sibling.getFileExtension()) && !sibling.equals(resource)) {
 						proposeString(sibling.getFullPath().makeRelativeTo(resource.getParent().getFullPath()).toString(), context, acceptor);
 					}
 				}
