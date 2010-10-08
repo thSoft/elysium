@@ -23,6 +23,7 @@ import org.eclipse.xtext.scoping.impl.ImportUriResolver;
 import org.eclipse.xtext.scoping.impl.LoadOnDemandResourceDescriptions;
 import org.eclipse.xtext.scoping.impl.ResourceDescriptionBasedScope;
 import org.eclipse.xtext.util.IResourceScopeCache;
+import org.elysium.Activator;
 import org.elysium.lilypond.Include;
 import org.elysium.lilypond.LilypondFactory;
 import com.google.common.collect.Lists;
@@ -111,7 +112,7 @@ public class LilyPondImportUriGlobalScopeProvider extends AbstractGlobalScopePro
 
 	private static Resource getBuiltInResource() {
 		if (builtInResource == null) {
-			builtInResource = new ResourceImpl(URI.createPlatformPluginURI("org.elysium/built-in.ly", false));
+			builtInResource = new ResourceImpl(URI.createPlatformPluginURI(Activator.getId() + "/built-in.ly", false)); //$NON-NLS-1$
 		}
 		return builtInResource;
 	}

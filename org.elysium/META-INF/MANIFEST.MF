@@ -33,3 +33,4 @@ Export-Package: org.elysium,
  org.elysium.parser.antlr.lexer,
  org.elysium.services,
  org.elysium.validation
+Bundle-Activator: org.elysium.Activator
