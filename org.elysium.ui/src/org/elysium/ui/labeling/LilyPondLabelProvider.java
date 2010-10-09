@@ -5,11 +5,14 @@ import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.xtext.ui.label.DefaultEObjectLabelProvider;
 import org.elysium.lilypond.Assignment;
+import org.elysium.lilypond.PropertyAssignment;
 import org.elysium.lilypond.Reference;
 import org.elysium.lilypond.Scheme;
 import org.elysium.lilypond.SchemeExpression;
 import org.elysium.lilypond.SchemeList;
 import org.elysium.lilypond.SchemeText;
+import org.elysium.lilypond.SimpleBlock;
+import org.elysium.lilypond.SimultaneousBlock;
 import org.elysium.lilypond.SpecialCommand;
 
 /**
@@ -42,12 +45,24 @@ public class LilyPondLabelProvider extends DefaultEObjectLabelProvider {
 		return assignment.getName();
 	}
 
+	public String text(PropertyAssignment propertyAssignment) {
+		return propertyAssignment.getId();
+	}
+
 	public String text(SpecialCommand specialCommand) {
 		return specialCommand.getKeyword();
 	}
 
 	public String text(Reference reference) {
 		return "\\" + reference.getAssignment().getName(); //$NON-NLS-1$
+	}
+
+	public String text(SimpleBlock simpleBlock) {
+		return "{ }"; //$NON-NLS-1$
+	}
+
+	public String text(SimultaneousBlock simultaneousBlock) {
+		return "<< >>"; //$NON-NLS-1$
 	}
 
 }
