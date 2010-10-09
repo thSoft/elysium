@@ -1,9 +1,10 @@
 package org.elysium;
 
 import org.eclipse.xtext.conversion.IValueConverterService;
-import org.eclipse.xtext.naming.IQualifiedNameProvider;
+import org.eclipse.xtext.resource.IResourceDescription;
 import org.eclipse.xtext.scoping.IGlobalScopeProvider;
 import org.elysium.conversion.LilyPondValueConverterService;
+import org.elysium.resource.LilyPondResourceDescriptionManager;
 import org.elysium.scoping.LilyPondImportUriGlobalScopeProvider;
 
 /**
@@ -21,9 +22,8 @@ public class LilyPondRuntimeModule extends AbstractLilyPondRuntimeModule {
 		return LilyPondImportUriGlobalScopeProvider.class;
 	}
 
-	@Override
-	public Class<? extends IQualifiedNameProvider> bindIQualifiedNameProvider() {
-		return LilyPondQualifiedNameProvider.class;
+	public Class<? extends IResourceDescription.Manager> bindIResourceDescriptionsManager() {
+		return LilyPondResourceDescriptionManager.class;
 	}
 
 }
