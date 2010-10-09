@@ -62,7 +62,7 @@ public class LilyPondResourceDescription extends DefaultResourceDescription {
 		}
 		String qualifiedName = getNameProvider().getQualifiedName(from);
 		if (qualifiedName == null) {
-			qualifiedName = EcoreUtil.getURI(from).toString();
+			qualifiedName = "";
 		}
 		Map<String, String> userData = Maps.newHashMap();
 		for (EAttribute attribute : from.eClass().getEAllAttributes()) {
