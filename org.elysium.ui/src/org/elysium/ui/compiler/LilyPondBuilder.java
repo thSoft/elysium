@@ -1,9 +1,7 @@
 package org.elysium.ui.compiler;
 
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashSet;
-import java.util.List;
 import java.util.Set;
 import org.eclipse.core.resources.IFile;
 import org.eclipse.core.resources.IProject;
@@ -28,9 +26,6 @@ public class LilyPondBuilder implements IXtextBuilderParticipant {
 
 	@Override
 	public void build(final IBuildContext context, IProgressMonitor monitor) throws CoreException {
-		// FIXME sometimes files aren't compiled
-		IProject builtProject = context.getBuiltProject();
-		// Get all files to build
 		Set<IFile> filesToBuild = new HashSet<IFile>();
 		for (Delta delta : context.getDeltas()) {
 			boolean lilyPond = LilyPondConstants.EXTENSIONS.contains(delta.getUri().fileExtension());
@@ -42,17 +37,18 @@ public class LilyPondBuilder implements IXtextBuilderParticipant {
 				}
 			}
 		}
-		if (!filesToBuild.isEmpty()) {
-			addAllIncludingFiles(builtProject, filesToBuild);
-			// Build them
-			for (IFile file : filesToBuild) {
-				CompilerJob compilerJob = new CompilerJob(file);
-				Job[] oldCompilerJobs = Job.getJobManager().find(compilerJob);
-				for (Job oldCompilerJob : oldCompilerJobs) {
-					oldCompilerJob.cancel();
-				}
-				compilerJob.schedule();
+		compile(filesToBuild);
+	}
+
+	public static void compile(Set<IFile> files) {
+		addAllIncludingFiles(files);
+		for (IFile file : files) {
+			CompilerJob compilerJob = new CompilerJob(file);
+			Job[] oldCompilerJobs = Job.getJobManager().find(compilerJob);
+			for (Job oldCompilerJob : oldCompilerJobs) {
+				oldCompilerJob.cancel();
 			}
+			compilerJob.schedule();
 		}
 	}
 
@@ -60,11 +56,16 @@ public class LilyPondBuilder implements IXtextBuilderParticipant {
 	 * Adds all files in the workspace to the given list of files which (even
 	 * indirectly) include any file in the list.
 	 */
-	public static void addAllIncludingFiles(IProject project, Set<IFile> files) {
-		List<IProject> referencingProjects = new ArrayList<IProject>(Arrays.asList(project.getReferencingProjects()));
-		referencingProjects.add(project);
-		for (IProject referencingProject : referencingProjects) {
-			for (IFile file : org.eclipse.util.ResourceUtils.getAllFiles(referencingProject)) {
+	public static void addAllIncludingFiles(Set<IFile> files) {
+		Set<IProject> projects = new HashSet<IProject>();
+		for (IFile file : files) {
+			projects.add(file.getProject());
+		}
+		for (IProject project : projects) {
+			projects.addAll(Arrays.asList(project.getReferencingProjects()));
+		}
+		for (IProject project : projects) {
+			for (IFile file : org.eclipse.util.ResourceUtils.getAllFiles(project)) {
 				addIfNecessary(file, files);
 			}
 		}

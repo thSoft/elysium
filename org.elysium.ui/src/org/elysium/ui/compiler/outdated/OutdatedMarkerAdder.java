@@ -4,7 +4,6 @@ import java.util.HashSet;
 import java.util.Set;
 import org.eclipse.core.resources.IFile;
 import org.eclipse.core.resources.IMarker;
-import org.eclipse.core.resources.IProject;
 import org.eclipse.core.resources.IResource;
 import org.eclipse.core.resources.IResourceChangeEvent;
 import org.eclipse.core.resources.IResourceChangeListener;
@@ -29,10 +28,9 @@ public class OutdatedMarkerAdder implements IResourceChangeListener {
 			if ((resource instanceof IFile) && LilyPondConstants.EXTENSIONS.contains(resource.getFileExtension()) && (delta.getKind() == IResourceDelta.CHANGED)) {
 				// Add marker to the file and all including files when its content changed
 				if ((delta.getFlags() & IResourceDelta.CONTENT) != 0) {
-					IProject project = delta.getResource().getProject();
 					Set<IFile> files = new HashSet<IFile>();
 					files.add((IFile)resource);
-					LilyPondBuilder.addAllIncludingFiles(project, files);
+					LilyPondBuilder.addAllIncludingFiles(files);
 					for (IFile file : files) {
 						if (file.findMarkers(MarkerTypes.OUTDATED, false, IResource.DEPTH_ZERO).length == 0) {
 							IMarker outdatedMarker = file.createMarker(MarkerTypes.OUTDATED);

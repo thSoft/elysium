@@ -45,6 +45,33 @@
       <extension point="org.eclipse.ui.ide.markerImageProviders">
             <imageprovider icon="icons/outdated/Marker.png" id="org.elysium.ui.markerImageProviders.Outdated" markertype="org.elysium.ui.markers.Outdated"/>
       </extension>
+      <extension point="org.eclipse.ui.commands">
+            <command id="org.elysium.ui.commands.RecompileCurrent" name="Recompile Current"/>
+            <command id="org.elysium.ui.commands.RecompileSelected" name="Recompile"/>
+      </extension>
+      <extension point="org.eclipse.ui.handlers">
+            <handler class="org.elysium.ui.compiler.handlers.RecompileCurrentHandler" commandId="org.elysium.ui.commands.RecompileCurrent">
+                  <activeWhen>
+                        <reference definitionId="org.elysium.ui.definitions.EditorOpen"/>
+                  </activeWhen>
+            </handler>
+            <handler class="org.elysium.ui.compiler.handlers.RecompileSelectedHandler" commandId="org.elysium.ui.commands.RecompileSelected">
+                  <activeWhen>
+                        <with variable="selection">
+                              <not>
+                                    <count value="0"/>
+                              </not>
+                        </with>
+                  </activeWhen>
+            </handler>
+      </extension>
+      <extension point="org.eclipse.ui.commandImages">
+            <image commandId="org.elysium.ui.commands.RecompileCurrent" icon="icons/compiler/Command.png"/>
+            <image commandId="org.elysium.ui.commands.RecompileSelected" icon="icons/compiler/Command.png"/>
+      </extension>
+      <extension point="org.eclipse.ui.bindings">
+            <key commandId="org.elysium.ui.commands.RecompileCurrent" contextId="org.eclipse.ui.contexts.window" schemeId="org.eclipse.ui.defaultAcceleratorConfiguration" sequence="M1+T"/>
+      </extension>
       <!-- Editor -->
       <extension point="org.eclipse.ui.editors">
             <editor class="org.elysium.ui.LilyPondExecutableExtensionFactory:org.eclipse.xtext.ui.editor.XtextEditor" contributorClass="org.eclipse.ui.editors.text.TextEditorActionContributor" default="true" extensions="ly,ily" icon="icons/Editor.png" name="LilyPond Editor" id="org.elysium.LilyPond">
@@ -269,6 +296,7 @@
                                     <equals value="org.elysium.ui.perspectives.LilyPond"/>
                               </with>
                         </visibleWhen>
+                        <command commandId="org.elysium.ui.commands.RecompileCurrent" style="push"/>
                         <menu icon="icons/mainfile/MainFile.png" label="Main File">
                               <command commandId="org.elysium.ui.commands.SetMainFileToCurrent" label="Set To Current" style="push"/>
                               <command commandId="org.elysium.ui.commands.UnsetMainFile" label="Unset" style="push"/>
@@ -284,6 +312,7 @@
                                     <equals value="org.elysium.ui.perspectives.LilyPond"/>
                               </with>
                         </visibleWhen>
+                        <command commandId="org.elysium.ui.commands.RecompileSelected"/>
                         <command commandId="org.elysium.ui.commands.SetAsMainFile"/>
                   </menu>
             </menuContribution>
