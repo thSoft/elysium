@@ -36,7 +36,7 @@ public class OutdatedMarkerAdder implements IResourceChangeListener {
 					for (IFile file : files) {
 						if (file.findMarkers(MarkerTypes.OUTDATED, false, IResource.DEPTH_ZERO).length == 0) {
 							IMarker outdatedMarker = file.createMarker(MarkerTypes.OUTDATED);
-							outdatedMarker.setAttribute(IMarker.MESSAGE, "This file has been changed since it was compiled. Enabling automatic compilation is recommended");
+							outdatedMarker.setAttribute(IMarker.MESSAGE, "This file has been changed since it was compiled");
 							// Refresh decorator
 							OutdatedDecorator outdatedDecorator = OutdatedDecorator.getInstance();
 							if (outdatedDecorator != null) {
