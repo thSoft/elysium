@@ -1511,19 +1511,35 @@ rule__Text__ValueAlternatives_0
 )
 
     |(
-{ before(grammarAccess.getTextAccess().getValueApostropheKeyword_0_1()); }
+{ before(grammarAccess.getTextAccess().getValueLeftParenthesisKeyword_0_1()); }
 
-	KEYWORD_4 
+	KEYWORD_5 
 
-{ after(grammarAccess.getTextAccess().getValueApostropheKeyword_0_1()); }
+{ after(grammarAccess.getTextAccess().getValueLeftParenthesisKeyword_0_1()); }
 )
 
     |(
-{ before(grammarAccess.getTextAccess().getValueCommaKeyword_0_2()); }
+{ before(grammarAccess.getTextAccess().getValueRightParenthesisKeyword_0_2()); }
+
+	KEYWORD_6 
+
+{ after(grammarAccess.getTextAccess().getValueRightParenthesisKeyword_0_2()); }
+)
+
+    |(
+{ before(grammarAccess.getTextAccess().getValueApostropheKeyword_0_3()); }
+
+	KEYWORD_4 
+
+{ after(grammarAccess.getTextAccess().getValueApostropheKeyword_0_3()); }
+)
+
+    |(
+{ before(grammarAccess.getTextAccess().getValueCommaKeyword_0_4()); }
 
 	KEYWORD_8 
 
-{ after(grammarAccess.getTextAccess().getValueCommaKeyword_0_2()); }
+{ after(grammarAccess.getTextAccess().getValueCommaKeyword_0_4()); }
 )
 
 ;

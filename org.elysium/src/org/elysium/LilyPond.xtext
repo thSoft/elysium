@@ -48,7 +48,7 @@ ReferenceName: ID | "(" | ")" | SpecialCharacter;
 
 SpecialCharacter: "!" | "+" | "<" | ">" | "[" | "]" | "~";
 
-Text: value=(SchemeTextLiterals | "'" | ",");
+Text: value=(SchemeTextLiterals | "(" | ")" | "'" | ",");
 
 Number: value=INT;
 

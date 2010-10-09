@@ -2529,11 +2529,11 @@ protected class Reference_AssignmentAssignment_1 extends AssignmentToken  {
 /************ begin Rule Text ****************
  *
  * Text:
- * 	value=(SchemeTextLiterals | "\'" | ",");
+ * 	value=(SchemeTextLiterals | "(" | ")" | "\'" | ",");
  *
  **/
 
-// value=(SchemeTextLiterals | "\'" | ",")
+// value=(SchemeTextLiterals | "(" | ")" | "\'" | ",")
 protected class Text_ValueAssignment extends AssignmentToken  {
 	
 	public Text_ValueAssignment(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -2558,14 +2558,24 @@ protected class Text_ValueAssignment extends AssignmentToken  {
 			return null;
 		if((value = eObjectConsumer.getConsumable("value",true)) == null) return null;
 		IEObjectConsumer obj = eObjectConsumer.cloneAndConsume("value");
-		if(keywordSerializer.isValid(obj.getEObject(), grammarAccess.getTextAccess().getValueApostropheKeyword_0_1(), value, null)) {
+		if(keywordSerializer.isValid(obj.getEObject(), grammarAccess.getTextAccess().getValueLeftParenthesisKeyword_0_1(), value, null)) {
 			type = AssignmentType.KEYWORD;
-			element = grammarAccess.getTextAccess().getValueApostropheKeyword_0_1();
+			element = grammarAccess.getTextAccess().getValueLeftParenthesisKeyword_0_1();
 			return obj;
 		}
-		if(keywordSerializer.isValid(obj.getEObject(), grammarAccess.getTextAccess().getValueCommaKeyword_0_2(), value, null)) {
+		if(keywordSerializer.isValid(obj.getEObject(), grammarAccess.getTextAccess().getValueRightParenthesisKeyword_0_2(), value, null)) {
 			type = AssignmentType.KEYWORD;
-			element = grammarAccess.getTextAccess().getValueCommaKeyword_0_2();
+			element = grammarAccess.getTextAccess().getValueRightParenthesisKeyword_0_2();
+			return obj;
+		}
+		if(keywordSerializer.isValid(obj.getEObject(), grammarAccess.getTextAccess().getValueApostropheKeyword_0_3(), value, null)) {
+			type = AssignmentType.KEYWORD;
+			element = grammarAccess.getTextAccess().getValueApostropheKeyword_0_3();
+			return obj;
+		}
+		if(keywordSerializer.isValid(obj.getEObject(), grammarAccess.getTextAccess().getValueCommaKeyword_0_4(), value, null)) {
+			type = AssignmentType.KEYWORD;
+			element = grammarAccess.getTextAccess().getValueCommaKeyword_0_4();
 			return obj;
 		}
 		if(valueSerializer.isValid(obj.getEObject(), grammarAccess.getTextAccess().getValueSchemeTextLiteralsParserRuleCall_0_0(), value, null)) {

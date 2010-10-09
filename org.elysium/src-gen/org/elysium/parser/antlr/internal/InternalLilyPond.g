@@ -1501,9 +1501,9 @@ ruleText returns [EObject current=null]
 	    }
 
     |		lv_value_0_2=
-	KEYWORD_4 
+	KEYWORD_5 
     {
-        createLeafNode(grammarAccess.getTextAccess().getValueApostropheKeyword_0_1(), "value"); 
+        createLeafNode(grammarAccess.getTextAccess().getValueLeftParenthesisKeyword_0_1(), "value"); 
     }
  
 	    {
@@ -1520,9 +1520,9 @@ ruleText returns [EObject current=null]
 	    }
 
     |		lv_value_0_3=
-	KEYWORD_8 
+	KEYWORD_6 
     {
-        createLeafNode(grammarAccess.getTextAccess().getValueCommaKeyword_0_2(), "value"); 
+        createLeafNode(grammarAccess.getTextAccess().getValueRightParenthesisKeyword_0_2(), "value"); 
     }
  
 	    {
@@ -1533,6 +1533,44 @@ ruleText returns [EObject current=null]
 	        
 	        try {
 	       		set($current, "value", lv_value_0_3, null, lastConsumedNode);
+	        } catch (ValueConverterException vce) {
+				handleValueConverterException(vce);
+	        }
+	    }
+
+    |		lv_value_0_4=
+	KEYWORD_4 
+    {
+        createLeafNode(grammarAccess.getTextAccess().getValueApostropheKeyword_0_3(), "value"); 
+    }
+ 
+	    {
+	        if ($current==null) {
+	            $current = factory.create(grammarAccess.getTextRule().getType().getClassifier());
+	            associateNodeWithAstElement(currentNode, $current);
+	        }
+	        
+	        try {
+	       		set($current, "value", lv_value_0_4, null, lastConsumedNode);
+	        } catch (ValueConverterException vce) {
+				handleValueConverterException(vce);
+	        }
+	    }
+
+    |		lv_value_0_5=
+	KEYWORD_8 
+    {
+        createLeafNode(grammarAccess.getTextAccess().getValueCommaKeyword_0_4(), "value"); 
+    }
+ 
+	    {
+	        if ($current==null) {
+	            $current = factory.create(grammarAccess.getTextRule().getType().getClassifier());
+	            associateNodeWithAstElement(currentNode, $current);
+	        }
+	        
+	        try {
+	       		set($current, "value", lv_value_0_5, null, lastConsumedNode);
 	        } catch (ValueConverterException vce) {
 				handleValueConverterException(vce);
 	        }

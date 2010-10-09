@@ -605,27 +605,35 @@ public class LilyPondGrammarAccess extends AbstractGrammarElementFinder {
 		private final Assignment cValueAssignment = (Assignment)rule.eContents().get(1);
 		private final Alternatives cValueAlternatives_0 = (Alternatives)cValueAssignment.eContents().get(0);
 		private final RuleCall cValueSchemeTextLiteralsParserRuleCall_0_0 = (RuleCall)cValueAlternatives_0.eContents().get(0);
-		private final Keyword cValueApostropheKeyword_0_1 = (Keyword)cValueAlternatives_0.eContents().get(1);
-		private final Keyword cValueCommaKeyword_0_2 = (Keyword)cValueAlternatives_0.eContents().get(2);
+		private final Keyword cValueLeftParenthesisKeyword_0_1 = (Keyword)cValueAlternatives_0.eContents().get(1);
+		private final Keyword cValueRightParenthesisKeyword_0_2 = (Keyword)cValueAlternatives_0.eContents().get(2);
+		private final Keyword cValueApostropheKeyword_0_3 = (Keyword)cValueAlternatives_0.eContents().get(3);
+		private final Keyword cValueCommaKeyword_0_4 = (Keyword)cValueAlternatives_0.eContents().get(4);
 		
 		//Text:
-		//	value=(SchemeTextLiterals | "\'" | ",");
+		//	value=(SchemeTextLiterals | "(" | ")" | "\'" | ",");
 		public ParserRule getRule() { return rule; }
 
-		//value=(SchemeTextLiterals | "\'" | ",")
+		//value=(SchemeTextLiterals | "(" | ")" | "\'" | ",")
 		public Assignment getValueAssignment() { return cValueAssignment; }
 
-		//SchemeTextLiterals | "\'" | ","
+		//SchemeTextLiterals | "(" | ")" | "\'" | ","
 		public Alternatives getValueAlternatives_0() { return cValueAlternatives_0; }
 
 		//SchemeTextLiterals
 		public RuleCall getValueSchemeTextLiteralsParserRuleCall_0_0() { return cValueSchemeTextLiteralsParserRuleCall_0_0; }
 
+		//"("
+		public Keyword getValueLeftParenthesisKeyword_0_1() { return cValueLeftParenthesisKeyword_0_1; }
+
+		//")"
+		public Keyword getValueRightParenthesisKeyword_0_2() { return cValueRightParenthesisKeyword_0_2; }
+
 		//"\'"
-		public Keyword getValueApostropheKeyword_0_1() { return cValueApostropheKeyword_0_1; }
+		public Keyword getValueApostropheKeyword_0_3() { return cValueApostropheKeyword_0_3; }
 
 		//","
-		public Keyword getValueCommaKeyword_0_2() { return cValueCommaKeyword_0_2; }
+		public Keyword getValueCommaKeyword_0_4() { return cValueCommaKeyword_0_4; }
 	}
 
 	public class NumberElements extends AbstractParserRuleElementFinder {
@@ -1299,7 +1307,7 @@ public class LilyPondGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//Text:
-	//	value=(SchemeTextLiterals | "\'" | ",");
+	//	value=(SchemeTextLiterals | "(" | ")" | "\'" | ",");
 	public TextElements getTextAccess() {
 		return (pText != null) ? pText : (pText = new TextElements());
 	}
