@@ -5,6 +5,7 @@ import org.eclipse.xtext.Keyword;
 import org.eclipse.xtext.formatting.impl.AbstractDeclarativeFormatter;
 import org.eclipse.xtext.formatting.impl.FormattingConfig;
 import org.eclipse.xtext.util.Pair;
+import org.elysium.LilyPondConstants;
 import org.elysium.services.LilyPondGrammarAccess;
 
 /**
@@ -19,7 +20,7 @@ public class LilyPondFormatter extends AbstractDeclarativeFormatter {
 	protected void configureFormatting(FormattingConfig config) {
 		LilyPondGrammarAccess grammar = (LilyPondGrammarAccess)getGrammarAccess();
 		// No space after
-		List<Keyword> noSpaceAfter = grammar.findKeywords("\\", "#"); //$NON-NLS-1$ //$NON-NLS-2$
+		List<Keyword> noSpaceAfter = grammar.findKeywords(LilyPondConstants.BACKSLASH, "#"); //$NON-NLS-1$
 		for (Keyword keyword : noSpaceAfter) {
 			config.setNoSpace().after(keyword);
 		}

@@ -28,4 +28,9 @@ public class LilyPondConstants {
 	 */
 	public static final int TAB_WIDTH = 8;
 
+	/**
+	 * Common prefix of LilyPond commands.
+	 */
+	public static final String BACKSLASH = "\\"; //$NON-NLS-1$
+
 }

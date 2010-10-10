@@ -7,6 +7,7 @@ import org.eclipse.xtext.parsetree.CompositeNode;
 import org.eclipse.xtext.parsetree.LeafNode;
 import org.eclipse.xtext.parsetree.NodeUtil;
 import org.eclipse.xtext.validation.Check;
+import org.elysium.LilyPondConstants;
 import org.elysium.lilypond.Command;
 import org.elysium.lilypond.LilyPond;
 import org.elysium.lilypond.LilypondPackage;
@@ -18,13 +19,13 @@ import org.elysium.lilypond.Version;
  */
 public class LilyPondJavaValidator extends AbstractLilyPondJavaValidator {
 
-	public static final String HIDDEN_TOKEN_AFTER_BACKSLASH = "HIDDEN_TOKEN_AFTER_BACKSLASH";
+	public static final String HIDDEN_TOKEN_AFTER_BACKSLASH = "HIDDEN_TOKEN_AFTER_BACKSLASH"; //$NON-NLS-1$
 
 	public static Iterator<LeafNode> getHiddenTokensAfterBackslash(Command object) {
 		CompositeNode node = NodeUtil.getNode(object);
 		EList<LeafNode> leafNodes = node.getLeafNodes();
 		for (ListIterator<LeafNode> iterator = leafNodes.listIterator(); iterator.hasNext();) { // There may be hidden tokens before \
-			if ("\\".equals(iterator.next().getText())) { //$NON-NLS-1$
+			if (LilyPondConstants.BACKSLASH.equals(iterator.next().getText())) {
 				if (iterator.hasNext() && iterator.next().isHidden()) {
 					iterator.previous();
 					return iterator;
@@ -41,7 +42,7 @@ public class LilyPondJavaValidator extends AbstractLilyPondJavaValidator {
 		}
 	}
 
-	public static final String NO_VERSION = "NO_VERSION";
+	public static final String NO_VERSION = "NO_VERSION"; //$NON-NLS-1$
 
 	@Check
 	public void checkVersion(LilyPond lilyPond) {

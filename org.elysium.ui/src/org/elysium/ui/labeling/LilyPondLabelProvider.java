@@ -4,6 +4,7 @@ import java.text.MessageFormat;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.xtext.ui.label.DefaultEObjectLabelProvider;
+import org.elysium.LilyPondConstants;
 import org.elysium.lilypond.Assignment;
 import org.elysium.lilypond.PropertyAssignment;
 import org.elysium.lilypond.Reference;
@@ -50,11 +51,11 @@ public class LilyPondLabelProvider extends DefaultEObjectLabelProvider {
 	}
 
 	public String text(SpecialCommand specialCommand) {
-		return "\\" + specialCommand.eClass().getName().toLowerCase(); //$NON-NLS-1$
+		return LilyPondConstants.BACKSLASH + specialCommand.eClass().getName().toLowerCase();
 	}
 
 	public String text(Reference reference) {
-		return "\\" + reference.getAssignment().getName(); //$NON-NLS-1$
+		return LilyPondConstants.BACKSLASH + reference.getAssignment().getName();
 	}
 
 	public String text(SimpleBlock simpleBlock) {
