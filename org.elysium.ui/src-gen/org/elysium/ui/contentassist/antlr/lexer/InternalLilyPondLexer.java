@@ -9,1584 +9,620 @@ import org.antlr.runtime.*;
 import java.util.Stack;
 import java.util.List;
 import java.util.ArrayList;
-import java.util.Map;
-import java.util.HashMap;
+
 @SuppressWarnings("all")
 public class InternalLilyPondLexer extends Lexer {
     public static final int RULE_ID=35;
-    public static final int FRAGMENT_KEYWORD_29=70;
-    public static final int FRAGMENT_KEYWORD_28=69;
     public static final int RULE_SCHEME_SL_COMMENT=39;
-    public static final int FRAGMENT_KEYWORD_27=68;
-    public static final int FRAGMENT_KEYWORD_26=67;
-    public static final int FRAGMENT_KEYWORD_25=66;
-    public static final int FRAGMENT_KEYWORD_24=65;
-    public static final int FRAGMENT_KEYWORD_23=64;
-    public static final int FRAGMENT_KEYWORD_22=63;
-    public static final int FRAGMENT_KEYWORD_21=62;
-    public static final int FRAGMENT_KEYWORD_20=61;
-    public static final int FRAGMENT_KEYWORD_3=44;
     public static final int RULE_ANY_OTHER=41;
-    public static final int FRAGMENT_KEYWORD_4=45;
-    public static final int FRAGMENT_KEYWORD_1=42;
-    public static final int FRAGMENT_KEYWORD_2=43;
-    public static final int FRAGMENT_KEYWORD_8=49;
-    public static final int KEYWORD_19=22;
-    public static final int FRAGMENT_KEYWORD_7=48;
-    public static final int FRAGMENT_KEYWORD_6=47;
-    public static final int KEYWORD_17=20;
-    public static final int FRAGMENT_KEYWORD_5=46;
-    public static final int KEYWORD_18=21;
-    public static final int KEYWORD_15=18;
-    public static final int KEYWORD_16=19;
-    public static final int KEYWORD_13=16;
-    public static final int FRAGMENT_KEYWORD_9=50;
-    public static final int KEYWORD_14=17;
-    public static final int KEYWORD_11=14;
-    public static final int FRAGMENT_RULE_SCHEME_ML_COMMENT=78;
-    public static final int KEYWORD_12=15;
-    public static final int EOF=-1;
-    public static final int KEYWORD_10=13;
-    public static final int KEYWORD_6=9;
-    public static final int KEYWORD_7=10;
-    public static final int KEYWORD_8=11;
-    public static final int KEYWORD_9=12;
-    public static final int KEYWORD_28=31;
-    public static final int KEYWORD_29=32;
-    public static final int RULE_SCHEME_ML_COMMENT=40;
-    public static final int RULE_INT=34;
-    public static final int FRAGMENT_RULE_SL_COMMENT=75;
-    public static final int KEYWORD_24=27;
-    public static final int KEYWORD_25=28;
-    public static final int KEYWORD_26=29;
-    public static final int KEYWORD_27=30;
-    public static final int KEYWORD_20=23;
-    public static final int KEYWORD_21=24;
-    public static final int KEYWORD_22=25;
-    public static final int KEYWORD_23=26;
-    public static final int KEYWORD_1=4;
-    public static final int FRAGMENT_RULE_ID=73;
-    public static final int KEYWORD_5=8;
-    public static final int KEYWORD_4=7;
-    public static final int KEYWORD_3=6;
-    public static final int KEYWORD_2=5;
-    public static final int Tokens=81;
+    public static final int KEYWORD_19=8;
+    public static final int KEYWORD_1=15;
+    public static final int KEYWORD_17=31;
+    public static final int KEYWORD_18=32;
+    public static final int KEYWORD_15=29;
+    public static final int KEYWORD_5=19;
+    public static final int KEYWORD_16=30;
+    public static final int KEYWORD_4=18;
+    public static final int KEYWORD_13=27;
+    public static final int KEYWORD_3=17;
+    public static final int KEYWORD_14=28;
+    public static final int KEYWORD_2=16;
+    public static final int KEYWORD_11=25;
+    public static final int Tokens=42;
     public static final int RULE_SL_COMMENT=37;
+    public static final int KEYWORD_12=26;
+    public static final int EOF=-1;
+    public static final int KEYWORD_10=24;
     public static final int RULE_ML_COMMENT=38;
-    public static final int FRAGMENT_KEYWORD_15=56;
-    public static final int FRAGMENT_KEYWORD_14=55;
-    public static final int FRAGMENT_KEYWORD_17=58;
-    public static final int FRAGMENT_KEYWORD_16=57;
     public static final int RULE_STRING=33;
-    public static final int FRAGMENT_KEYWORD_19=60;
-    public static final int FRAGMENT_KEYWORD_18=59;
-    public static final int SYNTHETIC_ALL_KEYWORDS=80;
-    public static final int FRAGMENT_RULE_STRING=71;
-    public static final int FRAGMENT_RULE_INT=72;
-    public static final int FRAGMENT_KEYWORD_11=52;
-    public static final int FRAGMENT_KEYWORD_10=51;
-    public static final int FRAGMENT_KEYWORD_13=54;
-    public static final int FRAGMENT_KEYWORD_12=53;
-    public static final int FRAGMENT_RULE_ML_COMMENT=76;
-    public static final int FRAGMENT_RULE_WS=74;
-    public static final int FRAGMENT_RULE_ANY_OTHER=79;
-    public static final int FRAGMENT_RULE_SCHEME_SL_COMMENT=77;
+    public static final int KEYWORD_6=20;
+    public static final int KEYWORD_7=21;
+    public static final int KEYWORD_8=22;
+    public static final int KEYWORD_9=23;
+    public static final int KEYWORD_28=6;
+    public static final int RULE_SCHEME_ML_COMMENT=40;
+    public static final int KEYWORD_29=4;
+    public static final int RULE_INT=34;
+    public static final int KEYWORD_24=13;
+    public static final int KEYWORD_25=14;
+    public static final int KEYWORD_26=7;
+    public static final int KEYWORD_27=5;
     public static final int RULE_WS=36;
+    public static final int KEYWORD_20=9;
+    public static final int KEYWORD_21=10;
+    public static final int KEYWORD_22=11;
+    public static final int KEYWORD_23=12;
     public InternalLilyPondLexer() {;} 
     public InternalLilyPondLexer(CharStream input) {
         super(input);
-        ruleMemo = new HashMap[118+1];
-     }
+    }
     public String getGrammarFileName() { return "../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/lexer/InternalLilyPond.g"; }
 
-    // $ANTLR start SYNTHETIC_ALL_KEYWORDS
-    public final void mSYNTHETIC_ALL_KEYWORDS() throws RecognitionException {
-        int SYNTHETIC_ALL_KEYWORDS_StartIndex = input.index();
+    // $ANTLR start KEYWORD_29
+    public final void mKEYWORD_29() throws RecognitionException {
         try {
-            int _type = SYNTHETIC_ALL_KEYWORDS;
-            if ( backtracking>0 && alreadyParsedRule(input, 1) ) { return ; }
-            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/lexer/InternalLilyPond.g:63:24: ( ( FRAGMENT_KEYWORD_1 )=> FRAGMENT_KEYWORD_1 | ( FRAGMENT_KEYWORD_2 )=> FRAGMENT_KEYWORD_2 | ( FRAGMENT_KEYWORD_3 )=> FRAGMENT_KEYWORD_3 | ( FRAGMENT_KEYWORD_4 )=> FRAGMENT_KEYWORD_4 | ( FRAGMENT_KEYWORD_5 )=> FRAGMENT_KEYWORD_5 | ( FRAGMENT_KEYWORD_6 )=> FRAGMENT_KEYWORD_6 | ( FRAGMENT_KEYWORD_7 )=> FRAGMENT_KEYWORD_7 | ( FRAGMENT_KEYWORD_8 )=> FRAGMENT_KEYWORD_8 | ( FRAGMENT_KEYWORD_9 )=> FRAGMENT_KEYWORD_9 | ( FRAGMENT_KEYWORD_10 )=> FRAGMENT_KEYWORD_10 | ( FRAGMENT_KEYWORD_11 )=> FRAGMENT_KEYWORD_11 | ( FRAGMENT_KEYWORD_12 )=> FRAGMENT_KEYWORD_12 | ( FRAGMENT_KEYWORD_13 )=> FRAGMENT_KEYWORD_13 | ( FRAGMENT_KEYWORD_14 )=> FRAGMENT_KEYWORD_14 | ( FRAGMENT_KEYWORD_15 )=> FRAGMENT_KEYWORD_15 | ( FRAGMENT_KEYWORD_16 )=> FRAGMENT_KEYWORD_16 | ( FRAGMENT_KEYWORD_17 )=> FRAGMENT_KEYWORD_17 | ( FRAGMENT_KEYWORD_18 )=> FRAGMENT_KEYWORD_18 | ( FRAGMENT_KEYWORD_19 )=> FRAGMENT_KEYWORD_19 | ( FRAGMENT_KEYWORD_20 )=> FRAGMENT_KEYWORD_20 | ( FRAGMENT_KEYWORD_21 )=> FRAGMENT_KEYWORD_21 | ( FRAGMENT_KEYWORD_22 )=> FRAGMENT_KEYWORD_22 | ( FRAGMENT_KEYWORD_23 )=> FRAGMENT_KEYWORD_23 | ( FRAGMENT_KEYWORD_24 )=> FRAGMENT_KEYWORD_24 | ( FRAGMENT_KEYWORD_25 )=> FRAGMENT_KEYWORD_25 | ( FRAGMENT_KEYWORD_26 )=> FRAGMENT_KEYWORD_26 | ( FRAGMENT_KEYWORD_27 )=> FRAGMENT_KEYWORD_27 | ( FRAGMENT_KEYWORD_28 )=> FRAGMENT_KEYWORD_28 | ( FRAGMENT_KEYWORD_29 )=> FRAGMENT_KEYWORD_29 | ( FRAGMENT_RULE_STRING )=> FRAGMENT_RULE_STRING | ( FRAGMENT_RULE_INT )=> FRAGMENT_RULE_INT | ( FRAGMENT_RULE_ID )=> FRAGMENT_RULE_ID | ( FRAGMENT_RULE_WS )=> FRAGMENT_RULE_WS | ( FRAGMENT_RULE_SL_COMMENT )=> FRAGMENT_RULE_SL_COMMENT | ( FRAGMENT_RULE_ML_COMMENT )=> FRAGMENT_RULE_ML_COMMENT | ( FRAGMENT_RULE_SCHEME_SL_COMMENT )=> FRAGMENT_RULE_SCHEME_SL_COMMENT | ( FRAGMENT_RULE_SCHEME_ML_COMMENT )=> FRAGMENT_RULE_SCHEME_ML_COMMENT | ( FRAGMENT_RULE_ANY_OTHER )=> FRAGMENT_RULE_ANY_OTHER )
-            int alt1=38;
-            int LA1_0 = input.LA(1);
+            int _type = KEYWORD_29;
+            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/lexer/InternalLilyPond.g:19:12: ( 'markuplines' )
+            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/lexer/InternalLilyPond.g:19:14: 'markuplines'
+            {
+            match("markuplines"); 
 
-            if ( (LA1_0=='!') ) {
-                int LA1_1 = input.LA(2);
-
-                if ( (synpred1()) ) {
-                    alt1=1;
-                }
-                else if ( (synpred38()) ) {
-                    alt1=38;
-                }
-                else {
-                    if (backtracking>0) {failed=true; return ;}
-                    NoViableAltException nvae =
-                        new NoViableAltException("63:1: SYNTHETIC_ALL_KEYWORDS : ( ( FRAGMENT_KEYWORD_1 )=> FRAGMENT_KEYWORD_1 | ( FRAGMENT_KEYWORD_2 )=> FRAGMENT_KEYWORD_2 | ( FRAGMENT_KEYWORD_3 )=> FRAGMENT_KEYWORD_3 | ( FRAGMENT_KEYWORD_4 )=> FRAGMENT_KEYWORD_4 | ( FRAGMENT_KEYWORD_5 )=> FRAGMENT_KEYWORD_5 | ( FRAGMENT_KEYWORD_6 )=> FRAGMENT_KEYWORD_6 | ( FRAGMENT_KEYWORD_7 )=> FRAGMENT_KEYWORD_7 | ( FRAGMENT_KEYWORD_8 )=> FRAGMENT_KEYWORD_8 | ( FRAGMENT_KEYWORD_9 )=> FRAGMENT_KEYWORD_9 | ( FRAGMENT_KEYWORD_10 )=> FRAGMENT_KEYWORD_10 | ( FRAGMENT_KEYWORD_11 )=> FRAGMENT_KEYWORD_11 | ( FRAGMENT_KEYWORD_12 )=> FRAGMENT_KEYWORD_12 | ( FRAGMENT_KEYWORD_13 )=> FRAGMENT_KEYWORD_13 | ( FRAGMENT_KEYWORD_14 )=> FRAGMENT_KEYWORD_14 | ( FRAGMENT_KEYWORD_15 )=> FRAGMENT_KEYWORD_15 | ( FRAGMENT_KEYWORD_16 )=> FRAGMENT_KEYWORD_16 | ( FRAGMENT_KEYWORD_17 )=> FRAGMENT_KEYWORD_17 | ( FRAGMENT_KEYWORD_18 )=> FRAGMENT_KEYWORD_18 | ( FRAGMENT_KEYWORD_19 )=> FRAGMENT_KEYWORD_19 | ( FRAGMENT_KEYWORD_20 )=> FRAGMENT_KEYWORD_20 | ( FRAGMENT_KEYWORD_21 )=> FRAGMENT_KEYWORD_21 | ( FRAGMENT_KEYWORD_22 )=> FRAGMENT_KEYWORD_22 | ( FRAGMENT_KEYWORD_23 )=> FRAGMENT_KEYWORD_23 | ( FRAGMENT_KEYWORD_24 )=> FRAGMENT_KEYWORD_24 | ( FRAGMENT_KEYWORD_25 )=> FRAGMENT_KEYWORD_25 | ( FRAGMENT_KEYWORD_26 )=> FRAGMENT_KEYWORD_26 | ( FRAGMENT_KEYWORD_27 )=> FRAGMENT_KEYWORD_27 | ( FRAGMENT_KEYWORD_28 )=> FRAGMENT_KEYWORD_28 | ( FRAGMENT_KEYWORD_29 )=> FRAGMENT_KEYWORD_29 | ( FRAGMENT_RULE_STRING )=> FRAGMENT_RULE_STRING | ( FRAGMENT_RULE_INT )=> FRAGMENT_RULE_INT | ( FRAGMENT_RULE_ID )=> FRAGMENT_RULE_ID | ( FRAGMENT_RULE_WS )=> FRAGMENT_RULE_WS | ( FRAGMENT_RULE_SL_COMMENT )=> FRAGMENT_RULE_SL_COMMENT | ( FRAGMENT_RULE_ML_COMMENT )=> FRAGMENT_RULE_ML_COMMENT | ( FRAGMENT_RULE_SCHEME_SL_COMMENT )=> FRAGMENT_RULE_SCHEME_SL_COMMENT | ( FRAGMENT_RULE_SCHEME_ML_COMMENT )=> FRAGMENT_RULE_SCHEME_ML_COMMENT | ( FRAGMENT_RULE_ANY_OTHER )=> FRAGMENT_RULE_ANY_OTHER );", 1, 1, input);
-
-                    throw nvae;
-                }
-            }
-            else if ( (LA1_0=='#') ) {
-                int LA1_2 = input.LA(2);
-
-                if ( (LA1_2=='!') && (synpred37())) {
-                    alt1=37;
-                }
-                else if ( (LA1_2=='\\') && (synpred20())) {
-                    alt1=20;
-                }
-                else if ( (LA1_2=='{') && (synpred21())) {
-                    alt1=21;
-                }
-                else if ( (LA1_2==':') && (synpred19())) {
-                    alt1=19;
-                }
-                else if ( (LA1_2=='}') && (synpred22())) {
-                    alt1=22;
-                }
-                else if ( (synpred2()) ) {
-                    alt1=2;
-                }
-                else if ( (synpred38()) ) {
-                    alt1=38;
-                }
-                else {
-                    if (backtracking>0) {failed=true; return ;}
-                    NoViableAltException nvae =
-                        new NoViableAltException("63:1: SYNTHETIC_ALL_KEYWORDS : ( ( FRAGMENT_KEYWORD_1 )=> FRAGMENT_KEYWORD_1 | ( FRAGMENT_KEYWORD_2 )=> FRAGMENT_KEYWORD_2 | ( FRAGMENT_KEYWORD_3 )=> FRAGMENT_KEYWORD_3 | ( FRAGMENT_KEYWORD_4 )=> FRAGMENT_KEYWORD_4 | ( FRAGMENT_KEYWORD_5 )=> FRAGMENT_KEYWORD_5 | ( FRAGMENT_KEYWORD_6 )=> FRAGMENT_KEYWORD_6 | ( FRAGMENT_KEYWORD_7 )=> FRAGMENT_KEYWORD_7 | ( FRAGMENT_KEYWORD_8 )=> FRAGMENT_KEYWORD_8 | ( FRAGMENT_KEYWORD_9 )=> FRAGMENT_KEYWORD_9 | ( FRAGMENT_KEYWORD_10 )=> FRAGMENT_KEYWORD_10 | ( FRAGMENT_KEYWORD_11 )=> FRAGMENT_KEYWORD_11 | ( FRAGMENT_KEYWORD_12 )=> FRAGMENT_KEYWORD_12 | ( FRAGMENT_KEYWORD_13 )=> FRAGMENT_KEYWORD_13 | ( FRAGMENT_KEYWORD_14 )=> FRAGMENT_KEYWORD_14 | ( FRAGMENT_KEYWORD_15 )=> FRAGMENT_KEYWORD_15 | ( FRAGMENT_KEYWORD_16 )=> FRAGMENT_KEYWORD_16 | ( FRAGMENT_KEYWORD_17 )=> FRAGMENT_KEYWORD_17 | ( FRAGMENT_KEYWORD_18 )=> FRAGMENT_KEYWORD_18 | ( FRAGMENT_KEYWORD_19 )=> FRAGMENT_KEYWORD_19 | ( FRAGMENT_KEYWORD_20 )=> FRAGMENT_KEYWORD_20 | ( FRAGMENT_KEYWORD_21 )=> FRAGMENT_KEYWORD_21 | ( FRAGMENT_KEYWORD_22 )=> FRAGMENT_KEYWORD_22 | ( FRAGMENT_KEYWORD_23 )=> FRAGMENT_KEYWORD_23 | ( FRAGMENT_KEYWORD_24 )=> FRAGMENT_KEYWORD_24 | ( FRAGMENT_KEYWORD_25 )=> FRAGMENT_KEYWORD_25 | ( FRAGMENT_KEYWORD_26 )=> FRAGMENT_KEYWORD_26 | ( FRAGMENT_KEYWORD_27 )=> FRAGMENT_KEYWORD_27 | ( FRAGMENT_KEYWORD_28 )=> FRAGMENT_KEYWORD_28 | ( FRAGMENT_KEYWORD_29 )=> FRAGMENT_KEYWORD_29 | ( FRAGMENT_RULE_STRING )=> FRAGMENT_RULE_STRING | ( FRAGMENT_RULE_INT )=> FRAGMENT_RULE_INT | ( FRAGMENT_RULE_ID )=> FRAGMENT_RULE_ID | ( FRAGMENT_RULE_WS )=> FRAGMENT_RULE_WS | ( FRAGMENT_RULE_SL_COMMENT )=> FRAGMENT_RULE_SL_COMMENT | ( FRAGMENT_RULE_ML_COMMENT )=> FRAGMENT_RULE_ML_COMMENT | ( FRAGMENT_RULE_SCHEME_SL_COMMENT )=> FRAGMENT_RULE_SCHEME_SL_COMMENT | ( FRAGMENT_RULE_SCHEME_ML_COMMENT )=> FRAGMENT_RULE_SCHEME_ML_COMMENT | ( FRAGMENT_RULE_ANY_OTHER )=> FRAGMENT_RULE_ANY_OTHER );", 1, 2, input);
-
-                    throw nvae;
-                }
-            }
-            else if ( (LA1_0=='$') ) {
-                int LA1_3 = input.LA(2);
-
-                if ( (synpred3()) ) {
-                    alt1=3;
-                }
-                else if ( (synpred38()) ) {
-                    alt1=38;
-                }
-                else {
-                    if (backtracking>0) {failed=true; return ;}
-                    NoViableAltException nvae =
-                        new NoViableAltException("63:1: SYNTHETIC_ALL_KEYWORDS : ( ( FRAGMENT_KEYWORD_1 )=> FRAGMENT_KEYWORD_1 | ( FRAGMENT_KEYWORD_2 )=> FRAGMENT_KEYWORD_2 | ( FRAGMENT_KEYWORD_3 )=> FRAGMENT_KEYWORD_3 | ( FRAGMENT_KEYWORD_4 )=> FRAGMENT_KEYWORD_4 | ( FRAGMENT_KEYWORD_5 )=> FRAGMENT_KEYWORD_5 | ( FRAGMENT_KEYWORD_6 )=> FRAGMENT_KEYWORD_6 | ( FRAGMENT_KEYWORD_7 )=> FRAGMENT_KEYWORD_7 | ( FRAGMENT_KEYWORD_8 )=> FRAGMENT_KEYWORD_8 | ( FRAGMENT_KEYWORD_9 )=> FRAGMENT_KEYWORD_9 | ( FRAGMENT_KEYWORD_10 )=> FRAGMENT_KEYWORD_10 | ( FRAGMENT_KEYWORD_11 )=> FRAGMENT_KEYWORD_11 | ( FRAGMENT_KEYWORD_12 )=> FRAGMENT_KEYWORD_12 | ( FRAGMENT_KEYWORD_13 )=> FRAGMENT_KEYWORD_13 | ( FRAGMENT_KEYWORD_14 )=> FRAGMENT_KEYWORD_14 | ( FRAGMENT_KEYWORD_15 )=> FRAGMENT_KEYWORD_15 | ( FRAGMENT_KEYWORD_16 )=> FRAGMENT_KEYWORD_16 | ( FRAGMENT_KEYWORD_17 )=> FRAGMENT_KEYWORD_17 | ( FRAGMENT_KEYWORD_18 )=> FRAGMENT_KEYWORD_18 | ( FRAGMENT_KEYWORD_19 )=> FRAGMENT_KEYWORD_19 | ( FRAGMENT_KEYWORD_20 )=> FRAGMENT_KEYWORD_20 | ( FRAGMENT_KEYWORD_21 )=> FRAGMENT_KEYWORD_21 | ( FRAGMENT_KEYWORD_22 )=> FRAGMENT_KEYWORD_22 | ( FRAGMENT_KEYWORD_23 )=> FRAGMENT_KEYWORD_23 | ( FRAGMENT_KEYWORD_24 )=> FRAGMENT_KEYWORD_24 | ( FRAGMENT_KEYWORD_25 )=> FRAGMENT_KEYWORD_25 | ( FRAGMENT_KEYWORD_26 )=> FRAGMENT_KEYWORD_26 | ( FRAGMENT_KEYWORD_27 )=> FRAGMENT_KEYWORD_27 | ( FRAGMENT_KEYWORD_28 )=> FRAGMENT_KEYWORD_28 | ( FRAGMENT_KEYWORD_29 )=> FRAGMENT_KEYWORD_29 | ( FRAGMENT_RULE_STRING )=> FRAGMENT_RULE_STRING | ( FRAGMENT_RULE_INT )=> FRAGMENT_RULE_INT | ( FRAGMENT_RULE_ID )=> FRAGMENT_RULE_ID | ( FRAGMENT_RULE_WS )=> FRAGMENT_RULE_WS | ( FRAGMENT_RULE_SL_COMMENT )=> FRAGMENT_RULE_SL_COMMENT | ( FRAGMENT_RULE_ML_COMMENT )=> FRAGMENT_RULE_ML_COMMENT | ( FRAGMENT_RULE_SCHEME_SL_COMMENT )=> FRAGMENT_RULE_SCHEME_SL_COMMENT | ( FRAGMENT_RULE_SCHEME_ML_COMMENT )=> FRAGMENT_RULE_SCHEME_ML_COMMENT | ( FRAGMENT_RULE_ANY_OTHER )=> FRAGMENT_RULE_ANY_OTHER );", 1, 3, input);
-
-                    throw nvae;
-                }
-            }
-            else if ( (LA1_0=='\'') ) {
-                int LA1_4 = input.LA(2);
-
-                if ( (synpred4()) ) {
-                    alt1=4;
-                }
-                else if ( (synpred38()) ) {
-                    alt1=38;
-                }
-                else {
-                    if (backtracking>0) {failed=true; return ;}
-                    NoViableAltException nvae =
-                        new NoViableAltException("63:1: SYNTHETIC_ALL_KEYWORDS : ( ( FRAGMENT_KEYWORD_1 )=> FRAGMENT_KEYWORD_1 | ( FRAGMENT_KEYWORD_2 )=> FRAGMENT_KEYWORD_2 | ( FRAGMENT_KEYWORD_3 )=> FRAGMENT_KEYWORD_3 | ( FRAGMENT_KEYWORD_4 )=> FRAGMENT_KEYWORD_4 | ( FRAGMENT_KEYWORD_5 )=> FRAGMENT_KEYWORD_5 | ( FRAGMENT_KEYWORD_6 )=> FRAGMENT_KEYWORD_6 | ( FRAGMENT_KEYWORD_7 )=> FRAGMENT_KEYWORD_7 | ( FRAGMENT_KEYWORD_8 )=> FRAGMENT_KEYWORD_8 | ( FRAGMENT_KEYWORD_9 )=> FRAGMENT_KEYWORD_9 | ( FRAGMENT_KEYWORD_10 )=> FRAGMENT_KEYWORD_10 | ( FRAGMENT_KEYWORD_11 )=> FRAGMENT_KEYWORD_11 | ( FRAGMENT_KEYWORD_12 )=> FRAGMENT_KEYWORD_12 | ( FRAGMENT_KEYWORD_13 )=> FRAGMENT_KEYWORD_13 | ( FRAGMENT_KEYWORD_14 )=> FRAGMENT_KEYWORD_14 | ( FRAGMENT_KEYWORD_15 )=> FRAGMENT_KEYWORD_15 | ( FRAGMENT_KEYWORD_16 )=> FRAGMENT_KEYWORD_16 | ( FRAGMENT_KEYWORD_17 )=> FRAGMENT_KEYWORD_17 | ( FRAGMENT_KEYWORD_18 )=> FRAGMENT_KEYWORD_18 | ( FRAGMENT_KEYWORD_19 )=> FRAGMENT_KEYWORD_19 | ( FRAGMENT_KEYWORD_20 )=> FRAGMENT_KEYWORD_20 | ( FRAGMENT_KEYWORD_21 )=> FRAGMENT_KEYWORD_21 | ( FRAGMENT_KEYWORD_22 )=> FRAGMENT_KEYWORD_22 | ( FRAGMENT_KEYWORD_23 )=> FRAGMENT_KEYWORD_23 | ( FRAGMENT_KEYWORD_24 )=> FRAGMENT_KEYWORD_24 | ( FRAGMENT_KEYWORD_25 )=> FRAGMENT_KEYWORD_25 | ( FRAGMENT_KEYWORD_26 )=> FRAGMENT_KEYWORD_26 | ( FRAGMENT_KEYWORD_27 )=> FRAGMENT_KEYWORD_27 | ( FRAGMENT_KEYWORD_28 )=> FRAGMENT_KEYWORD_28 | ( FRAGMENT_KEYWORD_29 )=> FRAGMENT_KEYWORD_29 | ( FRAGMENT_RULE_STRING )=> FRAGMENT_RULE_STRING | ( FRAGMENT_RULE_INT )=> FRAGMENT_RULE_INT | ( FRAGMENT_RULE_ID )=> FRAGMENT_RULE_ID | ( FRAGMENT_RULE_WS )=> FRAGMENT_RULE_WS | ( FRAGMENT_RULE_SL_COMMENT )=> FRAGMENT_RULE_SL_COMMENT | ( FRAGMENT_RULE_ML_COMMENT )=> FRAGMENT_RULE_ML_COMMENT | ( FRAGMENT_RULE_SCHEME_SL_COMMENT )=> FRAGMENT_RULE_SCHEME_SL_COMMENT | ( FRAGMENT_RULE_SCHEME_ML_COMMENT )=> FRAGMENT_RULE_SCHEME_ML_COMMENT | ( FRAGMENT_RULE_ANY_OTHER )=> FRAGMENT_RULE_ANY_OTHER );", 1, 4, input);
-
-                    throw nvae;
-                }
-            }
-            else if ( (LA1_0=='(') ) {
-                int LA1_5 = input.LA(2);
-
-                if ( (synpred5()) ) {
-                    alt1=5;
-                }
-                else if ( (synpred38()) ) {
-                    alt1=38;
-                }
-                else {
-                    if (backtracking>0) {failed=true; return ;}
-                    NoViableAltException nvae =
-                        new NoViableAltException("63:1: SYNTHETIC_ALL_KEYWORDS : ( ( FRAGMENT_KEYWORD_1 )=> FRAGMENT_KEYWORD_1 | ( FRAGMENT_KEYWORD_2 )=> FRAGMENT_KEYWORD_2 | ( FRAGMENT_KEYWORD_3 )=> FRAGMENT_KEYWORD_3 | ( FRAGMENT_KEYWORD_4 )=> FRAGMENT_KEYWORD_4 | ( FRAGMENT_KEYWORD_5 )=> FRAGMENT_KEYWORD_5 | ( FRAGMENT_KEYWORD_6 )=> FRAGMENT_KEYWORD_6 | ( FRAGMENT_KEYWORD_7 )=> FRAGMENT_KEYWORD_7 | ( FRAGMENT_KEYWORD_8 )=> FRAGMENT_KEYWORD_8 | ( FRAGMENT_KEYWORD_9 )=> FRAGMENT_KEYWORD_9 | ( FRAGMENT_KEYWORD_10 )=> FRAGMENT_KEYWORD_10 | ( FRAGMENT_KEYWORD_11 )=> FRAGMENT_KEYWORD_11 | ( FRAGMENT_KEYWORD_12 )=> FRAGMENT_KEYWORD_12 | ( FRAGMENT_KEYWORD_13 )=> FRAGMENT_KEYWORD_13 | ( FRAGMENT_KEYWORD_14 )=> FRAGMENT_KEYWORD_14 | ( FRAGMENT_KEYWORD_15 )=> FRAGMENT_KEYWORD_15 | ( FRAGMENT_KEYWORD_16 )=> FRAGMENT_KEYWORD_16 | ( FRAGMENT_KEYWORD_17 )=> FRAGMENT_KEYWORD_17 | ( FRAGMENT_KEYWORD_18 )=> FRAGMENT_KEYWORD_18 | ( FRAGMENT_KEYWORD_19 )=> FRAGMENT_KEYWORD_19 | ( FRAGMENT_KEYWORD_20 )=> FRAGMENT_KEYWORD_20 | ( FRAGMENT_KEYWORD_21 )=> FRAGMENT_KEYWORD_21 | ( FRAGMENT_KEYWORD_22 )=> FRAGMENT_KEYWORD_22 | ( FRAGMENT_KEYWORD_23 )=> FRAGMENT_KEYWORD_23 | ( FRAGMENT_KEYWORD_24 )=> FRAGMENT_KEYWORD_24 | ( FRAGMENT_KEYWORD_25 )=> FRAGMENT_KEYWORD_25 | ( FRAGMENT_KEYWORD_26 )=> FRAGMENT_KEYWORD_26 | ( FRAGMENT_KEYWORD_27 )=> FRAGMENT_KEYWORD_27 | ( FRAGMENT_KEYWORD_28 )=> FRAGMENT_KEYWORD_28 | ( FRAGMENT_KEYWORD_29 )=> FRAGMENT_KEYWORD_29 | ( FRAGMENT_RULE_STRING )=> FRAGMENT_RULE_STRING | ( FRAGMENT_RULE_INT )=> FRAGMENT_RULE_INT | ( FRAGMENT_RULE_ID )=> FRAGMENT_RULE_ID | ( FRAGMENT_RULE_WS )=> FRAGMENT_RULE_WS | ( FRAGMENT_RULE_SL_COMMENT )=> FRAGMENT_RULE_SL_COMMENT | ( FRAGMENT_RULE_ML_COMMENT )=> FRAGMENT_RULE_ML_COMMENT | ( FRAGMENT_RULE_SCHEME_SL_COMMENT )=> FRAGMENT_RULE_SCHEME_SL_COMMENT | ( FRAGMENT_RULE_SCHEME_ML_COMMENT )=> FRAGMENT_RULE_SCHEME_ML_COMMENT | ( FRAGMENT_RULE_ANY_OTHER )=> FRAGMENT_RULE_ANY_OTHER );", 1, 5, input);
-
-                    throw nvae;
-                }
-            }
-            else if ( (LA1_0==')') ) {
-                int LA1_6 = input.LA(2);
-
-                if ( (synpred6()) ) {
-                    alt1=6;
-                }
-                else if ( (synpred38()) ) {
-                    alt1=38;
-                }
-                else {
-                    if (backtracking>0) {failed=true; return ;}
-                    NoViableAltException nvae =
-                        new NoViableAltException("63:1: SYNTHETIC_ALL_KEYWORDS : ( ( FRAGMENT_KEYWORD_1 )=> FRAGMENT_KEYWORD_1 | ( FRAGMENT_KEYWORD_2 )=> FRAGMENT_KEYWORD_2 | ( FRAGMENT_KEYWORD_3 )=> FRAGMENT_KEYWORD_3 | ( FRAGMENT_KEYWORD_4 )=> FRAGMENT_KEYWORD_4 | ( FRAGMENT_KEYWORD_5 )=> FRAGMENT_KEYWORD_5 | ( FRAGMENT_KEYWORD_6 )=> FRAGMENT_KEYWORD_6 | ( FRAGMENT_KEYWORD_7 )=> FRAGMENT_KEYWORD_7 | ( FRAGMENT_KEYWORD_8 )=> FRAGMENT_KEYWORD_8 | ( FRAGMENT_KEYWORD_9 )=> FRAGMENT_KEYWORD_9 | ( FRAGMENT_KEYWORD_10 )=> FRAGMENT_KEYWORD_10 | ( FRAGMENT_KEYWORD_11 )=> FRAGMENT_KEYWORD_11 | ( FRAGMENT_KEYWORD_12 )=> FRAGMENT_KEYWORD_12 | ( FRAGMENT_KEYWORD_13 )=> FRAGMENT_KEYWORD_13 | ( FRAGMENT_KEYWORD_14 )=> FRAGMENT_KEYWORD_14 | ( FRAGMENT_KEYWORD_15 )=> FRAGMENT_KEYWORD_15 | ( FRAGMENT_KEYWORD_16 )=> FRAGMENT_KEYWORD_16 | ( FRAGMENT_KEYWORD_17 )=> FRAGMENT_KEYWORD_17 | ( FRAGMENT_KEYWORD_18 )=> FRAGMENT_KEYWORD_18 | ( FRAGMENT_KEYWORD_19 )=> FRAGMENT_KEYWORD_19 | ( FRAGMENT_KEYWORD_20 )=> FRAGMENT_KEYWORD_20 | ( FRAGMENT_KEYWORD_21 )=> FRAGMENT_KEYWORD_21 | ( FRAGMENT_KEYWORD_22 )=> FRAGMENT_KEYWORD_22 | ( FRAGMENT_KEYWORD_23 )=> FRAGMENT_KEYWORD_23 | ( FRAGMENT_KEYWORD_24 )=> FRAGMENT_KEYWORD_24 | ( FRAGMENT_KEYWORD_25 )=> FRAGMENT_KEYWORD_25 | ( FRAGMENT_KEYWORD_26 )=> FRAGMENT_KEYWORD_26 | ( FRAGMENT_KEYWORD_27 )=> FRAGMENT_KEYWORD_27 | ( FRAGMENT_KEYWORD_28 )=> FRAGMENT_KEYWORD_28 | ( FRAGMENT_KEYWORD_29 )=> FRAGMENT_KEYWORD_29 | ( FRAGMENT_RULE_STRING )=> FRAGMENT_RULE_STRING | ( FRAGMENT_RULE_INT )=> FRAGMENT_RULE_INT | ( FRAGMENT_RULE_ID )=> FRAGMENT_RULE_ID | ( FRAGMENT_RULE_WS )=> FRAGMENT_RULE_WS | ( FRAGMENT_RULE_SL_COMMENT )=> FRAGMENT_RULE_SL_COMMENT | ( FRAGMENT_RULE_ML_COMMENT )=> FRAGMENT_RULE_ML_COMMENT | ( FRAGMENT_RULE_SCHEME_SL_COMMENT )=> FRAGMENT_RULE_SCHEME_SL_COMMENT | ( FRAGMENT_RULE_SCHEME_ML_COMMENT )=> FRAGMENT_RULE_SCHEME_ML_COMMENT | ( FRAGMENT_RULE_ANY_OTHER )=> FRAGMENT_RULE_ANY_OTHER );", 1, 6, input);
-
-                    throw nvae;
-                }
-            }
-            else if ( (LA1_0=='+') ) {
-                int LA1_7 = input.LA(2);
-
-                if ( (synpred7()) ) {
-                    alt1=7;
-                }
-                else if ( (synpred38()) ) {
-                    alt1=38;
-                }
-                else {
-                    if (backtracking>0) {failed=true; return ;}
-                    NoViableAltException nvae =
-                        new NoViableAltException("63:1: SYNTHETIC_ALL_KEYWORDS : ( ( FRAGMENT_KEYWORD_1 )=> FRAGMENT_KEYWORD_1 | ( FRAGMENT_KEYWORD_2 )=> FRAGMENT_KEYWORD_2 | ( FRAGMENT_KEYWORD_3 )=> FRAGMENT_KEYWORD_3 | ( FRAGMENT_KEYWORD_4 )=> FRAGMENT_KEYWORD_4 | ( FRAGMENT_KEYWORD_5 )=> FRAGMENT_KEYWORD_5 | ( FRAGMENT_KEYWORD_6 )=> FRAGMENT_KEYWORD_6 | ( FRAGMENT_KEYWORD_7 )=> FRAGMENT_KEYWORD_7 | ( FRAGMENT_KEYWORD_8 )=> FRAGMENT_KEYWORD_8 | ( FRAGMENT_KEYWORD_9 )=> FRAGMENT_KEYWORD_9 | ( FRAGMENT_KEYWORD_10 )=> FRAGMENT_KEYWORD_10 | ( FRAGMENT_KEYWORD_11 )=> FRAGMENT_KEYWORD_11 | ( FRAGMENT_KEYWORD_12 )=> FRAGMENT_KEYWORD_12 | ( FRAGMENT_KEYWORD_13 )=> FRAGMENT_KEYWORD_13 | ( FRAGMENT_KEYWORD_14 )=> FRAGMENT_KEYWORD_14 | ( FRAGMENT_KEYWORD_15 )=> FRAGMENT_KEYWORD_15 | ( FRAGMENT_KEYWORD_16 )=> FRAGMENT_KEYWORD_16 | ( FRAGMENT_KEYWORD_17 )=> FRAGMENT_KEYWORD_17 | ( FRAGMENT_KEYWORD_18 )=> FRAGMENT_KEYWORD_18 | ( FRAGMENT_KEYWORD_19 )=> FRAGMENT_KEYWORD_19 | ( FRAGMENT_KEYWORD_20 )=> FRAGMENT_KEYWORD_20 | ( FRAGMENT_KEYWORD_21 )=> FRAGMENT_KEYWORD_21 | ( FRAGMENT_KEYWORD_22 )=> FRAGMENT_KEYWORD_22 | ( FRAGMENT_KEYWORD_23 )=> FRAGMENT_KEYWORD_23 | ( FRAGMENT_KEYWORD_24 )=> FRAGMENT_KEYWORD_24 | ( FRAGMENT_KEYWORD_25 )=> FRAGMENT_KEYWORD_25 | ( FRAGMENT_KEYWORD_26 )=> FRAGMENT_KEYWORD_26 | ( FRAGMENT_KEYWORD_27 )=> FRAGMENT_KEYWORD_27 | ( FRAGMENT_KEYWORD_28 )=> FRAGMENT_KEYWORD_28 | ( FRAGMENT_KEYWORD_29 )=> FRAGMENT_KEYWORD_29 | ( FRAGMENT_RULE_STRING )=> FRAGMENT_RULE_STRING | ( FRAGMENT_RULE_INT )=> FRAGMENT_RULE_INT | ( FRAGMENT_RULE_ID )=> FRAGMENT_RULE_ID | ( FRAGMENT_RULE_WS )=> FRAGMENT_RULE_WS | ( FRAGMENT_RULE_SL_COMMENT )=> FRAGMENT_RULE_SL_COMMENT | ( FRAGMENT_RULE_ML_COMMENT )=> FRAGMENT_RULE_ML_COMMENT | ( FRAGMENT_RULE_SCHEME_SL_COMMENT )=> FRAGMENT_RULE_SCHEME_SL_COMMENT | ( FRAGMENT_RULE_SCHEME_ML_COMMENT )=> FRAGMENT_RULE_SCHEME_ML_COMMENT | ( FRAGMENT_RULE_ANY_OTHER )=> FRAGMENT_RULE_ANY_OTHER );", 1, 7, input);
-
-                    throw nvae;
-                }
-            }
-            else if ( (LA1_0==',') ) {
-                int LA1_8 = input.LA(2);
-
-                if ( (synpred8()) ) {
-                    alt1=8;
-                }
-                else if ( (synpred38()) ) {
-                    alt1=38;
-                }
-                else {
-                    if (backtracking>0) {failed=true; return ;}
-                    NoViableAltException nvae =
-                        new NoViableAltException("63:1: SYNTHETIC_ALL_KEYWORDS : ( ( FRAGMENT_KEYWORD_1 )=> FRAGMENT_KEYWORD_1 | ( FRAGMENT_KEYWORD_2 )=> FRAGMENT_KEYWORD_2 | ( FRAGMENT_KEYWORD_3 )=> FRAGMENT_KEYWORD_3 | ( FRAGMENT_KEYWORD_4 )=> FRAGMENT_KEYWORD_4 | ( FRAGMENT_KEYWORD_5 )=> FRAGMENT_KEYWORD_5 | ( FRAGMENT_KEYWORD_6 )=> FRAGMENT_KEYWORD_6 | ( FRAGMENT_KEYWORD_7 )=> FRAGMENT_KEYWORD_7 | ( FRAGMENT_KEYWORD_8 )=> FRAGMENT_KEYWORD_8 | ( FRAGMENT_KEYWORD_9 )=> FRAGMENT_KEYWORD_9 | ( FRAGMENT_KEYWORD_10 )=> FRAGMENT_KEYWORD_10 | ( FRAGMENT_KEYWORD_11 )=> FRAGMENT_KEYWORD_11 | ( FRAGMENT_KEYWORD_12 )=> FRAGMENT_KEYWORD_12 | ( FRAGMENT_KEYWORD_13 )=> FRAGMENT_KEYWORD_13 | ( FRAGMENT_KEYWORD_14 )=> FRAGMENT_KEYWORD_14 | ( FRAGMENT_KEYWORD_15 )=> FRAGMENT_KEYWORD_15 | ( FRAGMENT_KEYWORD_16 )=> FRAGMENT_KEYWORD_16 | ( FRAGMENT_KEYWORD_17 )=> FRAGMENT_KEYWORD_17 | ( FRAGMENT_KEYWORD_18 )=> FRAGMENT_KEYWORD_18 | ( FRAGMENT_KEYWORD_19 )=> FRAGMENT_KEYWORD_19 | ( FRAGMENT_KEYWORD_20 )=> FRAGMENT_KEYWORD_20 | ( FRAGMENT_KEYWORD_21 )=> FRAGMENT_KEYWORD_21 | ( FRAGMENT_KEYWORD_22 )=> FRAGMENT_KEYWORD_22 | ( FRAGMENT_KEYWORD_23 )=> FRAGMENT_KEYWORD_23 | ( FRAGMENT_KEYWORD_24 )=> FRAGMENT_KEYWORD_24 | ( FRAGMENT_KEYWORD_25 )=> FRAGMENT_KEYWORD_25 | ( FRAGMENT_KEYWORD_26 )=> FRAGMENT_KEYWORD_26 | ( FRAGMENT_KEYWORD_27 )=> FRAGMENT_KEYWORD_27 | ( FRAGMENT_KEYWORD_28 )=> FRAGMENT_KEYWORD_28 | ( FRAGMENT_KEYWORD_29 )=> FRAGMENT_KEYWORD_29 | ( FRAGMENT_RULE_STRING )=> FRAGMENT_RULE_STRING | ( FRAGMENT_RULE_INT )=> FRAGMENT_RULE_INT | ( FRAGMENT_RULE_ID )=> FRAGMENT_RULE_ID | ( FRAGMENT_RULE_WS )=> FRAGMENT_RULE_WS | ( FRAGMENT_RULE_SL_COMMENT )=> FRAGMENT_RULE_SL_COMMENT | ( FRAGMENT_RULE_ML_COMMENT )=> FRAGMENT_RULE_ML_COMMENT | ( FRAGMENT_RULE_SCHEME_SL_COMMENT )=> FRAGMENT_RULE_SCHEME_SL_COMMENT | ( FRAGMENT_RULE_SCHEME_ML_COMMENT )=> FRAGMENT_RULE_SCHEME_ML_COMMENT | ( FRAGMENT_RULE_ANY_OTHER )=> FRAGMENT_RULE_ANY_OTHER );", 1, 8, input);
-
-                    throw nvae;
-                }
-            }
-            else if ( (LA1_0=='<') ) {
-                int LA1_9 = input.LA(2);
-
-                if ( (LA1_9=='<') && (synpred23())) {
-                    alt1=23;
-                }
-                else if ( (synpred9()) ) {
-                    alt1=9;
-                }
-                else if ( (synpred38()) ) {
-                    alt1=38;
-                }
-                else {
-                    if (backtracking>0) {failed=true; return ;}
-                    NoViableAltException nvae =
-                        new NoViableAltException("63:1: SYNTHETIC_ALL_KEYWORDS : ( ( FRAGMENT_KEYWORD_1 )=> FRAGMENT_KEYWORD_1 | ( FRAGMENT_KEYWORD_2 )=> FRAGMENT_KEYWORD_2 | ( FRAGMENT_KEYWORD_3 )=> FRAGMENT_KEYWORD_3 | ( FRAGMENT_KEYWORD_4 )=> FRAGMENT_KEYWORD_4 | ( FRAGMENT_KEYWORD_5 )=> FRAGMENT_KEYWORD_5 | ( FRAGMENT_KEYWORD_6 )=> FRAGMENT_KEYWORD_6 | ( FRAGMENT_KEYWORD_7 )=> FRAGMENT_KEYWORD_7 | ( FRAGMENT_KEYWORD_8 )=> FRAGMENT_KEYWORD_8 | ( FRAGMENT_KEYWORD_9 )=> FRAGMENT_KEYWORD_9 | ( FRAGMENT_KEYWORD_10 )=> FRAGMENT_KEYWORD_10 | ( FRAGMENT_KEYWORD_11 )=> FRAGMENT_KEYWORD_11 | ( FRAGMENT_KEYWORD_12 )=> FRAGMENT_KEYWORD_12 | ( FRAGMENT_KEYWORD_13 )=> FRAGMENT_KEYWORD_13 | ( FRAGMENT_KEYWORD_14 )=> FRAGMENT_KEYWORD_14 | ( FRAGMENT_KEYWORD_15 )=> FRAGMENT_KEYWORD_15 | ( FRAGMENT_KEYWORD_16 )=> FRAGMENT_KEYWORD_16 | ( FRAGMENT_KEYWORD_17 )=> FRAGMENT_KEYWORD_17 | ( FRAGMENT_KEYWORD_18 )=> FRAGMENT_KEYWORD_18 | ( FRAGMENT_KEYWORD_19 )=> FRAGMENT_KEYWORD_19 | ( FRAGMENT_KEYWORD_20 )=> FRAGMENT_KEYWORD_20 | ( FRAGMENT_KEYWORD_21 )=> FRAGMENT_KEYWORD_21 | ( FRAGMENT_KEYWORD_22 )=> FRAGMENT_KEYWORD_22 | ( FRAGMENT_KEYWORD_23 )=> FRAGMENT_KEYWORD_23 | ( FRAGMENT_KEYWORD_24 )=> FRAGMENT_KEYWORD_24 | ( FRAGMENT_KEYWORD_25 )=> FRAGMENT_KEYWORD_25 | ( FRAGMENT_KEYWORD_26 )=> FRAGMENT_KEYWORD_26 | ( FRAGMENT_KEYWORD_27 )=> FRAGMENT_KEYWORD_27 | ( FRAGMENT_KEYWORD_28 )=> FRAGMENT_KEYWORD_28 | ( FRAGMENT_KEYWORD_29 )=> FRAGMENT_KEYWORD_29 | ( FRAGMENT_RULE_STRING )=> FRAGMENT_RULE_STRING | ( FRAGMENT_RULE_INT )=> FRAGMENT_RULE_INT | ( FRAGMENT_RULE_ID )=> FRAGMENT_RULE_ID | ( FRAGMENT_RULE_WS )=> FRAGMENT_RULE_WS | ( FRAGMENT_RULE_SL_COMMENT )=> FRAGMENT_RULE_SL_COMMENT | ( FRAGMENT_RULE_ML_COMMENT )=> FRAGMENT_RULE_ML_COMMENT | ( FRAGMENT_RULE_SCHEME_SL_COMMENT )=> FRAGMENT_RULE_SCHEME_SL_COMMENT | ( FRAGMENT_RULE_SCHEME_ML_COMMENT )=> FRAGMENT_RULE_SCHEME_ML_COMMENT | ( FRAGMENT_RULE_ANY_OTHER )=> FRAGMENT_RULE_ANY_OTHER );", 1, 9, input);
-
-                    throw nvae;
-                }
-            }
-            else if ( (LA1_0=='=') ) {
-                int LA1_10 = input.LA(2);
-
-                if ( (synpred10()) ) {
-                    alt1=10;
-                }
-                else if ( (synpred38()) ) {
-                    alt1=38;
-                }
-                else {
-                    if (backtracking>0) {failed=true; return ;}
-                    NoViableAltException nvae =
-                        new NoViableAltException("63:1: SYNTHETIC_ALL_KEYWORDS : ( ( FRAGMENT_KEYWORD_1 )=> FRAGMENT_KEYWORD_1 | ( FRAGMENT_KEYWORD_2 )=> FRAGMENT_KEYWORD_2 | ( FRAGMENT_KEYWORD_3 )=> FRAGMENT_KEYWORD_3 | ( FRAGMENT_KEYWORD_4 )=> FRAGMENT_KEYWORD_4 | ( FRAGMENT_KEYWORD_5 )=> FRAGMENT_KEYWORD_5 | ( FRAGMENT_KEYWORD_6 )=> FRAGMENT_KEYWORD_6 | ( FRAGMENT_KEYWORD_7 )=> FRAGMENT_KEYWORD_7 | ( FRAGMENT_KEYWORD_8 )=> FRAGMENT_KEYWORD_8 | ( FRAGMENT_KEYWORD_9 )=> FRAGMENT_KEYWORD_9 | ( FRAGMENT_KEYWORD_10 )=> FRAGMENT_KEYWORD_10 | ( FRAGMENT_KEYWORD_11 )=> FRAGMENT_KEYWORD_11 | ( FRAGMENT_KEYWORD_12 )=> FRAGMENT_KEYWORD_12 | ( FRAGMENT_KEYWORD_13 )=> FRAGMENT_KEYWORD_13 | ( FRAGMENT_KEYWORD_14 )=> FRAGMENT_KEYWORD_14 | ( FRAGMENT_KEYWORD_15 )=> FRAGMENT_KEYWORD_15 | ( FRAGMENT_KEYWORD_16 )=> FRAGMENT_KEYWORD_16 | ( FRAGMENT_KEYWORD_17 )=> FRAGMENT_KEYWORD_17 | ( FRAGMENT_KEYWORD_18 )=> FRAGMENT_KEYWORD_18 | ( FRAGMENT_KEYWORD_19 )=> FRAGMENT_KEYWORD_19 | ( FRAGMENT_KEYWORD_20 )=> FRAGMENT_KEYWORD_20 | ( FRAGMENT_KEYWORD_21 )=> FRAGMENT_KEYWORD_21 | ( FRAGMENT_KEYWORD_22 )=> FRAGMENT_KEYWORD_22 | ( FRAGMENT_KEYWORD_23 )=> FRAGMENT_KEYWORD_23 | ( FRAGMENT_KEYWORD_24 )=> FRAGMENT_KEYWORD_24 | ( FRAGMENT_KEYWORD_25 )=> FRAGMENT_KEYWORD_25 | ( FRAGMENT_KEYWORD_26 )=> FRAGMENT_KEYWORD_26 | ( FRAGMENT_KEYWORD_27 )=> FRAGMENT_KEYWORD_27 | ( FRAGMENT_KEYWORD_28 )=> FRAGMENT_KEYWORD_28 | ( FRAGMENT_KEYWORD_29 )=> FRAGMENT_KEYWORD_29 | ( FRAGMENT_RULE_STRING )=> FRAGMENT_RULE_STRING | ( FRAGMENT_RULE_INT )=> FRAGMENT_RULE_INT | ( FRAGMENT_RULE_ID )=> FRAGMENT_RULE_ID | ( FRAGMENT_RULE_WS )=> FRAGMENT_RULE_WS | ( FRAGMENT_RULE_SL_COMMENT )=> FRAGMENT_RULE_SL_COMMENT | ( FRAGMENT_RULE_ML_COMMENT )=> FRAGMENT_RULE_ML_COMMENT | ( FRAGMENT_RULE_SCHEME_SL_COMMENT )=> FRAGMENT_RULE_SCHEME_SL_COMMENT | ( FRAGMENT_RULE_SCHEME_ML_COMMENT )=> FRAGMENT_RULE_SCHEME_ML_COMMENT | ( FRAGMENT_RULE_ANY_OTHER )=> FRAGMENT_RULE_ANY_OTHER );", 1, 10, input);
-
-                    throw nvae;
-                }
-            }
-            else if ( (LA1_0=='>') ) {
-                int LA1_11 = input.LA(2);
-
-                if ( (LA1_11=='>') && (synpred24())) {
-                    alt1=24;
-                }
-                else if ( (synpred11()) ) {
-                    alt1=11;
-                }
-                else if ( (synpred38()) ) {
-                    alt1=38;
-                }
-                else {
-                    if (backtracking>0) {failed=true; return ;}
-                    NoViableAltException nvae =
-                        new NoViableAltException("63:1: SYNTHETIC_ALL_KEYWORDS : ( ( FRAGMENT_KEYWORD_1 )=> FRAGMENT_KEYWORD_1 | ( FRAGMENT_KEYWORD_2 )=> FRAGMENT_KEYWORD_2 | ( FRAGMENT_KEYWORD_3 )=> FRAGMENT_KEYWORD_3 | ( FRAGMENT_KEYWORD_4 )=> FRAGMENT_KEYWORD_4 | ( FRAGMENT_KEYWORD_5 )=> FRAGMENT_KEYWORD_5 | ( FRAGMENT_KEYWORD_6 )=> FRAGMENT_KEYWORD_6 | ( FRAGMENT_KEYWORD_7 )=> FRAGMENT_KEYWORD_7 | ( FRAGMENT_KEYWORD_8 )=> FRAGMENT_KEYWORD_8 | ( FRAGMENT_KEYWORD_9 )=> FRAGMENT_KEYWORD_9 | ( FRAGMENT_KEYWORD_10 )=> FRAGMENT_KEYWORD_10 | ( FRAGMENT_KEYWORD_11 )=> FRAGMENT_KEYWORD_11 | ( FRAGMENT_KEYWORD_12 )=> FRAGMENT_KEYWORD_12 | ( FRAGMENT_KEYWORD_13 )=> FRAGMENT_KEYWORD_13 | ( FRAGMENT_KEYWORD_14 )=> FRAGMENT_KEYWORD_14 | ( FRAGMENT_KEYWORD_15 )=> FRAGMENT_KEYWORD_15 | ( FRAGMENT_KEYWORD_16 )=> FRAGMENT_KEYWORD_16 | ( FRAGMENT_KEYWORD_17 )=> FRAGMENT_KEYWORD_17 | ( FRAGMENT_KEYWORD_18 )=> FRAGMENT_KEYWORD_18 | ( FRAGMENT_KEYWORD_19 )=> FRAGMENT_KEYWORD_19 | ( FRAGMENT_KEYWORD_20 )=> FRAGMENT_KEYWORD_20 | ( FRAGMENT_KEYWORD_21 )=> FRAGMENT_KEYWORD_21 | ( FRAGMENT_KEYWORD_22 )=> FRAGMENT_KEYWORD_22 | ( FRAGMENT_KEYWORD_23 )=> FRAGMENT_KEYWORD_23 | ( FRAGMENT_KEYWORD_24 )=> FRAGMENT_KEYWORD_24 | ( FRAGMENT_KEYWORD_25 )=> FRAGMENT_KEYWORD_25 | ( FRAGMENT_KEYWORD_26 )=> FRAGMENT_KEYWORD_26 | ( FRAGMENT_KEYWORD_27 )=> FRAGMENT_KEYWORD_27 | ( FRAGMENT_KEYWORD_28 )=> FRAGMENT_KEYWORD_28 | ( FRAGMENT_KEYWORD_29 )=> FRAGMENT_KEYWORD_29 | ( FRAGMENT_RULE_STRING )=> FRAGMENT_RULE_STRING | ( FRAGMENT_RULE_INT )=> FRAGMENT_RULE_INT | ( FRAGMENT_RULE_ID )=> FRAGMENT_RULE_ID | ( FRAGMENT_RULE_WS )=> FRAGMENT_RULE_WS | ( FRAGMENT_RULE_SL_COMMENT )=> FRAGMENT_RULE_SL_COMMENT | ( FRAGMENT_RULE_ML_COMMENT )=> FRAGMENT_RULE_ML_COMMENT | ( FRAGMENT_RULE_SCHEME_SL_COMMENT )=> FRAGMENT_RULE_SCHEME_SL_COMMENT | ( FRAGMENT_RULE_SCHEME_ML_COMMENT )=> FRAGMENT_RULE_SCHEME_ML_COMMENT | ( FRAGMENT_RULE_ANY_OTHER )=> FRAGMENT_RULE_ANY_OTHER );", 1, 11, input);
-
-                    throw nvae;
-                }
-            }
-            else if ( (LA1_0=='[') ) {
-                int LA1_12 = input.LA(2);
-
-                if ( (synpred12()) ) {
-                    alt1=12;
-                }
-                else if ( (synpred38()) ) {
-                    alt1=38;
-                }
-                else {
-                    if (backtracking>0) {failed=true; return ;}
-                    NoViableAltException nvae =
-                        new NoViableAltException("63:1: SYNTHETIC_ALL_KEYWORDS : ( ( FRAGMENT_KEYWORD_1 )=> FRAGMENT_KEYWORD_1 | ( FRAGMENT_KEYWORD_2 )=> FRAGMENT_KEYWORD_2 | ( FRAGMENT_KEYWORD_3 )=> FRAGMENT_KEYWORD_3 | ( FRAGMENT_KEYWORD_4 )=> FRAGMENT_KEYWORD_4 | ( FRAGMENT_KEYWORD_5 )=> FRAGMENT_KEYWORD_5 | ( FRAGMENT_KEYWORD_6 )=> FRAGMENT_KEYWORD_6 | ( FRAGMENT_KEYWORD_7 )=> FRAGMENT_KEYWORD_7 | ( FRAGMENT_KEYWORD_8 )=> FRAGMENT_KEYWORD_8 | ( FRAGMENT_KEYWORD_9 )=> FRAGMENT_KEYWORD_9 | ( FRAGMENT_KEYWORD_10 )=> FRAGMENT_KEYWORD_10 | ( FRAGMENT_KEYWORD_11 )=> FRAGMENT_KEYWORD_11 | ( FRAGMENT_KEYWORD_12 )=> FRAGMENT_KEYWORD_12 | ( FRAGMENT_KEYWORD_13 )=> FRAGMENT_KEYWORD_13 | ( FRAGMENT_KEYWORD_14 )=> FRAGMENT_KEYWORD_14 | ( FRAGMENT_KEYWORD_15 )=> FRAGMENT_KEYWORD_15 | ( FRAGMENT_KEYWORD_16 )=> FRAGMENT_KEYWORD_16 | ( FRAGMENT_KEYWORD_17 )=> FRAGMENT_KEYWORD_17 | ( FRAGMENT_KEYWORD_18 )=> FRAGMENT_KEYWORD_18 | ( FRAGMENT_KEYWORD_19 )=> FRAGMENT_KEYWORD_19 | ( FRAGMENT_KEYWORD_20 )=> FRAGMENT_KEYWORD_20 | ( FRAGMENT_KEYWORD_21 )=> FRAGMENT_KEYWORD_21 | ( FRAGMENT_KEYWORD_22 )=> FRAGMENT_KEYWORD_22 | ( FRAGMENT_KEYWORD_23 )=> FRAGMENT_KEYWORD_23 | ( FRAGMENT_KEYWORD_24 )=> FRAGMENT_KEYWORD_24 | ( FRAGMENT_KEYWORD_25 )=> FRAGMENT_KEYWORD_25 | ( FRAGMENT_KEYWORD_26 )=> FRAGMENT_KEYWORD_26 | ( FRAGMENT_KEYWORD_27 )=> FRAGMENT_KEYWORD_27 | ( FRAGMENT_KEYWORD_28 )=> FRAGMENT_KEYWORD_28 | ( FRAGMENT_KEYWORD_29 )=> FRAGMENT_KEYWORD_29 | ( FRAGMENT_RULE_STRING )=> FRAGMENT_RULE_STRING | ( FRAGMENT_RULE_INT )=> FRAGMENT_RULE_INT | ( FRAGMENT_RULE_ID )=> FRAGMENT_RULE_ID | ( FRAGMENT_RULE_WS )=> FRAGMENT_RULE_WS | ( FRAGMENT_RULE_SL_COMMENT )=> FRAGMENT_RULE_SL_COMMENT | ( FRAGMENT_RULE_ML_COMMENT )=> FRAGMENT_RULE_ML_COMMENT | ( FRAGMENT_RULE_SCHEME_SL_COMMENT )=> FRAGMENT_RULE_SCHEME_SL_COMMENT | ( FRAGMENT_RULE_SCHEME_ML_COMMENT )=> FRAGMENT_RULE_SCHEME_ML_COMMENT | ( FRAGMENT_RULE_ANY_OTHER )=> FRAGMENT_RULE_ANY_OTHER );", 1, 12, input);
-
-                    throw nvae;
-                }
-            }
-            else if ( (LA1_0=='\\') ) {
-                int LA1_13 = input.LA(2);
-
-                if ( (LA1_13=='m') && (synpred27())) {
-                    alt1=27;
-                }
-                else if ( (LA1_13=='\\') && (synpred25())) {
-                    alt1=25;
-                }
-                else if ( (LA1_13=='v') && (synpred29())) {
-                    alt1=29;
-                }
-                else if ( (LA1_13=='i') && (synpred28())) {
-                    alt1=28;
-                }
-                else if ( (synpred13()) ) {
-                    alt1=13;
-                }
-                else if ( (synpred38()) ) {
-                    alt1=38;
-                }
-                else {
-                    if (backtracking>0) {failed=true; return ;}
-                    NoViableAltException nvae =
-                        new NoViableAltException("63:1: SYNTHETIC_ALL_KEYWORDS : ( ( FRAGMENT_KEYWORD_1 )=> FRAGMENT_KEYWORD_1 | ( FRAGMENT_KEYWORD_2 )=> FRAGMENT_KEYWORD_2 | ( FRAGMENT_KEYWORD_3 )=> FRAGMENT_KEYWORD_3 | ( FRAGMENT_KEYWORD_4 )=> FRAGMENT_KEYWORD_4 | ( FRAGMENT_KEYWORD_5 )=> FRAGMENT_KEYWORD_5 | ( FRAGMENT_KEYWORD_6 )=> FRAGMENT_KEYWORD_6 | ( FRAGMENT_KEYWORD_7 )=> FRAGMENT_KEYWORD_7 | ( FRAGMENT_KEYWORD_8 )=> FRAGMENT_KEYWORD_8 | ( FRAGMENT_KEYWORD_9 )=> FRAGMENT_KEYWORD_9 | ( FRAGMENT_KEYWORD_10 )=> FRAGMENT_KEYWORD_10 | ( FRAGMENT_KEYWORD_11 )=> FRAGMENT_KEYWORD_11 | ( FRAGMENT_KEYWORD_12 )=> FRAGMENT_KEYWORD_12 | ( FRAGMENT_KEYWORD_13 )=> FRAGMENT_KEYWORD_13 | ( FRAGMENT_KEYWORD_14 )=> FRAGMENT_KEYWORD_14 | ( FRAGMENT_KEYWORD_15 )=> FRAGMENT_KEYWORD_15 | ( FRAGMENT_KEYWORD_16 )=> FRAGMENT_KEYWORD_16 | ( FRAGMENT_KEYWORD_17 )=> FRAGMENT_KEYWORD_17 | ( FRAGMENT_KEYWORD_18 )=> FRAGMENT_KEYWORD_18 | ( FRAGMENT_KEYWORD_19 )=> FRAGMENT_KEYWORD_19 | ( FRAGMENT_KEYWORD_20 )=> FRAGMENT_KEYWORD_20 | ( FRAGMENT_KEYWORD_21 )=> FRAGMENT_KEYWORD_21 | ( FRAGMENT_KEYWORD_22 )=> FRAGMENT_KEYWORD_22 | ( FRAGMENT_KEYWORD_23 )=> FRAGMENT_KEYWORD_23 | ( FRAGMENT_KEYWORD_24 )=> FRAGMENT_KEYWORD_24 | ( FRAGMENT_KEYWORD_25 )=> FRAGMENT_KEYWORD_25 | ( FRAGMENT_KEYWORD_26 )=> FRAGMENT_KEYWORD_26 | ( FRAGMENT_KEYWORD_27 )=> FRAGMENT_KEYWORD_27 | ( FRAGMENT_KEYWORD_28 )=> FRAGMENT_KEYWORD_28 | ( FRAGMENT_KEYWORD_29 )=> FRAGMENT_KEYWORD_29 | ( FRAGMENT_RULE_STRING )=> FRAGMENT_RULE_STRING | ( FRAGMENT_RULE_INT )=> FRAGMENT_RULE_INT | ( FRAGMENT_RULE_ID )=> FRAGMENT_RULE_ID | ( FRAGMENT_RULE_WS )=> FRAGMENT_RULE_WS | ( FRAGMENT_RULE_SL_COMMENT )=> FRAGMENT_RULE_SL_COMMENT | ( FRAGMENT_RULE_ML_COMMENT )=> FRAGMENT_RULE_ML_COMMENT | ( FRAGMENT_RULE_SCHEME_SL_COMMENT )=> FRAGMENT_RULE_SCHEME_SL_COMMENT | ( FRAGMENT_RULE_SCHEME_ML_COMMENT )=> FRAGMENT_RULE_SCHEME_ML_COMMENT | ( FRAGMENT_RULE_ANY_OTHER )=> FRAGMENT_RULE_ANY_OTHER );", 1, 13, input);
-
-                    throw nvae;
-                }
-            }
-            else if ( (LA1_0==']') ) {
-                int LA1_14 = input.LA(2);
-
-                if ( (synpred14()) ) {
-                    alt1=14;
-                }
-                else if ( (synpred38()) ) {
-                    alt1=38;
-                }
-                else {
-                    if (backtracking>0) {failed=true; return ;}
-                    NoViableAltException nvae =
-                        new NoViableAltException("63:1: SYNTHETIC_ALL_KEYWORDS : ( ( FRAGMENT_KEYWORD_1 )=> FRAGMENT_KEYWORD_1 | ( FRAGMENT_KEYWORD_2 )=> FRAGMENT_KEYWORD_2 | ( FRAGMENT_KEYWORD_3 )=> FRAGMENT_KEYWORD_3 | ( FRAGMENT_KEYWORD_4 )=> FRAGMENT_KEYWORD_4 | ( FRAGMENT_KEYWORD_5 )=> FRAGMENT_KEYWORD_5 | ( FRAGMENT_KEYWORD_6 )=> FRAGMENT_KEYWORD_6 | ( FRAGMENT_KEYWORD_7 )=> FRAGMENT_KEYWORD_7 | ( FRAGMENT_KEYWORD_8 )=> FRAGMENT_KEYWORD_8 | ( FRAGMENT_KEYWORD_9 )=> FRAGMENT_KEYWORD_9 | ( FRAGMENT_KEYWORD_10 )=> FRAGMENT_KEYWORD_10 | ( FRAGMENT_KEYWORD_11 )=> FRAGMENT_KEYWORD_11 | ( FRAGMENT_KEYWORD_12 )=> FRAGMENT_KEYWORD_12 | ( FRAGMENT_KEYWORD_13 )=> FRAGMENT_KEYWORD_13 | ( FRAGMENT_KEYWORD_14 )=> FRAGMENT_KEYWORD_14 | ( FRAGMENT_KEYWORD_15 )=> FRAGMENT_KEYWORD_15 | ( FRAGMENT_KEYWORD_16 )=> FRAGMENT_KEYWORD_16 | ( FRAGMENT_KEYWORD_17 )=> FRAGMENT_KEYWORD_17 | ( FRAGMENT_KEYWORD_18 )=> FRAGMENT_KEYWORD_18 | ( FRAGMENT_KEYWORD_19 )=> FRAGMENT_KEYWORD_19 | ( FRAGMENT_KEYWORD_20 )=> FRAGMENT_KEYWORD_20 | ( FRAGMENT_KEYWORD_21 )=> FRAGMENT_KEYWORD_21 | ( FRAGMENT_KEYWORD_22 )=> FRAGMENT_KEYWORD_22 | ( FRAGMENT_KEYWORD_23 )=> FRAGMENT_KEYWORD_23 | ( FRAGMENT_KEYWORD_24 )=> FRAGMENT_KEYWORD_24 | ( FRAGMENT_KEYWORD_25 )=> FRAGMENT_KEYWORD_25 | ( FRAGMENT_KEYWORD_26 )=> FRAGMENT_KEYWORD_26 | ( FRAGMENT_KEYWORD_27 )=> FRAGMENT_KEYWORD_27 | ( FRAGMENT_KEYWORD_28 )=> FRAGMENT_KEYWORD_28 | ( FRAGMENT_KEYWORD_29 )=> FRAGMENT_KEYWORD_29 | ( FRAGMENT_RULE_STRING )=> FRAGMENT_RULE_STRING | ( FRAGMENT_RULE_INT )=> FRAGMENT_RULE_INT | ( FRAGMENT_RULE_ID )=> FRAGMENT_RULE_ID | ( FRAGMENT_RULE_WS )=> FRAGMENT_RULE_WS | ( FRAGMENT_RULE_SL_COMMENT )=> FRAGMENT_RULE_SL_COMMENT | ( FRAGMENT_RULE_ML_COMMENT )=> FRAGMENT_RULE_ML_COMMENT | ( FRAGMENT_RULE_SCHEME_SL_COMMENT )=> FRAGMENT_RULE_SCHEME_SL_COMMENT | ( FRAGMENT_RULE_SCHEME_ML_COMMENT )=> FRAGMENT_RULE_SCHEME_ML_COMMENT | ( FRAGMENT_RULE_ANY_OTHER )=> FRAGMENT_RULE_ANY_OTHER );", 1, 14, input);
-
-                    throw nvae;
-                }
-            }
-            else if ( (LA1_0=='`') ) {
-                int LA1_15 = input.LA(2);
-
-                if ( (synpred15()) ) {
-                    alt1=15;
-                }
-                else if ( (synpred38()) ) {
-                    alt1=38;
-                }
-                else {
-                    if (backtracking>0) {failed=true; return ;}
-                    NoViableAltException nvae =
-                        new NoViableAltException("63:1: SYNTHETIC_ALL_KEYWORDS : ( ( FRAGMENT_KEYWORD_1 )=> FRAGMENT_KEYWORD_1 | ( FRAGMENT_KEYWORD_2 )=> FRAGMENT_KEYWORD_2 | ( FRAGMENT_KEYWORD_3 )=> FRAGMENT_KEYWORD_3 | ( FRAGMENT_KEYWORD_4 )=> FRAGMENT_KEYWORD_4 | ( FRAGMENT_KEYWORD_5 )=> FRAGMENT_KEYWORD_5 | ( FRAGMENT_KEYWORD_6 )=> FRAGMENT_KEYWORD_6 | ( FRAGMENT_KEYWORD_7 )=> FRAGMENT_KEYWORD_7 | ( FRAGMENT_KEYWORD_8 )=> FRAGMENT_KEYWORD_8 | ( FRAGMENT_KEYWORD_9 )=> FRAGMENT_KEYWORD_9 | ( FRAGMENT_KEYWORD_10 )=> FRAGMENT_KEYWORD_10 | ( FRAGMENT_KEYWORD_11 )=> FRAGMENT_KEYWORD_11 | ( FRAGMENT_KEYWORD_12 )=> FRAGMENT_KEYWORD_12 | ( FRAGMENT_KEYWORD_13 )=> FRAGMENT_KEYWORD_13 | ( FRAGMENT_KEYWORD_14 )=> FRAGMENT_KEYWORD_14 | ( FRAGMENT_KEYWORD_15 )=> FRAGMENT_KEYWORD_15 | ( FRAGMENT_KEYWORD_16 )=> FRAGMENT_KEYWORD_16 | ( FRAGMENT_KEYWORD_17 )=> FRAGMENT_KEYWORD_17 | ( FRAGMENT_KEYWORD_18 )=> FRAGMENT_KEYWORD_18 | ( FRAGMENT_KEYWORD_19 )=> FRAGMENT_KEYWORD_19 | ( FRAGMENT_KEYWORD_20 )=> FRAGMENT_KEYWORD_20 | ( FRAGMENT_KEYWORD_21 )=> FRAGMENT_KEYWORD_21 | ( FRAGMENT_KEYWORD_22 )=> FRAGMENT_KEYWORD_22 | ( FRAGMENT_KEYWORD_23 )=> FRAGMENT_KEYWORD_23 | ( FRAGMENT_KEYWORD_24 )=> FRAGMENT_KEYWORD_24 | ( FRAGMENT_KEYWORD_25 )=> FRAGMENT_KEYWORD_25 | ( FRAGMENT_KEYWORD_26 )=> FRAGMENT_KEYWORD_26 | ( FRAGMENT_KEYWORD_27 )=> FRAGMENT_KEYWORD_27 | ( FRAGMENT_KEYWORD_28 )=> FRAGMENT_KEYWORD_28 | ( FRAGMENT_KEYWORD_29 )=> FRAGMENT_KEYWORD_29 | ( FRAGMENT_RULE_STRING )=> FRAGMENT_RULE_STRING | ( FRAGMENT_RULE_INT )=> FRAGMENT_RULE_INT | ( FRAGMENT_RULE_ID )=> FRAGMENT_RULE_ID | ( FRAGMENT_RULE_WS )=> FRAGMENT_RULE_WS | ( FRAGMENT_RULE_SL_COMMENT )=> FRAGMENT_RULE_SL_COMMENT | ( FRAGMENT_RULE_ML_COMMENT )=> FRAGMENT_RULE_ML_COMMENT | ( FRAGMENT_RULE_SCHEME_SL_COMMENT )=> FRAGMENT_RULE_SCHEME_SL_COMMENT | ( FRAGMENT_RULE_SCHEME_ML_COMMENT )=> FRAGMENT_RULE_SCHEME_ML_COMMENT | ( FRAGMENT_RULE_ANY_OTHER )=> FRAGMENT_RULE_ANY_OTHER );", 1, 15, input);
-
-                    throw nvae;
-                }
-            }
-            else if ( (LA1_0=='{') ) {
-                int LA1_16 = input.LA(2);
-
-                if ( (synpred16()) ) {
-                    alt1=16;
-                }
-                else if ( (synpred38()) ) {
-                    alt1=38;
-                }
-                else {
-                    if (backtracking>0) {failed=true; return ;}
-                    NoViableAltException nvae =
-                        new NoViableAltException("63:1: SYNTHETIC_ALL_KEYWORDS : ( ( FRAGMENT_KEYWORD_1 )=> FRAGMENT_KEYWORD_1 | ( FRAGMENT_KEYWORD_2 )=> FRAGMENT_KEYWORD_2 | ( FRAGMENT_KEYWORD_3 )=> FRAGMENT_KEYWORD_3 | ( FRAGMENT_KEYWORD_4 )=> FRAGMENT_KEYWORD_4 | ( FRAGMENT_KEYWORD_5 )=> FRAGMENT_KEYWORD_5 | ( FRAGMENT_KEYWORD_6 )=> FRAGMENT_KEYWORD_6 | ( FRAGMENT_KEYWORD_7 )=> FRAGMENT_KEYWORD_7 | ( FRAGMENT_KEYWORD_8 )=> FRAGMENT_KEYWORD_8 | ( FRAGMENT_KEYWORD_9 )=> FRAGMENT_KEYWORD_9 | ( FRAGMENT_KEYWORD_10 )=> FRAGMENT_KEYWORD_10 | ( FRAGMENT_KEYWORD_11 )=> FRAGMENT_KEYWORD_11 | ( FRAGMENT_KEYWORD_12 )=> FRAGMENT_KEYWORD_12 | ( FRAGMENT_KEYWORD_13 )=> FRAGMENT_KEYWORD_13 | ( FRAGMENT_KEYWORD_14 )=> FRAGMENT_KEYWORD_14 | ( FRAGMENT_KEYWORD_15 )=> FRAGMENT_KEYWORD_15 | ( FRAGMENT_KEYWORD_16 )=> FRAGMENT_KEYWORD_16 | ( FRAGMENT_KEYWORD_17 )=> FRAGMENT_KEYWORD_17 | ( FRAGMENT_KEYWORD_18 )=> FRAGMENT_KEYWORD_18 | ( FRAGMENT_KEYWORD_19 )=> FRAGMENT_KEYWORD_19 | ( FRAGMENT_KEYWORD_20 )=> FRAGMENT_KEYWORD_20 | ( FRAGMENT_KEYWORD_21 )=> FRAGMENT_KEYWORD_21 | ( FRAGMENT_KEYWORD_22 )=> FRAGMENT_KEYWORD_22 | ( FRAGMENT_KEYWORD_23 )=> FRAGMENT_KEYWORD_23 | ( FRAGMENT_KEYWORD_24 )=> FRAGMENT_KEYWORD_24 | ( FRAGMENT_KEYWORD_25 )=> FRAGMENT_KEYWORD_25 | ( FRAGMENT_KEYWORD_26 )=> FRAGMENT_KEYWORD_26 | ( FRAGMENT_KEYWORD_27 )=> FRAGMENT_KEYWORD_27 | ( FRAGMENT_KEYWORD_28 )=> FRAGMENT_KEYWORD_28 | ( FRAGMENT_KEYWORD_29 )=> FRAGMENT_KEYWORD_29 | ( FRAGMENT_RULE_STRING )=> FRAGMENT_RULE_STRING | ( FRAGMENT_RULE_INT )=> FRAGMENT_RULE_INT | ( FRAGMENT_RULE_ID )=> FRAGMENT_RULE_ID | ( FRAGMENT_RULE_WS )=> FRAGMENT_RULE_WS | ( FRAGMENT_RULE_SL_COMMENT )=> FRAGMENT_RULE_SL_COMMENT | ( FRAGMENT_RULE_ML_COMMENT )=> FRAGMENT_RULE_ML_COMMENT | ( FRAGMENT_RULE_SCHEME_SL_COMMENT )=> FRAGMENT_RULE_SCHEME_SL_COMMENT | ( FRAGMENT_RULE_SCHEME_ML_COMMENT )=> FRAGMENT_RULE_SCHEME_ML_COMMENT | ( FRAGMENT_RULE_ANY_OTHER )=> FRAGMENT_RULE_ANY_OTHER );", 1, 16, input);
-
-                    throw nvae;
-                }
-            }
-            else if ( (LA1_0=='}') ) {
-                int LA1_17 = input.LA(2);
-
-                if ( (synpred17()) ) {
-                    alt1=17;
-                }
-                else if ( (synpred38()) ) {
-                    alt1=38;
-                }
-                else {
-                    if (backtracking>0) {failed=true; return ;}
-                    NoViableAltException nvae =
-                        new NoViableAltException("63:1: SYNTHETIC_ALL_KEYWORDS : ( ( FRAGMENT_KEYWORD_1 )=> FRAGMENT_KEYWORD_1 | ( FRAGMENT_KEYWORD_2 )=> FRAGMENT_KEYWORD_2 | ( FRAGMENT_KEYWORD_3 )=> FRAGMENT_KEYWORD_3 | ( FRAGMENT_KEYWORD_4 )=> FRAGMENT_KEYWORD_4 | ( FRAGMENT_KEYWORD_5 )=> FRAGMENT_KEYWORD_5 | ( FRAGMENT_KEYWORD_6 )=> FRAGMENT_KEYWORD_6 | ( FRAGMENT_KEYWORD_7 )=> FRAGMENT_KEYWORD_7 | ( FRAGMENT_KEYWORD_8 )=> FRAGMENT_KEYWORD_8 | ( FRAGMENT_KEYWORD_9 )=> FRAGMENT_KEYWORD_9 | ( FRAGMENT_KEYWORD_10 )=> FRAGMENT_KEYWORD_10 | ( FRAGMENT_KEYWORD_11 )=> FRAGMENT_KEYWORD_11 | ( FRAGMENT_KEYWORD_12 )=> FRAGMENT_KEYWORD_12 | ( FRAGMENT_KEYWORD_13 )=> FRAGMENT_KEYWORD_13 | ( FRAGMENT_KEYWORD_14 )=> FRAGMENT_KEYWORD_14 | ( FRAGMENT_KEYWORD_15 )=> FRAGMENT_KEYWORD_15 | ( FRAGMENT_KEYWORD_16 )=> FRAGMENT_KEYWORD_16 | ( FRAGMENT_KEYWORD_17 )=> FRAGMENT_KEYWORD_17 | ( FRAGMENT_KEYWORD_18 )=> FRAGMENT_KEYWORD_18 | ( FRAGMENT_KEYWORD_19 )=> FRAGMENT_KEYWORD_19 | ( FRAGMENT_KEYWORD_20 )=> FRAGMENT_KEYWORD_20 | ( FRAGMENT_KEYWORD_21 )=> FRAGMENT_KEYWORD_21 | ( FRAGMENT_KEYWORD_22 )=> FRAGMENT_KEYWORD_22 | ( FRAGMENT_KEYWORD_23 )=> FRAGMENT_KEYWORD_23 | ( FRAGMENT_KEYWORD_24 )=> FRAGMENT_KEYWORD_24 | ( FRAGMENT_KEYWORD_25 )=> FRAGMENT_KEYWORD_25 | ( FRAGMENT_KEYWORD_26 )=> FRAGMENT_KEYWORD_26 | ( FRAGMENT_KEYWORD_27 )=> FRAGMENT_KEYWORD_27 | ( FRAGMENT_KEYWORD_28 )=> FRAGMENT_KEYWORD_28 | ( FRAGMENT_KEYWORD_29 )=> FRAGMENT_KEYWORD_29 | ( FRAGMENT_RULE_STRING )=> FRAGMENT_RULE_STRING | ( FRAGMENT_RULE_INT )=> FRAGMENT_RULE_INT | ( FRAGMENT_RULE_ID )=> FRAGMENT_RULE_ID | ( FRAGMENT_RULE_WS )=> FRAGMENT_RULE_WS | ( FRAGMENT_RULE_SL_COMMENT )=> FRAGMENT_RULE_SL_COMMENT | ( FRAGMENT_RULE_ML_COMMENT )=> FRAGMENT_RULE_ML_COMMENT | ( FRAGMENT_RULE_SCHEME_SL_COMMENT )=> FRAGMENT_RULE_SCHEME_SL_COMMENT | ( FRAGMENT_RULE_SCHEME_ML_COMMENT )=> FRAGMENT_RULE_SCHEME_ML_COMMENT | ( FRAGMENT_RULE_ANY_OTHER )=> FRAGMENT_RULE_ANY_OTHER );", 1, 17, input);
-
-                    throw nvae;
-                }
-            }
-            else if ( (LA1_0=='~') ) {
-                int LA1_18 = input.LA(2);
-
-                if ( (synpred18()) ) {
-                    alt1=18;
-                }
-                else if ( (synpred38()) ) {
-                    alt1=38;
-                }
-                else {
-                    if (backtracking>0) {failed=true; return ;}
-                    NoViableAltException nvae =
-                        new NoViableAltException("63:1: SYNTHETIC_ALL_KEYWORDS : ( ( FRAGMENT_KEYWORD_1 )=> FRAGMENT_KEYWORD_1 | ( FRAGMENT_KEYWORD_2 )=> FRAGMENT_KEYWORD_2 | ( FRAGMENT_KEYWORD_3 )=> FRAGMENT_KEYWORD_3 | ( FRAGMENT_KEYWORD_4 )=> FRAGMENT_KEYWORD_4 | ( FRAGMENT_KEYWORD_5 )=> FRAGMENT_KEYWORD_5 | ( FRAGMENT_KEYWORD_6 )=> FRAGMENT_KEYWORD_6 | ( FRAGMENT_KEYWORD_7 )=> FRAGMENT_KEYWORD_7 | ( FRAGMENT_KEYWORD_8 )=> FRAGMENT_KEYWORD_8 | ( FRAGMENT_KEYWORD_9 )=> FRAGMENT_KEYWORD_9 | ( FRAGMENT_KEYWORD_10 )=> FRAGMENT_KEYWORD_10 | ( FRAGMENT_KEYWORD_11 )=> FRAGMENT_KEYWORD_11 | ( FRAGMENT_KEYWORD_12 )=> FRAGMENT_KEYWORD_12 | ( FRAGMENT_KEYWORD_13 )=> FRAGMENT_KEYWORD_13 | ( FRAGMENT_KEYWORD_14 )=> FRAGMENT_KEYWORD_14 | ( FRAGMENT_KEYWORD_15 )=> FRAGMENT_KEYWORD_15 | ( FRAGMENT_KEYWORD_16 )=> FRAGMENT_KEYWORD_16 | ( FRAGMENT_KEYWORD_17 )=> FRAGMENT_KEYWORD_17 | ( FRAGMENT_KEYWORD_18 )=> FRAGMENT_KEYWORD_18 | ( FRAGMENT_KEYWORD_19 )=> FRAGMENT_KEYWORD_19 | ( FRAGMENT_KEYWORD_20 )=> FRAGMENT_KEYWORD_20 | ( FRAGMENT_KEYWORD_21 )=> FRAGMENT_KEYWORD_21 | ( FRAGMENT_KEYWORD_22 )=> FRAGMENT_KEYWORD_22 | ( FRAGMENT_KEYWORD_23 )=> FRAGMENT_KEYWORD_23 | ( FRAGMENT_KEYWORD_24 )=> FRAGMENT_KEYWORD_24 | ( FRAGMENT_KEYWORD_25 )=> FRAGMENT_KEYWORD_25 | ( FRAGMENT_KEYWORD_26 )=> FRAGMENT_KEYWORD_26 | ( FRAGMENT_KEYWORD_27 )=> FRAGMENT_KEYWORD_27 | ( FRAGMENT_KEYWORD_28 )=> FRAGMENT_KEYWORD_28 | ( FRAGMENT_KEYWORD_29 )=> FRAGMENT_KEYWORD_29 | ( FRAGMENT_RULE_STRING )=> FRAGMENT_RULE_STRING | ( FRAGMENT_RULE_INT )=> FRAGMENT_RULE_INT | ( FRAGMENT_RULE_ID )=> FRAGMENT_RULE_ID | ( FRAGMENT_RULE_WS )=> FRAGMENT_RULE_WS | ( FRAGMENT_RULE_SL_COMMENT )=> FRAGMENT_RULE_SL_COMMENT | ( FRAGMENT_RULE_ML_COMMENT )=> FRAGMENT_RULE_ML_COMMENT | ( FRAGMENT_RULE_SCHEME_SL_COMMENT )=> FRAGMENT_RULE_SCHEME_SL_COMMENT | ( FRAGMENT_RULE_SCHEME_ML_COMMENT )=> FRAGMENT_RULE_SCHEME_ML_COMMENT | ( FRAGMENT_RULE_ANY_OTHER )=> FRAGMENT_RULE_ANY_OTHER );", 1, 18, input);
-
-                    throw nvae;
-                }
-            }
-            else if ( (LA1_0=='l') ) {
-                int LA1_19 = input.LA(2);
-
-                if ( (LA1_19=='i') && (synpred26())) {
-                    alt1=26;
-                }
-                else if ( (synpred32()) ) {
-                    alt1=32;
-                }
-                else if ( (synpred38()) ) {
-                    alt1=38;
-                }
-                else {
-                    if (backtracking>0) {failed=true; return ;}
-                    NoViableAltException nvae =
-                        new NoViableAltException("63:1: SYNTHETIC_ALL_KEYWORDS : ( ( FRAGMENT_KEYWORD_1 )=> FRAGMENT_KEYWORD_1 | ( FRAGMENT_KEYWORD_2 )=> FRAGMENT_KEYWORD_2 | ( FRAGMENT_KEYWORD_3 )=> FRAGMENT_KEYWORD_3 | ( FRAGMENT_KEYWORD_4 )=> FRAGMENT_KEYWORD_4 | ( FRAGMENT_KEYWORD_5 )=> FRAGMENT_KEYWORD_5 | ( FRAGMENT_KEYWORD_6 )=> FRAGMENT_KEYWORD_6 | ( FRAGMENT_KEYWORD_7 )=> FRAGMENT_KEYWORD_7 | ( FRAGMENT_KEYWORD_8 )=> FRAGMENT_KEYWORD_8 | ( FRAGMENT_KEYWORD_9 )=> FRAGMENT_KEYWORD_9 | ( FRAGMENT_KEYWORD_10 )=> FRAGMENT_KEYWORD_10 | ( FRAGMENT_KEYWORD_11 )=> FRAGMENT_KEYWORD_11 | ( FRAGMENT_KEYWORD_12 )=> FRAGMENT_KEYWORD_12 | ( FRAGMENT_KEYWORD_13 )=> FRAGMENT_KEYWORD_13 | ( FRAGMENT_KEYWORD_14 )=> FRAGMENT_KEYWORD_14 | ( FRAGMENT_KEYWORD_15 )=> FRAGMENT_KEYWORD_15 | ( FRAGMENT_KEYWORD_16 )=> FRAGMENT_KEYWORD_16 | ( FRAGMENT_KEYWORD_17 )=> FRAGMENT_KEYWORD_17 | ( FRAGMENT_KEYWORD_18 )=> FRAGMENT_KEYWORD_18 | ( FRAGMENT_KEYWORD_19 )=> FRAGMENT_KEYWORD_19 | ( FRAGMENT_KEYWORD_20 )=> FRAGMENT_KEYWORD_20 | ( FRAGMENT_KEYWORD_21 )=> FRAGMENT_KEYWORD_21 | ( FRAGMENT_KEYWORD_22 )=> FRAGMENT_KEYWORD_22 | ( FRAGMENT_KEYWORD_23 )=> FRAGMENT_KEYWORD_23 | ( FRAGMENT_KEYWORD_24 )=> FRAGMENT_KEYWORD_24 | ( FRAGMENT_KEYWORD_25 )=> FRAGMENT_KEYWORD_25 | ( FRAGMENT_KEYWORD_26 )=> FRAGMENT_KEYWORD_26 | ( FRAGMENT_KEYWORD_27 )=> FRAGMENT_KEYWORD_27 | ( FRAGMENT_KEYWORD_28 )=> FRAGMENT_KEYWORD_28 | ( FRAGMENT_KEYWORD_29 )=> FRAGMENT_KEYWORD_29 | ( FRAGMENT_RULE_STRING )=> FRAGMENT_RULE_STRING | ( FRAGMENT_RULE_INT )=> FRAGMENT_RULE_INT | ( FRAGMENT_RULE_ID )=> FRAGMENT_RULE_ID | ( FRAGMENT_RULE_WS )=> FRAGMENT_RULE_WS | ( FRAGMENT_RULE_SL_COMMENT )=> FRAGMENT_RULE_SL_COMMENT | ( FRAGMENT_RULE_ML_COMMENT )=> FRAGMENT_RULE_ML_COMMENT | ( FRAGMENT_RULE_SCHEME_SL_COMMENT )=> FRAGMENT_RULE_SCHEME_SL_COMMENT | ( FRAGMENT_RULE_SCHEME_ML_COMMENT )=> FRAGMENT_RULE_SCHEME_ML_COMMENT | ( FRAGMENT_RULE_ANY_OTHER )=> FRAGMENT_RULE_ANY_OTHER );", 1, 19, input);
-
-                    throw nvae;
-                }
-            }
-            else if ( (LA1_0=='\"') ) {
-                int LA1_20 = input.LA(2);
-
-                if ( (LA1_20=='\\') && (synpred30())) {
-                    alt1=30;
-                }
-                else if ( ((LA1_20>='\u0000' && LA1_20<='!')||(LA1_20>='#' && LA1_20<='[')||(LA1_20>=']' && LA1_20<='\uFFFE')) && (synpred30())) {
-                    alt1=30;
-                }
-                else if ( (LA1_20=='\"') && (synpred30())) {
-                    alt1=30;
-                }
-                else {
-                    alt1=38;}
-            }
-            else if ( ((LA1_0>='0' && LA1_0<='9')) ) {
-                int LA1_21 = input.LA(2);
-
-                if ( (synpred31()) ) {
-                    alt1=31;
-                }
-                else if ( (synpred38()) ) {
-                    alt1=38;
-                }
-                else {
-                    if (backtracking>0) {failed=true; return ;}
-                    NoViableAltException nvae =
-                        new NoViableAltException("63:1: SYNTHETIC_ALL_KEYWORDS : ( ( FRAGMENT_KEYWORD_1 )=> FRAGMENT_KEYWORD_1 | ( FRAGMENT_KEYWORD_2 )=> FRAGMENT_KEYWORD_2 | ( FRAGMENT_KEYWORD_3 )=> FRAGMENT_KEYWORD_3 | ( FRAGMENT_KEYWORD_4 )=> FRAGMENT_KEYWORD_4 | ( FRAGMENT_KEYWORD_5 )=> FRAGMENT_KEYWORD_5 | ( FRAGMENT_KEYWORD_6 )=> FRAGMENT_KEYWORD_6 | ( FRAGMENT_KEYWORD_7 )=> FRAGMENT_KEYWORD_7 | ( FRAGMENT_KEYWORD_8 )=> FRAGMENT_KEYWORD_8 | ( FRAGMENT_KEYWORD_9 )=> FRAGMENT_KEYWORD_9 | ( FRAGMENT_KEYWORD_10 )=> FRAGMENT_KEYWORD_10 | ( FRAGMENT_KEYWORD_11 )=> FRAGMENT_KEYWORD_11 | ( FRAGMENT_KEYWORD_12 )=> FRAGMENT_KEYWORD_12 | ( FRAGMENT_KEYWORD_13 )=> FRAGMENT_KEYWORD_13 | ( FRAGMENT_KEYWORD_14 )=> FRAGMENT_KEYWORD_14 | ( FRAGMENT_KEYWORD_15 )=> FRAGMENT_KEYWORD_15 | ( FRAGMENT_KEYWORD_16 )=> FRAGMENT_KEYWORD_16 | ( FRAGMENT_KEYWORD_17 )=> FRAGMENT_KEYWORD_17 | ( FRAGMENT_KEYWORD_18 )=> FRAGMENT_KEYWORD_18 | ( FRAGMENT_KEYWORD_19 )=> FRAGMENT_KEYWORD_19 | ( FRAGMENT_KEYWORD_20 )=> FRAGMENT_KEYWORD_20 | ( FRAGMENT_KEYWORD_21 )=> FRAGMENT_KEYWORD_21 | ( FRAGMENT_KEYWORD_22 )=> FRAGMENT_KEYWORD_22 | ( FRAGMENT_KEYWORD_23 )=> FRAGMENT_KEYWORD_23 | ( FRAGMENT_KEYWORD_24 )=> FRAGMENT_KEYWORD_24 | ( FRAGMENT_KEYWORD_25 )=> FRAGMENT_KEYWORD_25 | ( FRAGMENT_KEYWORD_26 )=> FRAGMENT_KEYWORD_26 | ( FRAGMENT_KEYWORD_27 )=> FRAGMENT_KEYWORD_27 | ( FRAGMENT_KEYWORD_28 )=> FRAGMENT_KEYWORD_28 | ( FRAGMENT_KEYWORD_29 )=> FRAGMENT_KEYWORD_29 | ( FRAGMENT_RULE_STRING )=> FRAGMENT_RULE_STRING | ( FRAGMENT_RULE_INT )=> FRAGMENT_RULE_INT | ( FRAGMENT_RULE_ID )=> FRAGMENT_RULE_ID | ( FRAGMENT_RULE_WS )=> FRAGMENT_RULE_WS | ( FRAGMENT_RULE_SL_COMMENT )=> FRAGMENT_RULE_SL_COMMENT | ( FRAGMENT_RULE_ML_COMMENT )=> FRAGMENT_RULE_ML_COMMENT | ( FRAGMENT_RULE_SCHEME_SL_COMMENT )=> FRAGMENT_RULE_SCHEME_SL_COMMENT | ( FRAGMENT_RULE_SCHEME_ML_COMMENT )=> FRAGMENT_RULE_SCHEME_ML_COMMENT | ( FRAGMENT_RULE_ANY_OTHER )=> FRAGMENT_RULE_ANY_OTHER );", 1, 21, input);
-
-                    throw nvae;
-                }
-            }
-            else if ( ((LA1_0>='A' && LA1_0<='Z')||(LA1_0>='a' && LA1_0<='k')||(LA1_0>='m' && LA1_0<='z')) ) {
-                int LA1_22 = input.LA(2);
-
-                if ( (synpred32()) ) {
-                    alt1=32;
-                }
-                else if ( (synpred38()) ) {
-                    alt1=38;
-                }
-                else {
-                    if (backtracking>0) {failed=true; return ;}
-                    NoViableAltException nvae =
-                        new NoViableAltException("63:1: SYNTHETIC_ALL_KEYWORDS : ( ( FRAGMENT_KEYWORD_1 )=> FRAGMENT_KEYWORD_1 | ( FRAGMENT_KEYWORD_2 )=> FRAGMENT_KEYWORD_2 | ( FRAGMENT_KEYWORD_3 )=> FRAGMENT_KEYWORD_3 | ( FRAGMENT_KEYWORD_4 )=> FRAGMENT_KEYWORD_4 | ( FRAGMENT_KEYWORD_5 )=> FRAGMENT_KEYWORD_5 | ( FRAGMENT_KEYWORD_6 )=> FRAGMENT_KEYWORD_6 | ( FRAGMENT_KEYWORD_7 )=> FRAGMENT_KEYWORD_7 | ( FRAGMENT_KEYWORD_8 )=> FRAGMENT_KEYWORD_8 | ( FRAGMENT_KEYWORD_9 )=> FRAGMENT_KEYWORD_9 | ( FRAGMENT_KEYWORD_10 )=> FRAGMENT_KEYWORD_10 | ( FRAGMENT_KEYWORD_11 )=> FRAGMENT_KEYWORD_11 | ( FRAGMENT_KEYWORD_12 )=> FRAGMENT_KEYWORD_12 | ( FRAGMENT_KEYWORD_13 )=> FRAGMENT_KEYWORD_13 | ( FRAGMENT_KEYWORD_14 )=> FRAGMENT_KEYWORD_14 | ( FRAGMENT_KEYWORD_15 )=> FRAGMENT_KEYWORD_15 | ( FRAGMENT_KEYWORD_16 )=> FRAGMENT_KEYWORD_16 | ( FRAGMENT_KEYWORD_17 )=> FRAGMENT_KEYWORD_17 | ( FRAGMENT_KEYWORD_18 )=> FRAGMENT_KEYWORD_18 | ( FRAGMENT_KEYWORD_19 )=> FRAGMENT_KEYWORD_19 | ( FRAGMENT_KEYWORD_20 )=> FRAGMENT_KEYWORD_20 | ( FRAGMENT_KEYWORD_21 )=> FRAGMENT_KEYWORD_21 | ( FRAGMENT_KEYWORD_22 )=> FRAGMENT_KEYWORD_22 | ( FRAGMENT_KEYWORD_23 )=> FRAGMENT_KEYWORD_23 | ( FRAGMENT_KEYWORD_24 )=> FRAGMENT_KEYWORD_24 | ( FRAGMENT_KEYWORD_25 )=> FRAGMENT_KEYWORD_25 | ( FRAGMENT_KEYWORD_26 )=> FRAGMENT_KEYWORD_26 | ( FRAGMENT_KEYWORD_27 )=> FRAGMENT_KEYWORD_27 | ( FRAGMENT_KEYWORD_28 )=> FRAGMENT_KEYWORD_28 | ( FRAGMENT_KEYWORD_29 )=> FRAGMENT_KEYWORD_29 | ( FRAGMENT_RULE_STRING )=> FRAGMENT_RULE_STRING | ( FRAGMENT_RULE_INT )=> FRAGMENT_RULE_INT | ( FRAGMENT_RULE_ID )=> FRAGMENT_RULE_ID | ( FRAGMENT_RULE_WS )=> FRAGMENT_RULE_WS | ( FRAGMENT_RULE_SL_COMMENT )=> FRAGMENT_RULE_SL_COMMENT | ( FRAGMENT_RULE_ML_COMMENT )=> FRAGMENT_RULE_ML_COMMENT | ( FRAGMENT_RULE_SCHEME_SL_COMMENT )=> FRAGMENT_RULE_SCHEME_SL_COMMENT | ( FRAGMENT_RULE_SCHEME_ML_COMMENT )=> FRAGMENT_RULE_SCHEME_ML_COMMENT | ( FRAGMENT_RULE_ANY_OTHER )=> FRAGMENT_RULE_ANY_OTHER );", 1, 22, input);
-
-                    throw nvae;
-                }
-            }
-            else if ( ((LA1_0>='\t' && LA1_0<='\n')||LA1_0=='\r'||LA1_0==' ') ) {
-                int LA1_23 = input.LA(2);
-
-                if ( (synpred33()) ) {
-                    alt1=33;
-                }
-                else if ( (synpred38()) ) {
-                    alt1=38;
-                }
-                else {
-                    if (backtracking>0) {failed=true; return ;}
-                    NoViableAltException nvae =
-                        new NoViableAltException("63:1: SYNTHETIC_ALL_KEYWORDS : ( ( FRAGMENT_KEYWORD_1 )=> FRAGMENT_KEYWORD_1 | ( FRAGMENT_KEYWORD_2 )=> FRAGMENT_KEYWORD_2 | ( FRAGMENT_KEYWORD_3 )=> FRAGMENT_KEYWORD_3 | ( FRAGMENT_KEYWORD_4 )=> FRAGMENT_KEYWORD_4 | ( FRAGMENT_KEYWORD_5 )=> FRAGMENT_KEYWORD_5 | ( FRAGMENT_KEYWORD_6 )=> FRAGMENT_KEYWORD_6 | ( FRAGMENT_KEYWORD_7 )=> FRAGMENT_KEYWORD_7 | ( FRAGMENT_KEYWORD_8 )=> FRAGMENT_KEYWORD_8 | ( FRAGMENT_KEYWORD_9 )=> FRAGMENT_KEYWORD_9 | ( FRAGMENT_KEYWORD_10 )=> FRAGMENT_KEYWORD_10 | ( FRAGMENT_KEYWORD_11 )=> FRAGMENT_KEYWORD_11 | ( FRAGMENT_KEYWORD_12 )=> FRAGMENT_KEYWORD_12 | ( FRAGMENT_KEYWORD_13 )=> FRAGMENT_KEYWORD_13 | ( FRAGMENT_KEYWORD_14 )=> FRAGMENT_KEYWORD_14 | ( FRAGMENT_KEYWORD_15 )=> FRAGMENT_KEYWORD_15 | ( FRAGMENT_KEYWORD_16 )=> FRAGMENT_KEYWORD_16 | ( FRAGMENT_KEYWORD_17 )=> FRAGMENT_KEYWORD_17 | ( FRAGMENT_KEYWORD_18 )=> FRAGMENT_KEYWORD_18 | ( FRAGMENT_KEYWORD_19 )=> FRAGMENT_KEYWORD_19 | ( FRAGMENT_KEYWORD_20 )=> FRAGMENT_KEYWORD_20 | ( FRAGMENT_KEYWORD_21 )=> FRAGMENT_KEYWORD_21 | ( FRAGMENT_KEYWORD_22 )=> FRAGMENT_KEYWORD_22 | ( FRAGMENT_KEYWORD_23 )=> FRAGMENT_KEYWORD_23 | ( FRAGMENT_KEYWORD_24 )=> FRAGMENT_KEYWORD_24 | ( FRAGMENT_KEYWORD_25 )=> FRAGMENT_KEYWORD_25 | ( FRAGMENT_KEYWORD_26 )=> FRAGMENT_KEYWORD_26 | ( FRAGMENT_KEYWORD_27 )=> FRAGMENT_KEYWORD_27 | ( FRAGMENT_KEYWORD_28 )=> FRAGMENT_KEYWORD_28 | ( FRAGMENT_KEYWORD_29 )=> FRAGMENT_KEYWORD_29 | ( FRAGMENT_RULE_STRING )=> FRAGMENT_RULE_STRING | ( FRAGMENT_RULE_INT )=> FRAGMENT_RULE_INT | ( FRAGMENT_RULE_ID )=> FRAGMENT_RULE_ID | ( FRAGMENT_RULE_WS )=> FRAGMENT_RULE_WS | ( FRAGMENT_RULE_SL_COMMENT )=> FRAGMENT_RULE_SL_COMMENT | ( FRAGMENT_RULE_ML_COMMENT )=> FRAGMENT_RULE_ML_COMMENT | ( FRAGMENT_RULE_SCHEME_SL_COMMENT )=> FRAGMENT_RULE_SCHEME_SL_COMMENT | ( FRAGMENT_RULE_SCHEME_ML_COMMENT )=> FRAGMENT_RULE_SCHEME_ML_COMMENT | ( FRAGMENT_RULE_ANY_OTHER )=> FRAGMENT_RULE_ANY_OTHER );", 1, 23, input);
-
-                    throw nvae;
-                }
-            }
-            else if ( (LA1_0=='%') ) {
-                int LA1_24 = input.LA(2);
-
-                if ( (LA1_24=='{') && (synpred35())) {
-                    alt1=35;
-                }
-                else if ( (synpred34()) ) {
-                    alt1=34;
-                }
-                else if ( (synpred38()) ) {
-                    alt1=38;
-                }
-                else {
-                    if (backtracking>0) {failed=true; return ;}
-                    NoViableAltException nvae =
-                        new NoViableAltException("63:1: SYNTHETIC_ALL_KEYWORDS : ( ( FRAGMENT_KEYWORD_1 )=> FRAGMENT_KEYWORD_1 | ( FRAGMENT_KEYWORD_2 )=> FRAGMENT_KEYWORD_2 | ( FRAGMENT_KEYWORD_3 )=> FRAGMENT_KEYWORD_3 | ( FRAGMENT_KEYWORD_4 )=> FRAGMENT_KEYWORD_4 | ( FRAGMENT_KEYWORD_5 )=> FRAGMENT_KEYWORD_5 | ( FRAGMENT_KEYWORD_6 )=> FRAGMENT_KEYWORD_6 | ( FRAGMENT_KEYWORD_7 )=> FRAGMENT_KEYWORD_7 | ( FRAGMENT_KEYWORD_8 )=> FRAGMENT_KEYWORD_8 | ( FRAGMENT_KEYWORD_9 )=> FRAGMENT_KEYWORD_9 | ( FRAGMENT_KEYWORD_10 )=> FRAGMENT_KEYWORD_10 | ( FRAGMENT_KEYWORD_11 )=> FRAGMENT_KEYWORD_11 | ( FRAGMENT_KEYWORD_12 )=> FRAGMENT_KEYWORD_12 | ( FRAGMENT_KEYWORD_13 )=> FRAGMENT_KEYWORD_13 | ( FRAGMENT_KEYWORD_14 )=> FRAGMENT_KEYWORD_14 | ( FRAGMENT_KEYWORD_15 )=> FRAGMENT_KEYWORD_15 | ( FRAGMENT_KEYWORD_16 )=> FRAGMENT_KEYWORD_16 | ( FRAGMENT_KEYWORD_17 )=> FRAGMENT_KEYWORD_17 | ( FRAGMENT_KEYWORD_18 )=> FRAGMENT_KEYWORD_18 | ( FRAGMENT_KEYWORD_19 )=> FRAGMENT_KEYWORD_19 | ( FRAGMENT_KEYWORD_20 )=> FRAGMENT_KEYWORD_20 | ( FRAGMENT_KEYWORD_21 )=> FRAGMENT_KEYWORD_21 | ( FRAGMENT_KEYWORD_22 )=> FRAGMENT_KEYWORD_22 | ( FRAGMENT_KEYWORD_23 )=> FRAGMENT_KEYWORD_23 | ( FRAGMENT_KEYWORD_24 )=> FRAGMENT_KEYWORD_24 | ( FRAGMENT_KEYWORD_25 )=> FRAGMENT_KEYWORD_25 | ( FRAGMENT_KEYWORD_26 )=> FRAGMENT_KEYWORD_26 | ( FRAGMENT_KEYWORD_27 )=> FRAGMENT_KEYWORD_27 | ( FRAGMENT_KEYWORD_28 )=> FRAGMENT_KEYWORD_28 | ( FRAGMENT_KEYWORD_29 )=> FRAGMENT_KEYWORD_29 | ( FRAGMENT_RULE_STRING )=> FRAGMENT_RULE_STRING | ( FRAGMENT_RULE_INT )=> FRAGMENT_RULE_INT | ( FRAGMENT_RULE_ID )=> FRAGMENT_RULE_ID | ( FRAGMENT_RULE_WS )=> FRAGMENT_RULE_WS | ( FRAGMENT_RULE_SL_COMMENT )=> FRAGMENT_RULE_SL_COMMENT | ( FRAGMENT_RULE_ML_COMMENT )=> FRAGMENT_RULE_ML_COMMENT | ( FRAGMENT_RULE_SCHEME_SL_COMMENT )=> FRAGMENT_RULE_SCHEME_SL_COMMENT | ( FRAGMENT_RULE_SCHEME_ML_COMMENT )=> FRAGMENT_RULE_SCHEME_ML_COMMENT | ( FRAGMENT_RULE_ANY_OTHER )=> FRAGMENT_RULE_ANY_OTHER );", 1, 24, input);
-
-                    throw nvae;
-                }
-            }
-            else if ( (LA1_0==';') ) {
-                int LA1_25 = input.LA(2);
-
-                if ( (synpred36()) ) {
-                    alt1=36;
-                }
-                else if ( (synpred38()) ) {
-                    alt1=38;
-                }
-                else {
-                    if (backtracking>0) {failed=true; return ;}
-                    NoViableAltException nvae =
-                        new NoViableAltException("63:1: SYNTHETIC_ALL_KEYWORDS : ( ( FRAGMENT_KEYWORD_1 )=> FRAGMENT_KEYWORD_1 | ( FRAGMENT_KEYWORD_2 )=> FRAGMENT_KEYWORD_2 | ( FRAGMENT_KEYWORD_3 )=> FRAGMENT_KEYWORD_3 | ( FRAGMENT_KEYWORD_4 )=> FRAGMENT_KEYWORD_4 | ( FRAGMENT_KEYWORD_5 )=> FRAGMENT_KEYWORD_5 | ( FRAGMENT_KEYWORD_6 )=> FRAGMENT_KEYWORD_6 | ( FRAGMENT_KEYWORD_7 )=> FRAGMENT_KEYWORD_7 | ( FRAGMENT_KEYWORD_8 )=> FRAGMENT_KEYWORD_8 | ( FRAGMENT_KEYWORD_9 )=> FRAGMENT_KEYWORD_9 | ( FRAGMENT_KEYWORD_10 )=> FRAGMENT_KEYWORD_10 | ( FRAGMENT_KEYWORD_11 )=> FRAGMENT_KEYWORD_11 | ( FRAGMENT_KEYWORD_12 )=> FRAGMENT_KEYWORD_12 | ( FRAGMENT_KEYWORD_13 )=> FRAGMENT_KEYWORD_13 | ( FRAGMENT_KEYWORD_14 )=> FRAGMENT_KEYWORD_14 | ( FRAGMENT_KEYWORD_15 )=> FRAGMENT_KEYWORD_15 | ( FRAGMENT_KEYWORD_16 )=> FRAGMENT_KEYWORD_16 | ( FRAGMENT_KEYWORD_17 )=> FRAGMENT_KEYWORD_17 | ( FRAGMENT_KEYWORD_18 )=> FRAGMENT_KEYWORD_18 | ( FRAGMENT_KEYWORD_19 )=> FRAGMENT_KEYWORD_19 | ( FRAGMENT_KEYWORD_20 )=> FRAGMENT_KEYWORD_20 | ( FRAGMENT_KEYWORD_21 )=> FRAGMENT_KEYWORD_21 | ( FRAGMENT_KEYWORD_22 )=> FRAGMENT_KEYWORD_22 | ( FRAGMENT_KEYWORD_23 )=> FRAGMENT_KEYWORD_23 | ( FRAGMENT_KEYWORD_24 )=> FRAGMENT_KEYWORD_24 | ( FRAGMENT_KEYWORD_25 )=> FRAGMENT_KEYWORD_25 | ( FRAGMENT_KEYWORD_26 )=> FRAGMENT_KEYWORD_26 | ( FRAGMENT_KEYWORD_27 )=> FRAGMENT_KEYWORD_27 | ( FRAGMENT_KEYWORD_28 )=> FRAGMENT_KEYWORD_28 | ( FRAGMENT_KEYWORD_29 )=> FRAGMENT_KEYWORD_29 | ( FRAGMENT_RULE_STRING )=> FRAGMENT_RULE_STRING | ( FRAGMENT_RULE_INT )=> FRAGMENT_RULE_INT | ( FRAGMENT_RULE_ID )=> FRAGMENT_RULE_ID | ( FRAGMENT_RULE_WS )=> FRAGMENT_RULE_WS | ( FRAGMENT_RULE_SL_COMMENT )=> FRAGMENT_RULE_SL_COMMENT | ( FRAGMENT_RULE_ML_COMMENT )=> FRAGMENT_RULE_ML_COMMENT | ( FRAGMENT_RULE_SCHEME_SL_COMMENT )=> FRAGMENT_RULE_SCHEME_SL_COMMENT | ( FRAGMENT_RULE_SCHEME_ML_COMMENT )=> FRAGMENT_RULE_SCHEME_ML_COMMENT | ( FRAGMENT_RULE_ANY_OTHER )=> FRAGMENT_RULE_ANY_OTHER );", 1, 25, input);
-
-                    throw nvae;
-                }
-            }
-            else if ( ((LA1_0>='\u0000' && LA1_0<='\b')||(LA1_0>='\u000B' && LA1_0<='\f')||(LA1_0>='\u000E' && LA1_0<='\u001F')||LA1_0=='&'||LA1_0=='*'||(LA1_0>='-' && LA1_0<='/')||LA1_0==':'||(LA1_0>='?' && LA1_0<='@')||(LA1_0>='^' && LA1_0<='_')||LA1_0=='|'||(LA1_0>='\u007F' && LA1_0<='\uFFFE')) && (synpred38())) {
-                alt1=38;
-            }
-            else {
-                if (backtracking>0) {failed=true; return ;}
-                NoViableAltException nvae =
-                    new NoViableAltException("63:1: SYNTHETIC_ALL_KEYWORDS : ( ( FRAGMENT_KEYWORD_1 )=> FRAGMENT_KEYWORD_1 | ( FRAGMENT_KEYWORD_2 )=> FRAGMENT_KEYWORD_2 | ( FRAGMENT_KEYWORD_3 )=> FRAGMENT_KEYWORD_3 | ( FRAGMENT_KEYWORD_4 )=> FRAGMENT_KEYWORD_4 | ( FRAGMENT_KEYWORD_5 )=> FRAGMENT_KEYWORD_5 | ( FRAGMENT_KEYWORD_6 )=> FRAGMENT_KEYWORD_6 | ( FRAGMENT_KEYWORD_7 )=> FRAGMENT_KEYWORD_7 | ( FRAGMENT_KEYWORD_8 )=> FRAGMENT_KEYWORD_8 | ( FRAGMENT_KEYWORD_9 )=> FRAGMENT_KEYWORD_9 | ( FRAGMENT_KEYWORD_10 )=> FRAGMENT_KEYWORD_10 | ( FRAGMENT_KEYWORD_11 )=> FRAGMENT_KEYWORD_11 | ( FRAGMENT_KEYWORD_12 )=> FRAGMENT_KEYWORD_12 | ( FRAGMENT_KEYWORD_13 )=> FRAGMENT_KEYWORD_13 | ( FRAGMENT_KEYWORD_14 )=> FRAGMENT_KEYWORD_14 | ( FRAGMENT_KEYWORD_15 )=> FRAGMENT_KEYWORD_15 | ( FRAGMENT_KEYWORD_16 )=> FRAGMENT_KEYWORD_16 | ( FRAGMENT_KEYWORD_17 )=> FRAGMENT_KEYWORD_17 | ( FRAGMENT_KEYWORD_18 )=> FRAGMENT_KEYWORD_18 | ( FRAGMENT_KEYWORD_19 )=> FRAGMENT_KEYWORD_19 | ( FRAGMENT_KEYWORD_20 )=> FRAGMENT_KEYWORD_20 | ( FRAGMENT_KEYWORD_21 )=> FRAGMENT_KEYWORD_21 | ( FRAGMENT_KEYWORD_22 )=> FRAGMENT_KEYWORD_22 | ( FRAGMENT_KEYWORD_23 )=> FRAGMENT_KEYWORD_23 | ( FRAGMENT_KEYWORD_24 )=> FRAGMENT_KEYWORD_24 | ( FRAGMENT_KEYWORD_25 )=> FRAGMENT_KEYWORD_25 | ( FRAGMENT_KEYWORD_26 )=> FRAGMENT_KEYWORD_26 | ( FRAGMENT_KEYWORD_27 )=> FRAGMENT_KEYWORD_27 | ( FRAGMENT_KEYWORD_28 )=> FRAGMENT_KEYWORD_28 | ( FRAGMENT_KEYWORD_29 )=> FRAGMENT_KEYWORD_29 | ( FRAGMENT_RULE_STRING )=> FRAGMENT_RULE_STRING | ( FRAGMENT_RULE_INT )=> FRAGMENT_RULE_INT | ( FRAGMENT_RULE_ID )=> FRAGMENT_RULE_ID | ( FRAGMENT_RULE_WS )=> FRAGMENT_RULE_WS | ( FRAGMENT_RULE_SL_COMMENT )=> FRAGMENT_RULE_SL_COMMENT | ( FRAGMENT_RULE_ML_COMMENT )=> FRAGMENT_RULE_ML_COMMENT | ( FRAGMENT_RULE_SCHEME_SL_COMMENT )=> FRAGMENT_RULE_SCHEME_SL_COMMENT | ( FRAGMENT_RULE_SCHEME_ML_COMMENT )=> FRAGMENT_RULE_SCHEME_ML_COMMENT | ( FRAGMENT_RULE_ANY_OTHER )=> FRAGMENT_RULE_ANY_OTHER );", 1, 0, input);
-
-                throw nvae;
-            }
-            switch (alt1) {
-                case 1 :
-                    // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/lexer/InternalLilyPond.g:64:2: ( FRAGMENT_KEYWORD_1 )=> FRAGMENT_KEYWORD_1
-                    {
-                    mFRAGMENT_KEYWORD_1(); if (failed) return ;
-                    if ( backtracking==0 ) {
-                      _type = KEYWORD_1; 
-                    }
-
-                    }
-                    break;
-                case 2 :
-                    // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/lexer/InternalLilyPond.g:65:2: ( FRAGMENT_KEYWORD_2 )=> FRAGMENT_KEYWORD_2
-                    {
-                    mFRAGMENT_KEYWORD_2(); if (failed) return ;
-                    if ( backtracking==0 ) {
-                      _type = KEYWORD_2; 
-                    }
-
-                    }
-                    break;
-                case 3 :
-                    // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/lexer/InternalLilyPond.g:66:2: ( FRAGMENT_KEYWORD_3 )=> FRAGMENT_KEYWORD_3
-                    {
-                    mFRAGMENT_KEYWORD_3(); if (failed) return ;
-                    if ( backtracking==0 ) {
-                      _type = KEYWORD_3; 
-                    }
-
-                    }
-                    break;
-                case 4 :
-                    // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/lexer/InternalLilyPond.g:67:2: ( FRAGMENT_KEYWORD_4 )=> FRAGMENT_KEYWORD_4
-                    {
-                    mFRAGMENT_KEYWORD_4(); if (failed) return ;
-                    if ( backtracking==0 ) {
-                      _type = KEYWORD_4; 
-                    }
-
-                    }
-                    break;
-                case 5 :
-                    // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/lexer/InternalLilyPond.g:68:2: ( FRAGMENT_KEYWORD_5 )=> FRAGMENT_KEYWORD_5
-                    {
-                    mFRAGMENT_KEYWORD_5(); if (failed) return ;
-                    if ( backtracking==0 ) {
-                      _type = KEYWORD_5; 
-                    }
-
-                    }
-                    break;
-                case 6 :
-                    // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/lexer/InternalLilyPond.g:69:2: ( FRAGMENT_KEYWORD_6 )=> FRAGMENT_KEYWORD_6
-                    {
-                    mFRAGMENT_KEYWORD_6(); if (failed) return ;
-                    if ( backtracking==0 ) {
-                      _type = KEYWORD_6; 
-                    }
-
-                    }
-                    break;
-                case 7 :
-                    // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/lexer/InternalLilyPond.g:70:2: ( FRAGMENT_KEYWORD_7 )=> FRAGMENT_KEYWORD_7
-                    {
-                    mFRAGMENT_KEYWORD_7(); if (failed) return ;
-                    if ( backtracking==0 ) {
-                      _type = KEYWORD_7; 
-                    }
-
-                    }
-                    break;
-                case 8 :
-                    // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/lexer/InternalLilyPond.g:71:2: ( FRAGMENT_KEYWORD_8 )=> FRAGMENT_KEYWORD_8
-                    {
-                    mFRAGMENT_KEYWORD_8(); if (failed) return ;
-                    if ( backtracking==0 ) {
-                      _type = KEYWORD_8; 
-                    }
-
-                    }
-                    break;
-                case 9 :
-                    // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/lexer/InternalLilyPond.g:72:2: ( FRAGMENT_KEYWORD_9 )=> FRAGMENT_KEYWORD_9
-                    {
-                    mFRAGMENT_KEYWORD_9(); if (failed) return ;
-                    if ( backtracking==0 ) {
-                      _type = KEYWORD_9; 
-                    }
-
-                    }
-                    break;
-                case 10 :
-                    // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/lexer/InternalLilyPond.g:73:2: ( FRAGMENT_KEYWORD_10 )=> FRAGMENT_KEYWORD_10
-                    {
-                    mFRAGMENT_KEYWORD_10(); if (failed) return ;
-                    if ( backtracking==0 ) {
-                      _type = KEYWORD_10; 
-                    }
-
-                    }
-                    break;
-                case 11 :
-                    // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/lexer/InternalLilyPond.g:74:2: ( FRAGMENT_KEYWORD_11 )=> FRAGMENT_KEYWORD_11
-                    {
-                    mFRAGMENT_KEYWORD_11(); if (failed) return ;
-                    if ( backtracking==0 ) {
-                      _type = KEYWORD_11; 
-                    }
-
-                    }
-                    break;
-                case 12 :
-                    // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/lexer/InternalLilyPond.g:75:2: ( FRAGMENT_KEYWORD_12 )=> FRAGMENT_KEYWORD_12
-                    {
-                    mFRAGMENT_KEYWORD_12(); if (failed) return ;
-                    if ( backtracking==0 ) {
-                      _type = KEYWORD_12; 
-                    }
-
-                    }
-                    break;
-                case 13 :
-                    // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/lexer/InternalLilyPond.g:76:2: ( FRAGMENT_KEYWORD_13 )=> FRAGMENT_KEYWORD_13
-                    {
-                    mFRAGMENT_KEYWORD_13(); if (failed) return ;
-                    if ( backtracking==0 ) {
-                      _type = KEYWORD_13; 
-                    }
-
-                    }
-                    break;
-                case 14 :
-                    // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/lexer/InternalLilyPond.g:77:2: ( FRAGMENT_KEYWORD_14 )=> FRAGMENT_KEYWORD_14
-                    {
-                    mFRAGMENT_KEYWORD_14(); if (failed) return ;
-                    if ( backtracking==0 ) {
-                      _type = KEYWORD_14; 
-                    }
-
-                    }
-                    break;
-                case 15 :
-                    // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/lexer/InternalLilyPond.g:78:2: ( FRAGMENT_KEYWORD_15 )=> FRAGMENT_KEYWORD_15
-                    {
-                    mFRAGMENT_KEYWORD_15(); if (failed) return ;
-                    if ( backtracking==0 ) {
-                      _type = KEYWORD_15; 
-                    }
-
-                    }
-                    break;
-                case 16 :
-                    // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/lexer/InternalLilyPond.g:79:2: ( FRAGMENT_KEYWORD_16 )=> FRAGMENT_KEYWORD_16
-                    {
-                    mFRAGMENT_KEYWORD_16(); if (failed) return ;
-                    if ( backtracking==0 ) {
-                      _type = KEYWORD_16; 
-                    }
-
-                    }
-                    break;
-                case 17 :
-                    // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/lexer/InternalLilyPond.g:80:2: ( FRAGMENT_KEYWORD_17 )=> FRAGMENT_KEYWORD_17
-                    {
-                    mFRAGMENT_KEYWORD_17(); if (failed) return ;
-                    if ( backtracking==0 ) {
-                      _type = KEYWORD_17; 
-                    }
-
-                    }
-                    break;
-                case 18 :
-                    // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/lexer/InternalLilyPond.g:81:2: ( FRAGMENT_KEYWORD_18 )=> FRAGMENT_KEYWORD_18
-                    {
-                    mFRAGMENT_KEYWORD_18(); if (failed) return ;
-                    if ( backtracking==0 ) {
-                      _type = KEYWORD_18; 
-                    }
-
-                    }
-                    break;
-                case 19 :
-                    // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/lexer/InternalLilyPond.g:82:2: ( FRAGMENT_KEYWORD_19 )=> FRAGMENT_KEYWORD_19
-                    {
-                    mFRAGMENT_KEYWORD_19(); if (failed) return ;
-                    if ( backtracking==0 ) {
-                      _type = KEYWORD_19; 
-                    }
-
-                    }
-                    break;
-                case 20 :
-                    // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/lexer/InternalLilyPond.g:83:2: ( FRAGMENT_KEYWORD_20 )=> FRAGMENT_KEYWORD_20
-                    {
-                    mFRAGMENT_KEYWORD_20(); if (failed) return ;
-                    if ( backtracking==0 ) {
-                      _type = KEYWORD_20; 
-                    }
-
-                    }
-                    break;
-                case 21 :
-                    // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/lexer/InternalLilyPond.g:84:2: ( FRAGMENT_KEYWORD_21 )=> FRAGMENT_KEYWORD_21
-                    {
-                    mFRAGMENT_KEYWORD_21(); if (failed) return ;
-                    if ( backtracking==0 ) {
-                      _type = KEYWORD_21; 
-                    }
-
-                    }
-                    break;
-                case 22 :
-                    // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/lexer/InternalLilyPond.g:85:2: ( FRAGMENT_KEYWORD_22 )=> FRAGMENT_KEYWORD_22
-                    {
-                    mFRAGMENT_KEYWORD_22(); if (failed) return ;
-                    if ( backtracking==0 ) {
-                      _type = KEYWORD_22; 
-                    }
-
-                    }
-                    break;
-                case 23 :
-                    // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/lexer/InternalLilyPond.g:86:2: ( FRAGMENT_KEYWORD_23 )=> FRAGMENT_KEYWORD_23
-                    {
-                    mFRAGMENT_KEYWORD_23(); if (failed) return ;
-                    if ( backtracking==0 ) {
-                      _type = KEYWORD_23; 
-                    }
-
-                    }
-                    break;
-                case 24 :
-                    // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/lexer/InternalLilyPond.g:87:2: ( FRAGMENT_KEYWORD_24 )=> FRAGMENT_KEYWORD_24
-                    {
-                    mFRAGMENT_KEYWORD_24(); if (failed) return ;
-                    if ( backtracking==0 ) {
-                      _type = KEYWORD_24; 
-                    }
-
-                    }
-                    break;
-                case 25 :
-                    // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/lexer/InternalLilyPond.g:88:2: ( FRAGMENT_KEYWORD_25 )=> FRAGMENT_KEYWORD_25
-                    {
-                    mFRAGMENT_KEYWORD_25(); if (failed) return ;
-                    if ( backtracking==0 ) {
-                      _type = KEYWORD_25; 
-                    }
-
-                    }
-                    break;
-                case 26 :
-                    // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/lexer/InternalLilyPond.g:89:2: ( FRAGMENT_KEYWORD_26 )=> FRAGMENT_KEYWORD_26
-                    {
-                    mFRAGMENT_KEYWORD_26(); if (failed) return ;
-                    if ( backtracking==0 ) {
-                      _type = KEYWORD_26; 
-                    }
-
-                    }
-                    break;
-                case 27 :
-                    // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/lexer/InternalLilyPond.g:90:2: ( FRAGMENT_KEYWORD_27 )=> FRAGMENT_KEYWORD_27
-                    {
-                    mFRAGMENT_KEYWORD_27(); if (failed) return ;
-                    if ( backtracking==0 ) {
-                      _type = KEYWORD_27; 
-                    }
-
-                    }
-                    break;
-                case 28 :
-                    // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/lexer/InternalLilyPond.g:91:2: ( FRAGMENT_KEYWORD_28 )=> FRAGMENT_KEYWORD_28
-                    {
-                    mFRAGMENT_KEYWORD_28(); if (failed) return ;
-                    if ( backtracking==0 ) {
-                      _type = KEYWORD_28; 
-                    }
-
-                    }
-                    break;
-                case 29 :
-                    // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/lexer/InternalLilyPond.g:92:2: ( FRAGMENT_KEYWORD_29 )=> FRAGMENT_KEYWORD_29
-                    {
-                    mFRAGMENT_KEYWORD_29(); if (failed) return ;
-                    if ( backtracking==0 ) {
-                      _type = KEYWORD_29; 
-                    }
-
-                    }
-                    break;
-                case 30 :
-                    // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/lexer/InternalLilyPond.g:93:2: ( FRAGMENT_RULE_STRING )=> FRAGMENT_RULE_STRING
-                    {
-                    mFRAGMENT_RULE_STRING(); if (failed) return ;
-                    if ( backtracking==0 ) {
-                      _type = RULE_STRING; 
-                    }
-
-                    }
-                    break;
-                case 31 :
-                    // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/lexer/InternalLilyPond.g:94:2: ( FRAGMENT_RULE_INT )=> FRAGMENT_RULE_INT
-                    {
-                    mFRAGMENT_RULE_INT(); if (failed) return ;
-                    if ( backtracking==0 ) {
-                      _type = RULE_INT; 
-                    }
-
-                    }
-                    break;
-                case 32 :
-                    // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/lexer/InternalLilyPond.g:95:2: ( FRAGMENT_RULE_ID )=> FRAGMENT_RULE_ID
-                    {
-                    mFRAGMENT_RULE_ID(); if (failed) return ;
-                    if ( backtracking==0 ) {
-                      _type = RULE_ID; 
-                    }
-
-                    }
-                    break;
-                case 33 :
-                    // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/lexer/InternalLilyPond.g:96:2: ( FRAGMENT_RULE_WS )=> FRAGMENT_RULE_WS
-                    {
-                    mFRAGMENT_RULE_WS(); if (failed) return ;
-                    if ( backtracking==0 ) {
-                      _type = RULE_WS; 
-                    }
-
-                    }
-                    break;
-                case 34 :
-                    // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/lexer/InternalLilyPond.g:97:2: ( FRAGMENT_RULE_SL_COMMENT )=> FRAGMENT_RULE_SL_COMMENT
-                    {
-                    mFRAGMENT_RULE_SL_COMMENT(); if (failed) return ;
-                    if ( backtracking==0 ) {
-                      _type = RULE_SL_COMMENT; 
-                    }
-
-                    }
-                    break;
-                case 35 :
-                    // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/lexer/InternalLilyPond.g:98:2: ( FRAGMENT_RULE_ML_COMMENT )=> FRAGMENT_RULE_ML_COMMENT
-                    {
-                    mFRAGMENT_RULE_ML_COMMENT(); if (failed) return ;
-                    if ( backtracking==0 ) {
-                      _type = RULE_ML_COMMENT; 
-                    }
-
-                    }
-                    break;
-                case 36 :
-                    // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/lexer/InternalLilyPond.g:99:2: ( FRAGMENT_RULE_SCHEME_SL_COMMENT )=> FRAGMENT_RULE_SCHEME_SL_COMMENT
-                    {
-                    mFRAGMENT_RULE_SCHEME_SL_COMMENT(); if (failed) return ;
-                    if ( backtracking==0 ) {
-                      _type = RULE_SCHEME_SL_COMMENT; 
-                    }
-
-                    }
-                    break;
-                case 37 :
-                    // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/lexer/InternalLilyPond.g:100:2: ( FRAGMENT_RULE_SCHEME_ML_COMMENT )=> FRAGMENT_RULE_SCHEME_ML_COMMENT
-                    {
-                    mFRAGMENT_RULE_SCHEME_ML_COMMENT(); if (failed) return ;
-                    if ( backtracking==0 ) {
-                      _type = RULE_SCHEME_ML_COMMENT; 
-                    }
-
-                    }
-                    break;
-                case 38 :
-                    // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/lexer/InternalLilyPond.g:101:2: ( FRAGMENT_RULE_ANY_OTHER )=> FRAGMENT_RULE_ANY_OTHER
-                    {
-                    mFRAGMENT_RULE_ANY_OTHER(); if (failed) return ;
-                    if ( backtracking==0 ) {
-                      _type = RULE_ANY_OTHER; 
-                    }
-
-                    }
-                    break;
 
             }
+
             this.type = _type;
         }
         finally {
-            if ( backtracking>0 ) { memoize(input, 1, SYNTHETIC_ALL_KEYWORDS_StartIndex); }
         }
     }
-    // $ANTLR end SYNTHETIC_ALL_KEYWORDS
+    // $ANTLR end KEYWORD_29
 
-    // $ANTLR start FRAGMENT_KEYWORD_1
-    public final void mFRAGMENT_KEYWORD_1() throws RecognitionException {
-        int FRAGMENT_KEYWORD_1_StartIndex = input.index();
+    // $ANTLR start KEYWORD_27
+    public final void mKEYWORD_27() throws RecognitionException {
         try {
-            if ( backtracking>0 && alreadyParsedRule(input, 2) ) { return ; }
-            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/lexer/InternalLilyPond.g:103:29: ( '!' )
-            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/lexer/InternalLilyPond.g:103:31: '!'
+            int _type = KEYWORD_27;
+            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/lexer/InternalLilyPond.g:21:12: ( 'include' )
+            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/lexer/InternalLilyPond.g:21:14: 'include'
             {
-            match('!'); if (failed) return ;
-
-            }
-
-        }
-        finally {
-            if ( backtracking>0 ) { memoize(input, 2, FRAGMENT_KEYWORD_1_StartIndex); }
-        }
-    }
-    // $ANTLR end FRAGMENT_KEYWORD_1
-
-    // $ANTLR start FRAGMENT_KEYWORD_2
-    public final void mFRAGMENT_KEYWORD_2() throws RecognitionException {
-        int FRAGMENT_KEYWORD_2_StartIndex = input.index();
-        try {
-            if ( backtracking>0 && alreadyParsedRule(input, 3) ) { return ; }
-            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/lexer/InternalLilyPond.g:105:29: ( '#' )
-            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/lexer/InternalLilyPond.g:105:31: '#'
-            {
-            match('#'); if (failed) return ;
-
-            }
-
-        }
-        finally {
-            if ( backtracking>0 ) { memoize(input, 3, FRAGMENT_KEYWORD_2_StartIndex); }
-        }
-    }
-    // $ANTLR end FRAGMENT_KEYWORD_2
-
-    // $ANTLR start FRAGMENT_KEYWORD_3
-    public final void mFRAGMENT_KEYWORD_3() throws RecognitionException {
-        int FRAGMENT_KEYWORD_3_StartIndex = input.index();
-        try {
-            if ( backtracking>0 && alreadyParsedRule(input, 4) ) { return ; }
-            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/lexer/InternalLilyPond.g:107:29: ( '$' )
-            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/lexer/InternalLilyPond.g:107:31: '$'
-            {
-            match('$'); if (failed) return ;
-
-            }
-
-        }
-        finally {
-            if ( backtracking>0 ) { memoize(input, 4, FRAGMENT_KEYWORD_3_StartIndex); }
-        }
-    }
-    // $ANTLR end FRAGMENT_KEYWORD_3
-
-    // $ANTLR start FRAGMENT_KEYWORD_4
-    public final void mFRAGMENT_KEYWORD_4() throws RecognitionException {
-        int FRAGMENT_KEYWORD_4_StartIndex = input.index();
-        try {
-            if ( backtracking>0 && alreadyParsedRule(input, 5) ) { return ; }
-            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/lexer/InternalLilyPond.g:109:29: ( '\\'' )
-            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/lexer/InternalLilyPond.g:109:31: '\\''
-            {
-            match('\''); if (failed) return ;
-
-            }
-
-        }
-        finally {
-            if ( backtracking>0 ) { memoize(input, 5, FRAGMENT_KEYWORD_4_StartIndex); }
-        }
-    }
-    // $ANTLR end FRAGMENT_KEYWORD_4
-
-    // $ANTLR start FRAGMENT_KEYWORD_5
-    public final void mFRAGMENT_KEYWORD_5() throws RecognitionException {
-        int FRAGMENT_KEYWORD_5_StartIndex = input.index();
-        try {
-            if ( backtracking>0 && alreadyParsedRule(input, 6) ) { return ; }
-            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/lexer/InternalLilyPond.g:111:29: ( '(' )
-            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/lexer/InternalLilyPond.g:111:31: '('
-            {
-            match('('); if (failed) return ;
-
-            }
-
-        }
-        finally {
-            if ( backtracking>0 ) { memoize(input, 6, FRAGMENT_KEYWORD_5_StartIndex); }
-        }
-    }
-    // $ANTLR end FRAGMENT_KEYWORD_5
-
-    // $ANTLR start FRAGMENT_KEYWORD_6
-    public final void mFRAGMENT_KEYWORD_6() throws RecognitionException {
-        int FRAGMENT_KEYWORD_6_StartIndex = input.index();
-        try {
-            if ( backtracking>0 && alreadyParsedRule(input, 7) ) { return ; }
-            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/lexer/InternalLilyPond.g:113:29: ( ')' )
-            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/lexer/InternalLilyPond.g:113:31: ')'
-            {
-            match(')'); if (failed) return ;
-
-            }
-
-        }
-        finally {
-            if ( backtracking>0 ) { memoize(input, 7, FRAGMENT_KEYWORD_6_StartIndex); }
-        }
-    }
-    // $ANTLR end FRAGMENT_KEYWORD_6
-
-    // $ANTLR start FRAGMENT_KEYWORD_7
-    public final void mFRAGMENT_KEYWORD_7() throws RecognitionException {
-        int FRAGMENT_KEYWORD_7_StartIndex = input.index();
-        try {
-            if ( backtracking>0 && alreadyParsedRule(input, 8) ) { return ; }
-            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/lexer/InternalLilyPond.g:115:29: ( '+' )
-            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/lexer/InternalLilyPond.g:115:31: '+'
-            {
-            match('+'); if (failed) return ;
-
-            }
-
-        }
-        finally {
-            if ( backtracking>0 ) { memoize(input, 8, FRAGMENT_KEYWORD_7_StartIndex); }
-        }
-    }
-    // $ANTLR end FRAGMENT_KEYWORD_7
-
-    // $ANTLR start FRAGMENT_KEYWORD_8
-    public final void mFRAGMENT_KEYWORD_8() throws RecognitionException {
-        int FRAGMENT_KEYWORD_8_StartIndex = input.index();
-        try {
-            if ( backtracking>0 && alreadyParsedRule(input, 9) ) { return ; }
-            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/lexer/InternalLilyPond.g:117:29: ( ',' )
-            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/lexer/InternalLilyPond.g:117:31: ','
-            {
-            match(','); if (failed) return ;
-
-            }
-
-        }
-        finally {
-            if ( backtracking>0 ) { memoize(input, 9, FRAGMENT_KEYWORD_8_StartIndex); }
-        }
-    }
-    // $ANTLR end FRAGMENT_KEYWORD_8
-
-    // $ANTLR start FRAGMENT_KEYWORD_9
-    public final void mFRAGMENT_KEYWORD_9() throws RecognitionException {
-        int FRAGMENT_KEYWORD_9_StartIndex = input.index();
-        try {
-            if ( backtracking>0 && alreadyParsedRule(input, 10) ) { return ; }
-            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/lexer/InternalLilyPond.g:119:29: ( '<' )
-            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/lexer/InternalLilyPond.g:119:31: '<'
-            {
-            match('<'); if (failed) return ;
-
-            }
-
-        }
-        finally {
-            if ( backtracking>0 ) { memoize(input, 10, FRAGMENT_KEYWORD_9_StartIndex); }
-        }
-    }
-    // $ANTLR end FRAGMENT_KEYWORD_9
-
-    // $ANTLR start FRAGMENT_KEYWORD_10
-    public final void mFRAGMENT_KEYWORD_10() throws RecognitionException {
-        int FRAGMENT_KEYWORD_10_StartIndex = input.index();
-        try {
-            if ( backtracking>0 && alreadyParsedRule(input, 11) ) { return ; }
-            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/lexer/InternalLilyPond.g:121:30: ( '=' )
-            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/lexer/InternalLilyPond.g:121:32: '='
-            {
-            match('='); if (failed) return ;
-
-            }
-
-        }
-        finally {
-            if ( backtracking>0 ) { memoize(input, 11, FRAGMENT_KEYWORD_10_StartIndex); }
-        }
-    }
-    // $ANTLR end FRAGMENT_KEYWORD_10
-
-    // $ANTLR start FRAGMENT_KEYWORD_11
-    public final void mFRAGMENT_KEYWORD_11() throws RecognitionException {
-        int FRAGMENT_KEYWORD_11_StartIndex = input.index();
-        try {
-            if ( backtracking>0 && alreadyParsedRule(input, 12) ) { return ; }
-            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/lexer/InternalLilyPond.g:123:30: ( '>' )
-            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/lexer/InternalLilyPond.g:123:32: '>'
-            {
-            match('>'); if (failed) return ;
-
-            }
-
-        }
-        finally {
-            if ( backtracking>0 ) { memoize(input, 12, FRAGMENT_KEYWORD_11_StartIndex); }
-        }
-    }
-    // $ANTLR end FRAGMENT_KEYWORD_11
-
-    // $ANTLR start FRAGMENT_KEYWORD_12
-    public final void mFRAGMENT_KEYWORD_12() throws RecognitionException {
-        int FRAGMENT_KEYWORD_12_StartIndex = input.index();
-        try {
-            if ( backtracking>0 && alreadyParsedRule(input, 13) ) { return ; }
-            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/lexer/InternalLilyPond.g:125:30: ( '[' )
-            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/lexer/InternalLilyPond.g:125:32: '['
-            {
-            match('['); if (failed) return ;
-
-            }
-
-        }
-        finally {
-            if ( backtracking>0 ) { memoize(input, 13, FRAGMENT_KEYWORD_12_StartIndex); }
-        }
-    }
-    // $ANTLR end FRAGMENT_KEYWORD_12
-
-    // $ANTLR start FRAGMENT_KEYWORD_13
-    public final void mFRAGMENT_KEYWORD_13() throws RecognitionException {
-        int FRAGMENT_KEYWORD_13_StartIndex = input.index();
-        try {
-            if ( backtracking>0 && alreadyParsedRule(input, 14) ) { return ; }
-            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/lexer/InternalLilyPond.g:127:30: ( '\\\\' )
-            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/lexer/InternalLilyPond.g:127:32: '\\\\'
-            {
-            match('\\'); if (failed) return ;
-
-            }
-
-        }
-        finally {
-            if ( backtracking>0 ) { memoize(input, 14, FRAGMENT_KEYWORD_13_StartIndex); }
-        }
-    }
-    // $ANTLR end FRAGMENT_KEYWORD_13
-
-    // $ANTLR start FRAGMENT_KEYWORD_14
-    public final void mFRAGMENT_KEYWORD_14() throws RecognitionException {
-        int FRAGMENT_KEYWORD_14_StartIndex = input.index();
-        try {
-            if ( backtracking>0 && alreadyParsedRule(input, 15) ) { return ; }
-            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/lexer/InternalLilyPond.g:129:30: ( ']' )
-            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/lexer/InternalLilyPond.g:129:32: ']'
-            {
-            match(']'); if (failed) return ;
-
-            }
-
-        }
-        finally {
-            if ( backtracking>0 ) { memoize(input, 15, FRAGMENT_KEYWORD_14_StartIndex); }
-        }
-    }
-    // $ANTLR end FRAGMENT_KEYWORD_14
-
-    // $ANTLR start FRAGMENT_KEYWORD_15
-    public final void mFRAGMENT_KEYWORD_15() throws RecognitionException {
-        int FRAGMENT_KEYWORD_15_StartIndex = input.index();
-        try {
-            if ( backtracking>0 && alreadyParsedRule(input, 16) ) { return ; }
-            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/lexer/InternalLilyPond.g:131:30: ( '`' )
-            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/lexer/InternalLilyPond.g:131:32: '`'
-            {
-            match('`'); if (failed) return ;
-
-            }
-
-        }
-        finally {
-            if ( backtracking>0 ) { memoize(input, 16, FRAGMENT_KEYWORD_15_StartIndex); }
-        }
-    }
-    // $ANTLR end FRAGMENT_KEYWORD_15
-
-    // $ANTLR start FRAGMENT_KEYWORD_16
-    public final void mFRAGMENT_KEYWORD_16() throws RecognitionException {
-        int FRAGMENT_KEYWORD_16_StartIndex = input.index();
-        try {
-            if ( backtracking>0 && alreadyParsedRule(input, 17) ) { return ; }
-            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/lexer/InternalLilyPond.g:133:30: ( '{' )
-            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/lexer/InternalLilyPond.g:133:32: '{'
-            {
-            match('{'); if (failed) return ;
-
-            }
-
-        }
-        finally {
-            if ( backtracking>0 ) { memoize(input, 17, FRAGMENT_KEYWORD_16_StartIndex); }
-        }
-    }
-    // $ANTLR end FRAGMENT_KEYWORD_16
-
-    // $ANTLR start FRAGMENT_KEYWORD_17
-    public final void mFRAGMENT_KEYWORD_17() throws RecognitionException {
-        int FRAGMENT_KEYWORD_17_StartIndex = input.index();
-        try {
-            if ( backtracking>0 && alreadyParsedRule(input, 18) ) { return ; }
-            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/lexer/InternalLilyPond.g:135:30: ( '}' )
-            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/lexer/InternalLilyPond.g:135:32: '}'
-            {
-            match('}'); if (failed) return ;
-
-            }
-
-        }
-        finally {
-            if ( backtracking>0 ) { memoize(input, 18, FRAGMENT_KEYWORD_17_StartIndex); }
-        }
-    }
-    // $ANTLR end FRAGMENT_KEYWORD_17
-
-    // $ANTLR start FRAGMENT_KEYWORD_18
-    public final void mFRAGMENT_KEYWORD_18() throws RecognitionException {
-        int FRAGMENT_KEYWORD_18_StartIndex = input.index();
-        try {
-            if ( backtracking>0 && alreadyParsedRule(input, 19) ) { return ; }
-            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/lexer/InternalLilyPond.g:137:30: ( '~' )
-            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/lexer/InternalLilyPond.g:137:32: '~'
-            {
-            match('~'); if (failed) return ;
-
-            }
-
-        }
-        finally {
-            if ( backtracking>0 ) { memoize(input, 19, FRAGMENT_KEYWORD_18_StartIndex); }
-        }
-    }
-    // $ANTLR end FRAGMENT_KEYWORD_18
-
-    // $ANTLR start FRAGMENT_KEYWORD_19
-    public final void mFRAGMENT_KEYWORD_19() throws RecognitionException {
-        int FRAGMENT_KEYWORD_19_StartIndex = input.index();
-        try {
-            if ( backtracking>0 && alreadyParsedRule(input, 20) ) { return ; }
-            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/lexer/InternalLilyPond.g:139:30: ( '#:' )
-            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/lexer/InternalLilyPond.g:139:32: '#:'
-            {
-            match("#:"); if (failed) return ;
+            match("include"); 
 
 
             }
 
+            this.type = _type;
         }
         finally {
-            if ( backtracking>0 ) { memoize(input, 20, FRAGMENT_KEYWORD_19_StartIndex); }
         }
     }
-    // $ANTLR end FRAGMENT_KEYWORD_19
+    // $ANTLR end KEYWORD_27
 
-    // $ANTLR start FRAGMENT_KEYWORD_20
-    public final void mFRAGMENT_KEYWORD_20() throws RecognitionException {
-        int FRAGMENT_KEYWORD_20_StartIndex = input.index();
+    // $ANTLR start KEYWORD_28
+    public final void mKEYWORD_28() throws RecognitionException {
         try {
-            if ( backtracking>0 && alreadyParsedRule(input, 21) ) { return ; }
-            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/lexer/InternalLilyPond.g:141:30: ( '#\\\\' )
-            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/lexer/InternalLilyPond.g:141:32: '#\\\\'
+            int _type = KEYWORD_28;
+            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/lexer/InternalLilyPond.g:23:12: ( 'version' )
+            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/lexer/InternalLilyPond.g:23:14: 'version'
             {
-            match("#\\"); if (failed) return ;
+            match("version"); 
 
 
             }
 
+            this.type = _type;
         }
         finally {
-            if ( backtracking>0 ) { memoize(input, 21, FRAGMENT_KEYWORD_20_StartIndex); }
         }
     }
-    // $ANTLR end FRAGMENT_KEYWORD_20
+    // $ANTLR end KEYWORD_28
 
-    // $ANTLR start FRAGMENT_KEYWORD_21
-    public final void mFRAGMENT_KEYWORD_21() throws RecognitionException {
-        int FRAGMENT_KEYWORD_21_StartIndex = input.index();
+    // $ANTLR start KEYWORD_26
+    public final void mKEYWORD_26() throws RecognitionException {
         try {
-            if ( backtracking>0 && alreadyParsedRule(input, 22) ) { return ; }
-            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/lexer/InternalLilyPond.g:143:30: ( '#{' )
-            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/lexer/InternalLilyPond.g:143:32: '#{'
+            int _type = KEYWORD_26;
+            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/lexer/InternalLilyPond.g:25:12: ( 'markup' )
+            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/lexer/InternalLilyPond.g:25:14: 'markup'
             {
-            match("#{"); if (failed) return ;
+            match("markup"); 
 
 
             }
 
+            this.type = _type;
         }
         finally {
-            if ( backtracking>0 ) { memoize(input, 22, FRAGMENT_KEYWORD_21_StartIndex); }
         }
     }
-    // $ANTLR end FRAGMENT_KEYWORD_21
+    // $ANTLR end KEYWORD_26
 
-    // $ANTLR start FRAGMENT_KEYWORD_22
-    public final void mFRAGMENT_KEYWORD_22() throws RecognitionException {
-        int FRAGMENT_KEYWORD_22_StartIndex = input.index();
+    // $ANTLR start KEYWORD_19
+    public final void mKEYWORD_19() throws RecognitionException {
         try {
-            if ( backtracking>0 && alreadyParsedRule(input, 23) ) { return ; }
-            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/lexer/InternalLilyPond.g:145:30: ( '#}' )
-            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/lexer/InternalLilyPond.g:145:32: '#}'
+            int _type = KEYWORD_19;
+            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/lexer/InternalLilyPond.g:27:12: ( '#:' )
+            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/lexer/InternalLilyPond.g:27:14: '#:'
             {
-            match("#}"); if (failed) return ;
+            match("#:"); 
 
 
             }
 
+            this.type = _type;
         }
         finally {
-            if ( backtracking>0 ) { memoize(input, 23, FRAGMENT_KEYWORD_22_StartIndex); }
         }
     }
-    // $ANTLR end FRAGMENT_KEYWORD_22
+    // $ANTLR end KEYWORD_19
 
-    // $ANTLR start FRAGMENT_KEYWORD_23
-    public final void mFRAGMENT_KEYWORD_23() throws RecognitionException {
-        int FRAGMENT_KEYWORD_23_StartIndex = input.index();
+    // $ANTLR start KEYWORD_20
+    public final void mKEYWORD_20() throws RecognitionException {
         try {
-            if ( backtracking>0 && alreadyParsedRule(input, 24) ) { return ; }
-            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/lexer/InternalLilyPond.g:147:30: ( '<<' )
-            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/lexer/InternalLilyPond.g:147:32: '<<'
+            int _type = KEYWORD_20;
+            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/lexer/InternalLilyPond.g:29:12: ( '#\\\\' )
+            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/lexer/InternalLilyPond.g:29:14: '#\\\\'
             {
-            match("<<"); if (failed) return ;
+            match("#\\"); 
 
 
             }
 
+            this.type = _type;
         }
         finally {
-            if ( backtracking>0 ) { memoize(input, 24, FRAGMENT_KEYWORD_23_StartIndex); }
         }
     }
-    // $ANTLR end FRAGMENT_KEYWORD_23
+    // $ANTLR end KEYWORD_20
 
-    // $ANTLR start FRAGMENT_KEYWORD_24
-    public final void mFRAGMENT_KEYWORD_24() throws RecognitionException {
-        int FRAGMENT_KEYWORD_24_StartIndex = input.index();
+    // $ANTLR start KEYWORD_21
+    public final void mKEYWORD_21() throws RecognitionException {
         try {
-            if ( backtracking>0 && alreadyParsedRule(input, 25) ) { return ; }
-            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/lexer/InternalLilyPond.g:149:30: ( '>>' )
-            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/lexer/InternalLilyPond.g:149:32: '>>'
+            int _type = KEYWORD_21;
+            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/lexer/InternalLilyPond.g:31:12: ( '#{' )
+            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/lexer/InternalLilyPond.g:31:14: '#{'
             {
-            match(">>"); if (failed) return ;
+            match("#{"); 
 
 
             }
 
+            this.type = _type;
         }
         finally {
-            if ( backtracking>0 ) { memoize(input, 25, FRAGMENT_KEYWORD_24_StartIndex); }
         }
     }
-    // $ANTLR end FRAGMENT_KEYWORD_24
+    // $ANTLR end KEYWORD_21
 
-    // $ANTLR start FRAGMENT_KEYWORD_25
-    public final void mFRAGMENT_KEYWORD_25() throws RecognitionException {
-        int FRAGMENT_KEYWORD_25_StartIndex = input.index();
+    // $ANTLR start KEYWORD_22
+    public final void mKEYWORD_22() throws RecognitionException {
         try {
-            if ( backtracking>0 && alreadyParsedRule(input, 26) ) { return ; }
-            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/lexer/InternalLilyPond.g:151:30: ( '\\\\\\\\' )
-            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/lexer/InternalLilyPond.g:151:32: '\\\\\\\\'
+            int _type = KEYWORD_22;
+            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/lexer/InternalLilyPond.g:33:12: ( '#}' )
+            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/lexer/InternalLilyPond.g:33:14: '#}'
             {
-            match("\\\\"); if (failed) return ;
+            match("#}"); 
 
 
             }
 
+            this.type = _type;
         }
         finally {
-            if ( backtracking>0 ) { memoize(input, 26, FRAGMENT_KEYWORD_25_StartIndex); }
         }
     }
-    // $ANTLR end FRAGMENT_KEYWORD_25
+    // $ANTLR end KEYWORD_22
 
-    // $ANTLR start FRAGMENT_KEYWORD_26
-    public final void mFRAGMENT_KEYWORD_26() throws RecognitionException {
-        int FRAGMENT_KEYWORD_26_StartIndex = input.index();
+    // $ANTLR start KEYWORD_23
+    public final void mKEYWORD_23() throws RecognitionException {
         try {
-            if ( backtracking>0 && alreadyParsedRule(input, 27) ) { return ; }
-            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/lexer/InternalLilyPond.g:153:30: ( 'lines' )
-            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/lexer/InternalLilyPond.g:153:32: 'lines'
+            int _type = KEYWORD_23;
+            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/lexer/InternalLilyPond.g:35:12: ( '<<' )
+            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/lexer/InternalLilyPond.g:35:14: '<<'
             {
-            match("lines"); if (failed) return ;
+            match("<<"); 
 
 
             }
 
+            this.type = _type;
         }
         finally {
-            if ( backtracking>0 ) { memoize(input, 27, FRAGMENT_KEYWORD_26_StartIndex); }
         }
     }
-    // $ANTLR end FRAGMENT_KEYWORD_26
+    // $ANTLR end KEYWORD_23
 
-    // $ANTLR start FRAGMENT_KEYWORD_27
-    public final void mFRAGMENT_KEYWORD_27() throws RecognitionException {
-        int FRAGMENT_KEYWORD_27_StartIndex = input.index();
+    // $ANTLR start KEYWORD_24
+    public final void mKEYWORD_24() throws RecognitionException {
         try {
-            if ( backtracking>0 && alreadyParsedRule(input, 28) ) { return ; }
-            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/lexer/InternalLilyPond.g:155:30: ( '\\\\markup' )
-            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/lexer/InternalLilyPond.g:155:32: '\\\\markup'
+            int _type = KEYWORD_24;
+            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/lexer/InternalLilyPond.g:37:12: ( '>>' )
+            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/lexer/InternalLilyPond.g:37:14: '>>'
             {
-            match("\\markup"); if (failed) return ;
+            match(">>"); 
 
 
             }
 
+            this.type = _type;
         }
         finally {
-            if ( backtracking>0 ) { memoize(input, 28, FRAGMENT_KEYWORD_27_StartIndex); }
         }
     }
-    // $ANTLR end FRAGMENT_KEYWORD_27
+    // $ANTLR end KEYWORD_24
 
-    // $ANTLR start FRAGMENT_KEYWORD_28
-    public final void mFRAGMENT_KEYWORD_28() throws RecognitionException {
-        int FRAGMENT_KEYWORD_28_StartIndex = input.index();
+    // $ANTLR start KEYWORD_25
+    public final void mKEYWORD_25() throws RecognitionException {
         try {
-            if ( backtracking>0 && alreadyParsedRule(input, 29) ) { return ; }
-            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/lexer/InternalLilyPond.g:157:30: ( '\\\\include' )
-            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/lexer/InternalLilyPond.g:157:32: '\\\\include'
+            int _type = KEYWORD_25;
+            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/lexer/InternalLilyPond.g:39:12: ( '\\\\\\\\' )
+            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/lexer/InternalLilyPond.g:39:14: '\\\\\\\\'
             {
-            match("\\include"); if (failed) return ;
+            match("\\\\"); 
 
 
             }
 
+            this.type = _type;
         }
         finally {
-            if ( backtracking>0 ) { memoize(input, 29, FRAGMENT_KEYWORD_28_StartIndex); }
         }
     }
-    // $ANTLR end FRAGMENT_KEYWORD_28
+    // $ANTLR end KEYWORD_25
 
-    // $ANTLR start FRAGMENT_KEYWORD_29
-    public final void mFRAGMENT_KEYWORD_29() throws RecognitionException {
-        int FRAGMENT_KEYWORD_29_StartIndex = input.index();
+    // $ANTLR start KEYWORD_1
+    public final void mKEYWORD_1() throws RecognitionException {
         try {
-            if ( backtracking>0 && alreadyParsedRule(input, 30) ) { return ; }
-            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/lexer/InternalLilyPond.g:159:30: ( '\\\\version' )
-            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/lexer/InternalLilyPond.g:159:32: '\\\\version'
+            int _type = KEYWORD_1;
+            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/lexer/InternalLilyPond.g:41:11: ( '!' )
+            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/lexer/InternalLilyPond.g:41:13: '!'
             {
-            match("\\version"); if (failed) return ;
-
+            match('!'); 
 
             }
 
+            this.type = _type;
         }
         finally {
-            if ( backtracking>0 ) { memoize(input, 30, FRAGMENT_KEYWORD_29_StartIndex); }
         }
     }
-    // $ANTLR end FRAGMENT_KEYWORD_29
+    // $ANTLR end KEYWORD_1
+
+    // $ANTLR start KEYWORD_2
+    public final void mKEYWORD_2() throws RecognitionException {
+        try {
+            int _type = KEYWORD_2;
+            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/lexer/InternalLilyPond.g:43:11: ( '#' )
+            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/lexer/InternalLilyPond.g:43:13: '#'
+            {
+            match('#'); 
+
+            }
+
+            this.type = _type;
+        }
+        finally {
+        }
+    }
+    // $ANTLR end KEYWORD_2
+
+    // $ANTLR start KEYWORD_3
+    public final void mKEYWORD_3() throws RecognitionException {
+        try {
+            int _type = KEYWORD_3;
+            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/lexer/InternalLilyPond.g:45:11: ( '$' )
+            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/lexer/InternalLilyPond.g:45:13: '$'
+            {
+            match('$'); 
+
+            }
+
+            this.type = _type;
+        }
+        finally {
+        }
+    }
+    // $ANTLR end KEYWORD_3
+
+    // $ANTLR start KEYWORD_4
+    public final void mKEYWORD_4() throws RecognitionException {
+        try {
+            int _type = KEYWORD_4;
+            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/lexer/InternalLilyPond.g:47:11: ( '\\'' )
+            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/lexer/InternalLilyPond.g:47:13: '\\''
+            {
+            match('\''); 
+
+            }
+
+            this.type = _type;
+        }
+        finally {
+        }
+    }
+    // $ANTLR end KEYWORD_4
+
+    // $ANTLR start KEYWORD_5
+    public final void mKEYWORD_5() throws RecognitionException {
+        try {
+            int _type = KEYWORD_5;
+            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/lexer/InternalLilyPond.g:49:11: ( '(' )
+            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/lexer/InternalLilyPond.g:49:13: '('
+            {
+            match('('); 
+
+            }
+
+            this.type = _type;
+        }
+        finally {
+        }
+    }
+    // $ANTLR end KEYWORD_5
+
+    // $ANTLR start KEYWORD_6
+    public final void mKEYWORD_6() throws RecognitionException {
+        try {
+            int _type = KEYWORD_6;
+            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/lexer/InternalLilyPond.g:51:11: ( ')' )
+            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/lexer/InternalLilyPond.g:51:13: ')'
+            {
+            match(')'); 
+
+            }
+
+            this.type = _type;
+        }
+        finally {
+        }
+    }
+    // $ANTLR end KEYWORD_6
+
+    // $ANTLR start KEYWORD_7
+    public final void mKEYWORD_7() throws RecognitionException {
+        try {
+            int _type = KEYWORD_7;
+            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/lexer/InternalLilyPond.g:53:11: ( '+' )
+            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/lexer/InternalLilyPond.g:53:13: '+'
+            {
+            match('+'); 
+
+            }
+
+            this.type = _type;
+        }
+        finally {
+        }
+    }
+    // $ANTLR end KEYWORD_7
+
+    // $ANTLR start KEYWORD_8
+    public final void mKEYWORD_8() throws RecognitionException {
+        try {
+            int _type = KEYWORD_8;
+            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/lexer/InternalLilyPond.g:55:11: ( ',' )
+            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/lexer/InternalLilyPond.g:55:13: ','
+            {
+            match(','); 
+
+            }
+
+            this.type = _type;
+        }
+        finally {
+        }
+    }
+    // $ANTLR end KEYWORD_8
+
+    // $ANTLR start KEYWORD_9
+    public final void mKEYWORD_9() throws RecognitionException {
+        try {
+            int _type = KEYWORD_9;
+            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/lexer/InternalLilyPond.g:57:11: ( '<' )
+            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/lexer/InternalLilyPond.g:57:13: '<'
+            {
+            match('<'); 
+
+            }
+
+            this.type = _type;
+        }
+        finally {
+        }
+    }
+    // $ANTLR end KEYWORD_9
+
+    // $ANTLR start KEYWORD_10
+    public final void mKEYWORD_10() throws RecognitionException {
+        try {
+            int _type = KEYWORD_10;
+            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/lexer/InternalLilyPond.g:59:12: ( '=' )
+            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/lexer/InternalLilyPond.g:59:14: '='
+            {
+            match('='); 
+
+            }
+
+            this.type = _type;
+        }
+        finally {
+        }
+    }
+    // $ANTLR end KEYWORD_10
+
+    // $ANTLR start KEYWORD_11
+    public final void mKEYWORD_11() throws RecognitionException {
+        try {
+            int _type = KEYWORD_11;
+            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/lexer/InternalLilyPond.g:61:12: ( '>' )
+            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/lexer/InternalLilyPond.g:61:14: '>'
+            {
+            match('>'); 
+
+            }
+
+            this.type = _type;
+        }
+        finally {
+        }
+    }
+    // $ANTLR end KEYWORD_11
+
+    // $ANTLR start KEYWORD_12
+    public final void mKEYWORD_12() throws RecognitionException {
+        try {
+            int _type = KEYWORD_12;
+            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/lexer/InternalLilyPond.g:63:12: ( '[' )
+            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/lexer/InternalLilyPond.g:63:14: '['
+            {
+            match('['); 
+
+            }
+
+            this.type = _type;
+        }
+        finally {
+        }
+    }
+    // $ANTLR end KEYWORD_12
+
+    // $ANTLR start KEYWORD_13
+    public final void mKEYWORD_13() throws RecognitionException {
+        try {
+            int _type = KEYWORD_13;
+            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/lexer/InternalLilyPond.g:65:12: ( '\\\\' )
+            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/lexer/InternalLilyPond.g:65:14: '\\\\'
+            {
+            match('\\'); 
+
+            }
+
+            this.type = _type;
+        }
+        finally {
+        }
+    }
+    // $ANTLR end KEYWORD_13
+
+    // $ANTLR start KEYWORD_14
+    public final void mKEYWORD_14() throws RecognitionException {
+        try {
+            int _type = KEYWORD_14;
+            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/lexer/InternalLilyPond.g:67:12: ( ']' )
+            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/lexer/InternalLilyPond.g:67:14: ']'
+            {
+            match(']'); 
+
+            }
+
+            this.type = _type;
+        }
+        finally {
+        }
+    }
+    // $ANTLR end KEYWORD_14
+
+    // $ANTLR start KEYWORD_15
+    public final void mKEYWORD_15() throws RecognitionException {
+        try {
+            int _type = KEYWORD_15;
+            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/lexer/InternalLilyPond.g:69:12: ( '`' )
+            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/lexer/InternalLilyPond.g:69:14: '`'
+            {
+            match('`'); 
+
+            }
+
+            this.type = _type;
+        }
+        finally {
+        }
+    }
+    // $ANTLR end KEYWORD_15
+
+    // $ANTLR start KEYWORD_16
+    public final void mKEYWORD_16() throws RecognitionException {
+        try {
+            int _type = KEYWORD_16;
+            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/lexer/InternalLilyPond.g:71:12: ( '{' )
+            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/lexer/InternalLilyPond.g:71:14: '{'
+            {
+            match('{'); 
+
+            }
+
+            this.type = _type;
+        }
+        finally {
+        }
+    }
+    // $ANTLR end KEYWORD_16
+
+    // $ANTLR start KEYWORD_17
+    public final void mKEYWORD_17() throws RecognitionException {
+        try {
+            int _type = KEYWORD_17;
+            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/lexer/InternalLilyPond.g:73:12: ( '}' )
+            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/lexer/InternalLilyPond.g:73:14: '}'
+            {
+            match('}'); 
+
+            }
+
+            this.type = _type;
+        }
+        finally {
+        }
+    }
+    // $ANTLR end KEYWORD_17
+
+    // $ANTLR start KEYWORD_18
+    public final void mKEYWORD_18() throws RecognitionException {
+        try {
+            int _type = KEYWORD_18;
+            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/lexer/InternalLilyPond.g:75:12: ( '~' )
+            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/lexer/InternalLilyPond.g:75:14: '~'
+            {
+            match('~'); 
+
+            }
+
+            this.type = _type;
+        }
+        finally {
+        }
+    }
+    // $ANTLR end KEYWORD_18
 
     // $ANTLR start RULE_STRING
     public final void mRULE_STRING() throws RecognitionException {
-        int RULE_STRING_StartIndex = input.index();
         try {
-            if ( backtracking>0 && alreadyParsedRule(input, 31) ) { return ; }
-            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/lexer/InternalLilyPond.g:164:22: ( FRAGMENT_RULE_STRING )
-            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/lexer/InternalLilyPond.g:164:24: FRAGMENT_RULE_STRING
+            int _type = RULE_STRING;
+            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/lexer/InternalLilyPond.g:79:13: ( '\"' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\"' ) ) )* '\"' )
+            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/lexer/InternalLilyPond.g:79:15: '\"' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\"' ) ) )* '\"'
             {
-            mFRAGMENT_RULE_STRING(); if (failed) return ;
-
-            }
-
-        }
-        finally {
-            if ( backtracking>0 ) { memoize(input, 31, RULE_STRING_StartIndex); }
-        }
-    }
-    // $ANTLR end RULE_STRING
-
-    // $ANTLR start FRAGMENT_RULE_STRING
-    public final void mFRAGMENT_RULE_STRING() throws RecognitionException {
-        int FRAGMENT_RULE_STRING_StartIndex = input.index();
-        try {
-            if ( backtracking>0 && alreadyParsedRule(input, 32) ) { return ; }
-            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/lexer/InternalLilyPond.g:165:31: ( '\"' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\"' ) ) )* '\"' )
-            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/lexer/InternalLilyPond.g:165:33: '\"' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\"' ) ) )* '\"'
-            {
-            match('\"'); if (failed) return ;
-            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/lexer/InternalLilyPond.g:165:37: ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\"' ) ) )*
-            loop2:
+            match('\"'); 
+            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/lexer/InternalLilyPond.g:79:19: ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\"' ) ) )*
+            loop1:
             do {
-                int alt2=3;
-                int LA2_0 = input.LA(1);
+                int alt1=3;
+                int LA1_0 = input.LA(1);
 
-                if ( (LA2_0=='\\') ) {
-                    alt2=1;
+                if ( (LA1_0=='\\') ) {
+                    alt1=1;
                 }
-                else if ( ((LA2_0>='\u0000' && LA2_0<='!')||(LA2_0>='#' && LA2_0<='[')||(LA2_0>=']' && LA2_0<='\uFFFE')) ) {
-                    alt2=2;
+                else if ( ((LA1_0>='\u0000' && LA1_0<='!')||(LA1_0>='#' && LA1_0<='[')||(LA1_0>=']' && LA1_0<='\uFFFE')) ) {
+                    alt1=2;
                 }
 
 
-                switch (alt2) {
+                switch (alt1) {
             	case 1 :
-            	    // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/lexer/InternalLilyPond.g:165:38: '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | '\"' | '\\'' | '\\\\' )
+            	    // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/lexer/InternalLilyPond.g:79:20: '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | '\"' | '\\'' | '\\\\' )
             	    {
-            	    match('\\'); if (failed) return ;
+            	    match('\\'); 
             	    if ( input.LA(1)=='\"'||input.LA(1)=='\''||input.LA(1)=='\\'||input.LA(1)=='b'||input.LA(1)=='f'||input.LA(1)=='n'||input.LA(1)=='r'||input.LA(1)=='t' ) {
             	        input.consume();
-            	    failed=false;
+
             	    }
             	    else {
-            	        if (backtracking>0) {failed=true; return ;}
             	        MismatchedSetException mse =
             	            new MismatchedSetException(null,input);
             	        recover(mse);    throw mse;
@@ -1596,14 +632,13 @@ public class InternalLilyPondLexer extends Lexer {
             	    }
             	    break;
             	case 2 :
-            	    // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/lexer/InternalLilyPond.g:165:79: ~ ( ( '\\\\' | '\"' ) )
+            	    // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/lexer/InternalLilyPond.g:79:61: ~ ( ( '\\\\' | '\"' ) )
             	    {
             	    if ( (input.LA(1)>='\u0000' && input.LA(1)<='!')||(input.LA(1)>='#' && input.LA(1)<='[')||(input.LA(1)>=']' && input.LA(1)<='\uFFFE') ) {
             	        input.consume();
-            	    failed=false;
+
             	    }
             	    else {
-            	        if (backtracking>0) {failed=true; return ;}
             	        MismatchedSetException mse =
             	            new MismatchedSetException(null,input);
             	        recover(mse);    throw mse;
@@ -1614,134 +649,144 @@ public class InternalLilyPondLexer extends Lexer {
             	    break;
 
             	default :
-            	    break loop2;
+            	    break loop1;
                 }
             } while (true);
 
-            match('\"'); if (failed) return ;
+            match('\"'); 
 
             }
 
+            this.type = _type;
         }
         finally {
-            if ( backtracking>0 ) { memoize(input, 32, FRAGMENT_RULE_STRING_StartIndex); }
         }
     }
-    // $ANTLR end FRAGMENT_RULE_STRING
+    // $ANTLR end RULE_STRING
 
     // $ANTLR start RULE_INT
     public final void mRULE_INT() throws RecognitionException {
-        int RULE_INT_StartIndex = input.index();
         try {
-            if ( backtracking>0 && alreadyParsedRule(input, 33) ) { return ; }
-            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/lexer/InternalLilyPond.g:167:19: ( FRAGMENT_RULE_INT )
-            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/lexer/InternalLilyPond.g:167:21: FRAGMENT_RULE_INT
+            int _type = RULE_INT;
+            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/lexer/InternalLilyPond.g:81:10: ( ( '0' .. '9' )+ )
+            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/lexer/InternalLilyPond.g:81:12: ( '0' .. '9' )+
             {
-            mFRAGMENT_RULE_INT(); if (failed) return ;
+            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/lexer/InternalLilyPond.g:81:12: ( '0' .. '9' )+
+            int cnt2=0;
+            loop2:
+            do {
+                int alt2=2;
+                int LA2_0 = input.LA(1);
+
+                if ( ((LA2_0>='0' && LA2_0<='9')) ) {
+                    alt2=1;
+                }
+
+
+                switch (alt2) {
+            	case 1 :
+            	    // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/lexer/InternalLilyPond.g:81:13: '0' .. '9'
+            	    {
+            	    matchRange('0','9'); 
+
+            	    }
+            	    break;
+
+            	default :
+            	    if ( cnt2 >= 1 ) break loop2;
+                        EarlyExitException eee =
+                            new EarlyExitException(2, input);
+                        throw eee;
+                }
+                cnt2++;
+            } while (true);
+
 
             }
 
+            this.type = _type;
         }
         finally {
-            if ( backtracking>0 ) { memoize(input, 33, RULE_INT_StartIndex); }
         }
     }
     // $ANTLR end RULE_INT
 
-    // $ANTLR start FRAGMENT_RULE_INT
-    public final void mFRAGMENT_RULE_INT() throws RecognitionException {
-        int FRAGMENT_RULE_INT_StartIndex = input.index();
+    // $ANTLR start RULE_ID
+    public final void mRULE_ID() throws RecognitionException {
         try {
-            if ( backtracking>0 && alreadyParsedRule(input, 34) ) { return ; }
-            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/lexer/InternalLilyPond.g:168:28: ( ( '0' .. '9' )+ )
-            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/lexer/InternalLilyPond.g:168:30: ( '0' .. '9' )+
+            int _type = RULE_ID;
+            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/lexer/InternalLilyPond.g:83:9: ( ( 'a' .. 'z' | 'A' .. 'Z' ) ( 'a' .. 'z' | 'A' .. 'Z' | '-' )* )
+            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/lexer/InternalLilyPond.g:83:11: ( 'a' .. 'z' | 'A' .. 'Z' ) ( 'a' .. 'z' | 'A' .. 'Z' | '-' )*
             {
-            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/lexer/InternalLilyPond.g:168:30: ( '0' .. '9' )+
-            int cnt3=0;
+            if ( (input.LA(1)>='A' && input.LA(1)<='Z')||(input.LA(1)>='a' && input.LA(1)<='z') ) {
+                input.consume();
+
+            }
+            else {
+                MismatchedSetException mse =
+                    new MismatchedSetException(null,input);
+                recover(mse);    throw mse;
+            }
+
+            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/lexer/InternalLilyPond.g:83:31: ( 'a' .. 'z' | 'A' .. 'Z' | '-' )*
             loop3:
             do {
                 int alt3=2;
                 int LA3_0 = input.LA(1);
 
-                if ( ((LA3_0>='0' && LA3_0<='9')) ) {
+                if ( (LA3_0=='-'||(LA3_0>='A' && LA3_0<='Z')||(LA3_0>='a' && LA3_0<='z')) ) {
                     alt3=1;
                 }
 
 
                 switch (alt3) {
             	case 1 :
-            	    // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/lexer/InternalLilyPond.g:168:31: '0' .. '9'
+            	    // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/lexer/InternalLilyPond.g:
             	    {
-            	    matchRange('0','9'); if (failed) return ;
+            	    if ( input.LA(1)=='-'||(input.LA(1)>='A' && input.LA(1)<='Z')||(input.LA(1)>='a' && input.LA(1)<='z') ) {
+            	        input.consume();
+
+            	    }
+            	    else {
+            	        MismatchedSetException mse =
+            	            new MismatchedSetException(null,input);
+            	        recover(mse);    throw mse;
+            	    }
+
 
             	    }
             	    break;
 
             	default :
-            	    if ( cnt3 >= 1 ) break loop3;
-            	    if (backtracking>0) {failed=true; return ;}
-                        EarlyExitException eee =
-                            new EarlyExitException(3, input);
-                        throw eee;
+            	    break loop3;
                 }
-                cnt3++;
             } while (true);
 
 
             }
 
+            this.type = _type;
         }
         finally {
-            if ( backtracking>0 ) { memoize(input, 34, FRAGMENT_RULE_INT_StartIndex); }
-        }
-    }
-    // $ANTLR end FRAGMENT_RULE_INT
-
-    // $ANTLR start RULE_ID
-    public final void mRULE_ID() throws RecognitionException {
-        int RULE_ID_StartIndex = input.index();
-        try {
-            if ( backtracking>0 && alreadyParsedRule(input, 35) ) { return ; }
-            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/lexer/InternalLilyPond.g:170:18: ( FRAGMENT_RULE_ID )
-            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/lexer/InternalLilyPond.g:170:20: FRAGMENT_RULE_ID
-            {
-            mFRAGMENT_RULE_ID(); if (failed) return ;
-
-            }
-
-        }
-        finally {
-            if ( backtracking>0 ) { memoize(input, 35, RULE_ID_StartIndex); }
         }
     }
     // $ANTLR end RULE_ID
 
-    // $ANTLR start FRAGMENT_RULE_ID
-    public final void mFRAGMENT_RULE_ID() throws RecognitionException {
-        int FRAGMENT_RULE_ID_StartIndex = input.index();
+    // $ANTLR start RULE_WS
+    public final void mRULE_WS() throws RecognitionException {
         try {
-            if ( backtracking>0 && alreadyParsedRule(input, 36) ) { return ; }
-            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/lexer/InternalLilyPond.g:171:27: ( ( 'a' .. 'z' | 'A' .. 'Z' ) ( 'a' .. 'z' | 'A' .. 'Z' | '-' )* )
-            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/lexer/InternalLilyPond.g:171:29: ( 'a' .. 'z' | 'A' .. 'Z' ) ( 'a' .. 'z' | 'A' .. 'Z' | '-' )*
+            int _type = RULE_WS;
+            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/lexer/InternalLilyPond.g:85:9: ( ( ' ' | '\\t' | '\\r' | '\\n' )+ )
+            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/lexer/InternalLilyPond.g:85:11: ( ' ' | '\\t' | '\\r' | '\\n' )+
             {
-            if ( (input.LA(1)>='A' && input.LA(1)<='Z')||(input.LA(1)>='a' && input.LA(1)<='z') ) {
-                input.consume();
-            failed=false;
-            }
-            else {
-                if (backtracking>0) {failed=true; return ;}
-                MismatchedSetException mse =
-                    new MismatchedSetException(null,input);
-                recover(mse);    throw mse;
-            }
-
-            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/lexer/InternalLilyPond.g:171:49: ( 'a' .. 'z' | 'A' .. 'Z' | '-' )*
+            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/lexer/InternalLilyPond.g:85:11: ( ' ' | '\\t' | '\\r' | '\\n' )+
+            int cnt4=0;
             loop4:
             do {
                 int alt4=2;
                 int LA4_0 = input.LA(1);
 
-                if ( (LA4_0=='-'||(LA4_0>='A' && LA4_0<='Z')||(LA4_0>='a' && LA4_0<='z')) ) {
+                if ( ((LA4_0>='\t' && LA4_0<='\n')||LA4_0=='\r'||LA4_0==' ') ) {
                     alt4=1;
                 }
 
@@ -1750,12 +795,11 @@ public class InternalLilyPondLexer extends Lexer {
             	case 1 :
             	    // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/lexer/InternalLilyPond.g:
             	    {
-            	    if ( input.LA(1)=='-'||(input.LA(1)>='A' && input.LA(1)<='Z')||(input.LA(1)>='a' && input.LA(1)<='z') ) {
+            	    if ( (input.LA(1)>='\t' && input.LA(1)<='\n')||input.LA(1)=='\r'||input.LA(1)==' ' ) {
             	        input.consume();
-            	    failed=false;
+
             	    }
             	    else {
-            	        if (backtracking>0) {failed=true; return ;}
             	        MismatchedSetException mse =
             	            new MismatchedSetException(null,input);
             	        recover(mse);    throw mse;
@@ -1766,147 +810,52 @@ public class InternalLilyPondLexer extends Lexer {
             	    break;
 
             	default :
-            	    break loop4;
+            	    if ( cnt4 >= 1 ) break loop4;
+                        EarlyExitException eee =
+                            new EarlyExitException(4, input);
+                        throw eee;
                 }
+                cnt4++;
             } while (true);
 
 
             }
 
+            this.type = _type;
         }
         finally {
-            if ( backtracking>0 ) { memoize(input, 36, FRAGMENT_RULE_ID_StartIndex); }
-        }
-    }
-    // $ANTLR end FRAGMENT_RULE_ID
-
-    // $ANTLR start RULE_WS
-    public final void mRULE_WS() throws RecognitionException {
-        int RULE_WS_StartIndex = input.index();
-        try {
-            if ( backtracking>0 && alreadyParsedRule(input, 37) ) { return ; }
-            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/lexer/InternalLilyPond.g:173:18: ( FRAGMENT_RULE_WS )
-            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/lexer/InternalLilyPond.g:173:20: FRAGMENT_RULE_WS
-            {
-            mFRAGMENT_RULE_WS(); if (failed) return ;
-
-            }
-
-        }
-        finally {
-            if ( backtracking>0 ) { memoize(input, 37, RULE_WS_StartIndex); }
         }
     }
     // $ANTLR end RULE_WS
 
-    // $ANTLR start FRAGMENT_RULE_WS
-    public final void mFRAGMENT_RULE_WS() throws RecognitionException {
-        int FRAGMENT_RULE_WS_StartIndex = input.index();
+    // $ANTLR start RULE_SL_COMMENT
+    public final void mRULE_SL_COMMENT() throws RecognitionException {
         try {
-            if ( backtracking>0 && alreadyParsedRule(input, 38) ) { return ; }
-            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/lexer/InternalLilyPond.g:174:27: ( ( ' ' | '\\t' | '\\r' | '\\n' )+ )
-            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/lexer/InternalLilyPond.g:174:29: ( ' ' | '\\t' | '\\r' | '\\n' )+
+            int _type = RULE_SL_COMMENT;
+            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/lexer/InternalLilyPond.g:87:17: ( '%' (~ ( ( '\\n' | '\\r' ) ) )* ( ( '\\r' )? '\\n' )? )
+            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/lexer/InternalLilyPond.g:87:19: '%' (~ ( ( '\\n' | '\\r' ) ) )* ( ( '\\r' )? '\\n' )?
             {
-            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/lexer/InternalLilyPond.g:174:29: ( ' ' | '\\t' | '\\r' | '\\n' )+
-            int cnt5=0;
+            match('%'); 
+            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/lexer/InternalLilyPond.g:87:23: (~ ( ( '\\n' | '\\r' ) ) )*
             loop5:
             do {
                 int alt5=2;
                 int LA5_0 = input.LA(1);
 
-                if ( ((LA5_0>='\t' && LA5_0<='\n')||LA5_0=='\r'||LA5_0==' ') ) {
+                if ( ((LA5_0>='\u0000' && LA5_0<='\t')||(LA5_0>='\u000B' && LA5_0<='\f')||(LA5_0>='\u000E' && LA5_0<='\uFFFE')) ) {
                     alt5=1;
                 }
 
 
                 switch (alt5) {
             	case 1 :
-            	    // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/lexer/InternalLilyPond.g:
-            	    {
-            	    if ( (input.LA(1)>='\t' && input.LA(1)<='\n')||input.LA(1)=='\r'||input.LA(1)==' ' ) {
-            	        input.consume();
-            	    failed=false;
-            	    }
-            	    else {
-            	        if (backtracking>0) {failed=true; return ;}
-            	        MismatchedSetException mse =
-            	            new MismatchedSetException(null,input);
-            	        recover(mse);    throw mse;
-            	    }
-
-
-            	    }
-            	    break;
-
-            	default :
-            	    if ( cnt5 >= 1 ) break loop5;
-            	    if (backtracking>0) {failed=true; return ;}
-                        EarlyExitException eee =
-                            new EarlyExitException(5, input);
-                        throw eee;
-                }
-                cnt5++;
-            } while (true);
-
-
-            }
-
-        }
-        finally {
-            if ( backtracking>0 ) { memoize(input, 38, FRAGMENT_RULE_WS_StartIndex); }
-        }
-    }
-    // $ANTLR end FRAGMENT_RULE_WS
-
-    // $ANTLR start RULE_SL_COMMENT
-    public final void mRULE_SL_COMMENT() throws RecognitionException {
-        int RULE_SL_COMMENT_StartIndex = input.index();
-        try {
-            if ( backtracking>0 && alreadyParsedRule(input, 39) ) { return ; }
-            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/lexer/InternalLilyPond.g:176:26: ( FRAGMENT_RULE_SL_COMMENT )
-            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/lexer/InternalLilyPond.g:176:28: FRAGMENT_RULE_SL_COMMENT
-            {
-            mFRAGMENT_RULE_SL_COMMENT(); if (failed) return ;
-
-            }
-
-        }
-        finally {
-            if ( backtracking>0 ) { memoize(input, 39, RULE_SL_COMMENT_StartIndex); }
-        }
-    }
-    // $ANTLR end RULE_SL_COMMENT
-
-    // $ANTLR start FRAGMENT_RULE_SL_COMMENT
-    public final void mFRAGMENT_RULE_SL_COMMENT() throws RecognitionException {
-        int FRAGMENT_RULE_SL_COMMENT_StartIndex = input.index();
-        try {
-            if ( backtracking>0 && alreadyParsedRule(input, 40) ) { return ; }
-            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/lexer/InternalLilyPond.g:177:35: ( '%' (~ ( ( '\\n' | '\\r' ) ) )* ( ( '\\r' )? '\\n' )? )
-            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/lexer/InternalLilyPond.g:177:37: '%' (~ ( ( '\\n' | '\\r' ) ) )* ( ( '\\r' )? '\\n' )?
-            {
-            match('%'); if (failed) return ;
-            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/lexer/InternalLilyPond.g:177:41: (~ ( ( '\\n' | '\\r' ) ) )*
-            loop6:
-            do {
-                int alt6=2;
-                int LA6_0 = input.LA(1);
-
-                if ( ((LA6_0>='\u0000' && LA6_0<='\t')||(LA6_0>='\u000B' && LA6_0<='\f')||(LA6_0>='\u000E' && LA6_0<='\uFFFE')) ) {
-                    alt6=1;
-                }
-
-
-                switch (alt6) {
-            	case 1 :
-            	    // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/lexer/InternalLilyPond.g:0:0: ~ ( ( '\\n' | '\\r' ) )
+            	    // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/lexer/InternalLilyPond.g:87:23: ~ ( ( '\\n' | '\\r' ) )
             	    {
             	    if ( (input.LA(1)>='\u0000' && input.LA(1)<='\t')||(input.LA(1)>='\u000B' && input.LA(1)<='\f')||(input.LA(1)>='\u000E' && input.LA(1)<='\uFFFE') ) {
             	        input.consume();
-            	    failed=false;
+
             	    }
             	    else {
-            	        if (backtracking>0) {failed=true; return ;}
             	        MismatchedSetException mse =
             	            new MismatchedSetException(null,input);
             	        recover(mse);    throw mse;
@@ -1917,40 +866,40 @@ public class InternalLilyPondLexer extends Lexer {
             	    break;
 
             	default :
-            	    break loop6;
+            	    break loop5;
                 }
             } while (true);
 
-            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/lexer/InternalLilyPond.g:177:57: ( ( '\\r' )? '\\n' )?
-            int alt8=2;
-            int LA8_0 = input.LA(1);
+            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/lexer/InternalLilyPond.g:87:39: ( ( '\\r' )? '\\n' )?
+            int alt7=2;
+            int LA7_0 = input.LA(1);
 
-            if ( (LA8_0=='\n'||LA8_0=='\r') ) {
-                alt8=1;
+            if ( (LA7_0=='\n'||LA7_0=='\r') ) {
+                alt7=1;
             }
-            switch (alt8) {
+            switch (alt7) {
                 case 1 :
-                    // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/lexer/InternalLilyPond.g:177:58: ( '\\r' )? '\\n'
+                    // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/lexer/InternalLilyPond.g:87:40: ( '\\r' )? '\\n'
                     {
-                    // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/lexer/InternalLilyPond.g:177:58: ( '\\r' )?
-                    int alt7=2;
-                    int LA7_0 = input.LA(1);
+                    // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/lexer/InternalLilyPond.g:87:40: ( '\\r' )?
+                    int alt6=2;
+                    int LA6_0 = input.LA(1);
 
-                    if ( (LA7_0=='\r') ) {
-                        alt7=1;
+                    if ( (LA6_0=='\r') ) {
+                        alt6=1;
                     }
-                    switch (alt7) {
+                    switch (alt6) {
                         case 1 :
-                            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/lexer/InternalLilyPond.g:0:0: '\\r'
+                            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/lexer/InternalLilyPond.g:87:40: '\\r'
                             {
-                            match('\r'); if (failed) return ;
+                            match('\r'); 
 
                             }
                             break;
 
                     }
 
-                    match('\n'); if (failed) return ;
+                    match('\n'); 
 
                     }
                     break;
@@ -1960,70 +909,104 @@ public class InternalLilyPondLexer extends Lexer {
 
             }
 
+            this.type = _type;
         }
         finally {
-            if ( backtracking>0 ) { memoize(input, 40, FRAGMENT_RULE_SL_COMMENT_StartIndex); }
         }
     }
-    // $ANTLR end FRAGMENT_RULE_SL_COMMENT
+    // $ANTLR end RULE_SL_COMMENT
 
     // $ANTLR start RULE_ML_COMMENT
     public final void mRULE_ML_COMMENT() throws RecognitionException {
-        int RULE_ML_COMMENT_StartIndex = input.index();
         try {
-            if ( backtracking>0 && alreadyParsedRule(input, 41) ) { return ; }
-            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/lexer/InternalLilyPond.g:179:26: ( FRAGMENT_RULE_ML_COMMENT )
-            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/lexer/InternalLilyPond.g:179:28: FRAGMENT_RULE_ML_COMMENT
+            int _type = RULE_ML_COMMENT;
+            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/lexer/InternalLilyPond.g:89:17: ( '%{' ( options {greedy=false; } : . )* '%}' )
+            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/lexer/InternalLilyPond.g:89:19: '%{' ( options {greedy=false; } : . )* '%}'
             {
-            mFRAGMENT_RULE_ML_COMMENT(); if (failed) return ;
+            match("%{"); 
+
+            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/lexer/InternalLilyPond.g:89:24: ( options {greedy=false; } : . )*
+            loop8:
+            do {
+                int alt8=2;
+                int LA8_0 = input.LA(1);
+
+                if ( (LA8_0=='%') ) {
+                    int LA8_1 = input.LA(2);
+
+                    if ( (LA8_1=='}') ) {
+                        alt8=2;
+                    }
+                    else if ( ((LA8_1>='\u0000' && LA8_1<='|')||(LA8_1>='~' && LA8_1<='\uFFFE')) ) {
+                        alt8=1;
+                    }
+
+
+                }
+                else if ( ((LA8_0>='\u0000' && LA8_0<='$')||(LA8_0>='&' && LA8_0<='\uFFFE')) ) {
+                    alt8=1;
+                }
+
+
+                switch (alt8) {
+            	case 1 :
+            	    // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/lexer/InternalLilyPond.g:89:52: .
+            	    {
+            	    matchAny(); 
+
+            	    }
+            	    break;
+
+            	default :
+            	    break loop8;
+                }
+            } while (true);
+
+            match("%}"); 
+
 
             }
 
+            this.type = _type;
         }
         finally {
-            if ( backtracking>0 ) { memoize(input, 41, RULE_ML_COMMENT_StartIndex); }
         }
     }
     // $ANTLR end RULE_ML_COMMENT
 
-    // $ANTLR start FRAGMENT_RULE_ML_COMMENT
-    public final void mFRAGMENT_RULE_ML_COMMENT() throws RecognitionException {
-        int FRAGMENT_RULE_ML_COMMENT_StartIndex = input.index();
+    // $ANTLR start RULE_SCHEME_SL_COMMENT
+    public final void mRULE_SCHEME_SL_COMMENT() throws RecognitionException {
         try {
-            if ( backtracking>0 && alreadyParsedRule(input, 42) ) { return ; }
-            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/lexer/InternalLilyPond.g:180:35: ( '%{' ( options {greedy=false; } : . )* '%}' )
-            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/lexer/InternalLilyPond.g:180:37: '%{' ( options {greedy=false; } : . )* '%}'
+            int _type = RULE_SCHEME_SL_COMMENT;
+            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/lexer/InternalLilyPond.g:91:24: ( ';' (~ ( ( '\\n' | '\\r' ) ) )* ( ( '\\r' )? '\\n' )? )
+            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/lexer/InternalLilyPond.g:91:26: ';' (~ ( ( '\\n' | '\\r' ) ) )* ( ( '\\r' )? '\\n' )?
             {
-            match("%{"); if (failed) return ;
-
-            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/lexer/InternalLilyPond.g:180:42: ( options {greedy=false; } : . )*
+            match(';'); 
+            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/lexer/InternalLilyPond.g:91:30: (~ ( ( '\\n' | '\\r' ) ) )*
             loop9:
             do {
                 int alt9=2;
                 int LA9_0 = input.LA(1);
 
-                if ( (LA9_0=='%') ) {
-                    int LA9_1 = input.LA(2);
-
-                    if ( (LA9_1=='}') ) {
-                        alt9=2;
-                    }
-                    else if ( ((LA9_1>='\u0000' && LA9_1<='|')||(LA9_1>='~' && LA9_1<='\uFFFE')) ) {
-                        alt9=1;
-                    }
-
-
-                }
-                else if ( ((LA9_0>='\u0000' && LA9_0<='$')||(LA9_0>='&' && LA9_0<='\uFFFE')) ) {
+                if ( ((LA9_0>='\u0000' && LA9_0<='\t')||(LA9_0>='\u000B' && LA9_0<='\f')||(LA9_0>='\u000E' && LA9_0<='\uFFFE')) ) {
                     alt9=1;
                 }
 
 
                 switch (alt9) {
             	case 1 :
-            	    // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/lexer/InternalLilyPond.g:180:70: .
+            	    // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/lexer/InternalLilyPond.g:91:30: ~ ( ( '\\n' | '\\r' ) )
             	    {
-            	    matchAny(); if (failed) return ;
+            	    if ( (input.LA(1)>='\u0000' && input.LA(1)<='\t')||(input.LA(1)>='\u000B' && input.LA(1)<='\f')||(input.LA(1)>='\u000E' && input.LA(1)<='\uFFFE') ) {
+            	        input.consume();
+
+            	    }
+            	    else {
+            	        MismatchedSetException mse =
+            	            new MismatchedSetException(null,input);
+            	        recover(mse);    throw mse;
+            	    }
+
 
             	    }
             	    break;
@@ -2033,111 +1016,36 @@ public class InternalLilyPondLexer extends Lexer {
                 }
             } while (true);
 
-            match("%}"); if (failed) return ;
+            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/lexer/InternalLilyPond.g:91:46: ( ( '\\r' )? '\\n' )?
+            int alt11=2;
+            int LA11_0 = input.LA(1);
 
-
+            if ( (LA11_0=='\n'||LA11_0=='\r') ) {
+                alt11=1;
             }
-
-        }
-        finally {
-            if ( backtracking>0 ) { memoize(input, 42, FRAGMENT_RULE_ML_COMMENT_StartIndex); }
-        }
-    }
-    // $ANTLR end FRAGMENT_RULE_ML_COMMENT
-
-    // $ANTLR start RULE_SCHEME_SL_COMMENT
-    public final void mRULE_SCHEME_SL_COMMENT() throws RecognitionException {
-        int RULE_SCHEME_SL_COMMENT_StartIndex = input.index();
-        try {
-            if ( backtracking>0 && alreadyParsedRule(input, 43) ) { return ; }
-            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/lexer/InternalLilyPond.g:182:33: ( FRAGMENT_RULE_SCHEME_SL_COMMENT )
-            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/lexer/InternalLilyPond.g:182:35: FRAGMENT_RULE_SCHEME_SL_COMMENT
-            {
-            mFRAGMENT_RULE_SCHEME_SL_COMMENT(); if (failed) return ;
-
-            }
-
-        }
-        finally {
-            if ( backtracking>0 ) { memoize(input, 43, RULE_SCHEME_SL_COMMENT_StartIndex); }
-        }
-    }
-    // $ANTLR end RULE_SCHEME_SL_COMMENT
-
-    // $ANTLR start FRAGMENT_RULE_SCHEME_SL_COMMENT
-    public final void mFRAGMENT_RULE_SCHEME_SL_COMMENT() throws RecognitionException {
-        int FRAGMENT_RULE_SCHEME_SL_COMMENT_StartIndex = input.index();
-        try {
-            if ( backtracking>0 && alreadyParsedRule(input, 44) ) { return ; }
-            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/lexer/InternalLilyPond.g:183:42: ( ';' (~ ( ( '\\n' | '\\r' ) ) )* ( ( '\\r' )? '\\n' )? )
-            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/lexer/InternalLilyPond.g:183:44: ';' (~ ( ( '\\n' | '\\r' ) ) )* ( ( '\\r' )? '\\n' )?
-            {
-            match(';'); if (failed) return ;
-            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/lexer/InternalLilyPond.g:183:48: (~ ( ( '\\n' | '\\r' ) ) )*
-            loop10:
-            do {
-                int alt10=2;
-                int LA10_0 = input.LA(1);
-
-                if ( ((LA10_0>='\u0000' && LA10_0<='\t')||(LA10_0>='\u000B' && LA10_0<='\f')||(LA10_0>='\u000E' && LA10_0<='\uFFFE')) ) {
-                    alt10=1;
-                }
-
-
-                switch (alt10) {
-            	case 1 :
-            	    // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/lexer/InternalLilyPond.g:0:0: ~ ( ( '\\n' | '\\r' ) )
-            	    {
-            	    if ( (input.LA(1)>='\u0000' && input.LA(1)<='\t')||(input.LA(1)>='\u000B' && input.LA(1)<='\f')||(input.LA(1)>='\u000E' && input.LA(1)<='\uFFFE') ) {
-            	        input.consume();
-            	    failed=false;
-            	    }
-            	    else {
-            	        if (backtracking>0) {failed=true; return ;}
-            	        MismatchedSetException mse =
-            	            new MismatchedSetException(null,input);
-            	        recover(mse);    throw mse;
-            	    }
-
-
-            	    }
-            	    break;
-
-            	default :
-            	    break loop10;
-                }
-            } while (true);
-
-            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/lexer/InternalLilyPond.g:183:64: ( ( '\\r' )? '\\n' )?
-            int alt12=2;
-            int LA12_0 = input.LA(1);
-
-            if ( (LA12_0=='\n'||LA12_0=='\r') ) {
-                alt12=1;
-            }
-            switch (alt12) {
+            switch (alt11) {
                 case 1 :
-                    // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/lexer/InternalLilyPond.g:183:65: ( '\\r' )? '\\n'
+                    // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/lexer/InternalLilyPond.g:91:47: ( '\\r' )? '\\n'
                     {
-                    // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/lexer/InternalLilyPond.g:183:65: ( '\\r' )?
-                    int alt11=2;
-                    int LA11_0 = input.LA(1);
+                    // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/lexer/InternalLilyPond.g:91:47: ( '\\r' )?
+                    int alt10=2;
+                    int LA10_0 = input.LA(1);
 
-                    if ( (LA11_0=='\r') ) {
-                        alt11=1;
+                    if ( (LA10_0=='\r') ) {
+                        alt10=1;
                     }
-                    switch (alt11) {
+                    switch (alt10) {
                         case 1 :
-                            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/lexer/InternalLilyPond.g:0:0: '\\r'
+                            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/lexer/InternalLilyPond.g:91:47: '\\r'
                             {
-                            match('\r'); if (failed) return ;
+                            match('\r'); 
 
                             }
                             break;
 
                     }
 
-                    match('\n'); if (failed) return ;
+                    match('\n'); 
 
                     }
                     break;
@@ -2147,1092 +1055,528 @@ public class InternalLilyPondLexer extends Lexer {
 
             }
 
+            this.type = _type;
         }
         finally {
-            if ( backtracking>0 ) { memoize(input, 44, FRAGMENT_RULE_SCHEME_SL_COMMENT_StartIndex); }
         }
     }
-    // $ANTLR end FRAGMENT_RULE_SCHEME_SL_COMMENT
+    // $ANTLR end RULE_SCHEME_SL_COMMENT
 
     // $ANTLR start RULE_SCHEME_ML_COMMENT
     public final void mRULE_SCHEME_ML_COMMENT() throws RecognitionException {
-        int RULE_SCHEME_ML_COMMENT_StartIndex = input.index();
         try {
-            if ( backtracking>0 && alreadyParsedRule(input, 45) ) { return ; }
-            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/lexer/InternalLilyPond.g:185:33: ( FRAGMENT_RULE_SCHEME_ML_COMMENT )
-            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/lexer/InternalLilyPond.g:185:35: FRAGMENT_RULE_SCHEME_ML_COMMENT
+            int _type = RULE_SCHEME_ML_COMMENT;
+            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/lexer/InternalLilyPond.g:93:24: ( '#!' ( options {greedy=false; } : . )* '!#' )
+            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/lexer/InternalLilyPond.g:93:26: '#!' ( options {greedy=false; } : . )* '!#'
             {
-            mFRAGMENT_RULE_SCHEME_ML_COMMENT(); if (failed) return ;
+            match("#!"); 
 
-            }
-
-        }
-        finally {
-            if ( backtracking>0 ) { memoize(input, 45, RULE_SCHEME_ML_COMMENT_StartIndex); }
-        }
-    }
-    // $ANTLR end RULE_SCHEME_ML_COMMENT
-
-    // $ANTLR start FRAGMENT_RULE_SCHEME_ML_COMMENT
-    public final void mFRAGMENT_RULE_SCHEME_ML_COMMENT() throws RecognitionException {
-        int FRAGMENT_RULE_SCHEME_ML_COMMENT_StartIndex = input.index();
-        try {
-            if ( backtracking>0 && alreadyParsedRule(input, 46) ) { return ; }
-            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/lexer/InternalLilyPond.g:186:42: ( '#!' ( options {greedy=false; } : . )* '!#' )
-            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/lexer/InternalLilyPond.g:186:44: '#!' ( options {greedy=false; } : . )* '!#'
-            {
-            match("#!"); if (failed) return ;
-
-            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/lexer/InternalLilyPond.g:186:49: ( options {greedy=false; } : . )*
-            loop13:
+            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/lexer/InternalLilyPond.g:93:31: ( options {greedy=false; } : . )*
+            loop12:
             do {
-                int alt13=2;
-                int LA13_0 = input.LA(1);
+                int alt12=2;
+                int LA12_0 = input.LA(1);
 
-                if ( (LA13_0=='!') ) {
-                    int LA13_1 = input.LA(2);
+                if ( (LA12_0=='!') ) {
+                    int LA12_1 = input.LA(2);
 
-                    if ( (LA13_1=='#') ) {
-                        alt13=2;
+                    if ( (LA12_1=='#') ) {
+                        alt12=2;
                     }
-                    else if ( ((LA13_1>='\u0000' && LA13_1<='\"')||(LA13_1>='$' && LA13_1<='\uFFFE')) ) {
-                        alt13=1;
+                    else if ( ((LA12_1>='\u0000' && LA12_1<='\"')||(LA12_1>='$' && LA12_1<='\uFFFE')) ) {
+                        alt12=1;
                     }
 
 
                 }
-                else if ( ((LA13_0>='\u0000' && LA13_0<=' ')||(LA13_0>='\"' && LA13_0<='\uFFFE')) ) {
-                    alt13=1;
+                else if ( ((LA12_0>='\u0000' && LA12_0<=' ')||(LA12_0>='\"' && LA12_0<='\uFFFE')) ) {
+                    alt12=1;
                 }
 
 
-                switch (alt13) {
+                switch (alt12) {
             	case 1 :
-            	    // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/lexer/InternalLilyPond.g:186:77: .
+            	    // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/lexer/InternalLilyPond.g:93:59: .
             	    {
-            	    matchAny(); if (failed) return ;
+            	    matchAny(); 
 
             	    }
             	    break;
 
             	default :
-            	    break loop13;
+            	    break loop12;
                 }
             } while (true);
 
-            match("!#"); if (failed) return ;
+            match("!#"); 
 
 
             }
 
+            this.type = _type;
         }
         finally {
-            if ( backtracking>0 ) { memoize(input, 46, FRAGMENT_RULE_SCHEME_ML_COMMENT_StartIndex); }
         }
     }
-    // $ANTLR end FRAGMENT_RULE_SCHEME_ML_COMMENT
+    // $ANTLR end RULE_SCHEME_ML_COMMENT
 
     // $ANTLR start RULE_ANY_OTHER
     public final void mRULE_ANY_OTHER() throws RecognitionException {
-        int RULE_ANY_OTHER_StartIndex = input.index();
         try {
-            if ( backtracking>0 && alreadyParsedRule(input, 47) ) { return ; }
-            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/lexer/InternalLilyPond.g:188:25: ( FRAGMENT_RULE_ANY_OTHER )
-            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/lexer/InternalLilyPond.g:188:27: FRAGMENT_RULE_ANY_OTHER
+            int _type = RULE_ANY_OTHER;
+            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/lexer/InternalLilyPond.g:95:16: ( . )
+            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/lexer/InternalLilyPond.g:95:18: .
             {
-            mFRAGMENT_RULE_ANY_OTHER(); if (failed) return ;
+            matchAny(); 
 
             }
 
+            this.type = _type;
         }
         finally {
-            if ( backtracking>0 ) { memoize(input, 47, RULE_ANY_OTHER_StartIndex); }
         }
     }
     // $ANTLR end RULE_ANY_OTHER
 
-    // $ANTLR start FRAGMENT_RULE_ANY_OTHER
-    public final void mFRAGMENT_RULE_ANY_OTHER() throws RecognitionException {
-        int FRAGMENT_RULE_ANY_OTHER_StartIndex = input.index();
-        try {
-            if ( backtracking>0 && alreadyParsedRule(input, 48) ) { return ; }
-            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/lexer/InternalLilyPond.g:189:34: ( . )
-            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/lexer/InternalLilyPond.g:189:36: .
-            {
-            matchAny(); if (failed) return ;
-
-            }
-
-        }
-        finally {
-            if ( backtracking>0 ) { memoize(input, 48, FRAGMENT_RULE_ANY_OTHER_StartIndex); }
-        }
-    }
-    // $ANTLR end FRAGMENT_RULE_ANY_OTHER
-
     public void mTokens() throws RecognitionException {
-        // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/lexer/InternalLilyPond.g:1:8: ( SYNTHETIC_ALL_KEYWORDS )
-        // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/lexer/InternalLilyPond.g:1:10: SYNTHETIC_ALL_KEYWORDS
-        {
-        mSYNTHETIC_ALL_KEYWORDS(); if (failed) return ;
-
-        }
-
-
-    }
-
-    // $ANTLR start synpred1
-    public final void synpred1_fragment() throws RecognitionException {   
-        // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/lexer/InternalLilyPond.g:64:2: ( FRAGMENT_KEYWORD_1 )
-        // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/lexer/InternalLilyPond.g:64:3: FRAGMENT_KEYWORD_1
-        {
-        mFRAGMENT_KEYWORD_1(); if (failed) return ;
-
-        }
-    }
-    // $ANTLR end synpred1
-
-    // $ANTLR start synpred2
-    public final void synpred2_fragment() throws RecognitionException {   
-        // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/lexer/InternalLilyPond.g:65:2: ( FRAGMENT_KEYWORD_2 )
-        // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/lexer/InternalLilyPond.g:65:3: FRAGMENT_KEYWORD_2
-        {
-        mFRAGMENT_KEYWORD_2(); if (failed) return ;
-
-        }
-    }
-    // $ANTLR end synpred2
-
-    // $ANTLR start synpred3
-    public final void synpred3_fragment() throws RecognitionException {   
-        // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/lexer/InternalLilyPond.g:66:2: ( FRAGMENT_KEYWORD_3 )
-        // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/lexer/InternalLilyPond.g:66:3: FRAGMENT_KEYWORD_3
-        {
-        mFRAGMENT_KEYWORD_3(); if (failed) return ;
-
-        }
-    }
-    // $ANTLR end synpred3
-
-    // $ANTLR start synpred4
-    public final void synpred4_fragment() throws RecognitionException {   
-        // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/lexer/InternalLilyPond.g:67:2: ( FRAGMENT_KEYWORD_4 )
-        // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/lexer/InternalLilyPond.g:67:3: FRAGMENT_KEYWORD_4
-        {
-        mFRAGMENT_KEYWORD_4(); if (failed) return ;
-
-        }
-    }
-    // $ANTLR end synpred4
-
-    // $ANTLR start synpred5
-    public final void synpred5_fragment() throws RecognitionException {   
-        // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/lexer/InternalLilyPond.g:68:2: ( FRAGMENT_KEYWORD_5 )
-        // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/lexer/InternalLilyPond.g:68:3: FRAGMENT_KEYWORD_5
-        {
-        mFRAGMENT_KEYWORD_5(); if (failed) return ;
-
-        }
-    }
-    // $ANTLR end synpred5
-
-    // $ANTLR start synpred6
-    public final void synpred6_fragment() throws RecognitionException {   
-        // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/lexer/InternalLilyPond.g:69:2: ( FRAGMENT_KEYWORD_6 )
-        // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/lexer/InternalLilyPond.g:69:3: FRAGMENT_KEYWORD_6
-        {
-        mFRAGMENT_KEYWORD_6(); if (failed) return ;
-
-        }
-    }
-    // $ANTLR end synpred6
-
-    // $ANTLR start synpred7
-    public final void synpred7_fragment() throws RecognitionException {   
-        // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/lexer/InternalLilyPond.g:70:2: ( FRAGMENT_KEYWORD_7 )
-        // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/lexer/InternalLilyPond.g:70:3: FRAGMENT_KEYWORD_7
-        {
-        mFRAGMENT_KEYWORD_7(); if (failed) return ;
-
-        }
-    }
-    // $ANTLR end synpred7
-
-    // $ANTLR start synpred8
-    public final void synpred8_fragment() throws RecognitionException {   
-        // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/lexer/InternalLilyPond.g:71:2: ( FRAGMENT_KEYWORD_8 )
-        // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/lexer/InternalLilyPond.g:71:3: FRAGMENT_KEYWORD_8
-        {
-        mFRAGMENT_KEYWORD_8(); if (failed) return ;
-
-        }
-    }
-    // $ANTLR end synpred8
-
-    // $ANTLR start synpred9
-    public final void synpred9_fragment() throws RecognitionException {   
-        // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/lexer/InternalLilyPond.g:72:2: ( FRAGMENT_KEYWORD_9 )
-        // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/lexer/InternalLilyPond.g:72:3: FRAGMENT_KEYWORD_9
-        {
-        mFRAGMENT_KEYWORD_9(); if (failed) return ;
-
-        }
-    }
-    // $ANTLR end synpred9
-
-    // $ANTLR start synpred10
-    public final void synpred10_fragment() throws RecognitionException {   
-        // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/lexer/InternalLilyPond.g:73:2: ( FRAGMENT_KEYWORD_10 )
-        // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/lexer/InternalLilyPond.g:73:3: FRAGMENT_KEYWORD_10
-        {
-        mFRAGMENT_KEYWORD_10(); if (failed) return ;
-
-        }
-    }
-    // $ANTLR end synpred10
-
-    // $ANTLR start synpred11
-    public final void synpred11_fragment() throws RecognitionException {   
-        // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/lexer/InternalLilyPond.g:74:2: ( FRAGMENT_KEYWORD_11 )
-        // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/lexer/InternalLilyPond.g:74:3: FRAGMENT_KEYWORD_11
-        {
-        mFRAGMENT_KEYWORD_11(); if (failed) return ;
-
-        }
-    }
-    // $ANTLR end synpred11
-
-    // $ANTLR start synpred12
-    public final void synpred12_fragment() throws RecognitionException {   
-        // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/lexer/InternalLilyPond.g:75:2: ( FRAGMENT_KEYWORD_12 )
-        // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/lexer/InternalLilyPond.g:75:3: FRAGMENT_KEYWORD_12
-        {
-        mFRAGMENT_KEYWORD_12(); if (failed) return ;
-
-        }
-    }
-    // $ANTLR end synpred12
-
-    // $ANTLR start synpred13
-    public final void synpred13_fragment() throws RecognitionException {   
-        // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/lexer/InternalLilyPond.g:76:2: ( FRAGMENT_KEYWORD_13 )
-        // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/lexer/InternalLilyPond.g:76:3: FRAGMENT_KEYWORD_13
-        {
-        mFRAGMENT_KEYWORD_13(); if (failed) return ;
-
-        }
-    }
-    // $ANTLR end synpred13
-
-    // $ANTLR start synpred14
-    public final void synpred14_fragment() throws RecognitionException {   
-        // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/lexer/InternalLilyPond.g:77:2: ( FRAGMENT_KEYWORD_14 )
-        // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/lexer/InternalLilyPond.g:77:3: FRAGMENT_KEYWORD_14
-        {
-        mFRAGMENT_KEYWORD_14(); if (failed) return ;
-
-        }
-    }
-    // $ANTLR end synpred14
-
-    // $ANTLR start synpred15
-    public final void synpred15_fragment() throws RecognitionException {   
-        // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/lexer/InternalLilyPond.g:78:2: ( FRAGMENT_KEYWORD_15 )
-        // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/lexer/InternalLilyPond.g:78:3: FRAGMENT_KEYWORD_15
-        {
-        mFRAGMENT_KEYWORD_15(); if (failed) return ;
-
-        }
-    }
-    // $ANTLR end synpred15
-
-    // $ANTLR start synpred16
-    public final void synpred16_fragment() throws RecognitionException {   
-        // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/lexer/InternalLilyPond.g:79:2: ( FRAGMENT_KEYWORD_16 )
-        // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/lexer/InternalLilyPond.g:79:3: FRAGMENT_KEYWORD_16
-        {
-        mFRAGMENT_KEYWORD_16(); if (failed) return ;
-
-        }
-    }
-    // $ANTLR end synpred16
-
-    // $ANTLR start synpred17
-    public final void synpred17_fragment() throws RecognitionException {   
-        // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/lexer/InternalLilyPond.g:80:2: ( FRAGMENT_KEYWORD_17 )
-        // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/lexer/InternalLilyPond.g:80:3: FRAGMENT_KEYWORD_17
-        {
-        mFRAGMENT_KEYWORD_17(); if (failed) return ;
-
-        }
-    }
-    // $ANTLR end synpred17
-
-    // $ANTLR start synpred18
-    public final void synpred18_fragment() throws RecognitionException {   
-        // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/lexer/InternalLilyPond.g:81:2: ( FRAGMENT_KEYWORD_18 )
-        // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/lexer/InternalLilyPond.g:81:3: FRAGMENT_KEYWORD_18
-        {
-        mFRAGMENT_KEYWORD_18(); if (failed) return ;
-
-        }
-    }
-    // $ANTLR end synpred18
-
-    // $ANTLR start synpred19
-    public final void synpred19_fragment() throws RecognitionException {   
-        // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/lexer/InternalLilyPond.g:82:2: ( FRAGMENT_KEYWORD_19 )
-        // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/lexer/InternalLilyPond.g:82:3: FRAGMENT_KEYWORD_19
-        {
-        mFRAGMENT_KEYWORD_19(); if (failed) return ;
-
-        }
-    }
-    // $ANTLR end synpred19
-
-    // $ANTLR start synpred20
-    public final void synpred20_fragment() throws RecognitionException {   
-        // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/lexer/InternalLilyPond.g:83:2: ( FRAGMENT_KEYWORD_20 )
-        // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/lexer/InternalLilyPond.g:83:3: FRAGMENT_KEYWORD_20
-        {
-        mFRAGMENT_KEYWORD_20(); if (failed) return ;
-
-        }
-    }
-    // $ANTLR end synpred20
-
-    // $ANTLR start synpred21
-    public final void synpred21_fragment() throws RecognitionException {   
-        // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/lexer/InternalLilyPond.g:84:2: ( FRAGMENT_KEYWORD_21 )
-        // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/lexer/InternalLilyPond.g:84:3: FRAGMENT_KEYWORD_21
-        {
-        mFRAGMENT_KEYWORD_21(); if (failed) return ;
-
-        }
-    }
-    // $ANTLR end synpred21
-
-    // $ANTLR start synpred22
-    public final void synpred22_fragment() throws RecognitionException {   
-        // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/lexer/InternalLilyPond.g:85:2: ( FRAGMENT_KEYWORD_22 )
-        // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/lexer/InternalLilyPond.g:85:3: FRAGMENT_KEYWORD_22
-        {
-        mFRAGMENT_KEYWORD_22(); if (failed) return ;
-
-        }
-    }
-    // $ANTLR end synpred22
-
-    // $ANTLR start synpred23
-    public final void synpred23_fragment() throws RecognitionException {   
-        // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/lexer/InternalLilyPond.g:86:2: ( FRAGMENT_KEYWORD_23 )
-        // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/lexer/InternalLilyPond.g:86:3: FRAGMENT_KEYWORD_23
-        {
-        mFRAGMENT_KEYWORD_23(); if (failed) return ;
-
-        }
-    }
-    // $ANTLR end synpred23
-
-    // $ANTLR start synpred24
-    public final void synpred24_fragment() throws RecognitionException {   
-        // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/lexer/InternalLilyPond.g:87:2: ( FRAGMENT_KEYWORD_24 )
-        // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/lexer/InternalLilyPond.g:87:3: FRAGMENT_KEYWORD_24
-        {
-        mFRAGMENT_KEYWORD_24(); if (failed) return ;
-
-        }
-    }
-    // $ANTLR end synpred24
-
-    // $ANTLR start synpred25
-    public final void synpred25_fragment() throws RecognitionException {   
-        // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/lexer/InternalLilyPond.g:88:2: ( FRAGMENT_KEYWORD_25 )
-        // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/lexer/InternalLilyPond.g:88:3: FRAGMENT_KEYWORD_25
-        {
-        mFRAGMENT_KEYWORD_25(); if (failed) return ;
-
-        }
-    }
-    // $ANTLR end synpred25
-
-    // $ANTLR start synpred26
-    public final void synpred26_fragment() throws RecognitionException {   
-        // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/lexer/InternalLilyPond.g:89:2: ( FRAGMENT_KEYWORD_26 )
-        // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/lexer/InternalLilyPond.g:89:3: FRAGMENT_KEYWORD_26
-        {
-        mFRAGMENT_KEYWORD_26(); if (failed) return ;
-
-        }
-    }
-    // $ANTLR end synpred26
-
-    // $ANTLR start synpred27
-    public final void synpred27_fragment() throws RecognitionException {   
-        // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/lexer/InternalLilyPond.g:90:2: ( FRAGMENT_KEYWORD_27 )
-        // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/lexer/InternalLilyPond.g:90:3: FRAGMENT_KEYWORD_27
-        {
-        mFRAGMENT_KEYWORD_27(); if (failed) return ;
-
-        }
-    }
-    // $ANTLR end synpred27
-
-    // $ANTLR start synpred28
-    public final void synpred28_fragment() throws RecognitionException {   
-        // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/lexer/InternalLilyPond.g:91:2: ( FRAGMENT_KEYWORD_28 )
-        // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/lexer/InternalLilyPond.g:91:3: FRAGMENT_KEYWORD_28
-        {
-        mFRAGMENT_KEYWORD_28(); if (failed) return ;
-
-        }
-    }
-    // $ANTLR end synpred28
-
-    // $ANTLR start synpred29
-    public final void synpred29_fragment() throws RecognitionException {   
-        // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/lexer/InternalLilyPond.g:92:2: ( FRAGMENT_KEYWORD_29 )
-        // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/lexer/InternalLilyPond.g:92:3: FRAGMENT_KEYWORD_29
-        {
-        mFRAGMENT_KEYWORD_29(); if (failed) return ;
-
-        }
-    }
-    // $ANTLR end synpred29
-
-    // $ANTLR start synpred30
-    public final void synpred30_fragment() throws RecognitionException {   
-        // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/lexer/InternalLilyPond.g:93:2: ( FRAGMENT_RULE_STRING )
-        // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/lexer/InternalLilyPond.g:93:3: FRAGMENT_RULE_STRING
-        {
-        mFRAGMENT_RULE_STRING(); if (failed) return ;
-
-        }
-    }
-    // $ANTLR end synpred30
-
-    // $ANTLR start synpred31
-    public final void synpred31_fragment() throws RecognitionException {   
-        // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/lexer/InternalLilyPond.g:94:2: ( FRAGMENT_RULE_INT )
-        // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/lexer/InternalLilyPond.g:94:3: FRAGMENT_RULE_INT
-        {
-        mFRAGMENT_RULE_INT(); if (failed) return ;
-
-        }
-    }
-    // $ANTLR end synpred31
-
-    // $ANTLR start synpred32
-    public final void synpred32_fragment() throws RecognitionException {   
-        // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/lexer/InternalLilyPond.g:95:2: ( FRAGMENT_RULE_ID )
-        // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/lexer/InternalLilyPond.g:95:3: FRAGMENT_RULE_ID
-        {
-        mFRAGMENT_RULE_ID(); if (failed) return ;
-
-        }
-    }
-    // $ANTLR end synpred32
-
-    // $ANTLR start synpred33
-    public final void synpred33_fragment() throws RecognitionException {   
-        // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/lexer/InternalLilyPond.g:96:2: ( FRAGMENT_RULE_WS )
-        // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/lexer/InternalLilyPond.g:96:3: FRAGMENT_RULE_WS
-        {
-        mFRAGMENT_RULE_WS(); if (failed) return ;
-
-        }
-    }
-    // $ANTLR end synpred33
-
-    // $ANTLR start synpred34
-    public final void synpred34_fragment() throws RecognitionException {   
-        // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/lexer/InternalLilyPond.g:97:2: ( FRAGMENT_RULE_SL_COMMENT )
-        // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/lexer/InternalLilyPond.g:97:3: FRAGMENT_RULE_SL_COMMENT
-        {
-        mFRAGMENT_RULE_SL_COMMENT(); if (failed) return ;
-
-        }
-    }
-    // $ANTLR end synpred34
-
-    // $ANTLR start synpred35
-    public final void synpred35_fragment() throws RecognitionException {   
-        // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/lexer/InternalLilyPond.g:98:2: ( FRAGMENT_RULE_ML_COMMENT )
-        // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/lexer/InternalLilyPond.g:98:3: FRAGMENT_RULE_ML_COMMENT
-        {
-        mFRAGMENT_RULE_ML_COMMENT(); if (failed) return ;
-
-        }
-    }
-    // $ANTLR end synpred35
-
-    // $ANTLR start synpred36
-    public final void synpred36_fragment() throws RecognitionException {   
-        // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/lexer/InternalLilyPond.g:99:2: ( FRAGMENT_RULE_SCHEME_SL_COMMENT )
-        // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/lexer/InternalLilyPond.g:99:3: FRAGMENT_RULE_SCHEME_SL_COMMENT
-        {
-        mFRAGMENT_RULE_SCHEME_SL_COMMENT(); if (failed) return ;
-
-        }
-    }
-    // $ANTLR end synpred36
-
-    // $ANTLR start synpred37
-    public final void synpred37_fragment() throws RecognitionException {   
-        // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/lexer/InternalLilyPond.g:100:2: ( FRAGMENT_RULE_SCHEME_ML_COMMENT )
-        // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/lexer/InternalLilyPond.g:100:3: FRAGMENT_RULE_SCHEME_ML_COMMENT
-        {
-        mFRAGMENT_RULE_SCHEME_ML_COMMENT(); if (failed) return ;
-
-        }
-    }
-    // $ANTLR end synpred37
-
-    // $ANTLR start synpred38
-    public final void synpred38_fragment() throws RecognitionException {   
-        // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/lexer/InternalLilyPond.g:101:2: ( FRAGMENT_RULE_ANY_OTHER )
-        // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/lexer/InternalLilyPond.g:101:3: FRAGMENT_RULE_ANY_OTHER
-        {
-        mFRAGMENT_RULE_ANY_OTHER(); if (failed) return ;
-
-        }
-    }
-    // $ANTLR end synpred38
-
-    public final boolean synpred29() {
-        backtracking++;
-        int start = input.mark();
-        try {
-            synpred29_fragment(); // can never throw exception
-        } catch (RecognitionException re) {
-            System.err.println("impossible: "+re);
-        }
-        boolean success = !failed;
-        input.rewind(start);
-        backtracking--;
-        failed=false;
-        return success;
-    }
-    public final boolean synpred20() {
-        backtracking++;
-        int start = input.mark();
-        try {
-            synpred20_fragment(); // can never throw exception
-        } catch (RecognitionException re) {
-            System.err.println("impossible: "+re);
-        }
-        boolean success = !failed;
-        input.rewind(start);
-        backtracking--;
-        failed=false;
-        return success;
-    }
-    public final boolean synpred27() {
-        backtracking++;
-        int start = input.mark();
-        try {
-            synpred27_fragment(); // can never throw exception
-        } catch (RecognitionException re) {
-            System.err.println("impossible: "+re);
-        }
-        boolean success = !failed;
-        input.rewind(start);
-        backtracking--;
-        failed=false;
-        return success;
-    }
-    public final boolean synpred28() {
-        backtracking++;
-        int start = input.mark();
-        try {
-            synpred28_fragment(); // can never throw exception
-        } catch (RecognitionException re) {
-            System.err.println("impossible: "+re);
-        }
-        boolean success = !failed;
-        input.rewind(start);
-        backtracking--;
-        failed=false;
-        return success;
-    }
-    public final boolean synpred25() {
-        backtracking++;
-        int start = input.mark();
-        try {
-            synpred25_fragment(); // can never throw exception
-        } catch (RecognitionException re) {
-            System.err.println("impossible: "+re);
-        }
-        boolean success = !failed;
-        input.rewind(start);
-        backtracking--;
-        failed=false;
-        return success;
-    }
-    public final boolean synpred26() {
-        backtracking++;
-        int start = input.mark();
-        try {
-            synpred26_fragment(); // can never throw exception
-        } catch (RecognitionException re) {
-            System.err.println("impossible: "+re);
-        }
-        boolean success = !failed;
-        input.rewind(start);
-        backtracking--;
-        failed=false;
-        return success;
-    }
-    public final boolean synpred23() {
-        backtracking++;
-        int start = input.mark();
-        try {
-            synpred23_fragment(); // can never throw exception
-        } catch (RecognitionException re) {
-            System.err.println("impossible: "+re);
-        }
-        boolean success = !failed;
-        input.rewind(start);
-        backtracking--;
-        failed=false;
-        return success;
-    }
-    public final boolean synpred24() {
-        backtracking++;
-        int start = input.mark();
-        try {
-            synpred24_fragment(); // can never throw exception
-        } catch (RecognitionException re) {
-            System.err.println("impossible: "+re);
-        }
-        boolean success = !failed;
-        input.rewind(start);
-        backtracking--;
-        failed=false;
-        return success;
-    }
-    public final boolean synpred21() {
-        backtracking++;
-        int start = input.mark();
-        try {
-            synpred21_fragment(); // can never throw exception
-        } catch (RecognitionException re) {
-            System.err.println("impossible: "+re);
-        }
-        boolean success = !failed;
-        input.rewind(start);
-        backtracking--;
-        failed=false;
-        return success;
-    }
-    public final boolean synpred22() {
-        backtracking++;
-        int start = input.mark();
-        try {
-            synpred22_fragment(); // can never throw exception
-        } catch (RecognitionException re) {
-            System.err.println("impossible: "+re);
-        }
-        boolean success = !failed;
-        input.rewind(start);
-        backtracking--;
-        failed=false;
-        return success;
-    }
-    public final boolean synpred35() {
-        backtracking++;
-        int start = input.mark();
-        try {
-            synpred35_fragment(); // can never throw exception
-        } catch (RecognitionException re) {
-            System.err.println("impossible: "+re);
-        }
-        boolean success = !failed;
-        input.rewind(start);
-        backtracking--;
-        failed=false;
-        return success;
-    }
-    public final boolean synpred34() {
-        backtracking++;
-        int start = input.mark();
-        try {
-            synpred34_fragment(); // can never throw exception
-        } catch (RecognitionException re) {
-            System.err.println("impossible: "+re);
-        }
-        boolean success = !failed;
-        input.rewind(start);
-        backtracking--;
-        failed=false;
-        return success;
-    }
-    public final boolean synpred33() {
-        backtracking++;
-        int start = input.mark();
-        try {
-            synpred33_fragment(); // can never throw exception
-        } catch (RecognitionException re) {
-            System.err.println("impossible: "+re);
-        }
-        boolean success = !failed;
-        input.rewind(start);
-        backtracking--;
-        failed=false;
-        return success;
-    }
-    public final boolean synpred32() {
-        backtracking++;
-        int start = input.mark();
-        try {
-            synpred32_fragment(); // can never throw exception
-        } catch (RecognitionException re) {
-            System.err.println("impossible: "+re);
-        }
-        boolean success = !failed;
-        input.rewind(start);
-        backtracking--;
-        failed=false;
-        return success;
-    }
-    public final boolean synpred19() {
-        backtracking++;
-        int start = input.mark();
-        try {
-            synpred19_fragment(); // can never throw exception
-        } catch (RecognitionException re) {
-            System.err.println("impossible: "+re);
-        }
-        boolean success = !failed;
-        input.rewind(start);
-        backtracking--;
-        failed=false;
-        return success;
-    }
-    public final boolean synpred38() {
-        backtracking++;
-        int start = input.mark();
-        try {
-            synpred38_fragment(); // can never throw exception
-        } catch (RecognitionException re) {
-            System.err.println("impossible: "+re);
-        }
-        boolean success = !failed;
-        input.rewind(start);
-        backtracking--;
-        failed=false;
-        return success;
-    }
-    public final boolean synpred18() {
-        backtracking++;
-        int start = input.mark();
-        try {
-            synpred18_fragment(); // can never throw exception
-        } catch (RecognitionException re) {
-            System.err.println("impossible: "+re);
-        }
-        boolean success = !failed;
-        input.rewind(start);
-        backtracking--;
-        failed=false;
-        return success;
-    }
-    public final boolean synpred37() {
-        backtracking++;
-        int start = input.mark();
-        try {
-            synpred37_fragment(); // can never throw exception
-        } catch (RecognitionException re) {
-            System.err.println("impossible: "+re);
-        }
-        boolean success = !failed;
-        input.rewind(start);
-        backtracking--;
-        failed=false;
-        return success;
-    }
-    public final boolean synpred36() {
-        backtracking++;
-        int start = input.mark();
-        try {
-            synpred36_fragment(); // can never throw exception
-        } catch (RecognitionException re) {
-            System.err.println("impossible: "+re);
-        }
-        boolean success = !failed;
-        input.rewind(start);
-        backtracking--;
-        failed=false;
-        return success;
-    }
-    public final boolean synpred5() {
-        backtracking++;
-        int start = input.mark();
-        try {
-            synpred5_fragment(); // can never throw exception
-        } catch (RecognitionException re) {
-            System.err.println("impossible: "+re);
-        }
-        boolean success = !failed;
-        input.rewind(start);
-        backtracking--;
-        failed=false;
-        return success;
-    }
-    public final boolean synpred6() {
-        backtracking++;
-        int start = input.mark();
-        try {
-            synpred6_fragment(); // can never throw exception
-        } catch (RecognitionException re) {
-            System.err.println("impossible: "+re);
-        }
-        boolean success = !failed;
-        input.rewind(start);
-        backtracking--;
-        failed=false;
-        return success;
-    }
-    public final boolean synpred7() {
-        backtracking++;
-        int start = input.mark();
-        try {
-            synpred7_fragment(); // can never throw exception
-        } catch (RecognitionException re) {
-            System.err.println("impossible: "+re);
-        }
-        boolean success = !failed;
-        input.rewind(start);
-        backtracking--;
-        failed=false;
-        return success;
-    }
-    public final boolean synpred8() {
-        backtracking++;
-        int start = input.mark();
-        try {
-            synpred8_fragment(); // can never throw exception
-        } catch (RecognitionException re) {
-            System.err.println("impossible: "+re);
-        }
-        boolean success = !failed;
-        input.rewind(start);
-        backtracking--;
-        failed=false;
-        return success;
-    }
-    public final boolean synpred1() {
-        backtracking++;
-        int start = input.mark();
-        try {
-            synpred1_fragment(); // can never throw exception
-        } catch (RecognitionException re) {
-            System.err.println("impossible: "+re);
-        }
-        boolean success = !failed;
-        input.rewind(start);
-        backtracking--;
-        failed=false;
-        return success;
-    }
-    public final boolean synpred31() {
-        backtracking++;
-        int start = input.mark();
-        try {
-            synpred31_fragment(); // can never throw exception
-        } catch (RecognitionException re) {
-            System.err.println("impossible: "+re);
-        }
-        boolean success = !failed;
-        input.rewind(start);
-        backtracking--;
-        failed=false;
-        return success;
-    }
-    public final boolean synpred30() {
-        backtracking++;
-        int start = input.mark();
-        try {
-            synpred30_fragment(); // can never throw exception
-        } catch (RecognitionException re) {
-            System.err.println("impossible: "+re);
-        }
-        boolean success = !failed;
-        input.rewind(start);
-        backtracking--;
-        failed=false;
-        return success;
-    }
-    public final boolean synpred2() {
-        backtracking++;
-        int start = input.mark();
-        try {
-            synpred2_fragment(); // can never throw exception
-        } catch (RecognitionException re) {
-            System.err.println("impossible: "+re);
-        }
-        boolean success = !failed;
-        input.rewind(start);
-        backtracking--;
-        failed=false;
-        return success;
-    }
-    public final boolean synpred3() {
-        backtracking++;
-        int start = input.mark();
-        try {
-            synpred3_fragment(); // can never throw exception
-        } catch (RecognitionException re) {
-            System.err.println("impossible: "+re);
-        }
-        boolean success = !failed;
-        input.rewind(start);
-        backtracking--;
-        failed=false;
-        return success;
-    }
-    public final boolean synpred4() {
-        backtracking++;
-        int start = input.mark();
-        try {
-            synpred4_fragment(); // can never throw exception
-        } catch (RecognitionException re) {
-            System.err.println("impossible: "+re);
-        }
-        boolean success = !failed;
-        input.rewind(start);
-        backtracking--;
-        failed=false;
-        return success;
-    }
-    public final boolean synpred9() {
-        backtracking++;
-        int start = input.mark();
-        try {
-            synpred9_fragment(); // can never throw exception
-        } catch (RecognitionException re) {
-            System.err.println("impossible: "+re);
-        }
-        boolean success = !failed;
-        input.rewind(start);
-        backtracking--;
-        failed=false;
-        return success;
-    }
-    public final boolean synpred14() {
-        backtracking++;
-        int start = input.mark();
-        try {
-            synpred14_fragment(); // can never throw exception
-        } catch (RecognitionException re) {
-            System.err.println("impossible: "+re);
-        }
-        boolean success = !failed;
-        input.rewind(start);
-        backtracking--;
-        failed=false;
-        return success;
-    }
-    public final boolean synpred15() {
-        backtracking++;
-        int start = input.mark();
-        try {
-            synpred15_fragment(); // can never throw exception
-        } catch (RecognitionException re) {
-            System.err.println("impossible: "+re);
-        }
-        boolean success = !failed;
-        input.rewind(start);
-        backtracking--;
-        failed=false;
-        return success;
-    }
-    public final boolean synpred16() {
-        backtracking++;
-        int start = input.mark();
-        try {
-            synpred16_fragment(); // can never throw exception
-        } catch (RecognitionException re) {
-            System.err.println("impossible: "+re);
-        }
-        boolean success = !failed;
-        input.rewind(start);
-        backtracking--;
-        failed=false;
-        return success;
-    }
-    public final boolean synpred17() {
-        backtracking++;
-        int start = input.mark();
-        try {
-            synpred17_fragment(); // can never throw exception
-        } catch (RecognitionException re) {
-            System.err.println("impossible: "+re);
-        }
-        boolean success = !failed;
-        input.rewind(start);
-        backtracking--;
-        failed=false;
-        return success;
-    }
-    public final boolean synpred10() {
-        backtracking++;
-        int start = input.mark();
-        try {
-            synpred10_fragment(); // can never throw exception
-        } catch (RecognitionException re) {
-            System.err.println("impossible: "+re);
-        }
-        boolean success = !failed;
-        input.rewind(start);
-        backtracking--;
-        failed=false;
-        return success;
-    }
-    public final boolean synpred11() {
-        backtracking++;
-        int start = input.mark();
-        try {
-            synpred11_fragment(); // can never throw exception
-        } catch (RecognitionException re) {
-            System.err.println("impossible: "+re);
-        }
-        boolean success = !failed;
-        input.rewind(start);
-        backtracking--;
-        failed=false;
-        return success;
-    }
-    public final boolean synpred12() {
-        backtracking++;
-        int start = input.mark();
-        try {
-            synpred12_fragment(); // can never throw exception
-        } catch (RecognitionException re) {
-            System.err.println("impossible: "+re);
+        // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/lexer/InternalLilyPond.g:1:8: ( KEYWORD_29 | KEYWORD_27 | KEYWORD_28 | KEYWORD_26 | KEYWORD_19 | KEYWORD_20 | KEYWORD_21 | KEYWORD_22 | KEYWORD_23 | KEYWORD_24 | KEYWORD_25 | KEYWORD_1 | KEYWORD_2 | KEYWORD_3 | KEYWORD_4 | KEYWORD_5 | KEYWORD_6 | KEYWORD_7 | KEYWORD_8 | KEYWORD_9 | KEYWORD_10 | KEYWORD_11 | KEYWORD_12 | KEYWORD_13 | KEYWORD_14 | KEYWORD_15 | KEYWORD_16 | KEYWORD_17 | KEYWORD_18 | RULE_STRING | RULE_INT | RULE_ID | RULE_WS | RULE_SL_COMMENT | RULE_ML_COMMENT | RULE_SCHEME_SL_COMMENT | RULE_SCHEME_ML_COMMENT | RULE_ANY_OTHER )
+        int alt13=38;
+        alt13 = dfa13.predict(input);
+        switch (alt13) {
+            case 1 :
+                // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/lexer/InternalLilyPond.g:1:10: KEYWORD_29
+                {
+                mKEYWORD_29(); 
+
+                }
+                break;
+            case 2 :
+                // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/lexer/InternalLilyPond.g:1:21: KEYWORD_27
+                {
+                mKEYWORD_27(); 
+
+                }
+                break;
+            case 3 :
+                // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/lexer/InternalLilyPond.g:1:32: KEYWORD_28
+                {
+                mKEYWORD_28(); 
+
+                }
+                break;
+            case 4 :
+                // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/lexer/InternalLilyPond.g:1:43: KEYWORD_26
+                {
+                mKEYWORD_26(); 
+
+                }
+                break;
+            case 5 :
+                // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/lexer/InternalLilyPond.g:1:54: KEYWORD_19
+                {
+                mKEYWORD_19(); 
+
+                }
+                break;
+            case 6 :
+                // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/lexer/InternalLilyPond.g:1:65: KEYWORD_20
+                {
+                mKEYWORD_20(); 
+
+                }
+                break;
+            case 7 :
+                // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/lexer/InternalLilyPond.g:1:76: KEYWORD_21
+                {
+                mKEYWORD_21(); 
+
+                }
+                break;
+            case 8 :
+                // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/lexer/InternalLilyPond.g:1:87: KEYWORD_22
+                {
+                mKEYWORD_22(); 
+
+                }
+                break;
+            case 9 :
+                // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/lexer/InternalLilyPond.g:1:98: KEYWORD_23
+                {
+                mKEYWORD_23(); 
+
+                }
+                break;
+            case 10 :
+                // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/lexer/InternalLilyPond.g:1:109: KEYWORD_24
+                {
+                mKEYWORD_24(); 
+
+                }
+                break;
+            case 11 :
+                // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/lexer/InternalLilyPond.g:1:120: KEYWORD_25
+                {
+                mKEYWORD_25(); 
+
+                }
+                break;
+            case 12 :
+                // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/lexer/InternalLilyPond.g:1:131: KEYWORD_1
+                {
+                mKEYWORD_1(); 
+
+                }
+                break;
+            case 13 :
+                // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/lexer/InternalLilyPond.g:1:141: KEYWORD_2
+                {
+                mKEYWORD_2(); 
+
+                }
+                break;
+            case 14 :
+                // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/lexer/InternalLilyPond.g:1:151: KEYWORD_3
+                {
+                mKEYWORD_3(); 
+
+                }
+                break;
+            case 15 :
+                // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/lexer/InternalLilyPond.g:1:161: KEYWORD_4
+                {
+                mKEYWORD_4(); 
+
+                }
+                break;
+            case 16 :
+                // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/lexer/InternalLilyPond.g:1:171: KEYWORD_5
+                {
+                mKEYWORD_5(); 
+
+                }
+                break;
+            case 17 :
+                // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/lexer/InternalLilyPond.g:1:181: KEYWORD_6
+                {
+                mKEYWORD_6(); 
+
+                }
+                break;
+            case 18 :
+                // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/lexer/InternalLilyPond.g:1:191: KEYWORD_7
+                {
+                mKEYWORD_7(); 
+
+                }
+                break;
+            case 19 :
+                // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/lexer/InternalLilyPond.g:1:201: KEYWORD_8
+                {
+                mKEYWORD_8(); 
+
+                }
+                break;
+            case 20 :
+                // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/lexer/InternalLilyPond.g:1:211: KEYWORD_9
+                {
+                mKEYWORD_9(); 
+
+                }
+                break;
+            case 21 :
+                // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/lexer/InternalLilyPond.g:1:221: KEYWORD_10
+                {
+                mKEYWORD_10(); 
+
+                }
+                break;
+            case 22 :
+                // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/lexer/InternalLilyPond.g:1:232: KEYWORD_11
+                {
+                mKEYWORD_11(); 
+
+                }
+                break;
+            case 23 :
+                // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/lexer/InternalLilyPond.g:1:243: KEYWORD_12
+                {
+                mKEYWORD_12(); 
+
+                }
+                break;
+            case 24 :
+                // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/lexer/InternalLilyPond.g:1:254: KEYWORD_13
+                {
+                mKEYWORD_13(); 
+
+                }
+                break;
+            case 25 :
+                // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/lexer/InternalLilyPond.g:1:265: KEYWORD_14
+                {
+                mKEYWORD_14(); 
+
+                }
+                break;
+            case 26 :
+                // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/lexer/InternalLilyPond.g:1:276: KEYWORD_15
+                {
+                mKEYWORD_15(); 
+
+                }
+                break;
+            case 27 :
+                // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/lexer/InternalLilyPond.g:1:287: KEYWORD_16
+                {
+                mKEYWORD_16(); 
+
+                }
+                break;
+            case 28 :
+                // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/lexer/InternalLilyPond.g:1:298: KEYWORD_17
+                {
+                mKEYWORD_17(); 
+
+                }
+                break;
+            case 29 :
+                // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/lexer/InternalLilyPond.g:1:309: KEYWORD_18
+                {
+                mKEYWORD_18(); 
+
+                }
+                break;
+            case 30 :
+                // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/lexer/InternalLilyPond.g:1:320: RULE_STRING
+                {
+                mRULE_STRING(); 
+
+                }
+                break;
+            case 31 :
+                // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/lexer/InternalLilyPond.g:1:332: RULE_INT
+                {
+                mRULE_INT(); 
+
+                }
+                break;
+            case 32 :
+                // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/lexer/InternalLilyPond.g:1:341: RULE_ID
+                {
+                mRULE_ID(); 
+
+                }
+                break;
+            case 33 :
+                // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/lexer/InternalLilyPond.g:1:349: RULE_WS
+                {
+                mRULE_WS(); 
+
+                }
+                break;
+            case 34 :
+                // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/lexer/InternalLilyPond.g:1:357: RULE_SL_COMMENT
+                {
+                mRULE_SL_COMMENT(); 
+
+                }
+                break;
+            case 35 :
+                // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/lexer/InternalLilyPond.g:1:373: RULE_ML_COMMENT
+                {
+                mRULE_ML_COMMENT(); 
+
+                }
+                break;
+            case 36 :
+                // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/lexer/InternalLilyPond.g:1:389: RULE_SCHEME_SL_COMMENT
+                {
+                mRULE_SCHEME_SL_COMMENT(); 
+
+                }
+                break;
+            case 37 :
+                // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/lexer/InternalLilyPond.g:1:412: RULE_SCHEME_ML_COMMENT
+                {
+                mRULE_SCHEME_ML_COMMENT(); 
+
+                }
+                break;
+            case 38 :
+                // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/lexer/InternalLilyPond.g:1:435: RULE_ANY_OTHER
+                {
+                mRULE_ANY_OTHER(); 
+
+                }
+                break;
+
+        }
+
+    }
+
+
+    protected DFA13 dfa13 = new DFA13(this);
+    static final String DFA13_eotS =
+        "\1\uffff\3\36\1\46\1\50\1\52\1\54\16\uffff\1\34\3\uffff\1\77\2\uffff"+
+        "\1\36\1\uffff\2\36\35\uffff\1\77\2\uffff\3\36\1\77\1\uffff\2\77"+
+        "\3\36\1\77\1\uffff\3\36\1\124\3\36\1\uffff\1\130\1\131\1\36\2\uffff"+
+        "\2\36\1\135\1\uffff";
+    static final String DFA13_eofS =
+        "\136\uffff";
+    static final String DFA13_minS =
+        "\1\0\1\141\1\156\1\145\1\41\1\74\1\76\1\134\16\uffff\1\0\3\uffff"+
+        "\1\173\2\uffff\1\162\1\uffff\1\143\1\162\35\uffff\1\0\2\uffff\1"+
+        "\153\1\154\1\163\4\0\2\165\1\151\1\0\1\uffff\1\160\1\144\1\157\1"+
+        "\55\1\145\1\156\1\151\1\uffff\2\55\1\156\2\uffff\1\145\1\163\1\55"+
+        "\1\uffff";
+    static final String DFA13_maxS =
+        "\1\ufffe\1\141\1\156\1\145\1\175\1\74\1\76\1\134\16\uffff\1\ufffe"+
+        "\3\uffff\1\173\2\uffff\1\162\1\uffff\1\143\1\162\35\uffff\1\ufffe"+
+        "\2\uffff\1\153\1\154\1\163\4\ufffe\2\165\1\151\1\ufffe\1\uffff\1"+
+        "\160\1\144\1\157\1\172\1\145\1\156\1\151\1\uffff\2\172\1\156\2\uffff"+
+        "\1\145\1\163\1\172\1\uffff";
+    static final String DFA13_acceptS =
+        "\10\uffff\1\14\1\16\1\17\1\20\1\21\1\22\1\23\1\25\1\27\1\31\1\32"+
+        "\1\33\1\34\1\35\1\uffff\1\37\1\40\1\41\1\uffff\1\44\1\46\1\uffff"+
+        "\1\40\2\uffff\1\5\1\10\1\7\1\6\1\45\1\15\1\11\1\24\1\12\1\26\1\13"+
+        "\1\30\1\14\1\16\1\17\1\20\1\21\1\22\1\23\1\25\1\27\1\31\1\32\1\33"+
+        "\1\34\1\35\1\36\1\37\1\41\1\uffff\1\42\1\44\13\uffff\1\43\7\uffff"+
+        "\1\4\3\uffff\1\2\1\3\3\uffff\1\1";
+    static final String DFA13_specialS =
+        "\136\uffff}>";
+    static final String[] DFA13_transitionS = {
+            "\11\34\2\31\2\34\1\31\22\34\1\31\1\10\1\26\1\4\1\11\1\32\1\34"+
+            "\1\12\1\13\1\14\1\34\1\15\1\16\3\34\12\27\1\34\1\33\1\5\1\17"+
+            "\1\6\2\34\32\30\1\20\1\7\1\21\2\34\1\22\10\30\1\2\3\30\1\1\10"+
+            "\30\1\3\4\30\1\23\1\34\1\24\1\25\uff80\34",
+            "\1\35",
+            "\1\37",
+            "\1\40",
+            "\1\45\30\uffff\1\41\41\uffff\1\44\36\uffff\1\43\1\uffff\1\42",
+            "\1\47",
+            "\1\51",
+            "\1\53",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "\uffff\73",
+            "",
+            "",
+            "",
+            "\1\76",
+            "",
+            "",
+            "\1\101",
+            "",
+            "\1\102",
+            "\1\103",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "\12\107\1\106\2\107\1\105\27\107\1\104\uffd9\107",
+            "",
+            "",
+            "\1\110",
+            "\1\111",
+            "\1\112",
+            "\12\107\1\106\2\107\1\105\27\107\1\104\127\107\1\113\uff81\107",
+            "\12\114\1\106\ufff4\114",
+            "\uffff\114",
+            "\12\107\1\106\2\107\1\105\27\107\1\104\uffd9\107",
+            "\1\115",
+            "\1\116",
+            "\1\117",
+            "\12\107\1\106\2\107\1\105\27\107\1\104\uffd9\107",
+            "",
+            "\1\120",
+            "\1\121",
+            "\1\122",
+            "\1\36\23\uffff\32\36\6\uffff\13\36\1\123\16\36",
+            "\1\125",
+            "\1\126",
+            "\1\127",
+            "",
+            "\1\36\23\uffff\32\36\6\uffff\32\36",
+            "\1\36\23\uffff\32\36\6\uffff\32\36",
+            "\1\132",
+            "",
+            "",
+            "\1\133",
+            "\1\134",
+            "\1\36\23\uffff\32\36\6\uffff\32\36",
+            ""
+    };
+
+    static final short[] DFA13_eot = DFA.unpackEncodedString(DFA13_eotS);
+    static final short[] DFA13_eof = DFA.unpackEncodedString(DFA13_eofS);
+    static final char[] DFA13_min = DFA.unpackEncodedStringToUnsignedChars(DFA13_minS);
+    static final char[] DFA13_max = DFA.unpackEncodedStringToUnsignedChars(DFA13_maxS);
+    static final short[] DFA13_accept = DFA.unpackEncodedString(DFA13_acceptS);
+    static final short[] DFA13_special = DFA.unpackEncodedString(DFA13_specialS);
+    static final short[][] DFA13_transition;
+
+    static {
+        int numStates = DFA13_transitionS.length;
+        DFA13_transition = new short[numStates][];
+        for (int i=0; i<numStates; i++) {
+            DFA13_transition[i] = DFA.unpackEncodedString(DFA13_transitionS[i]);
+        }
+    }
+
+    class DFA13 extends DFA {
+
+        public DFA13(BaseRecognizer recognizer) {
+            this.recognizer = recognizer;
+            this.decisionNumber = 13;
+            this.eot = DFA13_eot;
+            this.eof = DFA13_eof;
+            this.min = DFA13_min;
+            this.max = DFA13_max;
+            this.accept = DFA13_accept;
+            this.special = DFA13_special;
+            this.transition = DFA13_transition;
+        }
+        public String getDescription() {
+            return "1:1: Tokens : ( KEYWORD_29 | KEYWORD_27 | KEYWORD_28 | KEYWORD_26 | KEYWORD_19 | KEYWORD_20 | KEYWORD_21 | KEYWORD_22 | KEYWORD_23 | KEYWORD_24 | KEYWORD_25 | KEYWORD_1 | KEYWORD_2 | KEYWORD_3 | KEYWORD_4 | KEYWORD_5 | KEYWORD_6 | KEYWORD_7 | KEYWORD_8 | KEYWORD_9 | KEYWORD_10 | KEYWORD_11 | KEYWORD_12 | KEYWORD_13 | KEYWORD_14 | KEYWORD_15 | KEYWORD_16 | KEYWORD_17 | KEYWORD_18 | RULE_STRING | RULE_INT | RULE_ID | RULE_WS | RULE_SL_COMMENT | RULE_ML_COMMENT | RULE_SCHEME_SL_COMMENT | RULE_SCHEME_ML_COMMENT | RULE_ANY_OTHER );";
         }
-        boolean success = !failed;
-        input.rewind(start);
-        backtracking--;
-        failed=false;
-        return success;
     }
-    public final boolean synpred13() {
-        backtracking++;
-        int start = input.mark();
-        try {
-            synpred13_fragment(); // can never throw exception
-        } catch (RecognitionException re) {
-            System.err.println("impossible: "+re);
-        }
-        boolean success = !failed;
-        input.rewind(start);
-        backtracking--;
-        failed=false;
-        return success;
-    }
-
-
  
 
 }

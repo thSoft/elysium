@@ -50,7 +50,7 @@ public class LilyPondLabelProvider extends DefaultEObjectLabelProvider {
 	}
 
 	public String text(SpecialCommand specialCommand) {
-		return specialCommand.getKeyword();
+		return "\\" + specialCommand.getKeyword(); //$NON-NLS-1$
 	}
 
 	public String text(Reference reference) {

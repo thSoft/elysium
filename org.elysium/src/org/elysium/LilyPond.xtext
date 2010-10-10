@@ -28,21 +28,19 @@ Command: SpecialCommand | Reference;
 
 SpecialCommand: Include | Version | Markup;
 
-Include: keyword="\\include" importURI=STRING;
+Include: "\\" keyword="include" importURI=STRING;
 
-Version: keyword="\\version" version=STRING;
+Version: "\\" keyword="version" version=STRING;
 
-Markup: keyword=MarkupKeyword block=MarkupBlock;
-
-MarkupKeyword hidden(): "\\markup" "lines"?;
+Markup: "\\" keyword=("markup" | "markuplines") block=MarkupBlock;
 
 MarkupBlock: {MarkupBlock} "{" expressions+=MarkupExpression* "}";
 
 MarkupExpression: MarkupCommand | MarkupBlock | Scheme | Text | Number;
 
-MarkupCommand hidden(): "\\" command=ID;
+MarkupCommand: "\\" command=ID;
 
-Reference hidden(): "\\" assignment=[Assignment|ReferenceName];
+Reference: "\\" assignment=[Assignment|ReferenceName];
 
 ReferenceName: ID | "(" | ")" | SpecialCharacter;
 

@@ -1,5 +1,6 @@
 package org.elysium.formatting;
 
+import java.util.Iterator;
 import java.util.List;
 import org.eclipse.xtext.Keyword;
 import org.eclipse.xtext.formatting.impl.AbstractDeclarativeFormatter;
@@ -12,7 +13,7 @@ import org.elysium.services.LilyPondGrammarAccess;
 public class LilyPondFormatter extends AbstractDeclarativeFormatter {
 
 	public static final String[][] BLOCK_KEYWORD_PAIRS = { { "{", "}" }, //$NON-NLS-1$ //$NON-NLS-2$
-		{ "<<", ">>" }, { "%{", "%}" } }; //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$ //$NON-NLS-4$
+		{ "<<", ">>" } }; //$NON-NLS-1$ //$NON-NLS-2$
 
 	@Override
 	protected void configureFormatting(FormattingConfig config) {
@@ -34,12 +35,21 @@ public class LilyPondFormatter extends AbstractDeclarativeFormatter {
 		config.setLinewrap(2).after(grammar.getVersionRule());
 		// Blocks
 		for (String[] blockKeywordPair : BLOCK_KEYWORD_PAIRS) {
-			Keyword first = grammar.findKeywords(blockKeywordPair[0]).get(0);
-			Keyword second = grammar.findKeywords(blockKeywordPair[1]).get(0);
-			config.setIndentation(first, second);
-			config.setLinewrap().after(first);
-			config.setLinewrap().before(second);
-			config.setLinewrap().after(second); // FIXME doesn't seem to apply for >> and %}
+			Iterator<Keyword> startKeywords = grammar.findKeywords(blockKeywordPair[0]).iterator();
+			Iterator<Keyword> endKeywords = grammar.findKeywords(blockKeywordPair[1]).iterator();
+			while (startKeywords.hasNext() && endKeywords.hasNext()) {
+				Keyword start = startKeywords.next();
+				Keyword end = endKeywords.next();
+				config.setIndentation(start, end);
+				config.setLinewrap().after(start);
+				config.setLinewrap().before(end);
+				config.setLinewrap().after(end);
+			}
+			// Comments
+			config.setLinewrap(0, 1, 2).before(grammar.getSL_COMMENTRule());
+			config.setLinewrap(0, 1, 2).before(grammar.getSCHEME_SL_COMMENTRule());
+			config.setLinewrap(0, 1, 2).before(grammar.getML_COMMENTRule());
+			config.setLinewrap(0, 1, 1).after(grammar.getML_COMMENTRule());
 		}
 	}
 
