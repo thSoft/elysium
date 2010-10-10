@@ -795,6 +795,19 @@ ruleSpecialCommand returns [EObject current=null]
         $current = $this_Markup_2.current;
         currentNode = currentNode.getParent();
     }
+
+    |
+	{ 
+	  /* */ 
+	}
+    { 
+        currentNode=createCompositeNode(grammarAccess.getSpecialCommandAccess().getMarkupLinesParserRuleCall_3(), currentNode); 
+    }
+    this_MarkupLines_3=ruleMarkupLines
+    {
+        $current = $this_MarkupLines_3.current;
+        currentNode = currentNode.getParent();
+    }
 )
 ;
 
@@ -823,29 +836,12 @@ ruleInclude returns [EObject current=null]
     {
         createLeafNode(grammarAccess.getIncludeAccess().getReverseSolidusKeyword_0(), null); 
     }
-(
-(
-		lv_keyword_1_0=
+
 	KEYWORD_27 
     {
-        createLeafNode(grammarAccess.getIncludeAccess().getKeywordIncludeKeyword_1_0(), "keyword"); 
+        createLeafNode(grammarAccess.getIncludeAccess().getIncludeKeyword_1(), null); 
     }
- 
-	    {
-	        if ($current==null) {
-	            $current = factory.create(grammarAccess.getIncludeRule().getType().getClassifier());
-	            associateNodeWithAstElement(currentNode, $current);
-	        }
-	        
-	        try {
-	       		set($current, "keyword", lv_keyword_1_0, "include", lastConsumedNode);
-	        } catch (ValueConverterException vce) {
-				handleValueConverterException(vce);
-	        }
-	    }
-
-)
-)(
+(
 (
 		lv_importURI_2_0=RULE_STRING
 		{
@@ -897,29 +893,12 @@ ruleVersion returns [EObject current=null]
     {
         createLeafNode(grammarAccess.getVersionAccess().getReverseSolidusKeyword_0(), null); 
     }
-(
-(
-		lv_keyword_1_0=
+
 	KEYWORD_28 
     {
-        createLeafNode(grammarAccess.getVersionAccess().getKeywordVersionKeyword_1_0(), "keyword"); 
+        createLeafNode(grammarAccess.getVersionAccess().getVersionKeyword_1(), null); 
     }
- 
-	    {
-	        if ($current==null) {
-	            $current = factory.create(grammarAccess.getVersionRule().getType().getClassifier());
-	            associateNodeWithAstElement(currentNode, $current);
-	        }
-	        
-	        try {
-	       		set($current, "keyword", lv_keyword_1_0, "version", lastConsumedNode);
-	        } catch (ValueConverterException vce) {
-				handleValueConverterException(vce);
-	        }
-	    }
-
-)
-)(
+(
 (
 		lv_version_2_0=RULE_STRING
 		{
@@ -971,51 +950,12 @@ ruleMarkup returns [EObject current=null]
     {
         createLeafNode(grammarAccess.getMarkupAccess().getReverseSolidusKeyword_0(), null); 
     }
-(
-(
-(
-		lv_keyword_1_1=
+
 	KEYWORD_26 
     {
-        createLeafNode(grammarAccess.getMarkupAccess().getKeywordMarkupKeyword_1_0_0(), "keyword"); 
+        createLeafNode(grammarAccess.getMarkupAccess().getMarkupKeyword_1(), null); 
     }
- 
-	    {
-	        if ($current==null) {
-	            $current = factory.create(grammarAccess.getMarkupRule().getType().getClassifier());
-	            associateNodeWithAstElement(currentNode, $current);
-	        }
-	        
-	        try {
-	       		set($current, "keyword", lv_keyword_1_1, null, lastConsumedNode);
-	        } catch (ValueConverterException vce) {
-				handleValueConverterException(vce);
-	        }
-	    }
-
-    |		lv_keyword_1_2=
-	KEYWORD_29 
-    {
-        createLeafNode(grammarAccess.getMarkupAccess().getKeywordMarkuplinesKeyword_1_0_1(), "keyword"); 
-    }
- 
-	    {
-	        if ($current==null) {
-	            $current = factory.create(grammarAccess.getMarkupRule().getType().getClassifier());
-	            associateNodeWithAstElement(currentNode, $current);
-	        }
-	        
-	        try {
-	       		set($current, "keyword", lv_keyword_1_2, null, lastConsumedNode);
-	        } catch (ValueConverterException vce) {
-				handleValueConverterException(vce);
-	        }
-	    }
-
-)
-
-)
-)(
+(
 (
 		{ 
 	        currentNode=createCompositeNode(grammarAccess.getMarkupAccess().getBlockMarkupBlockParserRuleCall_2_0(), currentNode); 
@@ -1023,6 +963,63 @@ ruleMarkup returns [EObject current=null]
 		lv_block_2_0=ruleMarkupBlock		{
 	        if ($current==null) {
 	            $current = factory.create(grammarAccess.getMarkupRule().getType().getClassifier());
+	            associateNodeWithAstElement(currentNode.getParent(), $current);
+	        }
+	        try {
+	       		set(
+	       			$current, 
+	       			"block",
+	        		lv_block_2_0, 
+	        		"MarkupBlock", 
+	        		currentNode);
+	        } catch (ValueConverterException vce) {
+				handleValueConverterException(vce);
+	        }
+	        currentNode = currentNode.getParent();
+	    }
+
+)
+))
+;
+
+
+
+
+
+// Entry rule entryRuleMarkupLines
+entryRuleMarkupLines returns [EObject current=null]
+	:
+	{ currentNode = createCompositeNode(grammarAccess.getMarkupLinesRule(), currentNode); }
+	 iv_ruleMarkupLines=ruleMarkupLines 
+	 { $current=$iv_ruleMarkupLines.current; } 
+	 EOF 
+;
+
+// Rule MarkupLines
+ruleMarkupLines returns [EObject current=null] 
+    @init { EObject temp=null; setCurrentLookahead(); resetLookahead(); 
+    }
+    @after { resetLookahead(); 
+    	lastConsumedNode = currentNode;
+    }:
+(
+	KEYWORD_13 
+    {
+        createLeafNode(grammarAccess.getMarkupLinesAccess().getReverseSolidusKeyword_0(), null); 
+    }
+
+	KEYWORD_29 
+    {
+        createLeafNode(grammarAccess.getMarkupLinesAccess().getMarkuplinesKeyword_1(), null); 
+    }
+(
+(
+		{ 
+	        currentNode=createCompositeNode(grammarAccess.getMarkupLinesAccess().getBlockMarkupBlockParserRuleCall_2_0(), currentNode); 
+	    }
+		lv_block_2_0=ruleMarkupBlock		{
+	        if ($current==null) {
+	            $current = factory.create(grammarAccess.getMarkupLinesRule().getType().getClassifier());
 	            associateNodeWithAstElement(currentNode.getParent(), $current);
 	        }
 	        try {

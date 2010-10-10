@@ -10,6 +10,10 @@ import org.eclipse.xtext.ui.editor.quickfix.Fix;
 import org.eclipse.xtext.ui.editor.quickfix.IssueResolutionAcceptor;
 import org.eclipse.xtext.validation.Issue;
 import org.elysium.lilypond.Command;
+import org.elysium.lilypond.LilyPond;
+import org.elysium.lilypond.LilypondFactory;
+import org.elysium.lilypond.Version;
+import org.elysium.ui.version.LilyPondVersion;
 import org.elysium.validation.LilyPondJavaValidator;
 
 /**
@@ -18,7 +22,7 @@ import org.elysium.validation.LilyPondJavaValidator;
 public class LilyPondQuickfixProvider extends AbstractDeclarativeQuickfixProvider {
 
 	@Fix(LilyPondJavaValidator.HIDDEN_TOKEN_AFTER_BACKSLASH)
-	public void removeHiddenTokenAfterBackslash(final Issue issue, IssueResolutionAcceptor acceptor) {
+	public void removeHiddenTokensAfterBackslash(final Issue issue, IssueResolutionAcceptor acceptor) {
 		acceptor.accept(issue, "Remove hidden tokens", null, null, new ISemanticModification() {
 
 			@Override
@@ -45,5 +49,21 @@ public class LilyPondQuickfixProvider extends AbstractDeclarativeQuickfixProvide
 
 		});
 	}
-	
+
+	@Fix(LilyPondJavaValidator.NO_VERSION)
+	public void addVersion(final Issue issue, IssueResolutionAcceptor acceptor) {
+		acceptor.accept(issue, "Add \\version statement", null, null, new ISemanticModification() {
+
+			@Override
+			public void apply(EObject element, IModificationContext context) throws Exception {
+				if (element instanceof LilyPond) {
+					LilyPond lilypond = (LilyPond)element;
+					Version version = LilypondFactory.eINSTANCE.createVersion();
+					version.setVersion(LilyPondVersion.get());
+					lilypond.getExpressions().add(0, version);
+				}
+			}
+
+		});
+	}
 }

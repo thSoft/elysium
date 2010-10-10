@@ -28,9 +28,7 @@
     <genClasses ecoreClass="LilyPond.ecore#//SimpleBlock"/>
     <genClasses ecoreClass="LilyPond.ecore#//SimultaneousBlock"/>
     <genClasses ecoreClass="LilyPond.ecore#//Command"/>
-    <genClasses ecoreClass="LilyPond.ecore#//SpecialCommand">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute LilyPond.ecore#//SpecialCommand/keyword"/>
-    </genClasses>
+    <genClasses ecoreClass="LilyPond.ecore#//SpecialCommand"/>
     <genClasses ecoreClass="LilyPond.ecore#//Include">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute LilyPond.ecore#//Include/importURI"/>
     </genClasses>
@@ -39,6 +37,9 @@
     </genClasses>
     <genClasses ecoreClass="LilyPond.ecore#//Markup">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference LilyPond.ecore#//Markup/block"/>
+    </genClasses>
+    <genClasses ecoreClass="LilyPond.ecore#//MarkupLines">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference LilyPond.ecore#//MarkupLines/block"/>
     </genClasses>
     <genClasses ecoreClass="LilyPond.ecore#//MarkupBlock">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference LilyPond.ecore#//MarkupBlock/expressions"/>

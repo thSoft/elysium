@@ -26,13 +26,15 @@ SimultaneousBlock: {SimultaneousBlock} "<<" expressions+=Expression* ">>";
 
 Command: SpecialCommand | Reference;
 
-SpecialCommand: Include | Version | Markup;
+SpecialCommand: Include | Version | Markup | MarkupLines;
 
-Include: "\\" keyword="include" importURI=STRING;
+Include: "\\" "include" importURI=STRING;
 
-Version: "\\" keyword="version" version=STRING;
+Version: "\\" "version" version=STRING;
 
-Markup: "\\" keyword=("markup" | "markuplines") block=MarkupBlock;
+Markup: "\\" "markup" block=MarkupBlock;
+
+MarkupLines: "\\" "markuplines" block=MarkupBlock; 
 
 MarkupBlock: {MarkupBlock} "{" expressions+=MarkupExpression* "}";
 

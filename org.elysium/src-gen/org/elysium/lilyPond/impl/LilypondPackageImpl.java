@@ -25,6 +25,7 @@ import org.elysium.lilypond.Markup;
 import org.elysium.lilypond.MarkupBlock;
 import org.elysium.lilypond.MarkupCommand;
 import org.elysium.lilypond.MarkupExpression;
+import org.elysium.lilypond.MarkupLines;
 import org.elysium.lilypond.PropertyAssignment;
 import org.elysium.lilypond.Reference;
 import org.elysium.lilypond.Scheme;
@@ -149,6 +150,13 @@ public class LilypondPackageImpl extends EPackageImpl implements LilypondPackage
    * @generated
    */
   private EClass markupEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass markupLinesEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -500,16 +508,6 @@ public class LilypondPackageImpl extends EPackageImpl implements LilypondPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getSpecialCommand_Keyword()
-  {
-    return (EAttribute)specialCommandEClass.getEStructuralFeatures().get(0);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
   public EClass getInclude()
   {
     return includeEClass;
@@ -563,6 +561,26 @@ public class LilypondPackageImpl extends EPackageImpl implements LilypondPackage
   public EReference getMarkup_Block()
   {
     return (EReference)markupEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getMarkupLines()
+  {
+    return markupLinesEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getMarkupLines_Block()
+  {
+    return (EReference)markupLinesEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -982,7 +1000,6 @@ public class LilypondPackageImpl extends EPackageImpl implements LilypondPackage
     commandEClass = createEClass(COMMAND);
 
     specialCommandEClass = createEClass(SPECIAL_COMMAND);
-    createEAttribute(specialCommandEClass, SPECIAL_COMMAND__KEYWORD);
 
     includeEClass = createEClass(INCLUDE);
     createEAttribute(includeEClass, INCLUDE__IMPORT_URI);
@@ -992,6 +1009,9 @@ public class LilypondPackageImpl extends EPackageImpl implements LilypondPackage
 
     markupEClass = createEClass(MARKUP);
     createEReference(markupEClass, MARKUP__BLOCK);
+
+    markupLinesEClass = createEClass(MARKUP_LINES);
+    createEReference(markupLinesEClass, MARKUP_LINES__BLOCK);
 
     markupBlockEClass = createEClass(MARKUP_BLOCK);
     createEReference(markupBlockEClass, MARKUP_BLOCK__EXPRESSIONS);
@@ -1087,6 +1107,7 @@ public class LilypondPackageImpl extends EPackageImpl implements LilypondPackage
     includeEClass.getESuperTypes().add(this.getSpecialCommand());
     versionEClass.getESuperTypes().add(this.getSpecialCommand());
     markupEClass.getESuperTypes().add(this.getSpecialCommand());
+    markupLinesEClass.getESuperTypes().add(this.getSpecialCommand());
     markupBlockEClass.getESuperTypes().add(this.getMarkupExpression());
     markupCommandEClass.getESuperTypes().add(this.getMarkupExpression());
     referenceEClass.getESuperTypes().add(this.getCommand());
@@ -1132,7 +1153,6 @@ public class LilypondPackageImpl extends EPackageImpl implements LilypondPackage
     initEClass(commandEClass, Command.class, "Command", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
     initEClass(specialCommandEClass, SpecialCommand.class, "SpecialCommand", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getSpecialCommand_Keyword(), ecorePackage.getEString(), "keyword", null, 0, 1, SpecialCommand.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(includeEClass, Include.class, "Include", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getInclude_ImportURI(), ecorePackage.getEString(), "importURI", null, 0, 1, Include.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1142,6 +1162,9 @@ public class LilypondPackageImpl extends EPackageImpl implements LilypondPackage
 
     initEClass(markupEClass, Markup.class, "Markup", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getMarkup_Block(), this.getMarkupBlock(), null, "block", null, 0, 1, Markup.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(markupLinesEClass, MarkupLines.class, "MarkupLines", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getMarkupLines_Block(), this.getMarkupBlock(), null, "block", null, 0, 1, MarkupLines.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(markupBlockEClass, MarkupBlock.class, "MarkupBlock", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getMarkupBlock_Expressions(), this.getMarkupExpression(), null, "expressions", null, 0, -1, MarkupBlock.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

@@ -332,22 +332,13 @@ public interface LilypondPackage extends EPackage
   int SPECIAL_COMMAND = 10;
 
   /**
-   * The feature id for the '<em><b>Keyword</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int SPECIAL_COMMAND__KEYWORD = COMMAND_FEATURE_COUNT + 0;
-
-  /**
    * The number of structural features of the '<em>Special Command</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int SPECIAL_COMMAND_FEATURE_COUNT = COMMAND_FEATURE_COUNT + 1;
+  int SPECIAL_COMMAND_FEATURE_COUNT = COMMAND_FEATURE_COUNT + 0;
 
   /**
    * The meta object id for the '{@link org.elysium.lilypond.impl.IncludeImpl <em>Include</em>}' class.
@@ -358,15 +349,6 @@ public interface LilypondPackage extends EPackage
    * @generated
    */
   int INCLUDE = 11;
-
-  /**
-   * The feature id for the '<em><b>Keyword</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int INCLUDE__KEYWORD = SPECIAL_COMMAND__KEYWORD;
 
   /**
    * The feature id for the '<em><b>Import URI</b></em>' attribute.
@@ -397,15 +379,6 @@ public interface LilypondPackage extends EPackage
   int VERSION = 12;
 
   /**
-   * The feature id for the '<em><b>Keyword</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int VERSION__KEYWORD = SPECIAL_COMMAND__KEYWORD;
-
-  /**
    * The feature id for the '<em><b>Version</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -434,15 +407,6 @@ public interface LilypondPackage extends EPackage
   int MARKUP = 13;
 
   /**
-   * The feature id for the '<em><b>Keyword</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int MARKUP__KEYWORD = SPECIAL_COMMAND__KEYWORD;
-
-  /**
    * The feature id for the '<em><b>Block</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -461,6 +425,34 @@ public interface LilypondPackage extends EPackage
   int MARKUP_FEATURE_COUNT = SPECIAL_COMMAND_FEATURE_COUNT + 1;
 
   /**
+   * The meta object id for the '{@link org.elysium.lilypond.impl.MarkupLinesImpl <em>Markup Lines</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.elysium.lilypond.impl.MarkupLinesImpl
+   * @see org.elysium.lilypond.impl.LilypondPackageImpl#getMarkupLines()
+   * @generated
+   */
+  int MARKUP_LINES = 14;
+
+  /**
+   * The feature id for the '<em><b>Block</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int MARKUP_LINES__BLOCK = SPECIAL_COMMAND_FEATURE_COUNT + 0;
+
+  /**
+   * The number of structural features of the '<em>Markup Lines</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int MARKUP_LINES_FEATURE_COUNT = SPECIAL_COMMAND_FEATURE_COUNT + 1;
+
+  /**
    * The meta object id for the '{@link org.elysium.lilypond.impl.MarkupExpressionImpl <em>Markup Expression</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -468,7 +460,7 @@ public interface LilypondPackage extends EPackage
    * @see org.elysium.lilypond.impl.LilypondPackageImpl#getMarkupExpression()
    * @generated
    */
-  int MARKUP_EXPRESSION = 15;
+  int MARKUP_EXPRESSION = 16;
 
   /**
    * The number of structural features of the '<em>Markup Expression</em>' class.
@@ -487,7 +479,7 @@ public interface LilypondPackage extends EPackage
    * @see org.elysium.lilypond.impl.LilypondPackageImpl#getMarkupBlock()
    * @generated
    */
-  int MARKUP_BLOCK = 14;
+  int MARKUP_BLOCK = 15;
 
   /**
    * The feature id for the '<em><b>Expressions</b></em>' containment reference list.
@@ -515,7 +507,7 @@ public interface LilypondPackage extends EPackage
    * @see org.elysium.lilypond.impl.LilypondPackageImpl#getMarkupCommand()
    * @generated
    */
-  int MARKUP_COMMAND = 16;
+  int MARKUP_COMMAND = 17;
 
   /**
    * The feature id for the '<em><b>Command</b></em>' attribute.
@@ -543,7 +535,7 @@ public interface LilypondPackage extends EPackage
    * @see org.elysium.lilypond.impl.LilypondPackageImpl#getReference()
    * @generated
    */
-  int REFERENCE = 17;
+  int REFERENCE = 18;
 
   /**
    * The feature id for the '<em><b>Assignment</b></em>' reference.
@@ -571,7 +563,7 @@ public interface LilypondPackage extends EPackage
    * @see org.elysium.lilypond.impl.LilypondPackageImpl#getText()
    * @generated
    */
-  int TEXT = 18;
+  int TEXT = 19;
 
   /**
    * The feature id for the '<em><b>Value</b></em>' attribute.
@@ -599,7 +591,7 @@ public interface LilypondPackage extends EPackage
    * @see org.elysium.lilypond.impl.LilypondPackageImpl#getNumber()
    * @generated
    */
-  int NUMBER = 19;
+  int NUMBER = 20;
 
   /**
    * The feature id for the '<em><b>Value</b></em>' attribute.
@@ -627,7 +619,7 @@ public interface LilypondPackage extends EPackage
    * @see org.elysium.lilypond.impl.LilypondPackageImpl#getScheme()
    * @generated
    */
-  int SCHEME = 20;
+  int SCHEME = 21;
 
   /**
    * The feature id for the '<em><b>Value</b></em>' containment reference.
@@ -655,7 +647,7 @@ public interface LilypondPackage extends EPackage
    * @see org.elysium.lilypond.impl.LilypondPackageImpl#getSchemeExpression()
    * @generated
    */
-  int SCHEME_EXPRESSION = 21;
+  int SCHEME_EXPRESSION = 22;
 
   /**
    * The feature id for the '<em><b>Quoted</b></em>' attribute.
@@ -719,7 +711,7 @@ public interface LilypondPackage extends EPackage
    * @see org.elysium.lilypond.impl.LilypondPackageImpl#getSchemeValue()
    * @generated
    */
-  int SCHEME_VALUE = 22;
+  int SCHEME_VALUE = 23;
 
   /**
    * The number of structural features of the '<em>Scheme Value</em>' class.
@@ -738,7 +730,7 @@ public interface LilypondPackage extends EPackage
    * @see org.elysium.lilypond.impl.LilypondPackageImpl#getSchemeBoolean()
    * @generated
    */
-  int SCHEME_BOOLEAN = 23;
+  int SCHEME_BOOLEAN = 24;
 
   /**
    * The feature id for the '<em><b>Value</b></em>' attribute.
@@ -766,7 +758,7 @@ public interface LilypondPackage extends EPackage
    * @see org.elysium.lilypond.impl.LilypondPackageImpl#getSchemeList()
    * @generated
    */
-  int SCHEME_LIST = 24;
+  int SCHEME_LIST = 25;
 
   /**
    * The feature id for the '<em><b>Vector</b></em>' attribute.
@@ -803,7 +795,7 @@ public interface LilypondPackage extends EPackage
    * @see org.elysium.lilypond.impl.LilypondPackageImpl#getSchemeBlock()
    * @generated
    */
-  int SCHEME_BLOCK = 25;
+  int SCHEME_BLOCK = 26;
 
   /**
    * The feature id for the '<em><b>Expressions</b></em>' containment reference list.
@@ -831,7 +823,7 @@ public interface LilypondPackage extends EPackage
    * @see org.elysium.lilypond.impl.LilypondPackageImpl#getSchemeCharacter()
    * @generated
    */
-  int SCHEME_CHARACTER = 26;
+  int SCHEME_CHARACTER = 27;
 
   /**
    * The feature id for the '<em><b>Value</b></em>' attribute.
@@ -859,7 +851,7 @@ public interface LilypondPackage extends EPackage
    * @see org.elysium.lilypond.impl.LilypondPackageImpl#getSchemeText()
    * @generated
    */
-  int SCHEME_TEXT = 27;
+  int SCHEME_TEXT = 28;
 
   /**
    * The feature id for the '<em><b>Value</b></em>' attribute.
@@ -887,7 +879,7 @@ public interface LilypondPackage extends EPackage
    * @see org.elysium.lilypond.impl.LilypondPackageImpl#getSchemeNumber()
    * @generated
    */
-  int SCHEME_NUMBER = 28;
+  int SCHEME_NUMBER = 29;
 
   /**
    * The feature id for the '<em><b>Radix</b></em>' attribute.
@@ -924,7 +916,7 @@ public interface LilypondPackage extends EPackage
    * @see org.elysium.lilypond.impl.LilypondPackageImpl#getSchemeMarkupCommand()
    * @generated
    */
-  int SCHEME_MARKUP_COMMAND = 29;
+  int SCHEME_MARKUP_COMMAND = 30;
 
   /**
    * The feature id for the '<em><b>Command</b></em>' attribute.
@@ -1122,17 +1114,6 @@ public interface LilypondPackage extends EPackage
   EClass getSpecialCommand();
 
   /**
-   * Returns the meta object for the attribute '{@link org.elysium.lilypond.SpecialCommand#getKeyword <em>Keyword</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Keyword</em>'.
-   * @see org.elysium.lilypond.SpecialCommand#getKeyword()
-   * @see #getSpecialCommand()
-   * @generated
-   */
-  EAttribute getSpecialCommand_Keyword();
-
-  /**
    * Returns the meta object for class '{@link org.elysium.lilypond.Include <em>Include</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -1194,6 +1175,27 @@ public interface LilypondPackage extends EPackage
    * @generated
    */
   EReference getMarkup_Block();
+
+  /**
+   * Returns the meta object for class '{@link org.elysium.lilypond.MarkupLines <em>Markup Lines</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Markup Lines</em>'.
+   * @see org.elysium.lilypond.MarkupLines
+   * @generated
+   */
+  EClass getMarkupLines();
+
+  /**
+   * Returns the meta object for the containment reference '{@link org.elysium.lilypond.MarkupLines#getBlock <em>Block</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Block</em>'.
+   * @see org.elysium.lilypond.MarkupLines#getBlock()
+   * @see #getMarkupLines()
+   * @generated
+   */
+  EReference getMarkupLines_Block();
 
   /**
    * Returns the meta object for class '{@link org.elysium.lilypond.MarkupBlock <em>Markup Block</em>}'.
@@ -1757,14 +1759,6 @@ public interface LilypondPackage extends EPackage
     EClass SPECIAL_COMMAND = eINSTANCE.getSpecialCommand();
 
     /**
-     * The meta object literal for the '<em><b>Keyword</b></em>' attribute feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EAttribute SPECIAL_COMMAND__KEYWORD = eINSTANCE.getSpecialCommand_Keyword();
-
-    /**
      * The meta object literal for the '{@link org.elysium.lilypond.impl.IncludeImpl <em>Include</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -1817,6 +1811,24 @@ public interface LilypondPackage extends EPackage
      * @generated
      */
     EReference MARKUP__BLOCK = eINSTANCE.getMarkup_Block();
+
+    /**
+     * The meta object literal for the '{@link org.elysium.lilypond.impl.MarkupLinesImpl <em>Markup Lines</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.elysium.lilypond.impl.MarkupLinesImpl
+     * @see org.elysium.lilypond.impl.LilypondPackageImpl#getMarkupLines()
+     * @generated
+     */
+    EClass MARKUP_LINES = eINSTANCE.getMarkupLines();
+
+    /**
+     * The meta object literal for the '<em><b>Block</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference MARKUP_LINES__BLOCK = eINSTANCE.getMarkupLines_Block();
 
     /**
      * The meta object literal for the '{@link org.elysium.lilypond.impl.MarkupBlockImpl <em>Markup Block</em>}' class.
