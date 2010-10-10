@@ -47,8 +47,11 @@ public class LilyPondFormatter extends AbstractDeclarativeFormatter {
 		}
 		// Comments
 		config.setLinewrap(0, 1, 2).before(grammar.getSL_COMMENTRule());
-		config.setLinewrap(0, 1, 2).before(grammar.getSCHEME_SL_COMMENTRule());
 		config.setLinewrap(0, 1, 2).before(grammar.getML_COMMENTRule());
 		config.setLinewrap(0, 1, 1).after(grammar.getML_COMMENTRule());
+		config.setLinewrap(0, 1, 2).before(grammar.getSCHEME_SL_COMMENTRule());
+		config.setLinewrap(0, 1, 2).before(grammar.getSCHEME_ML_COMMENTRule());
+		config.setLinewrap(0, 1, 1).after(grammar.getSCHEME_ML_COMMENTRule());
 	}
+
 }
