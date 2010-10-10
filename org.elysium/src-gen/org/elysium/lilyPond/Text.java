@@ -22,7 +22,7 @@ package org.elysium.lilypond;
  * @model
  * @generated
  */
-public interface Text extends CommonExpression, MarkupExpression
+public interface Text extends CommonExpression, UnparsedExpression
 {
   /**
    * Returns the value of the '<em><b>Value</b></em>' attribute.

@@ -15,7 +15,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 import org.elysium.lilypond.LilypondPackage;
 import org.elysium.lilypond.Markup;
-import org.elysium.lilypond.MarkupBlock;
+import org.elysium.lilypond.UnparsedBlock;
 
 /**
  * <!-- begin-user-doc -->
@@ -24,7 +24,7 @@ import org.elysium.lilypond.MarkupBlock;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link org.elysium.lilypond.impl.MarkupImpl#getBlock <em>Block</em>}</li>
+ *   <li>{@link org.elysium.lilypond.impl.MarkupImpl#getBody <em>Body</em>}</li>
  * </ul>
  * </p>
  *
@@ -33,14 +33,14 @@ import org.elysium.lilypond.MarkupBlock;
 public class MarkupImpl extends SpecialCommandImpl implements Markup
 {
   /**
-   * The cached value of the '{@link #getBlock() <em>Block</em>}' containment reference.
+   * The cached value of the '{@link #getBody() <em>Body</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getBlock()
+   * @see #getBody()
    * @generated
    * @ordered
    */
-  protected MarkupBlock block;
+  protected UnparsedBlock body;
 
   /**
    * <!-- begin-user-doc -->
@@ -68,9 +68,9 @@ public class MarkupImpl extends SpecialCommandImpl implements Markup
    * <!-- end-user-doc -->
    * @generated
    */
-  public MarkupBlock getBlock()
+  public UnparsedBlock getBody()
   {
-    return block;
+    return body;
   }
 
   /**
@@ -78,13 +78,13 @@ public class MarkupImpl extends SpecialCommandImpl implements Markup
    * <!-- end-user-doc -->
    * @generated
    */
-  public NotificationChain basicSetBlock(MarkupBlock newBlock, NotificationChain msgs)
+  public NotificationChain basicSetBody(UnparsedBlock newBody, NotificationChain msgs)
   {
-    MarkupBlock oldBlock = block;
-    block = newBlock;
+    UnparsedBlock oldBody = body;
+    body = newBody;
     if (eNotificationRequired())
     {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, LilypondPackage.MARKUP__BLOCK, oldBlock, newBlock);
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, LilypondPackage.MARKUP__BODY, oldBody, newBody);
       if (msgs == null) msgs = notification; else msgs.add(notification);
     }
     return msgs;
@@ -95,20 +95,20 @@ public class MarkupImpl extends SpecialCommandImpl implements Markup
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setBlock(MarkupBlock newBlock)
+  public void setBody(UnparsedBlock newBody)
   {
-    if (newBlock != block)
+    if (newBody != body)
     {
       NotificationChain msgs = null;
-      if (block != null)
-        msgs = ((InternalEObject)block).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - LilypondPackage.MARKUP__BLOCK, null, msgs);
-      if (newBlock != null)
-        msgs = ((InternalEObject)newBlock).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - LilypondPackage.MARKUP__BLOCK, null, msgs);
-      msgs = basicSetBlock(newBlock, msgs);
+      if (body != null)
+        msgs = ((InternalEObject)body).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - LilypondPackage.MARKUP__BODY, null, msgs);
+      if (newBody != null)
+        msgs = ((InternalEObject)newBody).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - LilypondPackage.MARKUP__BODY, null, msgs);
+      msgs = basicSetBody(newBody, msgs);
       if (msgs != null) msgs.dispatch();
     }
     else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, LilypondPackage.MARKUP__BLOCK, newBlock, newBlock));
+      eNotify(new ENotificationImpl(this, Notification.SET, LilypondPackage.MARKUP__BODY, newBody, newBody));
   }
 
   /**
@@ -121,8 +121,8 @@ public class MarkupImpl extends SpecialCommandImpl implements Markup
   {
     switch (featureID)
     {
-      case LilypondPackage.MARKUP__BLOCK:
-        return basicSetBlock(null, msgs);
+      case LilypondPackage.MARKUP__BODY:
+        return basicSetBody(null, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
   }
@@ -137,8 +137,8 @@ public class MarkupImpl extends SpecialCommandImpl implements Markup
   {
     switch (featureID)
     {
-      case LilypondPackage.MARKUP__BLOCK:
-        return getBlock();
+      case LilypondPackage.MARKUP__BODY:
+        return getBody();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -153,8 +153,8 @@ public class MarkupImpl extends SpecialCommandImpl implements Markup
   {
     switch (featureID)
     {
-      case LilypondPackage.MARKUP__BLOCK:
-        setBlock((MarkupBlock)newValue);
+      case LilypondPackage.MARKUP__BODY:
+        setBody((UnparsedBlock)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -170,8 +170,8 @@ public class MarkupImpl extends SpecialCommandImpl implements Markup
   {
     switch (featureID)
     {
-      case LilypondPackage.MARKUP__BLOCK:
-        setBlock((MarkupBlock)null);
+      case LilypondPackage.MARKUP__BODY:
+        setBody((UnparsedBlock)null);
         return;
     }
     super.eUnset(featureID);
@@ -187,8 +187,8 @@ public class MarkupImpl extends SpecialCommandImpl implements Markup
   {
     switch (featureID)
     {
-      case LilypondPackage.MARKUP__BLOCK:
-        return block != null;
+      case LilypondPackage.MARKUP__BODY:
+        return body != null;
     }
     return super.eIsSet(featureID);
   }

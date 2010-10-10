@@ -161,31 +161,49 @@ public interface LilypondFactory extends EFactory
   MarkupLines createMarkupLines();
 
   /**
-   * Returns a new object of class '<em>Markup Block</em>'.
+   * Returns a new object of class '<em>Context</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>Markup Block</em>'.
+   * @return a new object of class '<em>Context</em>'.
    * @generated
    */
-  MarkupBlock createMarkupBlock();
+  Context createContext();
 
   /**
-   * Returns a new object of class '<em>Markup Expression</em>'.
+   * Returns a new object of class '<em>Other</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>Markup Expression</em>'.
+   * @return a new object of class '<em>Other</em>'.
    * @generated
    */
-  MarkupExpression createMarkupExpression();
+  Other createOther();
 
   /**
-   * Returns a new object of class '<em>Markup Command</em>'.
+   * Returns a new object of class '<em>Unparsed Block</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>Markup Command</em>'.
+   * @return a new object of class '<em>Unparsed Block</em>'.
    * @generated
    */
-  MarkupCommand createMarkupCommand();
+  UnparsedBlock createUnparsedBlock();
+
+  /**
+   * Returns a new object of class '<em>Unparsed Expression</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Unparsed Expression</em>'.
+   * @generated
+   */
+  UnparsedExpression createUnparsedExpression();
+
+  /**
+   * Returns a new object of class '<em>Unparsed Command</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Unparsed Command</em>'.
+   * @generated
+   */
+  UnparsedCommand createUnparsedCommand();
 
   /**
    * Returns a new object of class '<em>Reference</em>'.

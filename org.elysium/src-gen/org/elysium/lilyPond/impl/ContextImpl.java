@@ -13,24 +13,24 @@ import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
+import org.elysium.lilypond.Context;
 import org.elysium.lilypond.LilypondPackage;
-import org.elysium.lilypond.MarkupLines;
 import org.elysium.lilypond.UnparsedBlock;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Markup Lines</b></em>'.
+ * An implementation of the model object '<em><b>Context</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link org.elysium.lilypond.impl.MarkupLinesImpl#getBody <em>Body</em>}</li>
+ *   <li>{@link org.elysium.lilypond.impl.ContextImpl#getBody <em>Body</em>}</li>
  * </ul>
  * </p>
  *
  * @generated
  */
-public class MarkupLinesImpl extends SpecialCommandImpl implements MarkupLines
+public class ContextImpl extends SpecialCommandImpl implements Context
 {
   /**
    * The cached value of the '{@link #getBody() <em>Body</em>}' containment reference.
@@ -47,7 +47,7 @@ public class MarkupLinesImpl extends SpecialCommandImpl implements MarkupLines
    * <!-- end-user-doc -->
    * @generated
    */
-  protected MarkupLinesImpl()
+  protected ContextImpl()
   {
     super();
   }
@@ -60,7 +60,7 @@ public class MarkupLinesImpl extends SpecialCommandImpl implements MarkupLines
   @Override
   protected EClass eStaticClass()
   {
-    return LilypondPackage.Literals.MARKUP_LINES;
+    return LilypondPackage.Literals.CONTEXT;
   }
 
   /**
@@ -84,7 +84,7 @@ public class MarkupLinesImpl extends SpecialCommandImpl implements MarkupLines
     body = newBody;
     if (eNotificationRequired())
     {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, LilypondPackage.MARKUP_LINES__BODY, oldBody, newBody);
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, LilypondPackage.CONTEXT__BODY, oldBody, newBody);
       if (msgs == null) msgs = notification; else msgs.add(notification);
     }
     return msgs;
@@ -101,14 +101,14 @@ public class MarkupLinesImpl extends SpecialCommandImpl implements MarkupLines
     {
       NotificationChain msgs = null;
       if (body != null)
-        msgs = ((InternalEObject)body).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - LilypondPackage.MARKUP_LINES__BODY, null, msgs);
+        msgs = ((InternalEObject)body).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - LilypondPackage.CONTEXT__BODY, null, msgs);
       if (newBody != null)
-        msgs = ((InternalEObject)newBody).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - LilypondPackage.MARKUP_LINES__BODY, null, msgs);
+        msgs = ((InternalEObject)newBody).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - LilypondPackage.CONTEXT__BODY, null, msgs);
       msgs = basicSetBody(newBody, msgs);
       if (msgs != null) msgs.dispatch();
     }
     else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, LilypondPackage.MARKUP_LINES__BODY, newBody, newBody));
+      eNotify(new ENotificationImpl(this, Notification.SET, LilypondPackage.CONTEXT__BODY, newBody, newBody));
   }
 
   /**
@@ -121,7 +121,7 @@ public class MarkupLinesImpl extends SpecialCommandImpl implements MarkupLines
   {
     switch (featureID)
     {
-      case LilypondPackage.MARKUP_LINES__BODY:
+      case LilypondPackage.CONTEXT__BODY:
         return basicSetBody(null, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
@@ -137,7 +137,7 @@ public class MarkupLinesImpl extends SpecialCommandImpl implements MarkupLines
   {
     switch (featureID)
     {
-      case LilypondPackage.MARKUP_LINES__BODY:
+      case LilypondPackage.CONTEXT__BODY:
         return getBody();
     }
     return super.eGet(featureID, resolve, coreType);
@@ -153,7 +153,7 @@ public class MarkupLinesImpl extends SpecialCommandImpl implements MarkupLines
   {
     switch (featureID)
     {
-      case LilypondPackage.MARKUP_LINES__BODY:
+      case LilypondPackage.CONTEXT__BODY:
         setBody((UnparsedBlock)newValue);
         return;
     }
@@ -170,7 +170,7 @@ public class MarkupLinesImpl extends SpecialCommandImpl implements MarkupLines
   {
     switch (featureID)
     {
-      case LilypondPackage.MARKUP_LINES__BODY:
+      case LilypondPackage.CONTEXT__BODY:
         setBody((UnparsedBlock)null);
         return;
     }
@@ -187,10 +187,10 @@ public class MarkupLinesImpl extends SpecialCommandImpl implements MarkupLines
   {
     switch (featureID)
     {
-      case LilypondPackage.MARKUP_LINES__BODY:
+      case LilypondPackage.CONTEXT__BODY:
         return body != null;
     }
     return super.eIsSet(featureID);
   }
 
-} //MarkupLinesImpl
+} //ContextImpl

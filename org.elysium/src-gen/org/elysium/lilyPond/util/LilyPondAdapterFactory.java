@@ -16,15 +16,14 @@ import org.elysium.lilypond.Assignment;
 import org.elysium.lilypond.Block;
 import org.elysium.lilypond.Command;
 import org.elysium.lilypond.CommonExpression;
+import org.elysium.lilypond.Context;
 import org.elysium.lilypond.Expression;
 import org.elysium.lilypond.Include;
 import org.elysium.lilypond.LilyPond;
 import org.elysium.lilypond.LilypondPackage;
 import org.elysium.lilypond.Markup;
-import org.elysium.lilypond.MarkupBlock;
-import org.elysium.lilypond.MarkupCommand;
-import org.elysium.lilypond.MarkupExpression;
 import org.elysium.lilypond.MarkupLines;
+import org.elysium.lilypond.Other;
 import org.elysium.lilypond.PropertyAssignment;
 import org.elysium.lilypond.Reference;
 import org.elysium.lilypond.Scheme;
@@ -42,6 +41,9 @@ import org.elysium.lilypond.SimultaneousBlock;
 import org.elysium.lilypond.SpecialCommand;
 import org.elysium.lilypond.Text;
 import org.elysium.lilypond.ToplevelExpression;
+import org.elysium.lilypond.UnparsedBlock;
+import org.elysium.lilypond.UnparsedCommand;
+import org.elysium.lilypond.UnparsedExpression;
 import org.elysium.lilypond.Version;
 
 /**
@@ -183,19 +185,29 @@ public class LilypondAdapterFactory extends AdapterFactoryImpl
         return createMarkupLinesAdapter();
       }
       @Override
-      public Adapter caseMarkupBlock(MarkupBlock object)
+      public Adapter caseContext(Context object)
       {
-        return createMarkupBlockAdapter();
+        return createContextAdapter();
       }
       @Override
-      public Adapter caseMarkupExpression(MarkupExpression object)
+      public Adapter caseOther(Other object)
       {
-        return createMarkupExpressionAdapter();
+        return createOtherAdapter();
       }
       @Override
-      public Adapter caseMarkupCommand(MarkupCommand object)
+      public Adapter caseUnparsedBlock(UnparsedBlock object)
       {
-        return createMarkupCommandAdapter();
+        return createUnparsedBlockAdapter();
+      }
+      @Override
+      public Adapter caseUnparsedExpression(UnparsedExpression object)
+      {
+        return createUnparsedExpressionAdapter();
+      }
+      @Override
+      public Adapter caseUnparsedCommand(UnparsedCommand object)
+      {
+        return createUnparsedCommandAdapter();
       }
       @Override
       public Adapter caseReference(Reference object)
@@ -510,46 +522,76 @@ public class LilypondAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link org.elysium.lilypond.MarkupBlock <em>Markup Block</em>}'.
+   * Creates a new adapter for an object of class '{@link org.elysium.lilypond.Context <em>Context</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see org.elysium.lilypond.MarkupBlock
+   * @see org.elysium.lilypond.Context
    * @generated
    */
-  public Adapter createMarkupBlockAdapter()
+  public Adapter createContextAdapter()
   {
     return null;
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link org.elysium.lilypond.MarkupExpression <em>Markup Expression</em>}'.
+   * Creates a new adapter for an object of class '{@link org.elysium.lilypond.Other <em>Other</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see org.elysium.lilypond.MarkupExpression
+   * @see org.elysium.lilypond.Other
    * @generated
    */
-  public Adapter createMarkupExpressionAdapter()
+  public Adapter createOtherAdapter()
   {
     return null;
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link org.elysium.lilypond.MarkupCommand <em>Markup Command</em>}'.
+   * Creates a new adapter for an object of class '{@link org.elysium.lilypond.UnparsedBlock <em>Unparsed Block</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see org.elysium.lilypond.MarkupCommand
+   * @see org.elysium.lilypond.UnparsedBlock
    * @generated
    */
-  public Adapter createMarkupCommandAdapter()
+  public Adapter createUnparsedBlockAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.elysium.lilypond.UnparsedExpression <em>Unparsed Expression</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.elysium.lilypond.UnparsedExpression
+   * @generated
+   */
+  public Adapter createUnparsedExpressionAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.elysium.lilypond.UnparsedCommand <em>Unparsed Command</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.elysium.lilypond.UnparsedCommand
+   * @generated
+   */
+  public Adapter createUnparsedCommandAdapter()
   {
     return null;
   }

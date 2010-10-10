@@ -8,8 +8,8 @@ import org.eclipse.xtext.ui.editor.syntaxcoloring.DefaultHighlightingConfigurati
 import org.eclipse.xtext.ui.editor.syntaxcoloring.IHighlightedPositionAcceptor;
 import org.eclipse.xtext.ui.editor.syntaxcoloring.ISemanticHighlightingCalculator;
 import org.elysium.lilypond.Assignment;
-import org.elysium.lilypond.MarkupCommand;
 import org.elysium.lilypond.Reference;
+import org.elysium.lilypond.UnparsedCommand;
 
 /**
  * Assigns semantic highlighting styles to ranges of text based on LilyPond
@@ -31,9 +31,9 @@ public class LilyPondSemanticHighlightingCalculator implements ISemanticHighligh
 							acceptor.addPosition(node.getOffset(), name.length() + 1, DefaultHighlightingConfiguration.KEYWORD_ID);
 						}
 					}
-				} else if (element instanceof MarkupCommand) {
-					MarkupCommand markupCommand = (MarkupCommand)element;
-					String name = markupCommand.getCommand();
+				} else if (element instanceof UnparsedCommand) {
+					UnparsedCommand UnparsedCommand = (UnparsedCommand)element;
+					String name = UnparsedCommand.getCommand();
 					if (name != null) {
 						acceptor.addPosition(node.getOffset(), name.length() + 1, DefaultHighlightingConfiguration.KEYWORD_ID);
 					}

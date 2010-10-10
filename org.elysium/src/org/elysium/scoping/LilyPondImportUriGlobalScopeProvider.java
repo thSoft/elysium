@@ -11,7 +11,6 @@ import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EReference;
 import org.eclipse.emf.ecore.resource.Resource;
-import org.eclipse.emf.ecore.resource.impl.ResourceImpl;
 import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
 import org.eclipse.xtext.EcoreUtil2;
 import org.eclipse.xtext.resource.IResourceDescription;
@@ -23,7 +22,6 @@ import org.eclipse.xtext.scoping.impl.ImportUriResolver;
 import org.eclipse.xtext.scoping.impl.LoadOnDemandResourceDescriptions;
 import org.eclipse.xtext.scoping.impl.ResourceDescriptionBasedScope;
 import org.eclipse.xtext.util.IResourceScopeCache;
-import org.elysium.Activator;
 import org.elysium.lilypond.Include;
 import org.elysium.lilypond.LilypondFactory;
 import com.google.common.collect.Lists;
@@ -89,8 +87,6 @@ public class LilyPondImportUriGlobalScopeProvider extends AbstractGlobalScopePro
 			public LinkedHashSet<URI> get() {
 				Set<Resource> resources = getAllImportedResources(context.eResource());
 
-				resources.add(getBuiltInResource());
-
 				Include include = LilypondFactory.eINSTANCE.createInclude();
 				include.setImportURI("init.ly"); //$NON-NLS-1$
 				String initImportUriString = getImportUriResolver().apply(include);
@@ -106,15 +102,6 @@ public class LilyPondImportUriGlobalScopeProvider extends AbstractGlobalScopePro
 			}
 
 		});
-	}
-
-	private static Resource builtInResource;
-
-	private static Resource getBuiltInResource() {
-		if (builtInResource == null) {
-			builtInResource = new ResourceImpl(URI.createPlatformPluginURI(Activator.getId() + "/built-in.ly", false)); //$NON-NLS-1$
-		}
-		return builtInResource;
 	}
 
 	/**

@@ -16,13 +16,127 @@ import org.eclipse.xtext.parser.antlr.Lexer;
 
 
 
-KEYWORD_29 : 'markuplines';
+KEYWORD_86 : 'grobdescriptions';
 
-KEYWORD_27 : 'include';
+KEYWORD_84 : 'sourcefileline';
 
-KEYWORD_28 : 'version';
+KEYWORD_85 : 'sourcefilename';
 
-KEYWORD_26 : 'markup';
+KEYWORD_82 : 'defaultchild';
+
+KEYWORD_83 : 'simultaneous';
+
+KEYWORD_79 : 'alternative';
+
+KEYWORD_80 : 'description';
+
+KEYWORD_81 : 'markuplines';
+
+KEYWORD_77 : 'figuremode';
+
+KEYWORD_78 : 'sequential';
+
+KEYWORD_72 : 'addlyrics';
+
+KEYWORD_73 : 'chordmode';
+
+KEYWORD_74 : 'lyricmode';
+
+KEYWORD_75 : 'maininput';
+
+KEYWORD_76 : 'transpose';
+
+KEYWORD_64 : 'bookpart';
+
+KEYWORD_65 : 'consists';
+
+KEYWORD_66 : 'drummode';
+
+KEYWORD_67 : 'lyricsto';
+
+KEYWORD_68 : 'notemode';
+
+KEYWORD_69 : 'objectid';
+
+KEYWORD_70 : 'override';
+
+KEYWORD_71 : 'relative';
+
+KEYWORD_57 : 'accepts';
+
+KEYWORD_58 : 'context';
+
+KEYWORD_59 : 'default';
+
+KEYWORD_60 : 'figures';
+
+KEYWORD_61 : 'include';
+
+KEYWORD_62 : 'partial';
+
+KEYWORD_63 : 'version';
+
+KEYWORD_46 : 'change';
+
+KEYWORD_47 : 'chords';
+
+KEYWORD_48 : 'denies';
+
+KEYWORD_49 : 'header';
+
+KEYWORD_50 : 'layout';
+
+KEYWORD_51 : 'lyrics';
+
+KEYWORD_52 : 'markup';
+
+KEYWORD_53 : 'octave';
+
+KEYWORD_54 : 'remove';
+
+KEYWORD_55 : 'repeat';
+
+KEYWORD_56 : 'revert';
+
+KEYWORD_39 : 'alias';
+
+KEYWORD_40 : 'drums';
+
+KEYWORD_41 : 'paper';
+
+KEYWORD_42 : 'score';
+
+KEYWORD_43 : 'tempo';
+
+KEYWORD_44 : 'times';
+
+KEYWORD_45 : 'unset';
+
+KEYWORD_29 : 'book';
+
+KEYWORD_30 : 'mark';
+
+KEYWORD_31 : 'midi';
+
+KEYWORD_32 : 'name';
+
+KEYWORD_33 : 'once';
+
+KEYWORD_34 : 'rest';
+
+KEYWORD_35 : 'skip';
+
+KEYWORD_36 : 'time';
+
+KEYWORD_37 : 'type';
+
+KEYWORD_38 : 'with';
+
+KEYWORD_26 : 'key';
+
+KEYWORD_27 : 'new';
+
+KEYWORD_28 : 'set';
 
 KEYWORD_19 : '#:';
 

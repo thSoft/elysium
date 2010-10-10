@@ -12,49 +12,49 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 import org.elysium.lilypond.LilypondPackage;
-import org.elysium.lilypond.MarkupCommand;
+import org.elysium.lilypond.Other;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Markup Command</b></em>'.
+ * An implementation of the model object '<em><b>Other</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link org.elysium.lilypond.impl.MarkupCommandImpl#getCommand <em>Command</em>}</li>
+ *   <li>{@link org.elysium.lilypond.impl.OtherImpl#getKeyword <em>Keyword</em>}</li>
  * </ul>
  * </p>
  *
  * @generated
  */
-public class MarkupCommandImpl extends MarkupExpressionImpl implements MarkupCommand
+public class OtherImpl extends SpecialCommandImpl implements Other
 {
   /**
-   * The default value of the '{@link #getCommand() <em>Command</em>}' attribute.
+   * The default value of the '{@link #getKeyword() <em>Keyword</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getCommand()
+   * @see #getKeyword()
    * @generated
    * @ordered
    */
-  protected static final String COMMAND_EDEFAULT = null;
+  protected static final String KEYWORD_EDEFAULT = null;
 
   /**
-   * The cached value of the '{@link #getCommand() <em>Command</em>}' attribute.
+   * The cached value of the '{@link #getKeyword() <em>Keyword</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getCommand()
+   * @see #getKeyword()
    * @generated
    * @ordered
    */
-  protected String command = COMMAND_EDEFAULT;
+  protected String keyword = KEYWORD_EDEFAULT;
 
   /**
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
-  protected MarkupCommandImpl()
+  protected OtherImpl()
   {
     super();
   }
@@ -67,7 +67,7 @@ public class MarkupCommandImpl extends MarkupExpressionImpl implements MarkupCom
   @Override
   protected EClass eStaticClass()
   {
-    return LilypondPackage.Literals.MARKUP_COMMAND;
+    return LilypondPackage.Literals.OTHER;
   }
 
   /**
@@ -75,9 +75,9 @@ public class MarkupCommandImpl extends MarkupExpressionImpl implements MarkupCom
    * <!-- end-user-doc -->
    * @generated
    */
-  public String getCommand()
+  public String getKeyword()
   {
-    return command;
+    return keyword;
   }
 
   /**
@@ -85,12 +85,12 @@ public class MarkupCommandImpl extends MarkupExpressionImpl implements MarkupCom
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setCommand(String newCommand)
+  public void setKeyword(String newKeyword)
   {
-    String oldCommand = command;
-    command = newCommand;
+    String oldKeyword = keyword;
+    keyword = newKeyword;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, LilypondPackage.MARKUP_COMMAND__COMMAND, oldCommand, command));
+      eNotify(new ENotificationImpl(this, Notification.SET, LilypondPackage.OTHER__KEYWORD, oldKeyword, keyword));
   }
 
   /**
@@ -103,8 +103,8 @@ public class MarkupCommandImpl extends MarkupExpressionImpl implements MarkupCom
   {
     switch (featureID)
     {
-      case LilypondPackage.MARKUP_COMMAND__COMMAND:
-        return getCommand();
+      case LilypondPackage.OTHER__KEYWORD:
+        return getKeyword();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -119,8 +119,8 @@ public class MarkupCommandImpl extends MarkupExpressionImpl implements MarkupCom
   {
     switch (featureID)
     {
-      case LilypondPackage.MARKUP_COMMAND__COMMAND:
-        setCommand((String)newValue);
+      case LilypondPackage.OTHER__KEYWORD:
+        setKeyword((String)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -136,8 +136,8 @@ public class MarkupCommandImpl extends MarkupExpressionImpl implements MarkupCom
   {
     switch (featureID)
     {
-      case LilypondPackage.MARKUP_COMMAND__COMMAND:
-        setCommand(COMMAND_EDEFAULT);
+      case LilypondPackage.OTHER__KEYWORD:
+        setKeyword(KEYWORD_EDEFAULT);
         return;
     }
     super.eUnset(featureID);
@@ -153,8 +153,8 @@ public class MarkupCommandImpl extends MarkupExpressionImpl implements MarkupCom
   {
     switch (featureID)
     {
-      case LilypondPackage.MARKUP_COMMAND__COMMAND:
-        return COMMAND_EDEFAULT == null ? command != null : !COMMAND_EDEFAULT.equals(command);
+      case LilypondPackage.OTHER__KEYWORD:
+        return KEYWORD_EDEFAULT == null ? keyword != null : !KEYWORD_EDEFAULT.equals(keyword);
     }
     return super.eIsSet(featureID);
   }
@@ -170,10 +170,10 @@ public class MarkupCommandImpl extends MarkupExpressionImpl implements MarkupCom
     if (eIsProxy()) return super.toString();
 
     StringBuffer result = new StringBuffer(super.toString());
-    result.append(" (command: ");
-    result.append(command);
+    result.append(" (keyword: ");
+    result.append(keyword);
     result.append(')');
     return result.toString();
   }
 
-} //MarkupCommandImpl
+} //OtherImpl

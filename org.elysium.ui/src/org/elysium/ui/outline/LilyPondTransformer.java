@@ -11,6 +11,7 @@ import org.elysium.lilypond.Scheme;
 import org.elysium.lilypond.SchemeExpression;
 import org.elysium.lilypond.SchemeList;
 import org.elysium.lilypond.Text;
+import org.elysium.lilypond.UnparsedBlock;
 
 /**
  * Transforms the structure of LilyPond outline nodes.
@@ -36,6 +37,10 @@ public class LilyPondTransformer extends AbstractDeclarativeSemanticModelTransfo
 
 	public boolean consumeNode(Reference reference) {
 		return reference.getAssignment().getName() != null;
+	}
+
+	public List<EObject> getChildren(UnparsedBlock unparsedBlock) {
+		return NO_CHILDREN;
 	}
 
 }

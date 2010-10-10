@@ -22,7 +22,7 @@ package org.elysium.lilypond;
  * @model
  * @generated
  */
-public interface Number extends CommonExpression, MarkupExpression
+public interface Number extends CommonExpression, UnparsedExpression
 {
   /**
    * Returns the value of the '<em><b>Value</b></em>' attribute.

@@ -36,17 +36,23 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute LilyPond.ecore#//Version/version"/>
     </genClasses>
     <genClasses ecoreClass="LilyPond.ecore#//Markup">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference LilyPond.ecore#//Markup/block"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference LilyPond.ecore#//Markup/body"/>
     </genClasses>
     <genClasses ecoreClass="LilyPond.ecore#//MarkupLines">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference LilyPond.ecore#//MarkupLines/block"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference LilyPond.ecore#//MarkupLines/body"/>
     </genClasses>
-    <genClasses ecoreClass="LilyPond.ecore#//MarkupBlock">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference LilyPond.ecore#//MarkupBlock/expressions"/>
+    <genClasses ecoreClass="LilyPond.ecore#//Context">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference LilyPond.ecore#//Context/body"/>
     </genClasses>
-    <genClasses ecoreClass="LilyPond.ecore#//MarkupExpression"/>
-    <genClasses ecoreClass="LilyPond.ecore#//MarkupCommand">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute LilyPond.ecore#//MarkupCommand/command"/>
+    <genClasses ecoreClass="LilyPond.ecore#//Other">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute LilyPond.ecore#//Other/keyword"/>
+    </genClasses>
+    <genClasses ecoreClass="LilyPond.ecore#//UnparsedBlock">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference LilyPond.ecore#//UnparsedBlock/expressions"/>
+    </genClasses>
+    <genClasses ecoreClass="LilyPond.ecore#//UnparsedExpression"/>
+    <genClasses ecoreClass="LilyPond.ecore#//UnparsedCommand">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute LilyPond.ecore#//UnparsedCommand/command"/>
     </genClasses>
     <genClasses ecoreClass="LilyPond.ecore#//Reference">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference LilyPond.ecore#//Reference/assignment"/>

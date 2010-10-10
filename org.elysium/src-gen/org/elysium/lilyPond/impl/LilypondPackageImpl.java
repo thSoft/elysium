@@ -16,16 +16,15 @@ import org.elysium.lilypond.Assignment;
 import org.elysium.lilypond.Block;
 import org.elysium.lilypond.Command;
 import org.elysium.lilypond.CommonExpression;
+import org.elysium.lilypond.Context;
 import org.elysium.lilypond.Expression;
 import org.elysium.lilypond.Include;
 import org.elysium.lilypond.LilyPond;
 import org.elysium.lilypond.LilypondFactory;
 import org.elysium.lilypond.LilypondPackage;
 import org.elysium.lilypond.Markup;
-import org.elysium.lilypond.MarkupBlock;
-import org.elysium.lilypond.MarkupCommand;
-import org.elysium.lilypond.MarkupExpression;
 import org.elysium.lilypond.MarkupLines;
+import org.elysium.lilypond.Other;
 import org.elysium.lilypond.PropertyAssignment;
 import org.elysium.lilypond.Reference;
 import org.elysium.lilypond.Scheme;
@@ -43,6 +42,9 @@ import org.elysium.lilypond.SimultaneousBlock;
 import org.elysium.lilypond.SpecialCommand;
 import org.elysium.lilypond.Text;
 import org.elysium.lilypond.ToplevelExpression;
+import org.elysium.lilypond.UnparsedBlock;
+import org.elysium.lilypond.UnparsedCommand;
+import org.elysium.lilypond.UnparsedExpression;
 import org.elysium.lilypond.Version;
 
 /**
@@ -163,21 +165,35 @@ public class LilypondPackageImpl extends EPackageImpl implements LilypondPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  private EClass markupBlockEClass = null;
+  private EClass contextEClass = null;
 
   /**
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
-  private EClass markupExpressionEClass = null;
+  private EClass otherEClass = null;
 
   /**
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
-  private EClass markupCommandEClass = null;
+  private EClass unparsedBlockEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass unparsedExpressionEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass unparsedCommandEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -558,7 +574,7 @@ public class LilypondPackageImpl extends EPackageImpl implements LilypondPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getMarkup_Block()
+  public EReference getMarkup_Body()
   {
     return (EReference)markupEClass.getEStructuralFeatures().get(0);
   }
@@ -578,7 +594,7 @@ public class LilypondPackageImpl extends EPackageImpl implements LilypondPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getMarkupLines_Block()
+  public EReference getMarkupLines_Body()
   {
     return (EReference)markupLinesEClass.getEStructuralFeatures().get(0);
   }
@@ -588,9 +604,9 @@ public class LilypondPackageImpl extends EPackageImpl implements LilypondPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EClass getMarkupBlock()
+  public EClass getContext()
   {
-    return markupBlockEClass;
+    return contextEClass;
   }
 
   /**
@@ -598,9 +614,9 @@ public class LilypondPackageImpl extends EPackageImpl implements LilypondPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getMarkupBlock_Expressions()
+  public EReference getContext_Body()
   {
-    return (EReference)markupBlockEClass.getEStructuralFeatures().get(0);
+    return (EReference)contextEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -608,9 +624,9 @@ public class LilypondPackageImpl extends EPackageImpl implements LilypondPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EClass getMarkupExpression()
+  public EClass getOther()
   {
-    return markupExpressionEClass;
+    return otherEClass;
   }
 
   /**
@@ -618,9 +634,9 @@ public class LilypondPackageImpl extends EPackageImpl implements LilypondPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EClass getMarkupCommand()
+  public EAttribute getOther_Keyword()
   {
-    return markupCommandEClass;
+    return (EAttribute)otherEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -628,9 +644,49 @@ public class LilypondPackageImpl extends EPackageImpl implements LilypondPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getMarkupCommand_Command()
+  public EClass getUnparsedBlock()
   {
-    return (EAttribute)markupCommandEClass.getEStructuralFeatures().get(0);
+    return unparsedBlockEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getUnparsedBlock_Expressions()
+  {
+    return (EReference)unparsedBlockEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getUnparsedExpression()
+  {
+    return unparsedExpressionEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getUnparsedCommand()
+  {
+    return unparsedCommandEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getUnparsedCommand_Command()
+  {
+    return (EAttribute)unparsedCommandEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -1008,18 +1064,24 @@ public class LilypondPackageImpl extends EPackageImpl implements LilypondPackage
     createEAttribute(versionEClass, VERSION__VERSION);
 
     markupEClass = createEClass(MARKUP);
-    createEReference(markupEClass, MARKUP__BLOCK);
+    createEReference(markupEClass, MARKUP__BODY);
 
     markupLinesEClass = createEClass(MARKUP_LINES);
-    createEReference(markupLinesEClass, MARKUP_LINES__BLOCK);
+    createEReference(markupLinesEClass, MARKUP_LINES__BODY);
 
-    markupBlockEClass = createEClass(MARKUP_BLOCK);
-    createEReference(markupBlockEClass, MARKUP_BLOCK__EXPRESSIONS);
+    contextEClass = createEClass(CONTEXT);
+    createEReference(contextEClass, CONTEXT__BODY);
 
-    markupExpressionEClass = createEClass(MARKUP_EXPRESSION);
+    otherEClass = createEClass(OTHER);
+    createEAttribute(otherEClass, OTHER__KEYWORD);
 
-    markupCommandEClass = createEClass(MARKUP_COMMAND);
-    createEAttribute(markupCommandEClass, MARKUP_COMMAND__COMMAND);
+    unparsedBlockEClass = createEClass(UNPARSED_BLOCK);
+    createEReference(unparsedBlockEClass, UNPARSED_BLOCK__EXPRESSIONS);
+
+    unparsedExpressionEClass = createEClass(UNPARSED_EXPRESSION);
+
+    unparsedCommandEClass = createEClass(UNPARSED_COMMAND);
+    createEAttribute(unparsedCommandEClass, UNPARSED_COMMAND__COMMAND);
 
     referenceEClass = createEClass(REFERENCE);
     createEReference(referenceEClass, REFERENCE__ASSIGNMENT);
@@ -1108,15 +1170,17 @@ public class LilypondPackageImpl extends EPackageImpl implements LilypondPackage
     versionEClass.getESuperTypes().add(this.getSpecialCommand());
     markupEClass.getESuperTypes().add(this.getSpecialCommand());
     markupLinesEClass.getESuperTypes().add(this.getSpecialCommand());
-    markupBlockEClass.getESuperTypes().add(this.getMarkupExpression());
-    markupCommandEClass.getESuperTypes().add(this.getMarkupExpression());
+    contextEClass.getESuperTypes().add(this.getSpecialCommand());
+    otherEClass.getESuperTypes().add(this.getSpecialCommand());
+    unparsedBlockEClass.getESuperTypes().add(this.getUnparsedExpression());
+    unparsedCommandEClass.getESuperTypes().add(this.getUnparsedExpression());
     referenceEClass.getESuperTypes().add(this.getCommand());
     textEClass.getESuperTypes().add(this.getCommonExpression());
-    textEClass.getESuperTypes().add(this.getMarkupExpression());
+    textEClass.getESuperTypes().add(this.getUnparsedExpression());
     numberEClass.getESuperTypes().add(this.getCommonExpression());
-    numberEClass.getESuperTypes().add(this.getMarkupExpression());
+    numberEClass.getESuperTypes().add(this.getUnparsedExpression());
     schemeEClass.getESuperTypes().add(this.getCommonExpression());
-    schemeEClass.getESuperTypes().add(this.getMarkupExpression());
+    schemeEClass.getESuperTypes().add(this.getUnparsedExpression());
     schemeBooleanEClass.getESuperTypes().add(this.getSchemeValue());
     schemeListEClass.getESuperTypes().add(this.getSchemeValue());
     schemeBlockEClass.getESuperTypes().add(this.getSchemeValue());
@@ -1161,18 +1225,24 @@ public class LilypondPackageImpl extends EPackageImpl implements LilypondPackage
     initEAttribute(getVersion_Version(), ecorePackage.getEString(), "version", null, 0, 1, Version.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(markupEClass, Markup.class, "Markup", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getMarkup_Block(), this.getMarkupBlock(), null, "block", null, 0, 1, Markup.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getMarkup_Body(), this.getUnparsedBlock(), null, "body", null, 0, 1, Markup.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(markupLinesEClass, MarkupLines.class, "MarkupLines", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getMarkupLines_Block(), this.getMarkupBlock(), null, "block", null, 0, 1, MarkupLines.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getMarkupLines_Body(), this.getUnparsedBlock(), null, "body", null, 0, 1, MarkupLines.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-    initEClass(markupBlockEClass, MarkupBlock.class, "MarkupBlock", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getMarkupBlock_Expressions(), this.getMarkupExpression(), null, "expressions", null, 0, -1, MarkupBlock.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEClass(contextEClass, Context.class, "Context", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getContext_Body(), this.getUnparsedBlock(), null, "body", null, 0, 1, Context.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-    initEClass(markupExpressionEClass, MarkupExpression.class, "MarkupExpression", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEClass(otherEClass, Other.class, "Other", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getOther_Keyword(), ecorePackage.getEString(), "keyword", null, 0, 1, Other.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-    initEClass(markupCommandEClass, MarkupCommand.class, "MarkupCommand", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getMarkupCommand_Command(), ecorePackage.getEString(), "command", null, 0, 1, MarkupCommand.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEClass(unparsedBlockEClass, UnparsedBlock.class, "UnparsedBlock", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getUnparsedBlock_Expressions(), this.getUnparsedExpression(), null, "expressions", null, 0, -1, UnparsedBlock.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(unparsedExpressionEClass, UnparsedExpression.class, "UnparsedExpression", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+    initEClass(unparsedCommandEClass, UnparsedCommand.class, "UnparsedCommand", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getUnparsedCommand_Command(), ecorePackage.getEString(), "command", null, 0, 1, UnparsedCommand.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(referenceEClass, Reference.class, "Reference", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getReference_Assignment(), this.getAssignment(), null, "assignment", null, 0, 1, Reference.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

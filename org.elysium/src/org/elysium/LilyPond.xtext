@@ -26,27 +26,33 @@ SimultaneousBlock: {SimultaneousBlock} "<<" expressions+=Expression* ">>";
 
 Command: SpecialCommand | Reference;
 
-SpecialCommand: Include | Version | Markup | MarkupLines;
+SpecialCommand: Include | Version | Markup | MarkupLines | Context | Other;
 
 Include: "\\" "include" importURI=STRING;
 
 Version: "\\" "version" version=STRING;
 
-Markup: "\\" "markup" block=MarkupBlock;
+Markup: "\\" "markup" body=UnparsedBlock;
 
-MarkupLines: "\\" "markuplines" block=MarkupBlock; 
+MarkupLines: "\\" "markuplines" body=UnparsedBlock;
 
-MarkupBlock: {MarkupBlock} "{" expressions+=MarkupExpression* "}";
+Context: {Context} "\\" "context" body=UnparsedBlock?;
 
-MarkupExpression: MarkupCommand | MarkupBlock | Scheme | Text | Number;
+Other: "\\" keyword=(SpecialCharacter | "(" | ")" | OtherName);
 
-MarkupCommand: "\\" command=ID;
+OtherName: "accepts" | "addlyrics" | "alias" | "alternative" | "book" | "bookpart" | "change" | "chordmode" | "chords" | "consists" | "default" | "defaultchild" | "denies" | "description" | "drummode" | "drums" | "figuremode" | "figures" | "grobdescriptions" | "header" | "key" | "layout" | "lyricmode" | "lyrics" | "lyricsto" | "maininput" | "mark" | "midi" | "name" | "new" | "notemode" | "objectid" | "octave" | "once" | "override" | "paper" | "partial" | "relative" | "remove" | "repeat" | "rest" | "revert" | "score" | "sequential" | "set" | "simultaneous" | "skip" | "sourcefileline" | "sourcefilename" | "tempo" | "time" | "times" | "transpose" | "type" | "unset" | "with";
 
-Reference: "\\" assignment=[Assignment|ReferenceName];
-
-ReferenceName: ID | "(" | ")" | SpecialCharacter;
+SpecialCommandName: "include" | "version" | "markup" | "markuplines" | OtherName;
 
 SpecialCharacter: "!" | "+" | "<" | ">" | "[" | "]" | "~";
+
+UnparsedBlock: {UnparsedBlock} "{" expressions+=UnparsedExpression* "}";
+
+UnparsedExpression: UnparsedCommand | UnparsedBlock | Scheme | Text | Number;
+
+UnparsedCommand: "\\" command=(ID | SpecialCommandName);
+
+Reference: "\\" assignment=[Assignment];
 
 Text: value=(SchemeTextLiterals | "(" | ")" | "'" | ",");
 
@@ -68,11 +74,11 @@ SchemeCharacter: "#\\" value=(ID | SpecialCharacter | ANY_OTHER);
 
 SchemeText: value=SchemeTextLiterals;
 
-SchemeTextLiterals: "\\\\" | "=" | SpecialCharacter | ID | STRING | ANY_OTHER;
+SchemeTextLiterals: "\\\\" | "=" | SpecialCharacter | SpecialCommandName | ID | STRING | ANY_OTHER;
 
 SchemeNumber hidden(): radix=SchemeNumberRadix? value=INT;
 
-SchemeNumberRadix hidden(): "#" ID;
+SchemeNumberRadix: "#" ID;
 
 SchemeMarkupCommand hidden(): "#:" command=ID;
 

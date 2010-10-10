@@ -10,25 +10,25 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 import org.elysium.lilypond.LilypondPackage;
-import org.elysium.lilypond.MarkupExpression;
+import org.elysium.lilypond.UnparsedExpression;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Markup Expression</b></em>'.
+ * An implementation of the model object '<em><b>Unparsed Expression</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * </p>
  *
  * @generated
  */
-public class MarkupExpressionImpl extends MinimalEObjectImpl.Container implements MarkupExpression
+public class UnparsedExpressionImpl extends MinimalEObjectImpl.Container implements UnparsedExpression
 {
   /**
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
-  protected MarkupExpressionImpl()
+  protected UnparsedExpressionImpl()
   {
     super();
   }
@@ -41,7 +41,7 @@ public class MarkupExpressionImpl extends MinimalEObjectImpl.Container implement
   @Override
   protected EClass eStaticClass()
   {
-    return LilypondPackage.Literals.MARKUP_EXPRESSION;
+    return LilypondPackage.Literals.UNPARSED_EXPRESSION;
   }
 
-} //MarkupExpressionImpl
+} //UnparsedExpressionImpl

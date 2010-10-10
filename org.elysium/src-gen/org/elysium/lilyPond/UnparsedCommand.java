@@ -8,21 +8,21 @@ package org.elysium.lilypond;
 
 /**
  * <!-- begin-user-doc -->
- * A representation of the model object '<em><b>Markup Command</b></em>'.
+ * A representation of the model object '<em><b>Unparsed Command</b></em>'.
  * <!-- end-user-doc -->
  *
  * <p>
  * The following features are supported:
  * <ul>
- *   <li>{@link org.elysium.lilypond.MarkupCommand#getCommand <em>Command</em>}</li>
+ *   <li>{@link org.elysium.lilypond.UnparsedCommand#getCommand <em>Command</em>}</li>
  * </ul>
  * </p>
  *
- * @see org.elysium.lilypond.LilypondPackage#getMarkupCommand()
+ * @see org.elysium.lilypond.LilypondPackage#getUnparsedCommand()
  * @model
  * @generated
  */
-public interface MarkupCommand extends MarkupExpression
+public interface UnparsedCommand extends UnparsedExpression
 {
   /**
    * Returns the value of the '<em><b>Command</b></em>' attribute.
@@ -34,14 +34,14 @@ public interface MarkupCommand extends MarkupExpression
    * <!-- end-user-doc -->
    * @return the value of the '<em>Command</em>' attribute.
    * @see #setCommand(String)
-   * @see org.elysium.lilypond.LilypondPackage#getMarkupCommand_Command()
+   * @see org.elysium.lilypond.LilypondPackage#getUnparsedCommand_Command()
    * @model
    * @generated
    */
   String getCommand();
 
   /**
-   * Sets the value of the '{@link org.elysium.lilypond.MarkupCommand#getCommand <em>Command</em>}' attribute.
+   * Sets the value of the '{@link org.elysium.lilypond.UnparsedCommand#getCommand <em>Command</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @param value the new value of the '<em>Command</em>' attribute.
@@ -50,4 +50,4 @@ public interface MarkupCommand extends MarkupExpression
    */
   void setCommand(String value);
 
-} // MarkupCommand
+} // UnparsedCommand

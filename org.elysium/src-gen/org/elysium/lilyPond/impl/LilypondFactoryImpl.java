@@ -17,16 +17,15 @@ import org.elysium.lilypond.Assignment;
 import org.elysium.lilypond.Block;
 import org.elysium.lilypond.Command;
 import org.elysium.lilypond.CommonExpression;
+import org.elysium.lilypond.Context;
 import org.elysium.lilypond.Expression;
 import org.elysium.lilypond.Include;
 import org.elysium.lilypond.LilyPond;
 import org.elysium.lilypond.LilypondFactory;
 import org.elysium.lilypond.LilypondPackage;
 import org.elysium.lilypond.Markup;
-import org.elysium.lilypond.MarkupBlock;
-import org.elysium.lilypond.MarkupCommand;
-import org.elysium.lilypond.MarkupExpression;
 import org.elysium.lilypond.MarkupLines;
+import org.elysium.lilypond.Other;
 import org.elysium.lilypond.PropertyAssignment;
 import org.elysium.lilypond.Reference;
 import org.elysium.lilypond.Scheme;
@@ -44,6 +43,9 @@ import org.elysium.lilypond.SimultaneousBlock;
 import org.elysium.lilypond.SpecialCommand;
 import org.elysium.lilypond.Text;
 import org.elysium.lilypond.ToplevelExpression;
+import org.elysium.lilypond.UnparsedBlock;
+import org.elysium.lilypond.UnparsedCommand;
+import org.elysium.lilypond.UnparsedExpression;
 import org.elysium.lilypond.Version;
 
 /**
@@ -113,9 +115,11 @@ public class LilypondFactoryImpl extends EFactoryImpl implements LilypondFactory
       case LilypondPackage.VERSION: return createVersion();
       case LilypondPackage.MARKUP: return createMarkup();
       case LilypondPackage.MARKUP_LINES: return createMarkupLines();
-      case LilypondPackage.MARKUP_BLOCK: return createMarkupBlock();
-      case LilypondPackage.MARKUP_EXPRESSION: return createMarkupExpression();
-      case LilypondPackage.MARKUP_COMMAND: return createMarkupCommand();
+      case LilypondPackage.CONTEXT: return createContext();
+      case LilypondPackage.OTHER: return createOther();
+      case LilypondPackage.UNPARSED_BLOCK: return createUnparsedBlock();
+      case LilypondPackage.UNPARSED_EXPRESSION: return createUnparsedExpression();
+      case LilypondPackage.UNPARSED_COMMAND: return createUnparsedCommand();
       case LilypondPackage.REFERENCE: return createReference();
       case LilypondPackage.TEXT: return createText();
       case LilypondPackage.NUMBER: return createNumber();
@@ -304,10 +308,10 @@ public class LilypondFactoryImpl extends EFactoryImpl implements LilypondFactory
    * <!-- end-user-doc -->
    * @generated
    */
-  public MarkupBlock createMarkupBlock()
+  public Context createContext()
   {
-    MarkupBlockImpl markupBlock = new MarkupBlockImpl();
-    return markupBlock;
+    ContextImpl context = new ContextImpl();
+    return context;
   }
 
   /**
@@ -315,10 +319,10 @@ public class LilypondFactoryImpl extends EFactoryImpl implements LilypondFactory
    * <!-- end-user-doc -->
    * @generated
    */
-  public MarkupExpression createMarkupExpression()
+  public Other createOther()
   {
-    MarkupExpressionImpl markupExpression = new MarkupExpressionImpl();
-    return markupExpression;
+    OtherImpl other = new OtherImpl();
+    return other;
   }
 
   /**
@@ -326,10 +330,32 @@ public class LilypondFactoryImpl extends EFactoryImpl implements LilypondFactory
    * <!-- end-user-doc -->
    * @generated
    */
-  public MarkupCommand createMarkupCommand()
+  public UnparsedBlock createUnparsedBlock()
   {
-    MarkupCommandImpl markupCommand = new MarkupCommandImpl();
-    return markupCommand;
+    UnparsedBlockImpl unparsedBlock = new UnparsedBlockImpl();
+    return unparsedBlock;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public UnparsedExpression createUnparsedExpression()
+  {
+    UnparsedExpressionImpl unparsedExpression = new UnparsedExpressionImpl();
+    return unparsedExpression;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public UnparsedCommand createUnparsedCommand()
+  {
+    UnparsedCommandImpl unparsedCommand = new UnparsedCommandImpl();
+    return unparsedCommand;
   }
 
   /**

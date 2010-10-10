@@ -14,7 +14,7 @@ package org.elysium.lilypond;
  * <p>
  * The following features are supported:
  * <ul>
- *   <li>{@link org.elysium.lilypond.MarkupLines#getBlock <em>Block</em>}</li>
+ *   <li>{@link org.elysium.lilypond.MarkupLines#getBody <em>Body</em>}</li>
  * </ul>
  * </p>
  *
@@ -25,29 +25,29 @@ package org.elysium.lilypond;
 public interface MarkupLines extends SpecialCommand
 {
   /**
-   * Returns the value of the '<em><b>Block</b></em>' containment reference.
+   * Returns the value of the '<em><b>Body</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Block</em>' containment reference isn't clear,
+   * If the meaning of the '<em>Body</em>' containment reference isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Block</em>' containment reference.
-   * @see #setBlock(MarkupBlock)
-   * @see org.elysium.lilypond.LilypondPackage#getMarkupLines_Block()
+   * @return the value of the '<em>Body</em>' containment reference.
+   * @see #setBody(UnparsedBlock)
+   * @see org.elysium.lilypond.LilypondPackage#getMarkupLines_Body()
    * @model containment="true"
    * @generated
    */
-  MarkupBlock getBlock();
+  UnparsedBlock getBody();
 
   /**
-   * Sets the value of the '{@link org.elysium.lilypond.MarkupLines#getBlock <em>Block</em>}' containment reference.
+   * Sets the value of the '{@link org.elysium.lilypond.MarkupLines#getBody <em>Body</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Block</em>' containment reference.
-   * @see #getBlock()
+   * @param value the new value of the '<em>Body</em>' containment reference.
+   * @see #getBody()
    * @generated
    */
-  void setBlock(MarkupBlock value);
+  void setBody(UnparsedBlock value);
 
 } // MarkupLines

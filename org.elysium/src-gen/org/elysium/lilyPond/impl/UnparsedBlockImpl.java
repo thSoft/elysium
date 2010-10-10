@@ -18,23 +18,23 @@ import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
 import org.elysium.lilypond.LilypondPackage;
-import org.elysium.lilypond.MarkupBlock;
-import org.elysium.lilypond.MarkupExpression;
+import org.elysium.lilypond.UnparsedBlock;
+import org.elysium.lilypond.UnparsedExpression;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Markup Block</b></em>'.
+ * An implementation of the model object '<em><b>Unparsed Block</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link org.elysium.lilypond.impl.MarkupBlockImpl#getExpressions <em>Expressions</em>}</li>
+ *   <li>{@link org.elysium.lilypond.impl.UnparsedBlockImpl#getExpressions <em>Expressions</em>}</li>
  * </ul>
  * </p>
  *
  * @generated
  */
-public class MarkupBlockImpl extends MarkupExpressionImpl implements MarkupBlock
+public class UnparsedBlockImpl extends UnparsedExpressionImpl implements UnparsedBlock
 {
   /**
    * The cached value of the '{@link #getExpressions() <em>Expressions</em>}' containment reference list.
@@ -44,14 +44,14 @@ public class MarkupBlockImpl extends MarkupExpressionImpl implements MarkupBlock
    * @generated
    * @ordered
    */
-  protected EList<MarkupExpression> expressions;
+  protected EList<UnparsedExpression> expressions;
 
   /**
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
-  protected MarkupBlockImpl()
+  protected UnparsedBlockImpl()
   {
     super();
   }
@@ -64,7 +64,7 @@ public class MarkupBlockImpl extends MarkupExpressionImpl implements MarkupBlock
   @Override
   protected EClass eStaticClass()
   {
-    return LilypondPackage.Literals.MARKUP_BLOCK;
+    return LilypondPackage.Literals.UNPARSED_BLOCK;
   }
 
   /**
@@ -72,11 +72,11 @@ public class MarkupBlockImpl extends MarkupExpressionImpl implements MarkupBlock
    * <!-- end-user-doc -->
    * @generated
    */
-  public EList<MarkupExpression> getExpressions()
+  public EList<UnparsedExpression> getExpressions()
   {
     if (expressions == null)
     {
-      expressions = new EObjectContainmentEList<MarkupExpression>(MarkupExpression.class, this, LilypondPackage.MARKUP_BLOCK__EXPRESSIONS);
+      expressions = new EObjectContainmentEList<UnparsedExpression>(UnparsedExpression.class, this, LilypondPackage.UNPARSED_BLOCK__EXPRESSIONS);
     }
     return expressions;
   }
@@ -91,7 +91,7 @@ public class MarkupBlockImpl extends MarkupExpressionImpl implements MarkupBlock
   {
     switch (featureID)
     {
-      case LilypondPackage.MARKUP_BLOCK__EXPRESSIONS:
+      case LilypondPackage.UNPARSED_BLOCK__EXPRESSIONS:
         return ((InternalEList<?>)getExpressions()).basicRemove(otherEnd, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
@@ -107,7 +107,7 @@ public class MarkupBlockImpl extends MarkupExpressionImpl implements MarkupBlock
   {
     switch (featureID)
     {
-      case LilypondPackage.MARKUP_BLOCK__EXPRESSIONS:
+      case LilypondPackage.UNPARSED_BLOCK__EXPRESSIONS:
         return getExpressions();
     }
     return super.eGet(featureID, resolve, coreType);
@@ -124,9 +124,9 @@ public class MarkupBlockImpl extends MarkupExpressionImpl implements MarkupBlock
   {
     switch (featureID)
     {
-      case LilypondPackage.MARKUP_BLOCK__EXPRESSIONS:
+      case LilypondPackage.UNPARSED_BLOCK__EXPRESSIONS:
         getExpressions().clear();
-        getExpressions().addAll((Collection<? extends MarkupExpression>)newValue);
+        getExpressions().addAll((Collection<? extends UnparsedExpression>)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -142,7 +142,7 @@ public class MarkupBlockImpl extends MarkupExpressionImpl implements MarkupBlock
   {
     switch (featureID)
     {
-      case LilypondPackage.MARKUP_BLOCK__EXPRESSIONS:
+      case LilypondPackage.UNPARSED_BLOCK__EXPRESSIONS:
         getExpressions().clear();
         return;
     }
@@ -159,10 +159,10 @@ public class MarkupBlockImpl extends MarkupExpressionImpl implements MarkupBlock
   {
     switch (featureID)
     {
-      case LilypondPackage.MARKUP_BLOCK__EXPRESSIONS:
+      case LilypondPackage.UNPARSED_BLOCK__EXPRESSIONS:
         return expressions != null && !expressions.isEmpty();
     }
     return super.eIsSet(featureID);
   }
 
-} //MarkupBlockImpl
+} //UnparsedBlockImpl
