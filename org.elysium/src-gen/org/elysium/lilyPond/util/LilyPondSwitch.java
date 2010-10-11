@@ -20,6 +20,7 @@ import org.elysium.lilypond.Include;
 import org.elysium.lilypond.LilyPond;
 import org.elysium.lilypond.LilypondPackage;
 import org.elysium.lilypond.Markup;
+import org.elysium.lilypond.MarkupBody;
 import org.elysium.lilypond.MarkupLines;
 import org.elysium.lilypond.Other;
 import org.elysium.lilypond.PropertyAssignment;
@@ -271,6 +272,13 @@ public class LilypondSwitch<T>
         if (result == null) result = caseCommonExpression(markupLines);
         if (result == null) result = caseToplevelExpression(markupLines);
         if (result == null) result = caseExpression(markupLines);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case LilypondPackage.MARKUP_BODY:
+      {
+        MarkupBody markupBody = (MarkupBody)theEObject;
+        T result = caseMarkupBody(markupBody);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -675,6 +683,22 @@ public class LilypondSwitch<T>
    * @generated
    */
   public T caseMarkupLines(MarkupLines object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Markup Body</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Markup Body</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseMarkupBody(MarkupBody object)
   {
     return null;
   }

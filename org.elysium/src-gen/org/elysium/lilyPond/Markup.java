@@ -33,12 +33,12 @@ public interface Markup extends SpecialCommand
    * </p>
    * <!-- end-user-doc -->
    * @return the value of the '<em>Body</em>' containment reference.
-   * @see #setBody(UnparsedBlock)
+   * @see #setBody(MarkupBody)
    * @see org.elysium.lilypond.LilypondPackage#getMarkup_Body()
    * @model containment="true"
    * @generated
    */
-  UnparsedBlock getBody();
+  MarkupBody getBody();
 
   /**
    * Sets the value of the '{@link org.elysium.lilypond.Markup#getBody <em>Body</em>}' containment reference.
@@ -48,6 +48,6 @@ public interface Markup extends SpecialCommand
    * @see #getBody()
    * @generated
    */
-  void setBody(UnparsedBlock value);
+  void setBody(MarkupBody value);
 
 } // Markup

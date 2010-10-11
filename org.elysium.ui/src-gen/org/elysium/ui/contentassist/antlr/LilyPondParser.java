@@ -45,6 +45,7 @@ public class LilyPondParser extends AbstractContentAssistParser {
 					put(grammarAccess.getBlockAccess().getAlternatives(), "rule__Block__Alternatives");
 					put(grammarAccess.getCommandAccess().getAlternatives(), "rule__Command__Alternatives");
 					put(grammarAccess.getSpecialCommandAccess().getAlternatives(), "rule__SpecialCommand__Alternatives");
+					put(grammarAccess.getMarkupBodyAccess().getCommandAlternatives_1_0(), "rule__MarkupBody__CommandAlternatives_1_0");
 					put(grammarAccess.getOtherAccess().getKeywordAlternatives_1_0(), "rule__Other__KeywordAlternatives_1_0");
 					put(grammarAccess.getOtherNameAccess().getAlternatives(), "rule__OtherName__Alternatives");
 					put(grammarAccess.getSpecialCommandNameAccess().getAlternatives(), "rule__SpecialCommandName__Alternatives");
@@ -55,7 +56,8 @@ public class LilyPondParser extends AbstractContentAssistParser {
 					put(grammarAccess.getSchemeExpressionAccess().getAlternatives_0(), "rule__SchemeExpression__Alternatives_0");
 					put(grammarAccess.getSchemeValueAccess().getAlternatives(), "rule__SchemeValue__Alternatives");
 					put(grammarAccess.getSchemeCharacterAccess().getValueAlternatives_1_0(), "rule__SchemeCharacter__ValueAlternatives_1_0");
-					put(grammarAccess.getSchemeTextLiteralsAccess().getAlternatives(), "rule__SchemeTextLiterals__Alternatives");
+					put(grammarAccess.getSchemeTextLiteralAccess().getAlternatives(), "rule__SchemeTextLiteral__Alternatives");
+					put(grammarAccess.getSchemeMarkupCommandAccess().getCommandAlternatives_1_0(), "rule__SchemeMarkupCommand__CommandAlternatives_1_0");
 					put(grammarAccess.getAssignmentAccess().getGroup(), "rule__Assignment__Group__0");
 					put(grammarAccess.getPropertyAssignmentAccess().getGroup(), "rule__PropertyAssignment__Group__0");
 					put(grammarAccess.getSimpleBlockAccess().getGroup(), "rule__SimpleBlock__Group__0");
@@ -64,6 +66,7 @@ public class LilyPondParser extends AbstractContentAssistParser {
 					put(grammarAccess.getVersionAccess().getGroup(), "rule__Version__Group__0");
 					put(grammarAccess.getMarkupAccess().getGroup(), "rule__Markup__Group__0");
 					put(grammarAccess.getMarkupLinesAccess().getGroup(), "rule__MarkupLines__Group__0");
+					put(grammarAccess.getMarkupBodyAccess().getGroup(), "rule__MarkupBody__Group__0");
 					put(grammarAccess.getContextAccess().getGroup(), "rule__Context__Group__0");
 					put(grammarAccess.getOtherAccess().getGroup(), "rule__Other__Group__0");
 					put(grammarAccess.getUnparsedBlockAccess().getGroup(), "rule__UnparsedBlock__Group__0");
@@ -74,6 +77,8 @@ public class LilyPondParser extends AbstractContentAssistParser {
 					put(grammarAccess.getSchemeListAccess().getGroup(), "rule__SchemeList__Group__0");
 					put(grammarAccess.getSchemeBlockAccess().getGroup(), "rule__SchemeBlock__Group__0");
 					put(grammarAccess.getSchemeCharacterAccess().getGroup(), "rule__SchemeCharacter__Group__0");
+					put(grammarAccess.getSchemeIdAccess().getGroup(), "rule__SchemeId__Group__0");
+					put(grammarAccess.getSchemeIdAccess().getGroup_1(), "rule__SchemeId__Group_1__0");
 					put(grammarAccess.getSchemeNumberAccess().getGroup(), "rule__SchemeNumber__Group__0");
 					put(grammarAccess.getSchemeNumberRadixAccess().getGroup(), "rule__SchemeNumberRadix__Group__0");
 					put(grammarAccess.getSchemeMarkupCommandAccess().getGroup(), "rule__SchemeMarkupCommand__Group__0");
@@ -89,7 +94,9 @@ public class LilyPondParser extends AbstractContentAssistParser {
 					put(grammarAccess.getVersionAccess().getVersionAssignment_2(), "rule__Version__VersionAssignment_2");
 					put(grammarAccess.getMarkupAccess().getBodyAssignment_2(), "rule__Markup__BodyAssignment_2");
 					put(grammarAccess.getMarkupLinesAccess().getBodyAssignment_2(), "rule__MarkupLines__BodyAssignment_2");
-					put(grammarAccess.getContextAccess().getBodyAssignment_3(), "rule__Context__BodyAssignment_3");
+					put(grammarAccess.getMarkupBodyAccess().getCommandAssignment_1(), "rule__MarkupBody__CommandAssignment_1");
+					put(grammarAccess.getMarkupBodyAccess().getBlockAssignment_2(), "rule__MarkupBody__BlockAssignment_2");
+					put(grammarAccess.getContextAccess().getBlockAssignment_3(), "rule__Context__BlockAssignment_3");
 					put(grammarAccess.getOtherAccess().getKeywordAssignment_1(), "rule__Other__KeywordAssignment_1");
 					put(grammarAccess.getUnparsedBlockAccess().getExpressionsAssignment_2(), "rule__UnparsedBlock__ExpressionsAssignment_2");
 					put(grammarAccess.getUnparsedCommandAccess().getCommandAssignment_1(), "rule__UnparsedCommand__CommandAssignment_1");

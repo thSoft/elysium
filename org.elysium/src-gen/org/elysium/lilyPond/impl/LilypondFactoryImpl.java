@@ -24,6 +24,7 @@ import org.elysium.lilypond.LilyPond;
 import org.elysium.lilypond.LilypondFactory;
 import org.elysium.lilypond.LilypondPackage;
 import org.elysium.lilypond.Markup;
+import org.elysium.lilypond.MarkupBody;
 import org.elysium.lilypond.MarkupLines;
 import org.elysium.lilypond.Other;
 import org.elysium.lilypond.PropertyAssignment;
@@ -115,6 +116,7 @@ public class LilypondFactoryImpl extends EFactoryImpl implements LilypondFactory
       case LilypondPackage.VERSION: return createVersion();
       case LilypondPackage.MARKUP: return createMarkup();
       case LilypondPackage.MARKUP_LINES: return createMarkupLines();
+      case LilypondPackage.MARKUP_BODY: return createMarkupBody();
       case LilypondPackage.CONTEXT: return createContext();
       case LilypondPackage.OTHER: return createOther();
       case LilypondPackage.UNPARSED_BLOCK: return createUnparsedBlock();
@@ -301,6 +303,17 @@ public class LilypondFactoryImpl extends EFactoryImpl implements LilypondFactory
   {
     MarkupLinesImpl markupLines = new MarkupLinesImpl();
     return markupLines;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public MarkupBody createMarkupBody()
+  {
+    MarkupBodyImpl markupBody = new MarkupBodyImpl();
+    return markupBody;
   }
 
   /**

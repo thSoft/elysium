@@ -161,6 +161,15 @@ public interface LilypondFactory extends EFactory
   MarkupLines createMarkupLines();
 
   /**
+   * Returns a new object of class '<em>Markup Body</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Markup Body</em>'.
+   * @generated
+   */
+  MarkupBody createMarkupBody();
+
+  /**
    * Returns a new object of class '<em>Context</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->

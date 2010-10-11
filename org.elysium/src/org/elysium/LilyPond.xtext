@@ -32,17 +32,19 @@ Include: "\\" "include" importURI=STRING;
 
 Version: "\\" "version" version=STRING;
 
-Markup: "\\" "markup" body=UnparsedBlock;
+Markup: "\\" "markup" body=MarkupBody;
 
-MarkupLines: "\\" "markuplines" body=UnparsedBlock;
+MarkupLines: "\\" "markuplines" body=MarkupBody;
 
-Context: {Context} "\\" "context" body=UnparsedBlock?;
+MarkupBody: {MarkupBody} command+=(Scheme | UnparsedCommand)* block=UnparsedBlock?;
+
+Context: {Context} "\\" "context" block=UnparsedBlock?;
 
 Other: "\\" keyword=(SpecialCharacter | "(" | ")" | OtherName);
 
 OtherName: "accepts" | "addlyrics" | "alias" | "alternative" | "book" | "bookpart" | "change" | "chordmode" | "chords" | "consists" | "default" | "defaultchild" | "denies" | "description" | "drummode" | "drums" | "figuremode" | "figures" | "grobdescriptions" | "header" | "key" | "layout" | "lyricmode" | "lyrics" | "lyricsto" | "maininput" | "mark" | "midi" | "name" | "new" | "notemode" | "objectid" | "octave" | "once" | "override" | "paper" | "partial" | "relative" | "remove" | "repeat" | "rest" | "revert" | "score" | "sequential" | "set" | "simultaneous" | "skip" | "sourcefileline" | "sourcefilename" | "tempo" | "time" | "times" | "transpose" | "type" | "unset" | "with";
 
-SpecialCommandName: "include" | "version" | "markup" | "markuplines" | OtherName;
+SpecialCommandName: "include" | "version" | "markup" | "markuplines" | "context" | OtherName;
 
 SpecialCharacter: "!" | "+" | "<" | ">" | "[" | "]" | "~";
 
@@ -54,7 +56,7 @@ UnparsedCommand: "\\" command=(ID | SpecialCommandName);
 
 Reference: "\\" assignment=[Assignment];
 
-Text: value=(SchemeTextLiterals | "(" | ")" | "'" | ",");
+Text: value=(SchemeTextLiteral | "(" | ")" | "'" | "," | ":");
 
 Number: value=INT;
 
@@ -72,15 +74,17 @@ SchemeBlock: "#{" expressions+=Expression+ "#}";
 
 SchemeCharacter: "#\\" value=(ID | SpecialCharacter | ANY_OTHER);
 
-SchemeText: value=SchemeTextLiterals;
+SchemeText: value=SchemeId;
 
-SchemeTextLiterals: "\\\\" | "=" | SpecialCharacter | SpecialCommandName | ID | STRING | ANY_OTHER;
+SchemeId hidden(): SchemeTextLiteral (":" SchemeTextLiteral)?;
+
+SchemeTextLiteral: "\\\\" | "=" | SpecialCharacter | SpecialCommandName | ID | STRING | ANY_OTHER;
 
 SchemeNumber hidden(): radix=SchemeNumberRadix? value=INT;
 
 SchemeNumberRadix: "#" ID;
 
-SchemeMarkupCommand hidden(): "#:" command=ID;
+SchemeMarkupCommand hidden(): "#:" command=(ID | SpecialCommandName);
 
 terminal STRING: '"' ("\\" ("b" | "t" | "n" | "f" | "r" | '"' | "'" | "\\") | !("\\" | '"'))* '"';
 

@@ -35,15 +35,21 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="version" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Markup" eSuperTypes="#//SpecialCommand">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="body" eType="#//UnparsedBlock"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="body" eType="#//MarkupBody"
         containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="MarkupLines" eSuperTypes="#//SpecialCommand">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="body" eType="#//UnparsedBlock"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="body" eType="#//MarkupBody"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="MarkupBody">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="command" upperBound="-1"
+        eType="#//UnparsedExpression" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="block" eType="#//UnparsedBlock"
         containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Context" eSuperTypes="#//SpecialCommand">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="body" eType="#//UnparsedBlock"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="block" eType="#//UnparsedBlock"
         containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Other" eSuperTypes="#//SpecialCommand">

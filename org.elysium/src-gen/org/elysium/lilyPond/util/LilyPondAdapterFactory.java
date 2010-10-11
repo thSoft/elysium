@@ -22,6 +22,7 @@ import org.elysium.lilypond.Include;
 import org.elysium.lilypond.LilyPond;
 import org.elysium.lilypond.LilypondPackage;
 import org.elysium.lilypond.Markup;
+import org.elysium.lilypond.MarkupBody;
 import org.elysium.lilypond.MarkupLines;
 import org.elysium.lilypond.Other;
 import org.elysium.lilypond.PropertyAssignment;
@@ -183,6 +184,11 @@ public class LilypondAdapterFactory extends AdapterFactoryImpl
       public Adapter caseMarkupLines(MarkupLines object)
       {
         return createMarkupLinesAdapter();
+      }
+      @Override
+      public Adapter caseMarkupBody(MarkupBody object)
+      {
+        return createMarkupBodyAdapter();
       }
       @Override
       public Adapter caseContext(Context object)
@@ -517,6 +523,21 @@ public class LilypondAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createMarkupLinesAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.elysium.lilypond.MarkupBody <em>Markup Body</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.elysium.lilypond.MarkupBody
+   * @generated
+   */
+  public Adapter createMarkupBodyAdapter()
   {
     return null;
   }

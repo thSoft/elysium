@@ -14,8 +14,8 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 import org.elysium.lilypond.LilypondPackage;
+import org.elysium.lilypond.MarkupBody;
 import org.elysium.lilypond.MarkupLines;
-import org.elysium.lilypond.UnparsedBlock;
 
 /**
  * <!-- begin-user-doc -->
@@ -40,7 +40,7 @@ public class MarkupLinesImpl extends SpecialCommandImpl implements MarkupLines
    * @generated
    * @ordered
    */
-  protected UnparsedBlock body;
+  protected MarkupBody body;
 
   /**
    * <!-- begin-user-doc -->
@@ -68,7 +68,7 @@ public class MarkupLinesImpl extends SpecialCommandImpl implements MarkupLines
    * <!-- end-user-doc -->
    * @generated
    */
-  public UnparsedBlock getBody()
+  public MarkupBody getBody()
   {
     return body;
   }
@@ -78,9 +78,9 @@ public class MarkupLinesImpl extends SpecialCommandImpl implements MarkupLines
    * <!-- end-user-doc -->
    * @generated
    */
-  public NotificationChain basicSetBody(UnparsedBlock newBody, NotificationChain msgs)
+  public NotificationChain basicSetBody(MarkupBody newBody, NotificationChain msgs)
   {
-    UnparsedBlock oldBody = body;
+    MarkupBody oldBody = body;
     body = newBody;
     if (eNotificationRequired())
     {
@@ -95,7 +95,7 @@ public class MarkupLinesImpl extends SpecialCommandImpl implements MarkupLines
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setBody(UnparsedBlock newBody)
+  public void setBody(MarkupBody newBody)
   {
     if (newBody != body)
     {
@@ -154,7 +154,7 @@ public class MarkupLinesImpl extends SpecialCommandImpl implements MarkupLines
     switch (featureID)
     {
       case LilypondPackage.MARKUP_LINES__BODY:
-        setBody((UnparsedBlock)newValue);
+        setBody((MarkupBody)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -171,7 +171,7 @@ public class MarkupLinesImpl extends SpecialCommandImpl implements MarkupLines
     switch (featureID)
     {
       case LilypondPackage.MARKUP_LINES__BODY:
-        setBody((UnparsedBlock)null);
+        setBody((MarkupBody)null);
         return;
     }
     super.eUnset(featureID);

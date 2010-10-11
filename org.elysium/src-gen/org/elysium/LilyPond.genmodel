@@ -41,8 +41,12 @@
     <genClasses ecoreClass="LilyPond.ecore#//MarkupLines">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference LilyPond.ecore#//MarkupLines/body"/>
     </genClasses>
+    <genClasses ecoreClass="LilyPond.ecore#//MarkupBody">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference LilyPond.ecore#//MarkupBody/command"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference LilyPond.ecore#//MarkupBody/block"/>
+    </genClasses>
     <genClasses ecoreClass="LilyPond.ecore#//Context">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference LilyPond.ecore#//Context/body"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference LilyPond.ecore#//Context/block"/>
     </genClasses>
     <genClasses ecoreClass="LilyPond.ecore#//Other">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute LilyPond.ecore#//Other/keyword"/>
