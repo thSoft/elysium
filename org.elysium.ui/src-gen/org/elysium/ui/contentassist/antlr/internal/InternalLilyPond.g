@@ -1300,25 +1300,25 @@ finally {
 
 
 
-// Entry rule entryRuleBOOL
-entryRuleBOOL 
+// Entry rule entryRuleBoolean
+entryRuleBoolean 
 :
-{ before(grammarAccess.getBOOLRule()); }
-	 ruleBOOL
-{ after(grammarAccess.getBOOLRule()); } 
+{ before(grammarAccess.getBooleanRule()); }
+	 ruleBoolean
+{ after(grammarAccess.getBooleanRule()); } 
 	 EOF 
 ;
 
-// Rule BOOL
-ruleBOOL 
+// Rule Boolean
+ruleBoolean 
     @init {
 		int stackSize = keepStackSize();
     }
     :
 (
-{ before(grammarAccess.getBOOLAccess().getGroup()); }
-(rule__BOOL__Group__0)
-{ after(grammarAccess.getBOOLAccess().getGroup()); }
+{ before(grammarAccess.getBooleanAccess().getGroup()); }
+(rule__Boolean__Group__0)
+{ after(grammarAccess.getBooleanAccess().getGroup()); }
 )
 
 ;
@@ -4631,29 +4631,29 @@ finally {
 
 
 
-rule__BOOL__Group__0
+rule__Boolean__Group__0
     @init {
 		int stackSize = keepStackSize();
     }
 :
-	rule__BOOL__Group__0__Impl
-	rule__BOOL__Group__1
+	rule__Boolean__Group__0__Impl
+	rule__Boolean__Group__1
 ;
 finally {
 	restoreStackSize(stackSize);
 }
 
-rule__BOOL__Group__0__Impl
+rule__Boolean__Group__0__Impl
     @init {
 		int stackSize = keepStackSize();
     }
 :
 (
-{ before(grammarAccess.getBOOLAccess().getNumberSignKeyword_0()); }
+{ before(grammarAccess.getBooleanAccess().getNumberSignKeyword_0()); }
 
 	KEYWORD_2 
 
-{ after(grammarAccess.getBOOLAccess().getNumberSignKeyword_0()); }
+{ after(grammarAccess.getBooleanAccess().getNumberSignKeyword_0()); }
 )
 
 ;
@@ -4662,26 +4662,26 @@ finally {
 }
 
 
-rule__BOOL__Group__1
+rule__Boolean__Group__1
     @init {
 		int stackSize = keepStackSize();
     }
 :
-	rule__BOOL__Group__1__Impl
+	rule__Boolean__Group__1__Impl
 ;
 finally {
 	restoreStackSize(stackSize);
 }
 
-rule__BOOL__Group__1__Impl
+rule__Boolean__Group__1__Impl
     @init {
 		int stackSize = keepStackSize();
     }
 :
 (
-{ before(grammarAccess.getBOOLAccess().getIDTerminalRuleCall_1()); }
+{ before(grammarAccess.getBooleanAccess().getIDTerminalRuleCall_1()); }
 	RULE_ID
-{ after(grammarAccess.getBOOLAccess().getIDTerminalRuleCall_1()); }
+{ after(grammarAccess.getBooleanAccess().getIDTerminalRuleCall_1()); }
 )
 
 ;
@@ -5133,8 +5133,8 @@ rule__SchemeBoolean__ValueAssignment
     }
 :
 (
-{ before(grammarAccess.getSchemeBooleanAccess().getValueBOOLParserRuleCall_0()); }
-	ruleBOOL{ after(grammarAccess.getSchemeBooleanAccess().getValueBOOLParserRuleCall_0()); }
+{ before(grammarAccess.getSchemeBooleanAccess().getValueBooleanParserRuleCall_0()); }
+	ruleBoolean{ after(grammarAccess.getSchemeBooleanAccess().getValueBooleanParserRuleCall_0()); }
 )
 
 ;

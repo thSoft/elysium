@@ -9542,7 +9542,7 @@ public class InternalLilyPondParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start ruleSchemeBoolean
-    // ../org.elysium/src-gen/org/elysium/parser/antlr/internal/InternalLilyPond.g:2714:1: ruleSchemeBoolean returns [EObject current=null] : ( (lv_value_0_0= ruleBOOL ) ) ;
+    // ../org.elysium/src-gen/org/elysium/parser/antlr/internal/InternalLilyPond.g:2714:1: ruleSchemeBoolean returns [EObject current=null] : ( (lv_value_0_0= ruleBoolean ) ) ;
     public final EObject ruleSchemeBoolean() throws RecognitionException {
         EObject current = null;
 
@@ -9552,22 +9552,22 @@ public class InternalLilyPondParser extends AbstractInternalAntlrParser {
          EObject temp=null; setCurrentLookahead(); resetLookahead(); 
             
         try {
-            // ../org.elysium/src-gen/org/elysium/parser/antlr/internal/InternalLilyPond.g:2719:6: ( ( (lv_value_0_0= ruleBOOL ) ) )
-            // ../org.elysium/src-gen/org/elysium/parser/antlr/internal/InternalLilyPond.g:2720:1: ( (lv_value_0_0= ruleBOOL ) )
+            // ../org.elysium/src-gen/org/elysium/parser/antlr/internal/InternalLilyPond.g:2719:6: ( ( (lv_value_0_0= ruleBoolean ) ) )
+            // ../org.elysium/src-gen/org/elysium/parser/antlr/internal/InternalLilyPond.g:2720:1: ( (lv_value_0_0= ruleBoolean ) )
             {
-            // ../org.elysium/src-gen/org/elysium/parser/antlr/internal/InternalLilyPond.g:2720:1: ( (lv_value_0_0= ruleBOOL ) )
-            // ../org.elysium/src-gen/org/elysium/parser/antlr/internal/InternalLilyPond.g:2721:1: (lv_value_0_0= ruleBOOL )
+            // ../org.elysium/src-gen/org/elysium/parser/antlr/internal/InternalLilyPond.g:2720:1: ( (lv_value_0_0= ruleBoolean ) )
+            // ../org.elysium/src-gen/org/elysium/parser/antlr/internal/InternalLilyPond.g:2721:1: (lv_value_0_0= ruleBoolean )
             {
-            // ../org.elysium/src-gen/org/elysium/parser/antlr/internal/InternalLilyPond.g:2721:1: (lv_value_0_0= ruleBOOL )
-            // ../org.elysium/src-gen/org/elysium/parser/antlr/internal/InternalLilyPond.g:2722:3: lv_value_0_0= ruleBOOL
+            // ../org.elysium/src-gen/org/elysium/parser/antlr/internal/InternalLilyPond.g:2721:1: (lv_value_0_0= ruleBoolean )
+            // ../org.elysium/src-gen/org/elysium/parser/antlr/internal/InternalLilyPond.g:2722:3: lv_value_0_0= ruleBoolean
             {
             if ( backtracking==0 ) {
                
-              	        currentNode=createCompositeNode(grammarAccess.getSchemeBooleanAccess().getValueBOOLParserRuleCall_0(), currentNode); 
+              	        currentNode=createCompositeNode(grammarAccess.getSchemeBooleanAccess().getValueBooleanParserRuleCall_0(), currentNode); 
               	    
             }
-            pushFollow(FOLLOW_ruleBOOL_in_ruleSchemeBoolean5709);
-            lv_value_0_0=ruleBOOL();
+            pushFollow(FOLLOW_ruleBoolean_in_ruleSchemeBoolean5709);
+            lv_value_0_0=ruleBoolean();
             _fsp--;
             if (failed) return current;
             if ( backtracking==0 ) {
@@ -9581,7 +9581,7 @@ public class InternalLilyPondParser extends AbstractInternalAntlrParser {
               	       			current, 
               	       			"value",
               	        		lv_value_0_0, 
-              	        		"BOOL", 
+              	        		"Boolean", 
               	        		currentNode);
               	        } catch (ValueConverterException vce) {
               				handleValueConverterException(vce);
@@ -11953,29 +11953,29 @@ public class InternalLilyPondParser extends AbstractInternalAntlrParser {
     // $ANTLR end ruleSchemeMarkupCommand
 
 
-    // $ANTLR start entryRuleBOOL
-    // ../org.elysium/src-gen/org/elysium/parser/antlr/internal/InternalLilyPond.g:3394:1: entryRuleBOOL returns [String current=null] : iv_ruleBOOL= ruleBOOL EOF ;
-    public final String entryRuleBOOL() throws RecognitionException {
+    // $ANTLR start entryRuleBoolean
+    // ../org.elysium/src-gen/org/elysium/parser/antlr/internal/InternalLilyPond.g:3394:1: entryRuleBoolean returns [String current=null] : iv_ruleBoolean= ruleBoolean EOF ;
+    public final String entryRuleBoolean() throws RecognitionException {
         String current = null;
 
-        AntlrDatatypeRuleToken iv_ruleBOOL = null;
+        AntlrDatatypeRuleToken iv_ruleBoolean = null;
 
 
         try {
-            // ../org.elysium/src-gen/org/elysium/parser/antlr/internal/InternalLilyPond.g:3395:1: (iv_ruleBOOL= ruleBOOL EOF )
-            // ../org.elysium/src-gen/org/elysium/parser/antlr/internal/InternalLilyPond.g:3396:2: iv_ruleBOOL= ruleBOOL EOF
+            // ../org.elysium/src-gen/org/elysium/parser/antlr/internal/InternalLilyPond.g:3395:1: (iv_ruleBoolean= ruleBoolean EOF )
+            // ../org.elysium/src-gen/org/elysium/parser/antlr/internal/InternalLilyPond.g:3396:2: iv_ruleBoolean= ruleBoolean EOF
             {
             if ( backtracking==0 ) {
-               currentNode = createCompositeNode(grammarAccess.getBOOLRule(), currentNode); 
+               currentNode = createCompositeNode(grammarAccess.getBooleanRule(), currentNode); 
             }
-            pushFollow(FOLLOW_ruleBOOL_in_entryRuleBOOL7043);
-            iv_ruleBOOL=ruleBOOL();
+            pushFollow(FOLLOW_ruleBoolean_in_entryRuleBoolean7043);
+            iv_ruleBoolean=ruleBoolean();
             _fsp--;
             if (failed) return current;
             if ( backtracking==0 ) {
-               current =iv_ruleBOOL.getText(); 
+               current =iv_ruleBoolean.getText(); 
             }
-            match(input,EOF,FOLLOW_EOF_in_entryRuleBOOL7054); if (failed) return current;
+            match(input,EOF,FOLLOW_EOF_in_entryRuleBoolean7054); if (failed) return current;
 
             }
 
@@ -11989,12 +11989,12 @@ public class InternalLilyPondParser extends AbstractInternalAntlrParser {
         }
         return current;
     }
-    // $ANTLR end entryRuleBOOL
+    // $ANTLR end entryRuleBoolean
 
 
-    // $ANTLR start ruleBOOL
-    // ../org.elysium/src-gen/org/elysium/parser/antlr/internal/InternalLilyPond.g:3403:1: ruleBOOL returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()] : (kw= KEYWORD_2 this_ID_1= RULE_ID ) ;
-    public final AntlrDatatypeRuleToken ruleBOOL() throws RecognitionException {
+    // $ANTLR start ruleBoolean
+    // ../org.elysium/src-gen/org/elysium/parser/antlr/internal/InternalLilyPond.g:3403:1: ruleBoolean returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()] : (kw= KEYWORD_2 this_ID_1= RULE_ID ) ;
+    public final AntlrDatatypeRuleToken ruleBoolean() throws RecognitionException {
         AntlrDatatypeRuleToken current = new AntlrDatatypeRuleToken();
 
         Token kw=null;
@@ -12010,15 +12010,15 @@ public class InternalLilyPondParser extends AbstractInternalAntlrParser {
             // ../org.elysium/src-gen/org/elysium/parser/antlr/internal/InternalLilyPond.g:3410:2: kw= KEYWORD_2 this_ID_1= RULE_ID
             {
             kw=(Token)input.LT(1);
-            match(input,KEYWORD_2,FOLLOW_KEYWORD_2_in_ruleBOOL7092); if (failed) return current;
+            match(input,KEYWORD_2,FOLLOW_KEYWORD_2_in_ruleBoolean7092); if (failed) return current;
             if ( backtracking==0 ) {
 
                       current.merge(kw);
-                      createLeafNode(grammarAccess.getBOOLAccess().getNumberSignKeyword_0(), null); 
+                      createLeafNode(grammarAccess.getBooleanAccess().getNumberSignKeyword_0(), null); 
                   
             }
             this_ID_1=(Token)input.LT(1);
-            match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleBOOL7107); if (failed) return current;
+            match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleBoolean7107); if (failed) return current;
             if ( backtracking==0 ) {
 
               		current.merge(this_ID_1);
@@ -12026,7 +12026,7 @@ public class InternalLilyPondParser extends AbstractInternalAntlrParser {
             }
             if ( backtracking==0 ) {
                
-                  createLeafNode(grammarAccess.getBOOLAccess().getIDTerminalRuleCall_1(), null); 
+                  createLeafNode(grammarAccess.getBooleanAccess().getIDTerminalRuleCall_1(), null); 
                   
             }
 
@@ -12050,7 +12050,7 @@ public class InternalLilyPondParser extends AbstractInternalAntlrParser {
         }
         return current;
     }
-    // $ANTLR end ruleBOOL
+    // $ANTLR end ruleBoolean
 
     // $ANTLR start synpred2
     public final void synpred2_fragment() throws RecognitionException {   
@@ -12737,7 +12737,7 @@ public class InternalLilyPondParser extends AbstractInternalAntlrParser {
     public static final BitSet FOLLOW_ruleSchemeMarkupCommand_in_ruleSchemeValue5620 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_ruleSchemeBoolean_in_entryRuleSchemeBoolean5654 = new BitSet(new long[]{0x0000000000000000L});
     public static final BitSet FOLLOW_EOF_in_entryRuleSchemeBoolean5664 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleBOOL_in_ruleSchemeBoolean5709 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleBoolean_in_ruleSchemeBoolean5709 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_ruleSchemeList_in_entryRuleSchemeList5743 = new BitSet(new long[]{0x0000000000000000L});
     public static final BitSet FOLLOW_EOF_in_entryRuleSchemeList5753 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_KEYWORD_2_in_ruleSchemeList5809 = new BitSet(new long[]{0x0000000000000000L,0x0000000000001000L});
@@ -12785,10 +12785,10 @@ public class InternalLilyPondParser extends AbstractInternalAntlrParser {
     public static final BitSet FOLLOW_KEYWORD_20_in_ruleSchemeMarkupCommand6957 = new BitSet(new long[]{0xFFFFFFFFFFFFFFF0L,0x0000000020000001L});
     public static final BitSet FOLLOW_RULE_ID_in_ruleSchemeMarkupCommand6976 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_ruleSpecialCommandName_in_ruleSchemeMarkupCommand7000 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleBOOL_in_entryRuleBOOL7043 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleBOOL7054 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_KEYWORD_2_in_ruleBOOL7092 = new BitSet(new long[]{0x0000000000000000L,0x0000000020000000L});
-    public static final BitSet FOLLOW_RULE_ID_in_ruleBOOL7107 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleBoolean_in_entryRuleBoolean7043 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleBoolean7054 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_KEYWORD_2_in_ruleBoolean7092 = new BitSet(new long[]{0x0000000000000000L,0x0000000020000000L});
+    public static final BitSet FOLLOW_RULE_ID_in_ruleBoolean7107 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_ruleAssignment_in_synpred2223 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_rulePropertyAssignment_in_synpred3347 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_ruleScheme_in_synpred202191 = new BitSet(new long[]{0x0000000000000002L});

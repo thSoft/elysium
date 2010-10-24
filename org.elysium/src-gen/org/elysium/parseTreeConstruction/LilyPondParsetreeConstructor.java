@@ -4044,11 +4044,11 @@ protected class SchemeValue_SchemeMarkupCommandParserRuleCall_6 extends RuleCall
 /************ begin Rule SchemeBoolean ****************
  *
  * SchemeBoolean:
- * 	value=BOOL;
+ * 	value=Boolean;
  *
  **/
 
-// value=BOOL
+// value=Boolean
 protected class SchemeBoolean_ValueAssignment extends AssignmentToken  {
 	
 	public SchemeBoolean_ValueAssignment(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -4073,9 +4073,9 @@ protected class SchemeBoolean_ValueAssignment extends AssignmentToken  {
 			return null;
 		if((value = eObjectConsumer.getConsumable("value",true)) == null) return null;
 		IEObjectConsumer obj = eObjectConsumer.cloneAndConsume("value");
-		if(valueSerializer.isValid(obj.getEObject(), grammarAccess.getSchemeBooleanAccess().getValueBOOLParserRuleCall_0(), value, null)) {
+		if(valueSerializer.isValid(obj.getEObject(), grammarAccess.getSchemeBooleanAccess().getValueBooleanParserRuleCall_0(), value, null)) {
 			type = AssignmentType.DATATYPE_RULE_CALL;
-			element = grammarAccess.getSchemeBooleanAccess().getValueBOOLParserRuleCall_0();
+			element = grammarAccess.getSchemeBooleanAccess().getValueBooleanParserRuleCall_0();
 			return obj;
 		}
 		return null;

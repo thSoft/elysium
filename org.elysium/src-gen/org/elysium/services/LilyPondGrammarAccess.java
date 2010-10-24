@@ -1173,17 +1173,17 @@ public class LilyPondGrammarAccess extends AbstractGrammarElementFinder {
 	public class SchemeBooleanElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "SchemeBoolean");
 		private final Assignment cValueAssignment = (Assignment)rule.eContents().get(1);
-		private final RuleCall cValueBOOLParserRuleCall_0 = (RuleCall)cValueAssignment.eContents().get(0);
+		private final RuleCall cValueBooleanParserRuleCall_0 = (RuleCall)cValueAssignment.eContents().get(0);
 		
 		//SchemeBoolean:
-		//	value=BOOL;
+		//	value=Boolean;
 		public ParserRule getRule() { return rule; }
 
-		//value=BOOL
+		//value=Boolean
 		public Assignment getValueAssignment() { return cValueAssignment; }
 
-		//BOOL
-		public RuleCall getValueBOOLParserRuleCall_0() { return cValueBOOLParserRuleCall_0; }
+		//Boolean
+		public RuleCall getValueBooleanParserRuleCall_0() { return cValueBooleanParserRuleCall_0; }
 	}
 
 	public class SchemeListElements extends AbstractParserRuleElementFinder {
@@ -1454,13 +1454,13 @@ public class LilyPondGrammarAccess extends AbstractGrammarElementFinder {
 		public RuleCall getCommandSpecialCommandNameParserRuleCall_1_0_1() { return cCommandSpecialCommandNameParserRuleCall_1_0_1; }
 	}
 
-	public class BOOLElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "BOOL");
+	public class BooleanElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "Boolean");
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Keyword cNumberSignKeyword_0 = (Keyword)cGroup.eContents().get(0);
 		private final RuleCall cIDTerminalRuleCall_1 = (RuleCall)cGroup.eContents().get(1);
 		
-		//BOOL returns ecore::EBoolean:
+		//Boolean returns ecore::EBoolean:
 		//	"#" ID;
 		public ParserRule getRule() { return rule; }
 
@@ -1515,9 +1515,9 @@ public class LilyPondGrammarAccess extends AbstractGrammarElementFinder {
 	private SchemeNumberElements pSchemeNumber;
 	private SchemeNumberRadixElements pSchemeNumberRadix;
 	private SchemeMarkupCommandElements pSchemeMarkupCommand;
+	private BooleanElements pBoolean;
 	private TerminalRule tSTRING;
 	private TerminalRule tINT;
-	private BOOLElements pBOOL;
 	private TerminalRule tID;
 	private TerminalRule tWS;
 	private TerminalRule tSL_COMMENT;
@@ -1845,7 +1845,7 @@ public class LilyPondGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//SchemeBoolean:
-	//	value=BOOL;
+	//	value=Boolean;
 	public SchemeBooleanElements getSchemeBooleanAccess() {
 		return (pSchemeBoolean != null) ? pSchemeBoolean : (pSchemeBoolean = new SchemeBooleanElements());
 	}
@@ -1944,6 +1944,16 @@ public class LilyPondGrammarAccess extends AbstractGrammarElementFinder {
 		return getSchemeMarkupCommandAccess().getRule();
 	}
 
+	//Boolean returns ecore::EBoolean:
+	//	"#" ID;
+	public BooleanElements getBooleanAccess() {
+		return (pBoolean != null) ? pBoolean : (pBoolean = new BooleanElements());
+	}
+	
+	public ParserRule getBooleanRule() {
+		return getBooleanAccess().getRule();
+	}
+
 	//terminal STRING:
 	//	"\"" ("\\" ("b" | "t" | "n" | "f" | "r" | "\"" | "\'" | "\\") | !("\\" | "\""))* "\"";
 	public TerminalRule getSTRINGRule() {
@@ -1955,16 +1965,6 @@ public class LilyPondGrammarAccess extends AbstractGrammarElementFinder {
 	public TerminalRule getINTRule() {
 		return (tINT != null) ? tINT : (tINT = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "INT"));
 	} 
-
-	//BOOL returns ecore::EBoolean:
-	//	"#" ID;
-	public BOOLElements getBOOLAccess() {
-		return (pBOOL != null) ? pBOOL : (pBOOL = new BOOLElements());
-	}
-	
-	public ParserRule getBOOLRule() {
-		return getBOOLAccess().getRule();
-	}
 
 	//terminal ID:
 	//	("a".."z" | "A".."Z") ("a".."z" | "A".."Z" | "-")*;

@@ -47,7 +47,7 @@ public class LilyPondValueConverterService extends DefaultTerminalConverters {
 
 	};
 
-	@ValueConverter(rule = "BOOL")
+	@ValueConverter(rule = "Boolean")
 	public IValueConverter<Boolean> BOOL() {
 		return BOOL_VALUE_CONVERTER;
 	}

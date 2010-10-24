@@ -2720,9 +2720,9 @@ ruleSchemeBoolean returns [EObject current=null]
 (
 (
 		{ 
-	        currentNode=createCompositeNode(grammarAccess.getSchemeBooleanAccess().getValueBOOLParserRuleCall_0(), currentNode); 
+	        currentNode=createCompositeNode(grammarAccess.getSchemeBooleanAccess().getValueBooleanParserRuleCall_0(), currentNode); 
 	    }
-		lv_value_0_0=ruleBOOL		{
+		lv_value_0_0=ruleBoolean		{
 	        if ($current==null) {
 	            $current = factory.create(grammarAccess.getSchemeBooleanRule().getType().getClassifier());
 	            associateNodeWithAstElement(currentNode.getParent(), $current);
@@ -2732,7 +2732,7 @@ ruleSchemeBoolean returns [EObject current=null]
 	       			$current, 
 	       			"value",
 	        		lv_value_0_0, 
-	        		"BOOL", 
+	        		"Boolean", 
 	        		currentNode);
 	        } catch (ValueConverterException vce) {
 				handleValueConverterException(vce);
@@ -3390,17 +3390,17 @@ finally {
 
 
 
-// Entry rule entryRuleBOOL
-entryRuleBOOL returns [String current=null] 
+// Entry rule entryRuleBoolean
+entryRuleBoolean returns [String current=null] 
 :
-	{ currentNode = createCompositeNode(grammarAccess.getBOOLRule(), currentNode); } 
-	 iv_ruleBOOL=ruleBOOL 
-	 { $current=$iv_ruleBOOL.current.getText(); }  
+	{ currentNode = createCompositeNode(grammarAccess.getBooleanRule(), currentNode); } 
+	 iv_ruleBoolean=ruleBoolean 
+	 { $current=$iv_ruleBoolean.current.getText(); }  
 	 EOF 
 ;
 
-// Rule BOOL
-ruleBOOL returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()] 
+// Rule Boolean
+ruleBoolean returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()] 
     @init { setCurrentLookahead(); resetLookahead(); 
     }
     @after { resetLookahead(); 
@@ -3410,14 +3410,14 @@ ruleBOOL returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()]
 	kw=KEYWORD_2 
     {
         $current.merge(kw);
-        createLeafNode(grammarAccess.getBOOLAccess().getNumberSignKeyword_0(), null); 
+        createLeafNode(grammarAccess.getBooleanAccess().getNumberSignKeyword_0(), null); 
     }
     this_ID_1=RULE_ID    {
 		$current.merge(this_ID_1);
     }
 
     { 
-    createLeafNode(grammarAccess.getBOOLAccess().getIDTerminalRuleCall_1(), null); 
+    createLeafNode(grammarAccess.getBooleanAccess().getIDTerminalRuleCall_1(), null); 
     }
 )
     ;
