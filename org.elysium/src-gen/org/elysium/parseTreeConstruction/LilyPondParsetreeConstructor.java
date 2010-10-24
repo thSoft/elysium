@@ -3496,11 +3496,11 @@ protected class Scheme_ValueAssignment_1 extends AssignmentToken  {
 /************ begin Rule SchemeExpression ****************
  *
  * SchemeExpression:
- * 	(quoted?="\'"? | quasiquoted?="`"? | unquoted?=","? | variable?="$") value=SchemeValue;
+ * 	(quoted?="\'"? | quasiquoted?="`"? | unquoted?=","? | variable?="$"?) value=SchemeValue;
  *
  **/
 
-// (quoted?="\'"? | quasiquoted?="`"? | unquoted?=","? | variable?="$") value=SchemeValue
+// (quoted?="\'"? | quasiquoted?="`"? | unquoted?=","? | variable?="$"?) value=SchemeValue
 protected class SchemeExpression_Group extends GroupToken {
 	
 	public SchemeExpression_Group(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -3529,7 +3529,7 @@ protected class SchemeExpression_Group extends GroupToken {
 
 }
 
-// quoted?="\'"? | quasiquoted?="`"? | unquoted?=","? | variable?="$"
+// quoted?="\'"? | quasiquoted?="`"? | unquoted?=","? | variable?="$"?
 protected class SchemeExpression_Alternatives_0 extends AlternativesToken {
 
 	public SchemeExpression_Alternatives_0(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -3653,7 +3653,7 @@ protected class SchemeExpression_UnquotedAssignment_0_2 extends AssignmentToken 
 
 }
 
-// variable?="$"
+// variable?="$"?
 protected class SchemeExpression_VariableAssignment_0_3 extends AssignmentToken  {
 	
 	public SchemeExpression_VariableAssignment_0_3(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -3674,7 +3674,7 @@ protected class SchemeExpression_VariableAssignment_0_3 extends AssignmentToken 
 
     @Override	
 	public IEObjectConsumer tryConsume() {
-		if((value = eObjectConsumer.getConsumable("variable",true)) == null) return null;
+		if((value = eObjectConsumer.getConsumable("variable",false)) == null) return null;
 		IEObjectConsumer obj = eObjectConsumer.cloneAndConsume("variable");
 		if(Boolean.TRUE.equals(value)) { // org::eclipse::xtext::impl::KeywordImpl
 			type = AssignmentType.KEYWORD;

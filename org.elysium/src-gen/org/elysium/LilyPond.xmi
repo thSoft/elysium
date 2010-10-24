@@ -443,7 +443,7 @@
         <elements xsi:type="xtext:Assignment" cardinality="?" feature="unquoted" operator="?=">
           <terminal xsi:type="xtext:Keyword" value=","/>
         </elements>
-        <elements xsi:type="xtext:Assignment" feature="variable" operator="?=">
+        <elements xsi:type="xtext:Assignment" cardinality="?" feature="variable" operator="?=">
           <terminal xsi:type="xtext:Keyword" value="$"/>
         </elements>
       </elements>

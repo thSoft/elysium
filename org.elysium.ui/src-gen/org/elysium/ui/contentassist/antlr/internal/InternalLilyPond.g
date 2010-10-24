@@ -2330,7 +2330,7 @@ rule__SchemeExpression__Alternatives_0
 
     |(
 { before(grammarAccess.getSchemeExpressionAccess().getVariableAssignment_0_3()); }
-(rule__SchemeExpression__VariableAssignment_0_3)
+(rule__SchemeExpression__VariableAssignment_0_3)?
 { after(grammarAccess.getSchemeExpressionAccess().getVariableAssignment_0_3()); }
 )
 

@@ -2557,7 +2557,7 @@ ruleSchemeExpression returns [EObject current=null]
 	    }
 
 )
-))(
+)?)(
 (
 		{ 
 	        currentNode=createCompositeNode(grammarAccess.getSchemeExpressionAccess().getValueSchemeValueParserRuleCall_1_0(), currentNode); 
