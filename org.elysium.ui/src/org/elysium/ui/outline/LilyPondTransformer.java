@@ -3,8 +3,8 @@ package org.elysium.ui.outline;
 import java.util.List;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.xtext.ui.editor.outline.transformer.AbstractDeclarativeSemanticModelTransformer;
-import org.elysium.lilypond.Expression;
 import org.elysium.lilypond.LilyPond;
+import org.elysium.lilypond.MarkupBody;
 import org.elysium.lilypond.Number;
 import org.elysium.lilypond.Reference;
 import org.elysium.lilypond.Scheme;
@@ -31,8 +31,12 @@ public class LilyPondTransformer extends AbstractDeclarativeSemanticModelTransfo
 		return NO_CHILDREN;
 	}
 
-	public boolean consumeNode(Expression expression) {
-		return !((expression instanceof Text) || (expression instanceof Number));
+	public boolean consumeNode(Text text) {
+		return false;
+	}
+
+	public boolean consumeNode(Number number) {
+		return false;
 	}
 
 	public boolean consumeNode(Reference reference) {
@@ -41,6 +45,10 @@ public class LilyPondTransformer extends AbstractDeclarativeSemanticModelTransfo
 
 	public List<EObject> getChildren(UnparsedBlock unparsedBlock) {
 		return NO_CHILDREN;
+	}
+
+	public boolean consumeNode(MarkupBody markupBody) {
+		return false;
 	}
 
 }
