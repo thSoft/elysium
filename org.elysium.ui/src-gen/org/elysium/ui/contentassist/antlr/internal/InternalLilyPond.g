@@ -3952,7 +3952,7 @@ rule__SchemeExpression__Group__0__Impl
 :
 (
 { before(grammarAccess.getSchemeExpressionAccess().getAlternatives_0()); }
-(rule__SchemeExpression__Alternatives_0)
+(rule__SchemeExpression__Alternatives_0)?
 { after(grammarAccess.getSchemeExpressionAccess().getAlternatives_0()); }
 )
 

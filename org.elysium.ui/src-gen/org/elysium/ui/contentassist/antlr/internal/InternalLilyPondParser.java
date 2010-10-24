@@ -130,7 +130,7 @@ public class InternalLilyPondParser extends AbstractInternalContentAssistParser 
 
         public InternalLilyPondParser(TokenStream input) {
             super(input);
-            ruleMemo = new HashMap[405+1];
+            ruleMemo = new HashMap[406+1];
          }
         
 
@@ -4716,6 +4716,11 @@ public class InternalLilyPondParser extends AbstractInternalContentAssistParser 
 
             if ( (LA9_0==KEYWORD_14) ) {
                 switch ( input.LA(2) ) {
+                case KEYWORD_62:
+                    {
+                    alt9=1;
+                    }
+                    break;
                 case KEYWORD_59:
                     {
                     alt9=5;
@@ -4803,11 +4808,6 @@ public class InternalLilyPondParser extends AbstractInternalContentAssistParser 
                 case KEYWORD_64:
                     {
                     alt9=2;
-                    }
-                    break;
-                case KEYWORD_62:
-                    {
-                    alt9=1;
                     }
                     break;
                 default:
@@ -9659,6 +9659,31 @@ public class InternalLilyPondParser extends AbstractInternalContentAssistParser 
                 }
                 }
                 break;
+            case EOF:
+                {
+                int LA22_81 = input.LA(2);
+
+                if ( (synpred98()) ) {
+                    alt22=1;
+                }
+                else if ( (synpred100()) ) {
+                    alt22=2;
+                }
+                else if ( (synpred102()) ) {
+                    alt22=3;
+                }
+                else if ( (true) ) {
+                    alt22=4;
+                }
+                else {
+                    if (backtracking>0) {failed=true; return ;}
+                    NoViableAltException nvae =
+                        new NoViableAltException("2308:1: rule__SchemeExpression__Alternatives_0 : ( ( ( rule__SchemeExpression__QuotedAssignment_0_0 )? ) | ( ( rule__SchemeExpression__QuasiquotedAssignment_0_1 )? ) | ( ( rule__SchemeExpression__UnquotedAssignment_0_2 )? ) | ( ( rule__SchemeExpression__VariableAssignment_0_3 )? ) );", 22, 81, input);
+
+                    throw nvae;
+                }
+                }
+                break;
             case KEYWORD_16:
                 {
                 alt22=2;
@@ -9870,10 +9895,7 @@ public class InternalLilyPondParser extends AbstractInternalContentAssistParser 
                 {
                 int LA23_1 = input.LA(2);
 
-                if ( (LA23_1==KEYWORD_5) ) {
-                    alt23=2;
-                }
-                else if ( (LA23_1==RULE_ID) ) {
+                if ( (LA23_1==RULE_ID) ) {
                     int LA23_8 = input.LA(3);
 
                     if ( (synpred104()) ) {
@@ -9889,6 +9911,9 @@ public class InternalLilyPondParser extends AbstractInternalContentAssistParser 
 
                         throw nvae;
                     }
+                }
+                else if ( (LA23_1==KEYWORD_5) ) {
+                    alt23=2;
                 }
                 else {
                     if (backtracking>0) {failed=true; return ;}
@@ -14378,28 +14403,756 @@ public class InternalLilyPondParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start rule__SchemeExpression__Group__0__Impl
-    // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:3948:1: rule__SchemeExpression__Group__0__Impl : ( ( rule__SchemeExpression__Alternatives_0 ) ) ;
+    // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:3948:1: rule__SchemeExpression__Group__0__Impl : ( ( rule__SchemeExpression__Alternatives_0 )? ) ;
     public final void rule__SchemeExpression__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:3952:1: ( ( ( rule__SchemeExpression__Alternatives_0 ) ) )
-            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:3953:1: ( ( rule__SchemeExpression__Alternatives_0 ) )
+            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:3952:1: ( ( ( rule__SchemeExpression__Alternatives_0 )? ) )
+            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:3953:1: ( ( rule__SchemeExpression__Alternatives_0 )? )
             {
-            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:3953:1: ( ( rule__SchemeExpression__Alternatives_0 ) )
-            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:3954:1: ( rule__SchemeExpression__Alternatives_0 )
+            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:3953:1: ( ( rule__SchemeExpression__Alternatives_0 )? )
+            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:3954:1: ( rule__SchemeExpression__Alternatives_0 )?
             {
             if ( backtracking==0 ) {
                before(grammarAccess.getSchemeExpressionAccess().getAlternatives_0()); 
             }
-            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:3955:1: ( rule__SchemeExpression__Alternatives_0 )
-            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:3955:2: rule__SchemeExpression__Alternatives_0
-            {
-            pushFollow(FOLLOW_rule__SchemeExpression__Alternatives_0_in_rule__SchemeExpression__Group__0__Impl8390);
-            rule__SchemeExpression__Alternatives_0();
-            _fsp--;
-            if (failed) return ;
+            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:3955:1: ( rule__SchemeExpression__Alternatives_0 )?
+            int alt33=2;
+            switch ( input.LA(1) ) {
+                case KEYWORD_3:
+                case KEYWORD_4:
+                case KEYWORD_8:
+                case KEYWORD_16:
+                    {
+                    alt33=1;
+                    }
+                    break;
+                case KEYWORD_2:
+                    {
+                    int LA33_2 = input.LA(2);
+
+                    if ( (synpred125()) ) {
+                        alt33=1;
+                    }
+                    }
+                    break;
+                case KEYWORD_5:
+                    {
+                    int LA33_3 = input.LA(2);
+
+                    if ( (synpred125()) ) {
+                        alt33=1;
+                    }
+                    }
+                    break;
+                case KEYWORD_22:
+                    {
+                    int LA33_4 = input.LA(2);
+
+                    if ( (synpred125()) ) {
+                        alt33=1;
+                    }
+                    }
+                    break;
+                case KEYWORD_21:
+                    {
+                    int LA33_5 = input.LA(2);
+
+                    if ( (synpred125()) ) {
+                        alt33=1;
+                    }
+                    }
+                    break;
+                case KEYWORD_26:
+                    {
+                    int LA33_6 = input.LA(2);
+
+                    if ( (synpred125()) ) {
+                        alt33=1;
+                    }
+                    }
+                    break;
+                case KEYWORD_11:
+                    {
+                    int LA33_7 = input.LA(2);
+
+                    if ( (synpred125()) ) {
+                        alt33=1;
+                    }
+                    }
+                    break;
+                case KEYWORD_1:
+                    {
+                    int LA33_8 = input.LA(2);
+
+                    if ( (synpred125()) ) {
+                        alt33=1;
+                    }
+                    }
+                    break;
+                case KEYWORD_7:
+                    {
+                    int LA33_9 = input.LA(2);
+
+                    if ( (synpred125()) ) {
+                        alt33=1;
+                    }
+                    }
+                    break;
+                case KEYWORD_10:
+                    {
+                    int LA33_10 = input.LA(2);
+
+                    if ( (synpred125()) ) {
+                        alt33=1;
+                    }
+                    }
+                    break;
+                case KEYWORD_12:
+                    {
+                    int LA33_11 = input.LA(2);
+
+                    if ( (synpred125()) ) {
+                        alt33=1;
+                    }
+                    }
+                    break;
+                case KEYWORD_13:
+                    {
+                    int LA33_12 = input.LA(2);
+
+                    if ( (synpred125()) ) {
+                        alt33=1;
+                    }
+                    }
+                    break;
+                case KEYWORD_15:
+                    {
+                    int LA33_13 = input.LA(2);
+
+                    if ( (synpred125()) ) {
+                        alt33=1;
+                    }
+                    }
+                    break;
+                case KEYWORD_19:
+                    {
+                    int LA33_14 = input.LA(2);
+
+                    if ( (synpred125()) ) {
+                        alt33=1;
+                    }
+                    }
+                    break;
+                case KEYWORD_62:
+                    {
+                    int LA33_15 = input.LA(2);
+
+                    if ( (synpred125()) ) {
+                        alt33=1;
+                    }
+                    }
+                    break;
+                case KEYWORD_64:
+                    {
+                    int LA33_16 = input.LA(2);
+
+                    if ( (synpred125()) ) {
+                        alt33=1;
+                    }
+                    }
+                    break;
+                case KEYWORD_53:
+                    {
+                    int LA33_17 = input.LA(2);
+
+                    if ( (synpred125()) ) {
+                        alt33=1;
+                    }
+                    }
+                    break;
+                case KEYWORD_82:
+                    {
+                    int LA33_18 = input.LA(2);
+
+                    if ( (synpred125()) ) {
+                        alt33=1;
+                    }
+                    }
+                    break;
+                case KEYWORD_59:
+                    {
+                    int LA33_19 = input.LA(2);
+
+                    if ( (synpred125()) ) {
+                        alt33=1;
+                    }
+                    }
+                    break;
+                case KEYWORD_58:
+                    {
+                    int LA33_20 = input.LA(2);
+
+                    if ( (synpred125()) ) {
+                        alt33=1;
+                    }
+                    }
+                    break;
+                case KEYWORD_73:
+                    {
+                    int LA33_21 = input.LA(2);
+
+                    if ( (synpred125()) ) {
+                        alt33=1;
+                    }
+                    }
+                    break;
+                case KEYWORD_40:
+                    {
+                    int LA33_22 = input.LA(2);
+
+                    if ( (synpred125()) ) {
+                        alt33=1;
+                    }
+                    }
+                    break;
+                case KEYWORD_80:
+                    {
+                    int LA33_23 = input.LA(2);
+
+                    if ( (synpred125()) ) {
+                        alt33=1;
+                    }
+                    }
+                    break;
+                case KEYWORD_30:
+                    {
+                    int LA33_24 = input.LA(2);
+
+                    if ( (synpred125()) ) {
+                        alt33=1;
+                    }
+                    }
+                    break;
+                case KEYWORD_65:
+                    {
+                    int LA33_25 = input.LA(2);
+
+                    if ( (synpred125()) ) {
+                        alt33=1;
+                    }
+                    }
+                    break;
+                case KEYWORD_47:
+                    {
+                    int LA33_26 = input.LA(2);
+
+                    if ( (synpred125()) ) {
+                        alt33=1;
+                    }
+                    }
+                    break;
+                case KEYWORD_74:
+                    {
+                    int LA33_27 = input.LA(2);
+
+                    if ( (synpred125()) ) {
+                        alt33=1;
+                    }
+                    }
+                    break;
+                case KEYWORD_48:
+                    {
+                    int LA33_28 = input.LA(2);
+
+                    if ( (synpred125()) ) {
+                        alt33=1;
+                    }
+                    }
+                    break;
+                case KEYWORD_66:
+                    {
+                    int LA33_29 = input.LA(2);
+
+                    if ( (synpred125()) ) {
+                        alt33=1;
+                    }
+                    }
+                    break;
+                case KEYWORD_60:
+                    {
+                    int LA33_30 = input.LA(2);
+
+                    if ( (synpred125()) ) {
+                        alt33=1;
+                    }
+                    }
+                    break;
+                case KEYWORD_83:
+                    {
+                    int LA33_31 = input.LA(2);
+
+                    if ( (synpred125()) ) {
+                        alt33=1;
+                    }
+                    }
+                    break;
+                case KEYWORD_49:
+                    {
+                    int LA33_32 = input.LA(2);
+
+                    if ( (synpred125()) ) {
+                        alt33=1;
+                    }
+                    }
+                    break;
+                case KEYWORD_81:
+                    {
+                    int LA33_33 = input.LA(2);
+
+                    if ( (synpred125()) ) {
+                        alt33=1;
+                    }
+                    }
+                    break;
+                case KEYWORD_67:
+                    {
+                    int LA33_34 = input.LA(2);
+
+                    if ( (synpred125()) ) {
+                        alt33=1;
+                    }
+                    }
+                    break;
+                case KEYWORD_41:
+                    {
+                    int LA33_35 = input.LA(2);
+
+                    if ( (synpred125()) ) {
+                        alt33=1;
+                    }
+                    }
+                    break;
+                case KEYWORD_78:
+                    {
+                    int LA33_36 = input.LA(2);
+
+                    if ( (synpred125()) ) {
+                        alt33=1;
+                    }
+                    }
+                    break;
+                case KEYWORD_61:
+                    {
+                    int LA33_37 = input.LA(2);
+
+                    if ( (synpred125()) ) {
+                        alt33=1;
+                    }
+                    }
+                    break;
+                case KEYWORD_87:
+                    {
+                    int LA33_38 = input.LA(2);
+
+                    if ( (synpred125()) ) {
+                        alt33=1;
+                    }
+                    }
+                    break;
+                case KEYWORD_50:
+                    {
+                    int LA33_39 = input.LA(2);
+
+                    if ( (synpred125()) ) {
+                        alt33=1;
+                    }
+                    }
+                    break;
+                case KEYWORD_27:
+                    {
+                    int LA33_40 = input.LA(2);
+
+                    if ( (synpred125()) ) {
+                        alt33=1;
+                    }
+                    }
+                    break;
+                case KEYWORD_51:
+                    {
+                    int LA33_41 = input.LA(2);
+
+                    if ( (synpred125()) ) {
+                        alt33=1;
+                    }
+                    }
+                    break;
+                case KEYWORD_75:
+                    {
+                    int LA33_42 = input.LA(2);
+
+                    if ( (synpred125()) ) {
+                        alt33=1;
+                    }
+                    }
+                    break;
+                case KEYWORD_52:
+                    {
+                    int LA33_43 = input.LA(2);
+
+                    if ( (synpred125()) ) {
+                        alt33=1;
+                    }
+                    }
+                    break;
+                case KEYWORD_68:
+                    {
+                    int LA33_44 = input.LA(2);
+
+                    if ( (synpred125()) ) {
+                        alt33=1;
+                    }
+                    }
+                    break;
+                case KEYWORD_76:
+                    {
+                    int LA33_45 = input.LA(2);
+
+                    if ( (synpred125()) ) {
+                        alt33=1;
+                    }
+                    }
+                    break;
+                case KEYWORD_31:
+                    {
+                    int LA33_46 = input.LA(2);
+
+                    if ( (synpred125()) ) {
+                        alt33=1;
+                    }
+                    }
+                    break;
+                case KEYWORD_32:
+                    {
+                    int LA33_47 = input.LA(2);
+
+                    if ( (synpred125()) ) {
+                        alt33=1;
+                    }
+                    }
+                    break;
+                case KEYWORD_33:
+                    {
+                    int LA33_48 = input.LA(2);
+
+                    if ( (synpred125()) ) {
+                        alt33=1;
+                    }
+                    }
+                    break;
+                case KEYWORD_28:
+                    {
+                    int LA33_49 = input.LA(2);
+
+                    if ( (synpred125()) ) {
+                        alt33=1;
+                    }
+                    }
+                    break;
+                case KEYWORD_69:
+                    {
+                    int LA33_50 = input.LA(2);
+
+                    if ( (synpred125()) ) {
+                        alt33=1;
+                    }
+                    }
+                    break;
+                case KEYWORD_70:
+                    {
+                    int LA33_51 = input.LA(2);
+
+                    if ( (synpred125()) ) {
+                        alt33=1;
+                    }
+                    }
+                    break;
+                case KEYWORD_54:
+                    {
+                    int LA33_52 = input.LA(2);
+
+                    if ( (synpred125()) ) {
+                        alt33=1;
+                    }
+                    }
+                    break;
+                case KEYWORD_34:
+                    {
+                    int LA33_53 = input.LA(2);
+
+                    if ( (synpred125()) ) {
+                        alt33=1;
+                    }
+                    }
+                    break;
+                case KEYWORD_71:
+                    {
+                    int LA33_54 = input.LA(2);
+
+                    if ( (synpred125()) ) {
+                        alt33=1;
+                    }
+                    }
+                    break;
+                case KEYWORD_42:
+                    {
+                    int LA33_55 = input.LA(2);
+
+                    if ( (synpred125()) ) {
+                        alt33=1;
+                    }
+                    }
+                    break;
+                case KEYWORD_63:
+                    {
+                    int LA33_56 = input.LA(2);
+
+                    if ( (synpred125()) ) {
+                        alt33=1;
+                    }
+                    }
+                    break;
+                case KEYWORD_72:
+                    {
+                    int LA33_57 = input.LA(2);
+
+                    if ( (synpred125()) ) {
+                        alt33=1;
+                    }
+                    }
+                    break;
+                case KEYWORD_55:
+                    {
+                    int LA33_58 = input.LA(2);
+
+                    if ( (synpred125()) ) {
+                        alt33=1;
+                    }
+                    }
+                    break;
+                case KEYWORD_56:
+                    {
+                    int LA33_59 = input.LA(2);
+
+                    if ( (synpred125()) ) {
+                        alt33=1;
+                    }
+                    }
+                    break;
+                case KEYWORD_35:
+                    {
+                    int LA33_60 = input.LA(2);
+
+                    if ( (synpred125()) ) {
+                        alt33=1;
+                    }
+                    }
+                    break;
+                case KEYWORD_57:
+                    {
+                    int LA33_61 = input.LA(2);
+
+                    if ( (synpred125()) ) {
+                        alt33=1;
+                    }
+                    }
+                    break;
+                case KEYWORD_43:
+                    {
+                    int LA33_62 = input.LA(2);
+
+                    if ( (synpred125()) ) {
+                        alt33=1;
+                    }
+                    }
+                    break;
+                case KEYWORD_79:
+                    {
+                    int LA33_63 = input.LA(2);
+
+                    if ( (synpred125()) ) {
+                        alt33=1;
+                    }
+                    }
+                    break;
+                case KEYWORD_29:
+                    {
+                    int LA33_64 = input.LA(2);
+
+                    if ( (synpred125()) ) {
+                        alt33=1;
+                    }
+                    }
+                    break;
+                case KEYWORD_84:
+                    {
+                    int LA33_65 = input.LA(2);
+
+                    if ( (synpred125()) ) {
+                        alt33=1;
+                    }
+                    }
+                    break;
+                case KEYWORD_36:
+                    {
+                    int LA33_66 = input.LA(2);
+
+                    if ( (synpred125()) ) {
+                        alt33=1;
+                    }
+                    }
+                    break;
+                case KEYWORD_85:
+                    {
+                    int LA33_67 = input.LA(2);
+
+                    if ( (synpred125()) ) {
+                        alt33=1;
+                    }
+                    }
+                    break;
+                case KEYWORD_86:
+                    {
+                    int LA33_68 = input.LA(2);
+
+                    if ( (synpred125()) ) {
+                        alt33=1;
+                    }
+                    }
+                    break;
+                case KEYWORD_44:
+                    {
+                    int LA33_69 = input.LA(2);
+
+                    if ( (synpred125()) ) {
+                        alt33=1;
+                    }
+                    }
+                    break;
+                case KEYWORD_37:
+                    {
+                    int LA33_70 = input.LA(2);
+
+                    if ( (synpred125()) ) {
+                        alt33=1;
+                    }
+                    }
+                    break;
+                case KEYWORD_45:
+                    {
+                    int LA33_71 = input.LA(2);
+
+                    if ( (synpred125()) ) {
+                        alt33=1;
+                    }
+                    }
+                    break;
+                case KEYWORD_77:
+                    {
+                    int LA33_72 = input.LA(2);
+
+                    if ( (synpred125()) ) {
+                        alt33=1;
+                    }
+                    }
+                    break;
+                case KEYWORD_38:
+                    {
+                    int LA33_73 = input.LA(2);
+
+                    if ( (synpred125()) ) {
+                        alt33=1;
+                    }
+                    }
+                    break;
+                case KEYWORD_46:
+                    {
+                    int LA33_74 = input.LA(2);
+
+                    if ( (synpred125()) ) {
+                        alt33=1;
+                    }
+                    }
+                    break;
+                case KEYWORD_39:
+                    {
+                    int LA33_75 = input.LA(2);
+
+                    if ( (synpred125()) ) {
+                        alt33=1;
+                    }
+                    }
+                    break;
+                case RULE_ID:
+                    {
+                    int LA33_76 = input.LA(2);
+
+                    if ( (synpred125()) ) {
+                        alt33=1;
+                    }
+                    }
+                    break;
+                case RULE_STRING:
+                    {
+                    int LA33_77 = input.LA(2);
+
+                    if ( (synpred125()) ) {
+                        alt33=1;
+                    }
+                    }
+                    break;
+                case RULE_ANY_OTHER:
+                    {
+                    int LA33_78 = input.LA(2);
+
+                    if ( (synpred125()) ) {
+                        alt33=1;
+                    }
+                    }
+                    break;
+                case RULE_INT:
+                    {
+                    int LA33_79 = input.LA(2);
+
+                    if ( (synpred125()) ) {
+                        alt33=1;
+                    }
+                    }
+                    break;
+                case KEYWORD_20:
+                    {
+                    int LA33_80 = input.LA(2);
+
+                    if ( (synpred125()) ) {
+                        alt33=1;
+                    }
+                    }
+                    break;
+            }
+
+            switch (alt33) {
+                case 1 :
+                    // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:3955:2: rule__SchemeExpression__Alternatives_0
+                    {
+                    pushFollow(FOLLOW_rule__SchemeExpression__Alternatives_0_in_rule__SchemeExpression__Group__0__Impl8390);
+                    rule__SchemeExpression__Alternatives_0();
+                    _fsp--;
+                    if (failed) return ;
+
+                    }
+                    break;
 
             }
 
@@ -14437,7 +15190,7 @@ public class InternalLilyPondParser extends AbstractInternalContentAssistParser 
             // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:3969:1: ( rule__SchemeExpression__Group__1__Impl )
             // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:3970:2: rule__SchemeExpression__Group__1__Impl
             {
-            pushFollow(FOLLOW_rule__SchemeExpression__Group__1__Impl_in_rule__SchemeExpression__Group__18420);
+            pushFollow(FOLLOW_rule__SchemeExpression__Group__1__Impl_in_rule__SchemeExpression__Group__18421);
             rule__SchemeExpression__Group__1__Impl();
             _fsp--;
             if (failed) return ;
@@ -14478,7 +15231,7 @@ public class InternalLilyPondParser extends AbstractInternalContentAssistParser 
             // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:3983:1: ( rule__SchemeExpression__ValueAssignment_1 )
             // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:3983:2: rule__SchemeExpression__ValueAssignment_1
             {
-            pushFollow(FOLLOW_rule__SchemeExpression__ValueAssignment_1_in_rule__SchemeExpression__Group__1__Impl8447);
+            pushFollow(FOLLOW_rule__SchemeExpression__ValueAssignment_1_in_rule__SchemeExpression__Group__1__Impl8448);
             rule__SchemeExpression__ValueAssignment_1();
             _fsp--;
             if (failed) return ;
@@ -14519,11 +15272,11 @@ public class InternalLilyPondParser extends AbstractInternalContentAssistParser 
             // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:4001:1: ( rule__SchemeList__Group__0__Impl rule__SchemeList__Group__1 )
             // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:4002:2: rule__SchemeList__Group__0__Impl rule__SchemeList__Group__1
             {
-            pushFollow(FOLLOW_rule__SchemeList__Group__0__Impl_in_rule__SchemeList__Group__08481);
+            pushFollow(FOLLOW_rule__SchemeList__Group__0__Impl_in_rule__SchemeList__Group__08482);
             rule__SchemeList__Group__0__Impl();
             _fsp--;
             if (failed) return ;
-            pushFollow(FOLLOW_rule__SchemeList__Group__1_in_rule__SchemeList__Group__08484);
+            pushFollow(FOLLOW_rule__SchemeList__Group__1_in_rule__SchemeList__Group__08485);
             rule__SchemeList__Group__1();
             _fsp--;
             if (failed) return ;
@@ -14596,11 +15349,11 @@ public class InternalLilyPondParser extends AbstractInternalContentAssistParser 
             // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:4032:1: ( rule__SchemeList__Group__1__Impl rule__SchemeList__Group__2 )
             // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:4033:2: rule__SchemeList__Group__1__Impl rule__SchemeList__Group__2
             {
-            pushFollow(FOLLOW_rule__SchemeList__Group__1__Impl_in_rule__SchemeList__Group__18542);
+            pushFollow(FOLLOW_rule__SchemeList__Group__1__Impl_in_rule__SchemeList__Group__18543);
             rule__SchemeList__Group__1__Impl();
             _fsp--;
             if (failed) return ;
-            pushFollow(FOLLOW_rule__SchemeList__Group__2_in_rule__SchemeList__Group__18545);
+            pushFollow(FOLLOW_rule__SchemeList__Group__2_in_rule__SchemeList__Group__18546);
             rule__SchemeList__Group__2();
             _fsp--;
             if (failed) return ;
@@ -14639,17 +15392,17 @@ public class InternalLilyPondParser extends AbstractInternalContentAssistParser 
                before(grammarAccess.getSchemeListAccess().getVectorAssignment_1()); 
             }
             // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:4047:1: ( rule__SchemeList__VectorAssignment_1 )?
-            int alt33=2;
-            int LA33_0 = input.LA(1);
+            int alt34=2;
+            int LA34_0 = input.LA(1);
 
-            if ( (LA33_0==KEYWORD_2) ) {
-                alt33=1;
+            if ( (LA34_0==KEYWORD_2) ) {
+                alt34=1;
             }
-            switch (alt33) {
+            switch (alt34) {
                 case 1 :
                     // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:4047:2: rule__SchemeList__VectorAssignment_1
                     {
-                    pushFollow(FOLLOW_rule__SchemeList__VectorAssignment_1_in_rule__SchemeList__Group__1__Impl8572);
+                    pushFollow(FOLLOW_rule__SchemeList__VectorAssignment_1_in_rule__SchemeList__Group__1__Impl8573);
                     rule__SchemeList__VectorAssignment_1();
                     _fsp--;
                     if (failed) return ;
@@ -14693,11 +15446,11 @@ public class InternalLilyPondParser extends AbstractInternalContentAssistParser 
             // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:4061:1: ( rule__SchemeList__Group__2__Impl rule__SchemeList__Group__3 )
             // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:4062:2: rule__SchemeList__Group__2__Impl rule__SchemeList__Group__3
             {
-            pushFollow(FOLLOW_rule__SchemeList__Group__2__Impl_in_rule__SchemeList__Group__28603);
+            pushFollow(FOLLOW_rule__SchemeList__Group__2__Impl_in_rule__SchemeList__Group__28604);
             rule__SchemeList__Group__2__Impl();
             _fsp--;
             if (failed) return ;
-            pushFollow(FOLLOW_rule__SchemeList__Group__3_in_rule__SchemeList__Group__28606);
+            pushFollow(FOLLOW_rule__SchemeList__Group__3_in_rule__SchemeList__Group__28607);
             rule__SchemeList__Group__3();
             _fsp--;
             if (failed) return ;
@@ -14735,7 +15488,7 @@ public class InternalLilyPondParser extends AbstractInternalContentAssistParser 
             if ( backtracking==0 ) {
                before(grammarAccess.getSchemeListAccess().getLeftParenthesisKeyword_2()); 
             }
-            match(input,KEYWORD_5,FOLLOW_KEYWORD_5_in_rule__SchemeList__Group__2__Impl8634); if (failed) return ;
+            match(input,KEYWORD_5,FOLLOW_KEYWORD_5_in_rule__SchemeList__Group__2__Impl8635); if (failed) return ;
             if ( backtracking==0 ) {
                after(grammarAccess.getSchemeListAccess().getLeftParenthesisKeyword_2()); 
             }
@@ -14770,11 +15523,11 @@ public class InternalLilyPondParser extends AbstractInternalContentAssistParser 
             // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:4092:1: ( rule__SchemeList__Group__3__Impl rule__SchemeList__Group__4 )
             // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:4093:2: rule__SchemeList__Group__3__Impl rule__SchemeList__Group__4
             {
-            pushFollow(FOLLOW_rule__SchemeList__Group__3__Impl_in_rule__SchemeList__Group__38665);
+            pushFollow(FOLLOW_rule__SchemeList__Group__3__Impl_in_rule__SchemeList__Group__38666);
             rule__SchemeList__Group__3__Impl();
             _fsp--;
             if (failed) return ;
-            pushFollow(FOLLOW_rule__SchemeList__Group__4_in_rule__SchemeList__Group__38668);
+            pushFollow(FOLLOW_rule__SchemeList__Group__4_in_rule__SchemeList__Group__38669);
             rule__SchemeList__Group__4();
             _fsp--;
             if (failed) return ;
@@ -14813,21 +15566,21 @@ public class InternalLilyPondParser extends AbstractInternalContentAssistParser 
                before(grammarAccess.getSchemeListAccess().getExpressionsAssignment_3()); 
             }
             // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:4107:1: ( rule__SchemeList__ExpressionsAssignment_3 )*
-            loop34:
+            loop35:
             do {
-                int alt34=2;
-                int LA34_0 = input.LA(1);
+                int alt35=2;
+                int LA35_0 = input.LA(1);
 
-                if ( ((LA34_0>=KEYWORD_87 && LA34_0<=KEYWORD_22)||(LA34_0>=KEYWORD_26 && LA34_0<=KEYWORD_5)||(LA34_0>=KEYWORD_7 && LA34_0<=KEYWORD_8)||(LA34_0>=KEYWORD_10 && LA34_0<=KEYWORD_13)||(LA34_0>=KEYWORD_15 && LA34_0<=KEYWORD_16)||(LA34_0>=KEYWORD_19 && LA34_0<=RULE_ID)||LA34_0==RULE_ANY_OTHER) ) {
-                    alt34=1;
+                if ( ((LA35_0>=KEYWORD_87 && LA35_0<=KEYWORD_22)||(LA35_0>=KEYWORD_26 && LA35_0<=KEYWORD_5)||(LA35_0>=KEYWORD_7 && LA35_0<=KEYWORD_8)||(LA35_0>=KEYWORD_10 && LA35_0<=KEYWORD_13)||(LA35_0>=KEYWORD_15 && LA35_0<=KEYWORD_16)||(LA35_0>=KEYWORD_19 && LA35_0<=RULE_ID)||LA35_0==RULE_ANY_OTHER) ) {
+                    alt35=1;
                 }
 
 
-                switch (alt34) {
+                switch (alt35) {
             	case 1 :
             	    // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:4107:2: rule__SchemeList__ExpressionsAssignment_3
             	    {
-            	    pushFollow(FOLLOW_rule__SchemeList__ExpressionsAssignment_3_in_rule__SchemeList__Group__3__Impl8695);
+            	    pushFollow(FOLLOW_rule__SchemeList__ExpressionsAssignment_3_in_rule__SchemeList__Group__3__Impl8696);
             	    rule__SchemeList__ExpressionsAssignment_3();
             	    _fsp--;
             	    if (failed) return ;
@@ -14836,7 +15589,7 @@ public class InternalLilyPondParser extends AbstractInternalContentAssistParser 
             	    break;
 
             	default :
-            	    break loop34;
+            	    break loop35;
                 }
             } while (true);
 
@@ -14874,7 +15627,7 @@ public class InternalLilyPondParser extends AbstractInternalContentAssistParser 
             // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:4121:1: ( rule__SchemeList__Group__4__Impl )
             // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:4122:2: rule__SchemeList__Group__4__Impl
             {
-            pushFollow(FOLLOW_rule__SchemeList__Group__4__Impl_in_rule__SchemeList__Group__48726);
+            pushFollow(FOLLOW_rule__SchemeList__Group__4__Impl_in_rule__SchemeList__Group__48727);
             rule__SchemeList__Group__4__Impl();
             _fsp--;
             if (failed) return ;
@@ -14912,7 +15665,7 @@ public class InternalLilyPondParser extends AbstractInternalContentAssistParser 
             if ( backtracking==0 ) {
                before(grammarAccess.getSchemeListAccess().getRightParenthesisKeyword_4()); 
             }
-            match(input,KEYWORD_6,FOLLOW_KEYWORD_6_in_rule__SchemeList__Group__4__Impl8754); if (failed) return ;
+            match(input,KEYWORD_6,FOLLOW_KEYWORD_6_in_rule__SchemeList__Group__4__Impl8755); if (failed) return ;
             if ( backtracking==0 ) {
                after(grammarAccess.getSchemeListAccess().getRightParenthesisKeyword_4()); 
             }
@@ -14947,11 +15700,11 @@ public class InternalLilyPondParser extends AbstractInternalContentAssistParser 
             // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:4161:1: ( rule__SchemeBlock__Group__0__Impl rule__SchemeBlock__Group__1 )
             // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:4162:2: rule__SchemeBlock__Group__0__Impl rule__SchemeBlock__Group__1
             {
-            pushFollow(FOLLOW_rule__SchemeBlock__Group__0__Impl_in_rule__SchemeBlock__Group__08795);
+            pushFollow(FOLLOW_rule__SchemeBlock__Group__0__Impl_in_rule__SchemeBlock__Group__08796);
             rule__SchemeBlock__Group__0__Impl();
             _fsp--;
             if (failed) return ;
-            pushFollow(FOLLOW_rule__SchemeBlock__Group__1_in_rule__SchemeBlock__Group__08798);
+            pushFollow(FOLLOW_rule__SchemeBlock__Group__1_in_rule__SchemeBlock__Group__08799);
             rule__SchemeBlock__Group__1();
             _fsp--;
             if (failed) return ;
@@ -14989,7 +15742,7 @@ public class InternalLilyPondParser extends AbstractInternalContentAssistParser 
             if ( backtracking==0 ) {
                before(grammarAccess.getSchemeBlockAccess().getNumberSignLeftCurlyBracketKeyword_0()); 
             }
-            match(input,KEYWORD_22,FOLLOW_KEYWORD_22_in_rule__SchemeBlock__Group__0__Impl8826); if (failed) return ;
+            match(input,KEYWORD_22,FOLLOW_KEYWORD_22_in_rule__SchemeBlock__Group__0__Impl8827); if (failed) return ;
             if ( backtracking==0 ) {
                after(grammarAccess.getSchemeBlockAccess().getNumberSignLeftCurlyBracketKeyword_0()); 
             }
@@ -15024,11 +15777,11 @@ public class InternalLilyPondParser extends AbstractInternalContentAssistParser 
             // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:4192:1: ( rule__SchemeBlock__Group__1__Impl rule__SchemeBlock__Group__2 )
             // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:4193:2: rule__SchemeBlock__Group__1__Impl rule__SchemeBlock__Group__2
             {
-            pushFollow(FOLLOW_rule__SchemeBlock__Group__1__Impl_in_rule__SchemeBlock__Group__18857);
+            pushFollow(FOLLOW_rule__SchemeBlock__Group__1__Impl_in_rule__SchemeBlock__Group__18858);
             rule__SchemeBlock__Group__1__Impl();
             _fsp--;
             if (failed) return ;
-            pushFollow(FOLLOW_rule__SchemeBlock__Group__2_in_rule__SchemeBlock__Group__18860);
+            pushFollow(FOLLOW_rule__SchemeBlock__Group__2_in_rule__SchemeBlock__Group__18861);
             rule__SchemeBlock__Group__2();
             _fsp--;
             if (failed) return ;
@@ -15072,7 +15825,7 @@ public class InternalLilyPondParser extends AbstractInternalContentAssistParser 
             // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:4208:1: ( rule__SchemeBlock__ExpressionsAssignment_1 )
             // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:4208:2: rule__SchemeBlock__ExpressionsAssignment_1
             {
-            pushFollow(FOLLOW_rule__SchemeBlock__ExpressionsAssignment_1_in_rule__SchemeBlock__Group__1__Impl8889);
+            pushFollow(FOLLOW_rule__SchemeBlock__ExpressionsAssignment_1_in_rule__SchemeBlock__Group__1__Impl8890);
             rule__SchemeBlock__ExpressionsAssignment_1();
             _fsp--;
             if (failed) return ;
@@ -15092,21 +15845,21 @@ public class InternalLilyPondParser extends AbstractInternalContentAssistParser 
                before(grammarAccess.getSchemeBlockAccess().getExpressionsAssignment_1()); 
             }
             // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:4213:1: ( rule__SchemeBlock__ExpressionsAssignment_1 )*
-            loop35:
+            loop36:
             do {
-                int alt35=2;
-                int LA35_0 = input.LA(1);
+                int alt36=2;
+                int LA36_0 = input.LA(1);
 
-                if ( ((LA35_0>=KEYWORD_87 && LA35_0<=KEYWORD_29)||LA35_0==KEYWORD_24||(LA35_0>=KEYWORD_26 && LA35_0<=KEYWORD_2)||(LA35_0>=KEYWORD_4 && LA35_0<=KEYWORD_15)||LA35_0==KEYWORD_17||(LA35_0>=KEYWORD_19 && LA35_0<=RULE_ID)||LA35_0==RULE_ANY_OTHER) ) {
-                    alt35=1;
+                if ( ((LA36_0>=KEYWORD_87 && LA36_0<=KEYWORD_29)||LA36_0==KEYWORD_24||(LA36_0>=KEYWORD_26 && LA36_0<=KEYWORD_2)||(LA36_0>=KEYWORD_4 && LA36_0<=KEYWORD_15)||LA36_0==KEYWORD_17||(LA36_0>=KEYWORD_19 && LA36_0<=RULE_ID)||LA36_0==RULE_ANY_OTHER) ) {
+                    alt36=1;
                 }
 
 
-                switch (alt35) {
+                switch (alt36) {
             	case 1 :
             	    // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:4213:2: rule__SchemeBlock__ExpressionsAssignment_1
             	    {
-            	    pushFollow(FOLLOW_rule__SchemeBlock__ExpressionsAssignment_1_in_rule__SchemeBlock__Group__1__Impl8901);
+            	    pushFollow(FOLLOW_rule__SchemeBlock__ExpressionsAssignment_1_in_rule__SchemeBlock__Group__1__Impl8902);
             	    rule__SchemeBlock__ExpressionsAssignment_1();
             	    _fsp--;
             	    if (failed) return ;
@@ -15115,7 +15868,7 @@ public class InternalLilyPondParser extends AbstractInternalContentAssistParser 
             	    break;
 
             	default :
-            	    break loop35;
+            	    break loop36;
                 }
             } while (true);
 
@@ -15156,7 +15909,7 @@ public class InternalLilyPondParser extends AbstractInternalContentAssistParser 
             // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:4228:1: ( rule__SchemeBlock__Group__2__Impl )
             // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:4229:2: rule__SchemeBlock__Group__2__Impl
             {
-            pushFollow(FOLLOW_rule__SchemeBlock__Group__2__Impl_in_rule__SchemeBlock__Group__28934);
+            pushFollow(FOLLOW_rule__SchemeBlock__Group__2__Impl_in_rule__SchemeBlock__Group__28935);
             rule__SchemeBlock__Group__2__Impl();
             _fsp--;
             if (failed) return ;
@@ -15194,7 +15947,7 @@ public class InternalLilyPondParser extends AbstractInternalContentAssistParser 
             if ( backtracking==0 ) {
                before(grammarAccess.getSchemeBlockAccess().getNumberSignRightCurlyBracketKeyword_2()); 
             }
-            match(input,KEYWORD_23,FOLLOW_KEYWORD_23_in_rule__SchemeBlock__Group__2__Impl8962); if (failed) return ;
+            match(input,KEYWORD_23,FOLLOW_KEYWORD_23_in_rule__SchemeBlock__Group__2__Impl8963); if (failed) return ;
             if ( backtracking==0 ) {
                after(grammarAccess.getSchemeBlockAccess().getNumberSignRightCurlyBracketKeyword_2()); 
             }
@@ -15229,11 +15982,11 @@ public class InternalLilyPondParser extends AbstractInternalContentAssistParser 
             // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:4264:1: ( rule__SchemeCharacter__Group__0__Impl rule__SchemeCharacter__Group__1 )
             // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:4265:2: rule__SchemeCharacter__Group__0__Impl rule__SchemeCharacter__Group__1
             {
-            pushFollow(FOLLOW_rule__SchemeCharacter__Group__0__Impl_in_rule__SchemeCharacter__Group__08999);
+            pushFollow(FOLLOW_rule__SchemeCharacter__Group__0__Impl_in_rule__SchemeCharacter__Group__09000);
             rule__SchemeCharacter__Group__0__Impl();
             _fsp--;
             if (failed) return ;
-            pushFollow(FOLLOW_rule__SchemeCharacter__Group__1_in_rule__SchemeCharacter__Group__09002);
+            pushFollow(FOLLOW_rule__SchemeCharacter__Group__1_in_rule__SchemeCharacter__Group__09003);
             rule__SchemeCharacter__Group__1();
             _fsp--;
             if (failed) return ;
@@ -15271,7 +16024,7 @@ public class InternalLilyPondParser extends AbstractInternalContentAssistParser 
             if ( backtracking==0 ) {
                before(grammarAccess.getSchemeCharacterAccess().getNumberSignReverseSolidusKeyword_0()); 
             }
-            match(input,KEYWORD_21,FOLLOW_KEYWORD_21_in_rule__SchemeCharacter__Group__0__Impl9030); if (failed) return ;
+            match(input,KEYWORD_21,FOLLOW_KEYWORD_21_in_rule__SchemeCharacter__Group__0__Impl9031); if (failed) return ;
             if ( backtracking==0 ) {
                after(grammarAccess.getSchemeCharacterAccess().getNumberSignReverseSolidusKeyword_0()); 
             }
@@ -15306,7 +16059,7 @@ public class InternalLilyPondParser extends AbstractInternalContentAssistParser 
             // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:4295:1: ( rule__SchemeCharacter__Group__1__Impl )
             // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:4296:2: rule__SchemeCharacter__Group__1__Impl
             {
-            pushFollow(FOLLOW_rule__SchemeCharacter__Group__1__Impl_in_rule__SchemeCharacter__Group__19061);
+            pushFollow(FOLLOW_rule__SchemeCharacter__Group__1__Impl_in_rule__SchemeCharacter__Group__19062);
             rule__SchemeCharacter__Group__1__Impl();
             _fsp--;
             if (failed) return ;
@@ -15347,7 +16100,7 @@ public class InternalLilyPondParser extends AbstractInternalContentAssistParser 
             // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:4309:1: ( rule__SchemeCharacter__ValueAssignment_1 )
             // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:4309:2: rule__SchemeCharacter__ValueAssignment_1
             {
-            pushFollow(FOLLOW_rule__SchemeCharacter__ValueAssignment_1_in_rule__SchemeCharacter__Group__1__Impl9088);
+            pushFollow(FOLLOW_rule__SchemeCharacter__ValueAssignment_1_in_rule__SchemeCharacter__Group__1__Impl9089);
             rule__SchemeCharacter__ValueAssignment_1();
             _fsp--;
             if (failed) return ;
@@ -15388,11 +16141,11 @@ public class InternalLilyPondParser extends AbstractInternalContentAssistParser 
             // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:4327:1: ( rule__SchemeId__Group__0__Impl rule__SchemeId__Group__1 )
             // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:4328:2: rule__SchemeId__Group__0__Impl rule__SchemeId__Group__1
             {
-            pushFollow(FOLLOW_rule__SchemeId__Group__0__Impl_in_rule__SchemeId__Group__09122);
+            pushFollow(FOLLOW_rule__SchemeId__Group__0__Impl_in_rule__SchemeId__Group__09123);
             rule__SchemeId__Group__0__Impl();
             _fsp--;
             if (failed) return ;
-            pushFollow(FOLLOW_rule__SchemeId__Group__1_in_rule__SchemeId__Group__09125);
+            pushFollow(FOLLOW_rule__SchemeId__Group__1_in_rule__SchemeId__Group__09126);
             rule__SchemeId__Group__1();
             _fsp--;
             if (failed) return ;
@@ -15430,7 +16183,7 @@ public class InternalLilyPondParser extends AbstractInternalContentAssistParser 
             if ( backtracking==0 ) {
                before(grammarAccess.getSchemeIdAccess().getSchemeTextLiteralParserRuleCall_0()); 
             }
-            pushFollow(FOLLOW_ruleSchemeTextLiteral_in_rule__SchemeId__Group__0__Impl9152);
+            pushFollow(FOLLOW_ruleSchemeTextLiteral_in_rule__SchemeId__Group__0__Impl9153);
             ruleSchemeTextLiteral();
             _fsp--;
             if (failed) return ;
@@ -15468,7 +16221,7 @@ public class InternalLilyPondParser extends AbstractInternalContentAssistParser 
             // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:4356:1: ( rule__SchemeId__Group__1__Impl )
             // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:4357:2: rule__SchemeId__Group__1__Impl
             {
-            pushFollow(FOLLOW_rule__SchemeId__Group__1__Impl_in_rule__SchemeId__Group__19181);
+            pushFollow(FOLLOW_rule__SchemeId__Group__1__Impl_in_rule__SchemeId__Group__19182);
             rule__SchemeId__Group__1__Impl();
             _fsp--;
             if (failed) return ;
@@ -15507,676 +16260,676 @@ public class InternalLilyPondParser extends AbstractInternalContentAssistParser 
                before(grammarAccess.getSchemeIdAccess().getGroup_1()); 
             }
             // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:4370:1: ( rule__SchemeId__Group_1__0 )?
-            int alt36=2;
-            int LA36_0 = input.LA(1);
+            int alt37=2;
+            int LA37_0 = input.LA(1);
 
-            if ( (LA36_0==KEYWORD_9) ) {
+            if ( (LA37_0==KEYWORD_9) ) {
                 switch ( input.LA(2) ) {
                     case RULE_ID:
                         {
-                        int LA36_3 = input.LA(3);
+                        int LA37_3 = input.LA(3);
 
-                        if ( (synpred128()) ) {
-                            alt36=1;
+                        if ( (synpred129()) ) {
+                            alt37=1;
                         }
                         }
                         break;
                     case RULE_STRING:
                         {
-                        int LA36_4 = input.LA(3);
+                        int LA37_4 = input.LA(3);
 
-                        if ( (synpred128()) ) {
-                            alt36=1;
+                        if ( (synpred129()) ) {
+                            alt37=1;
                         }
                         }
                         break;
                     case KEYWORD_26:
                         {
-                        int LA36_5 = input.LA(3);
+                        int LA37_5 = input.LA(3);
 
-                        if ( (synpred128()) ) {
-                            alt36=1;
+                        if ( (synpred129()) ) {
+                            alt37=1;
                         }
                         }
                         break;
                     case KEYWORD_11:
                         {
-                        int LA36_6 = input.LA(3);
+                        int LA37_6 = input.LA(3);
 
-                        if ( (synpred128()) ) {
-                            alt36=1;
+                        if ( (synpred129()) ) {
+                            alt37=1;
                         }
                         }
                         break;
                     case KEYWORD_1:
                         {
-                        int LA36_7 = input.LA(3);
+                        int LA37_7 = input.LA(3);
 
-                        if ( (synpred128()) ) {
-                            alt36=1;
+                        if ( (synpred129()) ) {
+                            alt37=1;
                         }
                         }
                         break;
                     case KEYWORD_7:
                         {
-                        int LA36_8 = input.LA(3);
+                        int LA37_8 = input.LA(3);
 
-                        if ( (synpred128()) ) {
-                            alt36=1;
+                        if ( (synpred129()) ) {
+                            alt37=1;
                         }
                         }
                         break;
                     case KEYWORD_10:
                         {
-                        int LA36_9 = input.LA(3);
+                        int LA37_9 = input.LA(3);
 
-                        if ( (synpred128()) ) {
-                            alt36=1;
+                        if ( (synpred129()) ) {
+                            alt37=1;
                         }
                         }
                         break;
                     case KEYWORD_12:
                         {
-                        int LA36_10 = input.LA(3);
+                        int LA37_10 = input.LA(3);
 
-                        if ( (synpred128()) ) {
-                            alt36=1;
+                        if ( (synpred129()) ) {
+                            alt37=1;
                         }
                         }
                         break;
                     case KEYWORD_13:
                         {
-                        int LA36_11 = input.LA(3);
+                        int LA37_11 = input.LA(3);
 
-                        if ( (synpred128()) ) {
-                            alt36=1;
+                        if ( (synpred129()) ) {
+                            alt37=1;
                         }
                         }
                         break;
                     case KEYWORD_15:
                         {
-                        int LA36_12 = input.LA(3);
+                        int LA37_12 = input.LA(3);
 
-                        if ( (synpred128()) ) {
-                            alt36=1;
+                        if ( (synpred129()) ) {
+                            alt37=1;
                         }
                         }
                         break;
                     case KEYWORD_19:
                         {
-                        int LA36_13 = input.LA(3);
+                        int LA37_13 = input.LA(3);
 
-                        if ( (synpred128()) ) {
-                            alt36=1;
+                        if ( (synpred129()) ) {
+                            alt37=1;
                         }
                         }
                         break;
                     case KEYWORD_62:
                         {
-                        int LA36_14 = input.LA(3);
+                        int LA37_14 = input.LA(3);
 
-                        if ( (synpred128()) ) {
-                            alt36=1;
+                        if ( (synpred129()) ) {
+                            alt37=1;
                         }
                         }
                         break;
                     case KEYWORD_64:
                         {
-                        int LA36_15 = input.LA(3);
+                        int LA37_15 = input.LA(3);
 
-                        if ( (synpred128()) ) {
-                            alt36=1;
+                        if ( (synpred129()) ) {
+                            alt37=1;
                         }
                         }
                         break;
                     case KEYWORD_53:
                         {
-                        int LA36_16 = input.LA(3);
+                        int LA37_16 = input.LA(3);
 
-                        if ( (synpred128()) ) {
-                            alt36=1;
+                        if ( (synpred129()) ) {
+                            alt37=1;
                         }
                         }
                         break;
                     case KEYWORD_82:
                         {
-                        int LA36_17 = input.LA(3);
+                        int LA37_17 = input.LA(3);
 
-                        if ( (synpred128()) ) {
-                            alt36=1;
+                        if ( (synpred129()) ) {
+                            alt37=1;
                         }
                         }
                         break;
                     case KEYWORD_59:
                         {
-                        int LA36_18 = input.LA(3);
+                        int LA37_18 = input.LA(3);
 
-                        if ( (synpred128()) ) {
-                            alt36=1;
+                        if ( (synpred129()) ) {
+                            alt37=1;
                         }
                         }
                         break;
                     case KEYWORD_58:
                         {
-                        int LA36_19 = input.LA(3);
+                        int LA37_19 = input.LA(3);
 
-                        if ( (synpred128()) ) {
-                            alt36=1;
+                        if ( (synpred129()) ) {
+                            alt37=1;
                         }
                         }
                         break;
                     case KEYWORD_73:
                         {
-                        int LA36_20 = input.LA(3);
+                        int LA37_20 = input.LA(3);
 
-                        if ( (synpred128()) ) {
-                            alt36=1;
+                        if ( (synpred129()) ) {
+                            alt37=1;
                         }
                         }
                         break;
                     case KEYWORD_40:
                         {
-                        int LA36_21 = input.LA(3);
+                        int LA37_21 = input.LA(3);
 
-                        if ( (synpred128()) ) {
-                            alt36=1;
+                        if ( (synpred129()) ) {
+                            alt37=1;
                         }
                         }
                         break;
                     case KEYWORD_80:
                         {
-                        int LA36_22 = input.LA(3);
+                        int LA37_22 = input.LA(3);
 
-                        if ( (synpred128()) ) {
-                            alt36=1;
+                        if ( (synpred129()) ) {
+                            alt37=1;
                         }
                         }
                         break;
                     case KEYWORD_30:
                         {
-                        int LA36_23 = input.LA(3);
+                        int LA37_23 = input.LA(3);
 
-                        if ( (synpred128()) ) {
-                            alt36=1;
+                        if ( (synpred129()) ) {
+                            alt37=1;
                         }
                         }
                         break;
                     case KEYWORD_65:
                         {
-                        int LA36_24 = input.LA(3);
+                        int LA37_24 = input.LA(3);
 
-                        if ( (synpred128()) ) {
-                            alt36=1;
+                        if ( (synpred129()) ) {
+                            alt37=1;
                         }
                         }
                         break;
                     case KEYWORD_47:
                         {
-                        int LA36_25 = input.LA(3);
+                        int LA37_25 = input.LA(3);
 
-                        if ( (synpred128()) ) {
-                            alt36=1;
+                        if ( (synpred129()) ) {
+                            alt37=1;
                         }
                         }
                         break;
                     case KEYWORD_74:
                         {
-                        int LA36_26 = input.LA(3);
+                        int LA37_26 = input.LA(3);
 
-                        if ( (synpred128()) ) {
-                            alt36=1;
+                        if ( (synpred129()) ) {
+                            alt37=1;
                         }
                         }
                         break;
                     case KEYWORD_48:
                         {
-                        int LA36_27 = input.LA(3);
+                        int LA37_27 = input.LA(3);
 
-                        if ( (synpred128()) ) {
-                            alt36=1;
+                        if ( (synpred129()) ) {
+                            alt37=1;
                         }
                         }
                         break;
                     case KEYWORD_66:
                         {
-                        int LA36_28 = input.LA(3);
+                        int LA37_28 = input.LA(3);
 
-                        if ( (synpred128()) ) {
-                            alt36=1;
+                        if ( (synpred129()) ) {
+                            alt37=1;
                         }
                         }
                         break;
                     case KEYWORD_60:
                         {
-                        int LA36_29 = input.LA(3);
+                        int LA37_29 = input.LA(3);
 
-                        if ( (synpred128()) ) {
-                            alt36=1;
+                        if ( (synpred129()) ) {
+                            alt37=1;
                         }
                         }
                         break;
                     case KEYWORD_83:
                         {
-                        int LA36_30 = input.LA(3);
+                        int LA37_30 = input.LA(3);
 
-                        if ( (synpred128()) ) {
-                            alt36=1;
+                        if ( (synpred129()) ) {
+                            alt37=1;
                         }
                         }
                         break;
                     case KEYWORD_49:
                         {
-                        int LA36_31 = input.LA(3);
+                        int LA37_31 = input.LA(3);
 
-                        if ( (synpred128()) ) {
-                            alt36=1;
+                        if ( (synpred129()) ) {
+                            alt37=1;
                         }
                         }
                         break;
                     case KEYWORD_81:
                         {
-                        int LA36_32 = input.LA(3);
+                        int LA37_32 = input.LA(3);
 
-                        if ( (synpred128()) ) {
-                            alt36=1;
+                        if ( (synpred129()) ) {
+                            alt37=1;
                         }
                         }
                         break;
                     case KEYWORD_67:
                         {
-                        int LA36_33 = input.LA(3);
+                        int LA37_33 = input.LA(3);
 
-                        if ( (synpred128()) ) {
-                            alt36=1;
+                        if ( (synpred129()) ) {
+                            alt37=1;
                         }
                         }
                         break;
                     case KEYWORD_41:
                         {
-                        int LA36_34 = input.LA(3);
+                        int LA37_34 = input.LA(3);
 
-                        if ( (synpred128()) ) {
-                            alt36=1;
+                        if ( (synpred129()) ) {
+                            alt37=1;
                         }
                         }
                         break;
                     case KEYWORD_78:
                         {
-                        int LA36_35 = input.LA(3);
+                        int LA37_35 = input.LA(3);
 
-                        if ( (synpred128()) ) {
-                            alt36=1;
+                        if ( (synpred129()) ) {
+                            alt37=1;
                         }
                         }
                         break;
                     case KEYWORD_61:
                         {
-                        int LA36_36 = input.LA(3);
+                        int LA37_36 = input.LA(3);
 
-                        if ( (synpred128()) ) {
-                            alt36=1;
+                        if ( (synpred129()) ) {
+                            alt37=1;
                         }
                         }
                         break;
                     case KEYWORD_87:
                         {
-                        int LA36_37 = input.LA(3);
+                        int LA37_37 = input.LA(3);
 
-                        if ( (synpred128()) ) {
-                            alt36=1;
+                        if ( (synpred129()) ) {
+                            alt37=1;
                         }
                         }
                         break;
                     case KEYWORD_50:
                         {
-                        int LA36_38 = input.LA(3);
+                        int LA37_38 = input.LA(3);
 
-                        if ( (synpred128()) ) {
-                            alt36=1;
+                        if ( (synpred129()) ) {
+                            alt37=1;
                         }
                         }
                         break;
                     case KEYWORD_27:
                         {
-                        int LA36_39 = input.LA(3);
+                        int LA37_39 = input.LA(3);
 
-                        if ( (synpred128()) ) {
-                            alt36=1;
+                        if ( (synpred129()) ) {
+                            alt37=1;
                         }
                         }
                         break;
                     case KEYWORD_51:
                         {
-                        int LA36_40 = input.LA(3);
+                        int LA37_40 = input.LA(3);
 
-                        if ( (synpred128()) ) {
-                            alt36=1;
+                        if ( (synpred129()) ) {
+                            alt37=1;
                         }
                         }
                         break;
                     case KEYWORD_75:
                         {
-                        int LA36_41 = input.LA(3);
+                        int LA37_41 = input.LA(3);
 
-                        if ( (synpred128()) ) {
-                            alt36=1;
+                        if ( (synpred129()) ) {
+                            alt37=1;
                         }
                         }
                         break;
                     case KEYWORD_52:
                         {
-                        int LA36_42 = input.LA(3);
+                        int LA37_42 = input.LA(3);
 
-                        if ( (synpred128()) ) {
-                            alt36=1;
+                        if ( (synpred129()) ) {
+                            alt37=1;
                         }
                         }
                         break;
                     case KEYWORD_68:
                         {
-                        int LA36_43 = input.LA(3);
+                        int LA37_43 = input.LA(3);
 
-                        if ( (synpred128()) ) {
-                            alt36=1;
+                        if ( (synpred129()) ) {
+                            alt37=1;
                         }
                         }
                         break;
                     case KEYWORD_76:
                         {
-                        int LA36_44 = input.LA(3);
+                        int LA37_44 = input.LA(3);
 
-                        if ( (synpred128()) ) {
-                            alt36=1;
+                        if ( (synpred129()) ) {
+                            alt37=1;
                         }
                         }
                         break;
                     case KEYWORD_31:
                         {
-                        int LA36_45 = input.LA(3);
+                        int LA37_45 = input.LA(3);
 
-                        if ( (synpred128()) ) {
-                            alt36=1;
+                        if ( (synpred129()) ) {
+                            alt37=1;
                         }
                         }
                         break;
                     case KEYWORD_32:
                         {
-                        int LA36_46 = input.LA(3);
+                        int LA37_46 = input.LA(3);
 
-                        if ( (synpred128()) ) {
-                            alt36=1;
+                        if ( (synpred129()) ) {
+                            alt37=1;
                         }
                         }
                         break;
                     case KEYWORD_33:
                         {
-                        int LA36_47 = input.LA(3);
+                        int LA37_47 = input.LA(3);
 
-                        if ( (synpred128()) ) {
-                            alt36=1;
+                        if ( (synpred129()) ) {
+                            alt37=1;
                         }
                         }
                         break;
                     case KEYWORD_28:
                         {
-                        int LA36_48 = input.LA(3);
+                        int LA37_48 = input.LA(3);
 
-                        if ( (synpred128()) ) {
-                            alt36=1;
+                        if ( (synpred129()) ) {
+                            alt37=1;
                         }
                         }
                         break;
                     case KEYWORD_69:
                         {
-                        int LA36_49 = input.LA(3);
+                        int LA37_49 = input.LA(3);
 
-                        if ( (synpred128()) ) {
-                            alt36=1;
+                        if ( (synpred129()) ) {
+                            alt37=1;
                         }
                         }
                         break;
                     case KEYWORD_70:
                         {
-                        int LA36_50 = input.LA(3);
+                        int LA37_50 = input.LA(3);
 
-                        if ( (synpred128()) ) {
-                            alt36=1;
+                        if ( (synpred129()) ) {
+                            alt37=1;
                         }
                         }
                         break;
                     case KEYWORD_54:
                         {
-                        int LA36_51 = input.LA(3);
+                        int LA37_51 = input.LA(3);
 
-                        if ( (synpred128()) ) {
-                            alt36=1;
+                        if ( (synpred129()) ) {
+                            alt37=1;
                         }
                         }
                         break;
                     case KEYWORD_34:
                         {
-                        int LA36_52 = input.LA(3);
+                        int LA37_52 = input.LA(3);
 
-                        if ( (synpred128()) ) {
-                            alt36=1;
+                        if ( (synpred129()) ) {
+                            alt37=1;
                         }
                         }
                         break;
                     case KEYWORD_71:
                         {
-                        int LA36_53 = input.LA(3);
+                        int LA37_53 = input.LA(3);
 
-                        if ( (synpred128()) ) {
-                            alt36=1;
+                        if ( (synpred129()) ) {
+                            alt37=1;
                         }
                         }
                         break;
                     case KEYWORD_42:
                         {
-                        int LA36_54 = input.LA(3);
+                        int LA37_54 = input.LA(3);
 
-                        if ( (synpred128()) ) {
-                            alt36=1;
+                        if ( (synpred129()) ) {
+                            alt37=1;
                         }
                         }
                         break;
                     case KEYWORD_63:
                         {
-                        int LA36_55 = input.LA(3);
+                        int LA37_55 = input.LA(3);
 
-                        if ( (synpred128()) ) {
-                            alt36=1;
+                        if ( (synpred129()) ) {
+                            alt37=1;
                         }
                         }
                         break;
                     case KEYWORD_72:
                         {
-                        int LA36_56 = input.LA(3);
+                        int LA37_56 = input.LA(3);
 
-                        if ( (synpred128()) ) {
-                            alt36=1;
+                        if ( (synpred129()) ) {
+                            alt37=1;
                         }
                         }
                         break;
                     case KEYWORD_55:
                         {
-                        int LA36_57 = input.LA(3);
+                        int LA37_57 = input.LA(3);
 
-                        if ( (synpred128()) ) {
-                            alt36=1;
+                        if ( (synpred129()) ) {
+                            alt37=1;
                         }
                         }
                         break;
                     case KEYWORD_56:
                         {
-                        int LA36_58 = input.LA(3);
+                        int LA37_58 = input.LA(3);
 
-                        if ( (synpred128()) ) {
-                            alt36=1;
+                        if ( (synpred129()) ) {
+                            alt37=1;
                         }
                         }
                         break;
                     case KEYWORD_35:
                         {
-                        int LA36_59 = input.LA(3);
+                        int LA37_59 = input.LA(3);
 
-                        if ( (synpred128()) ) {
-                            alt36=1;
+                        if ( (synpred129()) ) {
+                            alt37=1;
                         }
                         }
                         break;
                     case KEYWORD_57:
                         {
-                        int LA36_60 = input.LA(3);
+                        int LA37_60 = input.LA(3);
 
-                        if ( (synpred128()) ) {
-                            alt36=1;
+                        if ( (synpred129()) ) {
+                            alt37=1;
                         }
                         }
                         break;
                     case KEYWORD_43:
                         {
-                        int LA36_61 = input.LA(3);
+                        int LA37_61 = input.LA(3);
 
-                        if ( (synpred128()) ) {
-                            alt36=1;
+                        if ( (synpred129()) ) {
+                            alt37=1;
                         }
                         }
                         break;
                     case KEYWORD_79:
                         {
-                        int LA36_62 = input.LA(3);
+                        int LA37_62 = input.LA(3);
 
-                        if ( (synpred128()) ) {
-                            alt36=1;
+                        if ( (synpred129()) ) {
+                            alt37=1;
                         }
                         }
                         break;
                     case KEYWORD_29:
                         {
-                        int LA36_63 = input.LA(3);
+                        int LA37_63 = input.LA(3);
 
-                        if ( (synpred128()) ) {
-                            alt36=1;
+                        if ( (synpred129()) ) {
+                            alt37=1;
                         }
                         }
                         break;
                     case KEYWORD_84:
                         {
-                        int LA36_64 = input.LA(3);
+                        int LA37_64 = input.LA(3);
 
-                        if ( (synpred128()) ) {
-                            alt36=1;
+                        if ( (synpred129()) ) {
+                            alt37=1;
                         }
                         }
                         break;
                     case KEYWORD_36:
                         {
-                        int LA36_65 = input.LA(3);
+                        int LA37_65 = input.LA(3);
 
-                        if ( (synpred128()) ) {
-                            alt36=1;
+                        if ( (synpred129()) ) {
+                            alt37=1;
                         }
                         }
                         break;
                     case KEYWORD_85:
                         {
-                        int LA36_66 = input.LA(3);
+                        int LA37_66 = input.LA(3);
 
-                        if ( (synpred128()) ) {
-                            alt36=1;
+                        if ( (synpred129()) ) {
+                            alt37=1;
                         }
                         }
                         break;
                     case KEYWORD_86:
                         {
-                        int LA36_67 = input.LA(3);
+                        int LA37_67 = input.LA(3);
 
-                        if ( (synpred128()) ) {
-                            alt36=1;
+                        if ( (synpred129()) ) {
+                            alt37=1;
                         }
                         }
                         break;
                     case KEYWORD_44:
                         {
-                        int LA36_68 = input.LA(3);
+                        int LA37_68 = input.LA(3);
 
-                        if ( (synpred128()) ) {
-                            alt36=1;
+                        if ( (synpred129()) ) {
+                            alt37=1;
                         }
                         }
                         break;
                     case KEYWORD_37:
                         {
-                        int LA36_69 = input.LA(3);
+                        int LA37_69 = input.LA(3);
 
-                        if ( (synpred128()) ) {
-                            alt36=1;
+                        if ( (synpred129()) ) {
+                            alt37=1;
                         }
                         }
                         break;
                     case KEYWORD_45:
                         {
-                        int LA36_70 = input.LA(3);
+                        int LA37_70 = input.LA(3);
 
-                        if ( (synpred128()) ) {
-                            alt36=1;
+                        if ( (synpred129()) ) {
+                            alt37=1;
                         }
                         }
                         break;
                     case KEYWORD_77:
                         {
-                        int LA36_71 = input.LA(3);
+                        int LA37_71 = input.LA(3);
 
-                        if ( (synpred128()) ) {
-                            alt36=1;
+                        if ( (synpred129()) ) {
+                            alt37=1;
                         }
                         }
                         break;
                     case KEYWORD_38:
                         {
-                        int LA36_72 = input.LA(3);
+                        int LA37_72 = input.LA(3);
 
-                        if ( (synpred128()) ) {
-                            alt36=1;
+                        if ( (synpred129()) ) {
+                            alt37=1;
                         }
                         }
                         break;
                     case KEYWORD_46:
                         {
-                        int LA36_73 = input.LA(3);
+                        int LA37_73 = input.LA(3);
 
-                        if ( (synpred128()) ) {
-                            alt36=1;
+                        if ( (synpred129()) ) {
+                            alt37=1;
                         }
                         }
                         break;
                     case KEYWORD_39:
                         {
-                        int LA36_74 = input.LA(3);
+                        int LA37_74 = input.LA(3);
 
-                        if ( (synpred128()) ) {
-                            alt36=1;
+                        if ( (synpred129()) ) {
+                            alt37=1;
                         }
                         }
                         break;
                     case RULE_ANY_OTHER:
                         {
-                        int LA36_75 = input.LA(3);
+                        int LA37_75 = input.LA(3);
 
-                        if ( (synpred128()) ) {
-                            alt36=1;
+                        if ( (synpred129()) ) {
+                            alt37=1;
                         }
                         }
                         break;
                 }
 
             }
-            switch (alt36) {
+            switch (alt37) {
                 case 1 :
                     // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:4370:2: rule__SchemeId__Group_1__0
                     {
-                    pushFollow(FOLLOW_rule__SchemeId__Group_1__0_in_rule__SchemeId__Group__1__Impl9208);
+                    pushFollow(FOLLOW_rule__SchemeId__Group_1__0_in_rule__SchemeId__Group__1__Impl9209);
                     rule__SchemeId__Group_1__0();
                     _fsp--;
                     if (failed) return ;
@@ -16220,11 +16973,11 @@ public class InternalLilyPondParser extends AbstractInternalContentAssistParser 
             // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:4388:1: ( rule__SchemeId__Group_1__0__Impl rule__SchemeId__Group_1__1 )
             // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:4389:2: rule__SchemeId__Group_1__0__Impl rule__SchemeId__Group_1__1
             {
-            pushFollow(FOLLOW_rule__SchemeId__Group_1__0__Impl_in_rule__SchemeId__Group_1__09243);
+            pushFollow(FOLLOW_rule__SchemeId__Group_1__0__Impl_in_rule__SchemeId__Group_1__09244);
             rule__SchemeId__Group_1__0__Impl();
             _fsp--;
             if (failed) return ;
-            pushFollow(FOLLOW_rule__SchemeId__Group_1__1_in_rule__SchemeId__Group_1__09246);
+            pushFollow(FOLLOW_rule__SchemeId__Group_1__1_in_rule__SchemeId__Group_1__09247);
             rule__SchemeId__Group_1__1();
             _fsp--;
             if (failed) return ;
@@ -16262,7 +17015,7 @@ public class InternalLilyPondParser extends AbstractInternalContentAssistParser 
             if ( backtracking==0 ) {
                before(grammarAccess.getSchemeIdAccess().getColonKeyword_1_0()); 
             }
-            match(input,KEYWORD_9,FOLLOW_KEYWORD_9_in_rule__SchemeId__Group_1__0__Impl9274); if (failed) return ;
+            match(input,KEYWORD_9,FOLLOW_KEYWORD_9_in_rule__SchemeId__Group_1__0__Impl9275); if (failed) return ;
             if ( backtracking==0 ) {
                after(grammarAccess.getSchemeIdAccess().getColonKeyword_1_0()); 
             }
@@ -16297,7 +17050,7 @@ public class InternalLilyPondParser extends AbstractInternalContentAssistParser 
             // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:4419:1: ( rule__SchemeId__Group_1__1__Impl )
             // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:4420:2: rule__SchemeId__Group_1__1__Impl
             {
-            pushFollow(FOLLOW_rule__SchemeId__Group_1__1__Impl_in_rule__SchemeId__Group_1__19305);
+            pushFollow(FOLLOW_rule__SchemeId__Group_1__1__Impl_in_rule__SchemeId__Group_1__19306);
             rule__SchemeId__Group_1__1__Impl();
             _fsp--;
             if (failed) return ;
@@ -16335,7 +17088,7 @@ public class InternalLilyPondParser extends AbstractInternalContentAssistParser 
             if ( backtracking==0 ) {
                before(grammarAccess.getSchemeIdAccess().getSchemeTextLiteralParserRuleCall_1_1()); 
             }
-            pushFollow(FOLLOW_ruleSchemeTextLiteral_in_rule__SchemeId__Group_1__1__Impl9332);
+            pushFollow(FOLLOW_ruleSchemeTextLiteral_in_rule__SchemeId__Group_1__1__Impl9333);
             ruleSchemeTextLiteral();
             _fsp--;
             if (failed) return ;
@@ -16373,11 +17126,11 @@ public class InternalLilyPondParser extends AbstractInternalContentAssistParser 
             // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:4451:1: ( rule__SchemeNumber__Group__0__Impl rule__SchemeNumber__Group__1 )
             // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:4452:2: rule__SchemeNumber__Group__0__Impl rule__SchemeNumber__Group__1
             {
-            pushFollow(FOLLOW_rule__SchemeNumber__Group__0__Impl_in_rule__SchemeNumber__Group__09365);
+            pushFollow(FOLLOW_rule__SchemeNumber__Group__0__Impl_in_rule__SchemeNumber__Group__09366);
             rule__SchemeNumber__Group__0__Impl();
             _fsp--;
             if (failed) return ;
-            pushFollow(FOLLOW_rule__SchemeNumber__Group__1_in_rule__SchemeNumber__Group__09368);
+            pushFollow(FOLLOW_rule__SchemeNumber__Group__1_in_rule__SchemeNumber__Group__09369);
             rule__SchemeNumber__Group__1();
             _fsp--;
             if (failed) return ;
@@ -16416,17 +17169,17 @@ public class InternalLilyPondParser extends AbstractInternalContentAssistParser 
                before(grammarAccess.getSchemeNumberAccess().getRadixAssignment_0()); 
             }
             // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:4466:1: ( rule__SchemeNumber__RadixAssignment_0 )?
-            int alt37=2;
-            int LA37_0 = input.LA(1);
+            int alt38=2;
+            int LA38_0 = input.LA(1);
 
-            if ( (LA37_0==KEYWORD_2) ) {
-                alt37=1;
+            if ( (LA38_0==KEYWORD_2) ) {
+                alt38=1;
             }
-            switch (alt37) {
+            switch (alt38) {
                 case 1 :
                     // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:4466:2: rule__SchemeNumber__RadixAssignment_0
                     {
-                    pushFollow(FOLLOW_rule__SchemeNumber__RadixAssignment_0_in_rule__SchemeNumber__Group__0__Impl9395);
+                    pushFollow(FOLLOW_rule__SchemeNumber__RadixAssignment_0_in_rule__SchemeNumber__Group__0__Impl9396);
                     rule__SchemeNumber__RadixAssignment_0();
                     _fsp--;
                     if (failed) return ;
@@ -16470,7 +17223,7 @@ public class InternalLilyPondParser extends AbstractInternalContentAssistParser 
             // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:4480:1: ( rule__SchemeNumber__Group__1__Impl )
             // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:4481:2: rule__SchemeNumber__Group__1__Impl
             {
-            pushFollow(FOLLOW_rule__SchemeNumber__Group__1__Impl_in_rule__SchemeNumber__Group__19426);
+            pushFollow(FOLLOW_rule__SchemeNumber__Group__1__Impl_in_rule__SchemeNumber__Group__19427);
             rule__SchemeNumber__Group__1__Impl();
             _fsp--;
             if (failed) return ;
@@ -16511,7 +17264,7 @@ public class InternalLilyPondParser extends AbstractInternalContentAssistParser 
             // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:4494:1: ( rule__SchemeNumber__ValueAssignment_1 )
             // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:4494:2: rule__SchemeNumber__ValueAssignment_1
             {
-            pushFollow(FOLLOW_rule__SchemeNumber__ValueAssignment_1_in_rule__SchemeNumber__Group__1__Impl9453);
+            pushFollow(FOLLOW_rule__SchemeNumber__ValueAssignment_1_in_rule__SchemeNumber__Group__1__Impl9454);
             rule__SchemeNumber__ValueAssignment_1();
             _fsp--;
             if (failed) return ;
@@ -16552,11 +17305,11 @@ public class InternalLilyPondParser extends AbstractInternalContentAssistParser 
             // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:4512:1: ( rule__SchemeNumberRadix__Group__0__Impl rule__SchemeNumberRadix__Group__1 )
             // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:4513:2: rule__SchemeNumberRadix__Group__0__Impl rule__SchemeNumberRadix__Group__1
             {
-            pushFollow(FOLLOW_rule__SchemeNumberRadix__Group__0__Impl_in_rule__SchemeNumberRadix__Group__09487);
+            pushFollow(FOLLOW_rule__SchemeNumberRadix__Group__0__Impl_in_rule__SchemeNumberRadix__Group__09488);
             rule__SchemeNumberRadix__Group__0__Impl();
             _fsp--;
             if (failed) return ;
-            pushFollow(FOLLOW_rule__SchemeNumberRadix__Group__1_in_rule__SchemeNumberRadix__Group__09490);
+            pushFollow(FOLLOW_rule__SchemeNumberRadix__Group__1_in_rule__SchemeNumberRadix__Group__09491);
             rule__SchemeNumberRadix__Group__1();
             _fsp--;
             if (failed) return ;
@@ -16594,7 +17347,7 @@ public class InternalLilyPondParser extends AbstractInternalContentAssistParser 
             if ( backtracking==0 ) {
                before(grammarAccess.getSchemeNumberRadixAccess().getNumberSignKeyword_0()); 
             }
-            match(input,KEYWORD_2,FOLLOW_KEYWORD_2_in_rule__SchemeNumberRadix__Group__0__Impl9518); if (failed) return ;
+            match(input,KEYWORD_2,FOLLOW_KEYWORD_2_in_rule__SchemeNumberRadix__Group__0__Impl9519); if (failed) return ;
             if ( backtracking==0 ) {
                after(grammarAccess.getSchemeNumberRadixAccess().getNumberSignKeyword_0()); 
             }
@@ -16629,7 +17382,7 @@ public class InternalLilyPondParser extends AbstractInternalContentAssistParser 
             // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:4543:1: ( rule__SchemeNumberRadix__Group__1__Impl )
             // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:4544:2: rule__SchemeNumberRadix__Group__1__Impl
             {
-            pushFollow(FOLLOW_rule__SchemeNumberRadix__Group__1__Impl_in_rule__SchemeNumberRadix__Group__19549);
+            pushFollow(FOLLOW_rule__SchemeNumberRadix__Group__1__Impl_in_rule__SchemeNumberRadix__Group__19550);
             rule__SchemeNumberRadix__Group__1__Impl();
             _fsp--;
             if (failed) return ;
@@ -16667,7 +17420,7 @@ public class InternalLilyPondParser extends AbstractInternalContentAssistParser 
             if ( backtracking==0 ) {
                before(grammarAccess.getSchemeNumberRadixAccess().getIDTerminalRuleCall_1()); 
             }
-            match(input,RULE_ID,FOLLOW_RULE_ID_in_rule__SchemeNumberRadix__Group__1__Impl9576); if (failed) return ;
+            match(input,RULE_ID,FOLLOW_RULE_ID_in_rule__SchemeNumberRadix__Group__1__Impl9577); if (failed) return ;
             if ( backtracking==0 ) {
                after(grammarAccess.getSchemeNumberRadixAccess().getIDTerminalRuleCall_1()); 
             }
@@ -16702,11 +17455,11 @@ public class InternalLilyPondParser extends AbstractInternalContentAssistParser 
             // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:4575:1: ( rule__SchemeMarkupCommand__Group__0__Impl rule__SchemeMarkupCommand__Group__1 )
             // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:4576:2: rule__SchemeMarkupCommand__Group__0__Impl rule__SchemeMarkupCommand__Group__1
             {
-            pushFollow(FOLLOW_rule__SchemeMarkupCommand__Group__0__Impl_in_rule__SchemeMarkupCommand__Group__09609);
+            pushFollow(FOLLOW_rule__SchemeMarkupCommand__Group__0__Impl_in_rule__SchemeMarkupCommand__Group__09610);
             rule__SchemeMarkupCommand__Group__0__Impl();
             _fsp--;
             if (failed) return ;
-            pushFollow(FOLLOW_rule__SchemeMarkupCommand__Group__1_in_rule__SchemeMarkupCommand__Group__09612);
+            pushFollow(FOLLOW_rule__SchemeMarkupCommand__Group__1_in_rule__SchemeMarkupCommand__Group__09613);
             rule__SchemeMarkupCommand__Group__1();
             _fsp--;
             if (failed) return ;
@@ -16744,7 +17497,7 @@ public class InternalLilyPondParser extends AbstractInternalContentAssistParser 
             if ( backtracking==0 ) {
                before(grammarAccess.getSchemeMarkupCommandAccess().getNumberSignColonKeyword_0()); 
             }
-            match(input,KEYWORD_20,FOLLOW_KEYWORD_20_in_rule__SchemeMarkupCommand__Group__0__Impl9640); if (failed) return ;
+            match(input,KEYWORD_20,FOLLOW_KEYWORD_20_in_rule__SchemeMarkupCommand__Group__0__Impl9641); if (failed) return ;
             if ( backtracking==0 ) {
                after(grammarAccess.getSchemeMarkupCommandAccess().getNumberSignColonKeyword_0()); 
             }
@@ -16779,7 +17532,7 @@ public class InternalLilyPondParser extends AbstractInternalContentAssistParser 
             // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:4606:1: ( rule__SchemeMarkupCommand__Group__1__Impl )
             // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:4607:2: rule__SchemeMarkupCommand__Group__1__Impl
             {
-            pushFollow(FOLLOW_rule__SchemeMarkupCommand__Group__1__Impl_in_rule__SchemeMarkupCommand__Group__19671);
+            pushFollow(FOLLOW_rule__SchemeMarkupCommand__Group__1__Impl_in_rule__SchemeMarkupCommand__Group__19672);
             rule__SchemeMarkupCommand__Group__1__Impl();
             _fsp--;
             if (failed) return ;
@@ -16820,7 +17573,7 @@ public class InternalLilyPondParser extends AbstractInternalContentAssistParser 
             // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:4620:1: ( rule__SchemeMarkupCommand__CommandAssignment_1 )
             // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:4620:2: rule__SchemeMarkupCommand__CommandAssignment_1
             {
-            pushFollow(FOLLOW_rule__SchemeMarkupCommand__CommandAssignment_1_in_rule__SchemeMarkupCommand__Group__1__Impl9698);
+            pushFollow(FOLLOW_rule__SchemeMarkupCommand__CommandAssignment_1_in_rule__SchemeMarkupCommand__Group__1__Impl9699);
             rule__SchemeMarkupCommand__CommandAssignment_1();
             _fsp--;
             if (failed) return ;
@@ -16861,11 +17614,11 @@ public class InternalLilyPondParser extends AbstractInternalContentAssistParser 
             // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:4638:1: ( rule__Boolean__Group__0__Impl rule__Boolean__Group__1 )
             // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:4639:2: rule__Boolean__Group__0__Impl rule__Boolean__Group__1
             {
-            pushFollow(FOLLOW_rule__Boolean__Group__0__Impl_in_rule__Boolean__Group__09732);
+            pushFollow(FOLLOW_rule__Boolean__Group__0__Impl_in_rule__Boolean__Group__09733);
             rule__Boolean__Group__0__Impl();
             _fsp--;
             if (failed) return ;
-            pushFollow(FOLLOW_rule__Boolean__Group__1_in_rule__Boolean__Group__09735);
+            pushFollow(FOLLOW_rule__Boolean__Group__1_in_rule__Boolean__Group__09736);
             rule__Boolean__Group__1();
             _fsp--;
             if (failed) return ;
@@ -16903,7 +17656,7 @@ public class InternalLilyPondParser extends AbstractInternalContentAssistParser 
             if ( backtracking==0 ) {
                before(grammarAccess.getBooleanAccess().getNumberSignKeyword_0()); 
             }
-            match(input,KEYWORD_2,FOLLOW_KEYWORD_2_in_rule__Boolean__Group__0__Impl9763); if (failed) return ;
+            match(input,KEYWORD_2,FOLLOW_KEYWORD_2_in_rule__Boolean__Group__0__Impl9764); if (failed) return ;
             if ( backtracking==0 ) {
                after(grammarAccess.getBooleanAccess().getNumberSignKeyword_0()); 
             }
@@ -16938,7 +17691,7 @@ public class InternalLilyPondParser extends AbstractInternalContentAssistParser 
             // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:4669:1: ( rule__Boolean__Group__1__Impl )
             // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:4670:2: rule__Boolean__Group__1__Impl
             {
-            pushFollow(FOLLOW_rule__Boolean__Group__1__Impl_in_rule__Boolean__Group__19794);
+            pushFollow(FOLLOW_rule__Boolean__Group__1__Impl_in_rule__Boolean__Group__19795);
             rule__Boolean__Group__1__Impl();
             _fsp--;
             if (failed) return ;
@@ -16976,7 +17729,7 @@ public class InternalLilyPondParser extends AbstractInternalContentAssistParser 
             if ( backtracking==0 ) {
                before(grammarAccess.getBooleanAccess().getIDTerminalRuleCall_1()); 
             }
-            match(input,RULE_ID,FOLLOW_RULE_ID_in_rule__Boolean__Group__1__Impl9821); if (failed) return ;
+            match(input,RULE_ID,FOLLOW_RULE_ID_in_rule__Boolean__Group__1__Impl9822); if (failed) return ;
             if ( backtracking==0 ) {
                after(grammarAccess.getBooleanAccess().getIDTerminalRuleCall_1()); 
             }
@@ -17017,7 +17770,7 @@ public class InternalLilyPondParser extends AbstractInternalContentAssistParser 
             if ( backtracking==0 ) {
                before(grammarAccess.getLilyPondAccess().getExpressionsToplevelExpressionParserRuleCall_0()); 
             }
-            pushFollow(FOLLOW_ruleToplevelExpression_in_rule__LilyPond__ExpressionsAssignment9859);
+            pushFollow(FOLLOW_ruleToplevelExpression_in_rule__LilyPond__ExpressionsAssignment9860);
             ruleToplevelExpression();
             _fsp--;
             if (failed) return ;
@@ -17064,7 +17817,7 @@ public class InternalLilyPondParser extends AbstractInternalContentAssistParser 
             // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:4720:1: ( rule__Assignment__NameAlternatives_0_0 )
             // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:4720:2: rule__Assignment__NameAlternatives_0_0
             {
-            pushFollow(FOLLOW_rule__Assignment__NameAlternatives_0_0_in_rule__Assignment__NameAssignment_09890);
+            pushFollow(FOLLOW_rule__Assignment__NameAlternatives_0_0_in_rule__Assignment__NameAssignment_09891);
             rule__Assignment__NameAlternatives_0_0();
             _fsp--;
             if (failed) return ;
@@ -17111,7 +17864,7 @@ public class InternalLilyPondParser extends AbstractInternalContentAssistParser 
             if ( backtracking==0 ) {
                before(grammarAccess.getAssignmentAccess().getValueExpressionParserRuleCall_2_0()); 
             }
-            pushFollow(FOLLOW_ruleExpression_in_rule__Assignment__ValueAssignment_29923);
+            pushFollow(FOLLOW_ruleExpression_in_rule__Assignment__ValueAssignment_29924);
             ruleExpression();
             _fsp--;
             if (failed) return ;
@@ -17158,7 +17911,7 @@ public class InternalLilyPondParser extends AbstractInternalContentAssistParser 
             // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:4751:1: ( rule__PropertyAssignment__IdAlternatives_0_0 )
             // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:4751:2: rule__PropertyAssignment__IdAlternatives_0_0
             {
-            pushFollow(FOLLOW_rule__PropertyAssignment__IdAlternatives_0_0_in_rule__PropertyAssignment__IdAssignment_09954);
+            pushFollow(FOLLOW_rule__PropertyAssignment__IdAlternatives_0_0_in_rule__PropertyAssignment__IdAssignment_09955);
             rule__PropertyAssignment__IdAlternatives_0_0();
             _fsp--;
             if (failed) return ;
@@ -17205,7 +17958,7 @@ public class InternalLilyPondParser extends AbstractInternalContentAssistParser 
             if ( backtracking==0 ) {
                before(grammarAccess.getPropertyAssignmentAccess().getValueExpressionParserRuleCall_2_0()); 
             }
-            pushFollow(FOLLOW_ruleExpression_in_rule__PropertyAssignment__ValueAssignment_29987);
+            pushFollow(FOLLOW_ruleExpression_in_rule__PropertyAssignment__ValueAssignment_29988);
             ruleExpression();
             _fsp--;
             if (failed) return ;
@@ -17249,7 +18002,7 @@ public class InternalLilyPondParser extends AbstractInternalContentAssistParser 
             if ( backtracking==0 ) {
                before(grammarAccess.getSimpleBlockAccess().getExpressionsExpressionParserRuleCall_2_0()); 
             }
-            pushFollow(FOLLOW_ruleExpression_in_rule__SimpleBlock__ExpressionsAssignment_210018);
+            pushFollow(FOLLOW_ruleExpression_in_rule__SimpleBlock__ExpressionsAssignment_210019);
             ruleExpression();
             _fsp--;
             if (failed) return ;
@@ -17293,7 +18046,7 @@ public class InternalLilyPondParser extends AbstractInternalContentAssistParser 
             if ( backtracking==0 ) {
                before(grammarAccess.getSimultaneousBlockAccess().getExpressionsExpressionParserRuleCall_2_0()); 
             }
-            pushFollow(FOLLOW_ruleExpression_in_rule__SimultaneousBlock__ExpressionsAssignment_210049);
+            pushFollow(FOLLOW_ruleExpression_in_rule__SimultaneousBlock__ExpressionsAssignment_210050);
             ruleExpression();
             _fsp--;
             if (failed) return ;
@@ -17337,7 +18090,7 @@ public class InternalLilyPondParser extends AbstractInternalContentAssistParser 
             if ( backtracking==0 ) {
                before(grammarAccess.getIncludeAccess().getImportURISTRINGTerminalRuleCall_2_0()); 
             }
-            match(input,RULE_STRING,FOLLOW_RULE_STRING_in_rule__Include__ImportURIAssignment_210080); if (failed) return ;
+            match(input,RULE_STRING,FOLLOW_RULE_STRING_in_rule__Include__ImportURIAssignment_210081); if (failed) return ;
             if ( backtracking==0 ) {
                after(grammarAccess.getIncludeAccess().getImportURISTRINGTerminalRuleCall_2_0()); 
             }
@@ -17378,7 +18131,7 @@ public class InternalLilyPondParser extends AbstractInternalContentAssistParser 
             if ( backtracking==0 ) {
                before(grammarAccess.getVersionAccess().getVersionSTRINGTerminalRuleCall_2_0()); 
             }
-            match(input,RULE_STRING,FOLLOW_RULE_STRING_in_rule__Version__VersionAssignment_210111); if (failed) return ;
+            match(input,RULE_STRING,FOLLOW_RULE_STRING_in_rule__Version__VersionAssignment_210112); if (failed) return ;
             if ( backtracking==0 ) {
                after(grammarAccess.getVersionAccess().getVersionSTRINGTerminalRuleCall_2_0()); 
             }
@@ -17419,7 +18172,7 @@ public class InternalLilyPondParser extends AbstractInternalContentAssistParser 
             if ( backtracking==0 ) {
                before(grammarAccess.getMarkupAccess().getBodyMarkupBodyParserRuleCall_2_0()); 
             }
-            pushFollow(FOLLOW_ruleMarkupBody_in_rule__Markup__BodyAssignment_210142);
+            pushFollow(FOLLOW_ruleMarkupBody_in_rule__Markup__BodyAssignment_210143);
             ruleMarkupBody();
             _fsp--;
             if (failed) return ;
@@ -17463,7 +18216,7 @@ public class InternalLilyPondParser extends AbstractInternalContentAssistParser 
             if ( backtracking==0 ) {
                before(grammarAccess.getMarkupLinesAccess().getBodyMarkupBodyParserRuleCall_2_0()); 
             }
-            pushFollow(FOLLOW_ruleMarkupBody_in_rule__MarkupLines__BodyAssignment_210173);
+            pushFollow(FOLLOW_ruleMarkupBody_in_rule__MarkupLines__BodyAssignment_210174);
             ruleMarkupBody();
             _fsp--;
             if (failed) return ;
@@ -17510,7 +18263,7 @@ public class InternalLilyPondParser extends AbstractInternalContentAssistParser 
             // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:4872:1: ( rule__MarkupBody__CommandAlternatives_1_0 )
             // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:4872:2: rule__MarkupBody__CommandAlternatives_1_0
             {
-            pushFollow(FOLLOW_rule__MarkupBody__CommandAlternatives_1_0_in_rule__MarkupBody__CommandAssignment_110204);
+            pushFollow(FOLLOW_rule__MarkupBody__CommandAlternatives_1_0_in_rule__MarkupBody__CommandAssignment_110205);
             rule__MarkupBody__CommandAlternatives_1_0();
             _fsp--;
             if (failed) return ;
@@ -17557,7 +18310,7 @@ public class InternalLilyPondParser extends AbstractInternalContentAssistParser 
             if ( backtracking==0 ) {
                before(grammarAccess.getMarkupBodyAccess().getBlockUnparsedBlockParserRuleCall_2_0()); 
             }
-            pushFollow(FOLLOW_ruleUnparsedBlock_in_rule__MarkupBody__BlockAssignment_210237);
+            pushFollow(FOLLOW_ruleUnparsedBlock_in_rule__MarkupBody__BlockAssignment_210238);
             ruleUnparsedBlock();
             _fsp--;
             if (failed) return ;
@@ -17601,7 +18354,7 @@ public class InternalLilyPondParser extends AbstractInternalContentAssistParser 
             if ( backtracking==0 ) {
                before(grammarAccess.getContextAccess().getBlockUnparsedBlockParserRuleCall_3_0()); 
             }
-            pushFollow(FOLLOW_ruleUnparsedBlock_in_rule__Context__BlockAssignment_310268);
+            pushFollow(FOLLOW_ruleUnparsedBlock_in_rule__Context__BlockAssignment_310269);
             ruleUnparsedBlock();
             _fsp--;
             if (failed) return ;
@@ -17648,7 +18401,7 @@ public class InternalLilyPondParser extends AbstractInternalContentAssistParser 
             // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:4918:1: ( rule__Other__KeywordAlternatives_1_0 )
             // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:4918:2: rule__Other__KeywordAlternatives_1_0
             {
-            pushFollow(FOLLOW_rule__Other__KeywordAlternatives_1_0_in_rule__Other__KeywordAssignment_110299);
+            pushFollow(FOLLOW_rule__Other__KeywordAlternatives_1_0_in_rule__Other__KeywordAssignment_110300);
             rule__Other__KeywordAlternatives_1_0();
             _fsp--;
             if (failed) return ;
@@ -17695,7 +18448,7 @@ public class InternalLilyPondParser extends AbstractInternalContentAssistParser 
             if ( backtracking==0 ) {
                before(grammarAccess.getUnparsedBlockAccess().getExpressionsUnparsedExpressionParserRuleCall_2_0()); 
             }
-            pushFollow(FOLLOW_ruleUnparsedExpression_in_rule__UnparsedBlock__ExpressionsAssignment_210332);
+            pushFollow(FOLLOW_ruleUnparsedExpression_in_rule__UnparsedBlock__ExpressionsAssignment_210333);
             ruleUnparsedExpression();
             _fsp--;
             if (failed) return ;
@@ -17742,7 +18495,7 @@ public class InternalLilyPondParser extends AbstractInternalContentAssistParser 
             // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:4949:1: ( rule__UnparsedCommand__CommandAlternatives_1_0 )
             // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:4949:2: rule__UnparsedCommand__CommandAlternatives_1_0
             {
-            pushFollow(FOLLOW_rule__UnparsedCommand__CommandAlternatives_1_0_in_rule__UnparsedCommand__CommandAssignment_110363);
+            pushFollow(FOLLOW_rule__UnparsedCommand__CommandAlternatives_1_0_in_rule__UnparsedCommand__CommandAssignment_110364);
             rule__UnparsedCommand__CommandAlternatives_1_0();
             _fsp--;
             if (failed) return ;
@@ -17795,7 +18548,7 @@ public class InternalLilyPondParser extends AbstractInternalContentAssistParser 
             if ( backtracking==0 ) {
                before(grammarAccess.getReferenceAccess().getAssignmentAssignmentIDTerminalRuleCall_1_0_1()); 
             }
-            match(input,RULE_ID,FOLLOW_RULE_ID_in_rule__Reference__AssignmentAssignment_110400); if (failed) return ;
+            match(input,RULE_ID,FOLLOW_RULE_ID_in_rule__Reference__AssignmentAssignment_110401); if (failed) return ;
             if ( backtracking==0 ) {
                after(grammarAccess.getReferenceAccess().getAssignmentAssignmentIDTerminalRuleCall_1_0_1()); 
             }
@@ -17845,7 +18598,7 @@ public class InternalLilyPondParser extends AbstractInternalContentAssistParser 
             // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:4984:1: ( rule__Text__ValueAlternatives_0 )
             // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:4984:2: rule__Text__ValueAlternatives_0
             {
-            pushFollow(FOLLOW_rule__Text__ValueAlternatives_0_in_rule__Text__ValueAssignment10435);
+            pushFollow(FOLLOW_rule__Text__ValueAlternatives_0_in_rule__Text__ValueAssignment10436);
             rule__Text__ValueAlternatives_0();
             _fsp--;
             if (failed) return ;
@@ -17892,7 +18645,7 @@ public class InternalLilyPondParser extends AbstractInternalContentAssistParser 
             if ( backtracking==0 ) {
                before(grammarAccess.getNumberAccess().getValueINTTerminalRuleCall_0()); 
             }
-            match(input,RULE_INT,FOLLOW_RULE_INT_in_rule__Number__ValueAssignment10468); if (failed) return ;
+            match(input,RULE_INT,FOLLOW_RULE_INT_in_rule__Number__ValueAssignment10469); if (failed) return ;
             if ( backtracking==0 ) {
                after(grammarAccess.getNumberAccess().getValueINTTerminalRuleCall_0()); 
             }
@@ -17933,7 +18686,7 @@ public class InternalLilyPondParser extends AbstractInternalContentAssistParser 
             if ( backtracking==0 ) {
                before(grammarAccess.getSchemeAccess().getValueSchemeExpressionParserRuleCall_1_0()); 
             }
-            pushFollow(FOLLOW_ruleSchemeExpression_in_rule__Scheme__ValueAssignment_110499);
+            pushFollow(FOLLOW_ruleSchemeExpression_in_rule__Scheme__ValueAssignment_110500);
             ruleSchemeExpression();
             _fsp--;
             if (failed) return ;
@@ -17983,7 +18736,7 @@ public class InternalLilyPondParser extends AbstractInternalContentAssistParser 
             if ( backtracking==0 ) {
                before(grammarAccess.getSchemeExpressionAccess().getQuotedApostropheKeyword_0_0_0()); 
             }
-            match(input,KEYWORD_4,FOLLOW_KEYWORD_4_in_rule__SchemeExpression__QuotedAssignment_0_010535); if (failed) return ;
+            match(input,KEYWORD_4,FOLLOW_KEYWORD_4_in_rule__SchemeExpression__QuotedAssignment_0_010536); if (failed) return ;
             if ( backtracking==0 ) {
                after(grammarAccess.getSchemeExpressionAccess().getQuotedApostropheKeyword_0_0_0()); 
             }
@@ -18036,7 +18789,7 @@ public class InternalLilyPondParser extends AbstractInternalContentAssistParser 
             if ( backtracking==0 ) {
                before(grammarAccess.getSchemeExpressionAccess().getQuasiquotedGraveAccentKeyword_0_1_0()); 
             }
-            match(input,KEYWORD_16,FOLLOW_KEYWORD_16_in_rule__SchemeExpression__QuasiquotedAssignment_0_110579); if (failed) return ;
+            match(input,KEYWORD_16,FOLLOW_KEYWORD_16_in_rule__SchemeExpression__QuasiquotedAssignment_0_110580); if (failed) return ;
             if ( backtracking==0 ) {
                after(grammarAccess.getSchemeExpressionAccess().getQuasiquotedGraveAccentKeyword_0_1_0()); 
             }
@@ -18089,7 +18842,7 @@ public class InternalLilyPondParser extends AbstractInternalContentAssistParser 
             if ( backtracking==0 ) {
                before(grammarAccess.getSchemeExpressionAccess().getUnquotedCommaKeyword_0_2_0()); 
             }
-            match(input,KEYWORD_8,FOLLOW_KEYWORD_8_in_rule__SchemeExpression__UnquotedAssignment_0_210623); if (failed) return ;
+            match(input,KEYWORD_8,FOLLOW_KEYWORD_8_in_rule__SchemeExpression__UnquotedAssignment_0_210624); if (failed) return ;
             if ( backtracking==0 ) {
                after(grammarAccess.getSchemeExpressionAccess().getUnquotedCommaKeyword_0_2_0()); 
             }
@@ -18142,7 +18895,7 @@ public class InternalLilyPondParser extends AbstractInternalContentAssistParser 
             if ( backtracking==0 ) {
                before(grammarAccess.getSchemeExpressionAccess().getVariableDollarSignKeyword_0_3_0()); 
             }
-            match(input,KEYWORD_3,FOLLOW_KEYWORD_3_in_rule__SchemeExpression__VariableAssignment_0_310667); if (failed) return ;
+            match(input,KEYWORD_3,FOLLOW_KEYWORD_3_in_rule__SchemeExpression__VariableAssignment_0_310668); if (failed) return ;
             if ( backtracking==0 ) {
                after(grammarAccess.getSchemeExpressionAccess().getVariableDollarSignKeyword_0_3_0()); 
             }
@@ -18189,7 +18942,7 @@ public class InternalLilyPondParser extends AbstractInternalContentAssistParser 
             if ( backtracking==0 ) {
                before(grammarAccess.getSchemeExpressionAccess().getValueSchemeValueParserRuleCall_1_0()); 
             }
-            pushFollow(FOLLOW_ruleSchemeValue_in_rule__SchemeExpression__ValueAssignment_110706);
+            pushFollow(FOLLOW_ruleSchemeValue_in_rule__SchemeExpression__ValueAssignment_110707);
             ruleSchemeValue();
             _fsp--;
             if (failed) return ;
@@ -18233,7 +18986,7 @@ public class InternalLilyPondParser extends AbstractInternalContentAssistParser 
             if ( backtracking==0 ) {
                before(grammarAccess.getSchemeBooleanAccess().getValueBooleanParserRuleCall_0()); 
             }
-            pushFollow(FOLLOW_ruleBoolean_in_rule__SchemeBoolean__ValueAssignment10737);
+            pushFollow(FOLLOW_ruleBoolean_in_rule__SchemeBoolean__ValueAssignment10738);
             ruleBoolean();
             _fsp--;
             if (failed) return ;
@@ -18283,7 +19036,7 @@ public class InternalLilyPondParser extends AbstractInternalContentAssistParser 
             if ( backtracking==0 ) {
                before(grammarAccess.getSchemeListAccess().getVectorNumberSignKeyword_1_0()); 
             }
-            match(input,KEYWORD_2,FOLLOW_KEYWORD_2_in_rule__SchemeList__VectorAssignment_110773); if (failed) return ;
+            match(input,KEYWORD_2,FOLLOW_KEYWORD_2_in_rule__SchemeList__VectorAssignment_110774); if (failed) return ;
             if ( backtracking==0 ) {
                after(grammarAccess.getSchemeListAccess().getVectorNumberSignKeyword_1_0()); 
             }
@@ -18330,7 +19083,7 @@ public class InternalLilyPondParser extends AbstractInternalContentAssistParser 
             if ( backtracking==0 ) {
                before(grammarAccess.getSchemeListAccess().getExpressionsSchemeExpressionParserRuleCall_3_0()); 
             }
-            pushFollow(FOLLOW_ruleSchemeExpression_in_rule__SchemeList__ExpressionsAssignment_310812);
+            pushFollow(FOLLOW_ruleSchemeExpression_in_rule__SchemeList__ExpressionsAssignment_310813);
             ruleSchemeExpression();
             _fsp--;
             if (failed) return ;
@@ -18374,7 +19127,7 @@ public class InternalLilyPondParser extends AbstractInternalContentAssistParser 
             if ( backtracking==0 ) {
                before(grammarAccess.getSchemeBlockAccess().getExpressionsExpressionParserRuleCall_1_0()); 
             }
-            pushFollow(FOLLOW_ruleExpression_in_rule__SchemeBlock__ExpressionsAssignment_110843);
+            pushFollow(FOLLOW_ruleExpression_in_rule__SchemeBlock__ExpressionsAssignment_110844);
             ruleExpression();
             _fsp--;
             if (failed) return ;
@@ -18421,7 +19174,7 @@ public class InternalLilyPondParser extends AbstractInternalContentAssistParser 
             // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:5205:1: ( rule__SchemeCharacter__ValueAlternatives_1_0 )
             // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:5205:2: rule__SchemeCharacter__ValueAlternatives_1_0
             {
-            pushFollow(FOLLOW_rule__SchemeCharacter__ValueAlternatives_1_0_in_rule__SchemeCharacter__ValueAssignment_110874);
+            pushFollow(FOLLOW_rule__SchemeCharacter__ValueAlternatives_1_0_in_rule__SchemeCharacter__ValueAssignment_110875);
             rule__SchemeCharacter__ValueAlternatives_1_0();
             _fsp--;
             if (failed) return ;
@@ -18468,7 +19221,7 @@ public class InternalLilyPondParser extends AbstractInternalContentAssistParser 
             if ( backtracking==0 ) {
                before(grammarAccess.getSchemeTextAccess().getValueSchemeIdParserRuleCall_0()); 
             }
-            pushFollow(FOLLOW_ruleSchemeId_in_rule__SchemeText__ValueAssignment10907);
+            pushFollow(FOLLOW_ruleSchemeId_in_rule__SchemeText__ValueAssignment10908);
             ruleSchemeId();
             _fsp--;
             if (failed) return ;
@@ -18512,7 +19265,7 @@ public class InternalLilyPondParser extends AbstractInternalContentAssistParser 
             if ( backtracking==0 ) {
                before(grammarAccess.getSchemeNumberAccess().getRadixSchemeNumberRadixParserRuleCall_0_0()); 
             }
-            pushFollow(FOLLOW_ruleSchemeNumberRadix_in_rule__SchemeNumber__RadixAssignment_010938);
+            pushFollow(FOLLOW_ruleSchemeNumberRadix_in_rule__SchemeNumber__RadixAssignment_010939);
             ruleSchemeNumberRadix();
             _fsp--;
             if (failed) return ;
@@ -18556,7 +19309,7 @@ public class InternalLilyPondParser extends AbstractInternalContentAssistParser 
             if ( backtracking==0 ) {
                before(grammarAccess.getSchemeNumberAccess().getValueINTTerminalRuleCall_1_0()); 
             }
-            match(input,RULE_INT,FOLLOW_RULE_INT_in_rule__SchemeNumber__ValueAssignment_110969); if (failed) return ;
+            match(input,RULE_INT,FOLLOW_RULE_INT_in_rule__SchemeNumber__ValueAssignment_110970); if (failed) return ;
             if ( backtracking==0 ) {
                after(grammarAccess.getSchemeNumberAccess().getValueINTTerminalRuleCall_1_0()); 
             }
@@ -18600,7 +19353,7 @@ public class InternalLilyPondParser extends AbstractInternalContentAssistParser 
             // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:5266:1: ( rule__SchemeMarkupCommand__CommandAlternatives_1_0 )
             // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:5266:2: rule__SchemeMarkupCommand__CommandAlternatives_1_0
             {
-            pushFollow(FOLLOW_rule__SchemeMarkupCommand__CommandAlternatives_1_0_in_rule__SchemeMarkupCommand__CommandAssignment_111000);
+            pushFollow(FOLLOW_rule__SchemeMarkupCommand__CommandAlternatives_1_0_in_rule__SchemeMarkupCommand__CommandAssignment_111001);
             rule__SchemeMarkupCommand__CommandAlternatives_1_0();
             _fsp--;
             if (failed) return ;
@@ -18688,13 +19441,13 @@ public class InternalLilyPondParser extends AbstractInternalContentAssistParser 
            before(grammarAccess.getSchemeExpressionAccess().getQuotedAssignment_0_0()); 
         }
         // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:2315:1: ( rule__SchemeExpression__QuotedAssignment_0_0 )?
-        int alt38=2;
-        int LA38_0 = input.LA(1);
+        int alt39=2;
+        int LA39_0 = input.LA(1);
 
-        if ( (LA38_0==KEYWORD_4) ) {
-            alt38=1;
+        if ( (LA39_0==KEYWORD_4) ) {
+            alt39=1;
         }
-        switch (alt38) {
+        switch (alt39) {
             case 1 :
                 // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:2315:2: rule__SchemeExpression__QuotedAssignment_0_0
                 {
@@ -18728,13 +19481,13 @@ public class InternalLilyPondParser extends AbstractInternalContentAssistParser 
            before(grammarAccess.getSchemeExpressionAccess().getQuasiquotedAssignment_0_1()); 
         }
         // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:2321:1: ( rule__SchemeExpression__QuasiquotedAssignment_0_1 )?
-        int alt39=2;
-        int LA39_0 = input.LA(1);
+        int alt40=2;
+        int LA40_0 = input.LA(1);
 
-        if ( (LA39_0==KEYWORD_16) ) {
-            alt39=1;
+        if ( (LA40_0==KEYWORD_16) ) {
+            alt40=1;
         }
-        switch (alt39) {
+        switch (alt40) {
             case 1 :
                 // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:2321:2: rule__SchemeExpression__QuasiquotedAssignment_0_1
                 {
@@ -18768,13 +19521,13 @@ public class InternalLilyPondParser extends AbstractInternalContentAssistParser 
            before(grammarAccess.getSchemeExpressionAccess().getUnquotedAssignment_0_2()); 
         }
         // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:2327:1: ( rule__SchemeExpression__UnquotedAssignment_0_2 )?
-        int alt40=2;
-        int LA40_0 = input.LA(1);
+        int alt41=2;
+        int LA41_0 = input.LA(1);
 
-        if ( (LA40_0==KEYWORD_8) ) {
-            alt40=1;
+        if ( (LA41_0==KEYWORD_8) ) {
+            alt41=1;
         }
-        switch (alt40) {
+        switch (alt41) {
             case 1 :
                 // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:2327:2: rule__SchemeExpression__UnquotedAssignment_0_2
                 {
@@ -18884,19 +19637,33 @@ public class InternalLilyPondParser extends AbstractInternalContentAssistParser 
     }
     // $ANTLR end synpred123
 
-    // $ANTLR start synpred128
-    public final void synpred128_fragment() throws RecognitionException {   
+    // $ANTLR start synpred125
+    public final void synpred125_fragment() throws RecognitionException {   
+        // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:3955:2: ( rule__SchemeExpression__Alternatives_0 )
+        // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:3955:2: rule__SchemeExpression__Alternatives_0
+        {
+        pushFollow(FOLLOW_rule__SchemeExpression__Alternatives_0_in_synpred1258390);
+        rule__SchemeExpression__Alternatives_0();
+        _fsp--;
+        if (failed) return ;
+
+        }
+    }
+    // $ANTLR end synpred125
+
+    // $ANTLR start synpred129
+    public final void synpred129_fragment() throws RecognitionException {   
         // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:4370:2: ( rule__SchemeId__Group_1__0 )
         // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:4370:2: rule__SchemeId__Group_1__0
         {
-        pushFollow(FOLLOW_rule__SchemeId__Group_1__0_in_synpred1289208);
+        pushFollow(FOLLOW_rule__SchemeId__Group_1__0_in_synpred1299209);
         rule__SchemeId__Group_1__0();
         _fsp--;
         if (failed) return ;
 
         }
     }
-    // $ANTLR end synpred128
+    // $ANTLR end synpred129
 
     public final boolean synpred109() {
         backtracking++;
@@ -18912,11 +19679,11 @@ public class InternalLilyPondParser extends AbstractInternalContentAssistParser 
         failed=false;
         return success;
     }
-    public final boolean synpred128() {
+    public final boolean synpred129() {
         backtracking++;
         int start = input.mark();
         try {
-            synpred128_fragment(); // can never throw exception
+            synpred129_fragment(); // can never throw exception
         } catch (RecognitionException re) {
             System.err.println("impossible: "+re);
         }
@@ -18945,6 +19712,20 @@ public class InternalLilyPondParser extends AbstractInternalContentAssistParser 
         int start = input.mark();
         try {
             synpred123_fragment(); // can never throw exception
+        } catch (RecognitionException re) {
+            System.err.println("impossible: "+re);
+        }
+        boolean success = !failed;
+        input.rewind(start);
+        backtracking--;
+        failed=false;
+        return success;
+    }
+    public final boolean synpred125() {
+        backtracking++;
+        int start = input.mark();
+        try {
+            synpred125_fragment(); // can never throw exception
         } catch (RecognitionException re) {
             System.err.println("impossible: "+re);
         }
@@ -19431,100 +20212,100 @@ public class InternalLilyPondParser extends AbstractInternalContentAssistParser 
     public static final BitSet FOLLOW_rule__SchemeExpression__Group__0__Impl_in_rule__SchemeExpression__Group__08360 = new BitSet(new long[]{0xFFFFFFFFFFFFFFF0L,0x000000083C5E538FL});
     public static final BitSet FOLLOW_rule__SchemeExpression__Group__1_in_rule__SchemeExpression__Group__08363 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_rule__SchemeExpression__Alternatives_0_in_rule__SchemeExpression__Group__0__Impl8390 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__SchemeExpression__Group__1__Impl_in_rule__SchemeExpression__Group__18420 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__SchemeExpression__ValueAssignment_1_in_rule__SchemeExpression__Group__1__Impl8447 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__SchemeList__Group__0__Impl_in_rule__SchemeList__Group__08481 = new BitSet(new long[]{0x0000000000000000L,0x0000000000001200L});
-    public static final BitSet FOLLOW_rule__SchemeList__Group__1_in_rule__SchemeList__Group__08484 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__SchemeList__Group__1__Impl_in_rule__SchemeList__Group__18542 = new BitSet(new long[]{0x0000000000000000L,0x0000000000001000L});
-    public static final BitSet FOLLOW_rule__SchemeList__Group__2_in_rule__SchemeList__Group__18545 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__SchemeList__VectorAssignment_1_in_rule__SchemeList__Group__1__Impl8572 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__SchemeList__Group__2__Impl_in_rule__SchemeList__Group__28603 = new BitSet(new long[]{0xFFFFFFFFFFFFFFF0L,0x000000083CDEFF8FL});
-    public static final BitSet FOLLOW_rule__SchemeList__Group__3_in_rule__SchemeList__Group__28606 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_KEYWORD_5_in_rule__SchemeList__Group__2__Impl8634 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__SchemeList__Group__3__Impl_in_rule__SchemeList__Group__38665 = new BitSet(new long[]{0x0000000000000000L,0x0000000000002000L});
-    public static final BitSet FOLLOW_rule__SchemeList__Group__4_in_rule__SchemeList__Group__38668 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__SchemeList__ExpressionsAssignment_3_in_rule__SchemeList__Group__3__Impl8695 = new BitSet(new long[]{0xFFFFFFFFFFFFFFF2L,0x000000083CDEDF8FL});
-    public static final BitSet FOLLOW_rule__SchemeList__Group__4__Impl_in_rule__SchemeList__Group__48726 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_KEYWORD_6_in_rule__SchemeList__Group__4__Impl8754 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__SchemeBlock__Group__0__Impl_in_rule__SchemeBlock__Group__08795 = new BitSet(new long[]{0xFFFFFFFFFFFFFFF0L,0x000000083D7FFBA1L});
-    public static final BitSet FOLLOW_rule__SchemeBlock__Group__1_in_rule__SchemeBlock__Group__08798 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_KEYWORD_22_in_rule__SchemeBlock__Group__0__Impl8826 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__SchemeBlock__Group__1__Impl_in_rule__SchemeBlock__Group__18857 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000010L});
-    public static final BitSet FOLLOW_rule__SchemeBlock__Group__2_in_rule__SchemeBlock__Group__18860 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__SchemeBlock__ExpressionsAssignment_1_in_rule__SchemeBlock__Group__1__Impl8889 = new BitSet(new long[]{0xFFFFFFFFFFFFFFF2L,0x000000083D7FFBA1L});
-    public static final BitSet FOLLOW_rule__SchemeBlock__ExpressionsAssignment_1_in_rule__SchemeBlock__Group__1__Impl8901 = new BitSet(new long[]{0xFFFFFFFFFFFFFFF2L,0x000000083D7FFBA1L});
-    public static final BitSet FOLLOW_rule__SchemeBlock__Group__2__Impl_in_rule__SchemeBlock__Group__28934 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_KEYWORD_23_in_rule__SchemeBlock__Group__2__Impl8962 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__SchemeCharacter__Group__0__Impl_in_rule__SchemeCharacter__Group__08999 = new BitSet(new long[]{0x0000000000000000L,0x00000008245A4100L});
-    public static final BitSet FOLLOW_rule__SchemeCharacter__Group__1_in_rule__SchemeCharacter__Group__09002 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_KEYWORD_21_in_rule__SchemeCharacter__Group__0__Impl9030 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__SchemeCharacter__Group__1__Impl_in_rule__SchemeCharacter__Group__19061 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__SchemeCharacter__ValueAssignment_1_in_rule__SchemeCharacter__Group__1__Impl9088 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__SchemeId__Group__0__Impl_in_rule__SchemeId__Group__09122 = new BitSet(new long[]{0x0000000000000002L,0x0000000000010000L});
-    public static final BitSet FOLLOW_rule__SchemeId__Group__1_in_rule__SchemeId__Group__09125 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleSchemeTextLiteral_in_rule__SchemeId__Group__0__Impl9152 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__SchemeId__Group__1__Impl_in_rule__SchemeId__Group__19181 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__SchemeId__Group_1__0_in_rule__SchemeId__Group__1__Impl9208 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__SchemeId__Group_1__0__Impl_in_rule__SchemeId__Group_1__09243 = new BitSet(new long[]{0xFFFFFFFFFFFFFFF0L,0x000000082C5E4181L});
-    public static final BitSet FOLLOW_rule__SchemeId__Group_1__1_in_rule__SchemeId__Group_1__09246 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_KEYWORD_9_in_rule__SchemeId__Group_1__0__Impl9274 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__SchemeId__Group_1__1__Impl_in_rule__SchemeId__Group_1__19305 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleSchemeTextLiteral_in_rule__SchemeId__Group_1__1__Impl9332 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__SchemeNumber__Group__0__Impl_in_rule__SchemeNumber__Group__09365 = new BitSet(new long[]{0x0000000000000000L,0x0000000010000000L});
-    public static final BitSet FOLLOW_rule__SchemeNumber__Group__1_in_rule__SchemeNumber__Group__09368 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__SchemeNumber__RadixAssignment_0_in_rule__SchemeNumber__Group__0__Impl9395 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__SchemeNumber__Group__1__Impl_in_rule__SchemeNumber__Group__19426 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__SchemeNumber__ValueAssignment_1_in_rule__SchemeNumber__Group__1__Impl9453 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__SchemeNumberRadix__Group__0__Impl_in_rule__SchemeNumberRadix__Group__09487 = new BitSet(new long[]{0x0000000000000000L,0x0000000020000000L});
-    public static final BitSet FOLLOW_rule__SchemeNumberRadix__Group__1_in_rule__SchemeNumberRadix__Group__09490 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_KEYWORD_2_in_rule__SchemeNumberRadix__Group__0__Impl9518 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__SchemeNumberRadix__Group__1__Impl_in_rule__SchemeNumberRadix__Group__19549 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_RULE_ID_in_rule__SchemeNumberRadix__Group__1__Impl9576 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__SchemeMarkupCommand__Group__0__Impl_in_rule__SchemeMarkupCommand__Group__09609 = new BitSet(new long[]{0xFFFFFFFFFFFFFFF0L,0x0000000020000001L});
-    public static final BitSet FOLLOW_rule__SchemeMarkupCommand__Group__1_in_rule__SchemeMarkupCommand__Group__09612 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_KEYWORD_20_in_rule__SchemeMarkupCommand__Group__0__Impl9640 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__SchemeMarkupCommand__Group__1__Impl_in_rule__SchemeMarkupCommand__Group__19671 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__SchemeMarkupCommand__CommandAssignment_1_in_rule__SchemeMarkupCommand__Group__1__Impl9698 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__Boolean__Group__0__Impl_in_rule__Boolean__Group__09732 = new BitSet(new long[]{0x0000000000000000L,0x0000000020000000L});
-    public static final BitSet FOLLOW_rule__Boolean__Group__1_in_rule__Boolean__Group__09735 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_KEYWORD_2_in_rule__Boolean__Group__0__Impl9763 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__Boolean__Group__1__Impl_in_rule__Boolean__Group__19794 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_RULE_ID_in_rule__Boolean__Group__1__Impl9821 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleToplevelExpression_in_rule__LilyPond__ExpressionsAssignment9859 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__Assignment__NameAlternatives_0_0_in_rule__Assignment__NameAssignment_09890 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleExpression_in_rule__Assignment__ValueAssignment_29923 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__PropertyAssignment__IdAlternatives_0_0_in_rule__PropertyAssignment__IdAssignment_09954 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleExpression_in_rule__PropertyAssignment__ValueAssignment_29987 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleExpression_in_rule__SimpleBlock__ExpressionsAssignment_210018 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleExpression_in_rule__SimultaneousBlock__ExpressionsAssignment_210049 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_RULE_STRING_in_rule__Include__ImportURIAssignment_210080 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_RULE_STRING_in_rule__Version__VersionAssignment_210111 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleMarkupBody_in_rule__Markup__BodyAssignment_210142 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleMarkupBody_in_rule__MarkupLines__BodyAssignment_210173 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__MarkupBody__CommandAlternatives_1_0_in_rule__MarkupBody__CommandAssignment_110204 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleUnparsedBlock_in_rule__MarkupBody__BlockAssignment_210237 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleUnparsedBlock_in_rule__Context__BlockAssignment_310268 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__Other__KeywordAlternatives_1_0_in_rule__Other__KeywordAssignment_110299 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleUnparsedExpression_in_rule__UnparsedBlock__ExpressionsAssignment_210332 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__UnparsedCommand__CommandAlternatives_1_0_in_rule__UnparsedCommand__CommandAssignment_110363 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_RULE_ID_in_rule__Reference__AssignmentAssignment_110400 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__Text__ValueAlternatives_0_in_rule__Text__ValueAssignment10435 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_RULE_INT_in_rule__Number__ValueAssignment10468 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleSchemeExpression_in_rule__Scheme__ValueAssignment_110499 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_KEYWORD_4_in_rule__SchemeExpression__QuotedAssignment_0_010535 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_KEYWORD_16_in_rule__SchemeExpression__QuasiquotedAssignment_0_110579 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_KEYWORD_8_in_rule__SchemeExpression__UnquotedAssignment_0_210623 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_KEYWORD_3_in_rule__SchemeExpression__VariableAssignment_0_310667 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleSchemeValue_in_rule__SchemeExpression__ValueAssignment_110706 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleBoolean_in_rule__SchemeBoolean__ValueAssignment10737 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_KEYWORD_2_in_rule__SchemeList__VectorAssignment_110773 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleSchemeExpression_in_rule__SchemeList__ExpressionsAssignment_310812 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleExpression_in_rule__SchemeBlock__ExpressionsAssignment_110843 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__SchemeCharacter__ValueAlternatives_1_0_in_rule__SchemeCharacter__ValueAssignment_110874 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleSchemeId_in_rule__SchemeText__ValueAssignment10907 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleSchemeNumberRadix_in_rule__SchemeNumber__RadixAssignment_010938 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_RULE_INT_in_rule__SchemeNumber__ValueAssignment_110969 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__SchemeMarkupCommand__CommandAlternatives_1_0_in_rule__SchemeMarkupCommand__CommandAssignment_111000 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__SchemeExpression__Group__1__Impl_in_rule__SchemeExpression__Group__18421 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__SchemeExpression__ValueAssignment_1_in_rule__SchemeExpression__Group__1__Impl8448 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__SchemeList__Group__0__Impl_in_rule__SchemeList__Group__08482 = new BitSet(new long[]{0x0000000000000000L,0x0000000000001200L});
+    public static final BitSet FOLLOW_rule__SchemeList__Group__1_in_rule__SchemeList__Group__08485 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__SchemeList__Group__1__Impl_in_rule__SchemeList__Group__18543 = new BitSet(new long[]{0x0000000000000000L,0x0000000000001000L});
+    public static final BitSet FOLLOW_rule__SchemeList__Group__2_in_rule__SchemeList__Group__18546 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__SchemeList__VectorAssignment_1_in_rule__SchemeList__Group__1__Impl8573 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__SchemeList__Group__2__Impl_in_rule__SchemeList__Group__28604 = new BitSet(new long[]{0xFFFFFFFFFFFFFFF0L,0x000000083CDEFF8FL});
+    public static final BitSet FOLLOW_rule__SchemeList__Group__3_in_rule__SchemeList__Group__28607 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_KEYWORD_5_in_rule__SchemeList__Group__2__Impl8635 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__SchemeList__Group__3__Impl_in_rule__SchemeList__Group__38666 = new BitSet(new long[]{0x0000000000000000L,0x0000000000002000L});
+    public static final BitSet FOLLOW_rule__SchemeList__Group__4_in_rule__SchemeList__Group__38669 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__SchemeList__ExpressionsAssignment_3_in_rule__SchemeList__Group__3__Impl8696 = new BitSet(new long[]{0xFFFFFFFFFFFFFFF2L,0x000000083CDEDF8FL});
+    public static final BitSet FOLLOW_rule__SchemeList__Group__4__Impl_in_rule__SchemeList__Group__48727 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_KEYWORD_6_in_rule__SchemeList__Group__4__Impl8755 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__SchemeBlock__Group__0__Impl_in_rule__SchemeBlock__Group__08796 = new BitSet(new long[]{0xFFFFFFFFFFFFFFF0L,0x000000083D7FFBA1L});
+    public static final BitSet FOLLOW_rule__SchemeBlock__Group__1_in_rule__SchemeBlock__Group__08799 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_KEYWORD_22_in_rule__SchemeBlock__Group__0__Impl8827 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__SchemeBlock__Group__1__Impl_in_rule__SchemeBlock__Group__18858 = new BitSet(new long[]{0x0000000000000000L,0x0000000000000010L});
+    public static final BitSet FOLLOW_rule__SchemeBlock__Group__2_in_rule__SchemeBlock__Group__18861 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__SchemeBlock__ExpressionsAssignment_1_in_rule__SchemeBlock__Group__1__Impl8890 = new BitSet(new long[]{0xFFFFFFFFFFFFFFF2L,0x000000083D7FFBA1L});
+    public static final BitSet FOLLOW_rule__SchemeBlock__ExpressionsAssignment_1_in_rule__SchemeBlock__Group__1__Impl8902 = new BitSet(new long[]{0xFFFFFFFFFFFFFFF2L,0x000000083D7FFBA1L});
+    public static final BitSet FOLLOW_rule__SchemeBlock__Group__2__Impl_in_rule__SchemeBlock__Group__28935 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_KEYWORD_23_in_rule__SchemeBlock__Group__2__Impl8963 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__SchemeCharacter__Group__0__Impl_in_rule__SchemeCharacter__Group__09000 = new BitSet(new long[]{0x0000000000000000L,0x00000008245A4100L});
+    public static final BitSet FOLLOW_rule__SchemeCharacter__Group__1_in_rule__SchemeCharacter__Group__09003 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_KEYWORD_21_in_rule__SchemeCharacter__Group__0__Impl9031 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__SchemeCharacter__Group__1__Impl_in_rule__SchemeCharacter__Group__19062 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__SchemeCharacter__ValueAssignment_1_in_rule__SchemeCharacter__Group__1__Impl9089 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__SchemeId__Group__0__Impl_in_rule__SchemeId__Group__09123 = new BitSet(new long[]{0x0000000000000002L,0x0000000000010000L});
+    public static final BitSet FOLLOW_rule__SchemeId__Group__1_in_rule__SchemeId__Group__09126 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleSchemeTextLiteral_in_rule__SchemeId__Group__0__Impl9153 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__SchemeId__Group__1__Impl_in_rule__SchemeId__Group__19182 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__SchemeId__Group_1__0_in_rule__SchemeId__Group__1__Impl9209 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__SchemeId__Group_1__0__Impl_in_rule__SchemeId__Group_1__09244 = new BitSet(new long[]{0xFFFFFFFFFFFFFFF0L,0x000000082C5E4181L});
+    public static final BitSet FOLLOW_rule__SchemeId__Group_1__1_in_rule__SchemeId__Group_1__09247 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_KEYWORD_9_in_rule__SchemeId__Group_1__0__Impl9275 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__SchemeId__Group_1__1__Impl_in_rule__SchemeId__Group_1__19306 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleSchemeTextLiteral_in_rule__SchemeId__Group_1__1__Impl9333 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__SchemeNumber__Group__0__Impl_in_rule__SchemeNumber__Group__09366 = new BitSet(new long[]{0x0000000000000000L,0x0000000010000000L});
+    public static final BitSet FOLLOW_rule__SchemeNumber__Group__1_in_rule__SchemeNumber__Group__09369 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__SchemeNumber__RadixAssignment_0_in_rule__SchemeNumber__Group__0__Impl9396 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__SchemeNumber__Group__1__Impl_in_rule__SchemeNumber__Group__19427 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__SchemeNumber__ValueAssignment_1_in_rule__SchemeNumber__Group__1__Impl9454 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__SchemeNumberRadix__Group__0__Impl_in_rule__SchemeNumberRadix__Group__09488 = new BitSet(new long[]{0x0000000000000000L,0x0000000020000000L});
+    public static final BitSet FOLLOW_rule__SchemeNumberRadix__Group__1_in_rule__SchemeNumberRadix__Group__09491 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_KEYWORD_2_in_rule__SchemeNumberRadix__Group__0__Impl9519 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__SchemeNumberRadix__Group__1__Impl_in_rule__SchemeNumberRadix__Group__19550 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_RULE_ID_in_rule__SchemeNumberRadix__Group__1__Impl9577 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__SchemeMarkupCommand__Group__0__Impl_in_rule__SchemeMarkupCommand__Group__09610 = new BitSet(new long[]{0xFFFFFFFFFFFFFFF0L,0x0000000020000001L});
+    public static final BitSet FOLLOW_rule__SchemeMarkupCommand__Group__1_in_rule__SchemeMarkupCommand__Group__09613 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_KEYWORD_20_in_rule__SchemeMarkupCommand__Group__0__Impl9641 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__SchemeMarkupCommand__Group__1__Impl_in_rule__SchemeMarkupCommand__Group__19672 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__SchemeMarkupCommand__CommandAssignment_1_in_rule__SchemeMarkupCommand__Group__1__Impl9699 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__Boolean__Group__0__Impl_in_rule__Boolean__Group__09733 = new BitSet(new long[]{0x0000000000000000L,0x0000000020000000L});
+    public static final BitSet FOLLOW_rule__Boolean__Group__1_in_rule__Boolean__Group__09736 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_KEYWORD_2_in_rule__Boolean__Group__0__Impl9764 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__Boolean__Group__1__Impl_in_rule__Boolean__Group__19795 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_RULE_ID_in_rule__Boolean__Group__1__Impl9822 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleToplevelExpression_in_rule__LilyPond__ExpressionsAssignment9860 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__Assignment__NameAlternatives_0_0_in_rule__Assignment__NameAssignment_09891 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleExpression_in_rule__Assignment__ValueAssignment_29924 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__PropertyAssignment__IdAlternatives_0_0_in_rule__PropertyAssignment__IdAssignment_09955 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleExpression_in_rule__PropertyAssignment__ValueAssignment_29988 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleExpression_in_rule__SimpleBlock__ExpressionsAssignment_210019 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleExpression_in_rule__SimultaneousBlock__ExpressionsAssignment_210050 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_RULE_STRING_in_rule__Include__ImportURIAssignment_210081 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_RULE_STRING_in_rule__Version__VersionAssignment_210112 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleMarkupBody_in_rule__Markup__BodyAssignment_210143 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleMarkupBody_in_rule__MarkupLines__BodyAssignment_210174 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__MarkupBody__CommandAlternatives_1_0_in_rule__MarkupBody__CommandAssignment_110205 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleUnparsedBlock_in_rule__MarkupBody__BlockAssignment_210238 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleUnparsedBlock_in_rule__Context__BlockAssignment_310269 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__Other__KeywordAlternatives_1_0_in_rule__Other__KeywordAssignment_110300 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleUnparsedExpression_in_rule__UnparsedBlock__ExpressionsAssignment_210333 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__UnparsedCommand__CommandAlternatives_1_0_in_rule__UnparsedCommand__CommandAssignment_110364 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_RULE_ID_in_rule__Reference__AssignmentAssignment_110401 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__Text__ValueAlternatives_0_in_rule__Text__ValueAssignment10436 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_RULE_INT_in_rule__Number__ValueAssignment10469 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleSchemeExpression_in_rule__Scheme__ValueAssignment_110500 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_KEYWORD_4_in_rule__SchemeExpression__QuotedAssignment_0_010536 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_KEYWORD_16_in_rule__SchemeExpression__QuasiquotedAssignment_0_110580 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_KEYWORD_8_in_rule__SchemeExpression__UnquotedAssignment_0_210624 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_KEYWORD_3_in_rule__SchemeExpression__VariableAssignment_0_310668 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleSchemeValue_in_rule__SchemeExpression__ValueAssignment_110707 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleBoolean_in_rule__SchemeBoolean__ValueAssignment10738 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_KEYWORD_2_in_rule__SchemeList__VectorAssignment_110774 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleSchemeExpression_in_rule__SchemeList__ExpressionsAssignment_310813 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleExpression_in_rule__SchemeBlock__ExpressionsAssignment_110844 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__SchemeCharacter__ValueAlternatives_1_0_in_rule__SchemeCharacter__ValueAssignment_110875 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleSchemeId_in_rule__SchemeText__ValueAssignment10908 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleSchemeNumberRadix_in_rule__SchemeNumber__RadixAssignment_010939 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_RULE_INT_in_rule__SchemeNumber__ValueAssignment_110970 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__SchemeMarkupCommand__CommandAlternatives_1_0_in_rule__SchemeMarkupCommand__CommandAssignment_111001 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_ruleAssignment_in_synpred22730 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_rulePropertyAssignment_in_synpred32779 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_rule__SchemeExpression__QuotedAssignment_0_0_in_synpred985082 = new BitSet(new long[]{0x0000000000000002L});
@@ -19535,6 +20316,7 @@ public class InternalLilyPondParser extends AbstractInternalContentAssistParser 
     public static final BitSet FOLLOW_rule__MarkupBody__CommandAssignment_1_in_synpred1217271 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_rule__MarkupBody__BlockAssignment_2_in_synpred1227329 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_rule__Context__BlockAssignment_3_in_synpred1237578 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__SchemeId__Group_1__0_in_synpred1289208 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__SchemeExpression__Alternatives_0_in_synpred1258390 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__SchemeId__Group_1__0_in_synpred1299209 = new BitSet(new long[]{0x0000000000000002L});
 
 }

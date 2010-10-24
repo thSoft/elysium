@@ -1090,13 +1090,13 @@ public class LilyPondGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cValueSchemeValueParserRuleCall_1_0 = (RuleCall)cValueAssignment_1.eContents().get(0);
 		
 		//SchemeExpression:
-		//	(quoted?="\'"? | quasiquoted?="`"? | unquoted?=","? | variable?="$"?) value=SchemeValue;
+		//	(quoted?="\'"? | quasiquoted?="`"? | unquoted?=","? | variable?="$"?)? value=SchemeValue;
 		public ParserRule getRule() { return rule; }
 
-		//(quoted?="\'"? | quasiquoted?="`"? | unquoted?=","? | variable?="$"?) value=SchemeValue
+		//(quoted?="\'"? | quasiquoted?="`"? | unquoted?=","? | variable?="$"?)? value=SchemeValue
 		public Group getGroup() { return cGroup; }
 
-		//quoted?="\'"? | quasiquoted?="`"? | unquoted?=","? | variable?="$"?
+		//(quoted?="\'"? | quasiquoted?="`"? | unquoted?=","? | variable?="$"?)?
 		public Alternatives getAlternatives_0() { return cAlternatives_0; }
 
 		//quoted?="\'"?
@@ -1825,7 +1825,7 @@ public class LilyPondGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//SchemeExpression:
-	//	(quoted?="\'"? | quasiquoted?="`"? | unquoted?=","? | variable?="$"?) value=SchemeValue;
+	//	(quoted?="\'"? | quasiquoted?="`"? | unquoted?=","? | variable?="$"?)? value=SchemeValue;
 	public SchemeExpressionElements getSchemeExpressionAccess() {
 		return (pSchemeExpression != null) ? pSchemeExpression : (pSchemeExpression = new SchemeExpressionElements());
 	}

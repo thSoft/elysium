@@ -433,7 +433,7 @@
       <classifier xsi:type="ecore:EClass" href="http://www.elysium.org/LilyPond#//SchemeExpression"/>
     </type>
     <alternatives xsi:type="xtext:Group">
-      <elements xsi:type="xtext:Alternatives">
+      <elements xsi:type="xtext:Alternatives" cardinality="?">
         <elements xsi:type="xtext:Assignment" cardinality="?" feature="quoted" operator="?=">
           <terminal xsi:type="xtext:Keyword" value="'"/>
         </elements>

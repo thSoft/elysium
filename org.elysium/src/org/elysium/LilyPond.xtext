@@ -62,13 +62,13 @@ Number: value=INT;
 
 Scheme hidden(WS, SCHEME_SL_COMMENT, SCHEME_ML_COMMENT): "#" value=SchemeExpression;
 
-SchemeExpression: (quoted?="'"? | quasiquoted?="`"? | unquoted?=","? | variable?="$"?) value=SchemeValue;
+SchemeExpression: (quoted?="'"? | quasiquoted?="`"? | unquoted?=","? | variable?="$"?)? value=SchemeValue;
 
 SchemeValue: SchemeBoolean | SchemeList | SchemeBlock | SchemeCharacter | SchemeText | SchemeNumber| SchemeMarkupCommand;
 
 SchemeBoolean: value=Boolean;
 
-SchemeList: {SchemeList} vector?="#"? "(" expressions+=SchemeExpression* ")";
+SchemeList: {SchemeList} (vector?="#")? "(" expressions+=SchemeExpression* ")";
 
 SchemeBlock: "#{" expressions+=Expression+ "#}";
 

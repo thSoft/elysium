@@ -3496,11 +3496,11 @@ protected class Scheme_ValueAssignment_1 extends AssignmentToken  {
 /************ begin Rule SchemeExpression ****************
  *
  * SchemeExpression:
- * 	(quoted?="\'"? | quasiquoted?="`"? | unquoted?=","? | variable?="$"?) value=SchemeValue;
+ * 	(quoted?="\'"? | quasiquoted?="`"? | unquoted?=","? | variable?="$"?)? value=SchemeValue;
  *
  **/
 
-// (quoted?="\'"? | quasiquoted?="`"? | unquoted?=","? | variable?="$"?) value=SchemeValue
+// (quoted?="\'"? | quasiquoted?="`"? | unquoted?=","? | variable?="$"?)? value=SchemeValue
 protected class SchemeExpression_Group extends GroupToken {
 	
 	public SchemeExpression_Group(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -3529,7 +3529,7 @@ protected class SchemeExpression_Group extends GroupToken {
 
 }
 
-// quoted?="\'"? | quasiquoted?="`"? | unquoted?=","? | variable?="$"?
+// (quoted?="\'"? | quasiquoted?="`"? | unquoted?=","? | variable?="$"?)?
 protected class SchemeExpression_Alternatives_0 extends AlternativesToken {
 
 	public SchemeExpression_Alternatives_0(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -3728,7 +3728,7 @@ protected class SchemeExpression_ValueAssignment_1 extends AssignmentToken  {
 		if(value == inst.getEObject() && !inst.isConsumed()) return null;
 		switch(index) {
 			case 0: return new SchemeExpression_Alternatives_0(lastRuleCallOrigin, next, actIndex, consumed);
-			default: return null;
+			default: return lastRuleCallOrigin.createFollowerAfterReturn(next, actIndex , index - 1, consumed);
 		}	
 	}	
 }
