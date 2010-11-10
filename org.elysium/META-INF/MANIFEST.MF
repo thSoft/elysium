@@ -24,6 +24,7 @@ Import-Package: org.apache.log4j
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
 Export-Package: org.elysium,
  org.elysium.formatting,
+ org.elysium.importuri,
  org.elysium.lilypond,
  org.elysium.lilypond.impl,
  org.elysium.lilypond.util,
