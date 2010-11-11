@@ -16,141 +16,141 @@ import org.eclipse.xtext.parser.antlr.Lexer;
 
 
 
-KEYWORD_87 : 'grobdescriptions';
+KEYWORD_88 : 'grobdescriptions';
 
-KEYWORD_85 : 'sourcefileline';
+KEYWORD_86 : 'sourcefileline';
 
-KEYWORD_86 : 'sourcefilename';
+KEYWORD_87 : 'sourcefilename';
 
-KEYWORD_83 : 'defaultchild';
+KEYWORD_84 : 'defaultchild';
 
-KEYWORD_84 : 'simultaneous';
+KEYWORD_85 : 'simultaneous';
 
-KEYWORD_80 : 'alternative';
+KEYWORD_81 : 'alternative';
 
-KEYWORD_81 : 'description';
+KEYWORD_82 : 'description';
 
-KEYWORD_82 : 'markuplines';
+KEYWORD_83 : 'markuplines';
 
-KEYWORD_78 : 'figuremode';
+KEYWORD_79 : 'figuremode';
 
-KEYWORD_79 : 'sequential';
+KEYWORD_80 : 'sequential';
 
-KEYWORD_73 : 'addlyrics';
+KEYWORD_74 : 'addlyrics';
 
-KEYWORD_74 : 'chordmode';
+KEYWORD_75 : 'chordmode';
 
-KEYWORD_75 : 'lyricmode';
+KEYWORD_76 : 'lyricmode';
 
-KEYWORD_76 : 'maininput';
+KEYWORD_77 : 'maininput';
 
-KEYWORD_77 : 'transpose';
+KEYWORD_78 : 'transpose';
 
-KEYWORD_65 : 'bookpart';
+KEYWORD_66 : 'bookpart';
 
-KEYWORD_66 : 'consists';
+KEYWORD_67 : 'consists';
 
-KEYWORD_67 : 'drummode';
+KEYWORD_68 : 'drummode';
 
-KEYWORD_68 : 'lyricsto';
+KEYWORD_69 : 'lyricsto';
 
-KEYWORD_69 : 'notemode';
+KEYWORD_70 : 'notemode';
 
-KEYWORD_70 : 'objectid';
+KEYWORD_71 : 'objectid';
 
-KEYWORD_71 : 'override';
+KEYWORD_72 : 'override';
 
-KEYWORD_72 : 'relative';
+KEYWORD_73 : 'relative';
 
-KEYWORD_58 : 'accepts';
+KEYWORD_59 : 'accepts';
 
-KEYWORD_59 : 'context';
+KEYWORD_60 : 'context';
 
-KEYWORD_60 : 'default';
+KEYWORD_61 : 'default';
 
-KEYWORD_61 : 'figures';
+KEYWORD_62 : 'figures';
 
-KEYWORD_62 : 'include';
+KEYWORD_63 : 'include';
 
-KEYWORD_63 : 'partial';
+KEYWORD_64 : 'partial';
 
-KEYWORD_64 : 'version';
+KEYWORD_65 : 'version';
 
-KEYWORD_47 : 'change';
+KEYWORD_48 : 'change';
 
-KEYWORD_48 : 'chords';
+KEYWORD_49 : 'chords';
 
-KEYWORD_49 : 'denies';
+KEYWORD_50 : 'denies';
 
-KEYWORD_50 : 'header';
+KEYWORD_51 : 'header';
 
-KEYWORD_51 : 'layout';
+KEYWORD_52 : 'layout';
 
-KEYWORD_52 : 'lyrics';
+KEYWORD_53 : 'lyrics';
 
-KEYWORD_53 : 'markup';
+KEYWORD_54 : 'markup';
 
-KEYWORD_54 : 'octave';
+KEYWORD_55 : 'octave';
 
-KEYWORD_55 : 'remove';
+KEYWORD_56 : 'remove';
 
-KEYWORD_56 : 'repeat';
+KEYWORD_57 : 'repeat';
 
-KEYWORD_57 : 'revert';
+KEYWORD_58 : 'revert';
 
-KEYWORD_40 : 'alias';
+KEYWORD_41 : 'alias';
 
-KEYWORD_41 : 'drums';
+KEYWORD_42 : 'drums';
 
-KEYWORD_42 : 'paper';
+KEYWORD_43 : 'paper';
 
-KEYWORD_43 : 'score';
+KEYWORD_44 : 'score';
 
-KEYWORD_44 : 'tempo';
+KEYWORD_45 : 'tempo';
 
-KEYWORD_45 : 'times';
+KEYWORD_46 : 'times';
 
-KEYWORD_46 : 'unset';
+KEYWORD_47 : 'unset';
 
-KEYWORD_30 : 'book';
+KEYWORD_31 : 'book';
 
-KEYWORD_31 : 'mark';
+KEYWORD_32 : 'mark';
 
-KEYWORD_32 : 'midi';
+KEYWORD_33 : 'midi';
 
-KEYWORD_33 : 'name';
+KEYWORD_34 : 'name';
 
-KEYWORD_34 : 'once';
+KEYWORD_35 : 'once';
 
-KEYWORD_35 : 'rest';
+KEYWORD_36 : 'rest';
 
-KEYWORD_36 : 'skip';
+KEYWORD_37 : 'skip';
 
-KEYWORD_37 : 'time';
+KEYWORD_38 : 'time';
 
-KEYWORD_38 : 'type';
+KEYWORD_39 : 'type';
 
-KEYWORD_39 : 'with';
+KEYWORD_40 : 'with';
 
-KEYWORD_27 : 'key';
+KEYWORD_28 : 'key';
 
-KEYWORD_28 : 'new';
+KEYWORD_29 : 'new';
 
-KEYWORD_29 : 'set';
+KEYWORD_30 : 'set';
 
-KEYWORD_20 : '#:';
+KEYWORD_21 : '#:';
 
-KEYWORD_21 : '#\\';
+KEYWORD_22 : '#\\';
 
-KEYWORD_22 : '#{';
+KEYWORD_23 : '#{';
 
-KEYWORD_23 : '#}';
+KEYWORD_24 : '#}';
 
-KEYWORD_24 : '<<';
+KEYWORD_25 : '<<';
 
-KEYWORD_25 : '>>';
+KEYWORD_26 : '>>';
 
-KEYWORD_26 : '\\\\';
+KEYWORD_27 : '\\\\';
 
 KEYWORD_1 : '!';
 
@@ -168,27 +168,29 @@ KEYWORD_7 : '+';
 
 KEYWORD_8 : ',';
 
-KEYWORD_9 : ':';
+KEYWORD_9 : '-';
 
-KEYWORD_10 : '<';
+KEYWORD_10 : ':';
 
-KEYWORD_11 : '=';
+KEYWORD_11 : '<';
 
-KEYWORD_12 : '>';
+KEYWORD_12 : '=';
 
-KEYWORD_13 : '[';
+KEYWORD_13 : '>';
 
-KEYWORD_14 : '\\';
+KEYWORD_14 : '[';
 
-KEYWORD_15 : ']';
+KEYWORD_15 : '\\';
 
-KEYWORD_16 : '`';
+KEYWORD_16 : ']';
 
-KEYWORD_17 : '{';
+KEYWORD_17 : '`';
 
-KEYWORD_18 : '}';
+KEYWORD_18 : '{';
 
-KEYWORD_19 : '~';
+KEYWORD_19 : '}';
+
+KEYWORD_20 : '~';
 
 
 
@@ -196,7 +198,7 @@ RULE_STRING : '"' ('\\' ('b'|'t'|'n'|'f'|'r'|'"'|'\''|'\\')|~(('\\'|'"')))* '"';
 
 RULE_INT : ('0'..'9')+;
 
-RULE_ID : ('a'..'z'|'A'..'Z') ('a'..'z'|'A'..'Z'|'-')*;
+RULE_ALPHA : ('a'..'z'|'A'..'Z')+;
 
 RULE_WS : (' '|'\t'|'\r'|'\n')+;
 

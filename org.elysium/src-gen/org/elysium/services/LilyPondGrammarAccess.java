@@ -109,27 +109,27 @@ public class LilyPondGrammarAccess extends AbstractGrammarElementFinder {
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Assignment cNameAssignment_0 = (Assignment)cGroup.eContents().get(0);
 		private final Alternatives cNameAlternatives_0_0 = (Alternatives)cNameAssignment_0.eContents().get(0);
-		private final RuleCall cNameIDTerminalRuleCall_0_0_0 = (RuleCall)cNameAlternatives_0_0.eContents().get(0);
+		private final RuleCall cNameIdentifierParserRuleCall_0_0_0 = (RuleCall)cNameAlternatives_0_0.eContents().get(0);
 		private final RuleCall cNameSTRINGTerminalRuleCall_0_0_1 = (RuleCall)cNameAlternatives_0_0.eContents().get(1);
 		private final Keyword cEqualsSignKeyword_1 = (Keyword)cGroup.eContents().get(1);
 		private final Assignment cValueAssignment_2 = (Assignment)cGroup.eContents().get(2);
 		private final RuleCall cValueExpressionParserRuleCall_2_0 = (RuleCall)cValueAssignment_2.eContents().get(0);
 		
 		//Assignment:
-		//	name=(ID | STRING) "=" value=Expression;
+		//	name=(Identifier | STRING) "=" value=Expression;
 		public ParserRule getRule() { return rule; }
 
-		//name=(ID | STRING) "=" value=Expression
+		//name=(Identifier | STRING) "=" value=Expression
 		public Group getGroup() { return cGroup; }
 
-		//name=(ID | STRING)
+		//name=(Identifier | STRING)
 		public Assignment getNameAssignment_0() { return cNameAssignment_0; }
 
-		//ID | STRING
+		//Identifier | STRING
 		public Alternatives getNameAlternatives_0_0() { return cNameAlternatives_0_0; }
 
-		//ID
-		public RuleCall getNameIDTerminalRuleCall_0_0_0() { return cNameIDTerminalRuleCall_0_0_0; }
+		//Identifier
+		public RuleCall getNameIdentifierParserRuleCall_0_0_0() { return cNameIdentifierParserRuleCall_0_0_0; }
 
 		//STRING
 		public RuleCall getNameSTRINGTerminalRuleCall_0_0_1() { return cNameSTRINGTerminalRuleCall_0_0_1; }
@@ -149,27 +149,27 @@ public class LilyPondGrammarAccess extends AbstractGrammarElementFinder {
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Assignment cIdAssignment_0 = (Assignment)cGroup.eContents().get(0);
 		private final Alternatives cIdAlternatives_0_0 = (Alternatives)cIdAssignment_0.eContents().get(0);
-		private final RuleCall cIdIDTerminalRuleCall_0_0_0 = (RuleCall)cIdAlternatives_0_0.eContents().get(0);
+		private final RuleCall cIdIdentifierParserRuleCall_0_0_0 = (RuleCall)cIdAlternatives_0_0.eContents().get(0);
 		private final RuleCall cIdSTRINGTerminalRuleCall_0_0_1 = (RuleCall)cIdAlternatives_0_0.eContents().get(1);
 		private final Keyword cEqualsSignKeyword_1 = (Keyword)cGroup.eContents().get(1);
 		private final Assignment cValueAssignment_2 = (Assignment)cGroup.eContents().get(2);
 		private final RuleCall cValueExpressionParserRuleCall_2_0 = (RuleCall)cValueAssignment_2.eContents().get(0);
 		
 		//PropertyAssignment:
-		//	id=(ID | STRING) "=" value=Expression;
+		//	id=(Identifier | STRING) "=" value=Expression;
 		public ParserRule getRule() { return rule; }
 
-		//id=(ID | STRING) "=" value=Expression
+		//id=(Identifier | STRING) "=" value=Expression
 		public Group getGroup() { return cGroup; }
 
-		//id=(ID | STRING)
+		//id=(Identifier | STRING)
 		public Assignment getIdAssignment_0() { return cIdAssignment_0; }
 
-		//ID | STRING
+		//Identifier | STRING
 		public Alternatives getIdAlternatives_0_0() { return cIdAlternatives_0_0; }
 
-		//ID
-		public RuleCall getIdIDTerminalRuleCall_0_0_0() { return cIdIDTerminalRuleCall_0_0_0; }
+		//Identifier
+		public RuleCall getIdIdentifierParserRuleCall_0_0_0() { return cIdIdentifierParserRuleCall_0_0_0; }
 
 		//STRING
 		public RuleCall getIdSTRINGTerminalRuleCall_0_0_1() { return cIdSTRINGTerminalRuleCall_0_0_1; }
@@ -940,27 +940,27 @@ public class LilyPondGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cReverseSolidusKeyword_0 = (Keyword)cGroup.eContents().get(0);
 		private final Assignment cCommandAssignment_1 = (Assignment)cGroup.eContents().get(1);
 		private final Alternatives cCommandAlternatives_1_0 = (Alternatives)cCommandAssignment_1.eContents().get(0);
-		private final RuleCall cCommandIDTerminalRuleCall_1_0_0 = (RuleCall)cCommandAlternatives_1_0.eContents().get(0);
+		private final RuleCall cCommandIdentifierParserRuleCall_1_0_0 = (RuleCall)cCommandAlternatives_1_0.eContents().get(0);
 		private final RuleCall cCommandSpecialCommandNameParserRuleCall_1_0_1 = (RuleCall)cCommandAlternatives_1_0.eContents().get(1);
 		
 		//UnparsedCommand:
-		//	"\\" command=(ID | SpecialCommandName);
+		//	"\\" command=(Identifier | SpecialCommandName);
 		public ParserRule getRule() { return rule; }
 
-		//"\\" command=(ID | SpecialCommandName)
+		//"\\" command=(Identifier | SpecialCommandName)
 		public Group getGroup() { return cGroup; }
 
 		//"\\"
 		public Keyword getReverseSolidusKeyword_0() { return cReverseSolidusKeyword_0; }
 
-		//command=(ID | SpecialCommandName)
+		//command=(Identifier | SpecialCommandName)
 		public Assignment getCommandAssignment_1() { return cCommandAssignment_1; }
 
-		//ID | SpecialCommandName
+		//Identifier | SpecialCommandName
 		public Alternatives getCommandAlternatives_1_0() { return cCommandAlternatives_1_0; }
 
-		//ID
-		public RuleCall getCommandIDTerminalRuleCall_1_0_0() { return cCommandIDTerminalRuleCall_1_0_0; }
+		//Identifier
+		public RuleCall getCommandIdentifierParserRuleCall_1_0_0() { return cCommandIdentifierParserRuleCall_1_0_0; }
 
 		//SpecialCommandName
 		public RuleCall getCommandSpecialCommandNameParserRuleCall_1_0_1() { return cCommandSpecialCommandNameParserRuleCall_1_0_1; }
@@ -972,26 +972,26 @@ public class LilyPondGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cReverseSolidusKeyword_0 = (Keyword)cGroup.eContents().get(0);
 		private final Assignment cAssignmentAssignment_1 = (Assignment)cGroup.eContents().get(1);
 		private final CrossReference cAssignmentAssignmentCrossReference_1_0 = (CrossReference)cAssignmentAssignment_1.eContents().get(0);
-		private final RuleCall cAssignmentAssignmentIDTerminalRuleCall_1_0_1 = (RuleCall)cAssignmentAssignmentCrossReference_1_0.eContents().get(1);
+		private final RuleCall cAssignmentAssignmentIdentifierParserRuleCall_1_0_1 = (RuleCall)cAssignmentAssignmentCrossReference_1_0.eContents().get(1);
 		
 		//Reference:
-		//	"\\" assignment=[Assignment];
+		//	"\\" assignment=[Assignment|Identifier];
 		public ParserRule getRule() { return rule; }
 
-		//"\\" assignment=[Assignment]
+		//"\\" assignment=[Assignment|Identifier]
 		public Group getGroup() { return cGroup; }
 
 		//"\\"
 		public Keyword getReverseSolidusKeyword_0() { return cReverseSolidusKeyword_0; }
 
-		//assignment=[Assignment]
+		//assignment=[Assignment|Identifier]
 		public Assignment getAssignmentAssignment_1() { return cAssignmentAssignment_1; }
 
-		//[Assignment]
+		//[Assignment|Identifier]
 		public CrossReference getAssignmentAssignmentCrossReference_1_0() { return cAssignmentAssignmentCrossReference_1_0; }
 
-		//ID
-		public RuleCall getAssignmentAssignmentIDTerminalRuleCall_1_0_1() { return cAssignmentAssignmentIDTerminalRuleCall_1_0_1; }
+		//Identifier
+		public RuleCall getAssignmentAssignmentIdentifierParserRuleCall_1_0_1() { return cAssignmentAssignmentIdentifierParserRuleCall_1_0_1; }
 	}
 
 	public class TextElements extends AbstractParserRuleElementFinder {
@@ -1260,28 +1260,28 @@ public class LilyPondGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cNumberSignReverseSolidusKeyword_0 = (Keyword)cGroup.eContents().get(0);
 		private final Assignment cValueAssignment_1 = (Assignment)cGroup.eContents().get(1);
 		private final Alternatives cValueAlternatives_1_0 = (Alternatives)cValueAssignment_1.eContents().get(0);
-		private final RuleCall cValueIDTerminalRuleCall_1_0_0 = (RuleCall)cValueAlternatives_1_0.eContents().get(0);
+		private final RuleCall cValueALPHATerminalRuleCall_1_0_0 = (RuleCall)cValueAlternatives_1_0.eContents().get(0);
 		private final RuleCall cValueSpecialCharacterParserRuleCall_1_0_1 = (RuleCall)cValueAlternatives_1_0.eContents().get(1);
 		private final RuleCall cValueANY_OTHERTerminalRuleCall_1_0_2 = (RuleCall)cValueAlternatives_1_0.eContents().get(2);
 		
 		//SchemeCharacter:
-		//	"#\\" value=(ID | SpecialCharacter | ANY_OTHER);
+		//	"#\\" value=(ALPHA | SpecialCharacter | ANY_OTHER);
 		public ParserRule getRule() { return rule; }
 
-		//"#\\" value=(ID | SpecialCharacter | ANY_OTHER)
+		//"#\\" value=(ALPHA | SpecialCharacter | ANY_OTHER)
 		public Group getGroup() { return cGroup; }
 
 		//"#\\"
 		public Keyword getNumberSignReverseSolidusKeyword_0() { return cNumberSignReverseSolidusKeyword_0; }
 
-		//value=(ID | SpecialCharacter | ANY_OTHER)
+		//value=(ALPHA | SpecialCharacter | ANY_OTHER)
 		public Assignment getValueAssignment_1() { return cValueAssignment_1; }
 
-		//ID | SpecialCharacter | ANY_OTHER
+		//ALPHA | SpecialCharacter | ANY_OTHER
 		public Alternatives getValueAlternatives_1_0() { return cValueAlternatives_1_0; }
 
-		//ID
-		public RuleCall getValueIDTerminalRuleCall_1_0_0() { return cValueIDTerminalRuleCall_1_0_0; }
+		//ALPHA
+		public RuleCall getValueALPHATerminalRuleCall_1_0_0() { return cValueALPHATerminalRuleCall_1_0_0; }
 
 		//SpecialCharacter
 		public RuleCall getValueSpecialCharacterParserRuleCall_1_0_1() { return cValueSpecialCharacterParserRuleCall_1_0_1; }
@@ -1339,17 +1339,18 @@ public class LilyPondGrammarAccess extends AbstractGrammarElementFinder {
 		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
 		private final Keyword cReverseSolidusReverseSolidusKeyword_0 = (Keyword)cAlternatives.eContents().get(0);
 		private final Keyword cEqualsSignKeyword_1 = (Keyword)cAlternatives.eContents().get(1);
-		private final RuleCall cSpecialCharacterParserRuleCall_2 = (RuleCall)cAlternatives.eContents().get(2);
-		private final RuleCall cSpecialCommandNameParserRuleCall_3 = (RuleCall)cAlternatives.eContents().get(3);
-		private final RuleCall cIDTerminalRuleCall_4 = (RuleCall)cAlternatives.eContents().get(4);
-		private final RuleCall cSTRINGTerminalRuleCall_5 = (RuleCall)cAlternatives.eContents().get(5);
-		private final RuleCall cANY_OTHERTerminalRuleCall_6 = (RuleCall)cAlternatives.eContents().get(6);
+		private final Keyword cHyphenMinusKeyword_2 = (Keyword)cAlternatives.eContents().get(2);
+		private final RuleCall cSpecialCharacterParserRuleCall_3 = (RuleCall)cAlternatives.eContents().get(3);
+		private final RuleCall cSpecialCommandNameParserRuleCall_4 = (RuleCall)cAlternatives.eContents().get(4);
+		private final RuleCall cIdentifierParserRuleCall_5 = (RuleCall)cAlternatives.eContents().get(5);
+		private final RuleCall cSTRINGTerminalRuleCall_6 = (RuleCall)cAlternatives.eContents().get(6);
+		private final RuleCall cANY_OTHERTerminalRuleCall_7 = (RuleCall)cAlternatives.eContents().get(7);
 		
 		//SchemeTextLiteral returns ecore::EString:
-		//	"\\\\" | "=" | SpecialCharacter | SpecialCommandName | ID | STRING | ANY_OTHER;
+		//	"\\\\" | "=" | "-" | SpecialCharacter | SpecialCommandName | Identifier | STRING | ANY_OTHER;
 		public ParserRule getRule() { return rule; }
 
-		//"\\\\" | "=" | SpecialCharacter | SpecialCommandName | ID | STRING | ANY_OTHER
+		//"\\\\" | "=" | "-" | SpecialCharacter | SpecialCommandName | Identifier | STRING | ANY_OTHER
 		public Alternatives getAlternatives() { return cAlternatives; }
 
 		//"\\\\"
@@ -1358,20 +1359,23 @@ public class LilyPondGrammarAccess extends AbstractGrammarElementFinder {
 		//"="
 		public Keyword getEqualsSignKeyword_1() { return cEqualsSignKeyword_1; }
 
+		//"-"
+		public Keyword getHyphenMinusKeyword_2() { return cHyphenMinusKeyword_2; }
+
 		//SpecialCharacter
-		public RuleCall getSpecialCharacterParserRuleCall_2() { return cSpecialCharacterParserRuleCall_2; }
+		public RuleCall getSpecialCharacterParserRuleCall_3() { return cSpecialCharacterParserRuleCall_3; }
 
 		//SpecialCommandName
-		public RuleCall getSpecialCommandNameParserRuleCall_3() { return cSpecialCommandNameParserRuleCall_3; }
+		public RuleCall getSpecialCommandNameParserRuleCall_4() { return cSpecialCommandNameParserRuleCall_4; }
 
-		//ID
-		public RuleCall getIDTerminalRuleCall_4() { return cIDTerminalRuleCall_4; }
+		//Identifier
+		public RuleCall getIdentifierParserRuleCall_5() { return cIdentifierParserRuleCall_5; }
 
 		//STRING
-		public RuleCall getSTRINGTerminalRuleCall_5() { return cSTRINGTerminalRuleCall_5; }
+		public RuleCall getSTRINGTerminalRuleCall_6() { return cSTRINGTerminalRuleCall_6; }
 
 		//ANY_OTHER
-		public RuleCall getANY_OTHERTerminalRuleCall_6() { return cANY_OTHERTerminalRuleCall_6; }
+		public RuleCall getANY_OTHERTerminalRuleCall_7() { return cANY_OTHERTerminalRuleCall_7; }
 	}
 
 	public class SchemeNumberElements extends AbstractParserRuleElementFinder {
@@ -1406,20 +1410,20 @@ public class LilyPondGrammarAccess extends AbstractGrammarElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "SchemeNumberRadix");
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Keyword cNumberSignKeyword_0 = (Keyword)cGroup.eContents().get(0);
-		private final RuleCall cIDTerminalRuleCall_1 = (RuleCall)cGroup.eContents().get(1);
+		private final RuleCall cALPHATerminalRuleCall_1 = (RuleCall)cGroup.eContents().get(1);
 		
 		//SchemeNumberRadix returns ecore::EString:
-		//	"#" ID;
+		//	"#" ALPHA;
 		public ParserRule getRule() { return rule; }
 
-		//"#" ID
+		//"#" ALPHA
 		public Group getGroup() { return cGroup; }
 
 		//"#"
 		public Keyword getNumberSignKeyword_0() { return cNumberSignKeyword_0; }
 
-		//ID
-		public RuleCall getIDTerminalRuleCall_1() { return cIDTerminalRuleCall_1; }
+		//ALPHA
+		public RuleCall getALPHATerminalRuleCall_1() { return cALPHATerminalRuleCall_1; }
 	}
 
 	public class SchemeMarkupCommandElements extends AbstractParserRuleElementFinder {
@@ -1428,50 +1432,78 @@ public class LilyPondGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cNumberSignColonKeyword_0 = (Keyword)cGroup.eContents().get(0);
 		private final Assignment cCommandAssignment_1 = (Assignment)cGroup.eContents().get(1);
 		private final Alternatives cCommandAlternatives_1_0 = (Alternatives)cCommandAssignment_1.eContents().get(0);
-		private final RuleCall cCommandIDTerminalRuleCall_1_0_0 = (RuleCall)cCommandAlternatives_1_0.eContents().get(0);
+		private final RuleCall cCommandIdentifierParserRuleCall_1_0_0 = (RuleCall)cCommandAlternatives_1_0.eContents().get(0);
 		private final RuleCall cCommandSpecialCommandNameParserRuleCall_1_0_1 = (RuleCall)cCommandAlternatives_1_0.eContents().get(1);
 		
 		//SchemeMarkupCommand hidden():
-		//	"#:" command=(ID | SpecialCommandName);
+		//	"#:" command=(Identifier | SpecialCommandName);
 		public ParserRule getRule() { return rule; }
 
-		//"#:" command=(ID | SpecialCommandName)
+		//"#:" command=(Identifier | SpecialCommandName)
 		public Group getGroup() { return cGroup; }
 
 		//"#:"
 		public Keyword getNumberSignColonKeyword_0() { return cNumberSignColonKeyword_0; }
 
-		//command=(ID | SpecialCommandName)
+		//command=(Identifier | SpecialCommandName)
 		public Assignment getCommandAssignment_1() { return cCommandAssignment_1; }
 
-		//ID | SpecialCommandName
+		//Identifier | SpecialCommandName
 		public Alternatives getCommandAlternatives_1_0() { return cCommandAlternatives_1_0; }
 
-		//ID
-		public RuleCall getCommandIDTerminalRuleCall_1_0_0() { return cCommandIDTerminalRuleCall_1_0_0; }
+		//Identifier
+		public RuleCall getCommandIdentifierParserRuleCall_1_0_0() { return cCommandIdentifierParserRuleCall_1_0_0; }
 
 		//SpecialCommandName
 		public RuleCall getCommandSpecialCommandNameParserRuleCall_1_0_1() { return cCommandSpecialCommandNameParserRuleCall_1_0_1; }
+	}
+
+	public class IdentifierElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "Identifier");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final RuleCall cALPHATerminalRuleCall_0 = (RuleCall)cGroup.eContents().get(0);
+		private final Group cGroup_1 = (Group)cGroup.eContents().get(1);
+		private final Keyword cHyphenMinusKeyword_1_0 = (Keyword)cGroup_1.eContents().get(0);
+		private final RuleCall cALPHATerminalRuleCall_1_1 = (RuleCall)cGroup_1.eContents().get(1);
+		
+		//Identifier returns ecore::EString hidden():
+		//	ALPHA ("-" ALPHA)*;
+		public ParserRule getRule() { return rule; }
+
+		//ALPHA ("-" ALPHA)*
+		public Group getGroup() { return cGroup; }
+
+		//ALPHA
+		public RuleCall getALPHATerminalRuleCall_0() { return cALPHATerminalRuleCall_0; }
+
+		//("-" ALPHA)*
+		public Group getGroup_1() { return cGroup_1; }
+
+		//"-"
+		public Keyword getHyphenMinusKeyword_1_0() { return cHyphenMinusKeyword_1_0; }
+
+		//ALPHA
+		public RuleCall getALPHATerminalRuleCall_1_1() { return cALPHATerminalRuleCall_1_1; }
 	}
 
 	public class BooleanElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "Boolean");
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Keyword cNumberSignKeyword_0 = (Keyword)cGroup.eContents().get(0);
-		private final RuleCall cIDTerminalRuleCall_1 = (RuleCall)cGroup.eContents().get(1);
+		private final RuleCall cALPHATerminalRuleCall_1 = (RuleCall)cGroup.eContents().get(1);
 		
 		//Boolean returns ecore::EBoolean:
-		//	"#" ID;
+		//	"#" ALPHA;
 		public ParserRule getRule() { return rule; }
 
-		//"#" ID
+		//"#" ALPHA
 		public Group getGroup() { return cGroup; }
 
 		//"#"
 		public Keyword getNumberSignKeyword_0() { return cNumberSignKeyword_0; }
 
-		//ID
-		public RuleCall getIDTerminalRuleCall_1() { return cIDTerminalRuleCall_1; }
+		//ALPHA
+		public RuleCall getALPHATerminalRuleCall_1() { return cALPHATerminalRuleCall_1; }
 	}
 	
 	
@@ -1515,10 +1547,11 @@ public class LilyPondGrammarAccess extends AbstractGrammarElementFinder {
 	private SchemeNumberElements pSchemeNumber;
 	private SchemeNumberRadixElements pSchemeNumberRadix;
 	private SchemeMarkupCommandElements pSchemeMarkupCommand;
+	private IdentifierElements pIdentifier;
 	private BooleanElements pBoolean;
 	private TerminalRule tSTRING;
 	private TerminalRule tINT;
-	private TerminalRule tID;
+	private TerminalRule tALPHA;
 	private TerminalRule tWS;
 	private TerminalRule tSL_COMMENT;
 	private TerminalRule tML_COMMENT;
@@ -1580,7 +1613,7 @@ public class LilyPondGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//Assignment:
-	//	name=(ID | STRING) "=" value=Expression;
+	//	name=(Identifier | STRING) "=" value=Expression;
 	public AssignmentElements getAssignmentAccess() {
 		return (pAssignment != null) ? pAssignment : (pAssignment = new AssignmentElements());
 	}
@@ -1590,7 +1623,7 @@ public class LilyPondGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//PropertyAssignment:
-	//	id=(ID | STRING) "=" value=Expression;
+	//	id=(Identifier | STRING) "=" value=Expression;
 	public PropertyAssignmentElements getPropertyAssignmentAccess() {
 		return (pPropertyAssignment != null) ? pPropertyAssignment : (pPropertyAssignment = new PropertyAssignmentElements());
 	}
@@ -1775,7 +1808,7 @@ public class LilyPondGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//UnparsedCommand:
-	//	"\\" command=(ID | SpecialCommandName);
+	//	"\\" command=(Identifier | SpecialCommandName);
 	public UnparsedCommandElements getUnparsedCommandAccess() {
 		return (pUnparsedCommand != null) ? pUnparsedCommand : (pUnparsedCommand = new UnparsedCommandElements());
 	}
@@ -1785,7 +1818,7 @@ public class LilyPondGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//Reference:
-	//	"\\" assignment=[Assignment];
+	//	"\\" assignment=[Assignment|Identifier];
 	public ReferenceElements getReferenceAccess() {
 		return (pReference != null) ? pReference : (pReference = new ReferenceElements());
 	}
@@ -1875,7 +1908,7 @@ public class LilyPondGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//SchemeCharacter:
-	//	"#\\" value=(ID | SpecialCharacter | ANY_OTHER);
+	//	"#\\" value=(ALPHA | SpecialCharacter | ANY_OTHER);
 	public SchemeCharacterElements getSchemeCharacterAccess() {
 		return (pSchemeCharacter != null) ? pSchemeCharacter : (pSchemeCharacter = new SchemeCharacterElements());
 	}
@@ -1905,7 +1938,7 @@ public class LilyPondGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//SchemeTextLiteral returns ecore::EString:
-	//	"\\\\" | "=" | SpecialCharacter | SpecialCommandName | ID | STRING | ANY_OTHER;
+	//	"\\\\" | "=" | "-" | SpecialCharacter | SpecialCommandName | Identifier | STRING | ANY_OTHER;
 	public SchemeTextLiteralElements getSchemeTextLiteralAccess() {
 		return (pSchemeTextLiteral != null) ? pSchemeTextLiteral : (pSchemeTextLiteral = new SchemeTextLiteralElements());
 	}
@@ -1925,7 +1958,7 @@ public class LilyPondGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//SchemeNumberRadix returns ecore::EString:
-	//	"#" ID;
+	//	"#" ALPHA;
 	public SchemeNumberRadixElements getSchemeNumberRadixAccess() {
 		return (pSchemeNumberRadix != null) ? pSchemeNumberRadix : (pSchemeNumberRadix = new SchemeNumberRadixElements());
 	}
@@ -1935,7 +1968,7 @@ public class LilyPondGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//SchemeMarkupCommand hidden():
-	//	"#:" command=(ID | SpecialCommandName);
+	//	"#:" command=(Identifier | SpecialCommandName);
 	public SchemeMarkupCommandElements getSchemeMarkupCommandAccess() {
 		return (pSchemeMarkupCommand != null) ? pSchemeMarkupCommand : (pSchemeMarkupCommand = new SchemeMarkupCommandElements());
 	}
@@ -1944,8 +1977,18 @@ public class LilyPondGrammarAccess extends AbstractGrammarElementFinder {
 		return getSchemeMarkupCommandAccess().getRule();
 	}
 
+	//Identifier returns ecore::EString hidden():
+	//	ALPHA ("-" ALPHA)*;
+	public IdentifierElements getIdentifierAccess() {
+		return (pIdentifier != null) ? pIdentifier : (pIdentifier = new IdentifierElements());
+	}
+	
+	public ParserRule getIdentifierRule() {
+		return getIdentifierAccess().getRule();
+	}
+
 	//Boolean returns ecore::EBoolean:
-	//	"#" ID;
+	//	"#" ALPHA;
 	public BooleanElements getBooleanAccess() {
 		return (pBoolean != null) ? pBoolean : (pBoolean = new BooleanElements());
 	}
@@ -1966,10 +2009,10 @@ public class LilyPondGrammarAccess extends AbstractGrammarElementFinder {
 		return (tINT != null) ? tINT : (tINT = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "INT"));
 	} 
 
-	//terminal ID:
-	//	("a".."z" | "A".."Z") ("a".."z" | "A".."Z" | "-")*;
-	public TerminalRule getIDRule() {
-		return (tID != null) ? tID : (tID = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "ID"));
+	//terminal ALPHA:
+	//	("a".."z" | "A".."Z")+;
+	public TerminalRule getALPHARule() {
+		return (tALPHA != null) ? tALPHA : (tALPHA = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "ALPHA"));
 	} 
 
 	//terminal WS:

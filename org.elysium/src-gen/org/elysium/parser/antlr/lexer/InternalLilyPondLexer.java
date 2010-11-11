@@ -12,53 +12,52 @@ import java.util.ArrayList;
 
 @SuppressWarnings("all")
 public class InternalLilyPondLexer extends Lexer {
-    public static final int RULE_ID=93;
-    public static final int RULE_SCHEME_SL_COMMENT=97;
-    public static final int RULE_ANY_OTHER=99;
-    public static final int KEYWORD_56=43;
-    public static final int KEYWORD_55=42;
-    public static final int KEYWORD_54=41;
-    public static final int KEYWORD_53=40;
-    public static final int KEYWORD_52=39;
-    public static final int KEYWORD_51=38;
-    public static final int KEYWORD_50=37;
+    public static final int RULE_SCHEME_SL_COMMENT=98;
+    public static final int RULE_ANY_OTHER=100;
+    public static final int KEYWORD_56=42;
+    public static final int KEYWORD_55=41;
+    public static final int KEYWORD_54=40;
+    public static final int KEYWORD_53=39;
+    public static final int KEYWORD_52=38;
+    public static final int KEYWORD_51=37;
+    public static final int KEYWORD_50=36;
     public static final int EOF=-1;
-    public static final int KEYWORD_59=28;
-    public static final int KEYWORD_58=27;
-    public static final int KEYWORD_57=44;
-    public static final int KEYWORD_65=19;
-    public static final int RULE_SCHEME_ML_COMMENT=98;
-    public static final int KEYWORD_64=33;
-    public static final int KEYWORD_67=21;
-    public static final int KEYWORD_66=20;
-    public static final int KEYWORD_61=30;
-    public static final int KEYWORD_60=29;
-    public static final int KEYWORD_63=32;
-    public static final int KEYWORD_62=31;
-    public static final int KEYWORD_69=23;
-    public static final int KEYWORD_68=22;
-    public static final int KEYWORD_30=52;
-    public static final int KEYWORD_34=56;
-    public static final int KEYWORD_33=55;
-    public static final int KEYWORD_32=54;
-    public static final int KEYWORD_31=53;
-    public static final int KEYWORD_38=60;
-    public static final int KEYWORD_37=59;
-    public static final int KEYWORD_36=58;
-    public static final int KEYWORD_35=57;
-    public static final int RULE_ML_COMMENT=96;
-    public static final int KEYWORD_39=61;
-    public static final int RULE_STRING=91;
-    public static final int KEYWORD_41=46;
-    public static final int KEYWORD_40=45;
-    public static final int KEYWORD_43=48;
-    public static final int KEYWORD_42=47;
-    public static final int KEYWORD_45=50;
-    public static final int KEYWORD_44=49;
-    public static final int KEYWORD_47=34;
-    public static final int KEYWORD_46=51;
-    public static final int KEYWORD_49=36;
-    public static final int KEYWORD_48=35;
+    public static final int KEYWORD_59=27;
+    public static final int KEYWORD_58=44;
+    public static final int KEYWORD_57=43;
+    public static final int KEYWORD_65=33;
+    public static final int RULE_SCHEME_ML_COMMENT=99;
+    public static final int KEYWORD_64=32;
+    public static final int KEYWORD_67=20;
+    public static final int KEYWORD_66=19;
+    public static final int KEYWORD_61=29;
+    public static final int KEYWORD_60=28;
+    public static final int KEYWORD_63=31;
+    public static final int KEYWORD_62=30;
+    public static final int KEYWORD_69=22;
+    public static final int KEYWORD_68=21;
+    public static final int KEYWORD_30=64;
+    public static final int KEYWORD_34=55;
+    public static final int KEYWORD_33=54;
+    public static final int KEYWORD_32=53;
+    public static final int KEYWORD_31=52;
+    public static final int KEYWORD_38=59;
+    public static final int KEYWORD_37=58;
+    public static final int KEYWORD_36=57;
+    public static final int KEYWORD_35=56;
+    public static final int RULE_ML_COMMENT=97;
+    public static final int KEYWORD_39=60;
+    public static final int RULE_STRING=92;
+    public static final int KEYWORD_41=45;
+    public static final int KEYWORD_40=61;
+    public static final int KEYWORD_43=47;
+    public static final int KEYWORD_42=46;
+    public static final int KEYWORD_45=49;
+    public static final int KEYWORD_44=48;
+    public static final int KEYWORD_47=51;
+    public static final int KEYWORD_46=50;
+    public static final int KEYWORD_49=35;
+    public static final int KEYWORD_48=34;
     public static final int KEYWORD_19=90;
     public static final int KEYWORD_17=88;
     public static final int KEYWORD_18=89;
@@ -73,53 +72,55 @@ public class InternalLilyPondLexer extends Lexer {
     public static final int KEYWORD_7=78;
     public static final int KEYWORD_8=79;
     public static final int KEYWORD_9=80;
-    public static final int KEYWORD_28=63;
-    public static final int KEYWORD_29=64;
-    public static final int RULE_INT=92;
-    public static final int KEYWORD_24=69;
-    public static final int KEYWORD_25=70;
-    public static final int KEYWORD_26=71;
-    public static final int KEYWORD_27=62;
-    public static final int KEYWORD_20=65;
-    public static final int KEYWORD_21=66;
-    public static final int KEYWORD_22=67;
-    public static final int KEYWORD_23=68;
-    public static final int KEYWORD_79=13;
-    public static final int KEYWORD_71=25;
-    public static final int KEYWORD_72=26;
-    public static final int KEYWORD_73=14;
-    public static final int KEYWORD_74=15;
-    public static final int KEYWORD_75=16;
-    public static final int KEYWORD_76=17;
-    public static final int KEYWORD_77=18;
-    public static final int KEYWORD_78=12;
+    public static final int KEYWORD_28=62;
+    public static final int KEYWORD_29=63;
+    public static final int RULE_INT=93;
+    public static final int KEYWORD_24=68;
+    public static final int KEYWORD_25=69;
+    public static final int KEYWORD_26=70;
+    public static final int KEYWORD_27=71;
+    public static final int KEYWORD_20=91;
+    public static final int KEYWORD_21=65;
+    public static final int KEYWORD_22=66;
+    public static final int KEYWORD_23=67;
+    public static final int KEYWORD_79=12;
+    public static final int KEYWORD_71=24;
+    public static final int KEYWORD_72=25;
+    public static final int KEYWORD_73=26;
+    public static final int KEYWORD_74=14;
+    public static final int KEYWORD_75=15;
+    public static final int KEYWORD_76=16;
+    public static final int KEYWORD_77=17;
+    public static final int KEYWORD_78=18;
     public static final int KEYWORD_1=72;
     public static final int KEYWORD_5=76;
     public static final int KEYWORD_4=75;
-    public static final int KEYWORD_70=24;
+    public static final int RULE_ALPHA=94;
+    public static final int KEYWORD_70=23;
     public static final int KEYWORD_3=74;
     public static final int KEYWORD_2=73;
-    public static final int Tokens=100;
-    public static final int RULE_SL_COMMENT=95;
-    public static final int KEYWORD_84=8;
-    public static final int KEYWORD_85=5;
-    public static final int KEYWORD_82=11;
-    public static final int KEYWORD_83=7;
-    public static final int KEYWORD_86=6;
-    public static final int KEYWORD_87=4;
-    public static final int KEYWORD_81=10;
-    public static final int KEYWORD_80=9;
-    public static final int RULE_WS=94;
+    public static final int Tokens=101;
+    public static final int RULE_SL_COMMENT=96;
+    public static final int KEYWORD_84=7;
+    public static final int KEYWORD_85=8;
+    public static final int KEYWORD_82=10;
+    public static final int KEYWORD_83=11;
+    public static final int KEYWORD_88=4;
+    public static final int KEYWORD_86=5;
+    public static final int KEYWORD_87=6;
+    public static final int KEYWORD_81=9;
+    public static final int KEYWORD_80=13;
+    public static final int RULE_WS=95;
     public InternalLilyPondLexer() {;} 
     public InternalLilyPondLexer(CharStream input) {
         super(input);
     }
     public String getGrammarFileName() { return "../org.elysium/src-gen/org/elysium/parser/antlr/lexer/InternalLilyPond.g"; }
 
-    // $ANTLR start KEYWORD_87
-    public final void mKEYWORD_87() throws RecognitionException {
+    // $ANTLR start KEYWORD_88
+    public final void mKEYWORD_88() throws RecognitionException {
         try {
-            int _type = KEYWORD_87;
+            int _type = KEYWORD_88;
             // ../org.elysium/src-gen/org/elysium/parser/antlr/lexer/InternalLilyPond.g:19:12: ( 'grobdescriptions' )
             // ../org.elysium/src-gen/org/elysium/parser/antlr/lexer/InternalLilyPond.g:19:14: 'grobdescriptions'
             {
@@ -133,12 +134,12 @@ public class InternalLilyPondLexer extends Lexer {
         finally {
         }
     }
-    // $ANTLR end KEYWORD_87
+    // $ANTLR end KEYWORD_88
 
-    // $ANTLR start KEYWORD_85
-    public final void mKEYWORD_85() throws RecognitionException {
+    // $ANTLR start KEYWORD_86
+    public final void mKEYWORD_86() throws RecognitionException {
         try {
-            int _type = KEYWORD_85;
+            int _type = KEYWORD_86;
             // ../org.elysium/src-gen/org/elysium/parser/antlr/lexer/InternalLilyPond.g:21:12: ( 'sourcefileline' )
             // ../org.elysium/src-gen/org/elysium/parser/antlr/lexer/InternalLilyPond.g:21:14: 'sourcefileline'
             {
@@ -152,12 +153,12 @@ public class InternalLilyPondLexer extends Lexer {
         finally {
         }
     }
-    // $ANTLR end KEYWORD_85
+    // $ANTLR end KEYWORD_86
 
-    // $ANTLR start KEYWORD_86
-    public final void mKEYWORD_86() throws RecognitionException {
+    // $ANTLR start KEYWORD_87
+    public final void mKEYWORD_87() throws RecognitionException {
         try {
-            int _type = KEYWORD_86;
+            int _type = KEYWORD_87;
             // ../org.elysium/src-gen/org/elysium/parser/antlr/lexer/InternalLilyPond.g:23:12: ( 'sourcefilename' )
             // ../org.elysium/src-gen/org/elysium/parser/antlr/lexer/InternalLilyPond.g:23:14: 'sourcefilename'
             {
@@ -171,12 +172,12 @@ public class InternalLilyPondLexer extends Lexer {
         finally {
         }
     }
-    // $ANTLR end KEYWORD_86
+    // $ANTLR end KEYWORD_87
 
-    // $ANTLR start KEYWORD_83
-    public final void mKEYWORD_83() throws RecognitionException {
+    // $ANTLR start KEYWORD_84
+    public final void mKEYWORD_84() throws RecognitionException {
         try {
-            int _type = KEYWORD_83;
+            int _type = KEYWORD_84;
             // ../org.elysium/src-gen/org/elysium/parser/antlr/lexer/InternalLilyPond.g:25:12: ( 'defaultchild' )
             // ../org.elysium/src-gen/org/elysium/parser/antlr/lexer/InternalLilyPond.g:25:14: 'defaultchild'
             {
@@ -190,12 +191,12 @@ public class InternalLilyPondLexer extends Lexer {
         finally {
         }
     }
-    // $ANTLR end KEYWORD_83
+    // $ANTLR end KEYWORD_84
 
-    // $ANTLR start KEYWORD_84
-    public final void mKEYWORD_84() throws RecognitionException {
+    // $ANTLR start KEYWORD_85
+    public final void mKEYWORD_85() throws RecognitionException {
         try {
-            int _type = KEYWORD_84;
+            int _type = KEYWORD_85;
             // ../org.elysium/src-gen/org/elysium/parser/antlr/lexer/InternalLilyPond.g:27:12: ( 'simultaneous' )
             // ../org.elysium/src-gen/org/elysium/parser/antlr/lexer/InternalLilyPond.g:27:14: 'simultaneous'
             {
@@ -209,35 +210,16 @@ public class InternalLilyPondLexer extends Lexer {
         finally {
         }
     }
-    // $ANTLR end KEYWORD_84
-
-    // $ANTLR start KEYWORD_80
-    public final void mKEYWORD_80() throws RecognitionException {
-        try {
-            int _type = KEYWORD_80;
-            // ../org.elysium/src-gen/org/elysium/parser/antlr/lexer/InternalLilyPond.g:29:12: ( 'alternative' )
-            // ../org.elysium/src-gen/org/elysium/parser/antlr/lexer/InternalLilyPond.g:29:14: 'alternative'
-            {
-            match("alternative"); 
-
-
-            }
-
-            this.type = _type;
-        }
-        finally {
-        }
-    }
-    // $ANTLR end KEYWORD_80
+    // $ANTLR end KEYWORD_85
 
     // $ANTLR start KEYWORD_81
     public final void mKEYWORD_81() throws RecognitionException {
         try {
             int _type = KEYWORD_81;
-            // ../org.elysium/src-gen/org/elysium/parser/antlr/lexer/InternalLilyPond.g:31:12: ( 'description' )
-            // ../org.elysium/src-gen/org/elysium/parser/antlr/lexer/InternalLilyPond.g:31:14: 'description'
+            // ../org.elysium/src-gen/org/elysium/parser/antlr/lexer/InternalLilyPond.g:29:12: ( 'alternative' )
+            // ../org.elysium/src-gen/org/elysium/parser/antlr/lexer/InternalLilyPond.g:29:14: 'alternative'
             {
-            match("description"); 
+            match("alternative"); 
 
 
             }
@@ -253,6 +235,25 @@ public class InternalLilyPondLexer extends Lexer {
     public final void mKEYWORD_82() throws RecognitionException {
         try {
             int _type = KEYWORD_82;
+            // ../org.elysium/src-gen/org/elysium/parser/antlr/lexer/InternalLilyPond.g:31:12: ( 'description' )
+            // ../org.elysium/src-gen/org/elysium/parser/antlr/lexer/InternalLilyPond.g:31:14: 'description'
+            {
+            match("description"); 
+
+
+            }
+
+            this.type = _type;
+        }
+        finally {
+        }
+    }
+    // $ANTLR end KEYWORD_82
+
+    // $ANTLR start KEYWORD_83
+    public final void mKEYWORD_83() throws RecognitionException {
+        try {
+            int _type = KEYWORD_83;
             // ../org.elysium/src-gen/org/elysium/parser/antlr/lexer/InternalLilyPond.g:33:12: ( 'markuplines' )
             // ../org.elysium/src-gen/org/elysium/parser/antlr/lexer/InternalLilyPond.g:33:14: 'markuplines'
             {
@@ -266,12 +267,12 @@ public class InternalLilyPondLexer extends Lexer {
         finally {
         }
     }
-    // $ANTLR end KEYWORD_82
+    // $ANTLR end KEYWORD_83
 
-    // $ANTLR start KEYWORD_78
-    public final void mKEYWORD_78() throws RecognitionException {
+    // $ANTLR start KEYWORD_79
+    public final void mKEYWORD_79() throws RecognitionException {
         try {
-            int _type = KEYWORD_78;
+            int _type = KEYWORD_79;
             // ../org.elysium/src-gen/org/elysium/parser/antlr/lexer/InternalLilyPond.g:35:12: ( 'figuremode' )
             // ../org.elysium/src-gen/org/elysium/parser/antlr/lexer/InternalLilyPond.g:35:14: 'figuremode'
             {
@@ -285,12 +286,12 @@ public class InternalLilyPondLexer extends Lexer {
         finally {
         }
     }
-    // $ANTLR end KEYWORD_78
+    // $ANTLR end KEYWORD_79
 
-    // $ANTLR start KEYWORD_79
-    public final void mKEYWORD_79() throws RecognitionException {
+    // $ANTLR start KEYWORD_80
+    public final void mKEYWORD_80() throws RecognitionException {
         try {
-            int _type = KEYWORD_79;
+            int _type = KEYWORD_80;
             // ../org.elysium/src-gen/org/elysium/parser/antlr/lexer/InternalLilyPond.g:37:12: ( 'sequential' )
             // ../org.elysium/src-gen/org/elysium/parser/antlr/lexer/InternalLilyPond.g:37:14: 'sequential'
             {
@@ -304,35 +305,16 @@ public class InternalLilyPondLexer extends Lexer {
         finally {
         }
     }
-    // $ANTLR end KEYWORD_79
-
-    // $ANTLR start KEYWORD_73
-    public final void mKEYWORD_73() throws RecognitionException {
-        try {
-            int _type = KEYWORD_73;
-            // ../org.elysium/src-gen/org/elysium/parser/antlr/lexer/InternalLilyPond.g:39:12: ( 'addlyrics' )
-            // ../org.elysium/src-gen/org/elysium/parser/antlr/lexer/InternalLilyPond.g:39:14: 'addlyrics'
-            {
-            match("addlyrics"); 
-
-
-            }
-
-            this.type = _type;
-        }
-        finally {
-        }
-    }
-    // $ANTLR end KEYWORD_73
+    // $ANTLR end KEYWORD_80
 
     // $ANTLR start KEYWORD_74
     public final void mKEYWORD_74() throws RecognitionException {
         try {
             int _type = KEYWORD_74;
-            // ../org.elysium/src-gen/org/elysium/parser/antlr/lexer/InternalLilyPond.g:41:12: ( 'chordmode' )
-            // ../org.elysium/src-gen/org/elysium/parser/antlr/lexer/InternalLilyPond.g:41:14: 'chordmode'
+            // ../org.elysium/src-gen/org/elysium/parser/antlr/lexer/InternalLilyPond.g:39:12: ( 'addlyrics' )
+            // ../org.elysium/src-gen/org/elysium/parser/antlr/lexer/InternalLilyPond.g:39:14: 'addlyrics'
             {
-            match("chordmode"); 
+            match("addlyrics"); 
 
 
             }
@@ -348,10 +330,10 @@ public class InternalLilyPondLexer extends Lexer {
     public final void mKEYWORD_75() throws RecognitionException {
         try {
             int _type = KEYWORD_75;
-            // ../org.elysium/src-gen/org/elysium/parser/antlr/lexer/InternalLilyPond.g:43:12: ( 'lyricmode' )
-            // ../org.elysium/src-gen/org/elysium/parser/antlr/lexer/InternalLilyPond.g:43:14: 'lyricmode'
+            // ../org.elysium/src-gen/org/elysium/parser/antlr/lexer/InternalLilyPond.g:41:12: ( 'chordmode' )
+            // ../org.elysium/src-gen/org/elysium/parser/antlr/lexer/InternalLilyPond.g:41:14: 'chordmode'
             {
-            match("lyricmode"); 
+            match("chordmode"); 
 
 
             }
@@ -367,10 +349,10 @@ public class InternalLilyPondLexer extends Lexer {
     public final void mKEYWORD_76() throws RecognitionException {
         try {
             int _type = KEYWORD_76;
-            // ../org.elysium/src-gen/org/elysium/parser/antlr/lexer/InternalLilyPond.g:45:12: ( 'maininput' )
-            // ../org.elysium/src-gen/org/elysium/parser/antlr/lexer/InternalLilyPond.g:45:14: 'maininput'
+            // ../org.elysium/src-gen/org/elysium/parser/antlr/lexer/InternalLilyPond.g:43:12: ( 'lyricmode' )
+            // ../org.elysium/src-gen/org/elysium/parser/antlr/lexer/InternalLilyPond.g:43:14: 'lyricmode'
             {
-            match("maininput"); 
+            match("lyricmode"); 
 
 
             }
@@ -386,6 +368,25 @@ public class InternalLilyPondLexer extends Lexer {
     public final void mKEYWORD_77() throws RecognitionException {
         try {
             int _type = KEYWORD_77;
+            // ../org.elysium/src-gen/org/elysium/parser/antlr/lexer/InternalLilyPond.g:45:12: ( 'maininput' )
+            // ../org.elysium/src-gen/org/elysium/parser/antlr/lexer/InternalLilyPond.g:45:14: 'maininput'
+            {
+            match("maininput"); 
+
+
+            }
+
+            this.type = _type;
+        }
+        finally {
+        }
+    }
+    // $ANTLR end KEYWORD_77
+
+    // $ANTLR start KEYWORD_78
+    public final void mKEYWORD_78() throws RecognitionException {
+        try {
+            int _type = KEYWORD_78;
             // ../org.elysium/src-gen/org/elysium/parser/antlr/lexer/InternalLilyPond.g:47:12: ( 'transpose' )
             // ../org.elysium/src-gen/org/elysium/parser/antlr/lexer/InternalLilyPond.g:47:14: 'transpose'
             {
@@ -399,35 +400,16 @@ public class InternalLilyPondLexer extends Lexer {
         finally {
         }
     }
-    // $ANTLR end KEYWORD_77
-
-    // $ANTLR start KEYWORD_65
-    public final void mKEYWORD_65() throws RecognitionException {
-        try {
-            int _type = KEYWORD_65;
-            // ../org.elysium/src-gen/org/elysium/parser/antlr/lexer/InternalLilyPond.g:49:12: ( 'bookpart' )
-            // ../org.elysium/src-gen/org/elysium/parser/antlr/lexer/InternalLilyPond.g:49:14: 'bookpart'
-            {
-            match("bookpart"); 
-
-
-            }
-
-            this.type = _type;
-        }
-        finally {
-        }
-    }
-    // $ANTLR end KEYWORD_65
+    // $ANTLR end KEYWORD_78
 
     // $ANTLR start KEYWORD_66
     public final void mKEYWORD_66() throws RecognitionException {
         try {
             int _type = KEYWORD_66;
-            // ../org.elysium/src-gen/org/elysium/parser/antlr/lexer/InternalLilyPond.g:51:12: ( 'consists' )
-            // ../org.elysium/src-gen/org/elysium/parser/antlr/lexer/InternalLilyPond.g:51:14: 'consists'
+            // ../org.elysium/src-gen/org/elysium/parser/antlr/lexer/InternalLilyPond.g:49:12: ( 'bookpart' )
+            // ../org.elysium/src-gen/org/elysium/parser/antlr/lexer/InternalLilyPond.g:49:14: 'bookpart'
             {
-            match("consists"); 
+            match("bookpart"); 
 
 
             }
@@ -443,10 +425,10 @@ public class InternalLilyPondLexer extends Lexer {
     public final void mKEYWORD_67() throws RecognitionException {
         try {
             int _type = KEYWORD_67;
-            // ../org.elysium/src-gen/org/elysium/parser/antlr/lexer/InternalLilyPond.g:53:12: ( 'drummode' )
-            // ../org.elysium/src-gen/org/elysium/parser/antlr/lexer/InternalLilyPond.g:53:14: 'drummode'
+            // ../org.elysium/src-gen/org/elysium/parser/antlr/lexer/InternalLilyPond.g:51:12: ( 'consists' )
+            // ../org.elysium/src-gen/org/elysium/parser/antlr/lexer/InternalLilyPond.g:51:14: 'consists'
             {
-            match("drummode"); 
+            match("consists"); 
 
 
             }
@@ -462,10 +444,10 @@ public class InternalLilyPondLexer extends Lexer {
     public final void mKEYWORD_68() throws RecognitionException {
         try {
             int _type = KEYWORD_68;
-            // ../org.elysium/src-gen/org/elysium/parser/antlr/lexer/InternalLilyPond.g:55:12: ( 'lyricsto' )
-            // ../org.elysium/src-gen/org/elysium/parser/antlr/lexer/InternalLilyPond.g:55:14: 'lyricsto'
+            // ../org.elysium/src-gen/org/elysium/parser/antlr/lexer/InternalLilyPond.g:53:12: ( 'drummode' )
+            // ../org.elysium/src-gen/org/elysium/parser/antlr/lexer/InternalLilyPond.g:53:14: 'drummode'
             {
-            match("lyricsto"); 
+            match("drummode"); 
 
 
             }
@@ -481,10 +463,10 @@ public class InternalLilyPondLexer extends Lexer {
     public final void mKEYWORD_69() throws RecognitionException {
         try {
             int _type = KEYWORD_69;
-            // ../org.elysium/src-gen/org/elysium/parser/antlr/lexer/InternalLilyPond.g:57:12: ( 'notemode' )
-            // ../org.elysium/src-gen/org/elysium/parser/antlr/lexer/InternalLilyPond.g:57:14: 'notemode'
+            // ../org.elysium/src-gen/org/elysium/parser/antlr/lexer/InternalLilyPond.g:55:12: ( 'lyricsto' )
+            // ../org.elysium/src-gen/org/elysium/parser/antlr/lexer/InternalLilyPond.g:55:14: 'lyricsto'
             {
-            match("notemode"); 
+            match("lyricsto"); 
 
 
             }
@@ -500,10 +482,10 @@ public class InternalLilyPondLexer extends Lexer {
     public final void mKEYWORD_70() throws RecognitionException {
         try {
             int _type = KEYWORD_70;
-            // ../org.elysium/src-gen/org/elysium/parser/antlr/lexer/InternalLilyPond.g:59:12: ( 'objectid' )
-            // ../org.elysium/src-gen/org/elysium/parser/antlr/lexer/InternalLilyPond.g:59:14: 'objectid'
+            // ../org.elysium/src-gen/org/elysium/parser/antlr/lexer/InternalLilyPond.g:57:12: ( 'notemode' )
+            // ../org.elysium/src-gen/org/elysium/parser/antlr/lexer/InternalLilyPond.g:57:14: 'notemode'
             {
-            match("objectid"); 
+            match("notemode"); 
 
 
             }
@@ -519,10 +501,10 @@ public class InternalLilyPondLexer extends Lexer {
     public final void mKEYWORD_71() throws RecognitionException {
         try {
             int _type = KEYWORD_71;
-            // ../org.elysium/src-gen/org/elysium/parser/antlr/lexer/InternalLilyPond.g:61:12: ( 'override' )
-            // ../org.elysium/src-gen/org/elysium/parser/antlr/lexer/InternalLilyPond.g:61:14: 'override'
+            // ../org.elysium/src-gen/org/elysium/parser/antlr/lexer/InternalLilyPond.g:59:12: ( 'objectid' )
+            // ../org.elysium/src-gen/org/elysium/parser/antlr/lexer/InternalLilyPond.g:59:14: 'objectid'
             {
-            match("override"); 
+            match("objectid"); 
 
 
             }
@@ -538,6 +520,25 @@ public class InternalLilyPondLexer extends Lexer {
     public final void mKEYWORD_72() throws RecognitionException {
         try {
             int _type = KEYWORD_72;
+            // ../org.elysium/src-gen/org/elysium/parser/antlr/lexer/InternalLilyPond.g:61:12: ( 'override' )
+            // ../org.elysium/src-gen/org/elysium/parser/antlr/lexer/InternalLilyPond.g:61:14: 'override'
+            {
+            match("override"); 
+
+
+            }
+
+            this.type = _type;
+        }
+        finally {
+        }
+    }
+    // $ANTLR end KEYWORD_72
+
+    // $ANTLR start KEYWORD_73
+    public final void mKEYWORD_73() throws RecognitionException {
+        try {
+            int _type = KEYWORD_73;
             // ../org.elysium/src-gen/org/elysium/parser/antlr/lexer/InternalLilyPond.g:63:12: ( 'relative' )
             // ../org.elysium/src-gen/org/elysium/parser/antlr/lexer/InternalLilyPond.g:63:14: 'relative'
             {
@@ -551,35 +552,16 @@ public class InternalLilyPondLexer extends Lexer {
         finally {
         }
     }
-    // $ANTLR end KEYWORD_72
-
-    // $ANTLR start KEYWORD_58
-    public final void mKEYWORD_58() throws RecognitionException {
-        try {
-            int _type = KEYWORD_58;
-            // ../org.elysium/src-gen/org/elysium/parser/antlr/lexer/InternalLilyPond.g:65:12: ( 'accepts' )
-            // ../org.elysium/src-gen/org/elysium/parser/antlr/lexer/InternalLilyPond.g:65:14: 'accepts'
-            {
-            match("accepts"); 
-
-
-            }
-
-            this.type = _type;
-        }
-        finally {
-        }
-    }
-    // $ANTLR end KEYWORD_58
+    // $ANTLR end KEYWORD_73
 
     // $ANTLR start KEYWORD_59
     public final void mKEYWORD_59() throws RecognitionException {
         try {
             int _type = KEYWORD_59;
-            // ../org.elysium/src-gen/org/elysium/parser/antlr/lexer/InternalLilyPond.g:67:12: ( 'context' )
-            // ../org.elysium/src-gen/org/elysium/parser/antlr/lexer/InternalLilyPond.g:67:14: 'context'
+            // ../org.elysium/src-gen/org/elysium/parser/antlr/lexer/InternalLilyPond.g:65:12: ( 'accepts' )
+            // ../org.elysium/src-gen/org/elysium/parser/antlr/lexer/InternalLilyPond.g:65:14: 'accepts'
             {
-            match("context"); 
+            match("accepts"); 
 
 
             }
@@ -595,10 +577,10 @@ public class InternalLilyPondLexer extends Lexer {
     public final void mKEYWORD_60() throws RecognitionException {
         try {
             int _type = KEYWORD_60;
-            // ../org.elysium/src-gen/org/elysium/parser/antlr/lexer/InternalLilyPond.g:69:12: ( 'default' )
-            // ../org.elysium/src-gen/org/elysium/parser/antlr/lexer/InternalLilyPond.g:69:14: 'default'
+            // ../org.elysium/src-gen/org/elysium/parser/antlr/lexer/InternalLilyPond.g:67:12: ( 'context' )
+            // ../org.elysium/src-gen/org/elysium/parser/antlr/lexer/InternalLilyPond.g:67:14: 'context'
             {
-            match("default"); 
+            match("context"); 
 
 
             }
@@ -614,10 +596,10 @@ public class InternalLilyPondLexer extends Lexer {
     public final void mKEYWORD_61() throws RecognitionException {
         try {
             int _type = KEYWORD_61;
-            // ../org.elysium/src-gen/org/elysium/parser/antlr/lexer/InternalLilyPond.g:71:12: ( 'figures' )
-            // ../org.elysium/src-gen/org/elysium/parser/antlr/lexer/InternalLilyPond.g:71:14: 'figures'
+            // ../org.elysium/src-gen/org/elysium/parser/antlr/lexer/InternalLilyPond.g:69:12: ( 'default' )
+            // ../org.elysium/src-gen/org/elysium/parser/antlr/lexer/InternalLilyPond.g:69:14: 'default'
             {
-            match("figures"); 
+            match("default"); 
 
 
             }
@@ -633,10 +615,10 @@ public class InternalLilyPondLexer extends Lexer {
     public final void mKEYWORD_62() throws RecognitionException {
         try {
             int _type = KEYWORD_62;
-            // ../org.elysium/src-gen/org/elysium/parser/antlr/lexer/InternalLilyPond.g:73:12: ( 'include' )
-            // ../org.elysium/src-gen/org/elysium/parser/antlr/lexer/InternalLilyPond.g:73:14: 'include'
+            // ../org.elysium/src-gen/org/elysium/parser/antlr/lexer/InternalLilyPond.g:71:12: ( 'figures' )
+            // ../org.elysium/src-gen/org/elysium/parser/antlr/lexer/InternalLilyPond.g:71:14: 'figures'
             {
-            match("include"); 
+            match("figures"); 
 
 
             }
@@ -652,10 +634,10 @@ public class InternalLilyPondLexer extends Lexer {
     public final void mKEYWORD_63() throws RecognitionException {
         try {
             int _type = KEYWORD_63;
-            // ../org.elysium/src-gen/org/elysium/parser/antlr/lexer/InternalLilyPond.g:75:12: ( 'partial' )
-            // ../org.elysium/src-gen/org/elysium/parser/antlr/lexer/InternalLilyPond.g:75:14: 'partial'
+            // ../org.elysium/src-gen/org/elysium/parser/antlr/lexer/InternalLilyPond.g:73:12: ( 'include' )
+            // ../org.elysium/src-gen/org/elysium/parser/antlr/lexer/InternalLilyPond.g:73:14: 'include'
             {
-            match("partial"); 
+            match("include"); 
 
 
             }
@@ -671,6 +653,25 @@ public class InternalLilyPondLexer extends Lexer {
     public final void mKEYWORD_64() throws RecognitionException {
         try {
             int _type = KEYWORD_64;
+            // ../org.elysium/src-gen/org/elysium/parser/antlr/lexer/InternalLilyPond.g:75:12: ( 'partial' )
+            // ../org.elysium/src-gen/org/elysium/parser/antlr/lexer/InternalLilyPond.g:75:14: 'partial'
+            {
+            match("partial"); 
+
+
+            }
+
+            this.type = _type;
+        }
+        finally {
+        }
+    }
+    // $ANTLR end KEYWORD_64
+
+    // $ANTLR start KEYWORD_65
+    public final void mKEYWORD_65() throws RecognitionException {
+        try {
+            int _type = KEYWORD_65;
             // ../org.elysium/src-gen/org/elysium/parser/antlr/lexer/InternalLilyPond.g:77:12: ( 'version' )
             // ../org.elysium/src-gen/org/elysium/parser/antlr/lexer/InternalLilyPond.g:77:14: 'version'
             {
@@ -684,35 +685,16 @@ public class InternalLilyPondLexer extends Lexer {
         finally {
         }
     }
-    // $ANTLR end KEYWORD_64
-
-    // $ANTLR start KEYWORD_47
-    public final void mKEYWORD_47() throws RecognitionException {
-        try {
-            int _type = KEYWORD_47;
-            // ../org.elysium/src-gen/org/elysium/parser/antlr/lexer/InternalLilyPond.g:79:12: ( 'change' )
-            // ../org.elysium/src-gen/org/elysium/parser/antlr/lexer/InternalLilyPond.g:79:14: 'change'
-            {
-            match("change"); 
-
-
-            }
-
-            this.type = _type;
-        }
-        finally {
-        }
-    }
-    // $ANTLR end KEYWORD_47
+    // $ANTLR end KEYWORD_65
 
     // $ANTLR start KEYWORD_48
     public final void mKEYWORD_48() throws RecognitionException {
         try {
             int _type = KEYWORD_48;
-            // ../org.elysium/src-gen/org/elysium/parser/antlr/lexer/InternalLilyPond.g:81:12: ( 'chords' )
-            // ../org.elysium/src-gen/org/elysium/parser/antlr/lexer/InternalLilyPond.g:81:14: 'chords'
+            // ../org.elysium/src-gen/org/elysium/parser/antlr/lexer/InternalLilyPond.g:79:12: ( 'change' )
+            // ../org.elysium/src-gen/org/elysium/parser/antlr/lexer/InternalLilyPond.g:79:14: 'change'
             {
-            match("chords"); 
+            match("change"); 
 
 
             }
@@ -728,10 +710,10 @@ public class InternalLilyPondLexer extends Lexer {
     public final void mKEYWORD_49() throws RecognitionException {
         try {
             int _type = KEYWORD_49;
-            // ../org.elysium/src-gen/org/elysium/parser/antlr/lexer/InternalLilyPond.g:83:12: ( 'denies' )
-            // ../org.elysium/src-gen/org/elysium/parser/antlr/lexer/InternalLilyPond.g:83:14: 'denies'
+            // ../org.elysium/src-gen/org/elysium/parser/antlr/lexer/InternalLilyPond.g:81:12: ( 'chords' )
+            // ../org.elysium/src-gen/org/elysium/parser/antlr/lexer/InternalLilyPond.g:81:14: 'chords'
             {
-            match("denies"); 
+            match("chords"); 
 
 
             }
@@ -747,10 +729,10 @@ public class InternalLilyPondLexer extends Lexer {
     public final void mKEYWORD_50() throws RecognitionException {
         try {
             int _type = KEYWORD_50;
-            // ../org.elysium/src-gen/org/elysium/parser/antlr/lexer/InternalLilyPond.g:85:12: ( 'header' )
-            // ../org.elysium/src-gen/org/elysium/parser/antlr/lexer/InternalLilyPond.g:85:14: 'header'
+            // ../org.elysium/src-gen/org/elysium/parser/antlr/lexer/InternalLilyPond.g:83:12: ( 'denies' )
+            // ../org.elysium/src-gen/org/elysium/parser/antlr/lexer/InternalLilyPond.g:83:14: 'denies'
             {
-            match("header"); 
+            match("denies"); 
 
 
             }
@@ -766,10 +748,10 @@ public class InternalLilyPondLexer extends Lexer {
     public final void mKEYWORD_51() throws RecognitionException {
         try {
             int _type = KEYWORD_51;
-            // ../org.elysium/src-gen/org/elysium/parser/antlr/lexer/InternalLilyPond.g:87:12: ( 'layout' )
-            // ../org.elysium/src-gen/org/elysium/parser/antlr/lexer/InternalLilyPond.g:87:14: 'layout'
+            // ../org.elysium/src-gen/org/elysium/parser/antlr/lexer/InternalLilyPond.g:85:12: ( 'header' )
+            // ../org.elysium/src-gen/org/elysium/parser/antlr/lexer/InternalLilyPond.g:85:14: 'header'
             {
-            match("layout"); 
+            match("header"); 
 
 
             }
@@ -785,10 +767,10 @@ public class InternalLilyPondLexer extends Lexer {
     public final void mKEYWORD_52() throws RecognitionException {
         try {
             int _type = KEYWORD_52;
-            // ../org.elysium/src-gen/org/elysium/parser/antlr/lexer/InternalLilyPond.g:89:12: ( 'lyrics' )
-            // ../org.elysium/src-gen/org/elysium/parser/antlr/lexer/InternalLilyPond.g:89:14: 'lyrics'
+            // ../org.elysium/src-gen/org/elysium/parser/antlr/lexer/InternalLilyPond.g:87:12: ( 'layout' )
+            // ../org.elysium/src-gen/org/elysium/parser/antlr/lexer/InternalLilyPond.g:87:14: 'layout'
             {
-            match("lyrics"); 
+            match("layout"); 
 
 
             }
@@ -804,10 +786,10 @@ public class InternalLilyPondLexer extends Lexer {
     public final void mKEYWORD_53() throws RecognitionException {
         try {
             int _type = KEYWORD_53;
-            // ../org.elysium/src-gen/org/elysium/parser/antlr/lexer/InternalLilyPond.g:91:12: ( 'markup' )
-            // ../org.elysium/src-gen/org/elysium/parser/antlr/lexer/InternalLilyPond.g:91:14: 'markup'
+            // ../org.elysium/src-gen/org/elysium/parser/antlr/lexer/InternalLilyPond.g:89:12: ( 'lyrics' )
+            // ../org.elysium/src-gen/org/elysium/parser/antlr/lexer/InternalLilyPond.g:89:14: 'lyrics'
             {
-            match("markup"); 
+            match("lyrics"); 
 
 
             }
@@ -823,10 +805,10 @@ public class InternalLilyPondLexer extends Lexer {
     public final void mKEYWORD_54() throws RecognitionException {
         try {
             int _type = KEYWORD_54;
-            // ../org.elysium/src-gen/org/elysium/parser/antlr/lexer/InternalLilyPond.g:93:12: ( 'octave' )
-            // ../org.elysium/src-gen/org/elysium/parser/antlr/lexer/InternalLilyPond.g:93:14: 'octave'
+            // ../org.elysium/src-gen/org/elysium/parser/antlr/lexer/InternalLilyPond.g:91:12: ( 'markup' )
+            // ../org.elysium/src-gen/org/elysium/parser/antlr/lexer/InternalLilyPond.g:91:14: 'markup'
             {
-            match("octave"); 
+            match("markup"); 
 
 
             }
@@ -842,10 +824,10 @@ public class InternalLilyPondLexer extends Lexer {
     public final void mKEYWORD_55() throws RecognitionException {
         try {
             int _type = KEYWORD_55;
-            // ../org.elysium/src-gen/org/elysium/parser/antlr/lexer/InternalLilyPond.g:95:12: ( 'remove' )
-            // ../org.elysium/src-gen/org/elysium/parser/antlr/lexer/InternalLilyPond.g:95:14: 'remove'
+            // ../org.elysium/src-gen/org/elysium/parser/antlr/lexer/InternalLilyPond.g:93:12: ( 'octave' )
+            // ../org.elysium/src-gen/org/elysium/parser/antlr/lexer/InternalLilyPond.g:93:14: 'octave'
             {
-            match("remove"); 
+            match("octave"); 
 
 
             }
@@ -861,10 +843,10 @@ public class InternalLilyPondLexer extends Lexer {
     public final void mKEYWORD_56() throws RecognitionException {
         try {
             int _type = KEYWORD_56;
-            // ../org.elysium/src-gen/org/elysium/parser/antlr/lexer/InternalLilyPond.g:97:12: ( 'repeat' )
-            // ../org.elysium/src-gen/org/elysium/parser/antlr/lexer/InternalLilyPond.g:97:14: 'repeat'
+            // ../org.elysium/src-gen/org/elysium/parser/antlr/lexer/InternalLilyPond.g:95:12: ( 'remove' )
+            // ../org.elysium/src-gen/org/elysium/parser/antlr/lexer/InternalLilyPond.g:95:14: 'remove'
             {
-            match("repeat"); 
+            match("remove"); 
 
 
             }
@@ -880,6 +862,25 @@ public class InternalLilyPondLexer extends Lexer {
     public final void mKEYWORD_57() throws RecognitionException {
         try {
             int _type = KEYWORD_57;
+            // ../org.elysium/src-gen/org/elysium/parser/antlr/lexer/InternalLilyPond.g:97:12: ( 'repeat' )
+            // ../org.elysium/src-gen/org/elysium/parser/antlr/lexer/InternalLilyPond.g:97:14: 'repeat'
+            {
+            match("repeat"); 
+
+
+            }
+
+            this.type = _type;
+        }
+        finally {
+        }
+    }
+    // $ANTLR end KEYWORD_57
+
+    // $ANTLR start KEYWORD_58
+    public final void mKEYWORD_58() throws RecognitionException {
+        try {
+            int _type = KEYWORD_58;
             // ../org.elysium/src-gen/org/elysium/parser/antlr/lexer/InternalLilyPond.g:99:12: ( 'revert' )
             // ../org.elysium/src-gen/org/elysium/parser/antlr/lexer/InternalLilyPond.g:99:14: 'revert'
             {
@@ -893,35 +894,16 @@ public class InternalLilyPondLexer extends Lexer {
         finally {
         }
     }
-    // $ANTLR end KEYWORD_57
-
-    // $ANTLR start KEYWORD_40
-    public final void mKEYWORD_40() throws RecognitionException {
-        try {
-            int _type = KEYWORD_40;
-            // ../org.elysium/src-gen/org/elysium/parser/antlr/lexer/InternalLilyPond.g:101:12: ( 'alias' )
-            // ../org.elysium/src-gen/org/elysium/parser/antlr/lexer/InternalLilyPond.g:101:14: 'alias'
-            {
-            match("alias"); 
-
-
-            }
-
-            this.type = _type;
-        }
-        finally {
-        }
-    }
-    // $ANTLR end KEYWORD_40
+    // $ANTLR end KEYWORD_58
 
     // $ANTLR start KEYWORD_41
     public final void mKEYWORD_41() throws RecognitionException {
         try {
             int _type = KEYWORD_41;
-            // ../org.elysium/src-gen/org/elysium/parser/antlr/lexer/InternalLilyPond.g:103:12: ( 'drums' )
-            // ../org.elysium/src-gen/org/elysium/parser/antlr/lexer/InternalLilyPond.g:103:14: 'drums'
+            // ../org.elysium/src-gen/org/elysium/parser/antlr/lexer/InternalLilyPond.g:101:12: ( 'alias' )
+            // ../org.elysium/src-gen/org/elysium/parser/antlr/lexer/InternalLilyPond.g:101:14: 'alias'
             {
-            match("drums"); 
+            match("alias"); 
 
 
             }
@@ -937,10 +919,10 @@ public class InternalLilyPondLexer extends Lexer {
     public final void mKEYWORD_42() throws RecognitionException {
         try {
             int _type = KEYWORD_42;
-            // ../org.elysium/src-gen/org/elysium/parser/antlr/lexer/InternalLilyPond.g:105:12: ( 'paper' )
-            // ../org.elysium/src-gen/org/elysium/parser/antlr/lexer/InternalLilyPond.g:105:14: 'paper'
+            // ../org.elysium/src-gen/org/elysium/parser/antlr/lexer/InternalLilyPond.g:103:12: ( 'drums' )
+            // ../org.elysium/src-gen/org/elysium/parser/antlr/lexer/InternalLilyPond.g:103:14: 'drums'
             {
-            match("paper"); 
+            match("drums"); 
 
 
             }
@@ -956,10 +938,10 @@ public class InternalLilyPondLexer extends Lexer {
     public final void mKEYWORD_43() throws RecognitionException {
         try {
             int _type = KEYWORD_43;
-            // ../org.elysium/src-gen/org/elysium/parser/antlr/lexer/InternalLilyPond.g:107:12: ( 'score' )
-            // ../org.elysium/src-gen/org/elysium/parser/antlr/lexer/InternalLilyPond.g:107:14: 'score'
+            // ../org.elysium/src-gen/org/elysium/parser/antlr/lexer/InternalLilyPond.g:105:12: ( 'paper' )
+            // ../org.elysium/src-gen/org/elysium/parser/antlr/lexer/InternalLilyPond.g:105:14: 'paper'
             {
-            match("score"); 
+            match("paper"); 
 
 
             }
@@ -975,10 +957,10 @@ public class InternalLilyPondLexer extends Lexer {
     public final void mKEYWORD_44() throws RecognitionException {
         try {
             int _type = KEYWORD_44;
-            // ../org.elysium/src-gen/org/elysium/parser/antlr/lexer/InternalLilyPond.g:109:12: ( 'tempo' )
-            // ../org.elysium/src-gen/org/elysium/parser/antlr/lexer/InternalLilyPond.g:109:14: 'tempo'
+            // ../org.elysium/src-gen/org/elysium/parser/antlr/lexer/InternalLilyPond.g:107:12: ( 'score' )
+            // ../org.elysium/src-gen/org/elysium/parser/antlr/lexer/InternalLilyPond.g:107:14: 'score'
             {
-            match("tempo"); 
+            match("score"); 
 
 
             }
@@ -994,10 +976,10 @@ public class InternalLilyPondLexer extends Lexer {
     public final void mKEYWORD_45() throws RecognitionException {
         try {
             int _type = KEYWORD_45;
-            // ../org.elysium/src-gen/org/elysium/parser/antlr/lexer/InternalLilyPond.g:111:12: ( 'times' )
-            // ../org.elysium/src-gen/org/elysium/parser/antlr/lexer/InternalLilyPond.g:111:14: 'times'
+            // ../org.elysium/src-gen/org/elysium/parser/antlr/lexer/InternalLilyPond.g:109:12: ( 'tempo' )
+            // ../org.elysium/src-gen/org/elysium/parser/antlr/lexer/InternalLilyPond.g:109:14: 'tempo'
             {
-            match("times"); 
+            match("tempo"); 
 
 
             }
@@ -1013,6 +995,25 @@ public class InternalLilyPondLexer extends Lexer {
     public final void mKEYWORD_46() throws RecognitionException {
         try {
             int _type = KEYWORD_46;
+            // ../org.elysium/src-gen/org/elysium/parser/antlr/lexer/InternalLilyPond.g:111:12: ( 'times' )
+            // ../org.elysium/src-gen/org/elysium/parser/antlr/lexer/InternalLilyPond.g:111:14: 'times'
+            {
+            match("times"); 
+
+
+            }
+
+            this.type = _type;
+        }
+        finally {
+        }
+    }
+    // $ANTLR end KEYWORD_46
+
+    // $ANTLR start KEYWORD_47
+    public final void mKEYWORD_47() throws RecognitionException {
+        try {
+            int _type = KEYWORD_47;
             // ../org.elysium/src-gen/org/elysium/parser/antlr/lexer/InternalLilyPond.g:113:12: ( 'unset' )
             // ../org.elysium/src-gen/org/elysium/parser/antlr/lexer/InternalLilyPond.g:113:14: 'unset'
             {
@@ -1026,35 +1027,16 @@ public class InternalLilyPondLexer extends Lexer {
         finally {
         }
     }
-    // $ANTLR end KEYWORD_46
-
-    // $ANTLR start KEYWORD_30
-    public final void mKEYWORD_30() throws RecognitionException {
-        try {
-            int _type = KEYWORD_30;
-            // ../org.elysium/src-gen/org/elysium/parser/antlr/lexer/InternalLilyPond.g:115:12: ( 'book' )
-            // ../org.elysium/src-gen/org/elysium/parser/antlr/lexer/InternalLilyPond.g:115:14: 'book'
-            {
-            match("book"); 
-
-
-            }
-
-            this.type = _type;
-        }
-        finally {
-        }
-    }
-    // $ANTLR end KEYWORD_30
+    // $ANTLR end KEYWORD_47
 
     // $ANTLR start KEYWORD_31
     public final void mKEYWORD_31() throws RecognitionException {
         try {
             int _type = KEYWORD_31;
-            // ../org.elysium/src-gen/org/elysium/parser/antlr/lexer/InternalLilyPond.g:117:12: ( 'mark' )
-            // ../org.elysium/src-gen/org/elysium/parser/antlr/lexer/InternalLilyPond.g:117:14: 'mark'
+            // ../org.elysium/src-gen/org/elysium/parser/antlr/lexer/InternalLilyPond.g:115:12: ( 'book' )
+            // ../org.elysium/src-gen/org/elysium/parser/antlr/lexer/InternalLilyPond.g:115:14: 'book'
             {
-            match("mark"); 
+            match("book"); 
 
 
             }
@@ -1070,10 +1052,10 @@ public class InternalLilyPondLexer extends Lexer {
     public final void mKEYWORD_32() throws RecognitionException {
         try {
             int _type = KEYWORD_32;
-            // ../org.elysium/src-gen/org/elysium/parser/antlr/lexer/InternalLilyPond.g:119:12: ( 'midi' )
-            // ../org.elysium/src-gen/org/elysium/parser/antlr/lexer/InternalLilyPond.g:119:14: 'midi'
+            // ../org.elysium/src-gen/org/elysium/parser/antlr/lexer/InternalLilyPond.g:117:12: ( 'mark' )
+            // ../org.elysium/src-gen/org/elysium/parser/antlr/lexer/InternalLilyPond.g:117:14: 'mark'
             {
-            match("midi"); 
+            match("mark"); 
 
 
             }
@@ -1089,10 +1071,10 @@ public class InternalLilyPondLexer extends Lexer {
     public final void mKEYWORD_33() throws RecognitionException {
         try {
             int _type = KEYWORD_33;
-            // ../org.elysium/src-gen/org/elysium/parser/antlr/lexer/InternalLilyPond.g:121:12: ( 'name' )
-            // ../org.elysium/src-gen/org/elysium/parser/antlr/lexer/InternalLilyPond.g:121:14: 'name'
+            // ../org.elysium/src-gen/org/elysium/parser/antlr/lexer/InternalLilyPond.g:119:12: ( 'midi' )
+            // ../org.elysium/src-gen/org/elysium/parser/antlr/lexer/InternalLilyPond.g:119:14: 'midi'
             {
-            match("name"); 
+            match("midi"); 
 
 
             }
@@ -1108,10 +1090,10 @@ public class InternalLilyPondLexer extends Lexer {
     public final void mKEYWORD_34() throws RecognitionException {
         try {
             int _type = KEYWORD_34;
-            // ../org.elysium/src-gen/org/elysium/parser/antlr/lexer/InternalLilyPond.g:123:12: ( 'once' )
-            // ../org.elysium/src-gen/org/elysium/parser/antlr/lexer/InternalLilyPond.g:123:14: 'once'
+            // ../org.elysium/src-gen/org/elysium/parser/antlr/lexer/InternalLilyPond.g:121:12: ( 'name' )
+            // ../org.elysium/src-gen/org/elysium/parser/antlr/lexer/InternalLilyPond.g:121:14: 'name'
             {
-            match("once"); 
+            match("name"); 
 
 
             }
@@ -1127,10 +1109,10 @@ public class InternalLilyPondLexer extends Lexer {
     public final void mKEYWORD_35() throws RecognitionException {
         try {
             int _type = KEYWORD_35;
-            // ../org.elysium/src-gen/org/elysium/parser/antlr/lexer/InternalLilyPond.g:125:12: ( 'rest' )
-            // ../org.elysium/src-gen/org/elysium/parser/antlr/lexer/InternalLilyPond.g:125:14: 'rest'
+            // ../org.elysium/src-gen/org/elysium/parser/antlr/lexer/InternalLilyPond.g:123:12: ( 'once' )
+            // ../org.elysium/src-gen/org/elysium/parser/antlr/lexer/InternalLilyPond.g:123:14: 'once'
             {
-            match("rest"); 
+            match("once"); 
 
 
             }
@@ -1146,10 +1128,10 @@ public class InternalLilyPondLexer extends Lexer {
     public final void mKEYWORD_36() throws RecognitionException {
         try {
             int _type = KEYWORD_36;
-            // ../org.elysium/src-gen/org/elysium/parser/antlr/lexer/InternalLilyPond.g:127:12: ( 'skip' )
-            // ../org.elysium/src-gen/org/elysium/parser/antlr/lexer/InternalLilyPond.g:127:14: 'skip'
+            // ../org.elysium/src-gen/org/elysium/parser/antlr/lexer/InternalLilyPond.g:125:12: ( 'rest' )
+            // ../org.elysium/src-gen/org/elysium/parser/antlr/lexer/InternalLilyPond.g:125:14: 'rest'
             {
-            match("skip"); 
+            match("rest"); 
 
 
             }
@@ -1165,10 +1147,10 @@ public class InternalLilyPondLexer extends Lexer {
     public final void mKEYWORD_37() throws RecognitionException {
         try {
             int _type = KEYWORD_37;
-            // ../org.elysium/src-gen/org/elysium/parser/antlr/lexer/InternalLilyPond.g:129:12: ( 'time' )
-            // ../org.elysium/src-gen/org/elysium/parser/antlr/lexer/InternalLilyPond.g:129:14: 'time'
+            // ../org.elysium/src-gen/org/elysium/parser/antlr/lexer/InternalLilyPond.g:127:12: ( 'skip' )
+            // ../org.elysium/src-gen/org/elysium/parser/antlr/lexer/InternalLilyPond.g:127:14: 'skip'
             {
-            match("time"); 
+            match("skip"); 
 
 
             }
@@ -1184,10 +1166,10 @@ public class InternalLilyPondLexer extends Lexer {
     public final void mKEYWORD_38() throws RecognitionException {
         try {
             int _type = KEYWORD_38;
-            // ../org.elysium/src-gen/org/elysium/parser/antlr/lexer/InternalLilyPond.g:131:12: ( 'type' )
-            // ../org.elysium/src-gen/org/elysium/parser/antlr/lexer/InternalLilyPond.g:131:14: 'type'
+            // ../org.elysium/src-gen/org/elysium/parser/antlr/lexer/InternalLilyPond.g:129:12: ( 'time' )
+            // ../org.elysium/src-gen/org/elysium/parser/antlr/lexer/InternalLilyPond.g:129:14: 'time'
             {
-            match("type"); 
+            match("time"); 
 
 
             }
@@ -1203,6 +1185,25 @@ public class InternalLilyPondLexer extends Lexer {
     public final void mKEYWORD_39() throws RecognitionException {
         try {
             int _type = KEYWORD_39;
+            // ../org.elysium/src-gen/org/elysium/parser/antlr/lexer/InternalLilyPond.g:131:12: ( 'type' )
+            // ../org.elysium/src-gen/org/elysium/parser/antlr/lexer/InternalLilyPond.g:131:14: 'type'
+            {
+            match("type"); 
+
+
+            }
+
+            this.type = _type;
+        }
+        finally {
+        }
+    }
+    // $ANTLR end KEYWORD_39
+
+    // $ANTLR start KEYWORD_40
+    public final void mKEYWORD_40() throws RecognitionException {
+        try {
+            int _type = KEYWORD_40;
             // ../org.elysium/src-gen/org/elysium/parser/antlr/lexer/InternalLilyPond.g:133:12: ( 'with' )
             // ../org.elysium/src-gen/org/elysium/parser/antlr/lexer/InternalLilyPond.g:133:14: 'with'
             {
@@ -1216,35 +1217,16 @@ public class InternalLilyPondLexer extends Lexer {
         finally {
         }
     }
-    // $ANTLR end KEYWORD_39
-
-    // $ANTLR start KEYWORD_27
-    public final void mKEYWORD_27() throws RecognitionException {
-        try {
-            int _type = KEYWORD_27;
-            // ../org.elysium/src-gen/org/elysium/parser/antlr/lexer/InternalLilyPond.g:135:12: ( 'key' )
-            // ../org.elysium/src-gen/org/elysium/parser/antlr/lexer/InternalLilyPond.g:135:14: 'key'
-            {
-            match("key"); 
-
-
-            }
-
-            this.type = _type;
-        }
-        finally {
-        }
-    }
-    // $ANTLR end KEYWORD_27
+    // $ANTLR end KEYWORD_40
 
     // $ANTLR start KEYWORD_28
     public final void mKEYWORD_28() throws RecognitionException {
         try {
             int _type = KEYWORD_28;
-            // ../org.elysium/src-gen/org/elysium/parser/antlr/lexer/InternalLilyPond.g:137:12: ( 'new' )
-            // ../org.elysium/src-gen/org/elysium/parser/antlr/lexer/InternalLilyPond.g:137:14: 'new'
+            // ../org.elysium/src-gen/org/elysium/parser/antlr/lexer/InternalLilyPond.g:135:12: ( 'key' )
+            // ../org.elysium/src-gen/org/elysium/parser/antlr/lexer/InternalLilyPond.g:135:14: 'key'
             {
-            match("new"); 
+            match("key"); 
 
 
             }
@@ -1260,6 +1242,25 @@ public class InternalLilyPondLexer extends Lexer {
     public final void mKEYWORD_29() throws RecognitionException {
         try {
             int _type = KEYWORD_29;
+            // ../org.elysium/src-gen/org/elysium/parser/antlr/lexer/InternalLilyPond.g:137:12: ( 'new' )
+            // ../org.elysium/src-gen/org/elysium/parser/antlr/lexer/InternalLilyPond.g:137:14: 'new'
+            {
+            match("new"); 
+
+
+            }
+
+            this.type = _type;
+        }
+        finally {
+        }
+    }
+    // $ANTLR end KEYWORD_29
+
+    // $ANTLR start KEYWORD_30
+    public final void mKEYWORD_30() throws RecognitionException {
+        try {
+            int _type = KEYWORD_30;
             // ../org.elysium/src-gen/org/elysium/parser/antlr/lexer/InternalLilyPond.g:139:12: ( 'set' )
             // ../org.elysium/src-gen/org/elysium/parser/antlr/lexer/InternalLilyPond.g:139:14: 'set'
             {
@@ -1273,35 +1274,16 @@ public class InternalLilyPondLexer extends Lexer {
         finally {
         }
     }
-    // $ANTLR end KEYWORD_29
-
-    // $ANTLR start KEYWORD_20
-    public final void mKEYWORD_20() throws RecognitionException {
-        try {
-            int _type = KEYWORD_20;
-            // ../org.elysium/src-gen/org/elysium/parser/antlr/lexer/InternalLilyPond.g:141:12: ( '#:' )
-            // ../org.elysium/src-gen/org/elysium/parser/antlr/lexer/InternalLilyPond.g:141:14: '#:'
-            {
-            match("#:"); 
-
-
-            }
-
-            this.type = _type;
-        }
-        finally {
-        }
-    }
-    // $ANTLR end KEYWORD_20
+    // $ANTLR end KEYWORD_30
 
     // $ANTLR start KEYWORD_21
     public final void mKEYWORD_21() throws RecognitionException {
         try {
             int _type = KEYWORD_21;
-            // ../org.elysium/src-gen/org/elysium/parser/antlr/lexer/InternalLilyPond.g:143:12: ( '#\\\\' )
-            // ../org.elysium/src-gen/org/elysium/parser/antlr/lexer/InternalLilyPond.g:143:14: '#\\\\'
+            // ../org.elysium/src-gen/org/elysium/parser/antlr/lexer/InternalLilyPond.g:141:12: ( '#:' )
+            // ../org.elysium/src-gen/org/elysium/parser/antlr/lexer/InternalLilyPond.g:141:14: '#:'
             {
-            match("#\\"); 
+            match("#:"); 
 
 
             }
@@ -1317,10 +1299,10 @@ public class InternalLilyPondLexer extends Lexer {
     public final void mKEYWORD_22() throws RecognitionException {
         try {
             int _type = KEYWORD_22;
-            // ../org.elysium/src-gen/org/elysium/parser/antlr/lexer/InternalLilyPond.g:145:12: ( '#{' )
-            // ../org.elysium/src-gen/org/elysium/parser/antlr/lexer/InternalLilyPond.g:145:14: '#{'
+            // ../org.elysium/src-gen/org/elysium/parser/antlr/lexer/InternalLilyPond.g:143:12: ( '#\\\\' )
+            // ../org.elysium/src-gen/org/elysium/parser/antlr/lexer/InternalLilyPond.g:143:14: '#\\\\'
             {
-            match("#{"); 
+            match("#\\"); 
 
 
             }
@@ -1336,10 +1318,10 @@ public class InternalLilyPondLexer extends Lexer {
     public final void mKEYWORD_23() throws RecognitionException {
         try {
             int _type = KEYWORD_23;
-            // ../org.elysium/src-gen/org/elysium/parser/antlr/lexer/InternalLilyPond.g:147:12: ( '#}' )
-            // ../org.elysium/src-gen/org/elysium/parser/antlr/lexer/InternalLilyPond.g:147:14: '#}'
+            // ../org.elysium/src-gen/org/elysium/parser/antlr/lexer/InternalLilyPond.g:145:12: ( '#{' )
+            // ../org.elysium/src-gen/org/elysium/parser/antlr/lexer/InternalLilyPond.g:145:14: '#{'
             {
-            match("#}"); 
+            match("#{"); 
 
 
             }
@@ -1355,10 +1337,10 @@ public class InternalLilyPondLexer extends Lexer {
     public final void mKEYWORD_24() throws RecognitionException {
         try {
             int _type = KEYWORD_24;
-            // ../org.elysium/src-gen/org/elysium/parser/antlr/lexer/InternalLilyPond.g:149:12: ( '<<' )
-            // ../org.elysium/src-gen/org/elysium/parser/antlr/lexer/InternalLilyPond.g:149:14: '<<'
+            // ../org.elysium/src-gen/org/elysium/parser/antlr/lexer/InternalLilyPond.g:147:12: ( '#}' )
+            // ../org.elysium/src-gen/org/elysium/parser/antlr/lexer/InternalLilyPond.g:147:14: '#}'
             {
-            match("<<"); 
+            match("#}"); 
 
 
             }
@@ -1374,10 +1356,10 @@ public class InternalLilyPondLexer extends Lexer {
     public final void mKEYWORD_25() throws RecognitionException {
         try {
             int _type = KEYWORD_25;
-            // ../org.elysium/src-gen/org/elysium/parser/antlr/lexer/InternalLilyPond.g:151:12: ( '>>' )
-            // ../org.elysium/src-gen/org/elysium/parser/antlr/lexer/InternalLilyPond.g:151:14: '>>'
+            // ../org.elysium/src-gen/org/elysium/parser/antlr/lexer/InternalLilyPond.g:149:12: ( '<<' )
+            // ../org.elysium/src-gen/org/elysium/parser/antlr/lexer/InternalLilyPond.g:149:14: '<<'
             {
-            match(">>"); 
+            match("<<"); 
 
 
             }
@@ -1393,6 +1375,25 @@ public class InternalLilyPondLexer extends Lexer {
     public final void mKEYWORD_26() throws RecognitionException {
         try {
             int _type = KEYWORD_26;
+            // ../org.elysium/src-gen/org/elysium/parser/antlr/lexer/InternalLilyPond.g:151:12: ( '>>' )
+            // ../org.elysium/src-gen/org/elysium/parser/antlr/lexer/InternalLilyPond.g:151:14: '>>'
+            {
+            match(">>"); 
+
+
+            }
+
+            this.type = _type;
+        }
+        finally {
+        }
+    }
+    // $ANTLR end KEYWORD_26
+
+    // $ANTLR start KEYWORD_27
+    public final void mKEYWORD_27() throws RecognitionException {
+        try {
+            int _type = KEYWORD_27;
             // ../org.elysium/src-gen/org/elysium/parser/antlr/lexer/InternalLilyPond.g:153:12: ( '\\\\\\\\' )
             // ../org.elysium/src-gen/org/elysium/parser/antlr/lexer/InternalLilyPond.g:153:14: '\\\\\\\\'
             {
@@ -1406,7 +1407,7 @@ public class InternalLilyPondLexer extends Lexer {
         finally {
         }
     }
-    // $ANTLR end KEYWORD_26
+    // $ANTLR end KEYWORD_27
 
     // $ANTLR start KEYWORD_1
     public final void mKEYWORD_1() throws RecognitionException {
@@ -1556,10 +1557,10 @@ public class InternalLilyPondLexer extends Lexer {
     public final void mKEYWORD_9() throws RecognitionException {
         try {
             int _type = KEYWORD_9;
-            // ../org.elysium/src-gen/org/elysium/parser/antlr/lexer/InternalLilyPond.g:171:11: ( ':' )
-            // ../org.elysium/src-gen/org/elysium/parser/antlr/lexer/InternalLilyPond.g:171:13: ':'
+            // ../org.elysium/src-gen/org/elysium/parser/antlr/lexer/InternalLilyPond.g:171:11: ( '-' )
+            // ../org.elysium/src-gen/org/elysium/parser/antlr/lexer/InternalLilyPond.g:171:13: '-'
             {
-            match(':'); 
+            match('-'); 
 
             }
 
@@ -1574,10 +1575,10 @@ public class InternalLilyPondLexer extends Lexer {
     public final void mKEYWORD_10() throws RecognitionException {
         try {
             int _type = KEYWORD_10;
-            // ../org.elysium/src-gen/org/elysium/parser/antlr/lexer/InternalLilyPond.g:173:12: ( '<' )
-            // ../org.elysium/src-gen/org/elysium/parser/antlr/lexer/InternalLilyPond.g:173:14: '<'
+            // ../org.elysium/src-gen/org/elysium/parser/antlr/lexer/InternalLilyPond.g:173:12: ( ':' )
+            // ../org.elysium/src-gen/org/elysium/parser/antlr/lexer/InternalLilyPond.g:173:14: ':'
             {
-            match('<'); 
+            match(':'); 
 
             }
 
@@ -1592,10 +1593,10 @@ public class InternalLilyPondLexer extends Lexer {
     public final void mKEYWORD_11() throws RecognitionException {
         try {
             int _type = KEYWORD_11;
-            // ../org.elysium/src-gen/org/elysium/parser/antlr/lexer/InternalLilyPond.g:175:12: ( '=' )
-            // ../org.elysium/src-gen/org/elysium/parser/antlr/lexer/InternalLilyPond.g:175:14: '='
+            // ../org.elysium/src-gen/org/elysium/parser/antlr/lexer/InternalLilyPond.g:175:12: ( '<' )
+            // ../org.elysium/src-gen/org/elysium/parser/antlr/lexer/InternalLilyPond.g:175:14: '<'
             {
-            match('='); 
+            match('<'); 
 
             }
 
@@ -1610,10 +1611,10 @@ public class InternalLilyPondLexer extends Lexer {
     public final void mKEYWORD_12() throws RecognitionException {
         try {
             int _type = KEYWORD_12;
-            // ../org.elysium/src-gen/org/elysium/parser/antlr/lexer/InternalLilyPond.g:177:12: ( '>' )
-            // ../org.elysium/src-gen/org/elysium/parser/antlr/lexer/InternalLilyPond.g:177:14: '>'
+            // ../org.elysium/src-gen/org/elysium/parser/antlr/lexer/InternalLilyPond.g:177:12: ( '=' )
+            // ../org.elysium/src-gen/org/elysium/parser/antlr/lexer/InternalLilyPond.g:177:14: '='
             {
-            match('>'); 
+            match('='); 
 
             }
 
@@ -1628,10 +1629,10 @@ public class InternalLilyPondLexer extends Lexer {
     public final void mKEYWORD_13() throws RecognitionException {
         try {
             int _type = KEYWORD_13;
-            // ../org.elysium/src-gen/org/elysium/parser/antlr/lexer/InternalLilyPond.g:179:12: ( '[' )
-            // ../org.elysium/src-gen/org/elysium/parser/antlr/lexer/InternalLilyPond.g:179:14: '['
+            // ../org.elysium/src-gen/org/elysium/parser/antlr/lexer/InternalLilyPond.g:179:12: ( '>' )
+            // ../org.elysium/src-gen/org/elysium/parser/antlr/lexer/InternalLilyPond.g:179:14: '>'
             {
-            match('['); 
+            match('>'); 
 
             }
 
@@ -1646,10 +1647,10 @@ public class InternalLilyPondLexer extends Lexer {
     public final void mKEYWORD_14() throws RecognitionException {
         try {
             int _type = KEYWORD_14;
-            // ../org.elysium/src-gen/org/elysium/parser/antlr/lexer/InternalLilyPond.g:181:12: ( '\\\\' )
-            // ../org.elysium/src-gen/org/elysium/parser/antlr/lexer/InternalLilyPond.g:181:14: '\\\\'
+            // ../org.elysium/src-gen/org/elysium/parser/antlr/lexer/InternalLilyPond.g:181:12: ( '[' )
+            // ../org.elysium/src-gen/org/elysium/parser/antlr/lexer/InternalLilyPond.g:181:14: '['
             {
-            match('\\'); 
+            match('['); 
 
             }
 
@@ -1664,10 +1665,10 @@ public class InternalLilyPondLexer extends Lexer {
     public final void mKEYWORD_15() throws RecognitionException {
         try {
             int _type = KEYWORD_15;
-            // ../org.elysium/src-gen/org/elysium/parser/antlr/lexer/InternalLilyPond.g:183:12: ( ']' )
-            // ../org.elysium/src-gen/org/elysium/parser/antlr/lexer/InternalLilyPond.g:183:14: ']'
+            // ../org.elysium/src-gen/org/elysium/parser/antlr/lexer/InternalLilyPond.g:183:12: ( '\\\\' )
+            // ../org.elysium/src-gen/org/elysium/parser/antlr/lexer/InternalLilyPond.g:183:14: '\\\\'
             {
-            match(']'); 
+            match('\\'); 
 
             }
 
@@ -1682,10 +1683,10 @@ public class InternalLilyPondLexer extends Lexer {
     public final void mKEYWORD_16() throws RecognitionException {
         try {
             int _type = KEYWORD_16;
-            // ../org.elysium/src-gen/org/elysium/parser/antlr/lexer/InternalLilyPond.g:185:12: ( '`' )
-            // ../org.elysium/src-gen/org/elysium/parser/antlr/lexer/InternalLilyPond.g:185:14: '`'
+            // ../org.elysium/src-gen/org/elysium/parser/antlr/lexer/InternalLilyPond.g:185:12: ( ']' )
+            // ../org.elysium/src-gen/org/elysium/parser/antlr/lexer/InternalLilyPond.g:185:14: ']'
             {
-            match('`'); 
+            match(']'); 
 
             }
 
@@ -1700,10 +1701,10 @@ public class InternalLilyPondLexer extends Lexer {
     public final void mKEYWORD_17() throws RecognitionException {
         try {
             int _type = KEYWORD_17;
-            // ../org.elysium/src-gen/org/elysium/parser/antlr/lexer/InternalLilyPond.g:187:12: ( '{' )
-            // ../org.elysium/src-gen/org/elysium/parser/antlr/lexer/InternalLilyPond.g:187:14: '{'
+            // ../org.elysium/src-gen/org/elysium/parser/antlr/lexer/InternalLilyPond.g:187:12: ( '`' )
+            // ../org.elysium/src-gen/org/elysium/parser/antlr/lexer/InternalLilyPond.g:187:14: '`'
             {
-            match('{'); 
+            match('`'); 
 
             }
 
@@ -1718,10 +1719,10 @@ public class InternalLilyPondLexer extends Lexer {
     public final void mKEYWORD_18() throws RecognitionException {
         try {
             int _type = KEYWORD_18;
-            // ../org.elysium/src-gen/org/elysium/parser/antlr/lexer/InternalLilyPond.g:189:12: ( '}' )
-            // ../org.elysium/src-gen/org/elysium/parser/antlr/lexer/InternalLilyPond.g:189:14: '}'
+            // ../org.elysium/src-gen/org/elysium/parser/antlr/lexer/InternalLilyPond.g:189:12: ( '{' )
+            // ../org.elysium/src-gen/org/elysium/parser/antlr/lexer/InternalLilyPond.g:189:14: '{'
             {
-            match('}'); 
+            match('{'); 
 
             }
 
@@ -1736,10 +1737,10 @@ public class InternalLilyPondLexer extends Lexer {
     public final void mKEYWORD_19() throws RecognitionException {
         try {
             int _type = KEYWORD_19;
-            // ../org.elysium/src-gen/org/elysium/parser/antlr/lexer/InternalLilyPond.g:191:12: ( '~' )
-            // ../org.elysium/src-gen/org/elysium/parser/antlr/lexer/InternalLilyPond.g:191:14: '~'
+            // ../org.elysium/src-gen/org/elysium/parser/antlr/lexer/InternalLilyPond.g:191:12: ( '}' )
+            // ../org.elysium/src-gen/org/elysium/parser/antlr/lexer/InternalLilyPond.g:191:14: '}'
             {
-            match('~'); 
+            match('}'); 
 
             }
 
@@ -1750,15 +1751,33 @@ public class InternalLilyPondLexer extends Lexer {
     }
     // $ANTLR end KEYWORD_19
 
+    // $ANTLR start KEYWORD_20
+    public final void mKEYWORD_20() throws RecognitionException {
+        try {
+            int _type = KEYWORD_20;
+            // ../org.elysium/src-gen/org/elysium/parser/antlr/lexer/InternalLilyPond.g:193:12: ( '~' )
+            // ../org.elysium/src-gen/org/elysium/parser/antlr/lexer/InternalLilyPond.g:193:14: '~'
+            {
+            match('~'); 
+
+            }
+
+            this.type = _type;
+        }
+        finally {
+        }
+    }
+    // $ANTLR end KEYWORD_20
+
     // $ANTLR start RULE_STRING
     public final void mRULE_STRING() throws RecognitionException {
         try {
             int _type = RULE_STRING;
-            // ../org.elysium/src-gen/org/elysium/parser/antlr/lexer/InternalLilyPond.g:195:13: ( '\"' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\"' ) ) )* '\"' )
-            // ../org.elysium/src-gen/org/elysium/parser/antlr/lexer/InternalLilyPond.g:195:15: '\"' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\"' ) ) )* '\"'
+            // ../org.elysium/src-gen/org/elysium/parser/antlr/lexer/InternalLilyPond.g:197:13: ( '\"' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\"' ) ) )* '\"' )
+            // ../org.elysium/src-gen/org/elysium/parser/antlr/lexer/InternalLilyPond.g:197:15: '\"' ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\"' ) ) )* '\"'
             {
             match('\"'); 
-            // ../org.elysium/src-gen/org/elysium/parser/antlr/lexer/InternalLilyPond.g:195:19: ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\"' ) ) )*
+            // ../org.elysium/src-gen/org/elysium/parser/antlr/lexer/InternalLilyPond.g:197:19: ( '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\"' ) ) )*
             loop1:
             do {
                 int alt1=3;
@@ -1774,7 +1793,7 @@ public class InternalLilyPondLexer extends Lexer {
 
                 switch (alt1) {
             	case 1 :
-            	    // ../org.elysium/src-gen/org/elysium/parser/antlr/lexer/InternalLilyPond.g:195:20: '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | '\"' | '\\'' | '\\\\' )
+            	    // ../org.elysium/src-gen/org/elysium/parser/antlr/lexer/InternalLilyPond.g:197:20: '\\\\' ( 'b' | 't' | 'n' | 'f' | 'r' | '\"' | '\\'' | '\\\\' )
             	    {
             	    match('\\'); 
             	    if ( input.LA(1)=='\"'||input.LA(1)=='\''||input.LA(1)=='\\'||input.LA(1)=='b'||input.LA(1)=='f'||input.LA(1)=='n'||input.LA(1)=='r'||input.LA(1)=='t' ) {
@@ -1791,7 +1810,7 @@ public class InternalLilyPondLexer extends Lexer {
             	    }
             	    break;
             	case 2 :
-            	    // ../org.elysium/src-gen/org/elysium/parser/antlr/lexer/InternalLilyPond.g:195:61: ~ ( ( '\\\\' | '\"' ) )
+            	    // ../org.elysium/src-gen/org/elysium/parser/antlr/lexer/InternalLilyPond.g:197:61: ~ ( ( '\\\\' | '\"' ) )
             	    {
             	    if ( (input.LA(1)>='\u0000' && input.LA(1)<='!')||(input.LA(1)>='#' && input.LA(1)<='[')||(input.LA(1)>=']' && input.LA(1)<='\uFFFE') ) {
             	        input.consume();
@@ -1827,10 +1846,10 @@ public class InternalLilyPondLexer extends Lexer {
     public final void mRULE_INT() throws RecognitionException {
         try {
             int _type = RULE_INT;
-            // ../org.elysium/src-gen/org/elysium/parser/antlr/lexer/InternalLilyPond.g:197:10: ( ( '0' .. '9' )+ )
-            // ../org.elysium/src-gen/org/elysium/parser/antlr/lexer/InternalLilyPond.g:197:12: ( '0' .. '9' )+
+            // ../org.elysium/src-gen/org/elysium/parser/antlr/lexer/InternalLilyPond.g:199:10: ( ( '0' .. '9' )+ )
+            // ../org.elysium/src-gen/org/elysium/parser/antlr/lexer/InternalLilyPond.g:199:12: ( '0' .. '9' )+
             {
-            // ../org.elysium/src-gen/org/elysium/parser/antlr/lexer/InternalLilyPond.g:197:12: ( '0' .. '9' )+
+            // ../org.elysium/src-gen/org/elysium/parser/antlr/lexer/InternalLilyPond.g:199:12: ( '0' .. '9' )+
             int cnt2=0;
             loop2:
             do {
@@ -1844,7 +1863,7 @@ public class InternalLilyPondLexer extends Lexer {
 
                 switch (alt2) {
             	case 1 :
-            	    // ../org.elysium/src-gen/org/elysium/parser/antlr/lexer/InternalLilyPond.g:197:13: '0' .. '9'
+            	    // ../org.elysium/src-gen/org/elysium/parser/antlr/lexer/InternalLilyPond.g:199:13: '0' .. '9'
             	    {
             	    matchRange('0','9'); 
 
@@ -1870,30 +1889,21 @@ public class InternalLilyPondLexer extends Lexer {
     }
     // $ANTLR end RULE_INT
 
-    // $ANTLR start RULE_ID
-    public final void mRULE_ID() throws RecognitionException {
+    // $ANTLR start RULE_ALPHA
+    public final void mRULE_ALPHA() throws RecognitionException {
         try {
-            int _type = RULE_ID;
-            // ../org.elysium/src-gen/org/elysium/parser/antlr/lexer/InternalLilyPond.g:199:9: ( ( 'a' .. 'z' | 'A' .. 'Z' ) ( 'a' .. 'z' | 'A' .. 'Z' | '-' )* )
-            // ../org.elysium/src-gen/org/elysium/parser/antlr/lexer/InternalLilyPond.g:199:11: ( 'a' .. 'z' | 'A' .. 'Z' ) ( 'a' .. 'z' | 'A' .. 'Z' | '-' )*
+            int _type = RULE_ALPHA;
+            // ../org.elysium/src-gen/org/elysium/parser/antlr/lexer/InternalLilyPond.g:201:12: ( ( 'a' .. 'z' | 'A' .. 'Z' )+ )
+            // ../org.elysium/src-gen/org/elysium/parser/antlr/lexer/InternalLilyPond.g:201:14: ( 'a' .. 'z' | 'A' .. 'Z' )+
             {
-            if ( (input.LA(1)>='A' && input.LA(1)<='Z')||(input.LA(1)>='a' && input.LA(1)<='z') ) {
-                input.consume();
-
-            }
-            else {
-                MismatchedSetException mse =
-                    new MismatchedSetException(null,input);
-                recover(mse);    throw mse;
-            }
-
-            // ../org.elysium/src-gen/org/elysium/parser/antlr/lexer/InternalLilyPond.g:199:31: ( 'a' .. 'z' | 'A' .. 'Z' | '-' )*
+            // ../org.elysium/src-gen/org/elysium/parser/antlr/lexer/InternalLilyPond.g:201:14: ( 'a' .. 'z' | 'A' .. 'Z' )+
+            int cnt3=0;
             loop3:
             do {
                 int alt3=2;
                 int LA3_0 = input.LA(1);
 
-                if ( (LA3_0=='-'||(LA3_0>='A' && LA3_0<='Z')||(LA3_0>='a' && LA3_0<='z')) ) {
+                if ( ((LA3_0>='A' && LA3_0<='Z')||(LA3_0>='a' && LA3_0<='z')) ) {
                     alt3=1;
                 }
 
@@ -1902,7 +1912,7 @@ public class InternalLilyPondLexer extends Lexer {
             	case 1 :
             	    // ../org.elysium/src-gen/org/elysium/parser/antlr/lexer/InternalLilyPond.g:
             	    {
-            	    if ( input.LA(1)=='-'||(input.LA(1)>='A' && input.LA(1)<='Z')||(input.LA(1)>='a' && input.LA(1)<='z') ) {
+            	    if ( (input.LA(1)>='A' && input.LA(1)<='Z')||(input.LA(1)>='a' && input.LA(1)<='z') ) {
             	        input.consume();
 
             	    }
@@ -1917,8 +1927,12 @@ public class InternalLilyPondLexer extends Lexer {
             	    break;
 
             	default :
-            	    break loop3;
+            	    if ( cnt3 >= 1 ) break loop3;
+                        EarlyExitException eee =
+                            new EarlyExitException(3, input);
+                        throw eee;
                 }
+                cnt3++;
             } while (true);
 
 
@@ -1929,16 +1943,16 @@ public class InternalLilyPondLexer extends Lexer {
         finally {
         }
     }
-    // $ANTLR end RULE_ID
+    // $ANTLR end RULE_ALPHA
 
     // $ANTLR start RULE_WS
     public final void mRULE_WS() throws RecognitionException {
         try {
             int _type = RULE_WS;
-            // ../org.elysium/src-gen/org/elysium/parser/antlr/lexer/InternalLilyPond.g:201:9: ( ( ' ' | '\\t' | '\\r' | '\\n' )+ )
-            // ../org.elysium/src-gen/org/elysium/parser/antlr/lexer/InternalLilyPond.g:201:11: ( ' ' | '\\t' | '\\r' | '\\n' )+
+            // ../org.elysium/src-gen/org/elysium/parser/antlr/lexer/InternalLilyPond.g:203:9: ( ( ' ' | '\\t' | '\\r' | '\\n' )+ )
+            // ../org.elysium/src-gen/org/elysium/parser/antlr/lexer/InternalLilyPond.g:203:11: ( ' ' | '\\t' | '\\r' | '\\n' )+
             {
-            // ../org.elysium/src-gen/org/elysium/parser/antlr/lexer/InternalLilyPond.g:201:11: ( ' ' | '\\t' | '\\r' | '\\n' )+
+            // ../org.elysium/src-gen/org/elysium/parser/antlr/lexer/InternalLilyPond.g:203:11: ( ' ' | '\\t' | '\\r' | '\\n' )+
             int cnt4=0;
             loop4:
             do {
@@ -1991,11 +2005,11 @@ public class InternalLilyPondLexer extends Lexer {
     public final void mRULE_SL_COMMENT() throws RecognitionException {
         try {
             int _type = RULE_SL_COMMENT;
-            // ../org.elysium/src-gen/org/elysium/parser/antlr/lexer/InternalLilyPond.g:203:17: ( '%' (~ ( ( '\\n' | '\\r' ) ) )* ( ( '\\r' )? '\\n' )? )
-            // ../org.elysium/src-gen/org/elysium/parser/antlr/lexer/InternalLilyPond.g:203:19: '%' (~ ( ( '\\n' | '\\r' ) ) )* ( ( '\\r' )? '\\n' )?
+            // ../org.elysium/src-gen/org/elysium/parser/antlr/lexer/InternalLilyPond.g:205:17: ( '%' (~ ( ( '\\n' | '\\r' ) ) )* ( ( '\\r' )? '\\n' )? )
+            // ../org.elysium/src-gen/org/elysium/parser/antlr/lexer/InternalLilyPond.g:205:19: '%' (~ ( ( '\\n' | '\\r' ) ) )* ( ( '\\r' )? '\\n' )?
             {
             match('%'); 
-            // ../org.elysium/src-gen/org/elysium/parser/antlr/lexer/InternalLilyPond.g:203:23: (~ ( ( '\\n' | '\\r' ) ) )*
+            // ../org.elysium/src-gen/org/elysium/parser/antlr/lexer/InternalLilyPond.g:205:23: (~ ( ( '\\n' | '\\r' ) ) )*
             loop5:
             do {
                 int alt5=2;
@@ -2008,7 +2022,7 @@ public class InternalLilyPondLexer extends Lexer {
 
                 switch (alt5) {
             	case 1 :
-            	    // ../org.elysium/src-gen/org/elysium/parser/antlr/lexer/InternalLilyPond.g:203:23: ~ ( ( '\\n' | '\\r' ) )
+            	    // ../org.elysium/src-gen/org/elysium/parser/antlr/lexer/InternalLilyPond.g:205:23: ~ ( ( '\\n' | '\\r' ) )
             	    {
             	    if ( (input.LA(1)>='\u0000' && input.LA(1)<='\t')||(input.LA(1)>='\u000B' && input.LA(1)<='\f')||(input.LA(1)>='\u000E' && input.LA(1)<='\uFFFE') ) {
             	        input.consume();
@@ -2029,7 +2043,7 @@ public class InternalLilyPondLexer extends Lexer {
                 }
             } while (true);
 
-            // ../org.elysium/src-gen/org/elysium/parser/antlr/lexer/InternalLilyPond.g:203:39: ( ( '\\r' )? '\\n' )?
+            // ../org.elysium/src-gen/org/elysium/parser/antlr/lexer/InternalLilyPond.g:205:39: ( ( '\\r' )? '\\n' )?
             int alt7=2;
             int LA7_0 = input.LA(1);
 
@@ -2038,9 +2052,9 @@ public class InternalLilyPondLexer extends Lexer {
             }
             switch (alt7) {
                 case 1 :
-                    // ../org.elysium/src-gen/org/elysium/parser/antlr/lexer/InternalLilyPond.g:203:40: ( '\\r' )? '\\n'
+                    // ../org.elysium/src-gen/org/elysium/parser/antlr/lexer/InternalLilyPond.g:205:40: ( '\\r' )? '\\n'
                     {
-                    // ../org.elysium/src-gen/org/elysium/parser/antlr/lexer/InternalLilyPond.g:203:40: ( '\\r' )?
+                    // ../org.elysium/src-gen/org/elysium/parser/antlr/lexer/InternalLilyPond.g:205:40: ( '\\r' )?
                     int alt6=2;
                     int LA6_0 = input.LA(1);
 
@@ -2049,7 +2063,7 @@ public class InternalLilyPondLexer extends Lexer {
                     }
                     switch (alt6) {
                         case 1 :
-                            // ../org.elysium/src-gen/org/elysium/parser/antlr/lexer/InternalLilyPond.g:203:40: '\\r'
+                            // ../org.elysium/src-gen/org/elysium/parser/antlr/lexer/InternalLilyPond.g:205:40: '\\r'
                             {
                             match('\r'); 
 
@@ -2079,12 +2093,12 @@ public class InternalLilyPondLexer extends Lexer {
     public final void mRULE_ML_COMMENT() throws RecognitionException {
         try {
             int _type = RULE_ML_COMMENT;
-            // ../org.elysium/src-gen/org/elysium/parser/antlr/lexer/InternalLilyPond.g:205:17: ( '%{' ( options {greedy=false; } : . )* '%}' )
-            // ../org.elysium/src-gen/org/elysium/parser/antlr/lexer/InternalLilyPond.g:205:19: '%{' ( options {greedy=false; } : . )* '%}'
+            // ../org.elysium/src-gen/org/elysium/parser/antlr/lexer/InternalLilyPond.g:207:17: ( '%{' ( options {greedy=false; } : . )* '%}' )
+            // ../org.elysium/src-gen/org/elysium/parser/antlr/lexer/InternalLilyPond.g:207:19: '%{' ( options {greedy=false; } : . )* '%}'
             {
             match("%{"); 
 
-            // ../org.elysium/src-gen/org/elysium/parser/antlr/lexer/InternalLilyPond.g:205:24: ( options {greedy=false; } : . )*
+            // ../org.elysium/src-gen/org/elysium/parser/antlr/lexer/InternalLilyPond.g:207:24: ( options {greedy=false; } : . )*
             loop8:
             do {
                 int alt8=2;
@@ -2109,7 +2123,7 @@ public class InternalLilyPondLexer extends Lexer {
 
                 switch (alt8) {
             	case 1 :
-            	    // ../org.elysium/src-gen/org/elysium/parser/antlr/lexer/InternalLilyPond.g:205:52: .
+            	    // ../org.elysium/src-gen/org/elysium/parser/antlr/lexer/InternalLilyPond.g:207:52: .
             	    {
             	    matchAny(); 
 
@@ -2137,11 +2151,11 @@ public class InternalLilyPondLexer extends Lexer {
     public final void mRULE_SCHEME_SL_COMMENT() throws RecognitionException {
         try {
             int _type = RULE_SCHEME_SL_COMMENT;
-            // ../org.elysium/src-gen/org/elysium/parser/antlr/lexer/InternalLilyPond.g:207:24: ( ';' (~ ( ( '\\n' | '\\r' ) ) )* ( ( '\\r' )? '\\n' )? )
-            // ../org.elysium/src-gen/org/elysium/parser/antlr/lexer/InternalLilyPond.g:207:26: ';' (~ ( ( '\\n' | '\\r' ) ) )* ( ( '\\r' )? '\\n' )?
+            // ../org.elysium/src-gen/org/elysium/parser/antlr/lexer/InternalLilyPond.g:209:24: ( ';' (~ ( ( '\\n' | '\\r' ) ) )* ( ( '\\r' )? '\\n' )? )
+            // ../org.elysium/src-gen/org/elysium/parser/antlr/lexer/InternalLilyPond.g:209:26: ';' (~ ( ( '\\n' | '\\r' ) ) )* ( ( '\\r' )? '\\n' )?
             {
             match(';'); 
-            // ../org.elysium/src-gen/org/elysium/parser/antlr/lexer/InternalLilyPond.g:207:30: (~ ( ( '\\n' | '\\r' ) ) )*
+            // ../org.elysium/src-gen/org/elysium/parser/antlr/lexer/InternalLilyPond.g:209:30: (~ ( ( '\\n' | '\\r' ) ) )*
             loop9:
             do {
                 int alt9=2;
@@ -2154,7 +2168,7 @@ public class InternalLilyPondLexer extends Lexer {
 
                 switch (alt9) {
             	case 1 :
-            	    // ../org.elysium/src-gen/org/elysium/parser/antlr/lexer/InternalLilyPond.g:207:30: ~ ( ( '\\n' | '\\r' ) )
+            	    // ../org.elysium/src-gen/org/elysium/parser/antlr/lexer/InternalLilyPond.g:209:30: ~ ( ( '\\n' | '\\r' ) )
             	    {
             	    if ( (input.LA(1)>='\u0000' && input.LA(1)<='\t')||(input.LA(1)>='\u000B' && input.LA(1)<='\f')||(input.LA(1)>='\u000E' && input.LA(1)<='\uFFFE') ) {
             	        input.consume();
@@ -2175,7 +2189,7 @@ public class InternalLilyPondLexer extends Lexer {
                 }
             } while (true);
 
-            // ../org.elysium/src-gen/org/elysium/parser/antlr/lexer/InternalLilyPond.g:207:46: ( ( '\\r' )? '\\n' )?
+            // ../org.elysium/src-gen/org/elysium/parser/antlr/lexer/InternalLilyPond.g:209:46: ( ( '\\r' )? '\\n' )?
             int alt11=2;
             int LA11_0 = input.LA(1);
 
@@ -2184,9 +2198,9 @@ public class InternalLilyPondLexer extends Lexer {
             }
             switch (alt11) {
                 case 1 :
-                    // ../org.elysium/src-gen/org/elysium/parser/antlr/lexer/InternalLilyPond.g:207:47: ( '\\r' )? '\\n'
+                    // ../org.elysium/src-gen/org/elysium/parser/antlr/lexer/InternalLilyPond.g:209:47: ( '\\r' )? '\\n'
                     {
-                    // ../org.elysium/src-gen/org/elysium/parser/antlr/lexer/InternalLilyPond.g:207:47: ( '\\r' )?
+                    // ../org.elysium/src-gen/org/elysium/parser/antlr/lexer/InternalLilyPond.g:209:47: ( '\\r' )?
                     int alt10=2;
                     int LA10_0 = input.LA(1);
 
@@ -2195,7 +2209,7 @@ public class InternalLilyPondLexer extends Lexer {
                     }
                     switch (alt10) {
                         case 1 :
-                            // ../org.elysium/src-gen/org/elysium/parser/antlr/lexer/InternalLilyPond.g:207:47: '\\r'
+                            // ../org.elysium/src-gen/org/elysium/parser/antlr/lexer/InternalLilyPond.g:209:47: '\\r'
                             {
                             match('\r'); 
 
@@ -2225,12 +2239,12 @@ public class InternalLilyPondLexer extends Lexer {
     public final void mRULE_SCHEME_ML_COMMENT() throws RecognitionException {
         try {
             int _type = RULE_SCHEME_ML_COMMENT;
-            // ../org.elysium/src-gen/org/elysium/parser/antlr/lexer/InternalLilyPond.g:209:24: ( '#!' ( options {greedy=false; } : . )* '!#' )
-            // ../org.elysium/src-gen/org/elysium/parser/antlr/lexer/InternalLilyPond.g:209:26: '#!' ( options {greedy=false; } : . )* '!#'
+            // ../org.elysium/src-gen/org/elysium/parser/antlr/lexer/InternalLilyPond.g:211:24: ( '#!' ( options {greedy=false; } : . )* '!#' )
+            // ../org.elysium/src-gen/org/elysium/parser/antlr/lexer/InternalLilyPond.g:211:26: '#!' ( options {greedy=false; } : . )* '!#'
             {
             match("#!"); 
 
-            // ../org.elysium/src-gen/org/elysium/parser/antlr/lexer/InternalLilyPond.g:209:31: ( options {greedy=false; } : . )*
+            // ../org.elysium/src-gen/org/elysium/parser/antlr/lexer/InternalLilyPond.g:211:31: ( options {greedy=false; } : . )*
             loop12:
             do {
                 int alt12=2;
@@ -2255,7 +2269,7 @@ public class InternalLilyPondLexer extends Lexer {
 
                 switch (alt12) {
             	case 1 :
-            	    // ../org.elysium/src-gen/org/elysium/parser/antlr/lexer/InternalLilyPond.g:209:59: .
+            	    // ../org.elysium/src-gen/org/elysium/parser/antlr/lexer/InternalLilyPond.g:211:59: .
             	    {
             	    matchAny(); 
 
@@ -2283,8 +2297,8 @@ public class InternalLilyPondLexer extends Lexer {
     public final void mRULE_ANY_OTHER() throws RecognitionException {
         try {
             int _type = RULE_ANY_OTHER;
-            // ../org.elysium/src-gen/org/elysium/parser/antlr/lexer/InternalLilyPond.g:211:16: ( . )
-            // ../org.elysium/src-gen/org/elysium/parser/antlr/lexer/InternalLilyPond.g:211:18: .
+            // ../org.elysium/src-gen/org/elysium/parser/antlr/lexer/InternalLilyPond.g:213:16: ( . )
+            // ../org.elysium/src-gen/org/elysium/parser/antlr/lexer/InternalLilyPond.g:213:18: .
             {
             matchAny(); 
 
@@ -2298,483 +2312,483 @@ public class InternalLilyPondLexer extends Lexer {
     // $ANTLR end RULE_ANY_OTHER
 
     public void mTokens() throws RecognitionException {
-        // ../org.elysium/src-gen/org/elysium/parser/antlr/lexer/InternalLilyPond.g:1:8: ( KEYWORD_87 | KEYWORD_85 | KEYWORD_86 | KEYWORD_83 | KEYWORD_84 | KEYWORD_80 | KEYWORD_81 | KEYWORD_82 | KEYWORD_78 | KEYWORD_79 | KEYWORD_73 | KEYWORD_74 | KEYWORD_75 | KEYWORD_76 | KEYWORD_77 | KEYWORD_65 | KEYWORD_66 | KEYWORD_67 | KEYWORD_68 | KEYWORD_69 | KEYWORD_70 | KEYWORD_71 | KEYWORD_72 | KEYWORD_58 | KEYWORD_59 | KEYWORD_60 | KEYWORD_61 | KEYWORD_62 | KEYWORD_63 | KEYWORD_64 | KEYWORD_47 | KEYWORD_48 | KEYWORD_49 | KEYWORD_50 | KEYWORD_51 | KEYWORD_52 | KEYWORD_53 | KEYWORD_54 | KEYWORD_55 | KEYWORD_56 | KEYWORD_57 | KEYWORD_40 | KEYWORD_41 | KEYWORD_42 | KEYWORD_43 | KEYWORD_44 | KEYWORD_45 | KEYWORD_46 | KEYWORD_30 | KEYWORD_31 | KEYWORD_32 | KEYWORD_33 | KEYWORD_34 | KEYWORD_35 | KEYWORD_36 | KEYWORD_37 | KEYWORD_38 | KEYWORD_39 | KEYWORD_27 | KEYWORD_28 | KEYWORD_29 | KEYWORD_20 | KEYWORD_21 | KEYWORD_22 | KEYWORD_23 | KEYWORD_24 | KEYWORD_25 | KEYWORD_26 | KEYWORD_1 | KEYWORD_2 | KEYWORD_3 | KEYWORD_4 | KEYWORD_5 | KEYWORD_6 | KEYWORD_7 | KEYWORD_8 | KEYWORD_9 | KEYWORD_10 | KEYWORD_11 | KEYWORD_12 | KEYWORD_13 | KEYWORD_14 | KEYWORD_15 | KEYWORD_16 | KEYWORD_17 | KEYWORD_18 | KEYWORD_19 | RULE_STRING | RULE_INT | RULE_ID | RULE_WS | RULE_SL_COMMENT | RULE_ML_COMMENT | RULE_SCHEME_SL_COMMENT | RULE_SCHEME_ML_COMMENT | RULE_ANY_OTHER )
-        int alt13=96;
+        // ../org.elysium/src-gen/org/elysium/parser/antlr/lexer/InternalLilyPond.g:1:8: ( KEYWORD_88 | KEYWORD_86 | KEYWORD_87 | KEYWORD_84 | KEYWORD_85 | KEYWORD_81 | KEYWORD_82 | KEYWORD_83 | KEYWORD_79 | KEYWORD_80 | KEYWORD_74 | KEYWORD_75 | KEYWORD_76 | KEYWORD_77 | KEYWORD_78 | KEYWORD_66 | KEYWORD_67 | KEYWORD_68 | KEYWORD_69 | KEYWORD_70 | KEYWORD_71 | KEYWORD_72 | KEYWORD_73 | KEYWORD_59 | KEYWORD_60 | KEYWORD_61 | KEYWORD_62 | KEYWORD_63 | KEYWORD_64 | KEYWORD_65 | KEYWORD_48 | KEYWORD_49 | KEYWORD_50 | KEYWORD_51 | KEYWORD_52 | KEYWORD_53 | KEYWORD_54 | KEYWORD_55 | KEYWORD_56 | KEYWORD_57 | KEYWORD_58 | KEYWORD_41 | KEYWORD_42 | KEYWORD_43 | KEYWORD_44 | KEYWORD_45 | KEYWORD_46 | KEYWORD_47 | KEYWORD_31 | KEYWORD_32 | KEYWORD_33 | KEYWORD_34 | KEYWORD_35 | KEYWORD_36 | KEYWORD_37 | KEYWORD_38 | KEYWORD_39 | KEYWORD_40 | KEYWORD_28 | KEYWORD_29 | KEYWORD_30 | KEYWORD_21 | KEYWORD_22 | KEYWORD_23 | KEYWORD_24 | KEYWORD_25 | KEYWORD_26 | KEYWORD_27 | KEYWORD_1 | KEYWORD_2 | KEYWORD_3 | KEYWORD_4 | KEYWORD_5 | KEYWORD_6 | KEYWORD_7 | KEYWORD_8 | KEYWORD_9 | KEYWORD_10 | KEYWORD_11 | KEYWORD_12 | KEYWORD_13 | KEYWORD_14 | KEYWORD_15 | KEYWORD_16 | KEYWORD_17 | KEYWORD_18 | KEYWORD_19 | KEYWORD_20 | RULE_STRING | RULE_INT | RULE_ALPHA | RULE_WS | RULE_SL_COMMENT | RULE_ML_COMMENT | RULE_SCHEME_SL_COMMENT | RULE_SCHEME_ML_COMMENT | RULE_ANY_OTHER )
+        int alt13=97;
         alt13 = dfa13.predict(input);
         switch (alt13) {
             case 1 :
-                // ../org.elysium/src-gen/org/elysium/parser/antlr/lexer/InternalLilyPond.g:1:10: KEYWORD_87
+                // ../org.elysium/src-gen/org/elysium/parser/antlr/lexer/InternalLilyPond.g:1:10: KEYWORD_88
                 {
-                mKEYWORD_87(); 
+                mKEYWORD_88(); 
 
                 }
                 break;
             case 2 :
-                // ../org.elysium/src-gen/org/elysium/parser/antlr/lexer/InternalLilyPond.g:1:21: KEYWORD_85
-                {
-                mKEYWORD_85(); 
-
-                }
-                break;
-            case 3 :
-                // ../org.elysium/src-gen/org/elysium/parser/antlr/lexer/InternalLilyPond.g:1:32: KEYWORD_86
+                // ../org.elysium/src-gen/org/elysium/parser/antlr/lexer/InternalLilyPond.g:1:21: KEYWORD_86
                 {
                 mKEYWORD_86(); 
 
                 }
                 break;
-            case 4 :
-                // ../org.elysium/src-gen/org/elysium/parser/antlr/lexer/InternalLilyPond.g:1:43: KEYWORD_83
+            case 3 :
+                // ../org.elysium/src-gen/org/elysium/parser/antlr/lexer/InternalLilyPond.g:1:32: KEYWORD_87
                 {
-                mKEYWORD_83(); 
+                mKEYWORD_87(); 
 
                 }
                 break;
-            case 5 :
-                // ../org.elysium/src-gen/org/elysium/parser/antlr/lexer/InternalLilyPond.g:1:54: KEYWORD_84
+            case 4 :
+                // ../org.elysium/src-gen/org/elysium/parser/antlr/lexer/InternalLilyPond.g:1:43: KEYWORD_84
                 {
                 mKEYWORD_84(); 
 
                 }
                 break;
-            case 6 :
-                // ../org.elysium/src-gen/org/elysium/parser/antlr/lexer/InternalLilyPond.g:1:65: KEYWORD_80
+            case 5 :
+                // ../org.elysium/src-gen/org/elysium/parser/antlr/lexer/InternalLilyPond.g:1:54: KEYWORD_85
                 {
-                mKEYWORD_80(); 
+                mKEYWORD_85(); 
 
                 }
                 break;
-            case 7 :
-                // ../org.elysium/src-gen/org/elysium/parser/antlr/lexer/InternalLilyPond.g:1:76: KEYWORD_81
+            case 6 :
+                // ../org.elysium/src-gen/org/elysium/parser/antlr/lexer/InternalLilyPond.g:1:65: KEYWORD_81
                 {
                 mKEYWORD_81(); 
 
                 }
                 break;
-            case 8 :
-                // ../org.elysium/src-gen/org/elysium/parser/antlr/lexer/InternalLilyPond.g:1:87: KEYWORD_82
+            case 7 :
+                // ../org.elysium/src-gen/org/elysium/parser/antlr/lexer/InternalLilyPond.g:1:76: KEYWORD_82
                 {
                 mKEYWORD_82(); 
 
                 }
                 break;
-            case 9 :
-                // ../org.elysium/src-gen/org/elysium/parser/antlr/lexer/InternalLilyPond.g:1:98: KEYWORD_78
+            case 8 :
+                // ../org.elysium/src-gen/org/elysium/parser/antlr/lexer/InternalLilyPond.g:1:87: KEYWORD_83
                 {
-                mKEYWORD_78(); 
+                mKEYWORD_83(); 
 
                 }
                 break;
-            case 10 :
-                // ../org.elysium/src-gen/org/elysium/parser/antlr/lexer/InternalLilyPond.g:1:109: KEYWORD_79
+            case 9 :
+                // ../org.elysium/src-gen/org/elysium/parser/antlr/lexer/InternalLilyPond.g:1:98: KEYWORD_79
                 {
                 mKEYWORD_79(); 
 
                 }
                 break;
-            case 11 :
-                // ../org.elysium/src-gen/org/elysium/parser/antlr/lexer/InternalLilyPond.g:1:120: KEYWORD_73
+            case 10 :
+                // ../org.elysium/src-gen/org/elysium/parser/antlr/lexer/InternalLilyPond.g:1:109: KEYWORD_80
                 {
-                mKEYWORD_73(); 
+                mKEYWORD_80(); 
 
                 }
                 break;
-            case 12 :
-                // ../org.elysium/src-gen/org/elysium/parser/antlr/lexer/InternalLilyPond.g:1:131: KEYWORD_74
+            case 11 :
+                // ../org.elysium/src-gen/org/elysium/parser/antlr/lexer/InternalLilyPond.g:1:120: KEYWORD_74
                 {
                 mKEYWORD_74(); 
 
                 }
                 break;
-            case 13 :
-                // ../org.elysium/src-gen/org/elysium/parser/antlr/lexer/InternalLilyPond.g:1:142: KEYWORD_75
+            case 12 :
+                // ../org.elysium/src-gen/org/elysium/parser/antlr/lexer/InternalLilyPond.g:1:131: KEYWORD_75
                 {
                 mKEYWORD_75(); 
 
                 }
                 break;
-            case 14 :
-                // ../org.elysium/src-gen/org/elysium/parser/antlr/lexer/InternalLilyPond.g:1:153: KEYWORD_76
+            case 13 :
+                // ../org.elysium/src-gen/org/elysium/parser/antlr/lexer/InternalLilyPond.g:1:142: KEYWORD_76
                 {
                 mKEYWORD_76(); 
 
                 }
                 break;
-            case 15 :
-                // ../org.elysium/src-gen/org/elysium/parser/antlr/lexer/InternalLilyPond.g:1:164: KEYWORD_77
+            case 14 :
+                // ../org.elysium/src-gen/org/elysium/parser/antlr/lexer/InternalLilyPond.g:1:153: KEYWORD_77
                 {
                 mKEYWORD_77(); 
 
                 }
                 break;
-            case 16 :
-                // ../org.elysium/src-gen/org/elysium/parser/antlr/lexer/InternalLilyPond.g:1:175: KEYWORD_65
+            case 15 :
+                // ../org.elysium/src-gen/org/elysium/parser/antlr/lexer/InternalLilyPond.g:1:164: KEYWORD_78
                 {
-                mKEYWORD_65(); 
+                mKEYWORD_78(); 
 
                 }
                 break;
-            case 17 :
-                // ../org.elysium/src-gen/org/elysium/parser/antlr/lexer/InternalLilyPond.g:1:186: KEYWORD_66
+            case 16 :
+                // ../org.elysium/src-gen/org/elysium/parser/antlr/lexer/InternalLilyPond.g:1:175: KEYWORD_66
                 {
                 mKEYWORD_66(); 
 
                 }
                 break;
-            case 18 :
-                // ../org.elysium/src-gen/org/elysium/parser/antlr/lexer/InternalLilyPond.g:1:197: KEYWORD_67
+            case 17 :
+                // ../org.elysium/src-gen/org/elysium/parser/antlr/lexer/InternalLilyPond.g:1:186: KEYWORD_67
                 {
                 mKEYWORD_67(); 
 
                 }
                 break;
-            case 19 :
-                // ../org.elysium/src-gen/org/elysium/parser/antlr/lexer/InternalLilyPond.g:1:208: KEYWORD_68
+            case 18 :
+                // ../org.elysium/src-gen/org/elysium/parser/antlr/lexer/InternalLilyPond.g:1:197: KEYWORD_68
                 {
                 mKEYWORD_68(); 
 
                 }
                 break;
-            case 20 :
-                // ../org.elysium/src-gen/org/elysium/parser/antlr/lexer/InternalLilyPond.g:1:219: KEYWORD_69
+            case 19 :
+                // ../org.elysium/src-gen/org/elysium/parser/antlr/lexer/InternalLilyPond.g:1:208: KEYWORD_69
                 {
                 mKEYWORD_69(); 
 
                 }
                 break;
-            case 21 :
-                // ../org.elysium/src-gen/org/elysium/parser/antlr/lexer/InternalLilyPond.g:1:230: KEYWORD_70
+            case 20 :
+                // ../org.elysium/src-gen/org/elysium/parser/antlr/lexer/InternalLilyPond.g:1:219: KEYWORD_70
                 {
                 mKEYWORD_70(); 
 
                 }
                 break;
-            case 22 :
-                // ../org.elysium/src-gen/org/elysium/parser/antlr/lexer/InternalLilyPond.g:1:241: KEYWORD_71
+            case 21 :
+                // ../org.elysium/src-gen/org/elysium/parser/antlr/lexer/InternalLilyPond.g:1:230: KEYWORD_71
                 {
                 mKEYWORD_71(); 
 
                 }
                 break;
-            case 23 :
-                // ../org.elysium/src-gen/org/elysium/parser/antlr/lexer/InternalLilyPond.g:1:252: KEYWORD_72
+            case 22 :
+                // ../org.elysium/src-gen/org/elysium/parser/antlr/lexer/InternalLilyPond.g:1:241: KEYWORD_72
                 {
                 mKEYWORD_72(); 
 
                 }
                 break;
-            case 24 :
-                // ../org.elysium/src-gen/org/elysium/parser/antlr/lexer/InternalLilyPond.g:1:263: KEYWORD_58
+            case 23 :
+                // ../org.elysium/src-gen/org/elysium/parser/antlr/lexer/InternalLilyPond.g:1:252: KEYWORD_73
                 {
-                mKEYWORD_58(); 
+                mKEYWORD_73(); 
 
                 }
                 break;
-            case 25 :
-                // ../org.elysium/src-gen/org/elysium/parser/antlr/lexer/InternalLilyPond.g:1:274: KEYWORD_59
+            case 24 :
+                // ../org.elysium/src-gen/org/elysium/parser/antlr/lexer/InternalLilyPond.g:1:263: KEYWORD_59
                 {
                 mKEYWORD_59(); 
 
                 }
                 break;
-            case 26 :
-                // ../org.elysium/src-gen/org/elysium/parser/antlr/lexer/InternalLilyPond.g:1:285: KEYWORD_60
+            case 25 :
+                // ../org.elysium/src-gen/org/elysium/parser/antlr/lexer/InternalLilyPond.g:1:274: KEYWORD_60
                 {
                 mKEYWORD_60(); 
 
                 }
                 break;
-            case 27 :
-                // ../org.elysium/src-gen/org/elysium/parser/antlr/lexer/InternalLilyPond.g:1:296: KEYWORD_61
+            case 26 :
+                // ../org.elysium/src-gen/org/elysium/parser/antlr/lexer/InternalLilyPond.g:1:285: KEYWORD_61
                 {
                 mKEYWORD_61(); 
 
                 }
                 break;
-            case 28 :
-                // ../org.elysium/src-gen/org/elysium/parser/antlr/lexer/InternalLilyPond.g:1:307: KEYWORD_62
+            case 27 :
+                // ../org.elysium/src-gen/org/elysium/parser/antlr/lexer/InternalLilyPond.g:1:296: KEYWORD_62
                 {
                 mKEYWORD_62(); 
 
                 }
                 break;
-            case 29 :
-                // ../org.elysium/src-gen/org/elysium/parser/antlr/lexer/InternalLilyPond.g:1:318: KEYWORD_63
+            case 28 :
+                // ../org.elysium/src-gen/org/elysium/parser/antlr/lexer/InternalLilyPond.g:1:307: KEYWORD_63
                 {
                 mKEYWORD_63(); 
 
                 }
                 break;
-            case 30 :
-                // ../org.elysium/src-gen/org/elysium/parser/antlr/lexer/InternalLilyPond.g:1:329: KEYWORD_64
+            case 29 :
+                // ../org.elysium/src-gen/org/elysium/parser/antlr/lexer/InternalLilyPond.g:1:318: KEYWORD_64
                 {
                 mKEYWORD_64(); 
 
                 }
                 break;
-            case 31 :
-                // ../org.elysium/src-gen/org/elysium/parser/antlr/lexer/InternalLilyPond.g:1:340: KEYWORD_47
+            case 30 :
+                // ../org.elysium/src-gen/org/elysium/parser/antlr/lexer/InternalLilyPond.g:1:329: KEYWORD_65
                 {
-                mKEYWORD_47(); 
+                mKEYWORD_65(); 
 
                 }
                 break;
-            case 32 :
-                // ../org.elysium/src-gen/org/elysium/parser/antlr/lexer/InternalLilyPond.g:1:351: KEYWORD_48
+            case 31 :
+                // ../org.elysium/src-gen/org/elysium/parser/antlr/lexer/InternalLilyPond.g:1:340: KEYWORD_48
                 {
                 mKEYWORD_48(); 
 
                 }
                 break;
-            case 33 :
-                // ../org.elysium/src-gen/org/elysium/parser/antlr/lexer/InternalLilyPond.g:1:362: KEYWORD_49
+            case 32 :
+                // ../org.elysium/src-gen/org/elysium/parser/antlr/lexer/InternalLilyPond.g:1:351: KEYWORD_49
                 {
                 mKEYWORD_49(); 
 
                 }
                 break;
-            case 34 :
-                // ../org.elysium/src-gen/org/elysium/parser/antlr/lexer/InternalLilyPond.g:1:373: KEYWORD_50
+            case 33 :
+                // ../org.elysium/src-gen/org/elysium/parser/antlr/lexer/InternalLilyPond.g:1:362: KEYWORD_50
                 {
                 mKEYWORD_50(); 
 
                 }
                 break;
-            case 35 :
-                // ../org.elysium/src-gen/org/elysium/parser/antlr/lexer/InternalLilyPond.g:1:384: KEYWORD_51
+            case 34 :
+                // ../org.elysium/src-gen/org/elysium/parser/antlr/lexer/InternalLilyPond.g:1:373: KEYWORD_51
                 {
                 mKEYWORD_51(); 
 
                 }
                 break;
-            case 36 :
-                // ../org.elysium/src-gen/org/elysium/parser/antlr/lexer/InternalLilyPond.g:1:395: KEYWORD_52
+            case 35 :
+                // ../org.elysium/src-gen/org/elysium/parser/antlr/lexer/InternalLilyPond.g:1:384: KEYWORD_52
                 {
                 mKEYWORD_52(); 
 
                 }
                 break;
-            case 37 :
-                // ../org.elysium/src-gen/org/elysium/parser/antlr/lexer/InternalLilyPond.g:1:406: KEYWORD_53
+            case 36 :
+                // ../org.elysium/src-gen/org/elysium/parser/antlr/lexer/InternalLilyPond.g:1:395: KEYWORD_53
                 {
                 mKEYWORD_53(); 
 
                 }
                 break;
-            case 38 :
-                // ../org.elysium/src-gen/org/elysium/parser/antlr/lexer/InternalLilyPond.g:1:417: KEYWORD_54
+            case 37 :
+                // ../org.elysium/src-gen/org/elysium/parser/antlr/lexer/InternalLilyPond.g:1:406: KEYWORD_54
                 {
                 mKEYWORD_54(); 
 
                 }
                 break;
-            case 39 :
-                // ../org.elysium/src-gen/org/elysium/parser/antlr/lexer/InternalLilyPond.g:1:428: KEYWORD_55
+            case 38 :
+                // ../org.elysium/src-gen/org/elysium/parser/antlr/lexer/InternalLilyPond.g:1:417: KEYWORD_55
                 {
                 mKEYWORD_55(); 
 
                 }
                 break;
-            case 40 :
-                // ../org.elysium/src-gen/org/elysium/parser/antlr/lexer/InternalLilyPond.g:1:439: KEYWORD_56
+            case 39 :
+                // ../org.elysium/src-gen/org/elysium/parser/antlr/lexer/InternalLilyPond.g:1:428: KEYWORD_56
                 {
                 mKEYWORD_56(); 
 
                 }
                 break;
-            case 41 :
-                // ../org.elysium/src-gen/org/elysium/parser/antlr/lexer/InternalLilyPond.g:1:450: KEYWORD_57
+            case 40 :
+                // ../org.elysium/src-gen/org/elysium/parser/antlr/lexer/InternalLilyPond.g:1:439: KEYWORD_57
                 {
                 mKEYWORD_57(); 
 
                 }
                 break;
-            case 42 :
-                // ../org.elysium/src-gen/org/elysium/parser/antlr/lexer/InternalLilyPond.g:1:461: KEYWORD_40
+            case 41 :
+                // ../org.elysium/src-gen/org/elysium/parser/antlr/lexer/InternalLilyPond.g:1:450: KEYWORD_58
                 {
-                mKEYWORD_40(); 
+                mKEYWORD_58(); 
 
                 }
                 break;
-            case 43 :
-                // ../org.elysium/src-gen/org/elysium/parser/antlr/lexer/InternalLilyPond.g:1:472: KEYWORD_41
+            case 42 :
+                // ../org.elysium/src-gen/org/elysium/parser/antlr/lexer/InternalLilyPond.g:1:461: KEYWORD_41
                 {
                 mKEYWORD_41(); 
 
                 }
                 break;
-            case 44 :
-                // ../org.elysium/src-gen/org/elysium/parser/antlr/lexer/InternalLilyPond.g:1:483: KEYWORD_42
+            case 43 :
+                // ../org.elysium/src-gen/org/elysium/parser/antlr/lexer/InternalLilyPond.g:1:472: KEYWORD_42
                 {
                 mKEYWORD_42(); 
 
                 }
                 break;
-            case 45 :
-                // ../org.elysium/src-gen/org/elysium/parser/antlr/lexer/InternalLilyPond.g:1:494: KEYWORD_43
+            case 44 :
+                // ../org.elysium/src-gen/org/elysium/parser/antlr/lexer/InternalLilyPond.g:1:483: KEYWORD_43
                 {
                 mKEYWORD_43(); 
 
                 }
                 break;
-            case 46 :
-                // ../org.elysium/src-gen/org/elysium/parser/antlr/lexer/InternalLilyPond.g:1:505: KEYWORD_44
+            case 45 :
+                // ../org.elysium/src-gen/org/elysium/parser/antlr/lexer/InternalLilyPond.g:1:494: KEYWORD_44
                 {
                 mKEYWORD_44(); 
 
                 }
                 break;
-            case 47 :
-                // ../org.elysium/src-gen/org/elysium/parser/antlr/lexer/InternalLilyPond.g:1:516: KEYWORD_45
+            case 46 :
+                // ../org.elysium/src-gen/org/elysium/parser/antlr/lexer/InternalLilyPond.g:1:505: KEYWORD_45
                 {
                 mKEYWORD_45(); 
 
                 }
                 break;
-            case 48 :
-                // ../org.elysium/src-gen/org/elysium/parser/antlr/lexer/InternalLilyPond.g:1:527: KEYWORD_46
+            case 47 :
+                // ../org.elysium/src-gen/org/elysium/parser/antlr/lexer/InternalLilyPond.g:1:516: KEYWORD_46
                 {
                 mKEYWORD_46(); 
 
                 }
                 break;
-            case 49 :
-                // ../org.elysium/src-gen/org/elysium/parser/antlr/lexer/InternalLilyPond.g:1:538: KEYWORD_30
+            case 48 :
+                // ../org.elysium/src-gen/org/elysium/parser/antlr/lexer/InternalLilyPond.g:1:527: KEYWORD_47
                 {
-                mKEYWORD_30(); 
+                mKEYWORD_47(); 
 
                 }
                 break;
-            case 50 :
-                // ../org.elysium/src-gen/org/elysium/parser/antlr/lexer/InternalLilyPond.g:1:549: KEYWORD_31
+            case 49 :
+                // ../org.elysium/src-gen/org/elysium/parser/antlr/lexer/InternalLilyPond.g:1:538: KEYWORD_31
                 {
                 mKEYWORD_31(); 
 
                 }
                 break;
-            case 51 :
-                // ../org.elysium/src-gen/org/elysium/parser/antlr/lexer/InternalLilyPond.g:1:560: KEYWORD_32
+            case 50 :
+                // ../org.elysium/src-gen/org/elysium/parser/antlr/lexer/InternalLilyPond.g:1:549: KEYWORD_32
                 {
                 mKEYWORD_32(); 
 
                 }
                 break;
-            case 52 :
-                // ../org.elysium/src-gen/org/elysium/parser/antlr/lexer/InternalLilyPond.g:1:571: KEYWORD_33
+            case 51 :
+                // ../org.elysium/src-gen/org/elysium/parser/antlr/lexer/InternalLilyPond.g:1:560: KEYWORD_33
                 {
                 mKEYWORD_33(); 
 
                 }
                 break;
-            case 53 :
-                // ../org.elysium/src-gen/org/elysium/parser/antlr/lexer/InternalLilyPond.g:1:582: KEYWORD_34
+            case 52 :
+                // ../org.elysium/src-gen/org/elysium/parser/antlr/lexer/InternalLilyPond.g:1:571: KEYWORD_34
                 {
                 mKEYWORD_34(); 
 
                 }
                 break;
-            case 54 :
-                // ../org.elysium/src-gen/org/elysium/parser/antlr/lexer/InternalLilyPond.g:1:593: KEYWORD_35
+            case 53 :
+                // ../org.elysium/src-gen/org/elysium/parser/antlr/lexer/InternalLilyPond.g:1:582: KEYWORD_35
                 {
                 mKEYWORD_35(); 
 
                 }
                 break;
-            case 55 :
-                // ../org.elysium/src-gen/org/elysium/parser/antlr/lexer/InternalLilyPond.g:1:604: KEYWORD_36
+            case 54 :
+                // ../org.elysium/src-gen/org/elysium/parser/antlr/lexer/InternalLilyPond.g:1:593: KEYWORD_36
                 {
                 mKEYWORD_36(); 
 
                 }
                 break;
-            case 56 :
-                // ../org.elysium/src-gen/org/elysium/parser/antlr/lexer/InternalLilyPond.g:1:615: KEYWORD_37
+            case 55 :
+                // ../org.elysium/src-gen/org/elysium/parser/antlr/lexer/InternalLilyPond.g:1:604: KEYWORD_37
                 {
                 mKEYWORD_37(); 
 
                 }
                 break;
-            case 57 :
-                // ../org.elysium/src-gen/org/elysium/parser/antlr/lexer/InternalLilyPond.g:1:626: KEYWORD_38
+            case 56 :
+                // ../org.elysium/src-gen/org/elysium/parser/antlr/lexer/InternalLilyPond.g:1:615: KEYWORD_38
                 {
                 mKEYWORD_38(); 
 
                 }
                 break;
-            case 58 :
-                // ../org.elysium/src-gen/org/elysium/parser/antlr/lexer/InternalLilyPond.g:1:637: KEYWORD_39
+            case 57 :
+                // ../org.elysium/src-gen/org/elysium/parser/antlr/lexer/InternalLilyPond.g:1:626: KEYWORD_39
                 {
                 mKEYWORD_39(); 
 
                 }
                 break;
-            case 59 :
-                // ../org.elysium/src-gen/org/elysium/parser/antlr/lexer/InternalLilyPond.g:1:648: KEYWORD_27
+            case 58 :
+                // ../org.elysium/src-gen/org/elysium/parser/antlr/lexer/InternalLilyPond.g:1:637: KEYWORD_40
                 {
-                mKEYWORD_27(); 
+                mKEYWORD_40(); 
 
                 }
                 break;
-            case 60 :
-                // ../org.elysium/src-gen/org/elysium/parser/antlr/lexer/InternalLilyPond.g:1:659: KEYWORD_28
+            case 59 :
+                // ../org.elysium/src-gen/org/elysium/parser/antlr/lexer/InternalLilyPond.g:1:648: KEYWORD_28
                 {
                 mKEYWORD_28(); 
 
                 }
                 break;
-            case 61 :
-                // ../org.elysium/src-gen/org/elysium/parser/antlr/lexer/InternalLilyPond.g:1:670: KEYWORD_29
+            case 60 :
+                // ../org.elysium/src-gen/org/elysium/parser/antlr/lexer/InternalLilyPond.g:1:659: KEYWORD_29
                 {
                 mKEYWORD_29(); 
 
                 }
                 break;
-            case 62 :
-                // ../org.elysium/src-gen/org/elysium/parser/antlr/lexer/InternalLilyPond.g:1:681: KEYWORD_20
+            case 61 :
+                // ../org.elysium/src-gen/org/elysium/parser/antlr/lexer/InternalLilyPond.g:1:670: KEYWORD_30
                 {
-                mKEYWORD_20(); 
+                mKEYWORD_30(); 
 
                 }
                 break;
-            case 63 :
-                // ../org.elysium/src-gen/org/elysium/parser/antlr/lexer/InternalLilyPond.g:1:692: KEYWORD_21
+            case 62 :
+                // ../org.elysium/src-gen/org/elysium/parser/antlr/lexer/InternalLilyPond.g:1:681: KEYWORD_21
                 {
                 mKEYWORD_21(); 
 
                 }
                 break;
-            case 64 :
-                // ../org.elysium/src-gen/org/elysium/parser/antlr/lexer/InternalLilyPond.g:1:703: KEYWORD_22
+            case 63 :
+                // ../org.elysium/src-gen/org/elysium/parser/antlr/lexer/InternalLilyPond.g:1:692: KEYWORD_22
                 {
                 mKEYWORD_22(); 
 
                 }
                 break;
-            case 65 :
-                // ../org.elysium/src-gen/org/elysium/parser/antlr/lexer/InternalLilyPond.g:1:714: KEYWORD_23
+            case 64 :
+                // ../org.elysium/src-gen/org/elysium/parser/antlr/lexer/InternalLilyPond.g:1:703: KEYWORD_23
                 {
                 mKEYWORD_23(); 
 
                 }
                 break;
-            case 66 :
-                // ../org.elysium/src-gen/org/elysium/parser/antlr/lexer/InternalLilyPond.g:1:725: KEYWORD_24
+            case 65 :
+                // ../org.elysium/src-gen/org/elysium/parser/antlr/lexer/InternalLilyPond.g:1:714: KEYWORD_24
                 {
                 mKEYWORD_24(); 
 
                 }
                 break;
-            case 67 :
-                // ../org.elysium/src-gen/org/elysium/parser/antlr/lexer/InternalLilyPond.g:1:736: KEYWORD_25
+            case 66 :
+                // ../org.elysium/src-gen/org/elysium/parser/antlr/lexer/InternalLilyPond.g:1:725: KEYWORD_25
                 {
                 mKEYWORD_25(); 
 
                 }
                 break;
-            case 68 :
-                // ../org.elysium/src-gen/org/elysium/parser/antlr/lexer/InternalLilyPond.g:1:747: KEYWORD_26
+            case 67 :
+                // ../org.elysium/src-gen/org/elysium/parser/antlr/lexer/InternalLilyPond.g:1:736: KEYWORD_26
                 {
                 mKEYWORD_26(); 
+
+                }
+                break;
+            case 68 :
+                // ../org.elysium/src-gen/org/elysium/parser/antlr/lexer/InternalLilyPond.g:1:747: KEYWORD_27
+                {
+                mKEYWORD_27(); 
 
                 }
                 break;
@@ -2912,63 +2926,70 @@ public class InternalLilyPondLexer extends Lexer {
                 }
                 break;
             case 88 :
-                // ../org.elysium/src-gen/org/elysium/parser/antlr/lexer/InternalLilyPond.g:1:958: RULE_STRING
+                // ../org.elysium/src-gen/org/elysium/parser/antlr/lexer/InternalLilyPond.g:1:958: KEYWORD_20
+                {
+                mKEYWORD_20(); 
+
+                }
+                break;
+            case 89 :
+                // ../org.elysium/src-gen/org/elysium/parser/antlr/lexer/InternalLilyPond.g:1:969: RULE_STRING
                 {
                 mRULE_STRING(); 
 
                 }
                 break;
-            case 89 :
-                // ../org.elysium/src-gen/org/elysium/parser/antlr/lexer/InternalLilyPond.g:1:970: RULE_INT
+            case 90 :
+                // ../org.elysium/src-gen/org/elysium/parser/antlr/lexer/InternalLilyPond.g:1:981: RULE_INT
                 {
                 mRULE_INT(); 
 
                 }
                 break;
-            case 90 :
-                // ../org.elysium/src-gen/org/elysium/parser/antlr/lexer/InternalLilyPond.g:1:979: RULE_ID
+            case 91 :
+                // ../org.elysium/src-gen/org/elysium/parser/antlr/lexer/InternalLilyPond.g:1:990: RULE_ALPHA
                 {
-                mRULE_ID(); 
+                mRULE_ALPHA(); 
 
                 }
                 break;
-            case 91 :
-                // ../org.elysium/src-gen/org/elysium/parser/antlr/lexer/InternalLilyPond.g:1:987: RULE_WS
+            case 92 :
+                // ../org.elysium/src-gen/org/elysium/parser/antlr/lexer/InternalLilyPond.g:1:1001: RULE_WS
                 {
                 mRULE_WS(); 
 
                 }
                 break;
-            case 92 :
-                // ../org.elysium/src-gen/org/elysium/parser/antlr/lexer/InternalLilyPond.g:1:995: RULE_SL_COMMENT
+            case 93 :
+                // ../org.elysium/src-gen/org/elysium/parser/antlr/lexer/InternalLilyPond.g:1:1009: RULE_SL_COMMENT
                 {
                 mRULE_SL_COMMENT(); 
 
                 }
                 break;
-            case 93 :
-                // ../org.elysium/src-gen/org/elysium/parser/antlr/lexer/InternalLilyPond.g:1:1011: RULE_ML_COMMENT
+            case 94 :
+                // ../org.elysium/src-gen/org/elysium/parser/antlr/lexer/InternalLilyPond.g:1:1025: RULE_ML_COMMENT
                 {
                 mRULE_ML_COMMENT(); 
 
                 }
                 break;
-            case 94 :
-                // ../org.elysium/src-gen/org/elysium/parser/antlr/lexer/InternalLilyPond.g:1:1027: RULE_SCHEME_SL_COMMENT
+            case 95 :
+                // ../org.elysium/src-gen/org/elysium/parser/antlr/lexer/InternalLilyPond.g:1:1041: RULE_SCHEME_SL_COMMENT
                 {
                 mRULE_SCHEME_SL_COMMENT(); 
 
                 }
                 break;
-            case 95 :
-                // ../org.elysium/src-gen/org/elysium/parser/antlr/lexer/InternalLilyPond.g:1:1050: RULE_SCHEME_ML_COMMENT
+            case 96 :
+                // ../org.elysium/src-gen/org/elysium/parser/antlr/lexer/InternalLilyPond.g:1:1064: RULE_SCHEME_ML_COMMENT
                 {
                 mRULE_SCHEME_ML_COMMENT(); 
 
                 }
                 break;
-            case 96 :
-                // ../org.elysium/src-gen/org/elysium/parser/antlr/lexer/InternalLilyPond.g:1:1073: RULE_ANY_OTHER
+            case 97 :
+                // ../org.elysium/src-gen/org/elysium/parser/antlr/lexer/InternalLilyPond.g:1:1087: RULE_ANY_OTHER
                 {
                 mRULE_ANY_OTHER(); 
 
@@ -2982,140 +3003,140 @@ public class InternalLilyPondLexer extends Lexer {
 
     protected DFA13 dfa13 = new DFA13(this);
     static final String DFA13_eotS =
-        "\1\uffff\24\60\1\133\1\135\1\137\1\141\17\uffff\1\56\3\uffff\1\165"+
-        "\2\uffff\1\60\1\uffff\45\60\36\uffff\1\165\2\uffff\4\60\1\u00b0"+
-        "\32\60\1\u00cc\20\60\1\u00dd\1\uffff\3\165\4\60\1\uffff\1\60\1\u00e5"+
-        "\10\60\1\u00f0\1\60\1\u00f2\11\60\1\u00fd\1\u00fe\1\u0100\1\60\1"+
-        "\u0102\1\uffff\3\60\1\u0106\1\60\1\u0108\11\60\1\u0112\2\uffff\1"+
-        "\165\4\60\1\u0117\1\uffff\4\60\1\u011c\1\60\1\u011e\3\60\1\uffff"+
-        "\1\60\1\uffff\10\60\1\u012d\1\u012e\2\uffff\1\60\1\uffff\1\60\1"+
-        "\uffff\3\60\1\uffff\1\60\1\uffff\5\60\1\u013a\2\60\1\u013d\1\uffff"+
-        "\4\60\1\uffff\2\60\1\u0144\1\60\1\uffff\1\60\1\uffff\2\60\1\u014a"+
-        "\5\60\1\u0151\1\u0152\1\u0154\1\60\1\u0156\1\60\2\uffff\4\60\1\u015c"+
-        "\1\u015d\1\60\1\u015f\1\u0160\2\60\1\uffff\1\60\1\u0164\1\uffff"+
-        "\5\60\1\u016b\1\uffff\3\60\1\u016f\1\60\1\uffff\2\60\1\u0173\1\u0174"+
-        "\2\60\2\uffff\1\60\1\uffff\1\60\1\uffff\5\60\2\uffff\1\60\2\uffff"+
-        "\1\u017f\1\u0180\1\u0181\1\uffff\6\60\1\uffff\1\u0188\2\60\1\uffff"+
-        "\3\60\2\uffff\1\u018e\1\60\1\u0190\2\60\1\u0193\1\u0194\1\u0195"+
-        "\1\u0196\1\u0197\3\uffff\6\60\1\uffff\1\60\1\u019f\1\60\1\u01a1"+
-        "\1\60\1\uffff\1\u01a3\1\uffff\1\u01a4\1\u01a5\5\uffff\3\60\1\u01aa"+
-        "\3\60\1\uffff\1\60\1\uffff\1\u01af\3\uffff\4\60\1\uffff\1\u01b4"+
-        "\1\60\1\u01b6\1\u01b7\1\uffff\1\60\1\u01b9\2\60\1\uffff\1\u01bc"+
-        "\2\uffff\1\60\1\uffff\2\60\1\uffff\1\60\1\u01c1\1\u01c2\1\60\2\uffff"+
-        "\1\u01c4\1\uffff";
+        "\1\uffff\24\61\1\134\1\136\1\140\1\142\20\uffff\1\57\3\uffff\1\167"+
+        "\2\uffff\1\61\1\uffff\45\61\37\uffff\1\167\2\uffff\3\61\1\u00b1"+
+        "\32\61\1\u00cd\21\61\1\u00df\1\167\1\uffff\2\167\3\61\1\uffff\2"+
+        "\61\1\u00e7\10\61\1\u00f2\1\61\1\u00f4\11\61\1\u00ff\1\u0100\1\u0102"+
+        "\1\61\1\uffff\1\u0104\3\61\1\u0108\1\61\1\u010a\11\61\1\u0114\1"+
+        "\uffff\1\167\1\uffff\4\61\1\u0119\1\uffff\3\61\1\u011d\1\61\1\u011f"+
+        "\4\61\1\uffff\1\61\1\uffff\10\61\1\u012f\1\u0130\2\uffff\1\61\1"+
+        "\uffff\1\61\1\uffff\3\61\1\uffff\1\61\1\uffff\4\61\1\u013b\3\61"+
+        "\1\u013f\1\uffff\4\61\1\uffff\1\61\1\u0145\1\61\1\uffff\1\61\1\uffff"+
+        "\3\61\1\u014c\4\61\1\u0152\1\u0153\1\61\1\u0156\1\61\1\u0158\1\61"+
+        "\2\uffff\4\61\1\u015e\1\u015f\1\u0160\1\61\1\u0162\1\61\1\uffff"+
+        "\2\61\1\u0166\1\uffff\5\61\1\uffff\1\u016d\3\61\1\u0171\1\61\1\uffff"+
+        "\2\61\1\u0175\1\u0176\1\61\2\uffff\2\61\1\uffff\1\61\1\uffff\5\61"+
+        "\3\uffff\1\61\1\uffff\1\u0181\1\u0182\1\u0183\1\uffff\6\61\1\uffff"+
+        "\1\u018a\2\61\1\uffff\3\61\2\uffff\1\u0190\1\61\1\u0192\2\61\1\u0195"+
+        "\1\u0196\1\u0197\1\u0198\1\u0199\3\uffff\6\61\1\uffff\1\61\1\u01a1"+
+        "\1\61\1\u01a3\1\61\1\uffff\1\u01a5\1\uffff\1\u01a6\1\u01a7\5\uffff"+
+        "\3\61\1\u01ac\3\61\1\uffff\1\61\1\uffff\1\u01b1\3\uffff\4\61\1\uffff"+
+        "\1\u01b6\1\61\1\u01b8\1\u01b9\1\uffff\1\61\1\u01bb\2\61\1\uffff"+
+        "\1\u01be\2\uffff\1\61\1\uffff\2\61\1\uffff\1\61\1\u01c3\1\u01c4"+
+        "\1\61\2\uffff\1\u01c6\1\uffff";
     static final String DFA13_eofS =
-        "\u01c5\uffff";
+        "\u01c7\uffff";
     static final String DFA13_minS =
         "\1\0\1\162\1\143\1\145\1\143\1\141\1\151\1\150\1\141\1\145\1\157"+
         "\1\141\1\142\1\145\1\156\1\141\2\145\1\156\1\151\1\145\1\41\1\74"+
-        "\1\76\1\134\17\uffff\1\0\3\uffff\1\173\2\uffff\1\157\1\uffff\1\155"+
+        "\1\76\1\134\20\uffff\1\0\3\uffff\1\173\2\uffff\1\157\1\uffff\1\155"+
         "\1\165\1\161\1\157\1\151\1\146\1\165\1\151\1\144\1\143\1\151\1\144"+
-        "\1\147\1\156\1\141\1\162\1\171\1\141\2\155\1\160\1\157\1\164\1\155"+
-        "\1\167\1\145\1\152\1\164\1\143\1\154\1\143\1\160\1\162\1\141\1\163"+
-        "\1\164\1\171\36\uffff\1\0\2\uffff\1\142\1\165\1\162\1\165\1\55\1"+
-        "\162\1\160\1\143\1\141\1\151\1\155\1\145\1\141\1\154\1\145\1\153"+
-        "\1\156\1\151\1\165\1\163\1\162\1\156\1\151\1\157\1\156\1\160\2\145"+
-        "\1\153\2\145\1\55\1\162\1\145\1\141\2\145\1\164\1\141\1\145\1\157"+
-        "\1\154\1\164\1\145\1\163\1\144\1\145\1\150\1\55\4\0\1\144\1\154"+
-        "\1\143\1\145\1\uffff\1\145\1\55\1\162\1\165\1\145\1\155\1\162\1"+
-        "\163\1\171\1\160\1\55\1\151\1\55\1\162\1\145\1\151\1\144\1\147\1"+
-        "\143\1\165\1\163\1\157\3\55\1\155\1\55\1\uffff\1\162\1\143\1\166"+
-        "\1\55\1\141\1\55\1\164\1\162\1\166\1\165\1\151\1\162\1\151\1\145"+
-        "\1\164\1\55\2\uffff\1\0\1\145\1\164\1\145\1\156\1\55\1\uffff\1\151"+
-        "\1\154\1\163\1\157\1\55\1\156\1\55\1\162\1\164\1\160\1\uffff\1\156"+
-        "\1\uffff\1\145\1\170\1\163\1\155\1\145\1\155\1\164\1\160\2\55\2"+
-        "\uffff\1\141\1\uffff\1\157\1\uffff\1\151\1\164\1\145\1\uffff\1\164"+
-        "\1\uffff\1\151\1\164\1\145\1\144\1\141\1\55\1\157\1\162\1\55\1\uffff"+
-        "\1\163\1\141\1\146\1\164\1\uffff\1\160\1\164\1\55\1\144\1\uffff"+
-        "\1\141\1\uffff\1\151\1\163\1\55\1\160\1\155\2\164\1\157\3\55\1\157"+
-        "\1\55\1\157\2\uffff\1\162\2\144\1\151\2\55\1\166\2\55\1\145\1\154"+
-        "\1\uffff\1\156\1\55\1\uffff\1\143\1\156\2\151\1\164\1\55\1\uffff"+
-        "\1\145\1\164\1\143\1\55\1\151\1\uffff\1\165\1\157\2\55\1\163\1\144"+
-        "\2\uffff\1\157\1\uffff\1\144\1\uffff\1\163\1\164\2\145\1\144\2\uffff"+
-        "\1\145\2\uffff\3\55\1\uffff\1\162\1\145\1\154\1\141\1\151\1\150"+
-        "\1\uffff\1\55\1\151\1\163\1\uffff\1\156\1\164\1\144\2\uffff\1\55"+
-        "\1\145\1\55\2\145\5\55\3\uffff\1\151\1\157\1\145\1\154\1\157\1\151"+
-        "\1\uffff\1\166\1\55\1\145\1\55\1\145\1\uffff\1\55\1\uffff\2\55\5"+
-        "\uffff\1\160\1\165\1\154\1\55\1\156\1\154\1\145\1\uffff\1\163\1"+
-        "\uffff\1\55\3\uffff\1\164\1\163\1\141\1\151\1\uffff\1\55\1\144\2"+
-        "\55\1\uffff\1\151\1\55\1\155\1\156\1\uffff\1\55\2\uffff\1\157\1"+
-        "\uffff\2\145\1\uffff\1\156\2\55\1\163\2\uffff\1\55\1\uffff";
+        "\1\147\1\156\1\141\1\162\1\171\1\141\2\155\1\160\1\157\1\164\1\167"+
+        "\1\155\1\145\1\152\1\164\1\143\1\154\1\143\1\160\1\162\1\141\1\163"+
+        "\1\164\1\171\37\uffff\1\0\2\uffff\1\142\1\165\1\162\1\101\1\165"+
+        "\1\162\1\160\1\143\1\151\1\141\1\155\1\141\1\145\1\154\1\145\1\153"+
+        "\1\156\1\151\1\165\1\163\1\156\1\162\1\151\1\157\1\156\1\160\2\145"+
+        "\1\153\1\145\1\101\1\145\1\162\1\145\1\141\1\145\1\157\1\164\1\145"+
+        "\1\141\1\145\1\154\1\145\1\164\1\163\1\144\1\145\1\150\1\101\4\0"+
+        "\1\144\1\154\1\143\1\uffff\2\145\1\101\1\162\1\145\1\165\1\155\1"+
+        "\163\1\162\1\171\1\160\1\101\1\151\1\101\1\162\1\145\1\151\1\147"+
+        "\1\144\1\143\1\165\1\163\1\157\3\101\1\155\1\uffff\1\101\1\162\1"+
+        "\143\1\166\1\101\1\166\1\101\1\141\1\164\1\162\1\165\1\162\2\151"+
+        "\1\145\1\164\1\101\1\uffff\1\0\1\uffff\1\145\1\164\1\145\1\156\1"+
+        "\101\1\uffff\1\151\1\163\1\154\1\101\1\157\1\101\1\156\1\162\1\164"+
+        "\1\160\1\uffff\1\156\1\uffff\1\145\1\170\1\163\1\145\2\155\1\164"+
+        "\1\160\2\101\2\uffff\1\141\1\uffff\1\157\1\uffff\1\151\1\164\1\145"+
+        "\1\uffff\1\145\1\uffff\1\164\1\151\1\164\1\144\1\101\1\141\1\157"+
+        "\1\162\1\101\1\uffff\1\163\1\141\1\146\1\164\1\uffff\1\160\1\101"+
+        "\1\164\1\uffff\1\144\1\uffff\1\141\1\151\1\163\1\101\1\160\1\155"+
+        "\2\164\2\101\1\157\1\101\1\157\1\101\1\157\2\uffff\1\162\2\144\1"+
+        "\151\3\101\1\166\1\101\1\145\1\uffff\1\154\1\156\1\101\1\uffff\1"+
+        "\143\1\156\2\151\1\164\1\uffff\1\101\1\145\1\164\1\143\1\101\1\151"+
+        "\1\uffff\1\165\1\157\2\101\1\163\2\uffff\1\144\1\157\1\uffff\1\144"+
+        "\1\uffff\1\163\1\164\2\145\1\144\3\uffff\1\145\1\uffff\3\101\1\uffff"+
+        "\1\162\1\145\1\154\1\141\1\151\1\150\1\uffff\1\101\1\151\1\163\1"+
+        "\uffff\1\156\1\164\1\144\2\uffff\1\101\1\145\1\101\2\145\5\101\3"+
+        "\uffff\1\151\1\157\1\145\1\154\1\157\1\151\1\uffff\1\166\1\101\1"+
+        "\145\1\101\1\145\1\uffff\1\101\1\uffff\2\101\5\uffff\1\160\1\165"+
+        "\1\154\1\101\1\156\1\154\1\145\1\uffff\1\163\1\uffff\1\101\3\uffff"+
+        "\1\164\1\163\1\141\1\151\1\uffff\1\101\1\144\2\101\1\uffff\1\151"+
+        "\1\101\1\155\1\156\1\uffff\1\101\2\uffff\1\157\1\uffff\2\145\1\uffff"+
+        "\1\156\2\101\1\163\2\uffff\1\101\1\uffff";
     static final String DFA13_maxS =
         "\1\ufffe\1\162\1\157\1\162\1\154\2\151\1\157\2\171\2\157\1\166\1"+
-        "\145\1\156\1\141\2\145\1\156\1\151\1\145\1\175\1\74\1\76\1\134\17"+
+        "\145\1\156\1\141\2\145\1\156\1\151\1\145\1\175\1\74\1\76\1\134\20"+
         "\uffff\1\ufffe\3\uffff\1\173\2\uffff\1\157\1\uffff\1\155\1\165\1"+
         "\164\1\157\1\151\1\163\1\165\1\164\1\144\1\143\1\162\1\144\1\147"+
-        "\1\156\1\157\1\162\1\171\1\141\2\155\1\160\1\157\1\164\1\155\1\167"+
+        "\1\156\1\157\1\162\1\171\1\141\2\155\1\160\1\157\1\164\1\167\1\155"+
         "\1\145\1\152\1\164\1\143\1\166\1\143\2\162\1\141\1\163\1\164\1\171"+
-        "\36\uffff\1\ufffe\2\uffff\1\142\1\165\1\162\1\165\1\172\1\162\1"+
-        "\160\1\143\1\141\1\151\1\155\1\145\1\141\1\154\1\145\1\153\1\156"+
-        "\1\151\1\165\1\164\1\162\1\156\1\151\1\157\1\156\1\160\2\145\1\153"+
-        "\2\145\1\172\1\162\1\145\1\141\2\145\1\164\1\141\1\145\1\157\1\154"+
-        "\1\164\1\145\1\163\1\144\1\145\1\150\1\172\4\ufffe\1\144\1\154\1"+
-        "\143\1\145\1\uffff\1\145\1\172\1\162\1\165\1\145\1\163\1\162\1\163"+
-        "\1\171\1\160\1\172\1\151\1\172\1\162\1\145\1\151\1\144\1\147\1\143"+
-        "\1\165\1\163\1\157\3\172\1\155\1\172\1\uffff\1\162\1\143\1\166\1"+
-        "\172\1\141\1\172\1\164\1\162\1\166\1\165\1\151\1\162\1\151\1\145"+
-        "\1\164\1\172\2\uffff\1\ufffe\1\145\1\164\1\145\1\156\1\172\1\uffff"+
-        "\1\151\1\154\1\163\1\157\1\172\1\156\1\172\1\162\1\164\1\160\1\uffff"+
-        "\1\156\1\uffff\1\145\1\170\2\163\1\145\1\163\1\164\1\160\2\172\2"+
-        "\uffff\1\141\1\uffff\1\157\1\uffff\1\151\1\164\1\145\1\uffff\1\164"+
-        "\1\uffff\1\151\1\164\1\145\1\144\1\141\1\172\1\157\1\162\1\172\1"+
-        "\uffff\1\163\1\141\1\146\1\164\1\uffff\1\160\1\164\1\172\1\144\1"+
-        "\uffff\1\141\1\uffff\1\151\1\163\1\172\1\160\1\163\2\164\1\157\3"+
-        "\172\1\157\1\172\1\157\2\uffff\1\162\2\144\1\151\2\172\1\166\2\172"+
-        "\1\145\1\154\1\uffff\1\156\1\172\1\uffff\1\143\1\156\2\151\1\164"+
-        "\1\172\1\uffff\1\145\1\164\1\143\1\172\1\151\1\uffff\1\165\1\157"+
-        "\2\172\1\163\1\144\2\uffff\1\157\1\uffff\1\144\1\uffff\1\163\1\164"+
-        "\2\145\1\144\2\uffff\1\145\2\uffff\3\172\1\uffff\1\162\1\145\1\154"+
-        "\1\141\1\151\1\150\1\uffff\1\172\1\151\1\163\1\uffff\1\156\1\164"+
-        "\1\144\2\uffff\1\172\1\145\1\172\2\145\5\172\3\uffff\1\151\1\157"+
-        "\1\145\1\154\1\157\1\151\1\uffff\1\166\1\172\1\145\1\172\1\145\1"+
-        "\uffff\1\172\1\uffff\2\172\5\uffff\1\160\1\165\1\156\1\172\1\156"+
-        "\1\154\1\145\1\uffff\1\163\1\uffff\1\172\3\uffff\1\164\1\163\1\141"+
-        "\1\151\1\uffff\1\172\1\144\2\172\1\uffff\1\151\1\172\1\155\1\156"+
-        "\1\uffff\1\172\2\uffff\1\157\1\uffff\2\145\1\uffff\1\156\2\172\1"+
-        "\163\2\uffff\1\172\1\uffff";
+        "\37\uffff\1\ufffe\2\uffff\1\142\1\165\1\162\1\172\1\165\1\162\1"+
+        "\160\1\143\1\151\1\141\1\155\1\141\1\145\1\154\1\145\1\153\1\156"+
+        "\1\151\1\165\1\164\1\156\1\162\1\151\1\157\1\156\1\160\2\145\1\153"+
+        "\1\145\1\172\1\145\1\162\1\145\1\141\1\145\1\157\1\164\1\145\1\141"+
+        "\1\145\1\154\1\145\1\164\1\163\1\144\1\145\1\150\1\172\4\ufffe\1"+
+        "\144\1\154\1\143\1\uffff\2\145\1\172\1\162\1\145\1\165\2\163\1\162"+
+        "\1\171\1\160\1\172\1\151\1\172\1\162\1\145\1\151\1\147\1\144\1\143"+
+        "\1\165\1\163\1\157\3\172\1\155\1\uffff\1\172\1\162\1\143\1\166\1"+
+        "\172\1\166\1\172\1\141\1\164\1\162\1\165\1\162\2\151\1\145\1\164"+
+        "\1\172\1\uffff\1\ufffe\1\uffff\1\145\1\164\1\145\1\156\1\172\1\uffff"+
+        "\1\151\1\163\1\154\1\172\1\157\1\172\1\156\1\162\1\164\1\160\1\uffff"+
+        "\1\156\1\uffff\1\145\1\170\1\163\1\145\2\163\1\164\1\160\2\172\2"+
+        "\uffff\1\141\1\uffff\1\157\1\uffff\1\151\1\164\1\145\1\uffff\1\145"+
+        "\1\uffff\1\164\1\151\1\164\1\144\1\172\1\141\1\157\1\162\1\172\1"+
+        "\uffff\1\163\1\141\1\146\1\164\1\uffff\1\160\1\172\1\164\1\uffff"+
+        "\1\144\1\uffff\1\141\1\151\1\163\1\172\1\160\1\163\2\164\2\172\1"+
+        "\157\1\172\1\157\1\172\1\157\2\uffff\1\162\2\144\1\151\3\172\1\166"+
+        "\1\172\1\145\1\uffff\1\154\1\156\1\172\1\uffff\1\143\1\156\2\151"+
+        "\1\164\1\uffff\1\172\1\145\1\164\1\143\1\172\1\151\1\uffff\1\165"+
+        "\1\157\2\172\1\163\2\uffff\1\144\1\157\1\uffff\1\144\1\uffff\1\163"+
+        "\1\164\2\145\1\144\3\uffff\1\145\1\uffff\3\172\1\uffff\1\162\1\145"+
+        "\1\154\1\141\1\151\1\150\1\uffff\1\172\1\151\1\163\1\uffff\1\156"+
+        "\1\164\1\144\2\uffff\1\172\1\145\1\172\2\145\5\172\3\uffff\1\151"+
+        "\1\157\1\145\1\154\1\157\1\151\1\uffff\1\166\1\172\1\145\1\172\1"+
+        "\145\1\uffff\1\172\1\uffff\2\172\5\uffff\1\160\1\165\1\156\1\172"+
+        "\1\156\1\154\1\145\1\uffff\1\163\1\uffff\1\172\3\uffff\1\164\1\163"+
+        "\1\141\1\151\1\uffff\1\172\1\144\2\172\1\uffff\1\151\1\172\1\155"+
+        "\1\156\1\uffff\1\172\2\uffff\1\157\1\uffff\2\145\1\uffff\1\156\2"+
+        "\172\1\163\2\uffff\1\172\1\uffff";
     static final String DFA13_acceptS =
-        "\31\uffff\1\105\1\107\1\110\1\111\1\112\1\113\1\114\1\115\1\117"+
-        "\1\121\1\123\1\124\1\125\1\126\1\127\1\uffff\1\131\1\132\1\133\1"+
-        "\uffff\1\136\1\140\1\uffff\1\132\45\uffff\1\137\1\101\1\100\1\77"+
-        "\1\76\1\106\1\102\1\116\1\103\1\120\1\104\1\122\1\105\1\107\1\110"+
-        "\1\111\1\112\1\113\1\114\1\115\1\117\1\121\1\123\1\124\1\125\1\126"+
-        "\1\127\1\130\1\131\1\133\1\uffff\1\134\1\136\71\uffff\1\75\33\uffff"+
-        "\1\74\20\uffff\1\73\1\135\6\uffff\1\67\12\uffff\1\62\1\uffff\1\63"+
-        "\12\uffff\1\70\1\71\1\uffff\1\61\1\uffff\1\64\3\uffff\1\65\1\uffff"+
-        "\1\66\11\uffff\1\72\4\uffff\1\55\4\uffff\1\53\1\uffff\1\52\16\uffff"+
-        "\1\56\1\57\13\uffff\1\54\2\uffff\1\60\6\uffff\1\41\5\uffff\1\45"+
-        "\6\uffff\1\40\1\37\1\uffff\1\44\1\uffff\1\43\5\uffff\1\46\1\50\1"+
-        "\uffff\1\51\1\47\3\uffff\1\42\6\uffff\1\32\3\uffff\1\30\3\uffff"+
-        "\1\33\1\31\12\uffff\1\34\1\35\1\36\6\uffff\1\22\5\uffff\1\21\1\uffff"+
-        "\1\23\2\uffff\1\20\1\24\1\26\1\25\1\27\7\uffff\1\13\1\uffff\1\16"+
-        "\1\uffff\1\14\1\15\1\17\4\uffff\1\12\4\uffff\1\11\4\uffff\1\7\1"+
-        "\uffff\1\6\1\10\1\uffff\1\5\2\uffff\1\4\4\uffff\1\3\1\2\1\uffff"+
-        "\1\1";
+        "\31\uffff\1\105\1\107\1\110\1\111\1\112\1\113\1\114\1\115\1\116"+
+        "\1\120\1\122\1\124\1\125\1\126\1\127\1\130\1\uffff\1\132\1\133\1"+
+        "\134\1\uffff\1\137\1\141\1\uffff\1\133\45\uffff\1\140\1\101\1\100"+
+        "\1\76\1\77\1\106\1\102\1\117\1\103\1\121\1\104\1\123\1\105\1\107"+
+        "\1\110\1\111\1\112\1\113\1\114\1\115\1\116\1\120\1\122\1\124\1\125"+
+        "\1\126\1\127\1\130\1\131\1\132\1\134\1\uffff\1\135\1\137\70\uffff"+
+        "\1\75\33\uffff\1\74\21\uffff\1\73\1\uffff\1\136\5\uffff\1\67\12"+
+        "\uffff\1\62\1\uffff\1\63\12\uffff\1\70\1\71\1\uffff\1\61\1\uffff"+
+        "\1\64\3\uffff\1\65\1\uffff\1\66\11\uffff\1\72\4\uffff\1\55\3\uffff"+
+        "\1\53\1\uffff\1\52\17\uffff\1\56\1\57\12\uffff\1\54\3\uffff\1\60"+
+        "\5\uffff\1\41\6\uffff\1\45\5\uffff\1\37\1\40\2\uffff\1\44\1\uffff"+
+        "\1\43\5\uffff\1\46\1\47\1\50\1\uffff\1\51\3\uffff\1\42\6\uffff\1"+
+        "\32\3\uffff\1\30\3\uffff\1\33\1\31\12\uffff\1\34\1\35\1\36\6\uffff"+
+        "\1\22\5\uffff\1\21\1\uffff\1\23\2\uffff\1\20\1\24\1\26\1\25\1\27"+
+        "\7\uffff\1\13\1\uffff\1\16\1\uffff\1\14\1\15\1\17\4\uffff\1\12\4"+
+        "\uffff\1\11\4\uffff\1\7\1\uffff\1\6\1\10\1\uffff\1\5\2\uffff\1\4"+
+        "\4\uffff\1\3\1\2\1\uffff\1\1";
     static final String DFA13_specialS =
-        "\u01c5\uffff}>";
+        "\u01c7\uffff}>";
     static final String[] DFA13_transitionS = {
-            "\11\56\2\53\2\56\1\53\22\56\1\53\1\31\1\50\1\25\1\32\1\54\1"+
-            "\56\1\33\1\34\1\35\1\56\1\36\1\37\3\56\12\51\1\40\1\55\1\26"+
-            "\1\41\1\27\2\56\32\52\1\42\1\30\1\43\2\56\1\44\1\4\1\12\1\7"+
-            "\1\3\1\52\1\6\1\1\1\21\1\16\1\52\1\24\1\10\1\5\1\13\1\14\1\17"+
-            "\1\52\1\15\1\2\1\11\1\22\1\20\1\23\3\52\1\45\1\56\1\46\1\47"+
-            "\uff80\56",
-            "\1\57",
-            "\1\64\1\uffff\1\63\3\uffff\1\61\1\uffff\1\65\3\uffff\1\62",
-            "\1\66\14\uffff\1\67",
-            "\1\72\1\71\7\uffff\1\70",
-            "\1\73\7\uffff\1\74",
-            "\1\75",
-            "\1\77\6\uffff\1\76",
-            "\1\101\27\uffff\1\100",
-            "\1\103\3\uffff\1\104\10\uffff\1\102\6\uffff\1\105",
-            "\1\106",
-            "\1\110\3\uffff\1\111\11\uffff\1\107",
-            "\1\113\1\114\12\uffff\1\115\7\uffff\1\112",
-            "\1\116",
+            "\11\57\2\54\2\57\1\54\22\57\1\54\1\31\1\51\1\25\1\32\1\55\1"+
+            "\57\1\33\1\34\1\35\1\57\1\36\1\37\1\40\2\57\12\52\1\41\1\56"+
+            "\1\26\1\42\1\27\2\57\32\53\1\43\1\30\1\44\2\57\1\45\1\4\1\12"+
+            "\1\7\1\3\1\53\1\6\1\1\1\21\1\16\1\53\1\24\1\10\1\5\1\13\1\14"+
+            "\1\17\1\53\1\15\1\2\1\11\1\22\1\20\1\23\3\53\1\46\1\57\1\47"+
+            "\1\50\uff80\57",
+            "\1\60",
+            "\1\65\1\uffff\1\64\3\uffff\1\62\1\uffff\1\66\3\uffff\1\63",
+            "\1\67\14\uffff\1\70",
+            "\1\73\1\72\7\uffff\1\71",
+            "\1\74\7\uffff\1\75",
+            "\1\76",
+            "\1\100\6\uffff\1\77",
+            "\1\102\27\uffff\1\101",
+            "\1\104\3\uffff\1\105\10\uffff\1\103\6\uffff\1\106",
+            "\1\107",
+            "\1\112\3\uffff\1\111\11\uffff\1\110",
+            "\1\114\1\115\12\uffff\1\116\7\uffff\1\113",
             "\1\117",
             "\1\120",
             "\1\121",
@@ -3123,11 +3144,12 @@ public class InternalLilyPondLexer extends Lexer {
             "\1\123",
             "\1\124",
             "\1\125",
-            "\1\126\30\uffff\1\132\41\uffff\1\131\36\uffff\1\130\1\uffff"+
-            "\1\127",
-            "\1\134",
-            "\1\136",
-            "\1\140",
+            "\1\126",
+            "\1\127\30\uffff\1\132\41\uffff\1\133\36\uffff\1\131\1\uffff"+
+            "\1\130",
+            "\1\135",
+            "\1\137",
+            "\1\141",
             "",
             "",
             "",
@@ -3143,32 +3165,31 @@ public class InternalLilyPondLexer extends Lexer {
             "",
             "",
             "",
-            "\uffff\161",
+            "",
+            "\uffff\163",
             "",
             "",
             "",
-            "\1\164",
+            "\1\166",
             "",
             "",
-            "\1\167",
-            "",
-            "\1\170",
             "\1\171",
-            "\1\172\2\uffff\1\173",
-            "\1\174",
-            "\1\175",
-            "\1\177\7\uffff\1\u0080\4\uffff\1\176",
-            "\1\u0081",
-            "\1\u0083\12\uffff\1\u0082",
-            "\1\u0084",
-            "\1\u0085",
-            "\1\u0087\10\uffff\1\u0086",
-            "\1\u0088",
-            "\1\u0089",
+            "",
+            "\1\172",
+            "\1\173",
+            "\1\175\2\uffff\1\174",
+            "\1\176",
+            "\1\177",
+            "\1\u0082\7\uffff\1\u0081\4\uffff\1\u0080",
+            "\1\u0083",
+            "\1\u0084\12\uffff\1\u0085",
+            "\1\u0086",
+            "\1\u0087",
+            "\1\u0089\10\uffff\1\u0088",
             "\1\u008a",
-            "\1\u008c\15\uffff\1\u008b",
-            "\1\u008d",
-            "\1\u008e",
+            "\1\u008b",
+            "\1\u008c",
+            "\1\u008d\15\uffff\1\u008e",
             "\1\u008f",
             "\1\u0090",
             "\1\u0091",
@@ -3181,14 +3202,16 @@ public class InternalLilyPondLexer extends Lexer {
             "\1\u0098",
             "\1\u0099",
             "\1\u009a",
-            "\1\u009d\1\u009f\2\uffff\1\u009b\2\uffff\1\u009c\2\uffff\1\u009e",
-            "\1\u00a0",
-            "\1\u00a2\1\uffff\1\u00a1",
-            "\1\u00a3",
-            "\1\u00a4",
+            "\1\u009b",
+            "\1\u009c",
+            "\1\u00a0\1\u009d\2\uffff\1\u009f\2\uffff\1\u009e\2\uffff\1\u00a1",
+            "\1\u00a2",
+            "\1\u00a3\1\uffff\1\u00a4",
             "\1\u00a5",
             "\1\u00a6",
             "\1\u00a7",
+            "\1\u00a8",
+            "\1\u00a9",
             "",
             "",
             "",
@@ -3219,15 +3242,14 @@ public class InternalLilyPondLexer extends Lexer {
             "",
             "",
             "",
-            "\12\u00ab\1\u00a9\2\u00ab\1\u00a8\27\u00ab\1\u00aa\uffd9\u00ab",
+            "",
+            "\12\u00ad\1\u00ac\2\u00ad\1\u00ab\27\u00ad\1\u00aa\uffd9\u00ad",
             "",
             "",
-            "\1\u00ac",
-            "\1\u00ad",
             "\1\u00ae",
             "\1\u00af",
-            "\1\60\23\uffff\32\60\6\uffff\32\60",
-            "\1\u00b1",
+            "\1\u00b0",
+            "\32\61\6\uffff\32\61",
             "\1\u00b2",
             "\1\u00b3",
             "\1\u00b4",
@@ -3241,9 +3263,9 @@ public class InternalLilyPondLexer extends Lexer {
             "\1\u00bc",
             "\1\u00bd",
             "\1\u00be",
-            "\1\u00c0\1\u00bf",
-            "\1\u00c1",
-            "\1\u00c2",
+            "\1\u00bf",
+            "\1\u00c0",
+            "\1\u00c2\1\u00c1",
             "\1\u00c3",
             "\1\u00c4",
             "\1\u00c5",
@@ -3253,8 +3275,8 @@ public class InternalLilyPondLexer extends Lexer {
             "\1\u00c9",
             "\1\u00ca",
             "\1\u00cb",
-            "\1\60\23\uffff\32\60\6\uffff\32\60",
-            "\1\u00cd",
+            "\1\u00cc",
+            "\32\61\6\uffff\32\61",
             "\1\u00ce",
             "\1\u00cf",
             "\1\u00d0",
@@ -3270,32 +3292,32 @@ public class InternalLilyPondLexer extends Lexer {
             "\1\u00da",
             "\1\u00db",
             "\1\u00dc",
-            "\1\60\23\uffff\32\60\6\uffff\32\60",
-            "\12\u00de\1\u00a9\ufff4\u00de",
-            "\uffff\u00de",
-            "\12\u00ab\1\u00a9\2\u00ab\1\u00a8\27\u00ab\1\u00aa\127\u00ab"+
-            "\1\u00df\uff81\u00ab",
-            "\12\u00ab\1\u00a9\2\u00ab\1\u00a8\27\u00ab\1\u00aa\uffd9\u00ab",
-            "\1\u00e0",
-            "\1\u00e1",
+            "\1\u00dd",
+            "\1\u00de",
+            "\32\61\6\uffff\32\61",
+            "\12\u00ad\1\u00ac\2\u00ad\1\u00ab\27\u00ad\1\u00aa\127\u00ad"+
+            "\1\u00e0\uff81\u00ad",
+            "\12\u00e1\1\u00ac\ufff4\u00e1",
+            "\uffff\u00e1",
+            "\12\u00ad\1\u00ac\2\u00ad\1\u00ab\27\u00ad\1\u00aa\uffd9\u00ad",
             "\1\u00e2",
             "\1\u00e3",
-            "",
             "\1\u00e4",
-            "\1\60\23\uffff\32\60\6\uffff\32\60",
+            "",
+            "\1\u00e5",
             "\1\u00e6",
-            "\1\u00e7",
+            "\32\61\6\uffff\32\61",
             "\1\u00e8",
-            "\1\u00e9\5\uffff\1\u00ea",
-            "\1\u00eb",
-            "\1\u00ec",
+            "\1\u00e9",
+            "\1\u00ea",
+            "\1\u00ec\5\uffff\1\u00eb",
             "\1\u00ed",
             "\1\u00ee",
-            "\1\60\23\uffff\32\60\6\uffff\24\60\1\u00ef\5\60",
-            "\1\u00f1",
-            "\1\60\23\uffff\32\60\6\uffff\32\60",
+            "\1\u00ef",
+            "\1\u00f0",
+            "\32\61\6\uffff\24\61\1\u00f1\5\61",
             "\1\u00f3",
-            "\1\u00f4",
+            "\32\61\6\uffff\32\61",
             "\1\u00f5",
             "\1\u00f6",
             "\1\u00f7",
@@ -3303,20 +3325,20 @@ public class InternalLilyPondLexer extends Lexer {
             "\1\u00f9",
             "\1\u00fa",
             "\1\u00fb",
-            "\1\60\23\uffff\32\60\6\uffff\22\60\1\u00fc\7\60",
-            "\1\60\23\uffff\32\60\6\uffff\32\60",
-            "\1\60\23\uffff\32\60\6\uffff\17\60\1\u00ff\12\60",
-            "\1\u0101",
-            "\1\60\23\uffff\32\60\6\uffff\32\60",
-            "",
+            "\1\u00fc",
+            "\1\u00fd",
+            "\32\61\6\uffff\22\61\1\u00fe\7\61",
+            "\32\61\6\uffff\32\61",
+            "\32\61\6\uffff\17\61\1\u0101\12\61",
             "\1\u0103",
-            "\1\u0104",
+            "",
+            "\32\61\6\uffff\32\61",
             "\1\u0105",
-            "\1\60\23\uffff\32\60\6\uffff\32\60",
+            "\1\u0106",
             "\1\u0107",
-            "\1\60\23\uffff\32\60\6\uffff\32\60",
+            "\32\61\6\uffff\32\61",
             "\1\u0109",
-            "\1\u010a",
+            "\32\61\6\uffff\32\61",
             "\1\u010b",
             "\1\u010c",
             "\1\u010d",
@@ -3324,238 +3346,240 @@ public class InternalLilyPondLexer extends Lexer {
             "\1\u010f",
             "\1\u0110",
             "\1\u0111",
-            "\1\60\23\uffff\32\60\6\uffff\32\60",
-            "",
-            "",
-            "\12\u00ab\1\u00a9\2\u00ab\1\u00a8\27\u00ab\1\u00aa\uffd9\u00ab",
+            "\1\u0112",
             "\1\u0113",
-            "\1\u0114",
+            "\32\61\6\uffff\32\61",
+            "",
+            "\12\u00ad\1\u00ac\2\u00ad\1\u00ab\27\u00ad\1\u00aa\uffd9\u00ad",
+            "",
             "\1\u0115",
             "\1\u0116",
-            "\1\60\23\uffff\32\60\6\uffff\32\60",
-            "",
+            "\1\u0117",
             "\1\u0118",
-            "\1\u0119",
+            "\32\61\6\uffff\32\61",
+            "",
             "\1\u011a",
             "\1\u011b",
-            "\1\60\23\uffff\32\60\6\uffff\32\60",
-            "\1\u011d",
-            "\1\60\23\uffff\32\60\6\uffff\32\60",
-            "\1\u011f",
+            "\1\u011c",
+            "\32\61\6\uffff\32\61",
+            "\1\u011e",
+            "\32\61\6\uffff\32\61",
             "\1\u0120",
             "\1\u0121",
-            "",
             "\1\u0122",
-            "",
             "\1\u0123",
+            "",
             "\1\u0124",
+            "",
             "\1\u0125",
-            "\1\u0126\5\uffff\1\u0127",
+            "\1\u0126",
+            "\1\u0127",
             "\1\u0128",
             "\1\u012a\5\uffff\1\u0129",
-            "\1\u012b",
-            "\1\u012c",
-            "\1\60\23\uffff\32\60\6\uffff\32\60",
-            "\1\60\23\uffff\32\60\6\uffff\32\60",
+            "\1\u012c\5\uffff\1\u012b",
+            "\1\u012d",
+            "\1\u012e",
+            "\32\61\6\uffff\32\61",
+            "\32\61\6\uffff\32\61",
             "",
-            "",
-            "\1\u012f",
-            "",
-            "\1\u0130",
             "",
             "\1\u0131",
+            "",
             "\1\u0132",
+            "",
             "\1\u0133",
-            "",
             "\1\u0134",
-            "",
             "\1\u0135",
+            "",
             "\1\u0136",
+            "",
             "\1\u0137",
             "\1\u0138",
             "\1\u0139",
-            "\1\60\23\uffff\32\60\6\uffff\32\60",
-            "\1\u013b",
+            "\1\u013a",
+            "\32\61\6\uffff\32\61",
             "\1\u013c",
-            "\1\60\23\uffff\32\60\6\uffff\32\60",
-            "",
+            "\1\u013d",
             "\1\u013e",
-            "\1\u013f",
+            "\32\61\6\uffff\32\61",
+            "",
             "\1\u0140",
             "\1\u0141",
-            "",
             "\1\u0142",
             "\1\u0143",
-            "\1\60\23\uffff\32\60\6\uffff\32\60",
-            "\1\u0145",
             "",
+            "\1\u0144",
+            "\32\61\6\uffff\32\61",
             "\1\u0146",
             "",
             "\1\u0147",
+            "",
             "\1\u0148",
-            "\1\60\23\uffff\32\60\6\uffff\13\60\1\u0149\16\60",
-            "\1\u014b",
-            "\1\u014c\5\uffff\1\u014d",
-            "\1\u014e",
-            "\1\u014f",
+            "\1\u0149",
+            "\1\u014a",
+            "\32\61\6\uffff\13\61\1\u014b\16\61",
+            "\1\u014d",
+            "\1\u014e\5\uffff\1\u014f",
             "\1\u0150",
-            "\1\60\23\uffff\32\60\6\uffff\32\60",
-            "\1\60\23\uffff\32\60\6\uffff\32\60",
-            "\1\60\23\uffff\32\60\6\uffff\23\60\1\u0153\6\60",
-            "\1\u0155",
-            "\1\60\23\uffff\32\60\6\uffff\32\60",
+            "\1\u0151",
+            "\32\61\6\uffff\32\61",
+            "\32\61\6\uffff\32\61",
+            "\1\u0154",
+            "\32\61\6\uffff\23\61\1\u0155\6\61",
             "\1\u0157",
-            "",
-            "",
-            "\1\u0158",
+            "\32\61\6\uffff\32\61",
             "\1\u0159",
+            "",
+            "",
             "\1\u015a",
             "\1\u015b",
-            "\1\60\23\uffff\32\60\6\uffff\32\60",
-            "\1\60\23\uffff\32\60\6\uffff\32\60",
-            "\1\u015e",
-            "\1\60\23\uffff\32\60\6\uffff\32\60",
-            "\1\60\23\uffff\32\60\6\uffff\32\60",
+            "\1\u015c",
+            "\1\u015d",
+            "\32\61\6\uffff\32\61",
+            "\32\61\6\uffff\32\61",
+            "\32\61\6\uffff\32\61",
             "\1\u0161",
-            "\1\u0162",
-            "",
+            "\32\61\6\uffff\32\61",
             "\1\u0163",
-            "\1\60\23\uffff\32\60\6\uffff\32\60",
             "",
+            "\1\u0164",
             "\1\u0165",
-            "\1\u0166",
+            "\32\61\6\uffff\32\61",
+            "",
             "\1\u0167",
             "\1\u0168",
             "\1\u0169",
-            "\1\60\23\uffff\32\60\6\uffff\2\60\1\u016a\27\60",
+            "\1\u016a",
+            "\1\u016b",
             "",
-            "\1\u016c",
-            "\1\u016d",
+            "\32\61\6\uffff\2\61\1\u016c\27\61",
             "\1\u016e",
-            "\1\60\23\uffff\32\60\6\uffff\32\60",
+            "\1\u016f",
             "\1\u0170",
-            "",
-            "\1\u0171",
+            "\32\61\6\uffff\32\61",
             "\1\u0172",
-            "\1\60\23\uffff\32\60\6\uffff\32\60",
-            "\1\60\23\uffff\32\60\6\uffff\32\60",
-            "\1\u0175",
-            "\1\u0176",
             "",
-            "",
+            "\1\u0173",
+            "\1\u0174",
+            "\32\61\6\uffff\32\61",
+            "\32\61\6\uffff\32\61",
             "\1\u0177",
             "",
-            "\1\u0178",
             "",
+            "\1\u0178",
             "\1\u0179",
+            "",
             "\1\u017a",
+            "",
             "\1\u017b",
             "\1\u017c",
             "\1\u017d",
-            "",
-            "",
             "\1\u017e",
+            "\1\u017f",
             "",
             "",
-            "\1\60\23\uffff\32\60\6\uffff\32\60",
-            "\1\60\23\uffff\32\60\6\uffff\32\60",
-            "\1\60\23\uffff\32\60\6\uffff\32\60",
             "",
-            "\1\u0182",
-            "\1\u0183",
+            "\1\u0180",
+            "",
+            "\32\61\6\uffff\32\61",
+            "\32\61\6\uffff\32\61",
+            "\32\61\6\uffff\32\61",
+            "",
             "\1\u0184",
             "\1\u0185",
             "\1\u0186",
             "\1\u0187",
-            "",
-            "\1\60\23\uffff\32\60\6\uffff\32\60",
+            "\1\u0188",
             "\1\u0189",
-            "\1\u018a",
             "",
+            "\32\61\6\uffff\32\61",
             "\1\u018b",
             "\1\u018c",
+            "",
             "\1\u018d",
-            "",
-            "",
-            "\1\60\23\uffff\32\60\6\uffff\32\60",
+            "\1\u018e",
             "\1\u018f",
-            "\1\60\23\uffff\32\60\6\uffff\32\60",
+            "",
+            "",
+            "\32\61\6\uffff\32\61",
             "\1\u0191",
-            "\1\u0192",
-            "\1\60\23\uffff\32\60\6\uffff\32\60",
-            "\1\60\23\uffff\32\60\6\uffff\32\60",
-            "\1\60\23\uffff\32\60\6\uffff\32\60",
-            "\1\60\23\uffff\32\60\6\uffff\32\60",
-            "\1\60\23\uffff\32\60\6\uffff\32\60",
+            "\32\61\6\uffff\32\61",
+            "\1\u0193",
+            "\1\u0194",
+            "\32\61\6\uffff\32\61",
+            "\32\61\6\uffff\32\61",
+            "\32\61\6\uffff\32\61",
+            "\32\61\6\uffff\32\61",
+            "\32\61\6\uffff\32\61",
             "",
             "",
             "",
-            "\1\u0198",
-            "\1\u0199",
             "\1\u019a",
             "\1\u019b",
             "\1\u019c",
             "\1\u019d",
-            "",
             "\1\u019e",
-            "\1\60\23\uffff\32\60\6\uffff\32\60",
+            "\1\u019f",
+            "",
             "\1\u01a0",
-            "\1\60\23\uffff\32\60\6\uffff\32\60",
+            "\32\61\6\uffff\32\61",
             "\1\u01a2",
+            "\32\61\6\uffff\32\61",
+            "\1\u01a4",
             "",
-            "\1\60\23\uffff\32\60\6\uffff\32\60",
+            "\32\61\6\uffff\32\61",
             "",
-            "\1\60\23\uffff\32\60\6\uffff\32\60",
-            "\1\60\23\uffff\32\60\6\uffff\32\60",
-            "",
-            "",
+            "\32\61\6\uffff\32\61",
+            "\32\61\6\uffff\32\61",
             "",
             "",
             "",
-            "\1\u01a6",
-            "\1\u01a7",
-            "\1\u01a9\1\uffff\1\u01a8",
-            "\1\60\23\uffff\32\60\6\uffff\32\60",
-            "\1\u01ab",
-            "\1\u01ac",
+            "",
+            "",
+            "\1\u01a8",
+            "\1\u01a9",
+            "\1\u01ab\1\uffff\1\u01aa",
+            "\32\61\6\uffff\32\61",
             "\1\u01ad",
-            "",
             "\1\u01ae",
-            "",
-            "\1\60\23\uffff\32\60\6\uffff\32\60",
-            "",
-            "",
+            "\1\u01af",
             "",
             "\1\u01b0",
-            "\1\u01b1",
+            "",
+            "\32\61\6\uffff\32\61",
+            "",
+            "",
+            "",
             "\1\u01b2",
             "\1\u01b3",
-            "",
-            "\1\60\23\uffff\32\60\6\uffff\32\60",
+            "\1\u01b4",
             "\1\u01b5",
-            "\1\60\23\uffff\32\60\6\uffff\32\60",
-            "\1\60\23\uffff\32\60\6\uffff\32\60",
             "",
-            "\1\u01b8",
-            "\1\60\23\uffff\32\60\6\uffff\32\60",
+            "\32\61\6\uffff\32\61",
+            "\1\u01b7",
+            "\32\61\6\uffff\32\61",
+            "\32\61\6\uffff\32\61",
+            "",
             "\1\u01ba",
-            "\1\u01bb",
-            "",
-            "\1\60\23\uffff\32\60\6\uffff\32\60",
-            "",
-            "",
+            "\32\61\6\uffff\32\61",
+            "\1\u01bc",
             "\1\u01bd",
             "",
-            "\1\u01be",
+            "\32\61\6\uffff\32\61",
+            "",
+            "",
             "\1\u01bf",
             "",
             "\1\u01c0",
-            "\1\60\23\uffff\32\60\6\uffff\32\60",
-            "\1\60\23\uffff\32\60\6\uffff\32\60",
-            "\1\u01c3",
+            "\1\u01c1",
+            "",
+            "\1\u01c2",
+            "\32\61\6\uffff\32\61",
+            "\32\61\6\uffff\32\61",
+            "\1\u01c5",
             "",
             "",
-            "\1\60\23\uffff\32\60\6\uffff\32\60",
+            "\32\61\6\uffff\32\61",
             ""
     };
 
@@ -3589,7 +3613,7 @@ public class InternalLilyPondLexer extends Lexer {
             this.transition = DFA13_transition;
         }
         public String getDescription() {
-            return "1:1: Tokens : ( KEYWORD_87 | KEYWORD_85 | KEYWORD_86 | KEYWORD_83 | KEYWORD_84 | KEYWORD_80 | KEYWORD_81 | KEYWORD_82 | KEYWORD_78 | KEYWORD_79 | KEYWORD_73 | KEYWORD_74 | KEYWORD_75 | KEYWORD_76 | KEYWORD_77 | KEYWORD_65 | KEYWORD_66 | KEYWORD_67 | KEYWORD_68 | KEYWORD_69 | KEYWORD_70 | KEYWORD_71 | KEYWORD_72 | KEYWORD_58 | KEYWORD_59 | KEYWORD_60 | KEYWORD_61 | KEYWORD_62 | KEYWORD_63 | KEYWORD_64 | KEYWORD_47 | KEYWORD_48 | KEYWORD_49 | KEYWORD_50 | KEYWORD_51 | KEYWORD_52 | KEYWORD_53 | KEYWORD_54 | KEYWORD_55 | KEYWORD_56 | KEYWORD_57 | KEYWORD_40 | KEYWORD_41 | KEYWORD_42 | KEYWORD_43 | KEYWORD_44 | KEYWORD_45 | KEYWORD_46 | KEYWORD_30 | KEYWORD_31 | KEYWORD_32 | KEYWORD_33 | KEYWORD_34 | KEYWORD_35 | KEYWORD_36 | KEYWORD_37 | KEYWORD_38 | KEYWORD_39 | KEYWORD_27 | KEYWORD_28 | KEYWORD_29 | KEYWORD_20 | KEYWORD_21 | KEYWORD_22 | KEYWORD_23 | KEYWORD_24 | KEYWORD_25 | KEYWORD_26 | KEYWORD_1 | KEYWORD_2 | KEYWORD_3 | KEYWORD_4 | KEYWORD_5 | KEYWORD_6 | KEYWORD_7 | KEYWORD_8 | KEYWORD_9 | KEYWORD_10 | KEYWORD_11 | KEYWORD_12 | KEYWORD_13 | KEYWORD_14 | KEYWORD_15 | KEYWORD_16 | KEYWORD_17 | KEYWORD_18 | KEYWORD_19 | RULE_STRING | RULE_INT | RULE_ID | RULE_WS | RULE_SL_COMMENT | RULE_ML_COMMENT | RULE_SCHEME_SL_COMMENT | RULE_SCHEME_ML_COMMENT | RULE_ANY_OTHER );";
+            return "1:1: Tokens : ( KEYWORD_88 | KEYWORD_86 | KEYWORD_87 | KEYWORD_84 | KEYWORD_85 | KEYWORD_81 | KEYWORD_82 | KEYWORD_83 | KEYWORD_79 | KEYWORD_80 | KEYWORD_74 | KEYWORD_75 | KEYWORD_76 | KEYWORD_77 | KEYWORD_78 | KEYWORD_66 | KEYWORD_67 | KEYWORD_68 | KEYWORD_69 | KEYWORD_70 | KEYWORD_71 | KEYWORD_72 | KEYWORD_73 | KEYWORD_59 | KEYWORD_60 | KEYWORD_61 | KEYWORD_62 | KEYWORD_63 | KEYWORD_64 | KEYWORD_65 | KEYWORD_48 | KEYWORD_49 | KEYWORD_50 | KEYWORD_51 | KEYWORD_52 | KEYWORD_53 | KEYWORD_54 | KEYWORD_55 | KEYWORD_56 | KEYWORD_57 | KEYWORD_58 | KEYWORD_41 | KEYWORD_42 | KEYWORD_43 | KEYWORD_44 | KEYWORD_45 | KEYWORD_46 | KEYWORD_47 | KEYWORD_31 | KEYWORD_32 | KEYWORD_33 | KEYWORD_34 | KEYWORD_35 | KEYWORD_36 | KEYWORD_37 | KEYWORD_38 | KEYWORD_39 | KEYWORD_40 | KEYWORD_28 | KEYWORD_29 | KEYWORD_30 | KEYWORD_21 | KEYWORD_22 | KEYWORD_23 | KEYWORD_24 | KEYWORD_25 | KEYWORD_26 | KEYWORD_27 | KEYWORD_1 | KEYWORD_2 | KEYWORD_3 | KEYWORD_4 | KEYWORD_5 | KEYWORD_6 | KEYWORD_7 | KEYWORD_8 | KEYWORD_9 | KEYWORD_10 | KEYWORD_11 | KEYWORD_12 | KEYWORD_13 | KEYWORD_14 | KEYWORD_15 | KEYWORD_16 | KEYWORD_17 | KEYWORD_18 | KEYWORD_19 | KEYWORD_20 | RULE_STRING | RULE_INT | RULE_ALPHA | RULE_WS | RULE_SL_COMMENT | RULE_ML_COMMENT | RULE_SCHEME_SL_COMMENT | RULE_SCHEME_ML_COMMENT | RULE_ANY_OTHER );";
         }
     }
  

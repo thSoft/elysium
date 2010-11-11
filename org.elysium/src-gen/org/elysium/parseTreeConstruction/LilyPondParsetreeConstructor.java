@@ -644,11 +644,11 @@ protected class CommonExpression_NumberParserRuleCall_4 extends RuleCallToken {
 /************ begin Rule Assignment ****************
  *
  * Assignment:
- * 	name=(ID | STRING) "=" value=Expression;
+ * 	name=(Identifier | STRING) "=" value=Expression;
  *
  **/
 
-// name=(ID | STRING) "=" value=Expression
+// name=(Identifier | STRING) "=" value=Expression
 protected class Assignment_Group extends GroupToken {
 	
 	public Assignment_Group(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -677,7 +677,7 @@ protected class Assignment_Group extends GroupToken {
 
 }
 
-// name=(ID | STRING)
+// name=(Identifier | STRING)
 protected class Assignment_NameAssignment_0 extends AssignmentToken  {
 	
 	public Assignment_NameAssignment_0(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -700,9 +700,9 @@ protected class Assignment_NameAssignment_0 extends AssignmentToken  {
 	public IEObjectConsumer tryConsume() {
 		if((value = eObjectConsumer.getConsumable("name",true)) == null) return null;
 		IEObjectConsumer obj = eObjectConsumer.cloneAndConsume("name");
-		if(valueSerializer.isValid(obj.getEObject(), grammarAccess.getAssignmentAccess().getNameIDTerminalRuleCall_0_0_0(), value, null)) {
-			type = AssignmentType.TERMINAL_RULE_CALL;
-			element = grammarAccess.getAssignmentAccess().getNameIDTerminalRuleCall_0_0_0();
+		if(valueSerializer.isValid(obj.getEObject(), grammarAccess.getAssignmentAccess().getNameIdentifierParserRuleCall_0_0_0(), value, null)) {
+			type = AssignmentType.DATATYPE_RULE_CALL;
+			element = grammarAccess.getAssignmentAccess().getNameIdentifierParserRuleCall_0_0_0();
 			return obj;
 		}
 		if(valueSerializer.isValid(obj.getEObject(), grammarAccess.getAssignmentAccess().getNameSTRINGTerminalRuleCall_0_0_1(), value, null)) {
@@ -790,11 +790,11 @@ protected class Assignment_ValueAssignment_2 extends AssignmentToken  {
 /************ begin Rule PropertyAssignment ****************
  *
  * PropertyAssignment:
- * 	id=(ID | STRING) "=" value=Expression;
+ * 	id=(Identifier | STRING) "=" value=Expression;
  *
  **/
 
-// id=(ID | STRING) "=" value=Expression
+// id=(Identifier | STRING) "=" value=Expression
 protected class PropertyAssignment_Group extends GroupToken {
 	
 	public PropertyAssignment_Group(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -823,7 +823,7 @@ protected class PropertyAssignment_Group extends GroupToken {
 
 }
 
-// id=(ID | STRING)
+// id=(Identifier | STRING)
 protected class PropertyAssignment_IdAssignment_0 extends AssignmentToken  {
 	
 	public PropertyAssignment_IdAssignment_0(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -846,9 +846,9 @@ protected class PropertyAssignment_IdAssignment_0 extends AssignmentToken  {
 	public IEObjectConsumer tryConsume() {
 		if((value = eObjectConsumer.getConsumable("id",true)) == null) return null;
 		IEObjectConsumer obj = eObjectConsumer.cloneAndConsume("id");
-		if(valueSerializer.isValid(obj.getEObject(), grammarAccess.getPropertyAssignmentAccess().getIdIDTerminalRuleCall_0_0_0(), value, null)) {
-			type = AssignmentType.TERMINAL_RULE_CALL;
-			element = grammarAccess.getPropertyAssignmentAccess().getIdIDTerminalRuleCall_0_0_0();
+		if(valueSerializer.isValid(obj.getEObject(), grammarAccess.getPropertyAssignmentAccess().getIdIdentifierParserRuleCall_0_0_0(), value, null)) {
+			type = AssignmentType.DATATYPE_RULE_CALL;
+			element = grammarAccess.getPropertyAssignmentAccess().getIdIdentifierParserRuleCall_0_0_0();
 			return obj;
 		}
 		if(valueSerializer.isValid(obj.getEObject(), grammarAccess.getPropertyAssignmentAccess().getIdSTRINGTerminalRuleCall_0_0_1(), value, null)) {
@@ -3076,11 +3076,11 @@ protected class UnparsedExpression_NumberParserRuleCall_4 extends RuleCallToken 
 /************ begin Rule UnparsedCommand ****************
  *
  * UnparsedCommand:
- * 	"\\" command=(ID | SpecialCommandName);
+ * 	"\\" command=(Identifier | SpecialCommandName);
  *
  **/
 
-// "\\" command=(ID | SpecialCommandName)
+// "\\" command=(Identifier | SpecialCommandName)
 protected class UnparsedCommand_Group extends GroupToken {
 	
 	public UnparsedCommand_Group(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -3130,7 +3130,7 @@ protected class UnparsedCommand_ReverseSolidusKeyword_0 extends KeywordToken  {
 
 }
 
-// command=(ID | SpecialCommandName)
+// command=(Identifier | SpecialCommandName)
 protected class UnparsedCommand_CommandAssignment_1 extends AssignmentToken  {
 	
 	public UnparsedCommand_CommandAssignment_1(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -3154,9 +3154,9 @@ protected class UnparsedCommand_CommandAssignment_1 extends AssignmentToken  {
 	public IEObjectConsumer tryConsume() {
 		if((value = eObjectConsumer.getConsumable("command",true)) == null) return null;
 		IEObjectConsumer obj = eObjectConsumer.cloneAndConsume("command");
-		if(valueSerializer.isValid(obj.getEObject(), grammarAccess.getUnparsedCommandAccess().getCommandIDTerminalRuleCall_1_0_0(), value, null)) {
-			type = AssignmentType.TERMINAL_RULE_CALL;
-			element = grammarAccess.getUnparsedCommandAccess().getCommandIDTerminalRuleCall_1_0_0();
+		if(valueSerializer.isValid(obj.getEObject(), grammarAccess.getUnparsedCommandAccess().getCommandIdentifierParserRuleCall_1_0_0(), value, null)) {
+			type = AssignmentType.DATATYPE_RULE_CALL;
+			element = grammarAccess.getUnparsedCommandAccess().getCommandIdentifierParserRuleCall_1_0_0();
 			return obj;
 		}
 		if(valueSerializer.isValid(obj.getEObject(), grammarAccess.getUnparsedCommandAccess().getCommandSpecialCommandNameParserRuleCall_1_0_1(), value, null)) {
@@ -3176,11 +3176,11 @@ protected class UnparsedCommand_CommandAssignment_1 extends AssignmentToken  {
 /************ begin Rule Reference ****************
  *
  * Reference:
- * 	"\\" assignment=[Assignment];
+ * 	"\\" assignment=[Assignment|Identifier];
  *
  **/
 
-// "\\" assignment=[Assignment]
+// "\\" assignment=[Assignment|Identifier]
 protected class Reference_Group extends GroupToken {
 	
 	public Reference_Group(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -3230,7 +3230,7 @@ protected class Reference_ReverseSolidusKeyword_0 extends KeywordToken  {
 
 }
 
-// assignment=[Assignment]
+// assignment=[Assignment|Identifier]
 protected class Reference_AssignmentAssignment_1 extends AssignmentToken  {
 	
 	public Reference_AssignmentAssignment_1(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -4412,11 +4412,11 @@ protected class SchemeBlock_NumberSignRightCurlyBracketKeyword_2 extends Keyword
 /************ begin Rule SchemeCharacter ****************
  *
  * SchemeCharacter:
- * 	"#\\" value=(ID | SpecialCharacter | ANY_OTHER);
+ * 	"#\\" value=(ALPHA | SpecialCharacter | ANY_OTHER);
  *
  **/
 
-// "#\\" value=(ID | SpecialCharacter | ANY_OTHER)
+// "#\\" value=(ALPHA | SpecialCharacter | ANY_OTHER)
 protected class SchemeCharacter_Group extends GroupToken {
 	
 	public SchemeCharacter_Group(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -4466,7 +4466,7 @@ protected class SchemeCharacter_NumberSignReverseSolidusKeyword_0 extends Keywor
 
 }
 
-// value=(ID | SpecialCharacter | ANY_OTHER)
+// value=(ALPHA | SpecialCharacter | ANY_OTHER)
 protected class SchemeCharacter_ValueAssignment_1 extends AssignmentToken  {
 	
 	public SchemeCharacter_ValueAssignment_1(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -4490,9 +4490,9 @@ protected class SchemeCharacter_ValueAssignment_1 extends AssignmentToken  {
 	public IEObjectConsumer tryConsume() {
 		if((value = eObjectConsumer.getConsumable("value",true)) == null) return null;
 		IEObjectConsumer obj = eObjectConsumer.cloneAndConsume("value");
-		if(valueSerializer.isValid(obj.getEObject(), grammarAccess.getSchemeCharacterAccess().getValueIDTerminalRuleCall_1_0_0(), value, null)) {
+		if(valueSerializer.isValid(obj.getEObject(), grammarAccess.getSchemeCharacterAccess().getValueALPHATerminalRuleCall_1_0_0(), value, null)) {
 			type = AssignmentType.TERMINAL_RULE_CALL;
-			element = grammarAccess.getSchemeCharacterAccess().getValueIDTerminalRuleCall_1_0_0();
+			element = grammarAccess.getSchemeCharacterAccess().getValueALPHATerminalRuleCall_1_0_0();
 			return obj;
 		}
 		if(valueSerializer.isValid(obj.getEObject(), grammarAccess.getSchemeCharacterAccess().getValueSpecialCharacterParserRuleCall_1_0_1(), value, null)) {
@@ -4672,11 +4672,11 @@ protected class SchemeNumber_ValueAssignment_1 extends AssignmentToken  {
 /************ begin Rule SchemeMarkupCommand ****************
  *
  * SchemeMarkupCommand hidden():
- * 	"#:" command=(ID | SpecialCommandName);
+ * 	"#:" command=(Identifier | SpecialCommandName);
  *
  **/
 
-// "#:" command=(ID | SpecialCommandName)
+// "#:" command=(Identifier | SpecialCommandName)
 protected class SchemeMarkupCommand_Group extends GroupToken {
 	
 	public SchemeMarkupCommand_Group(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -4726,7 +4726,7 @@ protected class SchemeMarkupCommand_NumberSignColonKeyword_0 extends KeywordToke
 
 }
 
-// command=(ID | SpecialCommandName)
+// command=(Identifier | SpecialCommandName)
 protected class SchemeMarkupCommand_CommandAssignment_1 extends AssignmentToken  {
 	
 	public SchemeMarkupCommand_CommandAssignment_1(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -4750,9 +4750,9 @@ protected class SchemeMarkupCommand_CommandAssignment_1 extends AssignmentToken 
 	public IEObjectConsumer tryConsume() {
 		if((value = eObjectConsumer.getConsumable("command",true)) == null) return null;
 		IEObjectConsumer obj = eObjectConsumer.cloneAndConsume("command");
-		if(valueSerializer.isValid(obj.getEObject(), grammarAccess.getSchemeMarkupCommandAccess().getCommandIDTerminalRuleCall_1_0_0(), value, null)) {
-			type = AssignmentType.TERMINAL_RULE_CALL;
-			element = grammarAccess.getSchemeMarkupCommandAccess().getCommandIDTerminalRuleCall_1_0_0();
+		if(valueSerializer.isValid(obj.getEObject(), grammarAccess.getSchemeMarkupCommandAccess().getCommandIdentifierParserRuleCall_1_0_0(), value, null)) {
+			type = AssignmentType.DATATYPE_RULE_CALL;
+			element = grammarAccess.getSchemeMarkupCommandAccess().getCommandIdentifierParserRuleCall_1_0_0();
 			return obj;
 		}
 		if(valueSerializer.isValid(obj.getEObject(), grammarAccess.getSchemeMarkupCommandAccess().getCommandSpecialCommandNameParserRuleCall_1_0_1(), value, null)) {
@@ -4767,6 +4767,7 @@ protected class SchemeMarkupCommand_CommandAssignment_1 extends AssignmentToken 
 
 
 /************ end Rule SchemeMarkupCommand ****************/
+
 
 
 }

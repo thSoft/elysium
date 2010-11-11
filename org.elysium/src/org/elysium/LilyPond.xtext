@@ -1,9 +1,6 @@
-grammar org.elysium.LilyPond
-
-hidden(WS, SL_COMMENT, ML_COMMENT)
+grammar org.elysium.LilyPond hidden(WS, SL_COMMENT, ML_COMMENT)
 
 generate lilypond "http://www.elysium.org/LilyPond"
-
 import "http://www.eclipse.org/emf/2002/Ecore" as ecore
 
 LilyPond: expressions+=ToplevelExpression*;
@@ -14,9 +11,9 @@ Expression: PropertyAssignment | CommonExpression;
 
 CommonExpression: Command | Block | Scheme | Text | Number;
 
-Assignment: name=(ID | STRING) "=" value=Expression;
+Assignment: name=(Identifier | STRING) "=" value=Expression;
 
-PropertyAssignment: id=(ID | STRING) "=" value=Expression;
+PropertyAssignment: id=(Identifier | STRING) "=" value=Expression;
 
 Block: SimpleBlock | SimultaneousBlock;
 
@@ -52,9 +49,9 @@ UnparsedBlock: {UnparsedBlock} "{" expressions+=UnparsedExpression* "}";
 
 UnparsedExpression: UnparsedCommand | UnparsedBlock | Scheme | Text | Number;
 
-UnparsedCommand: "\\" command=(ID | SpecialCommandName);
+UnparsedCommand: "\\" command=(Identifier | SpecialCommandName);
 
-Reference: "\\" assignment=[Assignment];
+Reference: "\\" assignment=[Assignment|Identifier];
 
 Text: value=(SchemeTextLiteral | "(" | ")" | "'" | "," | ":");
 
@@ -72,27 +69,29 @@ SchemeList: {SchemeList} (vector?="#")? "(" expressions+=SchemeExpression* ")";
 
 SchemeBlock: "#{" expressions+=Expression+ "#}";
 
-SchemeCharacter: "#\\" value=(ID | SpecialCharacter | ANY_OTHER);
+SchemeCharacter: "#\\" value=(ALPHA | SpecialCharacter | ANY_OTHER);
 
 SchemeText: value=SchemeId;
 
 SchemeId hidden(): SchemeTextLiteral (":" SchemeTextLiteral)?;
 
-SchemeTextLiteral: "\\\\" | "=" | SpecialCharacter | SpecialCommandName | ID | STRING | ANY_OTHER;
+SchemeTextLiteral: "\\\\" | "=" | "-" | SpecialCharacter | SpecialCommandName | Identifier | STRING | ANY_OTHER;
 
 SchemeNumber hidden(): radix=SchemeNumberRadix? value=INT;
 
-SchemeNumberRadix: "#" ID;
+SchemeNumberRadix: "#" ALPHA;
 
-SchemeMarkupCommand hidden(): "#:" command=(ID | SpecialCommandName);
+SchemeMarkupCommand hidden(): "#:" command=(Identifier | SpecialCommandName);
 
-Boolean returns ecore::EBoolean: "#" ID;
+Identifier hidden(): ALPHA ("-" ALPHA)*;
+
+Boolean returns ecore::EBoolean: "#" ALPHA;
 
 terminal STRING: '"' ("\\" ("b" | "t" | "n" | "f" | "r" | '"' | "'" | "\\") | !("\\" | '"'))* '"';
 
 terminal INT returns ecore::EInt: ("0".."9")+;
 
-terminal ID: ("a".."z" | "A".."Z") ("a".."z" | "A".."Z" | "-")*;
+terminal ALPHA: ("a".."z" | "A".."Z")+;
 
 terminal WS: (" " | "\t" | "\r" | "\n")+;
 
