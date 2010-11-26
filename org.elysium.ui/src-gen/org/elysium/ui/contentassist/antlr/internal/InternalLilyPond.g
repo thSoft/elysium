@@ -2537,9 +2537,15 @@ rule__SchemeTextLiteral__Alternatives
 )
 
     |(
-{ before(grammarAccess.getSchemeTextLiteralAccess().getANY_OTHERTerminalRuleCall_7()); }
+{ before(grammarAccess.getSchemeTextLiteralAccess().getINTTerminalRuleCall_7()); }
+	RULE_INT
+{ after(grammarAccess.getSchemeTextLiteralAccess().getINTTerminalRuleCall_7()); }
+)
+
+    |(
+{ before(grammarAccess.getSchemeTextLiteralAccess().getANY_OTHERTerminalRuleCall_8()); }
 	RULE_ANY_OTHER
-{ after(grammarAccess.getSchemeTextLiteralAccess().getANY_OTHERTerminalRuleCall_7()); }
+{ after(grammarAccess.getSchemeTextLiteralAccess().getANY_OTHERTerminalRuleCall_8()); }
 )
 
 ;

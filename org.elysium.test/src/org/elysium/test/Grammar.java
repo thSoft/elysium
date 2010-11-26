@@ -75,6 +75,10 @@ public class Grammar extends LilyPondTest {
 		assertValid("#(lambda (grob) (ly:accidental-interface::print grob))");
 	}
 
+	public void testSchemeChord() throws Exception {
+		assertValid("#(chord-shape 'f:7 guitar-tuning)");
+	}
+
 	public void testSchemeHexa() throws Exception {
 		assertValid("##xf");
 	}

@@ -1352,13 +1352,14 @@ public class LilyPondGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cSpecialCommandNameParserRuleCall_4 = (RuleCall)cAlternatives.eContents().get(4);
 		private final RuleCall cIdentifierParserRuleCall_5 = (RuleCall)cAlternatives.eContents().get(5);
 		private final RuleCall cSTRINGTerminalRuleCall_6 = (RuleCall)cAlternatives.eContents().get(6);
-		private final RuleCall cANY_OTHERTerminalRuleCall_7 = (RuleCall)cAlternatives.eContents().get(7);
+		private final RuleCall cINTTerminalRuleCall_7 = (RuleCall)cAlternatives.eContents().get(7);
+		private final RuleCall cANY_OTHERTerminalRuleCall_8 = (RuleCall)cAlternatives.eContents().get(8);
 		
 		//SchemeTextLiteral returns ecore::EString:
-		//	"\\\\" | "=" | "-" | SpecialCharacter | SpecialCommandName | Identifier | STRING | ANY_OTHER;
+		//	"\\\\" | "=" | "-" | SpecialCharacter | SpecialCommandName | Identifier | STRING | INT | ANY_OTHER;
 		public ParserRule getRule() { return rule; }
 
-		//"\\\\" | "=" | "-" | SpecialCharacter | SpecialCommandName | Identifier | STRING | ANY_OTHER
+		//"\\\\" | "=" | "-" | SpecialCharacter | SpecialCommandName | Identifier | STRING | INT | ANY_OTHER
 		public Alternatives getAlternatives() { return cAlternatives; }
 
 		//"\\\\"
@@ -1382,8 +1383,11 @@ public class LilyPondGrammarAccess extends AbstractGrammarElementFinder {
 		//STRING
 		public RuleCall getSTRINGTerminalRuleCall_6() { return cSTRINGTerminalRuleCall_6; }
 
+		//INT
+		public RuleCall getINTTerminalRuleCall_7() { return cINTTerminalRuleCall_7; }
+
 		//ANY_OTHER
-		public RuleCall getANY_OTHERTerminalRuleCall_7() { return cANY_OTHERTerminalRuleCall_7; }
+		public RuleCall getANY_OTHERTerminalRuleCall_8() { return cANY_OTHERTerminalRuleCall_8; }
 	}
 
 	public class SchemeNumberElements extends AbstractParserRuleElementFinder {
@@ -1946,7 +1950,7 @@ public class LilyPondGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//SchemeTextLiteral returns ecore::EString:
-	//	"\\\\" | "=" | "-" | SpecialCharacter | SpecialCommandName | Identifier | STRING | ANY_OTHER;
+	//	"\\\\" | "=" | "-" | SpecialCharacter | SpecialCommandName | Identifier | STRING | INT | ANY_OTHER;
 	public SchemeTextLiteralElements getSchemeTextLiteralAccess() {
 		return (pSchemeTextLiteral != null) ? pSchemeTextLiteral : (pSchemeTextLiteral = new SchemeTextLiteralElements());
 	}

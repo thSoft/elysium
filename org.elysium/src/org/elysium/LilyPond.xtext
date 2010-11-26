@@ -75,7 +75,7 @@ SchemeText: value=SchemeId;
 
 SchemeId hidden(): SchemeTextLiteral ((":" | "::") SchemeTextLiteral)*;
 
-SchemeTextLiteral: "\\\\" | "=" | "-" | SpecialCharacter | SpecialCommandName | Identifier | STRING | ANY_OTHER;
+SchemeTextLiteral: "\\\\" | "=" | "-" | SpecialCharacter | SpecialCommandName | Identifier | STRING | INT | ANY_OTHER;
 
 SchemeNumber hidden(): radix=SchemeNumberRadix? value=INT;
 

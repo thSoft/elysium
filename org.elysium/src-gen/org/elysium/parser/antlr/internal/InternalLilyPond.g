@@ -3193,12 +3193,20 @@ ruleSchemeTextLiteral returns [AntlrDatatypeRuleToken current=new AntlrDatatypeR
     createLeafNode(grammarAccess.getSchemeTextLiteralAccess().getSTRINGTerminalRuleCall_6(), null); 
     }
 
-    |    this_ANY_OTHER_7=RULE_ANY_OTHER    {
-		$current.merge(this_ANY_OTHER_7);
+    |    this_INT_7=RULE_INT    {
+		$current.merge(this_INT_7);
     }
 
     { 
-    createLeafNode(grammarAccess.getSchemeTextLiteralAccess().getANY_OTHERTerminalRuleCall_7(), null); 
+    createLeafNode(grammarAccess.getSchemeTextLiteralAccess().getINTTerminalRuleCall_7(), null); 
+    }
+
+    |    this_ANY_OTHER_8=RULE_ANY_OTHER    {
+		$current.merge(this_ANY_OTHER_8);
+    }
+
+    { 
+    createLeafNode(grammarAccess.getSchemeTextLiteralAccess().getANY_OTHERTerminalRuleCall_8(), null); 
     }
 )
     ;
