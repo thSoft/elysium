@@ -1311,24 +1311,32 @@ public class LilyPondGrammarAccess extends AbstractGrammarElementFinder {
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final RuleCall cSchemeTextLiteralParserRuleCall_0 = (RuleCall)cGroup.eContents().get(0);
 		private final Group cGroup_1 = (Group)cGroup.eContents().get(1);
-		private final Keyword cColonKeyword_1_0 = (Keyword)cGroup_1.eContents().get(0);
+		private final Alternatives cAlternatives_1_0 = (Alternatives)cGroup_1.eContents().get(0);
+		private final Keyword cColonKeyword_1_0_0 = (Keyword)cAlternatives_1_0.eContents().get(0);
+		private final Keyword cColonColonKeyword_1_0_1 = (Keyword)cAlternatives_1_0.eContents().get(1);
 		private final RuleCall cSchemeTextLiteralParserRuleCall_1_1 = (RuleCall)cGroup_1.eContents().get(1);
 		
 		//SchemeId returns ecore::EString hidden():
-		//	SchemeTextLiteral (":" SchemeTextLiteral)?;
+		//	SchemeTextLiteral ((":" | "::") SchemeTextLiteral)*;
 		public ParserRule getRule() { return rule; }
 
-		//SchemeTextLiteral (":" SchemeTextLiteral)?
+		//SchemeTextLiteral ((":" | "::") SchemeTextLiteral)*
 		public Group getGroup() { return cGroup; }
 
 		//SchemeTextLiteral
 		public RuleCall getSchemeTextLiteralParserRuleCall_0() { return cSchemeTextLiteralParserRuleCall_0; }
 
-		//(":" SchemeTextLiteral)?
+		//((":" | "::") SchemeTextLiteral)*
 		public Group getGroup_1() { return cGroup_1; }
 
+		//":" | "::"
+		public Alternatives getAlternatives_1_0() { return cAlternatives_1_0; }
+
 		//":"
-		public Keyword getColonKeyword_1_0() { return cColonKeyword_1_0; }
+		public Keyword getColonKeyword_1_0_0() { return cColonKeyword_1_0_0; }
+
+		//"::"
+		public Keyword getColonColonKeyword_1_0_1() { return cColonColonKeyword_1_0_1; }
 
 		//SchemeTextLiteral
 		public RuleCall getSchemeTextLiteralParserRuleCall_1_1() { return cSchemeTextLiteralParserRuleCall_1_1; }
@@ -1928,7 +1936,7 @@ public class LilyPondGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//SchemeId returns ecore::EString hidden():
-	//	SchemeTextLiteral (":" SchemeTextLiteral)?;
+	//	SchemeTextLiteral ((":" | "::") SchemeTextLiteral)*;
 	public SchemeIdElements getSchemeIdAccess() {
 		return (pSchemeId != null) ? pSchemeId : (pSchemeId = new SchemeIdElements());
 	}

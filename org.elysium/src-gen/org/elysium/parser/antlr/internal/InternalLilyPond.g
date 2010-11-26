@@ -653,7 +653,7 @@ ruleSimultaneousBlock returns [EObject current=null]
         associateNodeWithAstElement(currentNode, $current); 
     }
 )
-	KEYWORD_25 
+	KEYWORD_26 
     {
         createLeafNode(grammarAccess.getSimultaneousBlockAccess().getLessThanSignLessThanSignKeyword_1(), null); 
     }
@@ -682,7 +682,7 @@ ruleSimultaneousBlock returns [EObject current=null]
 
 )
 )*
-	KEYWORD_26 
+	KEYWORD_27 
     {
         createLeafNode(grammarAccess.getSimultaneousBlockAccess().getGreaterThanSignGreaterThanSignKeyword_3(), null); 
     }
@@ -863,7 +863,7 @@ ruleInclude returns [EObject current=null]
         createLeafNode(grammarAccess.getIncludeAccess().getReverseSolidusKeyword_0(), null); 
     }
 
-	KEYWORD_63 
+	KEYWORD_64 
     {
         createLeafNode(grammarAccess.getIncludeAccess().getIncludeKeyword_1(), null); 
     }
@@ -920,7 +920,7 @@ ruleVersion returns [EObject current=null]
         createLeafNode(grammarAccess.getVersionAccess().getReverseSolidusKeyword_0(), null); 
     }
 
-	KEYWORD_65 
+	KEYWORD_66 
     {
         createLeafNode(grammarAccess.getVersionAccess().getVersionKeyword_1(), null); 
     }
@@ -977,7 +977,7 @@ ruleMarkup returns [EObject current=null]
         createLeafNode(grammarAccess.getMarkupAccess().getReverseSolidusKeyword_0(), null); 
     }
 
-	KEYWORD_54 
+	KEYWORD_55 
     {
         createLeafNode(grammarAccess.getMarkupAccess().getMarkupKeyword_1(), null); 
     }
@@ -1034,7 +1034,7 @@ ruleMarkupLines returns [EObject current=null]
         createLeafNode(grammarAccess.getMarkupLinesAccess().getReverseSolidusKeyword_0(), null); 
     }
 
-	KEYWORD_83 
+	KEYWORD_84 
     {
         createLeafNode(grammarAccess.getMarkupLinesAccess().getMarkuplinesKeyword_1(), null); 
     }
@@ -1214,7 +1214,7 @@ ruleContext returns [EObject current=null]
         createLeafNode(grammarAccess.getContextAccess().getReverseSolidusKeyword_1(), null); 
     }
 
-	KEYWORD_60 
+	KEYWORD_61 
     {
         createLeafNode(grammarAccess.getContextAccess().getContextKeyword_2(), null); 
     }
@@ -1380,392 +1380,392 @@ ruleOtherName returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken
 	    lastConsumedNode = currentNode;
     }:
 (
-	kw=KEYWORD_59 
+	kw=KEYWORD_60 
     {
         $current.merge(kw);
         createLeafNode(grammarAccess.getOtherNameAccess().getAcceptsKeyword_0(), null); 
     }
 
     |
-	kw=KEYWORD_74 
+	kw=KEYWORD_75 
     {
         $current.merge(kw);
         createLeafNode(grammarAccess.getOtherNameAccess().getAddlyricsKeyword_1(), null); 
     }
 
     |
-	kw=KEYWORD_41 
+	kw=KEYWORD_42 
     {
         $current.merge(kw);
         createLeafNode(grammarAccess.getOtherNameAccess().getAliasKeyword_2(), null); 
     }
 
     |
-	kw=KEYWORD_81 
+	kw=KEYWORD_82 
     {
         $current.merge(kw);
         createLeafNode(grammarAccess.getOtherNameAccess().getAlternativeKeyword_3(), null); 
     }
 
     |
-	kw=KEYWORD_31 
+	kw=KEYWORD_32 
     {
         $current.merge(kw);
         createLeafNode(grammarAccess.getOtherNameAccess().getBookKeyword_4(), null); 
     }
 
     |
-	kw=KEYWORD_66 
+	kw=KEYWORD_67 
     {
         $current.merge(kw);
         createLeafNode(grammarAccess.getOtherNameAccess().getBookpartKeyword_5(), null); 
     }
 
     |
-	kw=KEYWORD_48 
+	kw=KEYWORD_49 
     {
         $current.merge(kw);
         createLeafNode(grammarAccess.getOtherNameAccess().getChangeKeyword_6(), null); 
     }
 
     |
-	kw=KEYWORD_75 
+	kw=KEYWORD_76 
     {
         $current.merge(kw);
         createLeafNode(grammarAccess.getOtherNameAccess().getChordmodeKeyword_7(), null); 
     }
 
     |
-	kw=KEYWORD_49 
+	kw=KEYWORD_50 
     {
         $current.merge(kw);
         createLeafNode(grammarAccess.getOtherNameAccess().getChordsKeyword_8(), null); 
     }
 
     |
-	kw=KEYWORD_67 
+	kw=KEYWORD_68 
     {
         $current.merge(kw);
         createLeafNode(grammarAccess.getOtherNameAccess().getConsistsKeyword_9(), null); 
     }
 
     |
-	kw=KEYWORD_61 
+	kw=KEYWORD_62 
     {
         $current.merge(kw);
         createLeafNode(grammarAccess.getOtherNameAccess().getDefaultKeyword_10(), null); 
     }
 
     |
-	kw=KEYWORD_84 
+	kw=KEYWORD_85 
     {
         $current.merge(kw);
         createLeafNode(grammarAccess.getOtherNameAccess().getDefaultchildKeyword_11(), null); 
     }
 
     |
-	kw=KEYWORD_50 
+	kw=KEYWORD_51 
     {
         $current.merge(kw);
         createLeafNode(grammarAccess.getOtherNameAccess().getDeniesKeyword_12(), null); 
     }
 
     |
-	kw=KEYWORD_82 
+	kw=KEYWORD_83 
     {
         $current.merge(kw);
         createLeafNode(grammarAccess.getOtherNameAccess().getDescriptionKeyword_13(), null); 
     }
 
     |
-	kw=KEYWORD_68 
+	kw=KEYWORD_69 
     {
         $current.merge(kw);
         createLeafNode(grammarAccess.getOtherNameAccess().getDrummodeKeyword_14(), null); 
     }
 
     |
-	kw=KEYWORD_42 
+	kw=KEYWORD_43 
     {
         $current.merge(kw);
         createLeafNode(grammarAccess.getOtherNameAccess().getDrumsKeyword_15(), null); 
     }
 
     |
-	kw=KEYWORD_79 
+	kw=KEYWORD_80 
     {
         $current.merge(kw);
         createLeafNode(grammarAccess.getOtherNameAccess().getFiguremodeKeyword_16(), null); 
     }
 
     |
-	kw=KEYWORD_62 
+	kw=KEYWORD_63 
     {
         $current.merge(kw);
         createLeafNode(grammarAccess.getOtherNameAccess().getFiguresKeyword_17(), null); 
     }
 
     |
-	kw=KEYWORD_88 
+	kw=KEYWORD_89 
     {
         $current.merge(kw);
         createLeafNode(grammarAccess.getOtherNameAccess().getGrobdescriptionsKeyword_18(), null); 
     }
 
     |
-	kw=KEYWORD_51 
+	kw=KEYWORD_52 
     {
         $current.merge(kw);
         createLeafNode(grammarAccess.getOtherNameAccess().getHeaderKeyword_19(), null); 
     }
 
     |
-	kw=KEYWORD_28 
+	kw=KEYWORD_29 
     {
         $current.merge(kw);
         createLeafNode(grammarAccess.getOtherNameAccess().getKeyKeyword_20(), null); 
     }
 
     |
-	kw=KEYWORD_52 
+	kw=KEYWORD_53 
     {
         $current.merge(kw);
         createLeafNode(grammarAccess.getOtherNameAccess().getLayoutKeyword_21(), null); 
     }
 
     |
-	kw=KEYWORD_76 
+	kw=KEYWORD_77 
     {
         $current.merge(kw);
         createLeafNode(grammarAccess.getOtherNameAccess().getLyricmodeKeyword_22(), null); 
     }
 
     |
-	kw=KEYWORD_53 
+	kw=KEYWORD_54 
     {
         $current.merge(kw);
         createLeafNode(grammarAccess.getOtherNameAccess().getLyricsKeyword_23(), null); 
     }
 
     |
-	kw=KEYWORD_69 
+	kw=KEYWORD_70 
     {
         $current.merge(kw);
         createLeafNode(grammarAccess.getOtherNameAccess().getLyricstoKeyword_24(), null); 
     }
 
     |
-	kw=KEYWORD_77 
+	kw=KEYWORD_78 
     {
         $current.merge(kw);
         createLeafNode(grammarAccess.getOtherNameAccess().getMaininputKeyword_25(), null); 
     }
 
     |
-	kw=KEYWORD_32 
+	kw=KEYWORD_33 
     {
         $current.merge(kw);
         createLeafNode(grammarAccess.getOtherNameAccess().getMarkKeyword_26(), null); 
     }
 
     |
-	kw=KEYWORD_33 
+	kw=KEYWORD_34 
     {
         $current.merge(kw);
         createLeafNode(grammarAccess.getOtherNameAccess().getMidiKeyword_27(), null); 
     }
 
     |
-	kw=KEYWORD_34 
+	kw=KEYWORD_35 
     {
         $current.merge(kw);
         createLeafNode(grammarAccess.getOtherNameAccess().getNameKeyword_28(), null); 
     }
 
     |
-	kw=KEYWORD_29 
+	kw=KEYWORD_30 
     {
         $current.merge(kw);
         createLeafNode(grammarAccess.getOtherNameAccess().getNewKeyword_29(), null); 
     }
 
     |
-	kw=KEYWORD_70 
+	kw=KEYWORD_71 
     {
         $current.merge(kw);
         createLeafNode(grammarAccess.getOtherNameAccess().getNotemodeKeyword_30(), null); 
     }
 
     |
-	kw=KEYWORD_71 
+	kw=KEYWORD_72 
     {
         $current.merge(kw);
         createLeafNode(grammarAccess.getOtherNameAccess().getObjectidKeyword_31(), null); 
     }
 
     |
-	kw=KEYWORD_55 
+	kw=KEYWORD_56 
     {
         $current.merge(kw);
         createLeafNode(grammarAccess.getOtherNameAccess().getOctaveKeyword_32(), null); 
     }
 
     |
-	kw=KEYWORD_35 
+	kw=KEYWORD_36 
     {
         $current.merge(kw);
         createLeafNode(grammarAccess.getOtherNameAccess().getOnceKeyword_33(), null); 
     }
 
     |
-	kw=KEYWORD_72 
+	kw=KEYWORD_73 
     {
         $current.merge(kw);
         createLeafNode(grammarAccess.getOtherNameAccess().getOverrideKeyword_34(), null); 
     }
 
     |
-	kw=KEYWORD_43 
+	kw=KEYWORD_44 
     {
         $current.merge(kw);
         createLeafNode(grammarAccess.getOtherNameAccess().getPaperKeyword_35(), null); 
     }
 
     |
-	kw=KEYWORD_64 
+	kw=KEYWORD_65 
     {
         $current.merge(kw);
         createLeafNode(grammarAccess.getOtherNameAccess().getPartialKeyword_36(), null); 
     }
 
     |
-	kw=KEYWORD_73 
+	kw=KEYWORD_74 
     {
         $current.merge(kw);
         createLeafNode(grammarAccess.getOtherNameAccess().getRelativeKeyword_37(), null); 
     }
 
     |
-	kw=KEYWORD_56 
+	kw=KEYWORD_57 
     {
         $current.merge(kw);
         createLeafNode(grammarAccess.getOtherNameAccess().getRemoveKeyword_38(), null); 
     }
 
     |
-	kw=KEYWORD_57 
+	kw=KEYWORD_58 
     {
         $current.merge(kw);
         createLeafNode(grammarAccess.getOtherNameAccess().getRepeatKeyword_39(), null); 
     }
 
     |
-	kw=KEYWORD_36 
+	kw=KEYWORD_37 
     {
         $current.merge(kw);
         createLeafNode(grammarAccess.getOtherNameAccess().getRestKeyword_40(), null); 
     }
 
     |
-	kw=KEYWORD_58 
+	kw=KEYWORD_59 
     {
         $current.merge(kw);
         createLeafNode(grammarAccess.getOtherNameAccess().getRevertKeyword_41(), null); 
     }
 
     |
-	kw=KEYWORD_44 
+	kw=KEYWORD_45 
     {
         $current.merge(kw);
         createLeafNode(grammarAccess.getOtherNameAccess().getScoreKeyword_42(), null); 
     }
 
     |
-	kw=KEYWORD_80 
+	kw=KEYWORD_81 
     {
         $current.merge(kw);
         createLeafNode(grammarAccess.getOtherNameAccess().getSequentialKeyword_43(), null); 
     }
 
     |
-	kw=KEYWORD_30 
+	kw=KEYWORD_31 
     {
         $current.merge(kw);
         createLeafNode(grammarAccess.getOtherNameAccess().getSetKeyword_44(), null); 
     }
 
     |
-	kw=KEYWORD_85 
+	kw=KEYWORD_86 
     {
         $current.merge(kw);
         createLeafNode(grammarAccess.getOtherNameAccess().getSimultaneousKeyword_45(), null); 
     }
 
     |
-	kw=KEYWORD_37 
+	kw=KEYWORD_38 
     {
         $current.merge(kw);
         createLeafNode(grammarAccess.getOtherNameAccess().getSkipKeyword_46(), null); 
     }
 
     |
-	kw=KEYWORD_86 
+	kw=KEYWORD_87 
     {
         $current.merge(kw);
         createLeafNode(grammarAccess.getOtherNameAccess().getSourcefilelineKeyword_47(), null); 
     }
 
     |
-	kw=KEYWORD_87 
+	kw=KEYWORD_88 
     {
         $current.merge(kw);
         createLeafNode(grammarAccess.getOtherNameAccess().getSourcefilenameKeyword_48(), null); 
     }
 
     |
-	kw=KEYWORD_45 
+	kw=KEYWORD_46 
     {
         $current.merge(kw);
         createLeafNode(grammarAccess.getOtherNameAccess().getTempoKeyword_49(), null); 
     }
 
     |
-	kw=KEYWORD_38 
+	kw=KEYWORD_39 
     {
         $current.merge(kw);
         createLeafNode(grammarAccess.getOtherNameAccess().getTimeKeyword_50(), null); 
     }
 
     |
-	kw=KEYWORD_46 
+	kw=KEYWORD_47 
     {
         $current.merge(kw);
         createLeafNode(grammarAccess.getOtherNameAccess().getTimesKeyword_51(), null); 
     }
 
     |
-	kw=KEYWORD_78 
+	kw=KEYWORD_79 
     {
         $current.merge(kw);
         createLeafNode(grammarAccess.getOtherNameAccess().getTransposeKeyword_52(), null); 
     }
 
     |
-	kw=KEYWORD_39 
+	kw=KEYWORD_40 
     {
         $current.merge(kw);
         createLeafNode(grammarAccess.getOtherNameAccess().getTypeKeyword_53(), null); 
     }
 
     |
-	kw=KEYWORD_47 
+	kw=KEYWORD_48 
     {
         $current.merge(kw);
         createLeafNode(grammarAccess.getOtherNameAccess().getUnsetKeyword_54(), null); 
     }
 
     |
-	kw=KEYWORD_40 
+	kw=KEYWORD_41 
     {
         $current.merge(kw);
         createLeafNode(grammarAccess.getOtherNameAccess().getWithKeyword_55(), null); 
@@ -1794,35 +1794,35 @@ ruleSpecialCommandName returns [AntlrDatatypeRuleToken current=new AntlrDatatype
 	    lastConsumedNode = currentNode;
     }:
 (
-	kw=KEYWORD_63 
+	kw=KEYWORD_64 
     {
         $current.merge(kw);
         createLeafNode(grammarAccess.getSpecialCommandNameAccess().getIncludeKeyword_0(), null); 
     }
 
     |
-	kw=KEYWORD_65 
+	kw=KEYWORD_66 
     {
         $current.merge(kw);
         createLeafNode(grammarAccess.getSpecialCommandNameAccess().getVersionKeyword_1(), null); 
     }
 
     |
-	kw=KEYWORD_54 
+	kw=KEYWORD_55 
     {
         $current.merge(kw);
         createLeafNode(grammarAccess.getSpecialCommandNameAccess().getMarkupKeyword_2(), null); 
     }
 
     |
-	kw=KEYWORD_83 
+	kw=KEYWORD_84 
     {
         $current.merge(kw);
         createLeafNode(grammarAccess.getSpecialCommandNameAccess().getMarkuplinesKeyword_3(), null); 
     }
 
     |
-	kw=KEYWORD_60 
+	kw=KEYWORD_61 
     {
         $current.merge(kw);
         createLeafNode(grammarAccess.getSpecialCommandNameAccess().getContextKeyword_4(), null); 
@@ -3078,24 +3078,31 @@ ruleSchemeId returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken(
     { 
         currentNode = currentNode.getParent();
     }
-(
+((
 	kw=KEYWORD_10 
     {
         $current.merge(kw);
-        createLeafNode(grammarAccess.getSchemeIdAccess().getColonKeyword_1_0(), null); 
+        createLeafNode(grammarAccess.getSchemeIdAccess().getColonKeyword_1_0_0(), null); 
     }
 
+    |
+	kw=KEYWORD_25 
+    {
+        $current.merge(kw);
+        createLeafNode(grammarAccess.getSchemeIdAccess().getColonColonKeyword_1_0_1(), null); 
+    }
+)
     { 
         currentNode=createCompositeNode(grammarAccess.getSchemeIdAccess().getSchemeTextLiteralParserRuleCall_1_1(), currentNode); 
     }
-    this_SchemeTextLiteral_2=ruleSchemeTextLiteral    {
-		$current.merge(this_SchemeTextLiteral_2);
+    this_SchemeTextLiteral_3=ruleSchemeTextLiteral    {
+		$current.merge(this_SchemeTextLiteral_3);
     }
 
     { 
         currentNode = currentNode.getParent();
     }
-)?)
+)*)
     ;
 finally {
 	myHiddenTokenState.restore();
@@ -3122,7 +3129,7 @@ ruleSchemeTextLiteral returns [AntlrDatatypeRuleToken current=new AntlrDatatypeR
 	    lastConsumedNode = currentNode;
     }:
 (
-	kw=KEYWORD_27 
+	kw=KEYWORD_28 
     {
         $current.merge(kw);
         createLeafNode(grammarAccess.getSchemeTextLiteralAccess().getReverseSolidusReverseSolidusKeyword_0(), null); 

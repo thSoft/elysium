@@ -71,6 +71,10 @@ public class Grammar extends LilyPondTest {
 		assertValid("#(begin #! comment !# )");
 	}
 
+	public void testSchemeDoubleColon() throws Exception {
+		assertValid("#(lambda (grob) (ly:accidental-interface::print grob))");
+	}
+
 	public void testSchemeHexa() throws Exception {
 		assertValid("##xf");
 	}

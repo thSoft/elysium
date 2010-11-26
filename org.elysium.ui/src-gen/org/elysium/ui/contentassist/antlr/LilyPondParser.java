@@ -56,6 +56,7 @@ public class LilyPondParser extends AbstractContentAssistParser {
 					put(grammarAccess.getSchemeExpressionAccess().getAlternatives_0(), "rule__SchemeExpression__Alternatives_0");
 					put(grammarAccess.getSchemeValueAccess().getAlternatives(), "rule__SchemeValue__Alternatives");
 					put(grammarAccess.getSchemeCharacterAccess().getValueAlternatives_1_0(), "rule__SchemeCharacter__ValueAlternatives_1_0");
+					put(grammarAccess.getSchemeIdAccess().getAlternatives_1_0(), "rule__SchemeId__Alternatives_1_0");
 					put(grammarAccess.getSchemeTextLiteralAccess().getAlternatives(), "rule__SchemeTextLiteral__Alternatives");
 					put(grammarAccess.getSchemeMarkupCommandAccess().getCommandAlternatives_1_0(), "rule__SchemeMarkupCommand__CommandAlternatives_1_0");
 					put(grammarAccess.getAssignmentAccess().getGroup(), "rule__Assignment__Group__0");

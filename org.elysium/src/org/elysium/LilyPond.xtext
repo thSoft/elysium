@@ -73,7 +73,7 @@ SchemeCharacter: "#\\" value=(ALPHA | SpecialCharacter | ANY_OTHER);
 
 SchemeText: value=SchemeId;
 
-SchemeId hidden(): SchemeTextLiteral (":" SchemeTextLiteral)?;
+SchemeId hidden(): SchemeTextLiteral ((":" | "::") SchemeTextLiteral)*;
 
 SchemeTextLiteral: "\\\\" | "=" | "-" | SpecialCharacter | SpecialCommandName | Identifier | STRING | ANY_OTHER;
 
