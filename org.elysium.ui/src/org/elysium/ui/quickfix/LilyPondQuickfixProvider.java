@@ -66,4 +66,5 @@ public class LilyPondQuickfixProvider extends AbstractDeclarativeQuickfixProvide
 
 		});
 	}
+
 }

@@ -20,6 +20,9 @@ import com.google.common.collect.Iterables;
 import com.google.common.collect.Lists;
 import com.google.common.collect.Maps;
 
+/**
+ * Makes LilyPond elements referable from other files.
+ */
 public class LilyPondResourceDescription extends DefaultResourceDescription {
 
 	public LilyPondResourceDescription(Resource resource, IQualifiedNameProvider nameProvider) {
