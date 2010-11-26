@@ -9,6 +9,7 @@ import org.eclipse.xtext.parsetree.NodeUtil;
 import org.eclipse.xtext.validation.Check;
 import org.elysium.LilyPondConstants;
 import org.elysium.lilypond.Command;
+import org.elysium.lilypond.Include;
 import org.elysium.lilypond.LilyPond;
 import org.elysium.lilypond.LilypondPackage;
 import org.elysium.lilypond.ToplevelExpression;
@@ -47,7 +48,7 @@ public class LilyPondJavaValidator extends AbstractLilyPondJavaValidator {
 	@Check
 	public void checkVersion(LilyPond lilyPond) {
 		for (ToplevelExpression expression : lilyPond.getExpressions()) {
-			if (expression instanceof Version) {
+			if ((expression instanceof Version) || (expression instanceof Include)) {
 				return;
 			}
 		}
