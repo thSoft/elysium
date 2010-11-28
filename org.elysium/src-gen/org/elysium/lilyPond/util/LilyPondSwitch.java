@@ -27,12 +27,14 @@ import org.elysium.lilypond.PropertyAssignment;
 import org.elysium.lilypond.Reference;
 import org.elysium.lilypond.Scheme;
 import org.elysium.lilypond.SchemeBlock;
+import org.elysium.lilypond.SchemeBlockElement;
 import org.elysium.lilypond.SchemeBoolean;
 import org.elysium.lilypond.SchemeCharacter;
 import org.elysium.lilypond.SchemeExpression;
 import org.elysium.lilypond.SchemeList;
 import org.elysium.lilypond.SchemeMarkupCommand;
 import org.elysium.lilypond.SchemeNumber;
+import org.elysium.lilypond.SchemeReference;
 import org.elysium.lilypond.SchemeText;
 import org.elysium.lilypond.SchemeValue;
 import org.elysium.lilypond.SimpleBlock;
@@ -146,6 +148,7 @@ public class LilypondSwitch<T>
       {
         Expression expression = (Expression)theEObject;
         T result = caseExpression(expression);
+        if (result == null) result = caseSchemeBlockElement(expression);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -155,6 +158,7 @@ public class LilypondSwitch<T>
         T result = caseCommonExpression(commonExpression);
         if (result == null) result = caseToplevelExpression(commonExpression);
         if (result == null) result = caseExpression(commonExpression);
+        if (result == null) result = caseSchemeBlockElement(commonExpression);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -171,6 +175,7 @@ public class LilypondSwitch<T>
         PropertyAssignment propertyAssignment = (PropertyAssignment)theEObject;
         T result = casePropertyAssignment(propertyAssignment);
         if (result == null) result = caseExpression(propertyAssignment);
+        if (result == null) result = caseSchemeBlockElement(propertyAssignment);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -181,6 +186,7 @@ public class LilypondSwitch<T>
         if (result == null) result = caseCommonExpression(block);
         if (result == null) result = caseToplevelExpression(block);
         if (result == null) result = caseExpression(block);
+        if (result == null) result = caseSchemeBlockElement(block);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -192,6 +198,7 @@ public class LilypondSwitch<T>
         if (result == null) result = caseCommonExpression(simpleBlock);
         if (result == null) result = caseToplevelExpression(simpleBlock);
         if (result == null) result = caseExpression(simpleBlock);
+        if (result == null) result = caseSchemeBlockElement(simpleBlock);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -203,6 +210,7 @@ public class LilypondSwitch<T>
         if (result == null) result = caseCommonExpression(simultaneousBlock);
         if (result == null) result = caseToplevelExpression(simultaneousBlock);
         if (result == null) result = caseExpression(simultaneousBlock);
+        if (result == null) result = caseSchemeBlockElement(simultaneousBlock);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -213,6 +221,7 @@ public class LilypondSwitch<T>
         if (result == null) result = caseCommonExpression(command);
         if (result == null) result = caseToplevelExpression(command);
         if (result == null) result = caseExpression(command);
+        if (result == null) result = caseSchemeBlockElement(command);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -224,6 +233,7 @@ public class LilypondSwitch<T>
         if (result == null) result = caseCommonExpression(specialCommand);
         if (result == null) result = caseToplevelExpression(specialCommand);
         if (result == null) result = caseExpression(specialCommand);
+        if (result == null) result = caseSchemeBlockElement(specialCommand);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -236,6 +246,7 @@ public class LilypondSwitch<T>
         if (result == null) result = caseCommonExpression(include);
         if (result == null) result = caseToplevelExpression(include);
         if (result == null) result = caseExpression(include);
+        if (result == null) result = caseSchemeBlockElement(include);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -248,6 +259,7 @@ public class LilypondSwitch<T>
         if (result == null) result = caseCommonExpression(version);
         if (result == null) result = caseToplevelExpression(version);
         if (result == null) result = caseExpression(version);
+        if (result == null) result = caseSchemeBlockElement(version);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -260,6 +272,7 @@ public class LilypondSwitch<T>
         if (result == null) result = caseCommonExpression(markup);
         if (result == null) result = caseToplevelExpression(markup);
         if (result == null) result = caseExpression(markup);
+        if (result == null) result = caseSchemeBlockElement(markup);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -272,6 +285,7 @@ public class LilypondSwitch<T>
         if (result == null) result = caseCommonExpression(markupLines);
         if (result == null) result = caseToplevelExpression(markupLines);
         if (result == null) result = caseExpression(markupLines);
+        if (result == null) result = caseSchemeBlockElement(markupLines);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -291,6 +305,7 @@ public class LilypondSwitch<T>
         if (result == null) result = caseCommonExpression(context);
         if (result == null) result = caseToplevelExpression(context);
         if (result == null) result = caseExpression(context);
+        if (result == null) result = caseSchemeBlockElement(context);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -303,6 +318,7 @@ public class LilypondSwitch<T>
         if (result == null) result = caseCommonExpression(other);
         if (result == null) result = caseToplevelExpression(other);
         if (result == null) result = caseExpression(other);
+        if (result == null) result = caseSchemeBlockElement(other);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -337,6 +353,7 @@ public class LilypondSwitch<T>
         if (result == null) result = caseCommonExpression(reference);
         if (result == null) result = caseToplevelExpression(reference);
         if (result == null) result = caseExpression(reference);
+        if (result == null) result = caseSchemeBlockElement(reference);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -348,6 +365,7 @@ public class LilypondSwitch<T>
         if (result == null) result = caseUnparsedExpression(text);
         if (result == null) result = caseToplevelExpression(text);
         if (result == null) result = caseExpression(text);
+        if (result == null) result = caseSchemeBlockElement(text);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -359,6 +377,7 @@ public class LilypondSwitch<T>
         if (result == null) result = caseUnparsedExpression(number);
         if (result == null) result = caseToplevelExpression(number);
         if (result == null) result = caseExpression(number);
+        if (result == null) result = caseSchemeBlockElement(number);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -370,6 +389,7 @@ public class LilypondSwitch<T>
         if (result == null) result = caseUnparsedExpression(scheme);
         if (result == null) result = caseToplevelExpression(scheme);
         if (result == null) result = caseExpression(scheme);
+        if (result == null) result = caseSchemeBlockElement(scheme);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -408,6 +428,21 @@ public class LilypondSwitch<T>
         SchemeBlock schemeBlock = (SchemeBlock)theEObject;
         T result = caseSchemeBlock(schemeBlock);
         if (result == null) result = caseSchemeValue(schemeBlock);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case LilypondPackage.SCHEME_BLOCK_ELEMENT:
+      {
+        SchemeBlockElement schemeBlockElement = (SchemeBlockElement)theEObject;
+        T result = caseSchemeBlockElement(schemeBlockElement);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case LilypondPackage.SCHEME_REFERENCE:
+      {
+        SchemeReference schemeReference = (SchemeReference)theEObject;
+        T result = caseSchemeReference(schemeReference);
+        if (result == null) result = caseSchemeBlockElement(schemeReference);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -923,6 +958,38 @@ public class LilypondSwitch<T>
    * @generated
    */
   public T caseSchemeBlock(SchemeBlock object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Scheme Block Element</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Scheme Block Element</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseSchemeBlockElement(SchemeBlockElement object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Scheme Reference</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Scheme Reference</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseSchemeReference(SchemeReference object)
   {
     return null;
   }

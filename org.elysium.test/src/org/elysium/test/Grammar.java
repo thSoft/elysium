@@ -87,6 +87,14 @@ public class Grammar extends LilyPondTest {
 		assertValid("#(markup #:bold \"a\")");
 	}
 
+	public void testSchemeBlock() throws Exception {
+		assertValid("##{ c #}");
+	}
+
+	public void testSchemeReference() throws Exception {
+		assertValid(ASSIGNMENT + " ##{ $i #}");
+	}
+
 	public void testHeader() throws Exception {
 		assertValid(BOOK_PART_ELEMENTS);
 	}

@@ -28,7 +28,6 @@ import org.elysium.lilypond.SchemeValue;
  *   <li>{@link org.elysium.lilypond.impl.SchemeExpressionImpl#isQuoted <em>Quoted</em>}</li>
  *   <li>{@link org.elysium.lilypond.impl.SchemeExpressionImpl#isQuasiquoted <em>Quasiquoted</em>}</li>
  *   <li>{@link org.elysium.lilypond.impl.SchemeExpressionImpl#isUnquoted <em>Unquoted</em>}</li>
- *   <li>{@link org.elysium.lilypond.impl.SchemeExpressionImpl#isVariable <em>Variable</em>}</li>
  *   <li>{@link org.elysium.lilypond.impl.SchemeExpressionImpl#getValue <em>Value</em>}</li>
  * </ul>
  * </p>
@@ -96,26 +95,6 @@ public class SchemeExpressionImpl extends MinimalEObjectImpl.Container implement
    * @ordered
    */
   protected boolean unquoted = UNQUOTED_EDEFAULT;
-
-  /**
-   * The default value of the '{@link #isVariable() <em>Variable</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #isVariable()
-   * @generated
-   * @ordered
-   */
-  protected static final boolean VARIABLE_EDEFAULT = false;
-
-  /**
-   * The cached value of the '{@link #isVariable() <em>Variable</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #isVariable()
-   * @generated
-   * @ordered
-   */
-  protected boolean variable = VARIABLE_EDEFAULT;
 
   /**
    * The cached value of the '{@link #getValue() <em>Value</em>}' containment reference.
@@ -222,29 +201,6 @@ public class SchemeExpressionImpl extends MinimalEObjectImpl.Container implement
    * <!-- end-user-doc -->
    * @generated
    */
-  public boolean isVariable()
-  {
-    return variable;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public void setVariable(boolean newVariable)
-  {
-    boolean oldVariable = variable;
-    variable = newVariable;
-    if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, LilypondPackage.SCHEME_EXPRESSION__VARIABLE, oldVariable, variable));
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
   public SchemeValue getValue()
   {
     return value;
@@ -320,8 +276,6 @@ public class SchemeExpressionImpl extends MinimalEObjectImpl.Container implement
         return isQuasiquoted();
       case LilypondPackage.SCHEME_EXPRESSION__UNQUOTED:
         return isUnquoted();
-      case LilypondPackage.SCHEME_EXPRESSION__VARIABLE:
-        return isVariable();
       case LilypondPackage.SCHEME_EXPRESSION__VALUE:
         return getValue();
     }
@@ -346,9 +300,6 @@ public class SchemeExpressionImpl extends MinimalEObjectImpl.Container implement
         return;
       case LilypondPackage.SCHEME_EXPRESSION__UNQUOTED:
         setUnquoted((Boolean)newValue);
-        return;
-      case LilypondPackage.SCHEME_EXPRESSION__VARIABLE:
-        setVariable((Boolean)newValue);
         return;
       case LilypondPackage.SCHEME_EXPRESSION__VALUE:
         setValue((SchemeValue)newValue);
@@ -376,9 +327,6 @@ public class SchemeExpressionImpl extends MinimalEObjectImpl.Container implement
       case LilypondPackage.SCHEME_EXPRESSION__UNQUOTED:
         setUnquoted(UNQUOTED_EDEFAULT);
         return;
-      case LilypondPackage.SCHEME_EXPRESSION__VARIABLE:
-        setVariable(VARIABLE_EDEFAULT);
-        return;
       case LilypondPackage.SCHEME_EXPRESSION__VALUE:
         setValue((SchemeValue)null);
         return;
@@ -402,8 +350,6 @@ public class SchemeExpressionImpl extends MinimalEObjectImpl.Container implement
         return quasiquoted != QUASIQUOTED_EDEFAULT;
       case LilypondPackage.SCHEME_EXPRESSION__UNQUOTED:
         return unquoted != UNQUOTED_EDEFAULT;
-      case LilypondPackage.SCHEME_EXPRESSION__VARIABLE:
-        return variable != VARIABLE_EDEFAULT;
       case LilypondPackage.SCHEME_EXPRESSION__VALUE:
         return value != null;
     }
@@ -427,8 +373,6 @@ public class SchemeExpressionImpl extends MinimalEObjectImpl.Container implement
     result.append(quasiquoted);
     result.append(", unquoted: ");
     result.append(unquoted);
-    result.append(", variable: ");
-    result.append(variable);
     result.append(')');
     return result.toString();
   }

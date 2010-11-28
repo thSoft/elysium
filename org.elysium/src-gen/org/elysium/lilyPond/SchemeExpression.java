@@ -18,7 +18,6 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link org.elysium.lilypond.SchemeExpression#isQuoted <em>Quoted</em>}</li>
  *   <li>{@link org.elysium.lilypond.SchemeExpression#isQuasiquoted <em>Quasiquoted</em>}</li>
  *   <li>{@link org.elysium.lilypond.SchemeExpression#isUnquoted <em>Unquoted</em>}</li>
- *   <li>{@link org.elysium.lilypond.SchemeExpression#isVariable <em>Variable</em>}</li>
  *   <li>{@link org.elysium.lilypond.SchemeExpression#getValue <em>Value</em>}</li>
  * </ul>
  * </p>
@@ -106,32 +105,6 @@ public interface SchemeExpression extends EObject
    * @generated
    */
   void setUnquoted(boolean value);
-
-  /**
-   * Returns the value of the '<em><b>Variable</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <p>
-   * If the meaning of the '<em>Variable</em>' attribute isn't clear,
-   * there really should be more of a description here...
-   * </p>
-   * <!-- end-user-doc -->
-   * @return the value of the '<em>Variable</em>' attribute.
-   * @see #setVariable(boolean)
-   * @see org.elysium.lilypond.LilypondPackage#getSchemeExpression_Variable()
-   * @model
-   * @generated
-   */
-  boolean isVariable();
-
-  /**
-   * Sets the value of the '{@link org.elysium.lilypond.SchemeExpression#isVariable <em>Variable</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Variable</em>' attribute.
-   * @see #isVariable()
-   * @generated
-   */
-  void setVariable(boolean value);
 
   /**
    * Returns the value of the '<em><b>Value</b></em>' containment reference.

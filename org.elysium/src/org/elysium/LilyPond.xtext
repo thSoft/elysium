@@ -11,9 +11,9 @@ Expression: PropertyAssignment | CommonExpression;
 
 CommonExpression: Command | Block | Scheme | Text | Number;
 
-Assignment: name=(Identifier | STRING) "=" value=Expression;
+Assignment: name=(ID | STRING) "=" value=Expression;
 
-PropertyAssignment: id=(Identifier | STRING) "=" value=Expression;
+PropertyAssignment: id=(ID | STRING) "=" value=Expression;
 
 Block: SimpleBlock | SimultaneousBlock;
 
@@ -49,9 +49,9 @@ UnparsedBlock: {UnparsedBlock} "{" expressions+=UnparsedExpression* "}";
 
 UnparsedExpression: UnparsedCommand | UnparsedBlock | Scheme | Text | Number;
 
-UnparsedCommand: "\\" command=(Identifier | SpecialCommandName);
+UnparsedCommand: "\\" command=(ID | SpecialCommandName);
 
-Reference: "\\" assignment=[Assignment|Identifier];
+Reference: "\\" assignment=[Assignment|ID];
 
 Text: value=(SchemeTextLiteral | "(" | ")" | "'" | "," | ":");
 
@@ -59,7 +59,7 @@ Number: value=INT;
 
 Scheme hidden(WS, SCHEME_SL_COMMENT, SCHEME_ML_COMMENT): "#" value=SchemeExpression;
 
-SchemeExpression: (quoted?="'"? | quasiquoted?="`"? | unquoted?=","? | variable?="$"?)? value=SchemeValue;
+SchemeExpression: (quoted?="'"? | quasiquoted?="`"? | unquoted?=","?)? value=SchemeValue;
 
 SchemeValue: SchemeBoolean | SchemeList | SchemeBlock | SchemeCharacter | SchemeText | SchemeNumber| SchemeMarkupCommand;
 
@@ -67,9 +67,13 @@ SchemeBoolean: value=Boolean;
 
 SchemeList: {SchemeList} (vector?="#")? "(" expressions+=SchemeExpression* ")";
 
-SchemeBlock: "#{" expressions+=Expression+ "#}";
+SchemeBlock: "#{" elements+=SchemeBlockElement+ "#}";
 
-SchemeCharacter: "#\\" value=(ALPHA | SpecialCharacter | ANY_OTHER);
+SchemeBlockElement: Expression | SchemeReference;
+
+SchemeReference: "$" id=Identifier;
+
+SchemeCharacter: "#\\" value=(ID | SpecialCharacter | ANY_OTHER);
 
 SchemeText: value=SchemeId;
 
@@ -79,19 +83,19 @@ SchemeTextLiteral: "\\\\" | "=" | "-" | SpecialCharacter | SpecialCommandName | 
 
 SchemeNumber hidden(): radix=SchemeNumberRadix? value=INT;
 
-SchemeNumberRadix: "#" ALPHA;
+SchemeNumberRadix: "#" ID;
 
-SchemeMarkupCommand hidden(): "#:" command=(Identifier | SpecialCommandName);
+SchemeMarkupCommand hidden(): "#:" command=(ID | SpecialCommandName);
 
-Identifier hidden(): ALPHA ("-" ALPHA)*;
+Identifier hidden(): ID ("-" ID)*;
 
-Boolean returns ecore::EBoolean: "#" ALPHA;
+Boolean returns ecore::EBoolean: "#" ID;
 
 terminal STRING: '"' ("\\" ("b" | "t" | "n" | "f" | "r" | '"' | "'" | "\\") | !("\\" | '"'))* '"';
 
 terminal INT returns ecore::EInt: ("0".."9")+;
 
-terminal ALPHA: ("a".."z" | "A".."Z")+;
+terminal ID: ("a".."z" | "A".."Z")+;
 
 terminal WS: (" " | "\t" | "\r" | "\n")+;
 

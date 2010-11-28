@@ -15,7 +15,7 @@ import org.eclipse.emf.common.util.EList;
  * <p>
  * The following features are supported:
  * <ul>
- *   <li>{@link org.elysium.lilypond.SchemeBlock#getExpressions <em>Expressions</em>}</li>
+ *   <li>{@link org.elysium.lilypond.SchemeBlock#getElements <em>Elements</em>}</li>
  * </ul>
  * </p>
  *
@@ -26,19 +26,19 @@ import org.eclipse.emf.common.util.EList;
 public interface SchemeBlock extends SchemeValue
 {
   /**
-   * Returns the value of the '<em><b>Expressions</b></em>' containment reference list.
-   * The list contents are of type {@link org.elysium.lilypond.Expression}.
+   * Returns the value of the '<em><b>Elements</b></em>' containment reference list.
+   * The list contents are of type {@link org.elysium.lilypond.SchemeBlockElement}.
    * <!-- begin-user-doc -->
    * <p>
-   * If the meaning of the '<em>Expressions</em>' containment reference list isn't clear,
+   * If the meaning of the '<em>Elements</em>' containment reference list isn't clear,
    * there really should be more of a description here...
    * </p>
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Expressions</em>' containment reference list.
-   * @see org.elysium.lilypond.LilypondPackage#getSchemeBlock_Expressions()
+   * @return the value of the '<em>Elements</em>' containment reference list.
+   * @see org.elysium.lilypond.LilypondPackage#getSchemeBlock_Elements()
    * @model containment="true"
    * @generated
    */
-  EList<Expression> getExpressions();
+  EList<SchemeBlockElement> getElements();
 
 } // SchemeBlock

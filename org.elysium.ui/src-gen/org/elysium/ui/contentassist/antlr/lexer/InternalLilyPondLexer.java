@@ -12,6 +12,7 @@ import java.util.ArrayList;
 
 @SuppressWarnings("all")
 public class InternalLilyPondLexer extends Lexer {
+    public static final int RULE_ID=95;
     public static final int RULE_SCHEME_SL_COMMENT=99;
     public static final int RULE_ANY_OTHER=101;
     public static final int KEYWORD_56=41;
@@ -95,7 +96,6 @@ public class InternalLilyPondLexer extends Lexer {
     public static final int KEYWORD_1=73;
     public static final int KEYWORD_5=77;
     public static final int KEYWORD_4=76;
-    public static final int RULE_ALPHA=95;
     public static final int KEYWORD_70=22;
     public static final int KEYWORD_3=75;
     public static final int KEYWORD_2=74;
@@ -1909,14 +1909,14 @@ public class InternalLilyPondLexer extends Lexer {
     }
     // $ANTLR end RULE_INT
 
-    // $ANTLR start RULE_ALPHA
-    public final void mRULE_ALPHA() throws RecognitionException {
+    // $ANTLR start RULE_ID
+    public final void mRULE_ID() throws RecognitionException {
         try {
-            int _type = RULE_ALPHA;
-            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/lexer/InternalLilyPond.g:203:12: ( ( 'a' .. 'z' | 'A' .. 'Z' )+ )
-            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/lexer/InternalLilyPond.g:203:14: ( 'a' .. 'z' | 'A' .. 'Z' )+
+            int _type = RULE_ID;
+            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/lexer/InternalLilyPond.g:203:9: ( ( 'a' .. 'z' | 'A' .. 'Z' )+ )
+            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/lexer/InternalLilyPond.g:203:11: ( 'a' .. 'z' | 'A' .. 'Z' )+
             {
-            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/lexer/InternalLilyPond.g:203:14: ( 'a' .. 'z' | 'A' .. 'Z' )+
+            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/lexer/InternalLilyPond.g:203:11: ( 'a' .. 'z' | 'A' .. 'Z' )+
             int cnt3=0;
             loop3:
             do {
@@ -1963,7 +1963,7 @@ public class InternalLilyPondLexer extends Lexer {
         finally {
         }
     }
-    // $ANTLR end RULE_ALPHA
+    // $ANTLR end RULE_ID
 
     // $ANTLR start RULE_WS
     public final void mRULE_WS() throws RecognitionException {
@@ -2332,7 +2332,7 @@ public class InternalLilyPondLexer extends Lexer {
     // $ANTLR end RULE_ANY_OTHER
 
     public void mTokens() throws RecognitionException {
-        // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/lexer/InternalLilyPond.g:1:8: ( KEYWORD_89 | KEYWORD_87 | KEYWORD_88 | KEYWORD_85 | KEYWORD_86 | KEYWORD_82 | KEYWORD_83 | KEYWORD_84 | KEYWORD_80 | KEYWORD_81 | KEYWORD_75 | KEYWORD_76 | KEYWORD_77 | KEYWORD_78 | KEYWORD_79 | KEYWORD_67 | KEYWORD_68 | KEYWORD_69 | KEYWORD_70 | KEYWORD_71 | KEYWORD_72 | KEYWORD_73 | KEYWORD_74 | KEYWORD_60 | KEYWORD_61 | KEYWORD_62 | KEYWORD_63 | KEYWORD_64 | KEYWORD_65 | KEYWORD_66 | KEYWORD_49 | KEYWORD_50 | KEYWORD_51 | KEYWORD_52 | KEYWORD_53 | KEYWORD_54 | KEYWORD_55 | KEYWORD_56 | KEYWORD_57 | KEYWORD_58 | KEYWORD_59 | KEYWORD_42 | KEYWORD_43 | KEYWORD_44 | KEYWORD_45 | KEYWORD_46 | KEYWORD_47 | KEYWORD_48 | KEYWORD_32 | KEYWORD_33 | KEYWORD_34 | KEYWORD_35 | KEYWORD_36 | KEYWORD_37 | KEYWORD_38 | KEYWORD_39 | KEYWORD_40 | KEYWORD_41 | KEYWORD_29 | KEYWORD_30 | KEYWORD_31 | KEYWORD_21 | KEYWORD_22 | KEYWORD_23 | KEYWORD_24 | KEYWORD_25 | KEYWORD_26 | KEYWORD_27 | KEYWORD_28 | KEYWORD_1 | KEYWORD_2 | KEYWORD_3 | KEYWORD_4 | KEYWORD_5 | KEYWORD_6 | KEYWORD_7 | KEYWORD_8 | KEYWORD_9 | KEYWORD_10 | KEYWORD_11 | KEYWORD_12 | KEYWORD_13 | KEYWORD_14 | KEYWORD_15 | KEYWORD_16 | KEYWORD_17 | KEYWORD_18 | KEYWORD_19 | KEYWORD_20 | RULE_STRING | RULE_INT | RULE_ALPHA | RULE_WS | RULE_SL_COMMENT | RULE_ML_COMMENT | RULE_SCHEME_SL_COMMENT | RULE_SCHEME_ML_COMMENT | RULE_ANY_OTHER )
+        // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/lexer/InternalLilyPond.g:1:8: ( KEYWORD_89 | KEYWORD_87 | KEYWORD_88 | KEYWORD_85 | KEYWORD_86 | KEYWORD_82 | KEYWORD_83 | KEYWORD_84 | KEYWORD_80 | KEYWORD_81 | KEYWORD_75 | KEYWORD_76 | KEYWORD_77 | KEYWORD_78 | KEYWORD_79 | KEYWORD_67 | KEYWORD_68 | KEYWORD_69 | KEYWORD_70 | KEYWORD_71 | KEYWORD_72 | KEYWORD_73 | KEYWORD_74 | KEYWORD_60 | KEYWORD_61 | KEYWORD_62 | KEYWORD_63 | KEYWORD_64 | KEYWORD_65 | KEYWORD_66 | KEYWORD_49 | KEYWORD_50 | KEYWORD_51 | KEYWORD_52 | KEYWORD_53 | KEYWORD_54 | KEYWORD_55 | KEYWORD_56 | KEYWORD_57 | KEYWORD_58 | KEYWORD_59 | KEYWORD_42 | KEYWORD_43 | KEYWORD_44 | KEYWORD_45 | KEYWORD_46 | KEYWORD_47 | KEYWORD_48 | KEYWORD_32 | KEYWORD_33 | KEYWORD_34 | KEYWORD_35 | KEYWORD_36 | KEYWORD_37 | KEYWORD_38 | KEYWORD_39 | KEYWORD_40 | KEYWORD_41 | KEYWORD_29 | KEYWORD_30 | KEYWORD_31 | KEYWORD_21 | KEYWORD_22 | KEYWORD_23 | KEYWORD_24 | KEYWORD_25 | KEYWORD_26 | KEYWORD_27 | KEYWORD_28 | KEYWORD_1 | KEYWORD_2 | KEYWORD_3 | KEYWORD_4 | KEYWORD_5 | KEYWORD_6 | KEYWORD_7 | KEYWORD_8 | KEYWORD_9 | KEYWORD_10 | KEYWORD_11 | KEYWORD_12 | KEYWORD_13 | KEYWORD_14 | KEYWORD_15 | KEYWORD_16 | KEYWORD_17 | KEYWORD_18 | KEYWORD_19 | KEYWORD_20 | RULE_STRING | RULE_INT | RULE_ID | RULE_WS | RULE_SL_COMMENT | RULE_ML_COMMENT | RULE_SCHEME_SL_COMMENT | RULE_SCHEME_ML_COMMENT | RULE_ANY_OTHER )
         int alt13=98;
         alt13 = dfa13.predict(input);
         switch (alt13) {
@@ -2974,49 +2974,49 @@ public class InternalLilyPondLexer extends Lexer {
                 }
                 break;
             case 92 :
-                // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/lexer/InternalLilyPond.g:1:1001: RULE_ALPHA
+                // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/lexer/InternalLilyPond.g:1:1001: RULE_ID
                 {
-                mRULE_ALPHA(); 
+                mRULE_ID(); 
 
                 }
                 break;
             case 93 :
-                // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/lexer/InternalLilyPond.g:1:1012: RULE_WS
+                // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/lexer/InternalLilyPond.g:1:1009: RULE_WS
                 {
                 mRULE_WS(); 
 
                 }
                 break;
             case 94 :
-                // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/lexer/InternalLilyPond.g:1:1020: RULE_SL_COMMENT
+                // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/lexer/InternalLilyPond.g:1:1017: RULE_SL_COMMENT
                 {
                 mRULE_SL_COMMENT(); 
 
                 }
                 break;
             case 95 :
-                // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/lexer/InternalLilyPond.g:1:1036: RULE_ML_COMMENT
+                // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/lexer/InternalLilyPond.g:1:1033: RULE_ML_COMMENT
                 {
                 mRULE_ML_COMMENT(); 
 
                 }
                 break;
             case 96 :
-                // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/lexer/InternalLilyPond.g:1:1052: RULE_SCHEME_SL_COMMENT
+                // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/lexer/InternalLilyPond.g:1:1049: RULE_SCHEME_SL_COMMENT
                 {
                 mRULE_SCHEME_SL_COMMENT(); 
 
                 }
                 break;
             case 97 :
-                // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/lexer/InternalLilyPond.g:1:1075: RULE_SCHEME_ML_COMMENT
+                // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/lexer/InternalLilyPond.g:1:1072: RULE_SCHEME_ML_COMMENT
                 {
                 mRULE_SCHEME_ML_COMMENT(); 
 
                 }
                 break;
             case 98 :
-                // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/lexer/InternalLilyPond.g:1:1098: RULE_ANY_OTHER
+                // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/lexer/InternalLilyPond.g:1:1095: RULE_ANY_OTHER
                 {
                 mRULE_ANY_OTHER(); 
 
@@ -3640,7 +3640,7 @@ public class InternalLilyPondLexer extends Lexer {
             this.transition = DFA13_transition;
         }
         public String getDescription() {
-            return "1:1: Tokens : ( KEYWORD_89 | KEYWORD_87 | KEYWORD_88 | KEYWORD_85 | KEYWORD_86 | KEYWORD_82 | KEYWORD_83 | KEYWORD_84 | KEYWORD_80 | KEYWORD_81 | KEYWORD_75 | KEYWORD_76 | KEYWORD_77 | KEYWORD_78 | KEYWORD_79 | KEYWORD_67 | KEYWORD_68 | KEYWORD_69 | KEYWORD_70 | KEYWORD_71 | KEYWORD_72 | KEYWORD_73 | KEYWORD_74 | KEYWORD_60 | KEYWORD_61 | KEYWORD_62 | KEYWORD_63 | KEYWORD_64 | KEYWORD_65 | KEYWORD_66 | KEYWORD_49 | KEYWORD_50 | KEYWORD_51 | KEYWORD_52 | KEYWORD_53 | KEYWORD_54 | KEYWORD_55 | KEYWORD_56 | KEYWORD_57 | KEYWORD_58 | KEYWORD_59 | KEYWORD_42 | KEYWORD_43 | KEYWORD_44 | KEYWORD_45 | KEYWORD_46 | KEYWORD_47 | KEYWORD_48 | KEYWORD_32 | KEYWORD_33 | KEYWORD_34 | KEYWORD_35 | KEYWORD_36 | KEYWORD_37 | KEYWORD_38 | KEYWORD_39 | KEYWORD_40 | KEYWORD_41 | KEYWORD_29 | KEYWORD_30 | KEYWORD_31 | KEYWORD_21 | KEYWORD_22 | KEYWORD_23 | KEYWORD_24 | KEYWORD_25 | KEYWORD_26 | KEYWORD_27 | KEYWORD_28 | KEYWORD_1 | KEYWORD_2 | KEYWORD_3 | KEYWORD_4 | KEYWORD_5 | KEYWORD_6 | KEYWORD_7 | KEYWORD_8 | KEYWORD_9 | KEYWORD_10 | KEYWORD_11 | KEYWORD_12 | KEYWORD_13 | KEYWORD_14 | KEYWORD_15 | KEYWORD_16 | KEYWORD_17 | KEYWORD_18 | KEYWORD_19 | KEYWORD_20 | RULE_STRING | RULE_INT | RULE_ALPHA | RULE_WS | RULE_SL_COMMENT | RULE_ML_COMMENT | RULE_SCHEME_SL_COMMENT | RULE_SCHEME_ML_COMMENT | RULE_ANY_OTHER );";
+            return "1:1: Tokens : ( KEYWORD_89 | KEYWORD_87 | KEYWORD_88 | KEYWORD_85 | KEYWORD_86 | KEYWORD_82 | KEYWORD_83 | KEYWORD_84 | KEYWORD_80 | KEYWORD_81 | KEYWORD_75 | KEYWORD_76 | KEYWORD_77 | KEYWORD_78 | KEYWORD_79 | KEYWORD_67 | KEYWORD_68 | KEYWORD_69 | KEYWORD_70 | KEYWORD_71 | KEYWORD_72 | KEYWORD_73 | KEYWORD_74 | KEYWORD_60 | KEYWORD_61 | KEYWORD_62 | KEYWORD_63 | KEYWORD_64 | KEYWORD_65 | KEYWORD_66 | KEYWORD_49 | KEYWORD_50 | KEYWORD_51 | KEYWORD_52 | KEYWORD_53 | KEYWORD_54 | KEYWORD_55 | KEYWORD_56 | KEYWORD_57 | KEYWORD_58 | KEYWORD_59 | KEYWORD_42 | KEYWORD_43 | KEYWORD_44 | KEYWORD_45 | KEYWORD_46 | KEYWORD_47 | KEYWORD_48 | KEYWORD_32 | KEYWORD_33 | KEYWORD_34 | KEYWORD_35 | KEYWORD_36 | KEYWORD_37 | KEYWORD_38 | KEYWORD_39 | KEYWORD_40 | KEYWORD_41 | KEYWORD_29 | KEYWORD_30 | KEYWORD_31 | KEYWORD_21 | KEYWORD_22 | KEYWORD_23 | KEYWORD_24 | KEYWORD_25 | KEYWORD_26 | KEYWORD_27 | KEYWORD_28 | KEYWORD_1 | KEYWORD_2 | KEYWORD_3 | KEYWORD_4 | KEYWORD_5 | KEYWORD_6 | KEYWORD_7 | KEYWORD_8 | KEYWORD_9 | KEYWORD_10 | KEYWORD_11 | KEYWORD_12 | KEYWORD_13 | KEYWORD_14 | KEYWORD_15 | KEYWORD_16 | KEYWORD_17 | KEYWORD_18 | KEYWORD_19 | KEYWORD_20 | RULE_STRING | RULE_INT | RULE_ID | RULE_WS | RULE_SL_COMMENT | RULE_ML_COMMENT | RULE_SCHEME_SL_COMMENT | RULE_SCHEME_ML_COMMENT | RULE_ANY_OTHER );";
         }
     }
  

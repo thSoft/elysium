@@ -17,9 +17,9 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
-import org.elysium.lilypond.Expression;
 import org.elysium.lilypond.LilypondPackage;
 import org.elysium.lilypond.SchemeBlock;
+import org.elysium.lilypond.SchemeBlockElement;
 
 /**
  * <!-- begin-user-doc -->
@@ -28,7 +28,7 @@ import org.elysium.lilypond.SchemeBlock;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link org.elysium.lilypond.impl.SchemeBlockImpl#getExpressions <em>Expressions</em>}</li>
+ *   <li>{@link org.elysium.lilypond.impl.SchemeBlockImpl#getElements <em>Elements</em>}</li>
  * </ul>
  * </p>
  *
@@ -37,14 +37,14 @@ import org.elysium.lilypond.SchemeBlock;
 public class SchemeBlockImpl extends SchemeValueImpl implements SchemeBlock
 {
   /**
-   * The cached value of the '{@link #getExpressions() <em>Expressions</em>}' containment reference list.
+   * The cached value of the '{@link #getElements() <em>Elements</em>}' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getExpressions()
+   * @see #getElements()
    * @generated
    * @ordered
    */
-  protected EList<Expression> expressions;
+  protected EList<SchemeBlockElement> elements;
 
   /**
    * <!-- begin-user-doc -->
@@ -72,13 +72,13 @@ public class SchemeBlockImpl extends SchemeValueImpl implements SchemeBlock
    * <!-- end-user-doc -->
    * @generated
    */
-  public EList<Expression> getExpressions()
+  public EList<SchemeBlockElement> getElements()
   {
-    if (expressions == null)
+    if (elements == null)
     {
-      expressions = new EObjectContainmentEList<Expression>(Expression.class, this, LilypondPackage.SCHEME_BLOCK__EXPRESSIONS);
+      elements = new EObjectContainmentEList<SchemeBlockElement>(SchemeBlockElement.class, this, LilypondPackage.SCHEME_BLOCK__ELEMENTS);
     }
-    return expressions;
+    return elements;
   }
 
   /**
@@ -91,8 +91,8 @@ public class SchemeBlockImpl extends SchemeValueImpl implements SchemeBlock
   {
     switch (featureID)
     {
-      case LilypondPackage.SCHEME_BLOCK__EXPRESSIONS:
-        return ((InternalEList<?>)getExpressions()).basicRemove(otherEnd, msgs);
+      case LilypondPackage.SCHEME_BLOCK__ELEMENTS:
+        return ((InternalEList<?>)getElements()).basicRemove(otherEnd, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
   }
@@ -107,8 +107,8 @@ public class SchemeBlockImpl extends SchemeValueImpl implements SchemeBlock
   {
     switch (featureID)
     {
-      case LilypondPackage.SCHEME_BLOCK__EXPRESSIONS:
-        return getExpressions();
+      case LilypondPackage.SCHEME_BLOCK__ELEMENTS:
+        return getElements();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -124,9 +124,9 @@ public class SchemeBlockImpl extends SchemeValueImpl implements SchemeBlock
   {
     switch (featureID)
     {
-      case LilypondPackage.SCHEME_BLOCK__EXPRESSIONS:
-        getExpressions().clear();
-        getExpressions().addAll((Collection<? extends Expression>)newValue);
+      case LilypondPackage.SCHEME_BLOCK__ELEMENTS:
+        getElements().clear();
+        getElements().addAll((Collection<? extends SchemeBlockElement>)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -142,8 +142,8 @@ public class SchemeBlockImpl extends SchemeValueImpl implements SchemeBlock
   {
     switch (featureID)
     {
-      case LilypondPackage.SCHEME_BLOCK__EXPRESSIONS:
-        getExpressions().clear();
+      case LilypondPackage.SCHEME_BLOCK__ELEMENTS:
+        getElements().clear();
         return;
     }
     super.eUnset(featureID);
@@ -159,8 +159,8 @@ public class SchemeBlockImpl extends SchemeValueImpl implements SchemeBlock
   {
     switch (featureID)
     {
-      case LilypondPackage.SCHEME_BLOCK__EXPRESSIONS:
-        return expressions != null && !expressions.isEmpty();
+      case LilypondPackage.SCHEME_BLOCK__ELEMENTS:
+        return elements != null && !elements.isEmpty();
     }
     return super.eIsSet(featureID);
   }
