@@ -21,7 +21,8 @@ import com.google.common.collect.Lists;
 import com.google.common.collect.Maps;
 
 /**
- * Makes LilyPond elements referable from other files.
+ * Exports {@link EObjectDescription}s from LilyPond files. If these haven't
+ * changed, the file doesn't have to be recompiled.
  */
 public class LilyPondResourceDescription extends DefaultResourceDescription {
 
