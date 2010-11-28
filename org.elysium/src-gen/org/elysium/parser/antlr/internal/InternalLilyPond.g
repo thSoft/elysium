@@ -2216,9 +2216,9 @@ ruleText returns [EObject current=null]
 (
 (
 		{ 
-	        currentNode=createCompositeNode(grammarAccess.getTextAccess().getValueSchemeTextLiteralParserRuleCall_0_0(), currentNode); 
+	        currentNode=createCompositeNode(grammarAccess.getTextAccess().getValueSchemeTextValueSegmentParserRuleCall_0_0(), currentNode); 
 	    }
-		lv_value_0_1=ruleSchemeTextLiteral		{
+		lv_value_0_1=ruleSchemeTextValueSegment		{
 	        if ($current==null) {
 	            $current = factory.create(grammarAccess.getTextRule().getType().getClassifier());
 	            associateNodeWithAstElement(currentNode.getParent(), $current);
@@ -2228,7 +2228,7 @@ ruleText returns [EObject current=null]
 	       			$current, 
 	       			"value",
 	        		lv_value_0_1, 
-	        		"SchemeTextLiteral", 
+	        		"SchemeTextValueSegment", 
 	        		currentNode);
 	        } catch (ValueConverterException vce) {
 				handleValueConverterException(vce);
@@ -2697,9 +2697,9 @@ ruleSchemeBoolean returns [EObject current=null]
 (
 (
 		{ 
-	        currentNode=createCompositeNode(grammarAccess.getSchemeBooleanAccess().getValueBooleanParserRuleCall_0(), currentNode); 
+	        currentNode=createCompositeNode(grammarAccess.getSchemeBooleanAccess().getValueSchemeBooleanValueParserRuleCall_0(), currentNode); 
 	    }
-		lv_value_0_0=ruleBoolean		{
+		lv_value_0_0=ruleSchemeBooleanValue		{
 	        if ($current==null) {
 	            $current = factory.create(grammarAccess.getSchemeBooleanRule().getType().getClassifier());
 	            associateNodeWithAstElement(currentNode.getParent(), $current);
@@ -2709,7 +2709,7 @@ ruleSchemeBoolean returns [EObject current=null]
 	       			$current, 
 	       			"value",
 	        		lv_value_0_0, 
-	        		"Boolean", 
+	        		"SchemeBooleanValue", 
 	        		currentNode);
 	        } catch (ValueConverterException vce) {
 				handleValueConverterException(vce);
@@ -2720,6 +2720,42 @@ ruleSchemeBoolean returns [EObject current=null]
 )
 )
 ;
+
+
+
+
+
+// Entry rule entryRuleSchemeBooleanValue
+entryRuleSchemeBooleanValue returns [String current=null] 
+:
+	{ currentNode = createCompositeNode(grammarAccess.getSchemeBooleanValueRule(), currentNode); } 
+	 iv_ruleSchemeBooleanValue=ruleSchemeBooleanValue 
+	 { $current=$iv_ruleSchemeBooleanValue.current.getText(); }  
+	 EOF 
+;
+
+// Rule SchemeBooleanValue
+ruleSchemeBooleanValue returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()] 
+    @init { setCurrentLookahead(); resetLookahead(); 
+    }
+    @after { resetLookahead(); 
+	    lastConsumedNode = currentNode;
+    }:
+(
+	kw=KEYWORD_2 
+    {
+        $current.merge(kw);
+        createLeafNode(grammarAccess.getSchemeBooleanValueAccess().getNumberSignKeyword_0(), null); 
+    }
+    this_ID_1=RULE_ID    {
+		$current.merge(this_ID_1);
+    }
+
+    { 
+    createLeafNode(grammarAccess.getSchemeBooleanValueAccess().getIDTerminalRuleCall_1(), null); 
+    }
+)
+    ;
 
 
 
@@ -2947,9 +2983,9 @@ ruleSchemeReference returns [EObject current=null]
 (
 (
 		{ 
-	        currentNode=createCompositeNode(grammarAccess.getSchemeReferenceAccess().getIdIdentifierParserRuleCall_1_0(), currentNode); 
+	        currentNode=createCompositeNode(grammarAccess.getSchemeReferenceAccess().getIdSchemeIdentifierParserRuleCall_1_0(), currentNode); 
 	    }
-		lv_id_1_0=ruleIdentifier		{
+		lv_id_1_0=ruleSchemeIdentifier		{
 	        if ($current==null) {
 	            $current = factory.create(grammarAccess.getSchemeReferenceRule().getType().getClassifier());
 	            associateNodeWithAstElement(currentNode.getParent(), $current);
@@ -2959,7 +2995,7 @@ ruleSchemeReference returns [EObject current=null]
 	       			$current, 
 	       			"id",
 	        		lv_id_1_0, 
-	        		"Identifier", 
+	        		"SchemeIdentifier", 
 	        		currentNode);
 	        } catch (ValueConverterException vce) {
 				handleValueConverterException(vce);
@@ -3091,9 +3127,9 @@ ruleSchemeText returns [EObject current=null]
 (
 (
 		{ 
-	        currentNode=createCompositeNode(grammarAccess.getSchemeTextAccess().getValueSchemeIdParserRuleCall_0(), currentNode); 
+	        currentNode=createCompositeNode(grammarAccess.getSchemeTextAccess().getValueSchemeTextValueParserRuleCall_0(), currentNode); 
 	    }
-		lv_value_0_0=ruleSchemeId		{
+		lv_value_0_0=ruleSchemeTextValue		{
 	        if ($current==null) {
 	            $current = factory.create(grammarAccess.getSchemeTextRule().getType().getClassifier());
 	            associateNodeWithAstElement(currentNode.getParent(), $current);
@@ -3103,7 +3139,7 @@ ruleSchemeText returns [EObject current=null]
 	       			$current, 
 	       			"value",
 	        		lv_value_0_0, 
-	        		"SchemeId", 
+	        		"SchemeTextValue", 
 	        		currentNode);
 	        } catch (ValueConverterException vce) {
 				handleValueConverterException(vce);
@@ -3119,23 +3155,23 @@ ruleSchemeText returns [EObject current=null]
 
 
 
-// Entry rule entryRuleSchemeId
-entryRuleSchemeId returns [String current=null] 
+// Entry rule entryRuleSchemeTextValue
+entryRuleSchemeTextValue returns [String current=null] 
 	@init { 
 		HiddenTokens myHiddenTokenState = ((XtextTokenStream)input).setHiddenTokens();
 	}
 :
-	{ currentNode = createCompositeNode(grammarAccess.getSchemeIdRule(), currentNode); } 
-	 iv_ruleSchemeId=ruleSchemeId 
-	 { $current=$iv_ruleSchemeId.current.getText(); }  
+	{ currentNode = createCompositeNode(grammarAccess.getSchemeTextValueRule(), currentNode); } 
+	 iv_ruleSchemeTextValue=ruleSchemeTextValue 
+	 { $current=$iv_ruleSchemeTextValue.current.getText(); }  
 	 EOF 
 ;
 finally {
 	myHiddenTokenState.restore();
 }
 
-// Rule SchemeId
-ruleSchemeId returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()] 
+// Rule SchemeTextValue
+ruleSchemeTextValue returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()] 
     @init { setCurrentLookahead(); resetLookahead(); 
 		HiddenTokens myHiddenTokenState = ((XtextTokenStream)input).setHiddenTokens();
     }
@@ -3144,10 +3180,10 @@ ruleSchemeId returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken(
     }:
 (
     { 
-        currentNode=createCompositeNode(grammarAccess.getSchemeIdAccess().getSchemeTextLiteralParserRuleCall_0(), currentNode); 
+        currentNode=createCompositeNode(grammarAccess.getSchemeTextValueAccess().getSchemeTextValueSegmentParserRuleCall_0(), currentNode); 
     }
-    this_SchemeTextLiteral_0=ruleSchemeTextLiteral    {
-		$current.merge(this_SchemeTextLiteral_0);
+    this_SchemeTextValueSegment_0=ruleSchemeTextValueSegment    {
+		$current.merge(this_SchemeTextValueSegment_0);
     }
 
     { 
@@ -3157,21 +3193,21 @@ ruleSchemeId returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken(
 	kw=KEYWORD_10 
     {
         $current.merge(kw);
-        createLeafNode(grammarAccess.getSchemeIdAccess().getColonKeyword_1_0_0(), null); 
+        createLeafNode(grammarAccess.getSchemeTextValueAccess().getColonKeyword_1_0_0(), null); 
     }
 
     |
 	kw=KEYWORD_25 
     {
         $current.merge(kw);
-        createLeafNode(grammarAccess.getSchemeIdAccess().getColonColonKeyword_1_0_1(), null); 
+        createLeafNode(grammarAccess.getSchemeTextValueAccess().getColonColonKeyword_1_0_1(), null); 
     }
 )
     { 
-        currentNode=createCompositeNode(grammarAccess.getSchemeIdAccess().getSchemeTextLiteralParserRuleCall_1_1(), currentNode); 
+        currentNode=createCompositeNode(grammarAccess.getSchemeTextValueAccess().getSchemeTextValueSegmentParserRuleCall_1_1(), currentNode); 
     }
-    this_SchemeTextLiteral_3=ruleSchemeTextLiteral    {
-		$current.merge(this_SchemeTextLiteral_3);
+    this_SchemeTextValueSegment_3=ruleSchemeTextValueSegment    {
+		$current.merge(this_SchemeTextValueSegment_3);
     }
 
     { 
@@ -3187,17 +3223,17 @@ finally {
 
 
 
-// Entry rule entryRuleSchemeTextLiteral
-entryRuleSchemeTextLiteral returns [String current=null] 
+// Entry rule entryRuleSchemeTextValueSegment
+entryRuleSchemeTextValueSegment returns [String current=null] 
 :
-	{ currentNode = createCompositeNode(grammarAccess.getSchemeTextLiteralRule(), currentNode); } 
-	 iv_ruleSchemeTextLiteral=ruleSchemeTextLiteral 
-	 { $current=$iv_ruleSchemeTextLiteral.current.getText(); }  
+	{ currentNode = createCompositeNode(grammarAccess.getSchemeTextValueSegmentRule(), currentNode); } 
+	 iv_ruleSchemeTextValueSegment=ruleSchemeTextValueSegment 
+	 { $current=$iv_ruleSchemeTextValueSegment.current.getText(); }  
 	 EOF 
 ;
 
-// Rule SchemeTextLiteral
-ruleSchemeTextLiteral returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()] 
+// Rule SchemeTextValueSegment
+ruleSchemeTextValueSegment returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()] 
     @init { setCurrentLookahead(); resetLookahead(); 
     }
     @after { resetLookahead(); 
@@ -3207,26 +3243,26 @@ ruleSchemeTextLiteral returns [AntlrDatatypeRuleToken current=new AntlrDatatypeR
 	kw=KEYWORD_28 
     {
         $current.merge(kw);
-        createLeafNode(grammarAccess.getSchemeTextLiteralAccess().getReverseSolidusReverseSolidusKeyword_0(), null); 
+        createLeafNode(grammarAccess.getSchemeTextValueSegmentAccess().getReverseSolidusReverseSolidusKeyword_0(), null); 
     }
 
     |
 	kw=KEYWORD_12 
     {
         $current.merge(kw);
-        createLeafNode(grammarAccess.getSchemeTextLiteralAccess().getEqualsSignKeyword_1(), null); 
+        createLeafNode(grammarAccess.getSchemeTextValueSegmentAccess().getEqualsSignKeyword_1(), null); 
     }
 
     |
 	kw=KEYWORD_9 
     {
         $current.merge(kw);
-        createLeafNode(grammarAccess.getSchemeTextLiteralAccess().getHyphenMinusKeyword_2(), null); 
+        createLeafNode(grammarAccess.getSchemeTextValueSegmentAccess().getHyphenMinusKeyword_2(), null); 
     }
 
     |
     { 
-        currentNode=createCompositeNode(grammarAccess.getSchemeTextLiteralAccess().getSpecialCharacterParserRuleCall_3(), currentNode); 
+        currentNode=createCompositeNode(grammarAccess.getSchemeTextValueSegmentAccess().getSpecialCharacterParserRuleCall_3(), currentNode); 
     }
     this_SpecialCharacter_3=ruleSpecialCharacter    {
 		$current.merge(this_SpecialCharacter_3);
@@ -3238,7 +3274,7 @@ ruleSchemeTextLiteral returns [AntlrDatatypeRuleToken current=new AntlrDatatypeR
 
     |
     { 
-        currentNode=createCompositeNode(grammarAccess.getSchemeTextLiteralAccess().getSpecialCommandNameParserRuleCall_4(), currentNode); 
+        currentNode=createCompositeNode(grammarAccess.getSchemeTextValueSegmentAccess().getSpecialCommandNameParserRuleCall_4(), currentNode); 
     }
     this_SpecialCommandName_4=ruleSpecialCommandName    {
 		$current.merge(this_SpecialCommandName_4);
@@ -3250,10 +3286,10 @@ ruleSchemeTextLiteral returns [AntlrDatatypeRuleToken current=new AntlrDatatypeR
 
     |
     { 
-        currentNode=createCompositeNode(grammarAccess.getSchemeTextLiteralAccess().getIdentifierParserRuleCall_5(), currentNode); 
+        currentNode=createCompositeNode(grammarAccess.getSchemeTextValueSegmentAccess().getSchemeIdentifierParserRuleCall_5(), currentNode); 
     }
-    this_Identifier_5=ruleIdentifier    {
-		$current.merge(this_Identifier_5);
+    this_SchemeIdentifier_5=ruleSchemeIdentifier    {
+		$current.merge(this_SchemeIdentifier_5);
     }
 
     { 
@@ -3265,7 +3301,7 @@ ruleSchemeTextLiteral returns [AntlrDatatypeRuleToken current=new AntlrDatatypeR
     }
 
     { 
-    createLeafNode(grammarAccess.getSchemeTextLiteralAccess().getSTRINGTerminalRuleCall_6(), null); 
+    createLeafNode(grammarAccess.getSchemeTextValueSegmentAccess().getSTRINGTerminalRuleCall_6(), null); 
     }
 
     |    this_INT_7=RULE_INT    {
@@ -3273,7 +3309,7 @@ ruleSchemeTextLiteral returns [AntlrDatatypeRuleToken current=new AntlrDatatypeR
     }
 
     { 
-    createLeafNode(grammarAccess.getSchemeTextLiteralAccess().getINTTerminalRuleCall_7(), null); 
+    createLeafNode(grammarAccess.getSchemeTextValueSegmentAccess().getINTTerminalRuleCall_7(), null); 
     }
 
     |    this_ANY_OTHER_8=RULE_ANY_OTHER    {
@@ -3281,10 +3317,63 @@ ruleSchemeTextLiteral returns [AntlrDatatypeRuleToken current=new AntlrDatatypeR
     }
 
     { 
-    createLeafNode(grammarAccess.getSchemeTextLiteralAccess().getANY_OTHERTerminalRuleCall_8(), null); 
+    createLeafNode(grammarAccess.getSchemeTextValueSegmentAccess().getANY_OTHERTerminalRuleCall_8(), null); 
     }
 )
     ;
+
+
+
+
+
+// Entry rule entryRuleSchemeIdentifier
+entryRuleSchemeIdentifier returns [String current=null] 
+	@init { 
+		HiddenTokens myHiddenTokenState = ((XtextTokenStream)input).setHiddenTokens();
+	}
+:
+	{ currentNode = createCompositeNode(grammarAccess.getSchemeIdentifierRule(), currentNode); } 
+	 iv_ruleSchemeIdentifier=ruleSchemeIdentifier 
+	 { $current=$iv_ruleSchemeIdentifier.current.getText(); }  
+	 EOF 
+;
+finally {
+	myHiddenTokenState.restore();
+}
+
+// Rule SchemeIdentifier
+ruleSchemeIdentifier returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()] 
+    @init { setCurrentLookahead(); resetLookahead(); 
+		HiddenTokens myHiddenTokenState = ((XtextTokenStream)input).setHiddenTokens();
+    }
+    @after { resetLookahead(); 
+	    lastConsumedNode = currentNode;
+    }:
+(    this_ID_0=RULE_ID    {
+		$current.merge(this_ID_0);
+    }
+
+    { 
+    createLeafNode(grammarAccess.getSchemeIdentifierAccess().getIDTerminalRuleCall_0(), null); 
+    }
+(
+	kw=KEYWORD_9 
+    {
+        $current.merge(kw);
+        createLeafNode(grammarAccess.getSchemeIdentifierAccess().getHyphenMinusKeyword_1_0(), null); 
+    }
+    this_ID_2=RULE_ID    {
+		$current.merge(this_ID_2);
+    }
+
+    { 
+    createLeafNode(grammarAccess.getSchemeIdentifierAccess().getIDTerminalRuleCall_1_1(), null); 
+    }
+)*)
+    ;
+finally {
+	myHiddenTokenState.restore();
+}
 
 
 
@@ -3488,95 +3577,6 @@ ruleSchemeMarkupCommand returns [EObject current=null]
 finally {
 	myHiddenTokenState.restore();
 }
-
-
-
-
-
-// Entry rule entryRuleIdentifier
-entryRuleIdentifier returns [String current=null] 
-	@init { 
-		HiddenTokens myHiddenTokenState = ((XtextTokenStream)input).setHiddenTokens();
-	}
-:
-	{ currentNode = createCompositeNode(grammarAccess.getIdentifierRule(), currentNode); } 
-	 iv_ruleIdentifier=ruleIdentifier 
-	 { $current=$iv_ruleIdentifier.current.getText(); }  
-	 EOF 
-;
-finally {
-	myHiddenTokenState.restore();
-}
-
-// Rule Identifier
-ruleIdentifier returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()] 
-    @init { setCurrentLookahead(); resetLookahead(); 
-		HiddenTokens myHiddenTokenState = ((XtextTokenStream)input).setHiddenTokens();
-    }
-    @after { resetLookahead(); 
-	    lastConsumedNode = currentNode;
-    }:
-(    this_ID_0=RULE_ID    {
-		$current.merge(this_ID_0);
-    }
-
-    { 
-    createLeafNode(grammarAccess.getIdentifierAccess().getIDTerminalRuleCall_0(), null); 
-    }
-(
-	kw=KEYWORD_9 
-    {
-        $current.merge(kw);
-        createLeafNode(grammarAccess.getIdentifierAccess().getHyphenMinusKeyword_1_0(), null); 
-    }
-    this_ID_2=RULE_ID    {
-		$current.merge(this_ID_2);
-    }
-
-    { 
-    createLeafNode(grammarAccess.getIdentifierAccess().getIDTerminalRuleCall_1_1(), null); 
-    }
-)*)
-    ;
-finally {
-	myHiddenTokenState.restore();
-}
-
-
-
-
-
-// Entry rule entryRuleBoolean
-entryRuleBoolean returns [String current=null] 
-:
-	{ currentNode = createCompositeNode(grammarAccess.getBooleanRule(), currentNode); } 
-	 iv_ruleBoolean=ruleBoolean 
-	 { $current=$iv_ruleBoolean.current.getText(); }  
-	 EOF 
-;
-
-// Rule Boolean
-ruleBoolean returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()] 
-    @init { setCurrentLookahead(); resetLookahead(); 
-    }
-    @after { resetLookahead(); 
-	    lastConsumedNode = currentNode;
-    }:
-(
-	kw=KEYWORD_2 
-    {
-        $current.merge(kw);
-        createLeafNode(grammarAccess.getBooleanAccess().getNumberSignKeyword_0(), null); 
-    }
-    this_ID_1=RULE_ID    {
-		$current.merge(this_ID_1);
-    }
-
-    { 
-    createLeafNode(grammarAccess.getBooleanAccess().getIDTerminalRuleCall_1(), null); 
-    }
-)
-    ;
 
 
 

@@ -51,9 +51,9 @@ UnparsedExpression: UnparsedCommand | UnparsedBlock | Scheme | Text | Number;
 
 UnparsedCommand: "\\" command=(ID | SpecialCommandName);
 
-Reference: "\\" assignment=[Assignment|ID];
+Reference: "\\" assignment=[Assignment];
 
-Text: value=(SchemeTextLiteral | "(" | ")" | "'" | "," | ":");
+Text: value=(SchemeTextValueSegment | "(" | ")" | "'" | "," | ":");
 
 Number: value=INT;
 
@@ -63,7 +63,9 @@ SchemeExpression: (quoted?="'"? | quasiquoted?="`"? | unquoted?=","?)? value=Sch
 
 SchemeValue: SchemeBoolean | SchemeList | SchemeBlock | SchemeCharacter | SchemeText | SchemeNumber| SchemeMarkupCommand;
 
-SchemeBoolean: value=Boolean;
+SchemeBoolean: value=SchemeBooleanValue;
+
+SchemeBooleanValue returns ecore::EBoolean: "#" ID;
 
 SchemeList: {SchemeList} (vector?="#")? "(" expressions+=SchemeExpression* ")";
 
@@ -71,25 +73,23 @@ SchemeBlock: "#{" elements+=SchemeBlockElement+ "#}";
 
 SchemeBlockElement: Expression | SchemeReference;
 
-SchemeReference: "$" id=Identifier;
+SchemeReference: "$" id=SchemeIdentifier;
 
 SchemeCharacter: "#\\" value=(ID | SpecialCharacter | ANY_OTHER);
 
-SchemeText: value=SchemeId;
+SchemeText: value=SchemeTextValue;
 
-SchemeId hidden(): SchemeTextLiteral ((":" | "::") SchemeTextLiteral)*;
+SchemeTextValue hidden(): SchemeTextValueSegment ((":" | "::") SchemeTextValueSegment)*;
 
-SchemeTextLiteral: "\\\\" | "=" | "-" | SpecialCharacter | SpecialCommandName | Identifier | STRING | INT | ANY_OTHER;
+SchemeTextValueSegment: "\\\\" | "=" | "-" | SpecialCharacter | SpecialCommandName | SchemeIdentifier | STRING | INT | ANY_OTHER;
+
+SchemeIdentifier hidden(): ID ("-" ID)*;
 
 SchemeNumber hidden(): radix=SchemeNumberRadix? value=INT;
 
 SchemeNumberRadix: "#" ID;
 
 SchemeMarkupCommand hidden(): "#:" command=(ID | SpecialCommandName);
-
-Identifier hidden(): ID ("-" ID)*;
-
-Boolean returns ecore::EBoolean: "#" ID;
 
 terminal STRING: '"' ("\\" ("b" | "t" | "n" | "f" | "r" | '"' | "'" | "\\") | !("\\" | '"'))* '"';
 

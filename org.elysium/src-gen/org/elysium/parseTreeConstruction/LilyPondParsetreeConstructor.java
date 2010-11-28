@@ -3276,11 +3276,11 @@ protected class Reference_AssignmentAssignment_1 extends AssignmentToken  {
 /************ begin Rule Text ****************
  *
  * Text:
- * 	value=(SchemeTextLiteral | "(" | ")" | "\'" | "," | ":");
+ * 	value=(SchemeTextValueSegment | "(" | ")" | "\'" | "," | ":");
  *
  **/
 
-// value=(SchemeTextLiteral | "(" | ")" | "\'" | "," | ":")
+// value=(SchemeTextValueSegment | "(" | ")" | "\'" | "," | ":")
 protected class Text_ValueAssignment extends AssignmentToken  {
 	
 	public Text_ValueAssignment(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -3330,9 +3330,9 @@ protected class Text_ValueAssignment extends AssignmentToken  {
 			element = grammarAccess.getTextAccess().getValueColonKeyword_0_5();
 			return obj;
 		}
-		if(valueSerializer.isValid(obj.getEObject(), grammarAccess.getTextAccess().getValueSchemeTextLiteralParserRuleCall_0_0(), value, null)) {
+		if(valueSerializer.isValid(obj.getEObject(), grammarAccess.getTextAccess().getValueSchemeTextValueSegmentParserRuleCall_0_0(), value, null)) {
 			type = AssignmentType.DATATYPE_RULE_CALL;
-			element = grammarAccess.getTextAccess().getValueSchemeTextLiteralParserRuleCall_0_0();
+			element = grammarAccess.getTextAccess().getValueSchemeTextValueSegmentParserRuleCall_0_0();
 			return obj;
 		}
 		return null;
@@ -4012,11 +4012,11 @@ protected class SchemeValue_SchemeMarkupCommandParserRuleCall_6 extends RuleCall
 /************ begin Rule SchemeBoolean ****************
  *
  * SchemeBoolean:
- * 	value=Boolean;
+ * 	value=SchemeBooleanValue;
  *
  **/
 
-// value=Boolean
+// value=SchemeBooleanValue
 protected class SchemeBoolean_ValueAssignment extends AssignmentToken  {
 	
 	public SchemeBoolean_ValueAssignment(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -4041,9 +4041,9 @@ protected class SchemeBoolean_ValueAssignment extends AssignmentToken  {
 			return null;
 		if((value = eObjectConsumer.getConsumable("value",true)) == null) return null;
 		IEObjectConsumer obj = eObjectConsumer.cloneAndConsume("value");
-		if(valueSerializer.isValid(obj.getEObject(), grammarAccess.getSchemeBooleanAccess().getValueBooleanParserRuleCall_0(), value, null)) {
+		if(valueSerializer.isValid(obj.getEObject(), grammarAccess.getSchemeBooleanAccess().getValueSchemeBooleanValueParserRuleCall_0(), value, null)) {
 			type = AssignmentType.DATATYPE_RULE_CALL;
-			element = grammarAccess.getSchemeBooleanAccess().getValueBooleanParserRuleCall_0();
+			element = grammarAccess.getSchemeBooleanAccess().getValueSchemeBooleanValueParserRuleCall_0();
 			return obj;
 		}
 		return null;
@@ -4052,6 +4052,7 @@ protected class SchemeBoolean_ValueAssignment extends AssignmentToken  {
 }
 
 /************ end Rule SchemeBoolean ****************/
+
 
 
 /************ begin Rule SchemeList ****************
@@ -4518,11 +4519,11 @@ protected class SchemeBlockElement_SchemeReferenceParserRuleCall_1 extends RuleC
 /************ begin Rule SchemeReference ****************
  *
  * SchemeReference:
- * 	"$" id=Identifier;
+ * 	"$" id=SchemeIdentifier;
  *
  **/
 
-// "$" id=Identifier
+// "$" id=SchemeIdentifier
 protected class SchemeReference_Group extends GroupToken {
 	
 	public SchemeReference_Group(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -4572,7 +4573,7 @@ protected class SchemeReference_DollarSignKeyword_0 extends KeywordToken  {
 
 }
 
-// id=Identifier
+// id=SchemeIdentifier
 protected class SchemeReference_IdAssignment_1 extends AssignmentToken  {
 	
 	public SchemeReference_IdAssignment_1(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -4596,9 +4597,9 @@ protected class SchemeReference_IdAssignment_1 extends AssignmentToken  {
 	public IEObjectConsumer tryConsume() {
 		if((value = eObjectConsumer.getConsumable("id",true)) == null) return null;
 		IEObjectConsumer obj = eObjectConsumer.cloneAndConsume("id");
-		if(valueSerializer.isValid(obj.getEObject(), grammarAccess.getSchemeReferenceAccess().getIdIdentifierParserRuleCall_1_0(), value, null)) {
+		if(valueSerializer.isValid(obj.getEObject(), grammarAccess.getSchemeReferenceAccess().getIdSchemeIdentifierParserRuleCall_1_0(), value, null)) {
 			type = AssignmentType.DATATYPE_RULE_CALL;
-			element = grammarAccess.getSchemeReferenceAccess().getIdIdentifierParserRuleCall_1_0();
+			element = grammarAccess.getSchemeReferenceAccess().getIdSchemeIdentifierParserRuleCall_1_0();
 			return obj;
 		}
 		return null;
@@ -4718,11 +4719,11 @@ protected class SchemeCharacter_ValueAssignment_1 extends AssignmentToken  {
 /************ begin Rule SchemeText ****************
  *
  * SchemeText:
- * 	value=SchemeId;
+ * 	value=SchemeTextValue;
  *
  **/
 
-// value=SchemeId
+// value=SchemeTextValue
 protected class SchemeText_ValueAssignment extends AssignmentToken  {
 	
 	public SchemeText_ValueAssignment(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -4747,9 +4748,9 @@ protected class SchemeText_ValueAssignment extends AssignmentToken  {
 			return null;
 		if((value = eObjectConsumer.getConsumable("value",true)) == null) return null;
 		IEObjectConsumer obj = eObjectConsumer.cloneAndConsume("value");
-		if(valueSerializer.isValid(obj.getEObject(), grammarAccess.getSchemeTextAccess().getValueSchemeIdParserRuleCall_0(), value, null)) {
+		if(valueSerializer.isValid(obj.getEObject(), grammarAccess.getSchemeTextAccess().getValueSchemeTextValueParserRuleCall_0(), value, null)) {
 			type = AssignmentType.DATATYPE_RULE_CALL;
-			element = grammarAccess.getSchemeTextAccess().getValueSchemeIdParserRuleCall_0();
+			element = grammarAccess.getSchemeTextAccess().getValueSchemeTextValueParserRuleCall_0();
 			return obj;
 		}
 		return null;
@@ -4758,6 +4759,7 @@ protected class SchemeText_ValueAssignment extends AssignmentToken  {
 }
 
 /************ end Rule SchemeText ****************/
+
 
 
 
@@ -4968,7 +4970,5 @@ protected class SchemeMarkupCommand_CommandAssignment_1 extends AssignmentToken 
 
 
 /************ end Rule SchemeMarkupCommand ****************/
-
-
 
 }
