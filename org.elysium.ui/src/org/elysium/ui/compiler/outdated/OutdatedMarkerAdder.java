@@ -37,7 +37,10 @@ public class OutdatedMarkerAdder implements IResourceChangeListener {
 					files.add((IFile)resource);
 					addAllIncludingFiles(files);
 					for (IFile file : files) {
-						if ((file.findMarkers(OUTDATED, false, DEPTH_ZERO).length == 0) && (file.findMarkers(UP_TO_DATE, false, DEPTH_ZERO).length == 0)) {
+						if (file.findMarkers(UP_TO_DATE, false, DEPTH_ZERO).length != 0) {
+							// The builder signals non-semantic change with this marker
+							file.deleteMarkers(UP_TO_DATE, true, DEPTH_ZERO);
+						} else if (file.findMarkers(OUTDATED, false, DEPTH_ZERO).length == 0) {
 							IMarker outdatedMarker = file.createMarker(OUTDATED);
 							outdatedMarker.setAttribute(MESSAGE, "This file has been changed since it was compiled");
 							// Refresh decorator
