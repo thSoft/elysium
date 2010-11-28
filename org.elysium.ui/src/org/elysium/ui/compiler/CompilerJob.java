@@ -1,5 +1,7 @@
 package org.elysium.ui.compiler;
 
+import static org.eclipse.core.resources.IResource.DEPTH_ZERO;
+import static org.elysium.ui.markers.MarkerTypes.OUTDATED;
 import java.io.File;
 import java.io.IOException;
 import java.text.MessageFormat;
@@ -35,7 +37,6 @@ import org.elysium.ui.compiler.outdated.OutdatedDecorator;
 import org.elysium.ui.compiler.updater.SyntaxUpdaterOutputProcessor;
 import org.elysium.ui.compiler.updater.SyntaxUpdaterProcessBuilderFactory;
 import org.elysium.ui.compiler.updater.preferences.SyntaxUpdaterPreferenceConstants;
-import org.elysium.ui.markers.MarkerTypes;
 
 /**
  * A job in which a file is compiled.
@@ -173,13 +174,17 @@ public class CompilerJob extends Job {
 
 	private void postprocess() {
 		try {
-			file.deleteMarkers(MarkerTypes.OUTDATED, true, IResource.DEPTH_ZERO);
-			OutdatedDecorator outdatedDecorator = OutdatedDecorator.getInstance();
-			if (outdatedDecorator != null) {
-				outdatedDecorator.refresh(file);
-			}
+			removeOutdatedMarker(file);
 		} catch (CoreException e) {
-			Activator.logError("Couldn't delete outdated markers", e);
+			Activator.logError("Couldn't remove outdated markers", e);
+		}
+	}
+
+	public static void removeOutdatedMarker(IFile file) throws CoreException {
+		file.deleteMarkers(OUTDATED, true, DEPTH_ZERO);
+		OutdatedDecorator outdatedDecorator = OutdatedDecorator.getInstance();
+		if (outdatedDecorator != null) {
+			outdatedDecorator.refresh(file);
 		}
 	}
 

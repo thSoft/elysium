@@ -1,5 +1,7 @@
 package org.elysium.ui.compiler;
 
+import static org.elysium.ui.compiler.CompilerJob.removeOutdatedMarker;
+import static org.elysium.ui.markers.MarkerTypes.UP_TO_DATE;
 import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Set;
@@ -26,18 +28,25 @@ public class LilyPondBuilder implements IXtextBuilderParticipant {
 
 	@Override
 	public void build(final IBuildContext context, IProgressMonitor monitor) throws CoreException {
-		Set<IFile> filesToBuild = new HashSet<IFile>();
+		Set<IFile> filesToCompile = new HashSet<IFile>();
+		Set<IFile> filesMarkedAsOutdated = new HashSet<IFile>();
 		for (Delta delta : context.getDeltas()) {
 			boolean lilyPond = LilyPondConstants.EXTENSIONS.contains(delta.getUri().fileExtension());
-			boolean changed = (delta.getNew() != null) && (delta.getOld() != null) && delta.haveEObjectDescriptionsChanged();
+			boolean changed = (delta.getNew() != null) && (delta.getOld() != null);
 			if (lilyPond && changed) {
 				IResource resource = ResourceUtils.findPlatformResource(delta.getUri());
 				if ((resource != null) && (resource instanceof IFile)) {
-					filesToBuild.add((IFile)resource);
+					IFile file = (IFile)resource;
+					if (delta.haveEObjectDescriptionsChanged()) {
+						filesToCompile.add(file);
+					} else {
+						filesMarkedAsOutdated.add(file);
+					}
 				}
 			}
 		}
-		compile(filesToBuild);
+		compile(filesToCompile);
+		removeOutdatedMarkers(filesMarkedAsOutdated);
 	}
 
 	public static void compile(Set<IFile> files) {
@@ -49,6 +58,14 @@ public class LilyPondBuilder implements IXtextBuilderParticipant {
 				oldCompilerJob.cancel();
 			}
 			compilerJob.schedule();
+		}
+	}
+
+	private static void removeOutdatedMarkers(final Set<IFile> files) throws CoreException {
+		addAllIncludingFiles(files);
+		for (IFile file : files) {
+			removeOutdatedMarker(file);
+			file.createMarker(UP_TO_DATE); // Prevent readding outdated marker
 		}
 	}
 

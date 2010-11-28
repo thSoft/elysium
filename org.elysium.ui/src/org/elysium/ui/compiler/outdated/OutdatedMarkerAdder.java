@@ -1,5 +1,12 @@
 package org.elysium.ui.compiler.outdated;
 
+import static org.eclipse.core.resources.IMarker.MESSAGE;
+import static org.eclipse.core.resources.IResource.DEPTH_ZERO;
+import static org.eclipse.core.resources.IResourceDelta.CHANGED;
+import static org.eclipse.core.resources.IResourceDelta.CONTENT;
+import static org.elysium.ui.compiler.LilyPondBuilder.addAllIncludingFiles;
+import static org.elysium.ui.markers.MarkerTypes.OUTDATED;
+import static org.elysium.ui.markers.MarkerTypes.UP_TO_DATE;
 import java.util.HashSet;
 import java.util.Set;
 import org.eclipse.core.resources.IFile;
@@ -12,8 +19,6 @@ import org.eclipse.core.resources.IResourceDeltaVisitor;
 import org.eclipse.core.runtime.CoreException;
 import org.elysium.LilyPondConstants;
 import org.elysium.ui.Activator;
-import org.elysium.ui.compiler.LilyPondBuilder;
-import org.elysium.ui.markers.MarkerTypes;
 
 /**
  * Adds outdated markers to LilyPond files when their contents changed.
@@ -25,16 +30,16 @@ public class OutdatedMarkerAdder implements IResourceChangeListener {
 		@Override
 		public boolean visit(IResourceDelta delta) throws CoreException {
 			IResource resource = delta.getResource();
-			if ((resource instanceof IFile) && LilyPondConstants.EXTENSIONS.contains(resource.getFileExtension()) && (delta.getKind() == IResourceDelta.CHANGED)) {
+			if ((resource instanceof IFile) && LilyPondConstants.EXTENSIONS.contains(resource.getFileExtension()) && (delta.getKind() == CHANGED)) {
 				// Add marker to the file and all including files when its content changed
-				if ((delta.getFlags() & IResourceDelta.CONTENT) != 0) {
+				if ((delta.getFlags() & CONTENT) != 0) {
 					Set<IFile> files = new HashSet<IFile>();
 					files.add((IFile)resource);
-					LilyPondBuilder.addAllIncludingFiles(files);
+					addAllIncludingFiles(files);
 					for (IFile file : files) {
-						if (file.findMarkers(MarkerTypes.OUTDATED, false, IResource.DEPTH_ZERO).length == 0) {
-							IMarker outdatedMarker = file.createMarker(MarkerTypes.OUTDATED);
-							outdatedMarker.setAttribute(IMarker.MESSAGE, "This file has been changed since it was compiled");
+						if ((file.findMarkers(OUTDATED, false, DEPTH_ZERO).length == 0) && (file.findMarkers(UP_TO_DATE, false, DEPTH_ZERO).length == 0)) {
+							IMarker outdatedMarker = file.createMarker(OUTDATED);
+							outdatedMarker.setAttribute(MESSAGE, "This file has been changed since it was compiled");
 							// Refresh decorator
 							OutdatedDecorator outdatedDecorator = OutdatedDecorator.getInstance();
 							if (outdatedDecorator != null) {
