@@ -17,12 +17,14 @@ import org.elysium.lilypond.CommonExpression;
 import org.elysium.lilypond.Context;
 import org.elysium.lilypond.Expression;
 import org.elysium.lilypond.Include;
+import org.elysium.lilypond.Layout;
 import org.elysium.lilypond.LilyPond;
 import org.elysium.lilypond.LilypondPackage;
 import org.elysium.lilypond.Markup;
 import org.elysium.lilypond.MarkupBody;
 import org.elysium.lilypond.MarkupLines;
 import org.elysium.lilypond.Other;
+import org.elysium.lilypond.Paper;
 import org.elysium.lilypond.PropertyAssignment;
 import org.elysium.lilypond.Reference;
 import org.elysium.lilypond.Scheme;
@@ -306,6 +308,32 @@ public class LilypondSwitch<T>
         if (result == null) result = caseToplevelExpression(context);
         if (result == null) result = caseExpression(context);
         if (result == null) result = caseSchemeBlockElement(context);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case LilypondPackage.PAPER:
+      {
+        Paper paper = (Paper)theEObject;
+        T result = casePaper(paper);
+        if (result == null) result = caseSpecialCommand(paper);
+        if (result == null) result = caseCommand(paper);
+        if (result == null) result = caseCommonExpression(paper);
+        if (result == null) result = caseToplevelExpression(paper);
+        if (result == null) result = caseExpression(paper);
+        if (result == null) result = caseSchemeBlockElement(paper);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case LilypondPackage.LAYOUT:
+      {
+        Layout layout = (Layout)theEObject;
+        T result = caseLayout(layout);
+        if (result == null) result = caseSpecialCommand(layout);
+        if (result == null) result = caseCommand(layout);
+        if (result == null) result = caseCommonExpression(layout);
+        if (result == null) result = caseToplevelExpression(layout);
+        if (result == null) result = caseExpression(layout);
+        if (result == null) result = caseSchemeBlockElement(layout);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -750,6 +778,38 @@ public class LilypondSwitch<T>
    * @generated
    */
   public T caseContext(Context object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Paper</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Paper</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T casePaper(Paper object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Layout</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Layout</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseLayout(Layout object)
   {
     return null;
   }

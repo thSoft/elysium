@@ -179,6 +179,24 @@ public interface LilypondFactory extends EFactory
   Context createContext();
 
   /**
+   * Returns a new object of class '<em>Paper</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Paper</em>'.
+   * @generated
+   */
+  Paper createPaper();
+
+  /**
+   * Returns a new object of class '<em>Layout</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Layout</em>'.
+   * @generated
+   */
+  Layout createLayout();
+
+  /**
    * Returns a new object of class '<em>Other</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->

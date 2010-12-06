@@ -20,6 +20,7 @@ import org.elysium.lilypond.CommonExpression;
 import org.elysium.lilypond.Context;
 import org.elysium.lilypond.Expression;
 import org.elysium.lilypond.Include;
+import org.elysium.lilypond.Layout;
 import org.elysium.lilypond.LilyPond;
 import org.elysium.lilypond.LilypondFactory;
 import org.elysium.lilypond.LilypondPackage;
@@ -27,6 +28,7 @@ import org.elysium.lilypond.Markup;
 import org.elysium.lilypond.MarkupBody;
 import org.elysium.lilypond.MarkupLines;
 import org.elysium.lilypond.Other;
+import org.elysium.lilypond.Paper;
 import org.elysium.lilypond.PropertyAssignment;
 import org.elysium.lilypond.Reference;
 import org.elysium.lilypond.Scheme;
@@ -120,6 +122,8 @@ public class LilypondFactoryImpl extends EFactoryImpl implements LilypondFactory
       case LilypondPackage.MARKUP_LINES: return createMarkupLines();
       case LilypondPackage.MARKUP_BODY: return createMarkupBody();
       case LilypondPackage.CONTEXT: return createContext();
+      case LilypondPackage.PAPER: return createPaper();
+      case LilypondPackage.LAYOUT: return createLayout();
       case LilypondPackage.OTHER: return createOther();
       case LilypondPackage.UNPARSED_BLOCK: return createUnparsedBlock();
       case LilypondPackage.UNPARSED_EXPRESSION: return createUnparsedExpression();
@@ -329,6 +333,28 @@ public class LilypondFactoryImpl extends EFactoryImpl implements LilypondFactory
   {
     ContextImpl context = new ContextImpl();
     return context;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Paper createPaper()
+  {
+    PaperImpl paper = new PaperImpl();
+    return paper;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Layout createLayout()
+  {
+    LayoutImpl layout = new LayoutImpl();
+    return layout;
   }
 
   /**

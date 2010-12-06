@@ -23,7 +23,7 @@ SimultaneousBlock: {SimultaneousBlock} "<<" expressions+=Expression* ">>";
 
 Command: SpecialCommand | Reference;
 
-SpecialCommand: Include | Version | Markup | MarkupLines | Context | Other;
+SpecialCommand: Include | Version | Markup | MarkupLines | Context | Paper | Layout | Other;
 
 Include: "\\" "include" importURI=STRING;
 
@@ -37,11 +37,15 @@ MarkupBody: {MarkupBody} command+=(Scheme | UnparsedCommand)* block=UnparsedBloc
 
 Context: {Context} "\\" "context" block=UnparsedBlock?;
 
+Paper: "\\" "paper" block=UnparsedBlock;
+
+Layout: "\\" "layout" block=UnparsedBlock;
+
 Other: "\\" keyword=(SpecialCharacter | "(" | ")" | OtherName);
 
-OtherName: "accepts" | "addlyrics" | "alias" | "alternative" | "book" | "bookpart" | "change" | "chordmode" | "chords" | "consists" | "default" | "defaultchild" | "denies" | "description" | "drummode" | "drums" | "figuremode" | "figures" | "grobdescriptions" | "header" | "key" | "layout" | "lyricmode" | "lyrics" | "lyricsto" | "maininput" | "mark" | "midi" | "name" | "new" | "notemode" | "objectid" | "octave" | "once" | "override" | "paper" | "partial" | "relative" | "remove" | "repeat" | "rest" | "revert" | "score" | "sequential" | "set" | "simultaneous" | "skip" | "sourcefileline" | "sourcefilename" | "tempo" | "time" | "times" | "transpose" | "type" | "unset" | "with";
+OtherName: "accepts" | "addlyrics" | "alias" | "alternative" | "book" | "bookpart" | "change" | "chordmode" | "chords" | "consists" | "default" | "defaultchild" | "denies" | "description" | "drummode" | "drums" | "figuremode" | "figures" | "grobdescriptions" | "header" | "key" | "lyricmode" | "lyrics" | "lyricsto" | "maininput" | "mark" | "midi" | "name" | "new" | "notemode" | "objectid" | "octave" | "once" | "override" | "partial" | "relative" | "remove" | "repeat" | "rest" | "revert" | "score" | "sequential" | "set" | "simultaneous" | "skip" | "sourcefileline" | "sourcefilename" | "tempo" | "time" | "times" | "transpose" | "type" | "unset" | "with";
 
-SpecialCommandName: "include" | "version" | "markup" | "markuplines" | "context" | OtherName;
+SpecialCommandName: "include" | "version" | "markup" | "markuplines" | "context" | "paper" | "layout" | OtherName;
 
 SpecialCharacter: "!" | "+" | "<" | ">" | "[" | "]" | "~";
 

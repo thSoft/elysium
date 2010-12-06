@@ -19,6 +19,7 @@ import org.elysium.lilypond.CommonExpression;
 import org.elysium.lilypond.Context;
 import org.elysium.lilypond.Expression;
 import org.elysium.lilypond.Include;
+import org.elysium.lilypond.Layout;
 import org.elysium.lilypond.LilyPond;
 import org.elysium.lilypond.LilypondFactory;
 import org.elysium.lilypond.LilypondPackage;
@@ -26,6 +27,7 @@ import org.elysium.lilypond.Markup;
 import org.elysium.lilypond.MarkupBody;
 import org.elysium.lilypond.MarkupLines;
 import org.elysium.lilypond.Other;
+import org.elysium.lilypond.Paper;
 import org.elysium.lilypond.PropertyAssignment;
 import org.elysium.lilypond.Reference;
 import org.elysium.lilypond.Scheme;
@@ -176,6 +178,20 @@ public class LilypondPackageImpl extends EPackageImpl implements LilypondPackage
    * @generated
    */
   private EClass contextEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass paperEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass layoutEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -678,6 +694,46 @@ public class LilypondPackageImpl extends EPackageImpl implements LilypondPackage
    * <!-- end-user-doc -->
    * @generated
    */
+  public EClass getPaper()
+  {
+    return paperEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getPaper_Block()
+  {
+    return (EReference)paperEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getLayout()
+  {
+    return layoutEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getLayout_Block()
+  {
+    return (EReference)layoutEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public EClass getOther()
   {
     return otherEClass;
@@ -1150,6 +1206,12 @@ public class LilypondPackageImpl extends EPackageImpl implements LilypondPackage
     contextEClass = createEClass(CONTEXT);
     createEReference(contextEClass, CONTEXT__BLOCK);
 
+    paperEClass = createEClass(PAPER);
+    createEReference(paperEClass, PAPER__BLOCK);
+
+    layoutEClass = createEClass(LAYOUT);
+    createEReference(layoutEClass, LAYOUT__BLOCK);
+
     otherEClass = createEClass(OTHER);
     createEAttribute(otherEClass, OTHER__KEYWORD);
 
@@ -1254,6 +1316,8 @@ public class LilypondPackageImpl extends EPackageImpl implements LilypondPackage
     markupEClass.getESuperTypes().add(this.getSpecialCommand());
     markupLinesEClass.getESuperTypes().add(this.getSpecialCommand());
     contextEClass.getESuperTypes().add(this.getSpecialCommand());
+    paperEClass.getESuperTypes().add(this.getSpecialCommand());
+    layoutEClass.getESuperTypes().add(this.getSpecialCommand());
     otherEClass.getESuperTypes().add(this.getSpecialCommand());
     unparsedBlockEClass.getESuperTypes().add(this.getUnparsedExpression());
     unparsedCommandEClass.getESuperTypes().add(this.getUnparsedExpression());
@@ -1320,6 +1384,12 @@ public class LilypondPackageImpl extends EPackageImpl implements LilypondPackage
 
     initEClass(contextEClass, Context.class, "Context", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getContext_Block(), this.getUnparsedBlock(), null, "block", null, 0, 1, Context.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(paperEClass, Paper.class, "Paper", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getPaper_Block(), this.getUnparsedBlock(), null, "block", null, 0, 1, Paper.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(layoutEClass, Layout.class, "Layout", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getLayout_Block(), this.getUnparsedBlock(), null, "block", null, 0, 1, Layout.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(otherEClass, Other.class, "Other", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getOther_Keyword(), ecorePackage.getEString(), "keyword", null, 0, 1, Other.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

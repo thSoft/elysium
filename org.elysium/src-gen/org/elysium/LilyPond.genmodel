@@ -48,6 +48,12 @@
     <genClasses ecoreClass="LilyPond.ecore#//Context">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference LilyPond.ecore#//Context/block"/>
     </genClasses>
+    <genClasses ecoreClass="LilyPond.ecore#//Paper">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference LilyPond.ecore#//Paper/block"/>
+    </genClasses>
+    <genClasses ecoreClass="LilyPond.ecore#//Layout">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference LilyPond.ecore#//Layout/block"/>
+    </genClasses>
     <genClasses ecoreClass="LilyPond.ecore#//Other">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute LilyPond.ecore#//Other/keyword"/>
     </genClasses>

@@ -19,12 +19,14 @@ import org.elysium.lilypond.CommonExpression;
 import org.elysium.lilypond.Context;
 import org.elysium.lilypond.Expression;
 import org.elysium.lilypond.Include;
+import org.elysium.lilypond.Layout;
 import org.elysium.lilypond.LilyPond;
 import org.elysium.lilypond.LilypondPackage;
 import org.elysium.lilypond.Markup;
 import org.elysium.lilypond.MarkupBody;
 import org.elysium.lilypond.MarkupLines;
 import org.elysium.lilypond.Other;
+import org.elysium.lilypond.Paper;
 import org.elysium.lilypond.PropertyAssignment;
 import org.elysium.lilypond.Reference;
 import org.elysium.lilypond.Scheme;
@@ -196,6 +198,16 @@ public class LilypondAdapterFactory extends AdapterFactoryImpl
       public Adapter caseContext(Context object)
       {
         return createContextAdapter();
+      }
+      @Override
+      public Adapter casePaper(Paper object)
+      {
+        return createPaperAdapter();
+      }
+      @Override
+      public Adapter caseLayout(Layout object)
+      {
+        return createLayoutAdapter();
       }
       @Override
       public Adapter caseOther(Other object)
@@ -565,6 +577,36 @@ public class LilypondAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createContextAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.elysium.lilypond.Paper <em>Paper</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.elysium.lilypond.Paper
+   * @generated
+   */
+  public Adapter createPaperAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.elysium.lilypond.Layout <em>Layout</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.elysium.lilypond.Layout
+   * @generated
+   */
+  public Adapter createLayoutAdapter()
   {
     return null;
   }

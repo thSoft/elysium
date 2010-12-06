@@ -114,7 +114,7 @@ public interface LilypondPackage extends EPackage
    * @see org.elysium.lilypond.impl.LilypondPackageImpl#getSchemeBlockElement()
    * @generated
    */
-  int SCHEME_BLOCK_ELEMENT = 30;
+  int SCHEME_BLOCK_ELEMENT = 32;
 
   /**
    * The number of structural features of the '<em>Scheme Block Element</em>' class.
@@ -537,6 +537,62 @@ public interface LilypondPackage extends EPackage
   int CONTEXT_FEATURE_COUNT = SPECIAL_COMMAND_FEATURE_COUNT + 1;
 
   /**
+   * The meta object id for the '{@link org.elysium.lilypond.impl.PaperImpl <em>Paper</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.elysium.lilypond.impl.PaperImpl
+   * @see org.elysium.lilypond.impl.LilypondPackageImpl#getPaper()
+   * @generated
+   */
+  int PAPER = 17;
+
+  /**
+   * The feature id for the '<em><b>Block</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int PAPER__BLOCK = SPECIAL_COMMAND_FEATURE_COUNT + 0;
+
+  /**
+   * The number of structural features of the '<em>Paper</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int PAPER_FEATURE_COUNT = SPECIAL_COMMAND_FEATURE_COUNT + 1;
+
+  /**
+   * The meta object id for the '{@link org.elysium.lilypond.impl.LayoutImpl <em>Layout</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.elysium.lilypond.impl.LayoutImpl
+   * @see org.elysium.lilypond.impl.LilypondPackageImpl#getLayout()
+   * @generated
+   */
+  int LAYOUT = 18;
+
+  /**
+   * The feature id for the '<em><b>Block</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int LAYOUT__BLOCK = SPECIAL_COMMAND_FEATURE_COUNT + 0;
+
+  /**
+   * The number of structural features of the '<em>Layout</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int LAYOUT_FEATURE_COUNT = SPECIAL_COMMAND_FEATURE_COUNT + 1;
+
+  /**
    * The meta object id for the '{@link org.elysium.lilypond.impl.OtherImpl <em>Other</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -544,7 +600,7 @@ public interface LilypondPackage extends EPackage
    * @see org.elysium.lilypond.impl.LilypondPackageImpl#getOther()
    * @generated
    */
-  int OTHER = 17;
+  int OTHER = 19;
 
   /**
    * The feature id for the '<em><b>Keyword</b></em>' attribute.
@@ -572,7 +628,7 @@ public interface LilypondPackage extends EPackage
    * @see org.elysium.lilypond.impl.LilypondPackageImpl#getUnparsedExpression()
    * @generated
    */
-  int UNPARSED_EXPRESSION = 19;
+  int UNPARSED_EXPRESSION = 21;
 
   /**
    * The number of structural features of the '<em>Unparsed Expression</em>' class.
@@ -591,7 +647,7 @@ public interface LilypondPackage extends EPackage
    * @see org.elysium.lilypond.impl.LilypondPackageImpl#getUnparsedBlock()
    * @generated
    */
-  int UNPARSED_BLOCK = 18;
+  int UNPARSED_BLOCK = 20;
 
   /**
    * The feature id for the '<em><b>Expressions</b></em>' containment reference list.
@@ -619,7 +675,7 @@ public interface LilypondPackage extends EPackage
    * @see org.elysium.lilypond.impl.LilypondPackageImpl#getUnparsedCommand()
    * @generated
    */
-  int UNPARSED_COMMAND = 20;
+  int UNPARSED_COMMAND = 22;
 
   /**
    * The feature id for the '<em><b>Command</b></em>' attribute.
@@ -647,7 +703,7 @@ public interface LilypondPackage extends EPackage
    * @see org.elysium.lilypond.impl.LilypondPackageImpl#getReference()
    * @generated
    */
-  int REFERENCE = 21;
+  int REFERENCE = 23;
 
   /**
    * The feature id for the '<em><b>Assignment</b></em>' reference.
@@ -675,7 +731,7 @@ public interface LilypondPackage extends EPackage
    * @see org.elysium.lilypond.impl.LilypondPackageImpl#getText()
    * @generated
    */
-  int TEXT = 22;
+  int TEXT = 24;
 
   /**
    * The feature id for the '<em><b>Value</b></em>' attribute.
@@ -703,7 +759,7 @@ public interface LilypondPackage extends EPackage
    * @see org.elysium.lilypond.impl.LilypondPackageImpl#getNumber()
    * @generated
    */
-  int NUMBER = 23;
+  int NUMBER = 25;
 
   /**
    * The feature id for the '<em><b>Value</b></em>' attribute.
@@ -731,7 +787,7 @@ public interface LilypondPackage extends EPackage
    * @see org.elysium.lilypond.impl.LilypondPackageImpl#getScheme()
    * @generated
    */
-  int SCHEME = 24;
+  int SCHEME = 26;
 
   /**
    * The feature id for the '<em><b>Value</b></em>' containment reference.
@@ -759,7 +815,7 @@ public interface LilypondPackage extends EPackage
    * @see org.elysium.lilypond.impl.LilypondPackageImpl#getSchemeExpression()
    * @generated
    */
-  int SCHEME_EXPRESSION = 25;
+  int SCHEME_EXPRESSION = 27;
 
   /**
    * The feature id for the '<em><b>Quoted</b></em>' attribute.
@@ -814,7 +870,7 @@ public interface LilypondPackage extends EPackage
    * @see org.elysium.lilypond.impl.LilypondPackageImpl#getSchemeValue()
    * @generated
    */
-  int SCHEME_VALUE = 26;
+  int SCHEME_VALUE = 28;
 
   /**
    * The number of structural features of the '<em>Scheme Value</em>' class.
@@ -833,7 +889,7 @@ public interface LilypondPackage extends EPackage
    * @see org.elysium.lilypond.impl.LilypondPackageImpl#getSchemeBoolean()
    * @generated
    */
-  int SCHEME_BOOLEAN = 27;
+  int SCHEME_BOOLEAN = 29;
 
   /**
    * The feature id for the '<em><b>Value</b></em>' attribute.
@@ -861,7 +917,7 @@ public interface LilypondPackage extends EPackage
    * @see org.elysium.lilypond.impl.LilypondPackageImpl#getSchemeList()
    * @generated
    */
-  int SCHEME_LIST = 28;
+  int SCHEME_LIST = 30;
 
   /**
    * The feature id for the '<em><b>Vector</b></em>' attribute.
@@ -898,7 +954,7 @@ public interface LilypondPackage extends EPackage
    * @see org.elysium.lilypond.impl.LilypondPackageImpl#getSchemeBlock()
    * @generated
    */
-  int SCHEME_BLOCK = 29;
+  int SCHEME_BLOCK = 31;
 
   /**
    * The feature id for the '<em><b>Elements</b></em>' containment reference list.
@@ -926,7 +982,7 @@ public interface LilypondPackage extends EPackage
    * @see org.elysium.lilypond.impl.LilypondPackageImpl#getSchemeReference()
    * @generated
    */
-  int SCHEME_REFERENCE = 31;
+  int SCHEME_REFERENCE = 33;
 
   /**
    * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -954,7 +1010,7 @@ public interface LilypondPackage extends EPackage
    * @see org.elysium.lilypond.impl.LilypondPackageImpl#getSchemeCharacter()
    * @generated
    */
-  int SCHEME_CHARACTER = 32;
+  int SCHEME_CHARACTER = 34;
 
   /**
    * The feature id for the '<em><b>Value</b></em>' attribute.
@@ -982,7 +1038,7 @@ public interface LilypondPackage extends EPackage
    * @see org.elysium.lilypond.impl.LilypondPackageImpl#getSchemeText()
    * @generated
    */
-  int SCHEME_TEXT = 33;
+  int SCHEME_TEXT = 35;
 
   /**
    * The feature id for the '<em><b>Value</b></em>' attribute.
@@ -1010,7 +1066,7 @@ public interface LilypondPackage extends EPackage
    * @see org.elysium.lilypond.impl.LilypondPackageImpl#getSchemeNumber()
    * @generated
    */
-  int SCHEME_NUMBER = 34;
+  int SCHEME_NUMBER = 36;
 
   /**
    * The feature id for the '<em><b>Radix</b></em>' attribute.
@@ -1047,7 +1103,7 @@ public interface LilypondPackage extends EPackage
    * @see org.elysium.lilypond.impl.LilypondPackageImpl#getSchemeMarkupCommand()
    * @generated
    */
-  int SCHEME_MARKUP_COMMAND = 35;
+  int SCHEME_MARKUP_COMMAND = 37;
 
   /**
    * The feature id for the '<em><b>Command</b></em>' attribute.
@@ -1380,6 +1436,48 @@ public interface LilypondPackage extends EPackage
    * @generated
    */
   EReference getContext_Block();
+
+  /**
+   * Returns the meta object for class '{@link org.elysium.lilypond.Paper <em>Paper</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Paper</em>'.
+   * @see org.elysium.lilypond.Paper
+   * @generated
+   */
+  EClass getPaper();
+
+  /**
+   * Returns the meta object for the containment reference '{@link org.elysium.lilypond.Paper#getBlock <em>Block</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Block</em>'.
+   * @see org.elysium.lilypond.Paper#getBlock()
+   * @see #getPaper()
+   * @generated
+   */
+  EReference getPaper_Block();
+
+  /**
+   * Returns the meta object for class '{@link org.elysium.lilypond.Layout <em>Layout</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Layout</em>'.
+   * @see org.elysium.lilypond.Layout
+   * @generated
+   */
+  EClass getLayout();
+
+  /**
+   * Returns the meta object for the containment reference '{@link org.elysium.lilypond.Layout#getBlock <em>Block</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Block</em>'.
+   * @see org.elysium.lilypond.Layout#getBlock()
+   * @see #getLayout()
+   * @generated
+   */
+  EReference getLayout_Block();
 
   /**
    * Returns the meta object for class '{@link org.elysium.lilypond.Other <em>Other</em>}'.
@@ -2098,6 +2196,42 @@ public interface LilypondPackage extends EPackage
      * @generated
      */
     EReference CONTEXT__BLOCK = eINSTANCE.getContext_Block();
+
+    /**
+     * The meta object literal for the '{@link org.elysium.lilypond.impl.PaperImpl <em>Paper</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.elysium.lilypond.impl.PaperImpl
+     * @see org.elysium.lilypond.impl.LilypondPackageImpl#getPaper()
+     * @generated
+     */
+    EClass PAPER = eINSTANCE.getPaper();
+
+    /**
+     * The meta object literal for the '<em><b>Block</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference PAPER__BLOCK = eINSTANCE.getPaper_Block();
+
+    /**
+     * The meta object literal for the '{@link org.elysium.lilypond.impl.LayoutImpl <em>Layout</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.elysium.lilypond.impl.LayoutImpl
+     * @see org.elysium.lilypond.impl.LilypondPackageImpl#getLayout()
+     * @generated
+     */
+    EClass LAYOUT = eINSTANCE.getLayout();
+
+    /**
+     * The meta object literal for the '<em><b>Block</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference LAYOUT__BLOCK = eINSTANCE.getLayout_Block();
 
     /**
      * The meta object literal for the '{@link org.elysium.lilypond.impl.OtherImpl <em>Other</em>}' class.
