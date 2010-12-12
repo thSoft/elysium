@@ -13,24 +13,24 @@ import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
-import org.elysium.lilypond.Context;
+import org.elysium.lilypond.BlockCommand;
 import org.elysium.lilypond.LilypondPackage;
-import org.elysium.lilypond.UnparsedBlock;
+import org.elysium.lilypond.SimpleBlock;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Context</b></em>'.
+ * An implementation of the model object '<em><b>Block Command</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link org.elysium.lilypond.impl.ContextImpl#getBlock <em>Block</em>}</li>
+ *   <li>{@link org.elysium.lilypond.impl.BlockCommandImpl#getBlock <em>Block</em>}</li>
  * </ul>
  * </p>
  *
  * @generated
  */
-public class ContextImpl extends SpecialCommandImpl implements Context
+public class BlockCommandImpl extends SpecialCommandImpl implements BlockCommand
 {
   /**
    * The cached value of the '{@link #getBlock() <em>Block</em>}' containment reference.
@@ -40,14 +40,14 @@ public class ContextImpl extends SpecialCommandImpl implements Context
    * @generated
    * @ordered
    */
-  protected UnparsedBlock block;
+  protected SimpleBlock block;
 
   /**
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
-  protected ContextImpl()
+  protected BlockCommandImpl()
   {
     super();
   }
@@ -60,7 +60,7 @@ public class ContextImpl extends SpecialCommandImpl implements Context
   @Override
   protected EClass eStaticClass()
   {
-    return LilypondPackage.Literals.CONTEXT;
+    return LilypondPackage.Literals.BLOCK_COMMAND;
   }
 
   /**
@@ -68,7 +68,7 @@ public class ContextImpl extends SpecialCommandImpl implements Context
    * <!-- end-user-doc -->
    * @generated
    */
-  public UnparsedBlock getBlock()
+  public SimpleBlock getBlock()
   {
     return block;
   }
@@ -78,13 +78,13 @@ public class ContextImpl extends SpecialCommandImpl implements Context
    * <!-- end-user-doc -->
    * @generated
    */
-  public NotificationChain basicSetBlock(UnparsedBlock newBlock, NotificationChain msgs)
+  public NotificationChain basicSetBlock(SimpleBlock newBlock, NotificationChain msgs)
   {
-    UnparsedBlock oldBlock = block;
+    SimpleBlock oldBlock = block;
     block = newBlock;
     if (eNotificationRequired())
     {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, LilypondPackage.CONTEXT__BLOCK, oldBlock, newBlock);
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, LilypondPackage.BLOCK_COMMAND__BLOCK, oldBlock, newBlock);
       if (msgs == null) msgs = notification; else msgs.add(notification);
     }
     return msgs;
@@ -95,20 +95,20 @@ public class ContextImpl extends SpecialCommandImpl implements Context
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setBlock(UnparsedBlock newBlock)
+  public void setBlock(SimpleBlock newBlock)
   {
     if (newBlock != block)
     {
       NotificationChain msgs = null;
       if (block != null)
-        msgs = ((InternalEObject)block).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - LilypondPackage.CONTEXT__BLOCK, null, msgs);
+        msgs = ((InternalEObject)block).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - LilypondPackage.BLOCK_COMMAND__BLOCK, null, msgs);
       if (newBlock != null)
-        msgs = ((InternalEObject)newBlock).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - LilypondPackage.CONTEXT__BLOCK, null, msgs);
+        msgs = ((InternalEObject)newBlock).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - LilypondPackage.BLOCK_COMMAND__BLOCK, null, msgs);
       msgs = basicSetBlock(newBlock, msgs);
       if (msgs != null) msgs.dispatch();
     }
     else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, LilypondPackage.CONTEXT__BLOCK, newBlock, newBlock));
+      eNotify(new ENotificationImpl(this, Notification.SET, LilypondPackage.BLOCK_COMMAND__BLOCK, newBlock, newBlock));
   }
 
   /**
@@ -121,7 +121,7 @@ public class ContextImpl extends SpecialCommandImpl implements Context
   {
     switch (featureID)
     {
-      case LilypondPackage.CONTEXT__BLOCK:
+      case LilypondPackage.BLOCK_COMMAND__BLOCK:
         return basicSetBlock(null, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
@@ -137,7 +137,7 @@ public class ContextImpl extends SpecialCommandImpl implements Context
   {
     switch (featureID)
     {
-      case LilypondPackage.CONTEXT__BLOCK:
+      case LilypondPackage.BLOCK_COMMAND__BLOCK:
         return getBlock();
     }
     return super.eGet(featureID, resolve, coreType);
@@ -153,8 +153,8 @@ public class ContextImpl extends SpecialCommandImpl implements Context
   {
     switch (featureID)
     {
-      case LilypondPackage.CONTEXT__BLOCK:
-        setBlock((UnparsedBlock)newValue);
+      case LilypondPackage.BLOCK_COMMAND__BLOCK:
+        setBlock((SimpleBlock)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -170,8 +170,8 @@ public class ContextImpl extends SpecialCommandImpl implements Context
   {
     switch (featureID)
     {
-      case LilypondPackage.CONTEXT__BLOCK:
-        setBlock((UnparsedBlock)null);
+      case LilypondPackage.BLOCK_COMMAND__BLOCK:
+        setBlock((SimpleBlock)null);
         return;
     }
     super.eUnset(featureID);
@@ -187,10 +187,10 @@ public class ContextImpl extends SpecialCommandImpl implements Context
   {
     switch (featureID)
     {
-      case LilypondPackage.CONTEXT__BLOCK:
+      case LilypondPackage.BLOCK_COMMAND__BLOCK:
         return block != null;
     }
     return super.eIsSet(featureID);
   }
 
-} //ContextImpl
+} //BlockCommandImpl

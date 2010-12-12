@@ -14,12 +14,11 @@ import org.eclipse.emf.ecore.impl.EPackageImpl;
 
 import org.elysium.lilypond.Assignment;
 import org.elysium.lilypond.Block;
+import org.elysium.lilypond.BlockCommand;
 import org.elysium.lilypond.Command;
 import org.elysium.lilypond.CommonExpression;
-import org.elysium.lilypond.Context;
 import org.elysium.lilypond.Expression;
 import org.elysium.lilypond.Include;
-import org.elysium.lilypond.Layout;
 import org.elysium.lilypond.LilyPond;
 import org.elysium.lilypond.LilypondFactory;
 import org.elysium.lilypond.LilypondPackage;
@@ -27,7 +26,7 @@ import org.elysium.lilypond.Markup;
 import org.elysium.lilypond.MarkupBody;
 import org.elysium.lilypond.MarkupLines;
 import org.elysium.lilypond.Other;
-import org.elysium.lilypond.Paper;
+import org.elysium.lilypond.OutputDefinition;
 import org.elysium.lilypond.PropertyAssignment;
 import org.elysium.lilypond.Reference;
 import org.elysium.lilypond.Scheme;
@@ -135,6 +134,48 @@ public class LilypondPackageImpl extends EPackageImpl implements LilypondPackage
    * <!-- end-user-doc -->
    * @generated
    */
+  private EClass unparsedBlockEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass unparsedExpressionEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass unparsedCommandEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass referenceEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass textEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass numberEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   private EClass specialCommandEClass = null;
 
   /**
@@ -177,21 +218,14 @@ public class LilypondPackageImpl extends EPackageImpl implements LilypondPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  private EClass contextEClass = null;
+  private EClass blockCommandEClass = null;
 
   /**
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
-  private EClass paperEClass = null;
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  private EClass layoutEClass = null;
+  private EClass outputDefinitionEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -199,48 +233,6 @@ public class LilypondPackageImpl extends EPackageImpl implements LilypondPackage
    * @generated
    */
   private EClass otherEClass = null;
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  private EClass unparsedBlockEClass = null;
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  private EClass unparsedExpressionEClass = null;
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  private EClass unparsedCommandEClass = null;
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  private EClass referenceEClass = null;
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  private EClass textEClass = null;
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  private EClass numberEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -554,6 +546,116 @@ public class LilypondPackageImpl extends EPackageImpl implements LilypondPackage
    * <!-- end-user-doc -->
    * @generated
    */
+  public EClass getUnparsedBlock()
+  {
+    return unparsedBlockEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getUnparsedBlock_Expressions()
+  {
+    return (EReference)unparsedBlockEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getUnparsedExpression()
+  {
+    return unparsedExpressionEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getUnparsedCommand()
+  {
+    return unparsedCommandEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getUnparsedCommand_Command()
+  {
+    return (EAttribute)unparsedCommandEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getReference()
+  {
+    return referenceEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getReference_Assignment()
+  {
+    return (EReference)referenceEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getText()
+  {
+    return textEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getText_Value()
+  {
+    return (EAttribute)textEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getNumber()
+  {
+    return numberEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getNumber_Value()
+  {
+    return (EAttribute)numberEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public EClass getSpecialCommand()
   {
     return specialCommandEClass;
@@ -674,9 +776,9 @@ public class LilypondPackageImpl extends EPackageImpl implements LilypondPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EClass getContext()
+  public EClass getBlockCommand()
   {
-    return contextEClass;
+    return blockCommandEClass;
   }
 
   /**
@@ -684,9 +786,9 @@ public class LilypondPackageImpl extends EPackageImpl implements LilypondPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getContext_Block()
+  public EReference getBlockCommand_Block()
   {
-    return (EReference)contextEClass.getEStructuralFeatures().get(0);
+    return (EReference)blockCommandEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -694,9 +796,9 @@ public class LilypondPackageImpl extends EPackageImpl implements LilypondPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EClass getPaper()
+  public EClass getOutputDefinition()
   {
-    return paperEClass;
+    return outputDefinitionEClass;
   }
 
   /**
@@ -704,29 +806,9 @@ public class LilypondPackageImpl extends EPackageImpl implements LilypondPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getPaper_Block()
+  public EReference getOutputDefinition_Block()
   {
-    return (EReference)paperEClass.getEStructuralFeatures().get(0);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EClass getLayout()
-  {
-    return layoutEClass;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EReference getLayout_Block()
-  {
-    return (EReference)layoutEClass.getEStructuralFeatures().get(0);
+    return (EReference)outputDefinitionEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -747,116 +829,6 @@ public class LilypondPackageImpl extends EPackageImpl implements LilypondPackage
   public EAttribute getOther_Keyword()
   {
     return (EAttribute)otherEClass.getEStructuralFeatures().get(0);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EClass getUnparsedBlock()
-  {
-    return unparsedBlockEClass;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EReference getUnparsedBlock_Expressions()
-  {
-    return (EReference)unparsedBlockEClass.getEStructuralFeatures().get(0);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EClass getUnparsedExpression()
-  {
-    return unparsedExpressionEClass;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EClass getUnparsedCommand()
-  {
-    return unparsedCommandEClass;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EAttribute getUnparsedCommand_Command()
-  {
-    return (EAttribute)unparsedCommandEClass.getEStructuralFeatures().get(0);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EClass getReference()
-  {
-    return referenceEClass;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EReference getReference_Assignment()
-  {
-    return (EReference)referenceEClass.getEStructuralFeatures().get(0);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EClass getText()
-  {
-    return textEClass;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EAttribute getText_Value()
-  {
-    return (EAttribute)textEClass.getEStructuralFeatures().get(0);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EClass getNumber()
-  {
-    return numberEClass;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EAttribute getNumber_Value()
-  {
-    return (EAttribute)numberEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -1185,6 +1157,23 @@ public class LilypondPackageImpl extends EPackageImpl implements LilypondPackage
 
     commandEClass = createEClass(COMMAND);
 
+    unparsedBlockEClass = createEClass(UNPARSED_BLOCK);
+    createEReference(unparsedBlockEClass, UNPARSED_BLOCK__EXPRESSIONS);
+
+    unparsedExpressionEClass = createEClass(UNPARSED_EXPRESSION);
+
+    unparsedCommandEClass = createEClass(UNPARSED_COMMAND);
+    createEAttribute(unparsedCommandEClass, UNPARSED_COMMAND__COMMAND);
+
+    referenceEClass = createEClass(REFERENCE);
+    createEReference(referenceEClass, REFERENCE__ASSIGNMENT);
+
+    textEClass = createEClass(TEXT);
+    createEAttribute(textEClass, TEXT__VALUE);
+
+    numberEClass = createEClass(NUMBER);
+    createEAttribute(numberEClass, NUMBER__VALUE);
+
     specialCommandEClass = createEClass(SPECIAL_COMMAND);
 
     includeEClass = createEClass(INCLUDE);
@@ -1203,34 +1192,14 @@ public class LilypondPackageImpl extends EPackageImpl implements LilypondPackage
     createEReference(markupBodyEClass, MARKUP_BODY__COMMAND);
     createEReference(markupBodyEClass, MARKUP_BODY__BLOCK);
 
-    contextEClass = createEClass(CONTEXT);
-    createEReference(contextEClass, CONTEXT__BLOCK);
+    blockCommandEClass = createEClass(BLOCK_COMMAND);
+    createEReference(blockCommandEClass, BLOCK_COMMAND__BLOCK);
 
-    paperEClass = createEClass(PAPER);
-    createEReference(paperEClass, PAPER__BLOCK);
-
-    layoutEClass = createEClass(LAYOUT);
-    createEReference(layoutEClass, LAYOUT__BLOCK);
+    outputDefinitionEClass = createEClass(OUTPUT_DEFINITION);
+    createEReference(outputDefinitionEClass, OUTPUT_DEFINITION__BLOCK);
 
     otherEClass = createEClass(OTHER);
     createEAttribute(otherEClass, OTHER__KEYWORD);
-
-    unparsedBlockEClass = createEClass(UNPARSED_BLOCK);
-    createEReference(unparsedBlockEClass, UNPARSED_BLOCK__EXPRESSIONS);
-
-    unparsedExpressionEClass = createEClass(UNPARSED_EXPRESSION);
-
-    unparsedCommandEClass = createEClass(UNPARSED_COMMAND);
-    createEAttribute(unparsedCommandEClass, UNPARSED_COMMAND__COMMAND);
-
-    referenceEClass = createEClass(REFERENCE);
-    createEReference(referenceEClass, REFERENCE__ASSIGNMENT);
-
-    textEClass = createEClass(TEXT);
-    createEAttribute(textEClass, TEXT__VALUE);
-
-    numberEClass = createEClass(NUMBER);
-    createEAttribute(numberEClass, NUMBER__VALUE);
 
     schemeEClass = createEClass(SCHEME);
     createEReference(schemeEClass, SCHEME__VALUE);
@@ -1310,15 +1279,6 @@ public class LilypondPackageImpl extends EPackageImpl implements LilypondPackage
     simpleBlockEClass.getESuperTypes().add(this.getBlock());
     simultaneousBlockEClass.getESuperTypes().add(this.getBlock());
     commandEClass.getESuperTypes().add(this.getCommonExpression());
-    specialCommandEClass.getESuperTypes().add(this.getCommand());
-    includeEClass.getESuperTypes().add(this.getSpecialCommand());
-    versionEClass.getESuperTypes().add(this.getSpecialCommand());
-    markupEClass.getESuperTypes().add(this.getSpecialCommand());
-    markupLinesEClass.getESuperTypes().add(this.getSpecialCommand());
-    contextEClass.getESuperTypes().add(this.getSpecialCommand());
-    paperEClass.getESuperTypes().add(this.getSpecialCommand());
-    layoutEClass.getESuperTypes().add(this.getSpecialCommand());
-    otherEClass.getESuperTypes().add(this.getSpecialCommand());
     unparsedBlockEClass.getESuperTypes().add(this.getUnparsedExpression());
     unparsedCommandEClass.getESuperTypes().add(this.getUnparsedExpression());
     referenceEClass.getESuperTypes().add(this.getCommand());
@@ -1326,6 +1286,14 @@ public class LilypondPackageImpl extends EPackageImpl implements LilypondPackage
     textEClass.getESuperTypes().add(this.getUnparsedExpression());
     numberEClass.getESuperTypes().add(this.getCommonExpression());
     numberEClass.getESuperTypes().add(this.getUnparsedExpression());
+    specialCommandEClass.getESuperTypes().add(this.getCommand());
+    includeEClass.getESuperTypes().add(this.getSpecialCommand());
+    versionEClass.getESuperTypes().add(this.getSpecialCommand());
+    markupEClass.getESuperTypes().add(this.getSpecialCommand());
+    markupLinesEClass.getESuperTypes().add(this.getSpecialCommand());
+    blockCommandEClass.getESuperTypes().add(this.getSpecialCommand());
+    outputDefinitionEClass.getESuperTypes().add(this.getSpecialCommand());
+    otherEClass.getESuperTypes().add(this.getSpecialCommand());
     schemeEClass.getESuperTypes().add(this.getCommonExpression());
     schemeEClass.getESuperTypes().add(this.getUnparsedExpression());
     schemeBooleanEClass.getESuperTypes().add(this.getSchemeValue());
@@ -1364,6 +1332,23 @@ public class LilypondPackageImpl extends EPackageImpl implements LilypondPackage
 
     initEClass(commandEClass, Command.class, "Command", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
+    initEClass(unparsedBlockEClass, UnparsedBlock.class, "UnparsedBlock", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getUnparsedBlock_Expressions(), this.getUnparsedExpression(), null, "expressions", null, 0, -1, UnparsedBlock.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(unparsedExpressionEClass, UnparsedExpression.class, "UnparsedExpression", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+    initEClass(unparsedCommandEClass, UnparsedCommand.class, "UnparsedCommand", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getUnparsedCommand_Command(), ecorePackage.getEString(), "command", null, 0, 1, UnparsedCommand.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(referenceEClass, Reference.class, "Reference", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getReference_Assignment(), this.getAssignment(), null, "assignment", null, 0, 1, Reference.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(textEClass, Text.class, "Text", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getText_Value(), ecorePackage.getEString(), "value", null, 0, 1, Text.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(numberEClass, org.elysium.lilypond.Number.class, "Number", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getNumber_Value(), ecorePackage.getEInt(), "value", null, 0, 1, org.elysium.lilypond.Number.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
     initEClass(specialCommandEClass, SpecialCommand.class, "SpecialCommand", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
     initEClass(includeEClass, Include.class, "Include", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -1382,34 +1367,14 @@ public class LilypondPackageImpl extends EPackageImpl implements LilypondPackage
     initEReference(getMarkupBody_Command(), this.getUnparsedExpression(), null, "command", null, 0, -1, MarkupBody.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getMarkupBody_Block(), this.getUnparsedBlock(), null, "block", null, 0, 1, MarkupBody.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-    initEClass(contextEClass, Context.class, "Context", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getContext_Block(), this.getUnparsedBlock(), null, "block", null, 0, 1, Context.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEClass(blockCommandEClass, BlockCommand.class, "BlockCommand", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getBlockCommand_Block(), this.getSimpleBlock(), null, "block", null, 0, 1, BlockCommand.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-    initEClass(paperEClass, Paper.class, "Paper", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getPaper_Block(), this.getUnparsedBlock(), null, "block", null, 0, 1, Paper.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-    initEClass(layoutEClass, Layout.class, "Layout", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getLayout_Block(), this.getUnparsedBlock(), null, "block", null, 0, 1, Layout.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEClass(outputDefinitionEClass, OutputDefinition.class, "OutputDefinition", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getOutputDefinition_Block(), this.getUnparsedBlock(), null, "block", null, 0, 1, OutputDefinition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(otherEClass, Other.class, "Other", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getOther_Keyword(), ecorePackage.getEString(), "keyword", null, 0, 1, Other.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-    initEClass(unparsedBlockEClass, UnparsedBlock.class, "UnparsedBlock", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getUnparsedBlock_Expressions(), this.getUnparsedExpression(), null, "expressions", null, 0, -1, UnparsedBlock.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-    initEClass(unparsedExpressionEClass, UnparsedExpression.class, "UnparsedExpression", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-
-    initEClass(unparsedCommandEClass, UnparsedCommand.class, "UnparsedCommand", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getUnparsedCommand_Command(), ecorePackage.getEString(), "command", null, 0, 1, UnparsedCommand.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-    initEClass(referenceEClass, Reference.class, "Reference", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getReference_Assignment(), this.getAssignment(), null, "assignment", null, 0, 1, Reference.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-    initEClass(textEClass, Text.class, "Text", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getText_Value(), ecorePackage.getEString(), "value", null, 0, 1, Text.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-    initEClass(numberEClass, org.elysium.lilypond.Number.class, "Number", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getNumber_Value(), ecorePackage.getEInt(), "value", null, 0, 1, org.elysium.lilypond.Number.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(schemeEClass, Scheme.class, "Scheme", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getScheme_Value(), this.getSchemeExpression(), null, "value", null, 0, 1, Scheme.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

@@ -12,19 +12,18 @@ import org.eclipse.emf.ecore.EObject;
 
 import org.elysium.lilypond.Assignment;
 import org.elysium.lilypond.Block;
+import org.elysium.lilypond.BlockCommand;
 import org.elysium.lilypond.Command;
 import org.elysium.lilypond.CommonExpression;
-import org.elysium.lilypond.Context;
 import org.elysium.lilypond.Expression;
 import org.elysium.lilypond.Include;
-import org.elysium.lilypond.Layout;
 import org.elysium.lilypond.LilyPond;
 import org.elysium.lilypond.LilypondPackage;
 import org.elysium.lilypond.Markup;
 import org.elysium.lilypond.MarkupBody;
 import org.elysium.lilypond.MarkupLines;
 import org.elysium.lilypond.Other;
-import org.elysium.lilypond.Paper;
+import org.elysium.lilypond.OutputDefinition;
 import org.elysium.lilypond.PropertyAssignment;
 import org.elysium.lilypond.Reference;
 import org.elysium.lilypond.Scheme;
@@ -227,6 +226,65 @@ public class LilypondSwitch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
+      case LilypondPackage.UNPARSED_BLOCK:
+      {
+        UnparsedBlock unparsedBlock = (UnparsedBlock)theEObject;
+        T result = caseUnparsedBlock(unparsedBlock);
+        if (result == null) result = caseUnparsedExpression(unparsedBlock);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case LilypondPackage.UNPARSED_EXPRESSION:
+      {
+        UnparsedExpression unparsedExpression = (UnparsedExpression)theEObject;
+        T result = caseUnparsedExpression(unparsedExpression);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case LilypondPackage.UNPARSED_COMMAND:
+      {
+        UnparsedCommand unparsedCommand = (UnparsedCommand)theEObject;
+        T result = caseUnparsedCommand(unparsedCommand);
+        if (result == null) result = caseUnparsedExpression(unparsedCommand);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case LilypondPackage.REFERENCE:
+      {
+        Reference reference = (Reference)theEObject;
+        T result = caseReference(reference);
+        if (result == null) result = caseCommand(reference);
+        if (result == null) result = caseCommonExpression(reference);
+        if (result == null) result = caseToplevelExpression(reference);
+        if (result == null) result = caseExpression(reference);
+        if (result == null) result = caseSchemeBlockElement(reference);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case LilypondPackage.TEXT:
+      {
+        Text text = (Text)theEObject;
+        T result = caseText(text);
+        if (result == null) result = caseCommonExpression(text);
+        if (result == null) result = caseUnparsedExpression(text);
+        if (result == null) result = caseToplevelExpression(text);
+        if (result == null) result = caseExpression(text);
+        if (result == null) result = caseSchemeBlockElement(text);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case LilypondPackage.NUMBER:
+      {
+        org.elysium.lilypond.Number number = (org.elysium.lilypond.Number)theEObject;
+        T result = caseNumber(number);
+        if (result == null) result = caseCommonExpression(number);
+        if (result == null) result = caseUnparsedExpression(number);
+        if (result == null) result = caseToplevelExpression(number);
+        if (result == null) result = caseExpression(number);
+        if (result == null) result = caseSchemeBlockElement(number);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
       case LilypondPackage.SPECIAL_COMMAND:
       {
         SpecialCommand specialCommand = (SpecialCommand)theEObject;
@@ -298,42 +356,29 @@ public class LilypondSwitch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case LilypondPackage.CONTEXT:
+      case LilypondPackage.BLOCK_COMMAND:
       {
-        Context context = (Context)theEObject;
-        T result = caseContext(context);
-        if (result == null) result = caseSpecialCommand(context);
-        if (result == null) result = caseCommand(context);
-        if (result == null) result = caseCommonExpression(context);
-        if (result == null) result = caseToplevelExpression(context);
-        if (result == null) result = caseExpression(context);
-        if (result == null) result = caseSchemeBlockElement(context);
+        BlockCommand blockCommand = (BlockCommand)theEObject;
+        T result = caseBlockCommand(blockCommand);
+        if (result == null) result = caseSpecialCommand(blockCommand);
+        if (result == null) result = caseCommand(blockCommand);
+        if (result == null) result = caseCommonExpression(blockCommand);
+        if (result == null) result = caseToplevelExpression(blockCommand);
+        if (result == null) result = caseExpression(blockCommand);
+        if (result == null) result = caseSchemeBlockElement(blockCommand);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case LilypondPackage.PAPER:
+      case LilypondPackage.OUTPUT_DEFINITION:
       {
-        Paper paper = (Paper)theEObject;
-        T result = casePaper(paper);
-        if (result == null) result = caseSpecialCommand(paper);
-        if (result == null) result = caseCommand(paper);
-        if (result == null) result = caseCommonExpression(paper);
-        if (result == null) result = caseToplevelExpression(paper);
-        if (result == null) result = caseExpression(paper);
-        if (result == null) result = caseSchemeBlockElement(paper);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
-      case LilypondPackage.LAYOUT:
-      {
-        Layout layout = (Layout)theEObject;
-        T result = caseLayout(layout);
-        if (result == null) result = caseSpecialCommand(layout);
-        if (result == null) result = caseCommand(layout);
-        if (result == null) result = caseCommonExpression(layout);
-        if (result == null) result = caseToplevelExpression(layout);
-        if (result == null) result = caseExpression(layout);
-        if (result == null) result = caseSchemeBlockElement(layout);
+        OutputDefinition outputDefinition = (OutputDefinition)theEObject;
+        T result = caseOutputDefinition(outputDefinition);
+        if (result == null) result = caseSpecialCommand(outputDefinition);
+        if (result == null) result = caseCommand(outputDefinition);
+        if (result == null) result = caseCommonExpression(outputDefinition);
+        if (result == null) result = caseToplevelExpression(outputDefinition);
+        if (result == null) result = caseExpression(outputDefinition);
+        if (result == null) result = caseSchemeBlockElement(outputDefinition);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -347,65 +392,6 @@ public class LilypondSwitch<T>
         if (result == null) result = caseToplevelExpression(other);
         if (result == null) result = caseExpression(other);
         if (result == null) result = caseSchemeBlockElement(other);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
-      case LilypondPackage.UNPARSED_BLOCK:
-      {
-        UnparsedBlock unparsedBlock = (UnparsedBlock)theEObject;
-        T result = caseUnparsedBlock(unparsedBlock);
-        if (result == null) result = caseUnparsedExpression(unparsedBlock);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
-      case LilypondPackage.UNPARSED_EXPRESSION:
-      {
-        UnparsedExpression unparsedExpression = (UnparsedExpression)theEObject;
-        T result = caseUnparsedExpression(unparsedExpression);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
-      case LilypondPackage.UNPARSED_COMMAND:
-      {
-        UnparsedCommand unparsedCommand = (UnparsedCommand)theEObject;
-        T result = caseUnparsedCommand(unparsedCommand);
-        if (result == null) result = caseUnparsedExpression(unparsedCommand);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
-      case LilypondPackage.REFERENCE:
-      {
-        Reference reference = (Reference)theEObject;
-        T result = caseReference(reference);
-        if (result == null) result = caseCommand(reference);
-        if (result == null) result = caseCommonExpression(reference);
-        if (result == null) result = caseToplevelExpression(reference);
-        if (result == null) result = caseExpression(reference);
-        if (result == null) result = caseSchemeBlockElement(reference);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
-      case LilypondPackage.TEXT:
-      {
-        Text text = (Text)theEObject;
-        T result = caseText(text);
-        if (result == null) result = caseCommonExpression(text);
-        if (result == null) result = caseUnparsedExpression(text);
-        if (result == null) result = caseToplevelExpression(text);
-        if (result == null) result = caseExpression(text);
-        if (result == null) result = caseSchemeBlockElement(text);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
-      case LilypondPackage.NUMBER:
-      {
-        org.elysium.lilypond.Number number = (org.elysium.lilypond.Number)theEObject;
-        T result = caseNumber(number);
-        if (result == null) result = caseCommonExpression(number);
-        if (result == null) result = caseUnparsedExpression(number);
-        if (result == null) result = caseToplevelExpression(number);
-        if (result == null) result = caseExpression(number);
-        if (result == null) result = caseSchemeBlockElement(number);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -671,6 +657,102 @@ public class LilypondSwitch<T>
   }
 
   /**
+   * Returns the result of interpreting the object as an instance of '<em>Unparsed Block</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Unparsed Block</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseUnparsedBlock(UnparsedBlock object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Unparsed Expression</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Unparsed Expression</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseUnparsedExpression(UnparsedExpression object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Unparsed Command</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Unparsed Command</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseUnparsedCommand(UnparsedCommand object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Reference</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Reference</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseReference(Reference object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Text</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Text</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseText(Text object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Number</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Number</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseNumber(org.elysium.lilypond.Number object)
+  {
+    return null;
+  }
+
+  /**
    * Returns the result of interpreting the object as an instance of '<em>Special Command</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
@@ -767,49 +849,33 @@ public class LilypondSwitch<T>
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>Context</em>'.
+   * Returns the result of interpreting the object as an instance of '<em>Block Command</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
    * returning a non-null result will terminate the switch.
    * <!-- end-user-doc -->
    * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Context</em>'.
+   * @return the result of interpreting the object as an instance of '<em>Block Command</em>'.
    * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
    * @generated
    */
-  public T caseContext(Context object)
+  public T caseBlockCommand(BlockCommand object)
   {
     return null;
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>Paper</em>'.
+   * Returns the result of interpreting the object as an instance of '<em>Output Definition</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
    * returning a non-null result will terminate the switch.
    * <!-- end-user-doc -->
    * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Paper</em>'.
+   * @return the result of interpreting the object as an instance of '<em>Output Definition</em>'.
    * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
    * @generated
    */
-  public T casePaper(Paper object)
-  {
-    return null;
-  }
-
-  /**
-   * Returns the result of interpreting the object as an instance of '<em>Layout</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Layout</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseLayout(Layout object)
+  public T caseOutputDefinition(OutputDefinition object)
   {
     return null;
   }
@@ -826,102 +892,6 @@ public class LilypondSwitch<T>
    * @generated
    */
   public T caseOther(Other object)
-  {
-    return null;
-  }
-
-  /**
-   * Returns the result of interpreting the object as an instance of '<em>Unparsed Block</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Unparsed Block</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseUnparsedBlock(UnparsedBlock object)
-  {
-    return null;
-  }
-
-  /**
-   * Returns the result of interpreting the object as an instance of '<em>Unparsed Expression</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Unparsed Expression</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseUnparsedExpression(UnparsedExpression object)
-  {
-    return null;
-  }
-
-  /**
-   * Returns the result of interpreting the object as an instance of '<em>Unparsed Command</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Unparsed Command</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseUnparsedCommand(UnparsedCommand object)
-  {
-    return null;
-  }
-
-  /**
-   * Returns the result of interpreting the object as an instance of '<em>Reference</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Reference</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseReference(Reference object)
-  {
-    return null;
-  }
-
-  /**
-   * Returns the result of interpreting the object as an instance of '<em>Text</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Text</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseText(Text object)
-  {
-    return null;
-  }
-
-  /**
-   * Returns the result of interpreting the object as an instance of '<em>Number</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Number</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseNumber(org.elysium.lilypond.Number object)
   {
     return null;
   }

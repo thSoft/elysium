@@ -23,30 +23,6 @@ SimultaneousBlock: {SimultaneousBlock} "<<" expressions+=Expression* ">>";
 
 Command: SpecialCommand | Reference;
 
-SpecialCommand: Include | Version | Markup | MarkupLines | Context | Paper | Layout | Other;
-
-Include: "\\" "include" importURI=STRING;
-
-Version: "\\" "version" version=STRING;
-
-Markup: "\\" "markup" body=MarkupBody;
-
-MarkupLines: "\\" "markuplines" body=MarkupBody;
-
-MarkupBody: {MarkupBody} command+=(Scheme | UnparsedCommand)* block=UnparsedBlock?;
-
-Context: {Context} "\\" "context" block=UnparsedBlock?;
-
-Paper: "\\" "paper" block=UnparsedBlock;
-
-Layout: "\\" "layout" block=UnparsedBlock;
-
-Other: "\\" keyword=(SpecialCharacter | "(" | ")" | OtherName);
-
-OtherName: "accepts" | "addlyrics" | "alias" | "alternative" | "book" | "bookpart" | "change" | "chordmode" | "chords" | "consists" | "default" | "defaultchild" | "denies" | "description" | "drummode" | "drums" | "figuremode" | "figures" | "grobdescriptions" | "header" | "key" | "lyricmode" | "lyrics" | "lyricsto" | "maininput" | "mark" | "midi" | "name" | "new" | "notemode" | "objectid" | "octave" | "once" | "override" | "partial" | "relative" | "remove" | "repeat" | "rest" | "revert" | "score" | "sequential" | "set" | "simultaneous" | "skip" | "sourcefileline" | "sourcefilename" | "tempo" | "time" | "times" | "transpose" | "type" | "unset" | "with";
-
-SpecialCommandName: "include" | "version" | "markup" | "markuplines" | "context" | "paper" | "layout" | OtherName;
-
 SpecialCharacter: "!" | "+" | "<" | ">" | "[" | "]" | "~";
 
 UnparsedBlock: {UnparsedBlock} "{" expressions+=UnparsedExpression* "}";
@@ -60,6 +36,32 @@ Reference: "\\" assignment=[Assignment];
 Text: value=(SchemeTextValueSegment | "(" | ")" | "'" | "," | ":");
 
 Number: value=INT;
+
+// Commands
+
+SpecialCommand: Include | Version | Markup | MarkupLines | BlockCommand | OutputDefinition | Other;
+
+Include: "\\" "include" importURI=STRING;
+
+Version: "\\" "version" version=STRING;
+
+Markup: "\\" "markup" body=MarkupBody;
+
+MarkupLines: "\\" "markuplines" body=MarkupBody;
+
+MarkupBody: {MarkupBody} command+=(Scheme | UnparsedCommand)* block=UnparsedBlock?;
+
+BlockCommand: "\\" ("book" | "bookpart" | "context" | "header" | "score") block=SimpleBlock;
+
+OutputDefinition: "\\" ("paper" | "midi" | "layout") block=UnparsedBlock;
+
+Other: "\\" keyword=(SpecialCharacter | "(" | ")" | OtherName);
+
+OtherName: "accepts" | "addlyrics" | "alias" | "alternative" | "change" | "chordmode" | "chords" | "consists" | "default" | "defaultchild" | "denies" | "description" | "drummode" | "drums" | "figuremode" | "figures" | "grobdescriptions" | "key" | "lyricmode" | "lyrics" | "lyricsto" | "maininput" | "mark" | "name" | "new" | "notemode" | "objectid" | "octave" | "once" | "override" | "partial" | "relative" | "remove" | "repeat" | "rest" | "revert" | "sequential" | "set" | "simultaneous" | "skip" | "sourcefileline" | "sourcefilename" | "tempo" | "time" | "times" | "transpose" | "type" | "unset" | "with";
+
+SpecialCommandName: "include" | "version" | "markup" | "markuplines" | "book" | "bookpart" | "context" | "header" | "score" | "paper" | "midi" | "layout" | OtherName;
+
+// Scheme
 
 Scheme hidden(WS, SCHEME_SL_COMMENT, SCHEME_ML_COMMENT): "#" value=SchemeExpression;
 
@@ -94,6 +96,8 @@ SchemeNumber hidden(): radix=SchemeNumberRadix? value=INT;
 SchemeNumberRadix: "#" ID;
 
 SchemeMarkupCommand hidden(): "#:" command=(ID | SpecialCommandName);
+
+// Terminals
 
 terminal STRING: '"' ("\\" ("b" | "t" | "n" | "f" | "r" | '"' | "'" | "\\") | !("\\" | '"'))* '"';
 

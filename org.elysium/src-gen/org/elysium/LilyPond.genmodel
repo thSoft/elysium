@@ -28,6 +28,22 @@
     <genClasses ecoreClass="LilyPond.ecore#//SimpleBlock"/>
     <genClasses ecoreClass="LilyPond.ecore#//SimultaneousBlock"/>
     <genClasses ecoreClass="LilyPond.ecore#//Command"/>
+    <genClasses ecoreClass="LilyPond.ecore#//UnparsedBlock">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference LilyPond.ecore#//UnparsedBlock/expressions"/>
+    </genClasses>
+    <genClasses ecoreClass="LilyPond.ecore#//UnparsedExpression"/>
+    <genClasses ecoreClass="LilyPond.ecore#//UnparsedCommand">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute LilyPond.ecore#//UnparsedCommand/command"/>
+    </genClasses>
+    <genClasses ecoreClass="LilyPond.ecore#//Reference">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference LilyPond.ecore#//Reference/assignment"/>
+    </genClasses>
+    <genClasses ecoreClass="LilyPond.ecore#//Text">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute LilyPond.ecore#//Text/value"/>
+    </genClasses>
+    <genClasses ecoreClass="LilyPond.ecore#//Number">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute LilyPond.ecore#//Number/value"/>
+    </genClasses>
     <genClasses ecoreClass="LilyPond.ecore#//SpecialCommand"/>
     <genClasses ecoreClass="LilyPond.ecore#//Include">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute LilyPond.ecore#//Include/importURI"/>
@@ -45,33 +61,14 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference LilyPond.ecore#//MarkupBody/command"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference LilyPond.ecore#//MarkupBody/block"/>
     </genClasses>
-    <genClasses ecoreClass="LilyPond.ecore#//Context">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference LilyPond.ecore#//Context/block"/>
+    <genClasses ecoreClass="LilyPond.ecore#//BlockCommand">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference LilyPond.ecore#//BlockCommand/block"/>
     </genClasses>
-    <genClasses ecoreClass="LilyPond.ecore#//Paper">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference LilyPond.ecore#//Paper/block"/>
-    </genClasses>
-    <genClasses ecoreClass="LilyPond.ecore#//Layout">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference LilyPond.ecore#//Layout/block"/>
+    <genClasses ecoreClass="LilyPond.ecore#//OutputDefinition">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference LilyPond.ecore#//OutputDefinition/block"/>
     </genClasses>
     <genClasses ecoreClass="LilyPond.ecore#//Other">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute LilyPond.ecore#//Other/keyword"/>
-    </genClasses>
-    <genClasses ecoreClass="LilyPond.ecore#//UnparsedBlock">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference LilyPond.ecore#//UnparsedBlock/expressions"/>
-    </genClasses>
-    <genClasses ecoreClass="LilyPond.ecore#//UnparsedExpression"/>
-    <genClasses ecoreClass="LilyPond.ecore#//UnparsedCommand">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute LilyPond.ecore#//UnparsedCommand/command"/>
-    </genClasses>
-    <genClasses ecoreClass="LilyPond.ecore#//Reference">
-      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference LilyPond.ecore#//Reference/assignment"/>
-    </genClasses>
-    <genClasses ecoreClass="LilyPond.ecore#//Text">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute LilyPond.ecore#//Text/value"/>
-    </genClasses>
-    <genClasses ecoreClass="LilyPond.ecore#//Number">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute LilyPond.ecore#//Number/value"/>
     </genClasses>
     <genClasses ecoreClass="LilyPond.ecore#//Scheme">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference LilyPond.ecore#//Scheme/value"/>

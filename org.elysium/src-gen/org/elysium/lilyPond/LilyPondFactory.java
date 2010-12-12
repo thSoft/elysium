@@ -116,6 +116,60 @@ public interface LilypondFactory extends EFactory
   Command createCommand();
 
   /**
+   * Returns a new object of class '<em>Unparsed Block</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Unparsed Block</em>'.
+   * @generated
+   */
+  UnparsedBlock createUnparsedBlock();
+
+  /**
+   * Returns a new object of class '<em>Unparsed Expression</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Unparsed Expression</em>'.
+   * @generated
+   */
+  UnparsedExpression createUnparsedExpression();
+
+  /**
+   * Returns a new object of class '<em>Unparsed Command</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Unparsed Command</em>'.
+   * @generated
+   */
+  UnparsedCommand createUnparsedCommand();
+
+  /**
+   * Returns a new object of class '<em>Reference</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Reference</em>'.
+   * @generated
+   */
+  Reference createReference();
+
+  /**
+   * Returns a new object of class '<em>Text</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Text</em>'.
+   * @generated
+   */
+  Text createText();
+
+  /**
+   * Returns a new object of class '<em>Number</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Number</em>'.
+   * @generated
+   */
+  Number createNumber();
+
+  /**
    * Returns a new object of class '<em>Special Command</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -170,31 +224,22 @@ public interface LilypondFactory extends EFactory
   MarkupBody createMarkupBody();
 
   /**
-   * Returns a new object of class '<em>Context</em>'.
+   * Returns a new object of class '<em>Block Command</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>Context</em>'.
+   * @return a new object of class '<em>Block Command</em>'.
    * @generated
    */
-  Context createContext();
+  BlockCommand createBlockCommand();
 
   /**
-   * Returns a new object of class '<em>Paper</em>'.
+   * Returns a new object of class '<em>Output Definition</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>Paper</em>'.
+   * @return a new object of class '<em>Output Definition</em>'.
    * @generated
    */
-  Paper createPaper();
-
-  /**
-   * Returns a new object of class '<em>Layout</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Layout</em>'.
-   * @generated
-   */
-  Layout createLayout();
+  OutputDefinition createOutputDefinition();
 
   /**
    * Returns a new object of class '<em>Other</em>'.
@@ -204,60 +249,6 @@ public interface LilypondFactory extends EFactory
    * @generated
    */
   Other createOther();
-
-  /**
-   * Returns a new object of class '<em>Unparsed Block</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Unparsed Block</em>'.
-   * @generated
-   */
-  UnparsedBlock createUnparsedBlock();
-
-  /**
-   * Returns a new object of class '<em>Unparsed Expression</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Unparsed Expression</em>'.
-   * @generated
-   */
-  UnparsedExpression createUnparsedExpression();
-
-  /**
-   * Returns a new object of class '<em>Unparsed Command</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Unparsed Command</em>'.
-   * @generated
-   */
-  UnparsedCommand createUnparsedCommand();
-
-  /**
-   * Returns a new object of class '<em>Reference</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Reference</em>'.
-   * @generated
-   */
-  Reference createReference();
-
-  /**
-   * Returns a new object of class '<em>Text</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Text</em>'.
-   * @generated
-   */
-  Text createText();
-
-  /**
-   * Returns a new object of class '<em>Number</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Number</em>'.
-   * @generated
-   */
-  Number createNumber();
 
   /**
    * Returns a new object of class '<em>Scheme</em>'.

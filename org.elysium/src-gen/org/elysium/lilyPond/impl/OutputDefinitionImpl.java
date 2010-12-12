@@ -13,24 +13,24 @@ import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
-import org.elysium.lilypond.Layout;
 import org.elysium.lilypond.LilypondPackage;
+import org.elysium.lilypond.OutputDefinition;
 import org.elysium.lilypond.UnparsedBlock;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Layout</b></em>'.
+ * An implementation of the model object '<em><b>Output Definition</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link org.elysium.lilypond.impl.LayoutImpl#getBlock <em>Block</em>}</li>
+ *   <li>{@link org.elysium.lilypond.impl.OutputDefinitionImpl#getBlock <em>Block</em>}</li>
  * </ul>
  * </p>
  *
  * @generated
  */
-public class LayoutImpl extends SpecialCommandImpl implements Layout
+public class OutputDefinitionImpl extends SpecialCommandImpl implements OutputDefinition
 {
   /**
    * The cached value of the '{@link #getBlock() <em>Block</em>}' containment reference.
@@ -47,7 +47,7 @@ public class LayoutImpl extends SpecialCommandImpl implements Layout
    * <!-- end-user-doc -->
    * @generated
    */
-  protected LayoutImpl()
+  protected OutputDefinitionImpl()
   {
     super();
   }
@@ -60,7 +60,7 @@ public class LayoutImpl extends SpecialCommandImpl implements Layout
   @Override
   protected EClass eStaticClass()
   {
-    return LilypondPackage.Literals.LAYOUT;
+    return LilypondPackage.Literals.OUTPUT_DEFINITION;
   }
 
   /**
@@ -84,7 +84,7 @@ public class LayoutImpl extends SpecialCommandImpl implements Layout
     block = newBlock;
     if (eNotificationRequired())
     {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, LilypondPackage.LAYOUT__BLOCK, oldBlock, newBlock);
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, LilypondPackage.OUTPUT_DEFINITION__BLOCK, oldBlock, newBlock);
       if (msgs == null) msgs = notification; else msgs.add(notification);
     }
     return msgs;
@@ -101,14 +101,14 @@ public class LayoutImpl extends SpecialCommandImpl implements Layout
     {
       NotificationChain msgs = null;
       if (block != null)
-        msgs = ((InternalEObject)block).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - LilypondPackage.LAYOUT__BLOCK, null, msgs);
+        msgs = ((InternalEObject)block).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - LilypondPackage.OUTPUT_DEFINITION__BLOCK, null, msgs);
       if (newBlock != null)
-        msgs = ((InternalEObject)newBlock).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - LilypondPackage.LAYOUT__BLOCK, null, msgs);
+        msgs = ((InternalEObject)newBlock).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - LilypondPackage.OUTPUT_DEFINITION__BLOCK, null, msgs);
       msgs = basicSetBlock(newBlock, msgs);
       if (msgs != null) msgs.dispatch();
     }
     else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, LilypondPackage.LAYOUT__BLOCK, newBlock, newBlock));
+      eNotify(new ENotificationImpl(this, Notification.SET, LilypondPackage.OUTPUT_DEFINITION__BLOCK, newBlock, newBlock));
   }
 
   /**
@@ -121,7 +121,7 @@ public class LayoutImpl extends SpecialCommandImpl implements Layout
   {
     switch (featureID)
     {
-      case LilypondPackage.LAYOUT__BLOCK:
+      case LilypondPackage.OUTPUT_DEFINITION__BLOCK:
         return basicSetBlock(null, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
@@ -137,7 +137,7 @@ public class LayoutImpl extends SpecialCommandImpl implements Layout
   {
     switch (featureID)
     {
-      case LilypondPackage.LAYOUT__BLOCK:
+      case LilypondPackage.OUTPUT_DEFINITION__BLOCK:
         return getBlock();
     }
     return super.eGet(featureID, resolve, coreType);
@@ -153,7 +153,7 @@ public class LayoutImpl extends SpecialCommandImpl implements Layout
   {
     switch (featureID)
     {
-      case LilypondPackage.LAYOUT__BLOCK:
+      case LilypondPackage.OUTPUT_DEFINITION__BLOCK:
         setBlock((UnparsedBlock)newValue);
         return;
     }
@@ -170,7 +170,7 @@ public class LayoutImpl extends SpecialCommandImpl implements Layout
   {
     switch (featureID)
     {
-      case LilypondPackage.LAYOUT__BLOCK:
+      case LilypondPackage.OUTPUT_DEFINITION__BLOCK:
         setBlock((UnparsedBlock)null);
         return;
     }
@@ -187,10 +187,10 @@ public class LayoutImpl extends SpecialCommandImpl implements Layout
   {
     switch (featureID)
     {
-      case LilypondPackage.LAYOUT__BLOCK:
+      case LilypondPackage.OUTPUT_DEFINITION__BLOCK:
         return block != null;
     }
     return super.eIsSet(featureID);
   }
 
-} //LayoutImpl
+} //OutputDefinitionImpl

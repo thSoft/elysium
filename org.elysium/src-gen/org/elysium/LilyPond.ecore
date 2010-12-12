@@ -27,6 +27,23 @@
   <eClassifiers xsi:type="ecore:EClass" name="SimpleBlock" eSuperTypes="#//Block"/>
   <eClassifiers xsi:type="ecore:EClass" name="SimultaneousBlock" eSuperTypes="#//Block"/>
   <eClassifiers xsi:type="ecore:EClass" name="Command" eSuperTypes="#//CommonExpression"/>
+  <eClassifiers xsi:type="ecore:EClass" name="UnparsedBlock" eSuperTypes="#//UnparsedExpression">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="expressions" upperBound="-1"
+        eType="#//UnparsedExpression" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="UnparsedExpression"/>
+  <eClassifiers xsi:type="ecore:EClass" name="UnparsedCommand" eSuperTypes="#//UnparsedExpression">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="command" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Reference" eSuperTypes="#//Command">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="assignment" eType="#//Assignment"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Text" eSuperTypes="#//CommonExpression #//UnparsedExpression">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Number" eSuperTypes="#//CommonExpression #//UnparsedExpression">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+  </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="SpecialCommand" eSuperTypes="#//Command"/>
   <eClassifiers xsi:type="ecore:EClass" name="Include" eSuperTypes="#//SpecialCommand">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="importURI" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
@@ -48,37 +65,16 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="block" eType="#//UnparsedBlock"
         containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Context" eSuperTypes="#//SpecialCommand">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="block" eType="#//UnparsedBlock"
+  <eClassifiers xsi:type="ecore:EClass" name="BlockCommand" eSuperTypes="#//SpecialCommand">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="block" eType="#//SimpleBlock"
         containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Paper" eSuperTypes="#//SpecialCommand">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="block" eType="#//UnparsedBlock"
-        containment="true"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Layout" eSuperTypes="#//SpecialCommand">
+  <eClassifiers xsi:type="ecore:EClass" name="OutputDefinition" eSuperTypes="#//SpecialCommand">
     <eStructuralFeatures xsi:type="ecore:EReference" name="block" eType="#//UnparsedBlock"
         containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Other" eSuperTypes="#//SpecialCommand">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="keyword" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="UnparsedBlock" eSuperTypes="#//UnparsedExpression">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="expressions" upperBound="-1"
-        eType="#//UnparsedExpression" containment="true"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="UnparsedExpression"/>
-  <eClassifiers xsi:type="ecore:EClass" name="UnparsedCommand" eSuperTypes="#//UnparsedExpression">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="command" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Reference" eSuperTypes="#//Command">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="assignment" eType="#//Assignment"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Text" eSuperTypes="#//CommonExpression #//UnparsedExpression">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-  </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Number" eSuperTypes="#//CommonExpression #//UnparsedExpression">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Scheme" eSuperTypes="#//CommonExpression #//UnparsedExpression">
     <eStructuralFeatures xsi:type="ecore:EReference" name="value" eType="#//SchemeExpression"
