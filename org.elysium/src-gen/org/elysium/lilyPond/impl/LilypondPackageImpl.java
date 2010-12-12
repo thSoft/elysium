@@ -25,10 +25,13 @@ import org.elysium.lilypond.LilypondPackage;
 import org.elysium.lilypond.Markup;
 import org.elysium.lilypond.MarkupBody;
 import org.elysium.lilypond.MarkupLines;
+import org.elysium.lilypond.Octave;
 import org.elysium.lilypond.Other;
 import org.elysium.lilypond.OutputDefinition;
+import org.elysium.lilypond.Pitch;
 import org.elysium.lilypond.PropertyAssignment;
 import org.elysium.lilypond.Reference;
+import org.elysium.lilypond.RelativeMusic;
 import org.elysium.lilypond.Scheme;
 import org.elysium.lilypond.SchemeBlock;
 import org.elysium.lilypond.SchemeBlockElement;
@@ -226,6 +229,27 @@ public class LilypondPackageImpl extends EPackageImpl implements LilypondPackage
    * @generated
    */
   private EClass outputDefinitionEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass relativeMusicEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass pitchEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass octaveEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -816,6 +840,126 @@ public class LilypondPackageImpl extends EPackageImpl implements LilypondPackage
    * <!-- end-user-doc -->
    * @generated
    */
+  public EClass getRelativeMusic()
+  {
+    return relativeMusicEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getRelativeMusic_Pitch()
+  {
+    return (EReference)relativeMusicEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getRelativeMusic_Music()
+  {
+    return (EReference)relativeMusicEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getPitch()
+  {
+    return pitchEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getPitch_Base()
+  {
+    return (EAttribute)pitchEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getPitch_OctaveCheck()
+  {
+    return (EAttribute)pitchEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getPitch_OctaveShift()
+  {
+    return (EReference)pitchEClass.getEStructuralFeatures().get(2);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getPitch_ReminderAccidental()
+  {
+    return (EAttribute)pitchEClass.getEStructuralFeatures().get(3);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getPitch_CautionaryAccidental()
+  {
+    return (EAttribute)pitchEClass.getEStructuralFeatures().get(4);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getOctave()
+  {
+    return octaveEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getOctave_Up()
+  {
+    return (EAttribute)octaveEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getOctave_Down()
+  {
+    return (EAttribute)octaveEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public EClass getOther()
   {
     return otherEClass;
@@ -1198,6 +1342,21 @@ public class LilypondPackageImpl extends EPackageImpl implements LilypondPackage
     outputDefinitionEClass = createEClass(OUTPUT_DEFINITION);
     createEReference(outputDefinitionEClass, OUTPUT_DEFINITION__BLOCK);
 
+    relativeMusicEClass = createEClass(RELATIVE_MUSIC);
+    createEReference(relativeMusicEClass, RELATIVE_MUSIC__PITCH);
+    createEReference(relativeMusicEClass, RELATIVE_MUSIC__MUSIC);
+
+    pitchEClass = createEClass(PITCH);
+    createEAttribute(pitchEClass, PITCH__BASE);
+    createEAttribute(pitchEClass, PITCH__OCTAVE_CHECK);
+    createEReference(pitchEClass, PITCH__OCTAVE_SHIFT);
+    createEAttribute(pitchEClass, PITCH__REMINDER_ACCIDENTAL);
+    createEAttribute(pitchEClass, PITCH__CAUTIONARY_ACCIDENTAL);
+
+    octaveEClass = createEClass(OCTAVE);
+    createEAttribute(octaveEClass, OCTAVE__UP);
+    createEAttribute(octaveEClass, OCTAVE__DOWN);
+
     otherEClass = createEClass(OTHER);
     createEAttribute(otherEClass, OTHER__KEYWORD);
 
@@ -1293,6 +1452,7 @@ public class LilypondPackageImpl extends EPackageImpl implements LilypondPackage
     markupLinesEClass.getESuperTypes().add(this.getSpecialCommand());
     blockCommandEClass.getESuperTypes().add(this.getSpecialCommand());
     outputDefinitionEClass.getESuperTypes().add(this.getSpecialCommand());
+    relativeMusicEClass.getESuperTypes().add(this.getSpecialCommand());
     otherEClass.getESuperTypes().add(this.getSpecialCommand());
     schemeEClass.getESuperTypes().add(this.getCommonExpression());
     schemeEClass.getESuperTypes().add(this.getUnparsedExpression());
@@ -1372,6 +1532,21 @@ public class LilypondPackageImpl extends EPackageImpl implements LilypondPackage
 
     initEClass(outputDefinitionEClass, OutputDefinition.class, "OutputDefinition", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getOutputDefinition_Block(), this.getUnparsedBlock(), null, "block", null, 0, 1, OutputDefinition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(relativeMusicEClass, RelativeMusic.class, "RelativeMusic", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getRelativeMusic_Pitch(), this.getPitch(), null, "pitch", null, 0, 1, RelativeMusic.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getRelativeMusic_Music(), this.getExpression(), null, "music", null, 0, 1, RelativeMusic.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(pitchEClass, Pitch.class, "Pitch", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getPitch_Base(), ecorePackage.getEString(), "base", null, 0, 1, Pitch.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getPitch_OctaveCheck(), ecorePackage.getEBoolean(), "octaveCheck", null, 0, 1, Pitch.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getPitch_OctaveShift(), this.getOctave(), null, "octaveShift", null, 0, 1, Pitch.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getPitch_ReminderAccidental(), ecorePackage.getEBoolean(), "reminderAccidental", null, 0, 1, Pitch.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getPitch_CautionaryAccidental(), ecorePackage.getEBoolean(), "cautionaryAccidental", null, 0, 1, Pitch.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(octaveEClass, Octave.class, "Octave", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getOctave_Up(), ecorePackage.getEString(), "up", null, 0, -1, Octave.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getOctave_Down(), ecorePackage.getEString(), "down", null, 0, -1, Octave.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(otherEClass, Other.class, "Other", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getOther_Keyword(), ecorePackage.getEString(), "keyword", null, 0, 1, Other.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

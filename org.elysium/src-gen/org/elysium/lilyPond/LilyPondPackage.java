@@ -114,7 +114,7 @@ public interface LilypondPackage extends EPackage
    * @see org.elysium.lilypond.impl.LilypondPackageImpl#getSchemeBlockElement()
    * @generated
    */
-  int SCHEME_BLOCK_ELEMENT = 31;
+  int SCHEME_BLOCK_ELEMENT = 34;
 
   /**
    * The number of structural features of the '<em>Scheme Block Element</em>' class.
@@ -724,6 +724,144 @@ public interface LilypondPackage extends EPackage
   int OUTPUT_DEFINITION_FEATURE_COUNT = SPECIAL_COMMAND_FEATURE_COUNT + 1;
 
   /**
+   * The meta object id for the '{@link org.elysium.lilypond.impl.RelativeMusicImpl <em>Relative Music</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.elysium.lilypond.impl.RelativeMusicImpl
+   * @see org.elysium.lilypond.impl.LilypondPackageImpl#getRelativeMusic()
+   * @generated
+   */
+  int RELATIVE_MUSIC = 24;
+
+  /**
+   * The feature id for the '<em><b>Pitch</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int RELATIVE_MUSIC__PITCH = SPECIAL_COMMAND_FEATURE_COUNT + 0;
+
+  /**
+   * The feature id for the '<em><b>Music</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int RELATIVE_MUSIC__MUSIC = SPECIAL_COMMAND_FEATURE_COUNT + 1;
+
+  /**
+   * The number of structural features of the '<em>Relative Music</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int RELATIVE_MUSIC_FEATURE_COUNT = SPECIAL_COMMAND_FEATURE_COUNT + 2;
+
+  /**
+   * The meta object id for the '{@link org.elysium.lilypond.impl.PitchImpl <em>Pitch</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.elysium.lilypond.impl.PitchImpl
+   * @see org.elysium.lilypond.impl.LilypondPackageImpl#getPitch()
+   * @generated
+   */
+  int PITCH = 25;
+
+  /**
+   * The feature id for the '<em><b>Base</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int PITCH__BASE = 0;
+
+  /**
+   * The feature id for the '<em><b>Octave Check</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int PITCH__OCTAVE_CHECK = 1;
+
+  /**
+   * The feature id for the '<em><b>Octave Shift</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int PITCH__OCTAVE_SHIFT = 2;
+
+  /**
+   * The feature id for the '<em><b>Reminder Accidental</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int PITCH__REMINDER_ACCIDENTAL = 3;
+
+  /**
+   * The feature id for the '<em><b>Cautionary Accidental</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int PITCH__CAUTIONARY_ACCIDENTAL = 4;
+
+  /**
+   * The number of structural features of the '<em>Pitch</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int PITCH_FEATURE_COUNT = 5;
+
+  /**
+   * The meta object id for the '{@link org.elysium.lilypond.impl.OctaveImpl <em>Octave</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.elysium.lilypond.impl.OctaveImpl
+   * @see org.elysium.lilypond.impl.LilypondPackageImpl#getOctave()
+   * @generated
+   */
+  int OCTAVE = 26;
+
+  /**
+   * The feature id for the '<em><b>Up</b></em>' attribute list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int OCTAVE__UP = 0;
+
+  /**
+   * The feature id for the '<em><b>Down</b></em>' attribute list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int OCTAVE__DOWN = 1;
+
+  /**
+   * The number of structural features of the '<em>Octave</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int OCTAVE_FEATURE_COUNT = 2;
+
+  /**
    * The meta object id for the '{@link org.elysium.lilypond.impl.OtherImpl <em>Other</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -731,7 +869,7 @@ public interface LilypondPackage extends EPackage
    * @see org.elysium.lilypond.impl.LilypondPackageImpl#getOther()
    * @generated
    */
-  int OTHER = 24;
+  int OTHER = 27;
 
   /**
    * The feature id for the '<em><b>Keyword</b></em>' attribute.
@@ -759,7 +897,7 @@ public interface LilypondPackage extends EPackage
    * @see org.elysium.lilypond.impl.LilypondPackageImpl#getScheme()
    * @generated
    */
-  int SCHEME = 25;
+  int SCHEME = 28;
 
   /**
    * The feature id for the '<em><b>Value</b></em>' containment reference.
@@ -787,7 +925,7 @@ public interface LilypondPackage extends EPackage
    * @see org.elysium.lilypond.impl.LilypondPackageImpl#getSchemeExpression()
    * @generated
    */
-  int SCHEME_EXPRESSION = 26;
+  int SCHEME_EXPRESSION = 29;
 
   /**
    * The feature id for the '<em><b>Quoted</b></em>' attribute.
@@ -842,7 +980,7 @@ public interface LilypondPackage extends EPackage
    * @see org.elysium.lilypond.impl.LilypondPackageImpl#getSchemeValue()
    * @generated
    */
-  int SCHEME_VALUE = 27;
+  int SCHEME_VALUE = 30;
 
   /**
    * The number of structural features of the '<em>Scheme Value</em>' class.
@@ -861,7 +999,7 @@ public interface LilypondPackage extends EPackage
    * @see org.elysium.lilypond.impl.LilypondPackageImpl#getSchemeBoolean()
    * @generated
    */
-  int SCHEME_BOOLEAN = 28;
+  int SCHEME_BOOLEAN = 31;
 
   /**
    * The feature id for the '<em><b>Value</b></em>' attribute.
@@ -889,7 +1027,7 @@ public interface LilypondPackage extends EPackage
    * @see org.elysium.lilypond.impl.LilypondPackageImpl#getSchemeList()
    * @generated
    */
-  int SCHEME_LIST = 29;
+  int SCHEME_LIST = 32;
 
   /**
    * The feature id for the '<em><b>Vector</b></em>' attribute.
@@ -926,7 +1064,7 @@ public interface LilypondPackage extends EPackage
    * @see org.elysium.lilypond.impl.LilypondPackageImpl#getSchemeBlock()
    * @generated
    */
-  int SCHEME_BLOCK = 30;
+  int SCHEME_BLOCK = 33;
 
   /**
    * The feature id for the '<em><b>Elements</b></em>' containment reference list.
@@ -954,7 +1092,7 @@ public interface LilypondPackage extends EPackage
    * @see org.elysium.lilypond.impl.LilypondPackageImpl#getSchemeReference()
    * @generated
    */
-  int SCHEME_REFERENCE = 32;
+  int SCHEME_REFERENCE = 35;
 
   /**
    * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -982,7 +1120,7 @@ public interface LilypondPackage extends EPackage
    * @see org.elysium.lilypond.impl.LilypondPackageImpl#getSchemeCharacter()
    * @generated
    */
-  int SCHEME_CHARACTER = 33;
+  int SCHEME_CHARACTER = 36;
 
   /**
    * The feature id for the '<em><b>Value</b></em>' attribute.
@@ -1010,7 +1148,7 @@ public interface LilypondPackage extends EPackage
    * @see org.elysium.lilypond.impl.LilypondPackageImpl#getSchemeText()
    * @generated
    */
-  int SCHEME_TEXT = 34;
+  int SCHEME_TEXT = 37;
 
   /**
    * The feature id for the '<em><b>Value</b></em>' attribute.
@@ -1038,7 +1176,7 @@ public interface LilypondPackage extends EPackage
    * @see org.elysium.lilypond.impl.LilypondPackageImpl#getSchemeNumber()
    * @generated
    */
-  int SCHEME_NUMBER = 35;
+  int SCHEME_NUMBER = 38;
 
   /**
    * The feature id for the '<em><b>Radix</b></em>' attribute.
@@ -1075,7 +1213,7 @@ public interface LilypondPackage extends EPackage
    * @see org.elysium.lilypond.impl.LilypondPackageImpl#getSchemeMarkupCommand()
    * @generated
    */
-  int SCHEME_MARKUP_COMMAND = 36;
+  int SCHEME_MARKUP_COMMAND = 39;
 
   /**
    * The feature id for the '<em><b>Command</b></em>' attribute.
@@ -1544,6 +1682,135 @@ public interface LilypondPackage extends EPackage
    * @generated
    */
   EReference getOutputDefinition_Block();
+
+  /**
+   * Returns the meta object for class '{@link org.elysium.lilypond.RelativeMusic <em>Relative Music</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Relative Music</em>'.
+   * @see org.elysium.lilypond.RelativeMusic
+   * @generated
+   */
+  EClass getRelativeMusic();
+
+  /**
+   * Returns the meta object for the containment reference '{@link org.elysium.lilypond.RelativeMusic#getPitch <em>Pitch</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Pitch</em>'.
+   * @see org.elysium.lilypond.RelativeMusic#getPitch()
+   * @see #getRelativeMusic()
+   * @generated
+   */
+  EReference getRelativeMusic_Pitch();
+
+  /**
+   * Returns the meta object for the containment reference '{@link org.elysium.lilypond.RelativeMusic#getMusic <em>Music</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Music</em>'.
+   * @see org.elysium.lilypond.RelativeMusic#getMusic()
+   * @see #getRelativeMusic()
+   * @generated
+   */
+  EReference getRelativeMusic_Music();
+
+  /**
+   * Returns the meta object for class '{@link org.elysium.lilypond.Pitch <em>Pitch</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Pitch</em>'.
+   * @see org.elysium.lilypond.Pitch
+   * @generated
+   */
+  EClass getPitch();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.elysium.lilypond.Pitch#getBase <em>Base</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Base</em>'.
+   * @see org.elysium.lilypond.Pitch#getBase()
+   * @see #getPitch()
+   * @generated
+   */
+  EAttribute getPitch_Base();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.elysium.lilypond.Pitch#isOctaveCheck <em>Octave Check</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Octave Check</em>'.
+   * @see org.elysium.lilypond.Pitch#isOctaveCheck()
+   * @see #getPitch()
+   * @generated
+   */
+  EAttribute getPitch_OctaveCheck();
+
+  /**
+   * Returns the meta object for the containment reference '{@link org.elysium.lilypond.Pitch#getOctaveShift <em>Octave Shift</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Octave Shift</em>'.
+   * @see org.elysium.lilypond.Pitch#getOctaveShift()
+   * @see #getPitch()
+   * @generated
+   */
+  EReference getPitch_OctaveShift();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.elysium.lilypond.Pitch#isReminderAccidental <em>Reminder Accidental</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Reminder Accidental</em>'.
+   * @see org.elysium.lilypond.Pitch#isReminderAccidental()
+   * @see #getPitch()
+   * @generated
+   */
+  EAttribute getPitch_ReminderAccidental();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.elysium.lilypond.Pitch#isCautionaryAccidental <em>Cautionary Accidental</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Cautionary Accidental</em>'.
+   * @see org.elysium.lilypond.Pitch#isCautionaryAccidental()
+   * @see #getPitch()
+   * @generated
+   */
+  EAttribute getPitch_CautionaryAccidental();
+
+  /**
+   * Returns the meta object for class '{@link org.elysium.lilypond.Octave <em>Octave</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Octave</em>'.
+   * @see org.elysium.lilypond.Octave
+   * @generated
+   */
+  EClass getOctave();
+
+  /**
+   * Returns the meta object for the attribute list '{@link org.elysium.lilypond.Octave#getUp <em>Up</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute list '<em>Up</em>'.
+   * @see org.elysium.lilypond.Octave#getUp()
+   * @see #getOctave()
+   * @generated
+   */
+  EAttribute getOctave_Up();
+
+  /**
+   * Returns the meta object for the attribute list '{@link org.elysium.lilypond.Octave#getDown <em>Down</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute list '<em>Down</em>'.
+   * @see org.elysium.lilypond.Octave#getDown()
+   * @see #getOctave()
+   * @generated
+   */
+  EAttribute getOctave_Down();
 
   /**
    * Returns the meta object for class '{@link org.elysium.lilypond.Other <em>Other</em>}'.
@@ -2265,6 +2532,108 @@ public interface LilypondPackage extends EPackage
      * @generated
      */
     EReference OUTPUT_DEFINITION__BLOCK = eINSTANCE.getOutputDefinition_Block();
+
+    /**
+     * The meta object literal for the '{@link org.elysium.lilypond.impl.RelativeMusicImpl <em>Relative Music</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.elysium.lilypond.impl.RelativeMusicImpl
+     * @see org.elysium.lilypond.impl.LilypondPackageImpl#getRelativeMusic()
+     * @generated
+     */
+    EClass RELATIVE_MUSIC = eINSTANCE.getRelativeMusic();
+
+    /**
+     * The meta object literal for the '<em><b>Pitch</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference RELATIVE_MUSIC__PITCH = eINSTANCE.getRelativeMusic_Pitch();
+
+    /**
+     * The meta object literal for the '<em><b>Music</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference RELATIVE_MUSIC__MUSIC = eINSTANCE.getRelativeMusic_Music();
+
+    /**
+     * The meta object literal for the '{@link org.elysium.lilypond.impl.PitchImpl <em>Pitch</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.elysium.lilypond.impl.PitchImpl
+     * @see org.elysium.lilypond.impl.LilypondPackageImpl#getPitch()
+     * @generated
+     */
+    EClass PITCH = eINSTANCE.getPitch();
+
+    /**
+     * The meta object literal for the '<em><b>Base</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute PITCH__BASE = eINSTANCE.getPitch_Base();
+
+    /**
+     * The meta object literal for the '<em><b>Octave Check</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute PITCH__OCTAVE_CHECK = eINSTANCE.getPitch_OctaveCheck();
+
+    /**
+     * The meta object literal for the '<em><b>Octave Shift</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference PITCH__OCTAVE_SHIFT = eINSTANCE.getPitch_OctaveShift();
+
+    /**
+     * The meta object literal for the '<em><b>Reminder Accidental</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute PITCH__REMINDER_ACCIDENTAL = eINSTANCE.getPitch_ReminderAccidental();
+
+    /**
+     * The meta object literal for the '<em><b>Cautionary Accidental</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute PITCH__CAUTIONARY_ACCIDENTAL = eINSTANCE.getPitch_CautionaryAccidental();
+
+    /**
+     * The meta object literal for the '{@link org.elysium.lilypond.impl.OctaveImpl <em>Octave</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.elysium.lilypond.impl.OctaveImpl
+     * @see org.elysium.lilypond.impl.LilypondPackageImpl#getOctave()
+     * @generated
+     */
+    EClass OCTAVE = eINSTANCE.getOctave();
+
+    /**
+     * The meta object literal for the '<em><b>Up</b></em>' attribute list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute OCTAVE__UP = eINSTANCE.getOctave_Up();
+
+    /**
+     * The meta object literal for the '<em><b>Down</b></em>' attribute list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute OCTAVE__DOWN = eINSTANCE.getOctave_Down();
 
     /**
      * The meta object literal for the '{@link org.elysium.lilypond.impl.OtherImpl <em>Other</em>}' class.

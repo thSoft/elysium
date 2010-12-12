@@ -52,6 +52,7 @@ public class LilyPondParser extends AbstractContentAssistParser {
 					put(grammarAccess.getMarkupBodyAccess().getCommandAlternatives_1_0(), "rule__MarkupBody__CommandAlternatives_1_0");
 					put(grammarAccess.getBlockCommandAccess().getAlternatives_1(), "rule__BlockCommand__Alternatives_1");
 					put(grammarAccess.getOutputDefinitionAccess().getAlternatives_1(), "rule__OutputDefinition__Alternatives_1");
+					put(grammarAccess.getOctaveAccess().getAlternatives(), "rule__Octave__Alternatives");
 					put(grammarAccess.getOtherAccess().getKeywordAlternatives_1_0(), "rule__Other__KeywordAlternatives_1_0");
 					put(grammarAccess.getOtherNameAccess().getAlternatives(), "rule__OtherName__Alternatives");
 					put(grammarAccess.getSpecialCommandNameAccess().getAlternatives(), "rule__SpecialCommandName__Alternatives");
@@ -76,6 +77,8 @@ public class LilyPondParser extends AbstractContentAssistParser {
 					put(grammarAccess.getMarkupBodyAccess().getGroup(), "rule__MarkupBody__Group__0");
 					put(grammarAccess.getBlockCommandAccess().getGroup(), "rule__BlockCommand__Group__0");
 					put(grammarAccess.getOutputDefinitionAccess().getGroup(), "rule__OutputDefinition__Group__0");
+					put(grammarAccess.getRelativeMusicAccess().getGroup(), "rule__RelativeMusic__Group__0");
+					put(grammarAccess.getPitchAccess().getGroup(), "rule__Pitch__Group__0");
 					put(grammarAccess.getOtherAccess().getGroup(), "rule__Other__Group__0");
 					put(grammarAccess.getSchemeAccess().getGroup(), "rule__Scheme__Group__0");
 					put(grammarAccess.getSchemeExpressionAccess().getGroup(), "rule__SchemeExpression__Group__0");
@@ -111,6 +114,15 @@ public class LilyPondParser extends AbstractContentAssistParser {
 					put(grammarAccess.getMarkupBodyAccess().getBlockAssignment_2(), "rule__MarkupBody__BlockAssignment_2");
 					put(grammarAccess.getBlockCommandAccess().getBlockAssignment_2(), "rule__BlockCommand__BlockAssignment_2");
 					put(grammarAccess.getOutputDefinitionAccess().getBlockAssignment_2(), "rule__OutputDefinition__BlockAssignment_2");
+					put(grammarAccess.getRelativeMusicAccess().getPitchAssignment_2(), "rule__RelativeMusic__PitchAssignment_2");
+					put(grammarAccess.getRelativeMusicAccess().getMusicAssignment_3(), "rule__RelativeMusic__MusicAssignment_3");
+					put(grammarAccess.getPitchAccess().getBaseAssignment_0(), "rule__Pitch__BaseAssignment_0");
+					put(grammarAccess.getPitchAccess().getOctaveCheckAssignment_1(), "rule__Pitch__OctaveCheckAssignment_1");
+					put(grammarAccess.getPitchAccess().getOctaveShiftAssignment_2(), "rule__Pitch__OctaveShiftAssignment_2");
+					put(grammarAccess.getPitchAccess().getReminderAccidentalAssignment_3(), "rule__Pitch__ReminderAccidentalAssignment_3");
+					put(grammarAccess.getPitchAccess().getCautionaryAccidentalAssignment_4(), "rule__Pitch__CautionaryAccidentalAssignment_4");
+					put(grammarAccess.getOctaveAccess().getUpAssignment_0(), "rule__Octave__UpAssignment_0");
+					put(grammarAccess.getOctaveAccess().getDownAssignment_1(), "rule__Octave__DownAssignment_1");
 					put(grammarAccess.getOtherAccess().getKeywordAssignment_1(), "rule__Other__KeywordAssignment_1");
 					put(grammarAccess.getSchemeAccess().getValueAssignment_1(), "rule__Scheme__ValueAssignment_1");
 					put(grammarAccess.getSchemeExpressionAccess().getQuotedAssignment_0_0(), "rule__SchemeExpression__QuotedAssignment_0_0");

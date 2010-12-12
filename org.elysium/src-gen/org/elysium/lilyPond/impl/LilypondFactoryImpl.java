@@ -26,10 +26,13 @@ import org.elysium.lilypond.LilypondPackage;
 import org.elysium.lilypond.Markup;
 import org.elysium.lilypond.MarkupBody;
 import org.elysium.lilypond.MarkupLines;
+import org.elysium.lilypond.Octave;
 import org.elysium.lilypond.Other;
 import org.elysium.lilypond.OutputDefinition;
+import org.elysium.lilypond.Pitch;
 import org.elysium.lilypond.PropertyAssignment;
 import org.elysium.lilypond.Reference;
+import org.elysium.lilypond.RelativeMusic;
 import org.elysium.lilypond.Scheme;
 import org.elysium.lilypond.SchemeBlock;
 import org.elysium.lilypond.SchemeBlockElement;
@@ -128,6 +131,9 @@ public class LilypondFactoryImpl extends EFactoryImpl implements LilypondFactory
       case LilypondPackage.MARKUP_BODY: return createMarkupBody();
       case LilypondPackage.BLOCK_COMMAND: return createBlockCommand();
       case LilypondPackage.OUTPUT_DEFINITION: return createOutputDefinition();
+      case LilypondPackage.RELATIVE_MUSIC: return createRelativeMusic();
+      case LilypondPackage.PITCH: return createPitch();
+      case LilypondPackage.OCTAVE: return createOctave();
       case LilypondPackage.OTHER: return createOther();
       case LilypondPackage.SCHEME: return createScheme();
       case LilypondPackage.SCHEME_EXPRESSION: return createSchemeExpression();
@@ -408,6 +414,39 @@ public class LilypondFactoryImpl extends EFactoryImpl implements LilypondFactory
   {
     OutputDefinitionImpl outputDefinition = new OutputDefinitionImpl();
     return outputDefinition;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public RelativeMusic createRelativeMusic()
+  {
+    RelativeMusicImpl relativeMusic = new RelativeMusicImpl();
+    return relativeMusic;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Pitch createPitch()
+  {
+    PitchImpl pitch = new PitchImpl();
+    return pitch;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Octave createOctave()
+  {
+    OctaveImpl octave = new OctaveImpl();
+    return octave;
   }
 
   /**

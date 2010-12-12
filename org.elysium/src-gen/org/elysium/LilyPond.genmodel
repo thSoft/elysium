@@ -67,6 +67,21 @@
     <genClasses ecoreClass="LilyPond.ecore#//OutputDefinition">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference LilyPond.ecore#//OutputDefinition/block"/>
     </genClasses>
+    <genClasses ecoreClass="LilyPond.ecore#//RelativeMusic">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference LilyPond.ecore#//RelativeMusic/pitch"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference LilyPond.ecore#//RelativeMusic/music"/>
+    </genClasses>
+    <genClasses ecoreClass="LilyPond.ecore#//Pitch">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute LilyPond.ecore#//Pitch/base"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute LilyPond.ecore#//Pitch/octaveCheck"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference LilyPond.ecore#//Pitch/octaveShift"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute LilyPond.ecore#//Pitch/reminderAccidental"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute LilyPond.ecore#//Pitch/cautionaryAccidental"/>
+    </genClasses>
+    <genClasses ecoreClass="LilyPond.ecore#//Octave">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute LilyPond.ecore#//Octave/up"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute LilyPond.ecore#//Octave/down"/>
+    </genClasses>
     <genClasses ecoreClass="LilyPond.ecore#//Other">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute LilyPond.ecore#//Other/keyword"/>
     </genClasses>

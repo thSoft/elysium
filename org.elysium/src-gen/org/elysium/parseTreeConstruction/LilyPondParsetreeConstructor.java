@@ -55,19 +55,22 @@ protected class ThisRootNode extends RootToken {
 			case 21: return new MarkupBody_Group(this, this, 21, inst);
 			case 22: return new BlockCommand_Group(this, this, 22, inst);
 			case 23: return new OutputDefinition_Group(this, this, 23, inst);
-			case 24: return new Other_Group(this, this, 24, inst);
-			case 25: return new Scheme_Group(this, this, 25, inst);
-			case 26: return new SchemeExpression_Group(this, this, 26, inst);
-			case 27: return new SchemeValue_Alternatives(this, this, 27, inst);
-			case 28: return new SchemeBoolean_ValueAssignment(this, this, 28, inst);
-			case 29: return new SchemeList_Group(this, this, 29, inst);
-			case 30: return new SchemeBlock_Group(this, this, 30, inst);
-			case 31: return new SchemeBlockElement_Alternatives(this, this, 31, inst);
-			case 32: return new SchemeReference_Group(this, this, 32, inst);
-			case 33: return new SchemeCharacter_Group(this, this, 33, inst);
-			case 34: return new SchemeText_ValueAssignment(this, this, 34, inst);
-			case 35: return new SchemeNumber_Group(this, this, 35, inst);
-			case 36: return new SchemeMarkupCommand_Group(this, this, 36, inst);
+			case 24: return new RelativeMusic_Group(this, this, 24, inst);
+			case 25: return new Pitch_Group(this, this, 25, inst);
+			case 26: return new Octave_Alternatives(this, this, 26, inst);
+			case 27: return new Other_Group(this, this, 27, inst);
+			case 28: return new Scheme_Group(this, this, 28, inst);
+			case 29: return new SchemeExpression_Group(this, this, 29, inst);
+			case 30: return new SchemeValue_Alternatives(this, this, 30, inst);
+			case 31: return new SchemeBoolean_ValueAssignment(this, this, 31, inst);
+			case 32: return new SchemeList_Group(this, this, 32, inst);
+			case 33: return new SchemeBlock_Group(this, this, 33, inst);
+			case 34: return new SchemeBlockElement_Alternatives(this, this, 34, inst);
+			case 35: return new SchemeReference_Group(this, this, 35, inst);
+			case 36: return new SchemeCharacter_Group(this, this, 36, inst);
+			case 37: return new SchemeText_ValueAssignment(this, this, 37, inst);
+			case 38: return new SchemeNumber_Group(this, this, 38, inst);
+			case 39: return new SchemeMarkupCommand_Group(this, this, 39, inst);
 			default: return null;
 		}	
 	}	
@@ -169,6 +172,7 @@ protected class ToplevelExpression_Alternatives extends AlternativesToken {
 		   getEObject().eClass() != grammarAccess.getOtherRule().getType().getClassifier() && 
 		   getEObject().eClass() != grammarAccess.getOutputDefinitionRule().getType().getClassifier() && 
 		   getEObject().eClass() != grammarAccess.getReferenceRule().getType().getClassifier() && 
+		   getEObject().eClass() != grammarAccess.getRelativeMusicRule().getType().getClassifier() && 
 		   getEObject().eClass() != grammarAccess.getSchemeRule().getType().getClassifier() && 
 		   getEObject().eClass() != grammarAccess.getSimpleBlockAccess().getSimpleBlockAction_0().getType().getClassifier() && 
 		   getEObject().eClass() != grammarAccess.getSimultaneousBlockAccess().getSimultaneousBlockAction_0().getType().getClassifier() && 
@@ -246,6 +250,7 @@ protected class ToplevelExpression_CommonExpressionParserRuleCall_1 extends Rule
 		   getEObject().eClass() != grammarAccess.getOtherRule().getType().getClassifier() && 
 		   getEObject().eClass() != grammarAccess.getOutputDefinitionRule().getType().getClassifier() && 
 		   getEObject().eClass() != grammarAccess.getReferenceRule().getType().getClassifier() && 
+		   getEObject().eClass() != grammarAccess.getRelativeMusicRule().getType().getClassifier() && 
 		   getEObject().eClass() != grammarAccess.getSchemeRule().getType().getClassifier() && 
 		   getEObject().eClass() != grammarAccess.getSimpleBlockAccess().getSimpleBlockAction_0().getType().getClassifier() && 
 		   getEObject().eClass() != grammarAccess.getSimultaneousBlockAccess().getSimultaneousBlockAction_0().getType().getClassifier() && 
@@ -307,6 +312,7 @@ protected class Expression_Alternatives extends AlternativesToken {
 		   getEObject().eClass() != grammarAccess.getOutputDefinitionRule().getType().getClassifier() && 
 		   getEObject().eClass() != grammarAccess.getPropertyAssignmentRule().getType().getClassifier() && 
 		   getEObject().eClass() != grammarAccess.getReferenceRule().getType().getClassifier() && 
+		   getEObject().eClass() != grammarAccess.getRelativeMusicRule().getType().getClassifier() && 
 		   getEObject().eClass() != grammarAccess.getSchemeRule().getType().getClassifier() && 
 		   getEObject().eClass() != grammarAccess.getSimpleBlockAccess().getSimpleBlockAction_0().getType().getClassifier() && 
 		   getEObject().eClass() != grammarAccess.getSimultaneousBlockAccess().getSimultaneousBlockAction_0().getType().getClassifier() && 
@@ -384,6 +390,7 @@ protected class Expression_CommonExpressionParserRuleCall_1 extends RuleCallToke
 		   getEObject().eClass() != grammarAccess.getOtherRule().getType().getClassifier() && 
 		   getEObject().eClass() != grammarAccess.getOutputDefinitionRule().getType().getClassifier() && 
 		   getEObject().eClass() != grammarAccess.getReferenceRule().getType().getClassifier() && 
+		   getEObject().eClass() != grammarAccess.getRelativeMusicRule().getType().getClassifier() && 
 		   getEObject().eClass() != grammarAccess.getSchemeRule().getType().getClassifier() && 
 		   getEObject().eClass() != grammarAccess.getSimpleBlockAccess().getSimpleBlockAction_0().getType().getClassifier() && 
 		   getEObject().eClass() != grammarAccess.getSimultaneousBlockAccess().getSimultaneousBlockAction_0().getType().getClassifier() && 
@@ -447,6 +454,7 @@ protected class CommonExpression_Alternatives extends AlternativesToken {
 		   getEObject().eClass() != grammarAccess.getOtherRule().getType().getClassifier() && 
 		   getEObject().eClass() != grammarAccess.getOutputDefinitionRule().getType().getClassifier() && 
 		   getEObject().eClass() != grammarAccess.getReferenceRule().getType().getClassifier() && 
+		   getEObject().eClass() != grammarAccess.getRelativeMusicRule().getType().getClassifier() && 
 		   getEObject().eClass() != grammarAccess.getSchemeRule().getType().getClassifier() && 
 		   getEObject().eClass() != grammarAccess.getSimpleBlockAccess().getSimpleBlockAction_0().getType().getClassifier() && 
 		   getEObject().eClass() != grammarAccess.getSimultaneousBlockAccess().getSimultaneousBlockAction_0().getType().getClassifier() && 
@@ -487,6 +495,7 @@ protected class CommonExpression_CommandParserRuleCall_0 extends RuleCallToken {
 		   getEObject().eClass() != grammarAccess.getOtherRule().getType().getClassifier() && 
 		   getEObject().eClass() != grammarAccess.getOutputDefinitionRule().getType().getClassifier() && 
 		   getEObject().eClass() != grammarAccess.getReferenceRule().getType().getClassifier() && 
+		   getEObject().eClass() != grammarAccess.getRelativeMusicRule().getType().getClassifier() && 
 		   getEObject().eClass() != grammarAccess.getVersionRule().getType().getClassifier())
 			return null;
 		if(checkForRecursion(Command_Alternatives.class, eObjectConsumer)) return null;
@@ -1409,6 +1418,7 @@ protected class Command_Alternatives extends AlternativesToken {
 		   getEObject().eClass() != grammarAccess.getOtherRule().getType().getClassifier() && 
 		   getEObject().eClass() != grammarAccess.getOutputDefinitionRule().getType().getClassifier() && 
 		   getEObject().eClass() != grammarAccess.getReferenceRule().getType().getClassifier() && 
+		   getEObject().eClass() != grammarAccess.getRelativeMusicRule().getType().getClassifier() && 
 		   getEObject().eClass() != grammarAccess.getVersionRule().getType().getClassifier())
 			return null;
 		return eObjectConsumer;
@@ -1444,6 +1454,7 @@ protected class Command_SpecialCommandParserRuleCall_0 extends RuleCallToken {
 		   getEObject().eClass() != grammarAccess.getMarkupLinesRule().getType().getClassifier() && 
 		   getEObject().eClass() != grammarAccess.getOtherRule().getType().getClassifier() && 
 		   getEObject().eClass() != grammarAccess.getOutputDefinitionRule().getType().getClassifier() && 
+		   getEObject().eClass() != grammarAccess.getRelativeMusicRule().getType().getClassifier() && 
 		   getEObject().eClass() != grammarAccess.getVersionRule().getType().getClassifier())
 			return null;
 		if(checkForRecursion(SpecialCommand_Alternatives.class, eObjectConsumer)) return null;
@@ -2202,11 +2213,11 @@ protected class Number_ValueAssignment extends AssignmentToken  {
  *
  * // Commands
  * SpecialCommand:
- * 	Include | Version | Markup | MarkupLines | BlockCommand | OutputDefinition | Other;
+ * 	Include | Version | Markup | MarkupLines | BlockCommand | OutputDefinition | RelativeMusic | Other;
  *
  **/
 
-// Include | Version | Markup | MarkupLines | BlockCommand | OutputDefinition | Other
+// Include | Version | Markup | MarkupLines | BlockCommand | OutputDefinition | RelativeMusic | Other
 protected class SpecialCommand_Alternatives extends AlternativesToken {
 
 	public SpecialCommand_Alternatives(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -2227,7 +2238,8 @@ protected class SpecialCommand_Alternatives extends AlternativesToken {
 			case 3: return new SpecialCommand_MarkupLinesParserRuleCall_3(lastRuleCallOrigin, this, 3, inst);
 			case 4: return new SpecialCommand_BlockCommandParserRuleCall_4(lastRuleCallOrigin, this, 4, inst);
 			case 5: return new SpecialCommand_OutputDefinitionParserRuleCall_5(lastRuleCallOrigin, this, 5, inst);
-			case 6: return new SpecialCommand_OtherParserRuleCall_6(lastRuleCallOrigin, this, 6, inst);
+			case 6: return new SpecialCommand_RelativeMusicParserRuleCall_6(lastRuleCallOrigin, this, 6, inst);
+			case 7: return new SpecialCommand_OtherParserRuleCall_7(lastRuleCallOrigin, this, 7, inst);
 			default: return null;
 		}	
 	}
@@ -2240,6 +2252,7 @@ protected class SpecialCommand_Alternatives extends AlternativesToken {
 		   getEObject().eClass() != grammarAccess.getMarkupLinesRule().getType().getClassifier() && 
 		   getEObject().eClass() != grammarAccess.getOtherRule().getType().getClassifier() && 
 		   getEObject().eClass() != grammarAccess.getOutputDefinitionRule().getType().getClassifier() && 
+		   getEObject().eClass() != grammarAccess.getRelativeMusicRule().getType().getClassifier() && 
 		   getEObject().eClass() != grammarAccess.getVersionRule().getType().getClassifier())
 			return null;
 		return eObjectConsumer;
@@ -2463,16 +2476,52 @@ protected class SpecialCommand_OutputDefinitionParserRuleCall_5 extends RuleCall
 	}	
 }
 
-// Other
-protected class SpecialCommand_OtherParserRuleCall_6 extends RuleCallToken {
+// RelativeMusic
+protected class SpecialCommand_RelativeMusicParserRuleCall_6 extends RuleCallToken {
 	
-	public SpecialCommand_OtherParserRuleCall_6(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
+	public SpecialCommand_RelativeMusicParserRuleCall_6(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
 		super(lastRuleCallOrigin, next, transitionIndex, eObjectConsumer);
 	}
 	
 	@Override
 	public RuleCall getGrammarElement() {
-		return grammarAccess.getSpecialCommandAccess().getOtherParserRuleCall_6();
+		return grammarAccess.getSpecialCommandAccess().getRelativeMusicParserRuleCall_6();
+	}
+
+    @Override
+	public AbstractToken createFollower(int index, IEObjectConsumer inst) {
+		switch(index) {
+			case 0: return new RelativeMusic_Group(this, this, 0, inst);
+			default: return null;
+		}	
+	}
+
+    @Override
+	public IEObjectConsumer tryConsume() {
+		if(getEObject().eClass() != grammarAccess.getRelativeMusicRule().getType().getClassifier())
+			return null;
+		if(checkForRecursion(RelativeMusic_Group.class, eObjectConsumer)) return null;
+		return eObjectConsumer;
+	}
+	
+    @Override
+	public AbstractToken createFollowerAfterReturn(AbstractToken next,	int actIndex, int index, IEObjectConsumer inst) {
+		switch(index) {
+			default: return lastRuleCallOrigin.createFollowerAfterReturn(next, actIndex , index, inst);
+		}	
+	}	
+}
+
+// Other
+protected class SpecialCommand_OtherParserRuleCall_7 extends RuleCallToken {
+	
+	public SpecialCommand_OtherParserRuleCall_7(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
+		super(lastRuleCallOrigin, next, transitionIndex, eObjectConsumer);
+	}
+	
+	@Override
+	public RuleCall getGrammarElement() {
+		return grammarAccess.getSpecialCommandAccess().getOtherParserRuleCall_7();
 	}
 
     @Override
@@ -3469,6 +3518,522 @@ protected class OutputDefinition_BlockAssignment_2 extends AssignmentToken  {
 
 
 /************ end Rule OutputDefinition ****************/
+
+
+/************ begin Rule RelativeMusic ****************
+ *
+ * RelativeMusic:
+ * 	"\\" "relative" pitch=Pitch? music=Expression;
+ *
+ **/
+
+// "\\" "relative" pitch=Pitch? music=Expression
+protected class RelativeMusic_Group extends GroupToken {
+	
+	public RelativeMusic_Group(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
+		super(lastRuleCallOrigin, next, transitionIndex, eObjectConsumer);
+	}
+	
+	@Override
+	public Group getGrammarElement() {
+		return grammarAccess.getRelativeMusicAccess().getGroup();
+	}
+
+    @Override
+	public AbstractToken createFollower(int index, IEObjectConsumer inst) {
+		switch(index) {
+			case 0: return new RelativeMusic_MusicAssignment_3(lastRuleCallOrigin, this, 0, inst);
+			default: return null;
+		}	
+	}
+
+    @Override
+	public IEObjectConsumer tryConsume() {
+		if(getEObject().eClass() != grammarAccess.getRelativeMusicRule().getType().getClassifier())
+			return null;
+		return eObjectConsumer;
+	}
+
+}
+
+// "\\"
+protected class RelativeMusic_ReverseSolidusKeyword_0 extends KeywordToken  {
+	
+	public RelativeMusic_ReverseSolidusKeyword_0(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
+		super(lastRuleCallOrigin, next, transitionIndex, eObjectConsumer);
+	}
+	
+	@Override
+	public Keyword getGrammarElement() {
+		return grammarAccess.getRelativeMusicAccess().getReverseSolidusKeyword_0();
+	}
+
+    @Override
+	public AbstractToken createFollower(int index, IEObjectConsumer inst) {
+		switch(index) {
+			default: return lastRuleCallOrigin.createFollowerAfterReturn(this, index, index, inst);
+		}	
+	}
+
+}
+
+// "relative"
+protected class RelativeMusic_RelativeKeyword_1 extends KeywordToken  {
+	
+	public RelativeMusic_RelativeKeyword_1(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
+		super(lastRuleCallOrigin, next, transitionIndex, eObjectConsumer);
+	}
+	
+	@Override
+	public Keyword getGrammarElement() {
+		return grammarAccess.getRelativeMusicAccess().getRelativeKeyword_1();
+	}
+
+    @Override
+	public AbstractToken createFollower(int index, IEObjectConsumer inst) {
+		switch(index) {
+			case 0: return new RelativeMusic_ReverseSolidusKeyword_0(lastRuleCallOrigin, this, 0, inst);
+			default: return null;
+		}	
+	}
+
+}
+
+// pitch=Pitch?
+protected class RelativeMusic_PitchAssignment_2 extends AssignmentToken  {
+	
+	public RelativeMusic_PitchAssignment_2(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
+		super(lastRuleCallOrigin, next, transitionIndex, eObjectConsumer);
+	}
+	
+	@Override
+	public Assignment getGrammarElement() {
+		return grammarAccess.getRelativeMusicAccess().getPitchAssignment_2();
+	}
+
+    @Override
+	public AbstractToken createFollower(int index, IEObjectConsumer inst) {
+		switch(index) {
+			case 0: return new Pitch_Group(this, this, 0, inst);
+			default: return null;
+		}	
+	}
+
+    @Override	
+	public IEObjectConsumer tryConsume() {
+		if((value = eObjectConsumer.getConsumable("pitch",false)) == null) return null;
+		IEObjectConsumer obj = eObjectConsumer.cloneAndConsume("pitch");
+		if(value instanceof EObject) { // org::eclipse::xtext::impl::RuleCallImpl
+			IEObjectConsumer param = createEObjectConsumer((EObject)value);
+			if(param.isInstanceOf(grammarAccess.getPitchRule().getType().getClassifier())) {
+				type = AssignmentType.PARSER_RULE_CALL;
+				element = grammarAccess.getRelativeMusicAccess().getPitchPitchParserRuleCall_2_0(); 
+				consumed = obj;
+				return param;
+			}
+		}
+		return null;
+	}
+
+    @Override
+	public AbstractToken createFollowerAfterReturn(AbstractToken next,	int actIndex, int index, IEObjectConsumer inst) {
+		if(value == inst.getEObject() && !inst.isConsumed()) return null;
+		switch(index) {
+			case 0: return new RelativeMusic_RelativeKeyword_1(lastRuleCallOrigin, next, actIndex, consumed);
+			default: return null;
+		}	
+	}	
+}
+
+// music=Expression
+protected class RelativeMusic_MusicAssignment_3 extends AssignmentToken  {
+	
+	public RelativeMusic_MusicAssignment_3(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
+		super(lastRuleCallOrigin, next, transitionIndex, eObjectConsumer);
+	}
+	
+	@Override
+	public Assignment getGrammarElement() {
+		return grammarAccess.getRelativeMusicAccess().getMusicAssignment_3();
+	}
+
+    @Override
+	public AbstractToken createFollower(int index, IEObjectConsumer inst) {
+		switch(index) {
+			case 0: return new Expression_Alternatives(this, this, 0, inst);
+			default: return null;
+		}	
+	}
+
+    @Override	
+	public IEObjectConsumer tryConsume() {
+		if((value = eObjectConsumer.getConsumable("music",true)) == null) return null;
+		IEObjectConsumer obj = eObjectConsumer.cloneAndConsume("music");
+		if(value instanceof EObject) { // org::eclipse::xtext::impl::RuleCallImpl
+			IEObjectConsumer param = createEObjectConsumer((EObject)value);
+			if(param.isInstanceOf(grammarAccess.getExpressionRule().getType().getClassifier())) {
+				type = AssignmentType.PARSER_RULE_CALL;
+				element = grammarAccess.getRelativeMusicAccess().getMusicExpressionParserRuleCall_3_0(); 
+				consumed = obj;
+				return param;
+			}
+		}
+		return null;
+	}
+
+    @Override
+	public AbstractToken createFollowerAfterReturn(AbstractToken next,	int actIndex, int index, IEObjectConsumer inst) {
+		if(value == inst.getEObject() && !inst.isConsumed()) return null;
+		switch(index) {
+			case 0: return new RelativeMusic_PitchAssignment_2(lastRuleCallOrigin, next, actIndex, consumed);
+			case 1: return new RelativeMusic_RelativeKeyword_1(lastRuleCallOrigin, next, actIndex, consumed);
+			default: return null;
+		}	
+	}	
+}
+
+
+/************ end Rule RelativeMusic ****************/
+
+
+/************ begin Rule Pitch ****************
+ *
+ * Pitch:
+ * 	base=ID octaveCheck?="="? octaveShift=Octave? reminderAccidental?="!"? cautionaryAccidental?="?"?;
+ *
+ **/
+
+// base=ID octaveCheck?="="? octaveShift=Octave? reminderAccidental?="!"? cautionaryAccidental?="?"?
+protected class Pitch_Group extends GroupToken {
+	
+	public Pitch_Group(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
+		super(lastRuleCallOrigin, next, transitionIndex, eObjectConsumer);
+	}
+	
+	@Override
+	public Group getGrammarElement() {
+		return grammarAccess.getPitchAccess().getGroup();
+	}
+
+    @Override
+	public AbstractToken createFollower(int index, IEObjectConsumer inst) {
+		switch(index) {
+			case 0: return new Pitch_CautionaryAccidentalAssignment_4(lastRuleCallOrigin, this, 0, inst);
+			case 1: return new Pitch_ReminderAccidentalAssignment_3(lastRuleCallOrigin, this, 1, inst);
+			case 2: return new Pitch_OctaveShiftAssignment_2(lastRuleCallOrigin, this, 2, inst);
+			case 3: return new Pitch_OctaveCheckAssignment_1(lastRuleCallOrigin, this, 3, inst);
+			case 4: return new Pitch_BaseAssignment_0(lastRuleCallOrigin, this, 4, inst);
+			default: return null;
+		}	
+	}
+
+    @Override
+	public IEObjectConsumer tryConsume() {
+		if(getEObject().eClass() != grammarAccess.getPitchRule().getType().getClassifier())
+			return null;
+		return eObjectConsumer;
+	}
+
+}
+
+// base=ID
+protected class Pitch_BaseAssignment_0 extends AssignmentToken  {
+	
+	public Pitch_BaseAssignment_0(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
+		super(lastRuleCallOrigin, next, transitionIndex, eObjectConsumer);
+	}
+	
+	@Override
+	public Assignment getGrammarElement() {
+		return grammarAccess.getPitchAccess().getBaseAssignment_0();
+	}
+
+    @Override
+	public AbstractToken createFollower(int index, IEObjectConsumer inst) {
+		switch(index) {
+			default: return lastRuleCallOrigin.createFollowerAfterReturn(this, index, index, inst);
+		}	
+	}
+
+    @Override	
+	public IEObjectConsumer tryConsume() {
+		if((value = eObjectConsumer.getConsumable("base",true)) == null) return null;
+		IEObjectConsumer obj = eObjectConsumer.cloneAndConsume("base");
+		if(valueSerializer.isValid(obj.getEObject(), grammarAccess.getPitchAccess().getBaseIDTerminalRuleCall_0_0(), value, null)) {
+			type = AssignmentType.TERMINAL_RULE_CALL;
+			element = grammarAccess.getPitchAccess().getBaseIDTerminalRuleCall_0_0();
+			return obj;
+		}
+		return null;
+	}
+
+}
+
+// octaveCheck?="="?
+protected class Pitch_OctaveCheckAssignment_1 extends AssignmentToken  {
+	
+	public Pitch_OctaveCheckAssignment_1(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
+		super(lastRuleCallOrigin, next, transitionIndex, eObjectConsumer);
+	}
+	
+	@Override
+	public Assignment getGrammarElement() {
+		return grammarAccess.getPitchAccess().getOctaveCheckAssignment_1();
+	}
+
+    @Override
+	public AbstractToken createFollower(int index, IEObjectConsumer inst) {
+		switch(index) {
+			case 0: return new Pitch_BaseAssignment_0(lastRuleCallOrigin, this, 0, inst);
+			default: return null;
+		}	
+	}
+
+    @Override	
+	public IEObjectConsumer tryConsume() {
+		if((value = eObjectConsumer.getConsumable("octaveCheck",false)) == null) return null;
+		IEObjectConsumer obj = eObjectConsumer.cloneAndConsume("octaveCheck");
+		if(Boolean.TRUE.equals(value)) { // org::eclipse::xtext::impl::KeywordImpl
+			type = AssignmentType.KEYWORD;
+			element = grammarAccess.getPitchAccess().getOctaveCheckEqualsSignKeyword_1_0();
+			return obj;
+		}
+		return null;
+	}
+
+}
+
+// octaveShift=Octave?
+protected class Pitch_OctaveShiftAssignment_2 extends AssignmentToken  {
+	
+	public Pitch_OctaveShiftAssignment_2(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
+		super(lastRuleCallOrigin, next, transitionIndex, eObjectConsumer);
+	}
+	
+	@Override
+	public Assignment getGrammarElement() {
+		return grammarAccess.getPitchAccess().getOctaveShiftAssignment_2();
+	}
+
+    @Override
+	public AbstractToken createFollower(int index, IEObjectConsumer inst) {
+		switch(index) {
+			case 0: return new Octave_Alternatives(this, this, 0, inst);
+			default: return null;
+		}	
+	}
+
+    @Override	
+	public IEObjectConsumer tryConsume() {
+		if((value = eObjectConsumer.getConsumable("octaveShift",false)) == null) return null;
+		IEObjectConsumer obj = eObjectConsumer.cloneAndConsume("octaveShift");
+		if(value instanceof EObject) { // org::eclipse::xtext::impl::RuleCallImpl
+			IEObjectConsumer param = createEObjectConsumer((EObject)value);
+			if(param.isInstanceOf(grammarAccess.getOctaveRule().getType().getClassifier())) {
+				type = AssignmentType.PARSER_RULE_CALL;
+				element = grammarAccess.getPitchAccess().getOctaveShiftOctaveParserRuleCall_2_0(); 
+				consumed = obj;
+				return param;
+			}
+		}
+		return null;
+	}
+
+    @Override
+	public AbstractToken createFollowerAfterReturn(AbstractToken next,	int actIndex, int index, IEObjectConsumer inst) {
+		if(value == inst.getEObject() && !inst.isConsumed()) return null;
+		switch(index) {
+			case 0: return new Pitch_OctaveCheckAssignment_1(lastRuleCallOrigin, next, actIndex, consumed);
+			case 1: return new Pitch_BaseAssignment_0(lastRuleCallOrigin, next, actIndex, consumed);
+			default: return null;
+		}	
+	}	
+}
+
+// reminderAccidental?="!"?
+protected class Pitch_ReminderAccidentalAssignment_3 extends AssignmentToken  {
+	
+	public Pitch_ReminderAccidentalAssignment_3(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
+		super(lastRuleCallOrigin, next, transitionIndex, eObjectConsumer);
+	}
+	
+	@Override
+	public Assignment getGrammarElement() {
+		return grammarAccess.getPitchAccess().getReminderAccidentalAssignment_3();
+	}
+
+    @Override
+	public AbstractToken createFollower(int index, IEObjectConsumer inst) {
+		switch(index) {
+			case 0: return new Pitch_OctaveShiftAssignment_2(lastRuleCallOrigin, this, 0, inst);
+			case 1: return new Pitch_OctaveCheckAssignment_1(lastRuleCallOrigin, this, 1, inst);
+			case 2: return new Pitch_BaseAssignment_0(lastRuleCallOrigin, this, 2, inst);
+			default: return null;
+		}	
+	}
+
+    @Override	
+	public IEObjectConsumer tryConsume() {
+		if((value = eObjectConsumer.getConsumable("reminderAccidental",false)) == null) return null;
+		IEObjectConsumer obj = eObjectConsumer.cloneAndConsume("reminderAccidental");
+		if(Boolean.TRUE.equals(value)) { // org::eclipse::xtext::impl::KeywordImpl
+			type = AssignmentType.KEYWORD;
+			element = grammarAccess.getPitchAccess().getReminderAccidentalExclamationMarkKeyword_3_0();
+			return obj;
+		}
+		return null;
+	}
+
+}
+
+// cautionaryAccidental?="?"?
+protected class Pitch_CautionaryAccidentalAssignment_4 extends AssignmentToken  {
+	
+	public Pitch_CautionaryAccidentalAssignment_4(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
+		super(lastRuleCallOrigin, next, transitionIndex, eObjectConsumer);
+	}
+	
+	@Override
+	public Assignment getGrammarElement() {
+		return grammarAccess.getPitchAccess().getCautionaryAccidentalAssignment_4();
+	}
+
+    @Override
+	public AbstractToken createFollower(int index, IEObjectConsumer inst) {
+		switch(index) {
+			case 0: return new Pitch_ReminderAccidentalAssignment_3(lastRuleCallOrigin, this, 0, inst);
+			case 1: return new Pitch_OctaveShiftAssignment_2(lastRuleCallOrigin, this, 1, inst);
+			case 2: return new Pitch_OctaveCheckAssignment_1(lastRuleCallOrigin, this, 2, inst);
+			case 3: return new Pitch_BaseAssignment_0(lastRuleCallOrigin, this, 3, inst);
+			default: return null;
+		}	
+	}
+
+    @Override	
+	public IEObjectConsumer tryConsume() {
+		if((value = eObjectConsumer.getConsumable("cautionaryAccidental",false)) == null) return null;
+		IEObjectConsumer obj = eObjectConsumer.cloneAndConsume("cautionaryAccidental");
+		if(Boolean.TRUE.equals(value)) { // org::eclipse::xtext::impl::KeywordImpl
+			type = AssignmentType.KEYWORD;
+			element = grammarAccess.getPitchAccess().getCautionaryAccidentalQuestionMarkKeyword_4_0();
+			return obj;
+		}
+		return null;
+	}
+
+}
+
+
+/************ end Rule Pitch ****************/
+
+
+/************ begin Rule Octave ****************
+ *
+ * Octave:
+ * 	up+="\'"+ | down+=","+;
+ *
+ **/
+
+// up+="\'"+ | down+=","+
+protected class Octave_Alternatives extends AlternativesToken {
+
+	public Octave_Alternatives(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
+		super(lastRuleCallOrigin, next, transitionIndex, eObjectConsumer);
+	}
+	
+	@Override
+	public Alternatives getGrammarElement() {
+		return grammarAccess.getOctaveAccess().getAlternatives();
+	}
+
+    @Override
+	public AbstractToken createFollower(int index, IEObjectConsumer inst) {
+		switch(index) {
+			case 0: return new Octave_UpAssignment_0(lastRuleCallOrigin, this, 0, inst);
+			case 1: return new Octave_DownAssignment_1(lastRuleCallOrigin, this, 1, inst);
+			default: return null;
+		}	
+	}
+
+    @Override
+	public IEObjectConsumer tryConsume() {
+		if(getEObject().eClass() != grammarAccess.getOctaveRule().getType().getClassifier())
+			return null;
+		return eObjectConsumer;
+	}
+
+}
+
+// up+="\'"+
+protected class Octave_UpAssignment_0 extends AssignmentToken  {
+	
+	public Octave_UpAssignment_0(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
+		super(lastRuleCallOrigin, next, transitionIndex, eObjectConsumer);
+	}
+	
+	@Override
+	public Assignment getGrammarElement() {
+		return grammarAccess.getOctaveAccess().getUpAssignment_0();
+	}
+
+    @Override
+	public AbstractToken createFollower(int index, IEObjectConsumer inst) {
+		switch(index) {
+			case 0: return new Octave_UpAssignment_0(lastRuleCallOrigin, this, 0, inst);
+			default: return lastRuleCallOrigin.createFollowerAfterReturn(this, index, index - 1, inst);
+		}	
+	}
+
+    @Override	
+	public IEObjectConsumer tryConsume() {
+		if((value = eObjectConsumer.getConsumable("up",true)) == null) return null;
+		IEObjectConsumer obj = eObjectConsumer.cloneAndConsume("up");
+		if(keywordSerializer.isValid(obj.getEObject(), grammarAccess.getOctaveAccess().getUpApostropheKeyword_0_0(), value, null)) {
+			type = AssignmentType.KEYWORD;
+			element = grammarAccess.getOctaveAccess().getUpApostropheKeyword_0_0();
+			return obj;
+		}
+		return null;
+	}
+
+}
+
+// down+=","+
+protected class Octave_DownAssignment_1 extends AssignmentToken  {
+	
+	public Octave_DownAssignment_1(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
+		super(lastRuleCallOrigin, next, transitionIndex, eObjectConsumer);
+	}
+	
+	@Override
+	public Assignment getGrammarElement() {
+		return grammarAccess.getOctaveAccess().getDownAssignment_1();
+	}
+
+    @Override
+	public AbstractToken createFollower(int index, IEObjectConsumer inst) {
+		switch(index) {
+			case 0: return new Octave_DownAssignment_1(lastRuleCallOrigin, this, 0, inst);
+			default: return lastRuleCallOrigin.createFollowerAfterReturn(this, index, index - 1, inst);
+		}	
+	}
+
+    @Override	
+	public IEObjectConsumer tryConsume() {
+		if((value = eObjectConsumer.getConsumable("down",true)) == null) return null;
+		IEObjectConsumer obj = eObjectConsumer.cloneAndConsume("down");
+		if(keywordSerializer.isValid(obj.getEObject(), grammarAccess.getOctaveAccess().getDownCommaKeyword_1_0(), value, null)) {
+			type = AssignmentType.KEYWORD;
+			element = grammarAccess.getOctaveAccess().getDownCommaKeyword_1_0();
+			return obj;
+		}
+		return null;
+	}
+
+}
+
+
+/************ end Rule Octave ****************/
 
 
 /************ begin Rule Other ****************
@@ -4613,6 +5178,7 @@ protected class SchemeBlockElement_Alternatives extends AlternativesToken {
 		   getEObject().eClass() != grammarAccess.getOutputDefinitionRule().getType().getClassifier() && 
 		   getEObject().eClass() != grammarAccess.getPropertyAssignmentRule().getType().getClassifier() && 
 		   getEObject().eClass() != grammarAccess.getReferenceRule().getType().getClassifier() && 
+		   getEObject().eClass() != grammarAccess.getRelativeMusicRule().getType().getClassifier() && 
 		   getEObject().eClass() != grammarAccess.getSchemeRule().getType().getClassifier() && 
 		   getEObject().eClass() != grammarAccess.getSchemeReferenceRule().getType().getClassifier() && 
 		   getEObject().eClass() != grammarAccess.getSimpleBlockAccess().getSimpleBlockAction_0().getType().getClassifier() && 
@@ -4656,6 +5222,7 @@ protected class SchemeBlockElement_ExpressionParserRuleCall_0 extends RuleCallTo
 		   getEObject().eClass() != grammarAccess.getOutputDefinitionRule().getType().getClassifier() && 
 		   getEObject().eClass() != grammarAccess.getPropertyAssignmentRule().getType().getClassifier() && 
 		   getEObject().eClass() != grammarAccess.getReferenceRule().getType().getClassifier() && 
+		   getEObject().eClass() != grammarAccess.getRelativeMusicRule().getType().getClassifier() && 
 		   getEObject().eClass() != grammarAccess.getSchemeRule().getType().getClassifier() && 
 		   getEObject().eClass() != grammarAccess.getSimpleBlockAccess().getSimpleBlockAction_0().getType().getClassifier() && 
 		   getEObject().eClass() != grammarAccess.getSimultaneousBlockAccess().getSimultaneousBlockAction_0().getType().getClassifier() && 

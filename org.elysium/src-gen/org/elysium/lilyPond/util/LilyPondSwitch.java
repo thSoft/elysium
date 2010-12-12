@@ -22,10 +22,13 @@ import org.elysium.lilypond.LilypondPackage;
 import org.elysium.lilypond.Markup;
 import org.elysium.lilypond.MarkupBody;
 import org.elysium.lilypond.MarkupLines;
+import org.elysium.lilypond.Octave;
 import org.elysium.lilypond.Other;
 import org.elysium.lilypond.OutputDefinition;
+import org.elysium.lilypond.Pitch;
 import org.elysium.lilypond.PropertyAssignment;
 import org.elysium.lilypond.Reference;
+import org.elysium.lilypond.RelativeMusic;
 import org.elysium.lilypond.Scheme;
 import org.elysium.lilypond.SchemeBlock;
 import org.elysium.lilypond.SchemeBlockElement;
@@ -379,6 +382,33 @@ public class LilypondSwitch<T>
         if (result == null) result = caseToplevelExpression(outputDefinition);
         if (result == null) result = caseExpression(outputDefinition);
         if (result == null) result = caseSchemeBlockElement(outputDefinition);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case LilypondPackage.RELATIVE_MUSIC:
+      {
+        RelativeMusic relativeMusic = (RelativeMusic)theEObject;
+        T result = caseRelativeMusic(relativeMusic);
+        if (result == null) result = caseSpecialCommand(relativeMusic);
+        if (result == null) result = caseCommand(relativeMusic);
+        if (result == null) result = caseCommonExpression(relativeMusic);
+        if (result == null) result = caseToplevelExpression(relativeMusic);
+        if (result == null) result = caseExpression(relativeMusic);
+        if (result == null) result = caseSchemeBlockElement(relativeMusic);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case LilypondPackage.PITCH:
+      {
+        Pitch pitch = (Pitch)theEObject;
+        T result = casePitch(pitch);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case LilypondPackage.OCTAVE:
+      {
+        Octave octave = (Octave)theEObject;
+        T result = caseOctave(octave);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -876,6 +906,54 @@ public class LilypondSwitch<T>
    * @generated
    */
   public T caseOutputDefinition(OutputDefinition object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Relative Music</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Relative Music</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseRelativeMusic(RelativeMusic object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Pitch</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Pitch</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T casePitch(Pitch object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Octave</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Octave</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseOctave(Octave object)
   {
     return null;
   }

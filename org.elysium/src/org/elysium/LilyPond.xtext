@@ -39,7 +39,7 @@ Number: value=INT;
 
 // Commands
 
-SpecialCommand: Include | Version | Markup | MarkupLines | BlockCommand | OutputDefinition | Other;
+SpecialCommand: Include | Version | Markup | MarkupLines | BlockCommand | OutputDefinition | RelativeMusic | Other;
 
 Include: "\\" "include" importURI=STRING;
 
@@ -55,11 +55,17 @@ BlockCommand: "\\" ("book" | "bookpart" | "context" | "header" | "score") block=
 
 OutputDefinition: "\\" ("paper" | "midi" | "layout") block=UnparsedBlock;
 
+RelativeMusic: "\\" "relative" pitch=Pitch? music=Expression;
+
+Pitch: base=ID octaveCheck?="="? octaveShift=Octave? reminderAccidental?="!"? cautionaryAccidental?="?"?;
+
+Octave: up+="'"+ | down+=","+;
+
 Other: "\\" keyword=(SpecialCharacter | "(" | ")" | OtherName);
 
-OtherName: "accepts" | "addlyrics" | "alias" | "alternative" | "change" | "chordmode" | "chords" | "consists" | "default" | "defaultchild" | "denies" | "description" | "drummode" | "drums" | "figuremode" | "figures" | "grobdescriptions" | "key" | "lyricmode" | "lyrics" | "lyricsto" | "maininput" | "mark" | "name" | "new" | "notemode" | "objectid" | "octave" | "once" | "override" | "partial" | "relative" | "remove" | "repeat" | "rest" | "revert" | "sequential" | "set" | "simultaneous" | "skip" | "sourcefileline" | "sourcefilename" | "tempo" | "time" | "times" | "transpose" | "type" | "unset" | "with";
+OtherName: "accepts" | "addlyrics" | "alias" | "alternative" | "change" | "chordmode" | "chords" | "consists" | "default" | "defaultchild" | "denies" | "description" | "drummode" | "drums" | "figuremode" | "figures" | "grobdescriptions" | "key" | "lyricmode" | "lyrics" | "lyricsto" | "maininput" | "mark" | "name" | "new" | "notemode" | "objectid" | "octave" | "once" | "override" | "partial" | "remove" | "repeat" | "rest" | "revert" | "sequential" | "set" | "simultaneous" | "skip" | "sourcefileline" | "sourcefilename" | "tempo" | "time" | "times" | "transpose" | "type" | "unset" | "with";
 
-SpecialCommandName: "include" | "version" | "markup" | "markuplines" | "book" | "bookpart" | "context" | "header" | "score" | "paper" | "midi" | "layout" | OtherName;
+SpecialCommandName: "include" | "version" | "markup" | "markuplines" | "book" | "bookpart" | "context" | "header" | "score" | "paper" | "midi" | "layout" | "relative" | OtherName;
 
 // Scheme
 

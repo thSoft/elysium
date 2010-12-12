@@ -134,4 +134,8 @@ public class Grammar extends LilyPondTest {
 		assertValid("{ c-\\f-1 }");
 	}
 
+	public void testRelative() throws Exception {
+		assertValid("\\relative c' { c }");
+	}
+
 }
