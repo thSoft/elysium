@@ -73,7 +73,7 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="block" eType="#//UnparsedBlock"
         containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="RelativeMusic" eSuperTypes="#//SpecialCommand">
+  <eClassifiers xsi:type="ecore:EClass" name="Relative" eSuperTypes="#//SpecialCommand">
     <eStructuralFeatures xsi:type="ecore:EReference" name="pitch" eType="#//Pitch"
         containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="music" eType="#//Expression"

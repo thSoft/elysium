@@ -31,7 +31,7 @@ import org.elysium.lilypond.OutputDefinition;
 import org.elysium.lilypond.Pitch;
 import org.elysium.lilypond.PropertyAssignment;
 import org.elysium.lilypond.Reference;
-import org.elysium.lilypond.RelativeMusic;
+import org.elysium.lilypond.Relative;
 import org.elysium.lilypond.Scheme;
 import org.elysium.lilypond.SchemeBlock;
 import org.elysium.lilypond.SchemeBlockElement;
@@ -235,7 +235,7 @@ public class LilypondPackageImpl extends EPackageImpl implements LilypondPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  private EClass relativeMusicEClass = null;
+  private EClass relativeEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -840,9 +840,9 @@ public class LilypondPackageImpl extends EPackageImpl implements LilypondPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EClass getRelativeMusic()
+  public EClass getRelative()
   {
-    return relativeMusicEClass;
+    return relativeEClass;
   }
 
   /**
@@ -850,9 +850,9 @@ public class LilypondPackageImpl extends EPackageImpl implements LilypondPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getRelativeMusic_Pitch()
+  public EReference getRelative_Pitch()
   {
-    return (EReference)relativeMusicEClass.getEStructuralFeatures().get(0);
+    return (EReference)relativeEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -860,9 +860,9 @@ public class LilypondPackageImpl extends EPackageImpl implements LilypondPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getRelativeMusic_Music()
+  public EReference getRelative_Music()
   {
-    return (EReference)relativeMusicEClass.getEStructuralFeatures().get(1);
+    return (EReference)relativeEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -1342,9 +1342,9 @@ public class LilypondPackageImpl extends EPackageImpl implements LilypondPackage
     outputDefinitionEClass = createEClass(OUTPUT_DEFINITION);
     createEReference(outputDefinitionEClass, OUTPUT_DEFINITION__BLOCK);
 
-    relativeMusicEClass = createEClass(RELATIVE_MUSIC);
-    createEReference(relativeMusicEClass, RELATIVE_MUSIC__PITCH);
-    createEReference(relativeMusicEClass, RELATIVE_MUSIC__MUSIC);
+    relativeEClass = createEClass(RELATIVE);
+    createEReference(relativeEClass, RELATIVE__PITCH);
+    createEReference(relativeEClass, RELATIVE__MUSIC);
 
     pitchEClass = createEClass(PITCH);
     createEAttribute(pitchEClass, PITCH__BASE);
@@ -1452,7 +1452,7 @@ public class LilypondPackageImpl extends EPackageImpl implements LilypondPackage
     markupLinesEClass.getESuperTypes().add(this.getSpecialCommand());
     blockCommandEClass.getESuperTypes().add(this.getSpecialCommand());
     outputDefinitionEClass.getESuperTypes().add(this.getSpecialCommand());
-    relativeMusicEClass.getESuperTypes().add(this.getSpecialCommand());
+    relativeEClass.getESuperTypes().add(this.getSpecialCommand());
     otherEClass.getESuperTypes().add(this.getSpecialCommand());
     schemeEClass.getESuperTypes().add(this.getCommonExpression());
     schemeEClass.getESuperTypes().add(this.getUnparsedExpression());
@@ -1533,9 +1533,9 @@ public class LilypondPackageImpl extends EPackageImpl implements LilypondPackage
     initEClass(outputDefinitionEClass, OutputDefinition.class, "OutputDefinition", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getOutputDefinition_Block(), this.getUnparsedBlock(), null, "block", null, 0, 1, OutputDefinition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-    initEClass(relativeMusicEClass, RelativeMusic.class, "RelativeMusic", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getRelativeMusic_Pitch(), this.getPitch(), null, "pitch", null, 0, 1, RelativeMusic.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getRelativeMusic_Music(), this.getExpression(), null, "music", null, 0, 1, RelativeMusic.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEClass(relativeEClass, Relative.class, "Relative", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getRelative_Pitch(), this.getPitch(), null, "pitch", null, 0, 1, Relative.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getRelative_Music(), this.getExpression(), null, "music", null, 0, 1, Relative.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(pitchEClass, Pitch.class, "Pitch", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getPitch_Base(), ecorePackage.getEString(), "base", null, 0, 1, Pitch.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

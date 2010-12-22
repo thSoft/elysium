@@ -39,7 +39,9 @@ Number: value=INT;
 
 // Commands
 
-SpecialCommand: Include | Version | Markup | MarkupLines | BlockCommand | OutputDefinition | RelativeMusic | Other;
+// Rule names should be the command name
+
+SpecialCommand: Include | Version | Markup | MarkupLines | BlockCommand | OutputDefinition | Relative | Other;
 
 Include: "\\" "include" importURI=STRING;
 
@@ -55,7 +57,7 @@ BlockCommand: "\\" ("book" | "bookpart" | "context" | "header" | "score") block=
 
 OutputDefinition: "\\" ("paper" | "midi" | "layout") block=UnparsedBlock;
 
-RelativeMusic: "\\" "relative" pitch=Pitch? music=Expression;
+Relative: "\\" "relative" pitch=Pitch? music=Expression;
 
 Pitch: base=ID octaveCheck?="="? octaveShift=Octave? reminderAccidental?="!"? cautionaryAccidental?="?"?;
 

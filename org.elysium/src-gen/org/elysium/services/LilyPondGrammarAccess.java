@@ -517,15 +517,15 @@ public class LilyPondGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cMarkupLinesParserRuleCall_3 = (RuleCall)cAlternatives.eContents().get(3);
 		private final RuleCall cBlockCommandParserRuleCall_4 = (RuleCall)cAlternatives.eContents().get(4);
 		private final RuleCall cOutputDefinitionParserRuleCall_5 = (RuleCall)cAlternatives.eContents().get(5);
-		private final RuleCall cRelativeMusicParserRuleCall_6 = (RuleCall)cAlternatives.eContents().get(6);
+		private final RuleCall cRelativeParserRuleCall_6 = (RuleCall)cAlternatives.eContents().get(6);
 		private final RuleCall cOtherParserRuleCall_7 = (RuleCall)cAlternatives.eContents().get(7);
 		
 		//// Commands
 		//SpecialCommand:
-		//	Include | Version | Markup | MarkupLines | BlockCommand | OutputDefinition | RelativeMusic | Other;
+		//	Include | Version | Markup | MarkupLines | BlockCommand | OutputDefinition | Relative | Other;
 		public ParserRule getRule() { return rule; }
 
-		//Include | Version | Markup | MarkupLines | BlockCommand | OutputDefinition | RelativeMusic | Other
+		//Include | Version | Markup | MarkupLines | BlockCommand | OutputDefinition | Relative | Other
 		public Alternatives getAlternatives() { return cAlternatives; }
 
 		//Include
@@ -546,8 +546,8 @@ public class LilyPondGrammarAccess extends AbstractGrammarElementFinder {
 		//OutputDefinition
 		public RuleCall getOutputDefinitionParserRuleCall_5() { return cOutputDefinitionParserRuleCall_5; }
 
-		//RelativeMusic
-		public RuleCall getRelativeMusicParserRuleCall_6() { return cRelativeMusicParserRuleCall_6; }
+		//Relative
+		public RuleCall getRelativeParserRuleCall_6() { return cRelativeParserRuleCall_6; }
 
 		//Other
 		public RuleCall getOtherParserRuleCall_7() { return cOtherParserRuleCall_7; }
@@ -793,8 +793,8 @@ public class LilyPondGrammarAccess extends AbstractGrammarElementFinder {
 		public RuleCall getBlockUnparsedBlockParserRuleCall_2_0() { return cBlockUnparsedBlockParserRuleCall_2_0; }
 	}
 
-	public class RelativeMusicElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "RelativeMusic");
+	public class RelativeElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "Relative");
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Keyword cReverseSolidusKeyword_0 = (Keyword)cGroup.eContents().get(0);
 		private final Keyword cRelativeKeyword_1 = (Keyword)cGroup.eContents().get(1);
@@ -803,7 +803,7 @@ public class LilyPondGrammarAccess extends AbstractGrammarElementFinder {
 		private final Assignment cMusicAssignment_3 = (Assignment)cGroup.eContents().get(3);
 		private final RuleCall cMusicExpressionParserRuleCall_3_0 = (RuleCall)cMusicAssignment_3.eContents().get(0);
 		
-		//RelativeMusic:
+		//Relative:
 		//	"\\" "relative" pitch=Pitch? music=Expression;
 		public ParserRule getRule() { return rule; }
 
@@ -1764,7 +1764,7 @@ public class LilyPondGrammarAccess extends AbstractGrammarElementFinder {
 	private MarkupBodyElements pMarkupBody;
 	private BlockCommandElements pBlockCommand;
 	private OutputDefinitionElements pOutputDefinition;
-	private RelativeMusicElements pRelativeMusic;
+	private RelativeElements pRelative;
 	private PitchElements pPitch;
 	private OctaveElements pOctave;
 	private OtherElements pOther;
@@ -1982,7 +1982,7 @@ public class LilyPondGrammarAccess extends AbstractGrammarElementFinder {
 
 	//// Commands
 	//SpecialCommand:
-	//	Include | Version | Markup | MarkupLines | BlockCommand | OutputDefinition | RelativeMusic | Other;
+	//	Include | Version | Markup | MarkupLines | BlockCommand | OutputDefinition | Relative | Other;
 	public SpecialCommandElements getSpecialCommandAccess() {
 		return (pSpecialCommand != null) ? pSpecialCommand : (pSpecialCommand = new SpecialCommandElements());
 	}
@@ -2061,14 +2061,14 @@ public class LilyPondGrammarAccess extends AbstractGrammarElementFinder {
 		return getOutputDefinitionAccess().getRule();
 	}
 
-	//RelativeMusic:
+	//Relative:
 	//	"\\" "relative" pitch=Pitch? music=Expression;
-	public RelativeMusicElements getRelativeMusicAccess() {
-		return (pRelativeMusic != null) ? pRelativeMusic : (pRelativeMusic = new RelativeMusicElements());
+	public RelativeElements getRelativeAccess() {
+		return (pRelative != null) ? pRelative : (pRelative = new RelativeElements());
 	}
 	
-	public ParserRule getRelativeMusicRule() {
-		return getRelativeMusicAccess().getRule();
+	public ParserRule getRelativeRule() {
+		return getRelativeAccess().getRule();
 	}
 
 	//Pitch:

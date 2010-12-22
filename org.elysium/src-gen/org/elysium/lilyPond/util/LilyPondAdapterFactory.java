@@ -30,7 +30,7 @@ import org.elysium.lilypond.OutputDefinition;
 import org.elysium.lilypond.Pitch;
 import org.elysium.lilypond.PropertyAssignment;
 import org.elysium.lilypond.Reference;
-import org.elysium.lilypond.RelativeMusic;
+import org.elysium.lilypond.Relative;
 import org.elysium.lilypond.Scheme;
 import org.elysium.lilypond.SchemeBlock;
 import org.elysium.lilypond.SchemeBlockElement;
@@ -237,9 +237,9 @@ public class LilypondAdapterFactory extends AdapterFactoryImpl
         return createOutputDefinitionAdapter();
       }
       @Override
-      public Adapter caseRelativeMusic(RelativeMusic object)
+      public Adapter caseRelative(Relative object)
       {
-        return createRelativeMusicAdapter();
+        return createRelativeAdapter();
       }
       @Override
       public Adapter casePitch(Pitch object)
@@ -699,16 +699,16 @@ public class LilypondAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link org.elysium.lilypond.RelativeMusic <em>Relative Music</em>}'.
+   * Creates a new adapter for an object of class '{@link org.elysium.lilypond.Relative <em>Relative</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see org.elysium.lilypond.RelativeMusic
+   * @see org.elysium.lilypond.Relative
    * @generated
    */
-  public Adapter createRelativeMusicAdapter()
+  public Adapter createRelativeAdapter()
   {
     return null;
   }

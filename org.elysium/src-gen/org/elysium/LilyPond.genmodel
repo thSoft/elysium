@@ -67,9 +67,9 @@
     <genClasses ecoreClass="LilyPond.ecore#//OutputDefinition">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference LilyPond.ecore#//OutputDefinition/block"/>
     </genClasses>
-    <genClasses ecoreClass="LilyPond.ecore#//RelativeMusic">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference LilyPond.ecore#//RelativeMusic/pitch"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference LilyPond.ecore#//RelativeMusic/music"/>
+    <genClasses ecoreClass="LilyPond.ecore#//Relative">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference LilyPond.ecore#//Relative/pitch"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference LilyPond.ecore#//Relative/music"/>
     </genClasses>
     <genClasses ecoreClass="LilyPond.ecore#//Pitch">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute LilyPond.ecore#//Pitch/base"/>

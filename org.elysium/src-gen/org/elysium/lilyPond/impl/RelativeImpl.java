@@ -16,23 +16,23 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.elysium.lilypond.Expression;
 import org.elysium.lilypond.LilypondPackage;
 import org.elysium.lilypond.Pitch;
-import org.elysium.lilypond.RelativeMusic;
+import org.elysium.lilypond.Relative;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Relative Music</b></em>'.
+ * An implementation of the model object '<em><b>Relative</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link org.elysium.lilypond.impl.RelativeMusicImpl#getPitch <em>Pitch</em>}</li>
- *   <li>{@link org.elysium.lilypond.impl.RelativeMusicImpl#getMusic <em>Music</em>}</li>
+ *   <li>{@link org.elysium.lilypond.impl.RelativeImpl#getPitch <em>Pitch</em>}</li>
+ *   <li>{@link org.elysium.lilypond.impl.RelativeImpl#getMusic <em>Music</em>}</li>
  * </ul>
  * </p>
  *
  * @generated
  */
-public class RelativeMusicImpl extends SpecialCommandImpl implements RelativeMusic
+public class RelativeImpl extends SpecialCommandImpl implements Relative
 {
   /**
    * The cached value of the '{@link #getPitch() <em>Pitch</em>}' containment reference.
@@ -59,7 +59,7 @@ public class RelativeMusicImpl extends SpecialCommandImpl implements RelativeMus
    * <!-- end-user-doc -->
    * @generated
    */
-  protected RelativeMusicImpl()
+  protected RelativeImpl()
   {
     super();
   }
@@ -72,7 +72,7 @@ public class RelativeMusicImpl extends SpecialCommandImpl implements RelativeMus
   @Override
   protected EClass eStaticClass()
   {
-    return LilypondPackage.Literals.RELATIVE_MUSIC;
+    return LilypondPackage.Literals.RELATIVE;
   }
 
   /**
@@ -96,7 +96,7 @@ public class RelativeMusicImpl extends SpecialCommandImpl implements RelativeMus
     pitch = newPitch;
     if (eNotificationRequired())
     {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, LilypondPackage.RELATIVE_MUSIC__PITCH, oldPitch, newPitch);
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, LilypondPackage.RELATIVE__PITCH, oldPitch, newPitch);
       if (msgs == null) msgs = notification; else msgs.add(notification);
     }
     return msgs;
@@ -113,14 +113,14 @@ public class RelativeMusicImpl extends SpecialCommandImpl implements RelativeMus
     {
       NotificationChain msgs = null;
       if (pitch != null)
-        msgs = ((InternalEObject)pitch).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - LilypondPackage.RELATIVE_MUSIC__PITCH, null, msgs);
+        msgs = ((InternalEObject)pitch).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - LilypondPackage.RELATIVE__PITCH, null, msgs);
       if (newPitch != null)
-        msgs = ((InternalEObject)newPitch).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - LilypondPackage.RELATIVE_MUSIC__PITCH, null, msgs);
+        msgs = ((InternalEObject)newPitch).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - LilypondPackage.RELATIVE__PITCH, null, msgs);
       msgs = basicSetPitch(newPitch, msgs);
       if (msgs != null) msgs.dispatch();
     }
     else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, LilypondPackage.RELATIVE_MUSIC__PITCH, newPitch, newPitch));
+      eNotify(new ENotificationImpl(this, Notification.SET, LilypondPackage.RELATIVE__PITCH, newPitch, newPitch));
   }
 
   /**
@@ -144,7 +144,7 @@ public class RelativeMusicImpl extends SpecialCommandImpl implements RelativeMus
     music = newMusic;
     if (eNotificationRequired())
     {
-      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, LilypondPackage.RELATIVE_MUSIC__MUSIC, oldMusic, newMusic);
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, LilypondPackage.RELATIVE__MUSIC, oldMusic, newMusic);
       if (msgs == null) msgs = notification; else msgs.add(notification);
     }
     return msgs;
@@ -161,14 +161,14 @@ public class RelativeMusicImpl extends SpecialCommandImpl implements RelativeMus
     {
       NotificationChain msgs = null;
       if (music != null)
-        msgs = ((InternalEObject)music).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - LilypondPackage.RELATIVE_MUSIC__MUSIC, null, msgs);
+        msgs = ((InternalEObject)music).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - LilypondPackage.RELATIVE__MUSIC, null, msgs);
       if (newMusic != null)
-        msgs = ((InternalEObject)newMusic).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - LilypondPackage.RELATIVE_MUSIC__MUSIC, null, msgs);
+        msgs = ((InternalEObject)newMusic).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - LilypondPackage.RELATIVE__MUSIC, null, msgs);
       msgs = basicSetMusic(newMusic, msgs);
       if (msgs != null) msgs.dispatch();
     }
     else if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, LilypondPackage.RELATIVE_MUSIC__MUSIC, newMusic, newMusic));
+      eNotify(new ENotificationImpl(this, Notification.SET, LilypondPackage.RELATIVE__MUSIC, newMusic, newMusic));
   }
 
   /**
@@ -181,9 +181,9 @@ public class RelativeMusicImpl extends SpecialCommandImpl implements RelativeMus
   {
     switch (featureID)
     {
-      case LilypondPackage.RELATIVE_MUSIC__PITCH:
+      case LilypondPackage.RELATIVE__PITCH:
         return basicSetPitch(null, msgs);
-      case LilypondPackage.RELATIVE_MUSIC__MUSIC:
+      case LilypondPackage.RELATIVE__MUSIC:
         return basicSetMusic(null, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
@@ -199,9 +199,9 @@ public class RelativeMusicImpl extends SpecialCommandImpl implements RelativeMus
   {
     switch (featureID)
     {
-      case LilypondPackage.RELATIVE_MUSIC__PITCH:
+      case LilypondPackage.RELATIVE__PITCH:
         return getPitch();
-      case LilypondPackage.RELATIVE_MUSIC__MUSIC:
+      case LilypondPackage.RELATIVE__MUSIC:
         return getMusic();
     }
     return super.eGet(featureID, resolve, coreType);
@@ -217,10 +217,10 @@ public class RelativeMusicImpl extends SpecialCommandImpl implements RelativeMus
   {
     switch (featureID)
     {
-      case LilypondPackage.RELATIVE_MUSIC__PITCH:
+      case LilypondPackage.RELATIVE__PITCH:
         setPitch((Pitch)newValue);
         return;
-      case LilypondPackage.RELATIVE_MUSIC__MUSIC:
+      case LilypondPackage.RELATIVE__MUSIC:
         setMusic((Expression)newValue);
         return;
     }
@@ -237,10 +237,10 @@ public class RelativeMusicImpl extends SpecialCommandImpl implements RelativeMus
   {
     switch (featureID)
     {
-      case LilypondPackage.RELATIVE_MUSIC__PITCH:
+      case LilypondPackage.RELATIVE__PITCH:
         setPitch((Pitch)null);
         return;
-      case LilypondPackage.RELATIVE_MUSIC__MUSIC:
+      case LilypondPackage.RELATIVE__MUSIC:
         setMusic((Expression)null);
         return;
     }
@@ -257,12 +257,12 @@ public class RelativeMusicImpl extends SpecialCommandImpl implements RelativeMus
   {
     switch (featureID)
     {
-      case LilypondPackage.RELATIVE_MUSIC__PITCH:
+      case LilypondPackage.RELATIVE__PITCH:
         return pitch != null;
-      case LilypondPackage.RELATIVE_MUSIC__MUSIC:
+      case LilypondPackage.RELATIVE__MUSIC:
         return music != null;
     }
     return super.eIsSet(featureID);
   }
 
-} //RelativeMusicImpl
+} //RelativeImpl

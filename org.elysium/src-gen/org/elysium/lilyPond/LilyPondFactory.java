@@ -242,13 +242,13 @@ public interface LilypondFactory extends EFactory
   OutputDefinition createOutputDefinition();
 
   /**
-   * Returns a new object of class '<em>Relative Music</em>'.
+   * Returns a new object of class '<em>Relative</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>Relative Music</em>'.
+   * @return a new object of class '<em>Relative</em>'.
    * @generated
    */
-  RelativeMusic createRelativeMusic();
+  Relative createRelative();
 
   /**
    * Returns a new object of class '<em>Pitch</em>'.

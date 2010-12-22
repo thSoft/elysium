@@ -1382,11 +1382,11 @@ ruleSpecialCommand returns [EObject current=null]
 	  /* */ 
 	}
     { 
-        currentNode=createCompositeNode(grammarAccess.getSpecialCommandAccess().getRelativeMusicParserRuleCall_6(), currentNode); 
+        currentNode=createCompositeNode(grammarAccess.getSpecialCommandAccess().getRelativeParserRuleCall_6(), currentNode); 
     }
-    this_RelativeMusic_6=ruleRelativeMusic
+    this_Relative_6=ruleRelative
     {
-        $current = $this_RelativeMusic_6.current;
+        $current = $this_Relative_6.current;
         currentNode = currentNode.getParent();
     }
 
@@ -1896,17 +1896,17 @@ ruleOutputDefinition returns [EObject current=null]
 
 
 
-// Entry rule entryRuleRelativeMusic
-entryRuleRelativeMusic returns [EObject current=null]
+// Entry rule entryRuleRelative
+entryRuleRelative returns [EObject current=null]
 	:
-	{ currentNode = createCompositeNode(grammarAccess.getRelativeMusicRule(), currentNode); }
-	 iv_ruleRelativeMusic=ruleRelativeMusic 
-	 { $current=$iv_ruleRelativeMusic.current; } 
+	{ currentNode = createCompositeNode(grammarAccess.getRelativeRule(), currentNode); }
+	 iv_ruleRelative=ruleRelative 
+	 { $current=$iv_ruleRelative.current; } 
 	 EOF 
 ;
 
-// Rule RelativeMusic
-ruleRelativeMusic returns [EObject current=null] 
+// Rule Relative
+ruleRelative returns [EObject current=null] 
     @init { EObject temp=null; setCurrentLookahead(); resetLookahead(); 
     }
     @after { resetLookahead(); 
@@ -1915,21 +1915,21 @@ ruleRelativeMusic returns [EObject current=null]
 (
 	KEYWORD_16 
     {
-        createLeafNode(grammarAccess.getRelativeMusicAccess().getReverseSolidusKeyword_0(), null); 
+        createLeafNode(grammarAccess.getRelativeAccess().getReverseSolidusKeyword_0(), null); 
     }
 
 	KEYWORD_75 
     {
-        createLeafNode(grammarAccess.getRelativeMusicAccess().getRelativeKeyword_1(), null); 
+        createLeafNode(grammarAccess.getRelativeAccess().getRelativeKeyword_1(), null); 
     }
 (
 (
 		{ 
-	        currentNode=createCompositeNode(grammarAccess.getRelativeMusicAccess().getPitchPitchParserRuleCall_2_0(), currentNode); 
+	        currentNode=createCompositeNode(grammarAccess.getRelativeAccess().getPitchPitchParserRuleCall_2_0(), currentNode); 
 	    }
 		lv_pitch_2_0=rulePitch		{
 	        if ($current==null) {
-	            $current = factory.create(grammarAccess.getRelativeMusicRule().getType().getClassifier());
+	            $current = factory.create(grammarAccess.getRelativeRule().getType().getClassifier());
 	            associateNodeWithAstElement(currentNode.getParent(), $current);
 	        }
 	        try {
@@ -1949,11 +1949,11 @@ ruleRelativeMusic returns [EObject current=null]
 )?(
 (
 		{ 
-	        currentNode=createCompositeNode(grammarAccess.getRelativeMusicAccess().getMusicExpressionParserRuleCall_3_0(), currentNode); 
+	        currentNode=createCompositeNode(grammarAccess.getRelativeAccess().getMusicExpressionParserRuleCall_3_0(), currentNode); 
 	    }
 		lv_music_3_0=ruleExpression		{
 	        if ($current==null) {
-	            $current = factory.create(grammarAccess.getRelativeMusicRule().getType().getClassifier());
+	            $current = factory.create(grammarAccess.getRelativeRule().getType().getClassifier());
 	            associateNodeWithAstElement(currentNode.getParent(), $current);
 	        }
 	        try {

@@ -724,14 +724,14 @@ public interface LilypondPackage extends EPackage
   int OUTPUT_DEFINITION_FEATURE_COUNT = SPECIAL_COMMAND_FEATURE_COUNT + 1;
 
   /**
-   * The meta object id for the '{@link org.elysium.lilypond.impl.RelativeMusicImpl <em>Relative Music</em>}' class.
+   * The meta object id for the '{@link org.elysium.lilypond.impl.RelativeImpl <em>Relative</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see org.elysium.lilypond.impl.RelativeMusicImpl
-   * @see org.elysium.lilypond.impl.LilypondPackageImpl#getRelativeMusic()
+   * @see org.elysium.lilypond.impl.RelativeImpl
+   * @see org.elysium.lilypond.impl.LilypondPackageImpl#getRelative()
    * @generated
    */
-  int RELATIVE_MUSIC = 24;
+  int RELATIVE = 24;
 
   /**
    * The feature id for the '<em><b>Pitch</b></em>' containment reference.
@@ -740,7 +740,7 @@ public interface LilypondPackage extends EPackage
    * @generated
    * @ordered
    */
-  int RELATIVE_MUSIC__PITCH = SPECIAL_COMMAND_FEATURE_COUNT + 0;
+  int RELATIVE__PITCH = SPECIAL_COMMAND_FEATURE_COUNT + 0;
 
   /**
    * The feature id for the '<em><b>Music</b></em>' containment reference.
@@ -749,16 +749,16 @@ public interface LilypondPackage extends EPackage
    * @generated
    * @ordered
    */
-  int RELATIVE_MUSIC__MUSIC = SPECIAL_COMMAND_FEATURE_COUNT + 1;
+  int RELATIVE__MUSIC = SPECIAL_COMMAND_FEATURE_COUNT + 1;
 
   /**
-   * The number of structural features of the '<em>Relative Music</em>' class.
+   * The number of structural features of the '<em>Relative</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int RELATIVE_MUSIC_FEATURE_COUNT = SPECIAL_COMMAND_FEATURE_COUNT + 2;
+  int RELATIVE_FEATURE_COUNT = SPECIAL_COMMAND_FEATURE_COUNT + 2;
 
   /**
    * The meta object id for the '{@link org.elysium.lilypond.impl.PitchImpl <em>Pitch</em>}' class.
@@ -1684,36 +1684,36 @@ public interface LilypondPackage extends EPackage
   EReference getOutputDefinition_Block();
 
   /**
-   * Returns the meta object for class '{@link org.elysium.lilypond.RelativeMusic <em>Relative Music</em>}'.
+   * Returns the meta object for class '{@link org.elysium.lilypond.Relative <em>Relative</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Relative Music</em>'.
-   * @see org.elysium.lilypond.RelativeMusic
+   * @return the meta object for class '<em>Relative</em>'.
+   * @see org.elysium.lilypond.Relative
    * @generated
    */
-  EClass getRelativeMusic();
+  EClass getRelative();
 
   /**
-   * Returns the meta object for the containment reference '{@link org.elysium.lilypond.RelativeMusic#getPitch <em>Pitch</em>}'.
+   * Returns the meta object for the containment reference '{@link org.elysium.lilypond.Relative#getPitch <em>Pitch</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the meta object for the containment reference '<em>Pitch</em>'.
-   * @see org.elysium.lilypond.RelativeMusic#getPitch()
-   * @see #getRelativeMusic()
+   * @see org.elysium.lilypond.Relative#getPitch()
+   * @see #getRelative()
    * @generated
    */
-  EReference getRelativeMusic_Pitch();
+  EReference getRelative_Pitch();
 
   /**
-   * Returns the meta object for the containment reference '{@link org.elysium.lilypond.RelativeMusic#getMusic <em>Music</em>}'.
+   * Returns the meta object for the containment reference '{@link org.elysium.lilypond.Relative#getMusic <em>Music</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the meta object for the containment reference '<em>Music</em>'.
-   * @see org.elysium.lilypond.RelativeMusic#getMusic()
-   * @see #getRelativeMusic()
+   * @see org.elysium.lilypond.Relative#getMusic()
+   * @see #getRelative()
    * @generated
    */
-  EReference getRelativeMusic_Music();
+  EReference getRelative_Music();
 
   /**
    * Returns the meta object for class '{@link org.elysium.lilypond.Pitch <em>Pitch</em>}'.
@@ -2534,14 +2534,14 @@ public interface LilypondPackage extends EPackage
     EReference OUTPUT_DEFINITION__BLOCK = eINSTANCE.getOutputDefinition_Block();
 
     /**
-     * The meta object literal for the '{@link org.elysium.lilypond.impl.RelativeMusicImpl <em>Relative Music</em>}' class.
+     * The meta object literal for the '{@link org.elysium.lilypond.impl.RelativeImpl <em>Relative</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @see org.elysium.lilypond.impl.RelativeMusicImpl
-     * @see org.elysium.lilypond.impl.LilypondPackageImpl#getRelativeMusic()
+     * @see org.elysium.lilypond.impl.RelativeImpl
+     * @see org.elysium.lilypond.impl.LilypondPackageImpl#getRelative()
      * @generated
      */
-    EClass RELATIVE_MUSIC = eINSTANCE.getRelativeMusic();
+    EClass RELATIVE = eINSTANCE.getRelative();
 
     /**
      * The meta object literal for the '<em><b>Pitch</b></em>' containment reference feature.
@@ -2549,7 +2549,7 @@ public interface LilypondPackage extends EPackage
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference RELATIVE_MUSIC__PITCH = eINSTANCE.getRelativeMusic_Pitch();
+    EReference RELATIVE__PITCH = eINSTANCE.getRelative_Pitch();
 
     /**
      * The meta object literal for the '<em><b>Music</b></em>' containment reference feature.
@@ -2557,7 +2557,7 @@ public interface LilypondPackage extends EPackage
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference RELATIVE_MUSIC__MUSIC = eINSTANCE.getRelativeMusic_Music();
+    EReference RELATIVE__MUSIC = eINSTANCE.getRelative_Music();
 
     /**
      * The meta object literal for the '{@link org.elysium.lilypond.impl.PitchImpl <em>Pitch</em>}' class.

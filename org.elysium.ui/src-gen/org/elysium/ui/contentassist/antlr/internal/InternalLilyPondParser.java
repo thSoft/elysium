@@ -2351,24 +2351,24 @@ public class InternalLilyPondParser extends AbstractInternalContentAssistParser 
     // $ANTLR end ruleOutputDefinition
 
 
-    // $ANTLR start entryRuleRelativeMusic
-    // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:855:1: entryRuleRelativeMusic : ruleRelativeMusic EOF ;
-    public final void entryRuleRelativeMusic() throws RecognitionException {
+    // $ANTLR start entryRuleRelative
+    // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:855:1: entryRuleRelative : ruleRelative EOF ;
+    public final void entryRuleRelative() throws RecognitionException {
         try {
-            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:856:1: ( ruleRelativeMusic EOF )
-            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:857:1: ruleRelativeMusic EOF
+            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:856:1: ( ruleRelative EOF )
+            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:857:1: ruleRelative EOF
             {
             if ( backtracking==0 ) {
-               before(grammarAccess.getRelativeMusicRule()); 
+               before(grammarAccess.getRelativeRule()); 
             }
-            pushFollow(FOLLOW_ruleRelativeMusic_in_entryRuleRelativeMusic1661);
-            ruleRelativeMusic();
+            pushFollow(FOLLOW_ruleRelative_in_entryRuleRelative1661);
+            ruleRelative();
             _fsp--;
             if (failed) return ;
             if ( backtracking==0 ) {
-               after(grammarAccess.getRelativeMusicRule()); 
+               after(grammarAccess.getRelativeRule()); 
             }
-            match(input,EOF,FOLLOW_EOF_in_entryRuleRelativeMusic1668); if (failed) return ;
+            match(input,EOF,FOLLOW_EOF_in_entryRuleRelative1668); if (failed) return ;
 
             }
 
@@ -2381,37 +2381,37 @@ public class InternalLilyPondParser extends AbstractInternalContentAssistParser 
         }
         return ;
     }
-    // $ANTLR end entryRuleRelativeMusic
+    // $ANTLR end entryRuleRelative
 
 
-    // $ANTLR start ruleRelativeMusic
-    // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:864:1: ruleRelativeMusic : ( ( rule__RelativeMusic__Group__0 ) ) ;
-    public final void ruleRelativeMusic() throws RecognitionException {
+    // $ANTLR start ruleRelative
+    // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:864:1: ruleRelative : ( ( rule__Relative__Group__0 ) ) ;
+    public final void ruleRelative() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:868:5: ( ( ( rule__RelativeMusic__Group__0 ) ) )
-            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:869:1: ( ( rule__RelativeMusic__Group__0 ) )
+            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:868:5: ( ( ( rule__Relative__Group__0 ) ) )
+            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:869:1: ( ( rule__Relative__Group__0 ) )
             {
-            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:869:1: ( ( rule__RelativeMusic__Group__0 ) )
-            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:870:1: ( rule__RelativeMusic__Group__0 )
+            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:869:1: ( ( rule__Relative__Group__0 ) )
+            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:870:1: ( rule__Relative__Group__0 )
             {
             if ( backtracking==0 ) {
-               before(grammarAccess.getRelativeMusicAccess().getGroup()); 
+               before(grammarAccess.getRelativeAccess().getGroup()); 
             }
-            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:871:1: ( rule__RelativeMusic__Group__0 )
-            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:871:2: rule__RelativeMusic__Group__0
+            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:871:1: ( rule__Relative__Group__0 )
+            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:871:2: rule__Relative__Group__0
             {
-            pushFollow(FOLLOW_rule__RelativeMusic__Group__0_in_ruleRelativeMusic1698);
-            rule__RelativeMusic__Group__0();
+            pushFollow(FOLLOW_rule__Relative__Group__0_in_ruleRelative1698);
+            rule__Relative__Group__0();
             _fsp--;
             if (failed) return ;
 
             }
 
             if ( backtracking==0 ) {
-               after(grammarAccess.getRelativeMusicAccess().getGroup()); 
+               after(grammarAccess.getRelativeAccess().getGroup()); 
             }
 
             }
@@ -2431,7 +2431,7 @@ public class InternalLilyPondParser extends AbstractInternalContentAssistParser 
         }
         return ;
     }
-    // $ANTLR end ruleRelativeMusic
+    // $ANTLR end ruleRelative
 
 
     // $ANTLR start entryRulePitch
@@ -6123,13 +6123,13 @@ public class InternalLilyPondParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start rule__SpecialCommand__Alternatives
-    // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:1895:1: rule__SpecialCommand__Alternatives : ( ( ruleInclude ) | ( ruleVersion ) | ( ruleMarkup ) | ( ruleMarkupLines ) | ( ruleBlockCommand ) | ( ruleOutputDefinition ) | ( ruleRelativeMusic ) | ( ruleOther ) );
+    // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:1895:1: rule__SpecialCommand__Alternatives : ( ( ruleInclude ) | ( ruleVersion ) | ( ruleMarkup ) | ( ruleMarkupLines ) | ( ruleBlockCommand ) | ( ruleOutputDefinition ) | ( ruleRelative ) | ( ruleOther ) );
     public final void rule__SpecialCommand__Alternatives() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:1899:1: ( ( ruleInclude ) | ( ruleVersion ) | ( ruleMarkup ) | ( ruleMarkupLines ) | ( ruleBlockCommand ) | ( ruleOutputDefinition ) | ( ruleRelativeMusic ) | ( ruleOther ) )
+            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:1899:1: ( ( ruleInclude ) | ( ruleVersion ) | ( ruleMarkup ) | ( ruleMarkupLines ) | ( ruleBlockCommand ) | ( ruleOutputDefinition ) | ( ruleRelative ) | ( ruleOther ) )
             int alt13=8;
             int LA13_0 = input.LA(1);
 
@@ -6240,7 +6240,7 @@ public class InternalLilyPondParser extends AbstractInternalContentAssistParser 
                 default:
                     if (backtracking>0) {failed=true; return ;}
                     NoViableAltException nvae =
-                        new NoViableAltException("1895:1: rule__SpecialCommand__Alternatives : ( ( ruleInclude ) | ( ruleVersion ) | ( ruleMarkup ) | ( ruleMarkupLines ) | ( ruleBlockCommand ) | ( ruleOutputDefinition ) | ( ruleRelativeMusic ) | ( ruleOther ) );", 13, 1, input);
+                        new NoViableAltException("1895:1: rule__SpecialCommand__Alternatives : ( ( ruleInclude ) | ( ruleVersion ) | ( ruleMarkup ) | ( ruleMarkupLines ) | ( ruleBlockCommand ) | ( ruleOutputDefinition ) | ( ruleRelative ) | ( ruleOther ) );", 13, 1, input);
 
                     throw nvae;
                 }
@@ -6249,7 +6249,7 @@ public class InternalLilyPondParser extends AbstractInternalContentAssistParser 
             else {
                 if (backtracking>0) {failed=true; return ;}
                 NoViableAltException nvae =
-                    new NoViableAltException("1895:1: rule__SpecialCommand__Alternatives : ( ( ruleInclude ) | ( ruleVersion ) | ( ruleMarkup ) | ( ruleMarkupLines ) | ( ruleBlockCommand ) | ( ruleOutputDefinition ) | ( ruleRelativeMusic ) | ( ruleOther ) );", 13, 0, input);
+                    new NoViableAltException("1895:1: rule__SpecialCommand__Alternatives : ( ( ruleInclude ) | ( ruleVersion ) | ( ruleMarkup ) | ( ruleMarkupLines ) | ( ruleBlockCommand ) | ( ruleOutputDefinition ) | ( ruleRelative ) | ( ruleOther ) );", 13, 0, input);
 
                 throw nvae;
             }
@@ -6387,20 +6387,20 @@ public class InternalLilyPondParser extends AbstractInternalContentAssistParser 
                     }
                     break;
                 case 7 :
-                    // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:1936:6: ( ruleRelativeMusic )
+                    // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:1936:6: ( ruleRelative )
                     {
-                    // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:1936:6: ( ruleRelativeMusic )
-                    // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:1937:1: ruleRelativeMusic
+                    // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:1936:6: ( ruleRelative )
+                    // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:1937:1: ruleRelative
                     {
                     if ( backtracking==0 ) {
-                       before(grammarAccess.getSpecialCommandAccess().getRelativeMusicParserRuleCall_6()); 
+                       before(grammarAccess.getSpecialCommandAccess().getRelativeParserRuleCall_6()); 
                     }
-                    pushFollow(FOLLOW_ruleRelativeMusic_in_rule__SpecialCommand__Alternatives4119);
-                    ruleRelativeMusic();
+                    pushFollow(FOLLOW_ruleRelative_in_rule__SpecialCommand__Alternatives4119);
+                    ruleRelative();
                     _fsp--;
                     if (failed) return ;
                     if ( backtracking==0 ) {
-                       after(grammarAccess.getSpecialCommandAccess().getRelativeMusicParserRuleCall_6()); 
+                       after(grammarAccess.getSpecialCommandAccess().getRelativeParserRuleCall_6()); 
                     }
 
                     }
@@ -15311,22 +15311,22 @@ public class InternalLilyPondParser extends AbstractInternalContentAssistParser 
     // $ANTLR end rule__OutputDefinition__Group__2__Impl
 
 
-    // $ANTLR start rule__RelativeMusic__Group__0
-    // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:4264:1: rule__RelativeMusic__Group__0 : rule__RelativeMusic__Group__0__Impl rule__RelativeMusic__Group__1 ;
-    public final void rule__RelativeMusic__Group__0() throws RecognitionException {
+    // $ANTLR start rule__Relative__Group__0
+    // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:4264:1: rule__Relative__Group__0 : rule__Relative__Group__0__Impl rule__Relative__Group__1 ;
+    public final void rule__Relative__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:4268:1: ( rule__RelativeMusic__Group__0__Impl rule__RelativeMusic__Group__1 )
-            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:4269:2: rule__RelativeMusic__Group__0__Impl rule__RelativeMusic__Group__1
+            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:4268:1: ( rule__Relative__Group__0__Impl rule__Relative__Group__1 )
+            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:4269:2: rule__Relative__Group__0__Impl rule__Relative__Group__1
             {
-            pushFollow(FOLLOW_rule__RelativeMusic__Group__0__Impl_in_rule__RelativeMusic__Group__09121);
-            rule__RelativeMusic__Group__0__Impl();
+            pushFollow(FOLLOW_rule__Relative__Group__0__Impl_in_rule__Relative__Group__09121);
+            rule__Relative__Group__0__Impl();
             _fsp--;
             if (failed) return ;
-            pushFollow(FOLLOW_rule__RelativeMusic__Group__1_in_rule__RelativeMusic__Group__09124);
-            rule__RelativeMusic__Group__1();
+            pushFollow(FOLLOW_rule__Relative__Group__1_in_rule__Relative__Group__09124);
+            rule__Relative__Group__1();
             _fsp--;
             if (failed) return ;
 
@@ -15344,12 +15344,12 @@ public class InternalLilyPondParser extends AbstractInternalContentAssistParser 
         }
         return ;
     }
-    // $ANTLR end rule__RelativeMusic__Group__0
+    // $ANTLR end rule__Relative__Group__0
 
 
-    // $ANTLR start rule__RelativeMusic__Group__0__Impl
-    // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:4276:1: rule__RelativeMusic__Group__0__Impl : ( KEYWORD_16 ) ;
-    public final void rule__RelativeMusic__Group__0__Impl() throws RecognitionException {
+    // $ANTLR start rule__Relative__Group__0__Impl
+    // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:4276:1: rule__Relative__Group__0__Impl : ( KEYWORD_16 ) ;
+    public final void rule__Relative__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
@@ -15361,11 +15361,11 @@ public class InternalLilyPondParser extends AbstractInternalContentAssistParser 
             // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:4282:1: KEYWORD_16
             {
             if ( backtracking==0 ) {
-               before(grammarAccess.getRelativeMusicAccess().getReverseSolidusKeyword_0()); 
+               before(grammarAccess.getRelativeAccess().getReverseSolidusKeyword_0()); 
             }
-            match(input,KEYWORD_16,FOLLOW_KEYWORD_16_in_rule__RelativeMusic__Group__0__Impl9152); if (failed) return ;
+            match(input,KEYWORD_16,FOLLOW_KEYWORD_16_in_rule__Relative__Group__0__Impl9152); if (failed) return ;
             if ( backtracking==0 ) {
-               after(grammarAccess.getRelativeMusicAccess().getReverseSolidusKeyword_0()); 
+               after(grammarAccess.getRelativeAccess().getReverseSolidusKeyword_0()); 
             }
 
             }
@@ -15385,25 +15385,25 @@ public class InternalLilyPondParser extends AbstractInternalContentAssistParser 
         }
         return ;
     }
-    // $ANTLR end rule__RelativeMusic__Group__0__Impl
+    // $ANTLR end rule__Relative__Group__0__Impl
 
 
-    // $ANTLR start rule__RelativeMusic__Group__1
-    // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:4295:1: rule__RelativeMusic__Group__1 : rule__RelativeMusic__Group__1__Impl rule__RelativeMusic__Group__2 ;
-    public final void rule__RelativeMusic__Group__1() throws RecognitionException {
+    // $ANTLR start rule__Relative__Group__1
+    // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:4295:1: rule__Relative__Group__1 : rule__Relative__Group__1__Impl rule__Relative__Group__2 ;
+    public final void rule__Relative__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:4299:1: ( rule__RelativeMusic__Group__1__Impl rule__RelativeMusic__Group__2 )
-            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:4300:2: rule__RelativeMusic__Group__1__Impl rule__RelativeMusic__Group__2
+            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:4299:1: ( rule__Relative__Group__1__Impl rule__Relative__Group__2 )
+            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:4300:2: rule__Relative__Group__1__Impl rule__Relative__Group__2
             {
-            pushFollow(FOLLOW_rule__RelativeMusic__Group__1__Impl_in_rule__RelativeMusic__Group__19183);
-            rule__RelativeMusic__Group__1__Impl();
+            pushFollow(FOLLOW_rule__Relative__Group__1__Impl_in_rule__Relative__Group__19183);
+            rule__Relative__Group__1__Impl();
             _fsp--;
             if (failed) return ;
-            pushFollow(FOLLOW_rule__RelativeMusic__Group__2_in_rule__RelativeMusic__Group__19186);
-            rule__RelativeMusic__Group__2();
+            pushFollow(FOLLOW_rule__Relative__Group__2_in_rule__Relative__Group__19186);
+            rule__Relative__Group__2();
             _fsp--;
             if (failed) return ;
 
@@ -15421,12 +15421,12 @@ public class InternalLilyPondParser extends AbstractInternalContentAssistParser 
         }
         return ;
     }
-    // $ANTLR end rule__RelativeMusic__Group__1
+    // $ANTLR end rule__Relative__Group__1
 
 
-    // $ANTLR start rule__RelativeMusic__Group__1__Impl
-    // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:4307:1: rule__RelativeMusic__Group__1__Impl : ( KEYWORD_75 ) ;
-    public final void rule__RelativeMusic__Group__1__Impl() throws RecognitionException {
+    // $ANTLR start rule__Relative__Group__1__Impl
+    // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:4307:1: rule__Relative__Group__1__Impl : ( KEYWORD_75 ) ;
+    public final void rule__Relative__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
@@ -15438,11 +15438,11 @@ public class InternalLilyPondParser extends AbstractInternalContentAssistParser 
             // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:4313:1: KEYWORD_75
             {
             if ( backtracking==0 ) {
-               before(grammarAccess.getRelativeMusicAccess().getRelativeKeyword_1()); 
+               before(grammarAccess.getRelativeAccess().getRelativeKeyword_1()); 
             }
-            match(input,KEYWORD_75,FOLLOW_KEYWORD_75_in_rule__RelativeMusic__Group__1__Impl9214); if (failed) return ;
+            match(input,KEYWORD_75,FOLLOW_KEYWORD_75_in_rule__Relative__Group__1__Impl9214); if (failed) return ;
             if ( backtracking==0 ) {
-               after(grammarAccess.getRelativeMusicAccess().getRelativeKeyword_1()); 
+               after(grammarAccess.getRelativeAccess().getRelativeKeyword_1()); 
             }
 
             }
@@ -15462,25 +15462,25 @@ public class InternalLilyPondParser extends AbstractInternalContentAssistParser 
         }
         return ;
     }
-    // $ANTLR end rule__RelativeMusic__Group__1__Impl
+    // $ANTLR end rule__Relative__Group__1__Impl
 
 
-    // $ANTLR start rule__RelativeMusic__Group__2
-    // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:4326:1: rule__RelativeMusic__Group__2 : rule__RelativeMusic__Group__2__Impl rule__RelativeMusic__Group__3 ;
-    public final void rule__RelativeMusic__Group__2() throws RecognitionException {
+    // $ANTLR start rule__Relative__Group__2
+    // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:4326:1: rule__Relative__Group__2 : rule__Relative__Group__2__Impl rule__Relative__Group__3 ;
+    public final void rule__Relative__Group__2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:4330:1: ( rule__RelativeMusic__Group__2__Impl rule__RelativeMusic__Group__3 )
-            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:4331:2: rule__RelativeMusic__Group__2__Impl rule__RelativeMusic__Group__3
+            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:4330:1: ( rule__Relative__Group__2__Impl rule__Relative__Group__3 )
+            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:4331:2: rule__Relative__Group__2__Impl rule__Relative__Group__3
             {
-            pushFollow(FOLLOW_rule__RelativeMusic__Group__2__Impl_in_rule__RelativeMusic__Group__29245);
-            rule__RelativeMusic__Group__2__Impl();
+            pushFollow(FOLLOW_rule__Relative__Group__2__Impl_in_rule__Relative__Group__29245);
+            rule__Relative__Group__2__Impl();
             _fsp--;
             if (failed) return ;
-            pushFollow(FOLLOW_rule__RelativeMusic__Group__3_in_rule__RelativeMusic__Group__29248);
-            rule__RelativeMusic__Group__3();
+            pushFollow(FOLLOW_rule__Relative__Group__3_in_rule__Relative__Group__29248);
+            rule__Relative__Group__3();
             _fsp--;
             if (failed) return ;
 
@@ -15498,26 +15498,26 @@ public class InternalLilyPondParser extends AbstractInternalContentAssistParser 
         }
         return ;
     }
-    // $ANTLR end rule__RelativeMusic__Group__2
+    // $ANTLR end rule__Relative__Group__2
 
 
-    // $ANTLR start rule__RelativeMusic__Group__2__Impl
-    // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:4338:1: rule__RelativeMusic__Group__2__Impl : ( ( rule__RelativeMusic__PitchAssignment_2 )? ) ;
-    public final void rule__RelativeMusic__Group__2__Impl() throws RecognitionException {
+    // $ANTLR start rule__Relative__Group__2__Impl
+    // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:4338:1: rule__Relative__Group__2__Impl : ( ( rule__Relative__PitchAssignment_2 )? ) ;
+    public final void rule__Relative__Group__2__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:4342:1: ( ( ( rule__RelativeMusic__PitchAssignment_2 )? ) )
-            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:4343:1: ( ( rule__RelativeMusic__PitchAssignment_2 )? )
+            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:4342:1: ( ( ( rule__Relative__PitchAssignment_2 )? ) )
+            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:4343:1: ( ( rule__Relative__PitchAssignment_2 )? )
             {
-            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:4343:1: ( ( rule__RelativeMusic__PitchAssignment_2 )? )
-            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:4344:1: ( rule__RelativeMusic__PitchAssignment_2 )?
+            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:4343:1: ( ( rule__Relative__PitchAssignment_2 )? )
+            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:4344:1: ( rule__Relative__PitchAssignment_2 )?
             {
             if ( backtracking==0 ) {
-               before(grammarAccess.getRelativeMusicAccess().getPitchAssignment_2()); 
+               before(grammarAccess.getRelativeAccess().getPitchAssignment_2()); 
             }
-            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:4345:1: ( rule__RelativeMusic__PitchAssignment_2 )?
+            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:4345:1: ( rule__Relative__PitchAssignment_2 )?
             int alt38=2;
             int LA38_0 = input.LA(1);
 
@@ -15530,10 +15530,10 @@ public class InternalLilyPondParser extends AbstractInternalContentAssistParser 
             }
             switch (alt38) {
                 case 1 :
-                    // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:4345:2: rule__RelativeMusic__PitchAssignment_2
+                    // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:4345:2: rule__Relative__PitchAssignment_2
                     {
-                    pushFollow(FOLLOW_rule__RelativeMusic__PitchAssignment_2_in_rule__RelativeMusic__Group__2__Impl9275);
-                    rule__RelativeMusic__PitchAssignment_2();
+                    pushFollow(FOLLOW_rule__Relative__PitchAssignment_2_in_rule__Relative__Group__2__Impl9275);
+                    rule__Relative__PitchAssignment_2();
                     _fsp--;
                     if (failed) return ;
 
@@ -15543,7 +15543,7 @@ public class InternalLilyPondParser extends AbstractInternalContentAssistParser 
             }
 
             if ( backtracking==0 ) {
-               after(grammarAccess.getRelativeMusicAccess().getPitchAssignment_2()); 
+               after(grammarAccess.getRelativeAccess().getPitchAssignment_2()); 
             }
 
             }
@@ -15563,21 +15563,21 @@ public class InternalLilyPondParser extends AbstractInternalContentAssistParser 
         }
         return ;
     }
-    // $ANTLR end rule__RelativeMusic__Group__2__Impl
+    // $ANTLR end rule__Relative__Group__2__Impl
 
 
-    // $ANTLR start rule__RelativeMusic__Group__3
-    // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:4355:1: rule__RelativeMusic__Group__3 : rule__RelativeMusic__Group__3__Impl ;
-    public final void rule__RelativeMusic__Group__3() throws RecognitionException {
+    // $ANTLR start rule__Relative__Group__3
+    // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:4355:1: rule__Relative__Group__3 : rule__Relative__Group__3__Impl ;
+    public final void rule__Relative__Group__3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:4359:1: ( rule__RelativeMusic__Group__3__Impl )
-            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:4360:2: rule__RelativeMusic__Group__3__Impl
+            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:4359:1: ( rule__Relative__Group__3__Impl )
+            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:4360:2: rule__Relative__Group__3__Impl
             {
-            pushFollow(FOLLOW_rule__RelativeMusic__Group__3__Impl_in_rule__RelativeMusic__Group__39306);
-            rule__RelativeMusic__Group__3__Impl();
+            pushFollow(FOLLOW_rule__Relative__Group__3__Impl_in_rule__Relative__Group__39306);
+            rule__Relative__Group__3__Impl();
             _fsp--;
             if (failed) return ;
 
@@ -15595,37 +15595,37 @@ public class InternalLilyPondParser extends AbstractInternalContentAssistParser 
         }
         return ;
     }
-    // $ANTLR end rule__RelativeMusic__Group__3
+    // $ANTLR end rule__Relative__Group__3
 
 
-    // $ANTLR start rule__RelativeMusic__Group__3__Impl
-    // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:4366:1: rule__RelativeMusic__Group__3__Impl : ( ( rule__RelativeMusic__MusicAssignment_3 ) ) ;
-    public final void rule__RelativeMusic__Group__3__Impl() throws RecognitionException {
+    // $ANTLR start rule__Relative__Group__3__Impl
+    // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:4366:1: rule__Relative__Group__3__Impl : ( ( rule__Relative__MusicAssignment_3 ) ) ;
+    public final void rule__Relative__Group__3__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:4370:1: ( ( ( rule__RelativeMusic__MusicAssignment_3 ) ) )
-            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:4371:1: ( ( rule__RelativeMusic__MusicAssignment_3 ) )
+            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:4370:1: ( ( ( rule__Relative__MusicAssignment_3 ) ) )
+            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:4371:1: ( ( rule__Relative__MusicAssignment_3 ) )
             {
-            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:4371:1: ( ( rule__RelativeMusic__MusicAssignment_3 ) )
-            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:4372:1: ( rule__RelativeMusic__MusicAssignment_3 )
+            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:4371:1: ( ( rule__Relative__MusicAssignment_3 ) )
+            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:4372:1: ( rule__Relative__MusicAssignment_3 )
             {
             if ( backtracking==0 ) {
-               before(grammarAccess.getRelativeMusicAccess().getMusicAssignment_3()); 
+               before(grammarAccess.getRelativeAccess().getMusicAssignment_3()); 
             }
-            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:4373:1: ( rule__RelativeMusic__MusicAssignment_3 )
-            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:4373:2: rule__RelativeMusic__MusicAssignment_3
+            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:4373:1: ( rule__Relative__MusicAssignment_3 )
+            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:4373:2: rule__Relative__MusicAssignment_3
             {
-            pushFollow(FOLLOW_rule__RelativeMusic__MusicAssignment_3_in_rule__RelativeMusic__Group__3__Impl9333);
-            rule__RelativeMusic__MusicAssignment_3();
+            pushFollow(FOLLOW_rule__Relative__MusicAssignment_3_in_rule__Relative__Group__3__Impl9333);
+            rule__Relative__MusicAssignment_3();
             _fsp--;
             if (failed) return ;
 
             }
 
             if ( backtracking==0 ) {
-               after(grammarAccess.getRelativeMusicAccess().getMusicAssignment_3()); 
+               after(grammarAccess.getRelativeAccess().getMusicAssignment_3()); 
             }
 
             }
@@ -15645,7 +15645,7 @@ public class InternalLilyPondParser extends AbstractInternalContentAssistParser 
         }
         return ;
     }
-    // $ANTLR end rule__RelativeMusic__Group__3__Impl
+    // $ANTLR end rule__Relative__Group__3__Impl
 
 
     // $ANTLR start rule__Pitch__Group__0
@@ -21447,9 +21447,9 @@ public class InternalLilyPondParser extends AbstractInternalContentAssistParser 
     // $ANTLR end rule__OutputDefinition__BlockAssignment_2
 
 
-    // $ANTLR start rule__RelativeMusic__PitchAssignment_2
-    // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:5927:1: rule__RelativeMusic__PitchAssignment_2 : ( rulePitch ) ;
-    public final void rule__RelativeMusic__PitchAssignment_2() throws RecognitionException {
+    // $ANTLR start rule__Relative__PitchAssignment_2
+    // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:5927:1: rule__Relative__PitchAssignment_2 : ( rulePitch ) ;
+    public final void rule__Relative__PitchAssignment_2() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
@@ -21461,14 +21461,14 @@ public class InternalLilyPondParser extends AbstractInternalContentAssistParser 
             // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:5933:1: rulePitch
             {
             if ( backtracking==0 ) {
-               before(grammarAccess.getRelativeMusicAccess().getPitchPitchParserRuleCall_2_0()); 
+               before(grammarAccess.getRelativeAccess().getPitchPitchParserRuleCall_2_0()); 
             }
-            pushFollow(FOLLOW_rulePitch_in_rule__RelativeMusic__PitchAssignment_212430);
+            pushFollow(FOLLOW_rulePitch_in_rule__Relative__PitchAssignment_212430);
             rulePitch();
             _fsp--;
             if (failed) return ;
             if ( backtracking==0 ) {
-               after(grammarAccess.getRelativeMusicAccess().getPitchPitchParserRuleCall_2_0()); 
+               after(grammarAccess.getRelativeAccess().getPitchPitchParserRuleCall_2_0()); 
             }
 
             }
@@ -21488,12 +21488,12 @@ public class InternalLilyPondParser extends AbstractInternalContentAssistParser 
         }
         return ;
     }
-    // $ANTLR end rule__RelativeMusic__PitchAssignment_2
+    // $ANTLR end rule__Relative__PitchAssignment_2
 
 
-    // $ANTLR start rule__RelativeMusic__MusicAssignment_3
-    // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:5942:1: rule__RelativeMusic__MusicAssignment_3 : ( ruleExpression ) ;
-    public final void rule__RelativeMusic__MusicAssignment_3() throws RecognitionException {
+    // $ANTLR start rule__Relative__MusicAssignment_3
+    // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:5942:1: rule__Relative__MusicAssignment_3 : ( ruleExpression ) ;
+    public final void rule__Relative__MusicAssignment_3() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
@@ -21505,14 +21505,14 @@ public class InternalLilyPondParser extends AbstractInternalContentAssistParser 
             // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:5948:1: ruleExpression
             {
             if ( backtracking==0 ) {
-               before(grammarAccess.getRelativeMusicAccess().getMusicExpressionParserRuleCall_3_0()); 
+               before(grammarAccess.getRelativeAccess().getMusicExpressionParserRuleCall_3_0()); 
             }
-            pushFollow(FOLLOW_ruleExpression_in_rule__RelativeMusic__MusicAssignment_312461);
+            pushFollow(FOLLOW_ruleExpression_in_rule__Relative__MusicAssignment_312461);
             ruleExpression();
             _fsp--;
             if (failed) return ;
             if ( backtracking==0 ) {
-               after(grammarAccess.getRelativeMusicAccess().getMusicExpressionParserRuleCall_3_0()); 
+               after(grammarAccess.getRelativeAccess().getMusicExpressionParserRuleCall_3_0()); 
             }
 
             }
@@ -21532,7 +21532,7 @@ public class InternalLilyPondParser extends AbstractInternalContentAssistParser 
         }
         return ;
     }
-    // $ANTLR end rule__RelativeMusic__MusicAssignment_3
+    // $ANTLR end rule__Relative__MusicAssignment_3
 
 
     // $ANTLR start rule__Pitch__BaseAssignment_0
@@ -22938,11 +22938,11 @@ public class InternalLilyPondParser extends AbstractInternalContentAssistParser 
 
     // $ANTLR start synpred137
     public final void synpred137_fragment() throws RecognitionException {   
-        // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:4345:2: ( rule__RelativeMusic__PitchAssignment_2 )
-        // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:4345:2: rule__RelativeMusic__PitchAssignment_2
+        // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:4345:2: ( rule__Relative__PitchAssignment_2 )
+        // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:4345:2: rule__Relative__PitchAssignment_2
         {
-        pushFollow(FOLLOW_rule__RelativeMusic__PitchAssignment_2_in_synpred1379275);
-        rule__RelativeMusic__PitchAssignment_2();
+        pushFollow(FOLLOW_rule__Relative__PitchAssignment_2_in_synpred1379275);
+        rule__Relative__PitchAssignment_2();
         _fsp--;
         if (failed) return ;
 
@@ -23393,9 +23393,9 @@ public class InternalLilyPondParser extends AbstractInternalContentAssistParser 
     public static final BitSet FOLLOW_ruleOutputDefinition_in_entryRuleOutputDefinition1597 = new BitSet(new long[]{0x0000000000000000L});
     public static final BitSet FOLLOW_EOF_in_entryRuleOutputDefinition1604 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_rule__OutputDefinition__Group__0_in_ruleOutputDefinition1634 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleRelativeMusic_in_entryRuleRelativeMusic1661 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleRelativeMusic1668 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__RelativeMusic__Group__0_in_ruleRelativeMusic1698 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleRelative_in_entryRuleRelative1661 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleRelative1668 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__Relative__Group__0_in_ruleRelative1698 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_rulePitch_in_entryRulePitch1725 = new BitSet(new long[]{0x0000000000000000L});
     public static final BitSet FOLLOW_EOF_in_entryRulePitch1732 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_rule__Pitch__Group__0_in_rulePitch1762 = new BitSet(new long[]{0x0000000000000002L});
@@ -23505,7 +23505,7 @@ public class InternalLilyPondParser extends AbstractInternalContentAssistParser 
     public static final BitSet FOLLOW_ruleMarkupLines_in_rule__SpecialCommand__Alternatives4068 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_ruleBlockCommand_in_rule__SpecialCommand__Alternatives4085 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_ruleOutputDefinition_in_rule__SpecialCommand__Alternatives4102 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleRelativeMusic_in_rule__SpecialCommand__Alternatives4119 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleRelative_in_rule__SpecialCommand__Alternatives4119 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_ruleOther_in_rule__SpecialCommand__Alternatives4136 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_ruleScheme_in_rule__MarkupBody__CommandAlternatives_1_04168 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_ruleUnparsedCommand_in_rule__MarkupBody__CommandAlternatives_1_04185 = new BitSet(new long[]{0x0000000000000002L});
@@ -23726,17 +23726,17 @@ public class InternalLilyPondParser extends AbstractInternalContentAssistParser 
     public static final BitSet FOLLOW_rule__OutputDefinition__Alternatives_1_in_rule__OutputDefinition__Group__1__Impl9028 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_rule__OutputDefinition__Group__2__Impl_in_rule__OutputDefinition__Group__29058 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_rule__OutputDefinition__BlockAssignment_2_in_rule__OutputDefinition__Group__2__Impl9085 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__RelativeMusic__Group__0__Impl_in_rule__RelativeMusic__Group__09121 = new BitSet(new long[]{0x0000000004000000L});
-    public static final BitSet FOLLOW_rule__RelativeMusic__Group__1_in_rule__RelativeMusic__Group__09124 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_KEYWORD_16_in_rule__RelativeMusic__Group__0__Impl9152 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__RelativeMusic__Group__1__Impl_in_rule__RelativeMusic__Group__19183 = new BitSet(new long[]{0xFFFFFFFFFFFFFFF0L,0x00000041EBBFF741L});
-    public static final BitSet FOLLOW_rule__RelativeMusic__Group__2_in_rule__RelativeMusic__Group__19186 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_KEYWORD_75_in_rule__RelativeMusic__Group__1__Impl9214 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__RelativeMusic__Group__2__Impl_in_rule__RelativeMusic__Group__29245 = new BitSet(new long[]{0xFFFFFFFFFFFFFFF0L,0x00000041EBBFF741L});
-    public static final BitSet FOLLOW_rule__RelativeMusic__Group__3_in_rule__RelativeMusic__Group__29248 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__RelativeMusic__PitchAssignment_2_in_rule__RelativeMusic__Group__2__Impl9275 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__RelativeMusic__Group__3__Impl_in_rule__RelativeMusic__Group__39306 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__RelativeMusic__MusicAssignment_3_in_rule__RelativeMusic__Group__3__Impl9333 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__Relative__Group__0__Impl_in_rule__Relative__Group__09121 = new BitSet(new long[]{0x0000000004000000L});
+    public static final BitSet FOLLOW_rule__Relative__Group__1_in_rule__Relative__Group__09124 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_KEYWORD_16_in_rule__Relative__Group__0__Impl9152 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__Relative__Group__1__Impl_in_rule__Relative__Group__19183 = new BitSet(new long[]{0xFFFFFFFFFFFFFFF0L,0x00000041EBBFF741L});
+    public static final BitSet FOLLOW_rule__Relative__Group__2_in_rule__Relative__Group__19186 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_KEYWORD_75_in_rule__Relative__Group__1__Impl9214 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__Relative__Group__2__Impl_in_rule__Relative__Group__29245 = new BitSet(new long[]{0xFFFFFFFFFFFFFFF0L,0x00000041EBBFF741L});
+    public static final BitSet FOLLOW_rule__Relative__Group__3_in_rule__Relative__Group__29248 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__Relative__PitchAssignment_2_in_rule__Relative__Group__2__Impl9275 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__Relative__Group__3__Impl_in_rule__Relative__Group__39306 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__Relative__MusicAssignment_3_in_rule__Relative__Group__3__Impl9333 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_rule__Pitch__Group__0__Impl_in_rule__Pitch__Group__09371 = new BitSet(new long[]{0x0000000000000002L,0x0000000000511200L});
     public static final BitSet FOLLOW_rule__Pitch__Group__1_in_rule__Pitch__Group__09374 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_rule__Pitch__BaseAssignment_0_in_rule__Pitch__Group__0__Impl9401 = new BitSet(new long[]{0x0000000000000002L});
@@ -23858,8 +23858,8 @@ public class InternalLilyPondParser extends AbstractInternalContentAssistParser 
     public static final BitSet FOLLOW_ruleUnparsedBlock_in_rule__MarkupBody__BlockAssignment_212337 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_ruleSimpleBlock_in_rule__BlockCommand__BlockAssignment_212368 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_ruleUnparsedBlock_in_rule__OutputDefinition__BlockAssignment_212399 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rulePitch_in_rule__RelativeMusic__PitchAssignment_212430 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleExpression_in_rule__RelativeMusic__MusicAssignment_312461 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rulePitch_in_rule__Relative__PitchAssignment_212430 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleExpression_in_rule__Relative__MusicAssignment_312461 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_RULE_ID_in_rule__Pitch__BaseAssignment_012492 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_KEYWORD_12_in_rule__Pitch__OctaveCheckAssignment_112528 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_ruleOctave_in_rule__Pitch__OctaveShiftAssignment_212567 = new BitSet(new long[]{0x0000000000000002L});
@@ -23896,7 +23896,7 @@ public class InternalLilyPondParser extends AbstractInternalContentAssistParser 
     public static final BitSet FOLLOW_ruleSchemeNumber_in_synpred1186005 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_rule__MarkupBody__CommandAssignment_1_in_synpred1358656 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_rule__MarkupBody__BlockAssignment_2_in_synpred1368714 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__RelativeMusic__PitchAssignment_2_in_synpred1379275 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__Relative__PitchAssignment_2_in_synpred1379275 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_rule__Pitch__OctaveCheckAssignment_1_in_synpred1389461 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_rule__Pitch__OctaveShiftAssignment_2_in_synpred1399522 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_rule__Pitch__ReminderAccidentalAssignment_3_in_synpred1409583 = new BitSet(new long[]{0x0000000000000002L});

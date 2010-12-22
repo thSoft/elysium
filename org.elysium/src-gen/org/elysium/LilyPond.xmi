@@ -344,9 +344,9 @@
       </elements>
     </alternatives>
   </rules>
-  <rules xsi:type="xtext:ParserRule" name="RelativeMusic">
+  <rules xsi:type="xtext:ParserRule" name="Relative">
     <type metamodel="//@metamodelDeclarations.0">
-      <classifier xsi:type="ecore:EClass" href="http://www.elysium.org/LilyPond#//RelativeMusic"/>
+      <classifier xsi:type="ecore:EClass" href="http://www.elysium.org/LilyPond#//Relative"/>
     </type>
     <alternatives xsi:type="xtext:Group">
       <elements xsi:type="xtext:Keyword" value="\"/>

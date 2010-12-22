@@ -28,7 +28,7 @@ import org.elysium.lilypond.OutputDefinition;
 import org.elysium.lilypond.Pitch;
 import org.elysium.lilypond.PropertyAssignment;
 import org.elysium.lilypond.Reference;
-import org.elysium.lilypond.RelativeMusic;
+import org.elysium.lilypond.Relative;
 import org.elysium.lilypond.Scheme;
 import org.elysium.lilypond.SchemeBlock;
 import org.elysium.lilypond.SchemeBlockElement;
@@ -385,16 +385,16 @@ public class LilypondSwitch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case LilypondPackage.RELATIVE_MUSIC:
+      case LilypondPackage.RELATIVE:
       {
-        RelativeMusic relativeMusic = (RelativeMusic)theEObject;
-        T result = caseRelativeMusic(relativeMusic);
-        if (result == null) result = caseSpecialCommand(relativeMusic);
-        if (result == null) result = caseCommand(relativeMusic);
-        if (result == null) result = caseCommonExpression(relativeMusic);
-        if (result == null) result = caseToplevelExpression(relativeMusic);
-        if (result == null) result = caseExpression(relativeMusic);
-        if (result == null) result = caseSchemeBlockElement(relativeMusic);
+        Relative relative = (Relative)theEObject;
+        T result = caseRelative(relative);
+        if (result == null) result = caseSpecialCommand(relative);
+        if (result == null) result = caseCommand(relative);
+        if (result == null) result = caseCommonExpression(relative);
+        if (result == null) result = caseToplevelExpression(relative);
+        if (result == null) result = caseExpression(relative);
+        if (result == null) result = caseSchemeBlockElement(relative);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -911,17 +911,17 @@ public class LilypondSwitch<T>
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>Relative Music</em>'.
+   * Returns the result of interpreting the object as an instance of '<em>Relative</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
    * returning a non-null result will terminate the switch.
    * <!-- end-user-doc -->
    * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Relative Music</em>'.
+   * @return the result of interpreting the object as an instance of '<em>Relative</em>'.
    * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
    * @generated
    */
-  public T caseRelativeMusic(RelativeMusic object)
+  public T caseRelative(Relative object)
   {
     return null;
   }
