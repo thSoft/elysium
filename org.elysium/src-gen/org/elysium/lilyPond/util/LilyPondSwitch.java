@@ -15,6 +15,7 @@ import org.elysium.lilypond.Block;
 import org.elysium.lilypond.BlockCommand;
 import org.elysium.lilypond.Command;
 import org.elysium.lilypond.CommonExpression;
+import org.elysium.lilypond.ContextModification;
 import org.elysium.lilypond.Expression;
 import org.elysium.lilypond.Include;
 import org.elysium.lilypond.LilyPond;
@@ -22,6 +23,7 @@ import org.elysium.lilypond.LilypondPackage;
 import org.elysium.lilypond.Markup;
 import org.elysium.lilypond.MarkupBody;
 import org.elysium.lilypond.MarkupLines;
+import org.elysium.lilypond.NewContext;
 import org.elysium.lilypond.Octave;
 import org.elysium.lilypond.Other;
 import org.elysium.lilypond.OutputDefinition;
@@ -409,6 +411,26 @@ public class LilypondSwitch<T>
       {
         Octave octave = (Octave)theEObject;
         T result = caseOctave(octave);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case LilypondPackage.NEW_CONTEXT:
+      {
+        NewContext newContext = (NewContext)theEObject;
+        T result = caseNewContext(newContext);
+        if (result == null) result = caseSpecialCommand(newContext);
+        if (result == null) result = caseCommand(newContext);
+        if (result == null) result = caseCommonExpression(newContext);
+        if (result == null) result = caseToplevelExpression(newContext);
+        if (result == null) result = caseExpression(newContext);
+        if (result == null) result = caseSchemeBlockElement(newContext);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case LilypondPackage.CONTEXT_MODIFICATION:
+      {
+        ContextModification contextModification = (ContextModification)theEObject;
+        T result = caseContextModification(contextModification);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -954,6 +976,38 @@ public class LilypondSwitch<T>
    * @generated
    */
   public T caseOctave(Octave object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>New Context</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>New Context</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseNewContext(NewContext object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Context Modification</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Context Modification</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseContextModification(ContextModification object)
   {
     return null;
   }

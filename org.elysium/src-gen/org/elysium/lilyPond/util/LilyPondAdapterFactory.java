@@ -17,6 +17,7 @@ import org.elysium.lilypond.Block;
 import org.elysium.lilypond.BlockCommand;
 import org.elysium.lilypond.Command;
 import org.elysium.lilypond.CommonExpression;
+import org.elysium.lilypond.ContextModification;
 import org.elysium.lilypond.Expression;
 import org.elysium.lilypond.Include;
 import org.elysium.lilypond.LilyPond;
@@ -24,6 +25,7 @@ import org.elysium.lilypond.LilypondPackage;
 import org.elysium.lilypond.Markup;
 import org.elysium.lilypond.MarkupBody;
 import org.elysium.lilypond.MarkupLines;
+import org.elysium.lilypond.NewContext;
 import org.elysium.lilypond.Octave;
 import org.elysium.lilypond.Other;
 import org.elysium.lilypond.OutputDefinition;
@@ -250,6 +252,16 @@ public class LilypondAdapterFactory extends AdapterFactoryImpl
       public Adapter caseOctave(Octave object)
       {
         return createOctaveAdapter();
+      }
+      @Override
+      public Adapter caseNewContext(NewContext object)
+      {
+        return createNewContextAdapter();
+      }
+      @Override
+      public Adapter caseContextModification(ContextModification object)
+      {
+        return createContextModificationAdapter();
       }
       @Override
       public Adapter caseOther(Other object)
@@ -739,6 +751,36 @@ public class LilypondAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createOctaveAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.elysium.lilypond.NewContext <em>New Context</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.elysium.lilypond.NewContext
+   * @generated
+   */
+  public Adapter createNewContextAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.elysium.lilypond.ContextModification <em>Context Modification</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.elysium.lilypond.ContextModification
+   * @generated
+   */
+  public Adapter createContextModificationAdapter()
   {
     return null;
   }

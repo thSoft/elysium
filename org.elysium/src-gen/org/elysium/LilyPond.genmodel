@@ -84,6 +84,15 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute LilyPond.ecore#//Octave/up"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute LilyPond.ecore#//Octave/down"/>
     </genClasses>
+    <genClasses ecoreClass="LilyPond.ecore#//NewContext">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute LilyPond.ecore#//NewContext/context"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute LilyPond.ecore#//NewContext/id"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference LilyPond.ecore#//NewContext/modification"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference LilyPond.ecore#//NewContext/music"/>
+    </genClasses>
+    <genClasses ecoreClass="LilyPond.ecore#//ContextModification">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference LilyPond.ecore#//ContextModification/block"/>
+    </genClasses>
     <genClasses ecoreClass="LilyPond.ecore#//Other"/>
     <genClasses ecoreClass="LilyPond.ecore#//Scheme">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference LilyPond.ecore#//Scheme/value"/>

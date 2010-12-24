@@ -18,6 +18,7 @@ import org.elysium.lilypond.Block;
 import org.elysium.lilypond.BlockCommand;
 import org.elysium.lilypond.Command;
 import org.elysium.lilypond.CommonExpression;
+import org.elysium.lilypond.ContextModification;
 import org.elysium.lilypond.Expression;
 import org.elysium.lilypond.Include;
 import org.elysium.lilypond.LilyPond;
@@ -26,6 +27,7 @@ import org.elysium.lilypond.LilypondPackage;
 import org.elysium.lilypond.Markup;
 import org.elysium.lilypond.MarkupBody;
 import org.elysium.lilypond.MarkupLines;
+import org.elysium.lilypond.NewContext;
 import org.elysium.lilypond.Octave;
 import org.elysium.lilypond.Other;
 import org.elysium.lilypond.OutputDefinition;
@@ -134,6 +136,8 @@ public class LilypondFactoryImpl extends EFactoryImpl implements LilypondFactory
       case LilypondPackage.RELATIVE_MUSIC: return createRelativeMusic();
       case LilypondPackage.PITCH: return createPitch();
       case LilypondPackage.OCTAVE: return createOctave();
+      case LilypondPackage.NEW_CONTEXT: return createNewContext();
+      case LilypondPackage.CONTEXT_MODIFICATION: return createContextModification();
       case LilypondPackage.OTHER: return createOther();
       case LilypondPackage.SCHEME: return createScheme();
       case LilypondPackage.SCHEME_EXPRESSION: return createSchemeExpression();
@@ -447,6 +451,28 @@ public class LilypondFactoryImpl extends EFactoryImpl implements LilypondFactory
   {
     OctaveImpl octave = new OctaveImpl();
     return octave;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public NewContext createNewContext()
+  {
+    NewContextImpl newContext = new NewContextImpl();
+    return newContext;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public ContextModification createContextModification()
+  {
+    ContextModificationImpl contextModification = new ContextModificationImpl();
+    return contextModification;
   }
 
   /**

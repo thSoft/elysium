@@ -17,6 +17,7 @@ import org.elysium.lilypond.Block;
 import org.elysium.lilypond.BlockCommand;
 import org.elysium.lilypond.Command;
 import org.elysium.lilypond.CommonExpression;
+import org.elysium.lilypond.ContextModification;
 import org.elysium.lilypond.Expression;
 import org.elysium.lilypond.Include;
 import org.elysium.lilypond.LilyPond;
@@ -25,6 +26,7 @@ import org.elysium.lilypond.LilypondPackage;
 import org.elysium.lilypond.Markup;
 import org.elysium.lilypond.MarkupBody;
 import org.elysium.lilypond.MarkupLines;
+import org.elysium.lilypond.NewContext;
 import org.elysium.lilypond.Octave;
 import org.elysium.lilypond.Other;
 import org.elysium.lilypond.OutputDefinition;
@@ -250,6 +252,20 @@ public class LilypondPackageImpl extends EPackageImpl implements LilypondPackage
    * @generated
    */
   private EClass octaveEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass newContextEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass contextModificationEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -970,6 +986,76 @@ public class LilypondPackageImpl extends EPackageImpl implements LilypondPackage
    * <!-- end-user-doc -->
    * @generated
    */
+  public EClass getNewContext()
+  {
+    return newContextEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getNewContext_Context()
+  {
+    return (EAttribute)newContextEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getNewContext_Id()
+  {
+    return (EAttribute)newContextEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getNewContext_Modification()
+  {
+    return (EReference)newContextEClass.getEStructuralFeatures().get(2);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getNewContext_Music()
+  {
+    return (EReference)newContextEClass.getEStructuralFeatures().get(3);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getContextModification()
+  {
+    return contextModificationEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getContextModification_Block()
+  {
+    return (EReference)contextModificationEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public EClass getOther()
   {
     return otherEClass;
@@ -1358,6 +1444,15 @@ public class LilypondPackageImpl extends EPackageImpl implements LilypondPackage
     createEAttribute(octaveEClass, OCTAVE__UP);
     createEAttribute(octaveEClass, OCTAVE__DOWN);
 
+    newContextEClass = createEClass(NEW_CONTEXT);
+    createEAttribute(newContextEClass, NEW_CONTEXT__CONTEXT);
+    createEAttribute(newContextEClass, NEW_CONTEXT__ID);
+    createEReference(newContextEClass, NEW_CONTEXT__MODIFICATION);
+    createEReference(newContextEClass, NEW_CONTEXT__MUSIC);
+
+    contextModificationEClass = createEClass(CONTEXT_MODIFICATION);
+    createEReference(contextModificationEClass, CONTEXT_MODIFICATION__BLOCK);
+
     otherEClass = createEClass(OTHER);
 
     schemeEClass = createEClass(SCHEME);
@@ -1453,6 +1548,7 @@ public class LilypondPackageImpl extends EPackageImpl implements LilypondPackage
     blockCommandEClass.getESuperTypes().add(this.getSpecialCommand());
     outputDefinitionEClass.getESuperTypes().add(this.getSpecialCommand());
     relativeMusicEClass.getESuperTypes().add(this.getSpecialCommand());
+    newContextEClass.getESuperTypes().add(this.getSpecialCommand());
     otherEClass.getESuperTypes().add(this.getSpecialCommand());
     schemeEClass.getESuperTypes().add(this.getCommonExpression());
     schemeEClass.getESuperTypes().add(this.getUnparsedExpression());
@@ -1548,6 +1644,15 @@ public class LilypondPackageImpl extends EPackageImpl implements LilypondPackage
     initEClass(octaveEClass, Octave.class, "Octave", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getOctave_Up(), ecorePackage.getEString(), "up", null, 0, -1, Octave.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getOctave_Down(), ecorePackage.getEString(), "down", null, 0, -1, Octave.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(newContextEClass, NewContext.class, "NewContext", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getNewContext_Context(), ecorePackage.getEString(), "context", null, 0, 1, NewContext.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getNewContext_Id(), ecorePackage.getEString(), "id", null, 0, 1, NewContext.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getNewContext_Modification(), this.getContextModification(), null, "modification", null, 0, 1, NewContext.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getNewContext_Music(), this.getExpression(), null, "music", null, 0, 1, NewContext.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(contextModificationEClass, ContextModification.class, "ContextModification", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getContextModification_Block(), this.getUnparsedBlock(), null, "block", null, 0, 1, ContextModification.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(otherEClass, Other.class, "Other", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
