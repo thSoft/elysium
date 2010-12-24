@@ -292,40 +292,44 @@ public class LilyPondGrammarAccess extends AbstractGrammarElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "SpecialCharacter");
 		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
 		private final Keyword cExclamationMarkKeyword_0 = (Keyword)cAlternatives.eContents().get(0);
-		private final Keyword cPlusSignKeyword_1 = (Keyword)cAlternatives.eContents().get(1);
-		private final Keyword cLessThanSignKeyword_2 = (Keyword)cAlternatives.eContents().get(2);
-		private final Keyword cGreaterThanSignKeyword_3 = (Keyword)cAlternatives.eContents().get(3);
-		private final Keyword cLeftSquareBracketKeyword_4 = (Keyword)cAlternatives.eContents().get(4);
-		private final Keyword cRightSquareBracketKeyword_5 = (Keyword)cAlternatives.eContents().get(5);
-		private final Keyword cTildeKeyword_6 = (Keyword)cAlternatives.eContents().get(6);
+		private final Keyword cQuestionMarkKeyword_1 = (Keyword)cAlternatives.eContents().get(1);
+		private final Keyword cPlusSignKeyword_2 = (Keyword)cAlternatives.eContents().get(2);
+		private final Keyword cLessThanSignKeyword_3 = (Keyword)cAlternatives.eContents().get(3);
+		private final Keyword cGreaterThanSignKeyword_4 = (Keyword)cAlternatives.eContents().get(4);
+		private final Keyword cLeftSquareBracketKeyword_5 = (Keyword)cAlternatives.eContents().get(5);
+		private final Keyword cRightSquareBracketKeyword_6 = (Keyword)cAlternatives.eContents().get(6);
+		private final Keyword cTildeKeyword_7 = (Keyword)cAlternatives.eContents().get(7);
 		
 		//SpecialCharacter returns ecore::EString:
-		//	"!" | "+" | "<" | ">" | "[" | "]" | "~";
+		//	"!" | "?" | "+" | "<" | ">" | "[" | "]" | "~";
 		public ParserRule getRule() { return rule; }
 
-		//"!" | "+" | "<" | ">" | "[" | "]" | "~"
+		//"!" | "?" | "+" | "<" | ">" | "[" | "]" | "~"
 		public Alternatives getAlternatives() { return cAlternatives; }
 
 		//"!"
 		public Keyword getExclamationMarkKeyword_0() { return cExclamationMarkKeyword_0; }
 
+		//"?"
+		public Keyword getQuestionMarkKeyword_1() { return cQuestionMarkKeyword_1; }
+
 		//"+"
-		public Keyword getPlusSignKeyword_1() { return cPlusSignKeyword_1; }
+		public Keyword getPlusSignKeyword_2() { return cPlusSignKeyword_2; }
 
 		//"<"
-		public Keyword getLessThanSignKeyword_2() { return cLessThanSignKeyword_2; }
+		public Keyword getLessThanSignKeyword_3() { return cLessThanSignKeyword_3; }
 
 		//">"
-		public Keyword getGreaterThanSignKeyword_3() { return cGreaterThanSignKeyword_3; }
+		public Keyword getGreaterThanSignKeyword_4() { return cGreaterThanSignKeyword_4; }
 
 		//"["
-		public Keyword getLeftSquareBracketKeyword_4() { return cLeftSquareBracketKeyword_4; }
+		public Keyword getLeftSquareBracketKeyword_5() { return cLeftSquareBracketKeyword_5; }
 
 		//"]"
-		public Keyword getRightSquareBracketKeyword_5() { return cRightSquareBracketKeyword_5; }
+		public Keyword getRightSquareBracketKeyword_6() { return cRightSquareBracketKeyword_6; }
 
 		//"~"
-		public Keyword getTildeKeyword_6() { return cTildeKeyword_6; }
+		public Keyword getTildeKeyword_7() { return cTildeKeyword_7; }
 	}
 
 	public class UnparsedBlockElements extends AbstractParserRuleElementFinder {
@@ -517,15 +521,15 @@ public class LilyPondGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cMarkupLinesParserRuleCall_3 = (RuleCall)cAlternatives.eContents().get(3);
 		private final RuleCall cBlockCommandParserRuleCall_4 = (RuleCall)cAlternatives.eContents().get(4);
 		private final RuleCall cOutputDefinitionParserRuleCall_5 = (RuleCall)cAlternatives.eContents().get(5);
-		private final RuleCall cRelativeParserRuleCall_6 = (RuleCall)cAlternatives.eContents().get(6);
+		private final RuleCall cRelativeMusicParserRuleCall_6 = (RuleCall)cAlternatives.eContents().get(6);
 		private final RuleCall cOtherParserRuleCall_7 = (RuleCall)cAlternatives.eContents().get(7);
 		
 		//// Commands
 		//SpecialCommand:
-		//	Include | Version | Markup | MarkupLines | BlockCommand | OutputDefinition | Relative | Other;
+		//	Include | Version | Markup | MarkupLines | BlockCommand | OutputDefinition | RelativeMusic | Other;
 		public ParserRule getRule() { return rule; }
 
-		//Include | Version | Markup | MarkupLines | BlockCommand | OutputDefinition | Relative | Other
+		//Include | Version | Markup | MarkupLines | BlockCommand | OutputDefinition | RelativeMusic | Other
 		public Alternatives getAlternatives() { return cAlternatives; }
 
 		//Include
@@ -546,8 +550,8 @@ public class LilyPondGrammarAccess extends AbstractGrammarElementFinder {
 		//OutputDefinition
 		public RuleCall getOutputDefinitionParserRuleCall_5() { return cOutputDefinitionParserRuleCall_5; }
 
-		//Relative
-		public RuleCall getRelativeParserRuleCall_6() { return cRelativeParserRuleCall_6; }
+		//RelativeMusic
+		public RuleCall getRelativeMusicParserRuleCall_6() { return cRelativeMusicParserRuleCall_6; }
 
 		//Other
 		public RuleCall getOtherParserRuleCall_7() { return cOtherParserRuleCall_7; }
@@ -557,22 +561,26 @@ public class LilyPondGrammarAccess extends AbstractGrammarElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "Include");
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Keyword cReverseSolidusKeyword_0 = (Keyword)cGroup.eContents().get(0);
-		private final Keyword cIncludeKeyword_1 = (Keyword)cGroup.eContents().get(1);
+		private final Assignment cKeywordAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final Keyword cKeywordIncludeKeyword_1_0 = (Keyword)cKeywordAssignment_1.eContents().get(0);
 		private final Assignment cImportURIAssignment_2 = (Assignment)cGroup.eContents().get(2);
 		private final RuleCall cImportURISTRINGTerminalRuleCall_2_0 = (RuleCall)cImportURIAssignment_2.eContents().get(0);
 		
 		//Include:
-		//	"\\" "include" importURI=STRING;
+		//	"\\" keyword="include" importURI=STRING;
 		public ParserRule getRule() { return rule; }
 
-		//"\\" "include" importURI=STRING
+		//"\\" keyword="include" importURI=STRING
 		public Group getGroup() { return cGroup; }
 
 		//"\\"
 		public Keyword getReverseSolidusKeyword_0() { return cReverseSolidusKeyword_0; }
 
+		//keyword="include"
+		public Assignment getKeywordAssignment_1() { return cKeywordAssignment_1; }
+
 		//"include"
-		public Keyword getIncludeKeyword_1() { return cIncludeKeyword_1; }
+		public Keyword getKeywordIncludeKeyword_1_0() { return cKeywordIncludeKeyword_1_0; }
 
 		//importURI=STRING
 		public Assignment getImportURIAssignment_2() { return cImportURIAssignment_2; }
@@ -585,22 +593,26 @@ public class LilyPondGrammarAccess extends AbstractGrammarElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "Version");
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Keyword cReverseSolidusKeyword_0 = (Keyword)cGroup.eContents().get(0);
-		private final Keyword cVersionKeyword_1 = (Keyword)cGroup.eContents().get(1);
+		private final Assignment cKeywordAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final Keyword cKeywordVersionKeyword_1_0 = (Keyword)cKeywordAssignment_1.eContents().get(0);
 		private final Assignment cVersionAssignment_2 = (Assignment)cGroup.eContents().get(2);
 		private final RuleCall cVersionSTRINGTerminalRuleCall_2_0 = (RuleCall)cVersionAssignment_2.eContents().get(0);
 		
 		//Version:
-		//	"\\" "version" version=STRING;
+		//	"\\" keyword="version" version=STRING;
 		public ParserRule getRule() { return rule; }
 
-		//"\\" "version" version=STRING
+		//"\\" keyword="version" version=STRING
 		public Group getGroup() { return cGroup; }
 
 		//"\\"
 		public Keyword getReverseSolidusKeyword_0() { return cReverseSolidusKeyword_0; }
 
+		//keyword="version"
+		public Assignment getKeywordAssignment_1() { return cKeywordAssignment_1; }
+
 		//"version"
-		public Keyword getVersionKeyword_1() { return cVersionKeyword_1; }
+		public Keyword getKeywordVersionKeyword_1_0() { return cKeywordVersionKeyword_1_0; }
 
 		//version=STRING
 		public Assignment getVersionAssignment_2() { return cVersionAssignment_2; }
@@ -613,22 +625,26 @@ public class LilyPondGrammarAccess extends AbstractGrammarElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "Markup");
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Keyword cReverseSolidusKeyword_0 = (Keyword)cGroup.eContents().get(0);
-		private final Keyword cMarkupKeyword_1 = (Keyword)cGroup.eContents().get(1);
+		private final Assignment cKeywordAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final Keyword cKeywordMarkupKeyword_1_0 = (Keyword)cKeywordAssignment_1.eContents().get(0);
 		private final Assignment cBodyAssignment_2 = (Assignment)cGroup.eContents().get(2);
 		private final RuleCall cBodyMarkupBodyParserRuleCall_2_0 = (RuleCall)cBodyAssignment_2.eContents().get(0);
 		
 		//Markup:
-		//	"\\" "markup" body=MarkupBody;
+		//	"\\" keyword="markup" body=MarkupBody;
 		public ParserRule getRule() { return rule; }
 
-		//"\\" "markup" body=MarkupBody
+		//"\\" keyword="markup" body=MarkupBody
 		public Group getGroup() { return cGroup; }
 
 		//"\\"
 		public Keyword getReverseSolidusKeyword_0() { return cReverseSolidusKeyword_0; }
 
+		//keyword="markup"
+		public Assignment getKeywordAssignment_1() { return cKeywordAssignment_1; }
+
 		//"markup"
-		public Keyword getMarkupKeyword_1() { return cMarkupKeyword_1; }
+		public Keyword getKeywordMarkupKeyword_1_0() { return cKeywordMarkupKeyword_1_0; }
 
 		//body=MarkupBody
 		public Assignment getBodyAssignment_2() { return cBodyAssignment_2; }
@@ -641,22 +657,26 @@ public class LilyPondGrammarAccess extends AbstractGrammarElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "MarkupLines");
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Keyword cReverseSolidusKeyword_0 = (Keyword)cGroup.eContents().get(0);
-		private final Keyword cMarkuplinesKeyword_1 = (Keyword)cGroup.eContents().get(1);
+		private final Assignment cKeywordAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final Keyword cKeywordMarkuplinesKeyword_1_0 = (Keyword)cKeywordAssignment_1.eContents().get(0);
 		private final Assignment cBodyAssignment_2 = (Assignment)cGroup.eContents().get(2);
 		private final RuleCall cBodyMarkupBodyParserRuleCall_2_0 = (RuleCall)cBodyAssignment_2.eContents().get(0);
 		
 		//MarkupLines:
-		//	"\\" "markuplines" body=MarkupBody;
+		//	"\\" keyword="markuplines" body=MarkupBody;
 		public ParserRule getRule() { return rule; }
 
-		//"\\" "markuplines" body=MarkupBody
+		//"\\" keyword="markuplines" body=MarkupBody
 		public Group getGroup() { return cGroup; }
 
 		//"\\"
 		public Keyword getReverseSolidusKeyword_0() { return cReverseSolidusKeyword_0; }
 
+		//keyword="markuplines"
+		public Assignment getKeywordAssignment_1() { return cKeywordAssignment_1; }
+
 		//"markuplines"
-		public Keyword getMarkuplinesKeyword_1() { return cMarkuplinesKeyword_1; }
+		public Keyword getKeywordMarkuplinesKeyword_1_0() { return cKeywordMarkuplinesKeyword_1_0; }
 
 		//body=MarkupBody
 		public Assignment getBodyAssignment_2() { return cBodyAssignment_2; }
@@ -709,42 +729,46 @@ public class LilyPondGrammarAccess extends AbstractGrammarElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "BlockCommand");
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Keyword cReverseSolidusKeyword_0 = (Keyword)cGroup.eContents().get(0);
-		private final Alternatives cAlternatives_1 = (Alternatives)cGroup.eContents().get(1);
-		private final Keyword cBookKeyword_1_0 = (Keyword)cAlternatives_1.eContents().get(0);
-		private final Keyword cBookpartKeyword_1_1 = (Keyword)cAlternatives_1.eContents().get(1);
-		private final Keyword cContextKeyword_1_2 = (Keyword)cAlternatives_1.eContents().get(2);
-		private final Keyword cHeaderKeyword_1_3 = (Keyword)cAlternatives_1.eContents().get(3);
-		private final Keyword cScoreKeyword_1_4 = (Keyword)cAlternatives_1.eContents().get(4);
+		private final Assignment cKeywordAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final Alternatives cKeywordAlternatives_1_0 = (Alternatives)cKeywordAssignment_1.eContents().get(0);
+		private final Keyword cKeywordBookKeyword_1_0_0 = (Keyword)cKeywordAlternatives_1_0.eContents().get(0);
+		private final Keyword cKeywordBookpartKeyword_1_0_1 = (Keyword)cKeywordAlternatives_1_0.eContents().get(1);
+		private final Keyword cKeywordContextKeyword_1_0_2 = (Keyword)cKeywordAlternatives_1_0.eContents().get(2);
+		private final Keyword cKeywordHeaderKeyword_1_0_3 = (Keyword)cKeywordAlternatives_1_0.eContents().get(3);
+		private final Keyword cKeywordScoreKeyword_1_0_4 = (Keyword)cKeywordAlternatives_1_0.eContents().get(4);
 		private final Assignment cBlockAssignment_2 = (Assignment)cGroup.eContents().get(2);
 		private final RuleCall cBlockSimpleBlockParserRuleCall_2_0 = (RuleCall)cBlockAssignment_2.eContents().get(0);
 		
 		//BlockCommand:
-		//	"\\" ("book" | "bookpart" | "context" | "header" | "score") block=SimpleBlock;
+		//	"\\" keyword=("book" | "bookpart" | "context" | "header" | "score") block=SimpleBlock;
 		public ParserRule getRule() { return rule; }
 
-		//"\\" ("book" | "bookpart" | "context" | "header" | "score") block=SimpleBlock
+		//"\\" keyword=("book" | "bookpart" | "context" | "header" | "score") block=SimpleBlock
 		public Group getGroup() { return cGroup; }
 
 		//"\\"
 		public Keyword getReverseSolidusKeyword_0() { return cReverseSolidusKeyword_0; }
 
+		//keyword=("book" | "bookpart" | "context" | "header" | "score")
+		public Assignment getKeywordAssignment_1() { return cKeywordAssignment_1; }
+
 		//"book" | "bookpart" | "context" | "header" | "score"
-		public Alternatives getAlternatives_1() { return cAlternatives_1; }
+		public Alternatives getKeywordAlternatives_1_0() { return cKeywordAlternatives_1_0; }
 
 		//"book"
-		public Keyword getBookKeyword_1_0() { return cBookKeyword_1_0; }
+		public Keyword getKeywordBookKeyword_1_0_0() { return cKeywordBookKeyword_1_0_0; }
 
 		//"bookpart"
-		public Keyword getBookpartKeyword_1_1() { return cBookpartKeyword_1_1; }
+		public Keyword getKeywordBookpartKeyword_1_0_1() { return cKeywordBookpartKeyword_1_0_1; }
 
 		//"context"
-		public Keyword getContextKeyword_1_2() { return cContextKeyword_1_2; }
+		public Keyword getKeywordContextKeyword_1_0_2() { return cKeywordContextKeyword_1_0_2; }
 
 		//"header"
-		public Keyword getHeaderKeyword_1_3() { return cHeaderKeyword_1_3; }
+		public Keyword getKeywordHeaderKeyword_1_0_3() { return cKeywordHeaderKeyword_1_0_3; }
 
 		//"score"
-		public Keyword getScoreKeyword_1_4() { return cScoreKeyword_1_4; }
+		public Keyword getKeywordScoreKeyword_1_0_4() { return cKeywordScoreKeyword_1_0_4; }
 
 		//block=SimpleBlock
 		public Assignment getBlockAssignment_2() { return cBlockAssignment_2; }
@@ -757,34 +781,38 @@ public class LilyPondGrammarAccess extends AbstractGrammarElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "OutputDefinition");
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Keyword cReverseSolidusKeyword_0 = (Keyword)cGroup.eContents().get(0);
-		private final Alternatives cAlternatives_1 = (Alternatives)cGroup.eContents().get(1);
-		private final Keyword cPaperKeyword_1_0 = (Keyword)cAlternatives_1.eContents().get(0);
-		private final Keyword cMidiKeyword_1_1 = (Keyword)cAlternatives_1.eContents().get(1);
-		private final Keyword cLayoutKeyword_1_2 = (Keyword)cAlternatives_1.eContents().get(2);
+		private final Assignment cKeywordAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final Alternatives cKeywordAlternatives_1_0 = (Alternatives)cKeywordAssignment_1.eContents().get(0);
+		private final Keyword cKeywordPaperKeyword_1_0_0 = (Keyword)cKeywordAlternatives_1_0.eContents().get(0);
+		private final Keyword cKeywordMidiKeyword_1_0_1 = (Keyword)cKeywordAlternatives_1_0.eContents().get(1);
+		private final Keyword cKeywordLayoutKeyword_1_0_2 = (Keyword)cKeywordAlternatives_1_0.eContents().get(2);
 		private final Assignment cBlockAssignment_2 = (Assignment)cGroup.eContents().get(2);
 		private final RuleCall cBlockUnparsedBlockParserRuleCall_2_0 = (RuleCall)cBlockAssignment_2.eContents().get(0);
 		
 		//OutputDefinition:
-		//	"\\" ("paper" | "midi" | "layout") block=UnparsedBlock;
+		//	"\\" keyword=("paper" | "midi" | "layout") block=UnparsedBlock;
 		public ParserRule getRule() { return rule; }
 
-		//"\\" ("paper" | "midi" | "layout") block=UnparsedBlock
+		//"\\" keyword=("paper" | "midi" | "layout") block=UnparsedBlock
 		public Group getGroup() { return cGroup; }
 
 		//"\\"
 		public Keyword getReverseSolidusKeyword_0() { return cReverseSolidusKeyword_0; }
 
+		//keyword=("paper" | "midi" | "layout")
+		public Assignment getKeywordAssignment_1() { return cKeywordAssignment_1; }
+
 		//"paper" | "midi" | "layout"
-		public Alternatives getAlternatives_1() { return cAlternatives_1; }
+		public Alternatives getKeywordAlternatives_1_0() { return cKeywordAlternatives_1_0; }
 
 		//"paper"
-		public Keyword getPaperKeyword_1_0() { return cPaperKeyword_1_0; }
+		public Keyword getKeywordPaperKeyword_1_0_0() { return cKeywordPaperKeyword_1_0_0; }
 
 		//"midi"
-		public Keyword getMidiKeyword_1_1() { return cMidiKeyword_1_1; }
+		public Keyword getKeywordMidiKeyword_1_0_1() { return cKeywordMidiKeyword_1_0_1; }
 
 		//"layout"
-		public Keyword getLayoutKeyword_1_2() { return cLayoutKeyword_1_2; }
+		public Keyword getKeywordLayoutKeyword_1_0_2() { return cKeywordLayoutKeyword_1_0_2; }
 
 		//block=UnparsedBlock
 		public Assignment getBlockAssignment_2() { return cBlockAssignment_2; }
@@ -793,28 +821,32 @@ public class LilyPondGrammarAccess extends AbstractGrammarElementFinder {
 		public RuleCall getBlockUnparsedBlockParserRuleCall_2_0() { return cBlockUnparsedBlockParserRuleCall_2_0; }
 	}
 
-	public class RelativeElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "Relative");
+	public class RelativeMusicElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "RelativeMusic");
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Keyword cReverseSolidusKeyword_0 = (Keyword)cGroup.eContents().get(0);
-		private final Keyword cRelativeKeyword_1 = (Keyword)cGroup.eContents().get(1);
+		private final Assignment cKeywordAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final Keyword cKeywordRelativeKeyword_1_0 = (Keyword)cKeywordAssignment_1.eContents().get(0);
 		private final Assignment cPitchAssignment_2 = (Assignment)cGroup.eContents().get(2);
 		private final RuleCall cPitchPitchParserRuleCall_2_0 = (RuleCall)cPitchAssignment_2.eContents().get(0);
 		private final Assignment cMusicAssignment_3 = (Assignment)cGroup.eContents().get(3);
 		private final RuleCall cMusicExpressionParserRuleCall_3_0 = (RuleCall)cMusicAssignment_3.eContents().get(0);
 		
-		//Relative:
-		//	"\\" "relative" pitch=Pitch? music=Expression;
+		//RelativeMusic:
+		//	"\\" keyword="relative" pitch=Pitch? music=Expression;
 		public ParserRule getRule() { return rule; }
 
-		//"\\" "relative" pitch=Pitch? music=Expression
+		//"\\" keyword="relative" pitch=Pitch? music=Expression
 		public Group getGroup() { return cGroup; }
 
 		//"\\"
 		public Keyword getReverseSolidusKeyword_0() { return cReverseSolidusKeyword_0; }
 
+		//keyword="relative"
+		public Assignment getKeywordAssignment_1() { return cKeywordAssignment_1; }
+
 		//"relative"
-		public Keyword getRelativeKeyword_1() { return cRelativeKeyword_1; }
+		public Keyword getKeywordRelativeKeyword_1_0() { return cKeywordRelativeKeyword_1_0; }
 
 		//pitch=Pitch?
 		public Assignment getPitchAssignment_2() { return cPitchAssignment_2; }
@@ -1764,7 +1796,7 @@ public class LilyPondGrammarAccess extends AbstractGrammarElementFinder {
 	private MarkupBodyElements pMarkupBody;
 	private BlockCommandElements pBlockCommand;
 	private OutputDefinitionElements pOutputDefinition;
-	private RelativeElements pRelative;
+	private RelativeMusicElements pRelativeMusic;
 	private PitchElements pPitch;
 	private OctaveElements pOctave;
 	private OtherElements pOther;
@@ -1911,7 +1943,7 @@ public class LilyPondGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//SpecialCharacter returns ecore::EString:
-	//	"!" | "+" | "<" | ">" | "[" | "]" | "~";
+	//	"!" | "?" | "+" | "<" | ">" | "[" | "]" | "~";
 	public SpecialCharacterElements getSpecialCharacterAccess() {
 		return (pSpecialCharacter != null) ? pSpecialCharacter : (pSpecialCharacter = new SpecialCharacterElements());
 	}
@@ -1982,7 +2014,7 @@ public class LilyPondGrammarAccess extends AbstractGrammarElementFinder {
 
 	//// Commands
 	//SpecialCommand:
-	//	Include | Version | Markup | MarkupLines | BlockCommand | OutputDefinition | Relative | Other;
+	//	Include | Version | Markup | MarkupLines | BlockCommand | OutputDefinition | RelativeMusic | Other;
 	public SpecialCommandElements getSpecialCommandAccess() {
 		return (pSpecialCommand != null) ? pSpecialCommand : (pSpecialCommand = new SpecialCommandElements());
 	}
@@ -1992,7 +2024,7 @@ public class LilyPondGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//Include:
-	//	"\\" "include" importURI=STRING;
+	//	"\\" keyword="include" importURI=STRING;
 	public IncludeElements getIncludeAccess() {
 		return (pInclude != null) ? pInclude : (pInclude = new IncludeElements());
 	}
@@ -2002,7 +2034,7 @@ public class LilyPondGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//Version:
-	//	"\\" "version" version=STRING;
+	//	"\\" keyword="version" version=STRING;
 	public VersionElements getVersionAccess() {
 		return (pVersion != null) ? pVersion : (pVersion = new VersionElements());
 	}
@@ -2012,7 +2044,7 @@ public class LilyPondGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//Markup:
-	//	"\\" "markup" body=MarkupBody;
+	//	"\\" keyword="markup" body=MarkupBody;
 	public MarkupElements getMarkupAccess() {
 		return (pMarkup != null) ? pMarkup : (pMarkup = new MarkupElements());
 	}
@@ -2022,7 +2054,7 @@ public class LilyPondGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//MarkupLines:
-	//	"\\" "markuplines" body=MarkupBody;
+	//	"\\" keyword="markuplines" body=MarkupBody;
 	public MarkupLinesElements getMarkupLinesAccess() {
 		return (pMarkupLines != null) ? pMarkupLines : (pMarkupLines = new MarkupLinesElements());
 	}
@@ -2042,7 +2074,7 @@ public class LilyPondGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//BlockCommand:
-	//	"\\" ("book" | "bookpart" | "context" | "header" | "score") block=SimpleBlock;
+	//	"\\" keyword=("book" | "bookpart" | "context" | "header" | "score") block=SimpleBlock;
 	public BlockCommandElements getBlockCommandAccess() {
 		return (pBlockCommand != null) ? pBlockCommand : (pBlockCommand = new BlockCommandElements());
 	}
@@ -2052,7 +2084,7 @@ public class LilyPondGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//OutputDefinition:
-	//	"\\" ("paper" | "midi" | "layout") block=UnparsedBlock;
+	//	"\\" keyword=("paper" | "midi" | "layout") block=UnparsedBlock;
 	public OutputDefinitionElements getOutputDefinitionAccess() {
 		return (pOutputDefinition != null) ? pOutputDefinition : (pOutputDefinition = new OutputDefinitionElements());
 	}
@@ -2061,14 +2093,14 @@ public class LilyPondGrammarAccess extends AbstractGrammarElementFinder {
 		return getOutputDefinitionAccess().getRule();
 	}
 
-	//Relative:
-	//	"\\" "relative" pitch=Pitch? music=Expression;
-	public RelativeElements getRelativeAccess() {
-		return (pRelative != null) ? pRelative : (pRelative = new RelativeElements());
+	//RelativeMusic:
+	//	"\\" keyword="relative" pitch=Pitch? music=Expression;
+	public RelativeMusicElements getRelativeMusicAccess() {
+		return (pRelativeMusic != null) ? pRelativeMusic : (pRelativeMusic = new RelativeMusicElements());
 	}
 	
-	public ParserRule getRelativeRule() {
-		return getRelativeAccess().getRule();
+	public ParserRule getRelativeMusicRule() {
+		return getRelativeMusicAccess().getRule();
 	}
 
 	//Pitch:

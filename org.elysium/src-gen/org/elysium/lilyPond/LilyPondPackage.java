@@ -510,13 +510,22 @@ public interface LilypondPackage extends EPackage
   int SPECIAL_COMMAND = 16;
 
   /**
+   * The feature id for the '<em><b>Keyword</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int SPECIAL_COMMAND__KEYWORD = COMMAND_FEATURE_COUNT + 0;
+
+  /**
    * The number of structural features of the '<em>Special Command</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int SPECIAL_COMMAND_FEATURE_COUNT = COMMAND_FEATURE_COUNT + 0;
+  int SPECIAL_COMMAND_FEATURE_COUNT = COMMAND_FEATURE_COUNT + 1;
 
   /**
    * The meta object id for the '{@link org.elysium.lilypond.impl.IncludeImpl <em>Include</em>}' class.
@@ -527,6 +536,15 @@ public interface LilypondPackage extends EPackage
    * @generated
    */
   int INCLUDE = 17;
+
+  /**
+   * The feature id for the '<em><b>Keyword</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int INCLUDE__KEYWORD = SPECIAL_COMMAND__KEYWORD;
 
   /**
    * The feature id for the '<em><b>Import URI</b></em>' attribute.
@@ -557,6 +575,15 @@ public interface LilypondPackage extends EPackage
   int VERSION = 18;
 
   /**
+   * The feature id for the '<em><b>Keyword</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int VERSION__KEYWORD = SPECIAL_COMMAND__KEYWORD;
+
+  /**
    * The feature id for the '<em><b>Version</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -585,6 +612,15 @@ public interface LilypondPackage extends EPackage
   int MARKUP = 19;
 
   /**
+   * The feature id for the '<em><b>Keyword</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int MARKUP__KEYWORD = SPECIAL_COMMAND__KEYWORD;
+
+  /**
    * The feature id for the '<em><b>Body</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -611,6 +647,15 @@ public interface LilypondPackage extends EPackage
    * @generated
    */
   int MARKUP_LINES = 20;
+
+  /**
+   * The feature id for the '<em><b>Keyword</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int MARKUP_LINES__KEYWORD = SPECIAL_COMMAND__KEYWORD;
 
   /**
    * The feature id for the '<em><b>Body</b></em>' containment reference.
@@ -678,6 +723,15 @@ public interface LilypondPackage extends EPackage
   int BLOCK_COMMAND = 22;
 
   /**
+   * The feature id for the '<em><b>Keyword</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int BLOCK_COMMAND__KEYWORD = SPECIAL_COMMAND__KEYWORD;
+
+  /**
    * The feature id for the '<em><b>Block</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -706,6 +760,15 @@ public interface LilypondPackage extends EPackage
   int OUTPUT_DEFINITION = 23;
 
   /**
+   * The feature id for the '<em><b>Keyword</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int OUTPUT_DEFINITION__KEYWORD = SPECIAL_COMMAND__KEYWORD;
+
+  /**
    * The feature id for the '<em><b>Block</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -724,14 +787,23 @@ public interface LilypondPackage extends EPackage
   int OUTPUT_DEFINITION_FEATURE_COUNT = SPECIAL_COMMAND_FEATURE_COUNT + 1;
 
   /**
-   * The meta object id for the '{@link org.elysium.lilypond.impl.RelativeImpl <em>Relative</em>}' class.
+   * The meta object id for the '{@link org.elysium.lilypond.impl.RelativeMusicImpl <em>Relative Music</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see org.elysium.lilypond.impl.RelativeImpl
-   * @see org.elysium.lilypond.impl.LilypondPackageImpl#getRelative()
+   * @see org.elysium.lilypond.impl.RelativeMusicImpl
+   * @see org.elysium.lilypond.impl.LilypondPackageImpl#getRelativeMusic()
    * @generated
    */
-  int RELATIVE = 24;
+  int RELATIVE_MUSIC = 24;
+
+  /**
+   * The feature id for the '<em><b>Keyword</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int RELATIVE_MUSIC__KEYWORD = SPECIAL_COMMAND__KEYWORD;
 
   /**
    * The feature id for the '<em><b>Pitch</b></em>' containment reference.
@@ -740,7 +812,7 @@ public interface LilypondPackage extends EPackage
    * @generated
    * @ordered
    */
-  int RELATIVE__PITCH = SPECIAL_COMMAND_FEATURE_COUNT + 0;
+  int RELATIVE_MUSIC__PITCH = SPECIAL_COMMAND_FEATURE_COUNT + 0;
 
   /**
    * The feature id for the '<em><b>Music</b></em>' containment reference.
@@ -749,16 +821,16 @@ public interface LilypondPackage extends EPackage
    * @generated
    * @ordered
    */
-  int RELATIVE__MUSIC = SPECIAL_COMMAND_FEATURE_COUNT + 1;
+  int RELATIVE_MUSIC__MUSIC = SPECIAL_COMMAND_FEATURE_COUNT + 1;
 
   /**
-   * The number of structural features of the '<em>Relative</em>' class.
+   * The number of structural features of the '<em>Relative Music</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int RELATIVE_FEATURE_COUNT = SPECIAL_COMMAND_FEATURE_COUNT + 2;
+  int RELATIVE_MUSIC_FEATURE_COUNT = SPECIAL_COMMAND_FEATURE_COUNT + 2;
 
   /**
    * The meta object id for the '{@link org.elysium.lilypond.impl.PitchImpl <em>Pitch</em>}' class.
@@ -878,7 +950,7 @@ public interface LilypondPackage extends EPackage
    * @generated
    * @ordered
    */
-  int OTHER__KEYWORD = SPECIAL_COMMAND_FEATURE_COUNT + 0;
+  int OTHER__KEYWORD = SPECIAL_COMMAND__KEYWORD;
 
   /**
    * The number of structural features of the '<em>Other</em>' class.
@@ -887,7 +959,7 @@ public interface LilypondPackage extends EPackage
    * @generated
    * @ordered
    */
-  int OTHER_FEATURE_COUNT = SPECIAL_COMMAND_FEATURE_COUNT + 1;
+  int OTHER_FEATURE_COUNT = SPECIAL_COMMAND_FEATURE_COUNT + 0;
 
   /**
    * The meta object id for the '{@link org.elysium.lilypond.impl.SchemeImpl <em>Scheme</em>}' class.
@@ -1526,6 +1598,17 @@ public interface LilypondPackage extends EPackage
   EClass getSpecialCommand();
 
   /**
+   * Returns the meta object for the attribute '{@link org.elysium.lilypond.SpecialCommand#getKeyword <em>Keyword</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Keyword</em>'.
+   * @see org.elysium.lilypond.SpecialCommand#getKeyword()
+   * @see #getSpecialCommand()
+   * @generated
+   */
+  EAttribute getSpecialCommand_Keyword();
+
+  /**
    * Returns the meta object for class '{@link org.elysium.lilypond.Include <em>Include</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -1684,36 +1767,36 @@ public interface LilypondPackage extends EPackage
   EReference getOutputDefinition_Block();
 
   /**
-   * Returns the meta object for class '{@link org.elysium.lilypond.Relative <em>Relative</em>}'.
+   * Returns the meta object for class '{@link org.elysium.lilypond.RelativeMusic <em>Relative Music</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Relative</em>'.
-   * @see org.elysium.lilypond.Relative
+   * @return the meta object for class '<em>Relative Music</em>'.
+   * @see org.elysium.lilypond.RelativeMusic
    * @generated
    */
-  EClass getRelative();
+  EClass getRelativeMusic();
 
   /**
-   * Returns the meta object for the containment reference '{@link org.elysium.lilypond.Relative#getPitch <em>Pitch</em>}'.
+   * Returns the meta object for the containment reference '{@link org.elysium.lilypond.RelativeMusic#getPitch <em>Pitch</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the meta object for the containment reference '<em>Pitch</em>'.
-   * @see org.elysium.lilypond.Relative#getPitch()
-   * @see #getRelative()
+   * @see org.elysium.lilypond.RelativeMusic#getPitch()
+   * @see #getRelativeMusic()
    * @generated
    */
-  EReference getRelative_Pitch();
+  EReference getRelativeMusic_Pitch();
 
   /**
-   * Returns the meta object for the containment reference '{@link org.elysium.lilypond.Relative#getMusic <em>Music</em>}'.
+   * Returns the meta object for the containment reference '{@link org.elysium.lilypond.RelativeMusic#getMusic <em>Music</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the meta object for the containment reference '<em>Music</em>'.
-   * @see org.elysium.lilypond.Relative#getMusic()
-   * @see #getRelative()
+   * @see org.elysium.lilypond.RelativeMusic#getMusic()
+   * @see #getRelativeMusic()
    * @generated
    */
-  EReference getRelative_Music();
+  EReference getRelativeMusic_Music();
 
   /**
    * Returns the meta object for class '{@link org.elysium.lilypond.Pitch <em>Pitch</em>}'.
@@ -1821,17 +1904,6 @@ public interface LilypondPackage extends EPackage
    * @generated
    */
   EClass getOther();
-
-  /**
-   * Returns the meta object for the attribute '{@link org.elysium.lilypond.Other#getKeyword <em>Keyword</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Keyword</em>'.
-   * @see org.elysium.lilypond.Other#getKeyword()
-   * @see #getOther()
-   * @generated
-   */
-  EAttribute getOther_Keyword();
 
   /**
    * Returns the meta object for class '{@link org.elysium.lilypond.Scheme <em>Scheme</em>}'.
@@ -2400,6 +2472,14 @@ public interface LilypondPackage extends EPackage
     EClass SPECIAL_COMMAND = eINSTANCE.getSpecialCommand();
 
     /**
+     * The meta object literal for the '<em><b>Keyword</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute SPECIAL_COMMAND__KEYWORD = eINSTANCE.getSpecialCommand_Keyword();
+
+    /**
      * The meta object literal for the '{@link org.elysium.lilypond.impl.IncludeImpl <em>Include</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
@@ -2534,14 +2614,14 @@ public interface LilypondPackage extends EPackage
     EReference OUTPUT_DEFINITION__BLOCK = eINSTANCE.getOutputDefinition_Block();
 
     /**
-     * The meta object literal for the '{@link org.elysium.lilypond.impl.RelativeImpl <em>Relative</em>}' class.
+     * The meta object literal for the '{@link org.elysium.lilypond.impl.RelativeMusicImpl <em>Relative Music</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @see org.elysium.lilypond.impl.RelativeImpl
-     * @see org.elysium.lilypond.impl.LilypondPackageImpl#getRelative()
+     * @see org.elysium.lilypond.impl.RelativeMusicImpl
+     * @see org.elysium.lilypond.impl.LilypondPackageImpl#getRelativeMusic()
      * @generated
      */
-    EClass RELATIVE = eINSTANCE.getRelative();
+    EClass RELATIVE_MUSIC = eINSTANCE.getRelativeMusic();
 
     /**
      * The meta object literal for the '<em><b>Pitch</b></em>' containment reference feature.
@@ -2549,7 +2629,7 @@ public interface LilypondPackage extends EPackage
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference RELATIVE__PITCH = eINSTANCE.getRelative_Pitch();
+    EReference RELATIVE_MUSIC__PITCH = eINSTANCE.getRelativeMusic_Pitch();
 
     /**
      * The meta object literal for the '<em><b>Music</b></em>' containment reference feature.
@@ -2557,7 +2637,7 @@ public interface LilypondPackage extends EPackage
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference RELATIVE__MUSIC = eINSTANCE.getRelative_Music();
+    EReference RELATIVE_MUSIC__MUSIC = eINSTANCE.getRelativeMusic_Music();
 
     /**
      * The meta object literal for the '{@link org.elysium.lilypond.impl.PitchImpl <em>Pitch</em>}' class.
@@ -2644,14 +2724,6 @@ public interface LilypondPackage extends EPackage
      * @generated
      */
     EClass OTHER = eINSTANCE.getOther();
-
-    /**
-     * The meta object literal for the '<em><b>Keyword</b></em>' attribute feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EAttribute OTHER__KEYWORD = eINSTANCE.getOther_Keyword();
 
     /**
      * The meta object literal for the '{@link org.elysium.lilypond.impl.SchemeImpl <em>Scheme</em>}' class.

@@ -44,7 +44,9 @@
     <genClasses ecoreClass="LilyPond.ecore#//Number">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute LilyPond.ecore#//Number/value"/>
     </genClasses>
-    <genClasses ecoreClass="LilyPond.ecore#//SpecialCommand"/>
+    <genClasses ecoreClass="LilyPond.ecore#//SpecialCommand">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute LilyPond.ecore#//SpecialCommand/keyword"/>
+    </genClasses>
     <genClasses ecoreClass="LilyPond.ecore#//Include">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute LilyPond.ecore#//Include/importURI"/>
     </genClasses>
@@ -67,9 +69,9 @@
     <genClasses ecoreClass="LilyPond.ecore#//OutputDefinition">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference LilyPond.ecore#//OutputDefinition/block"/>
     </genClasses>
-    <genClasses ecoreClass="LilyPond.ecore#//Relative">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference LilyPond.ecore#//Relative/pitch"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference LilyPond.ecore#//Relative/music"/>
+    <genClasses ecoreClass="LilyPond.ecore#//RelativeMusic">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference LilyPond.ecore#//RelativeMusic/pitch"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference LilyPond.ecore#//RelativeMusic/music"/>
     </genClasses>
     <genClasses ecoreClass="LilyPond.ecore#//Pitch">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute LilyPond.ecore#//Pitch/base"/>
@@ -82,9 +84,7 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute LilyPond.ecore#//Octave/up"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute LilyPond.ecore#//Octave/down"/>
     </genClasses>
-    <genClasses ecoreClass="LilyPond.ecore#//Other">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute LilyPond.ecore#//Other/keyword"/>
-    </genClasses>
+    <genClasses ecoreClass="LilyPond.ecore#//Other"/>
     <genClasses ecoreClass="LilyPond.ecore#//Scheme">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference LilyPond.ecore#//Scheme/value"/>
     </genClasses>

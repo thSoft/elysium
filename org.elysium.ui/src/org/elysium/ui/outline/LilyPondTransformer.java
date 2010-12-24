@@ -3,6 +3,7 @@ package org.elysium.ui.outline;
 import java.util.List;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.xtext.ui.editor.outline.transformer.AbstractDeclarativeSemanticModelTransformer;
+import org.elysium.lilypond.BlockCommand;
 import org.elysium.lilypond.LilyPond;
 import org.elysium.lilypond.MarkupBody;
 import org.elysium.lilypond.Number;
@@ -49,6 +50,10 @@ public class LilyPondTransformer extends AbstractDeclarativeSemanticModelTransfo
 
 	public boolean consumeNode(MarkupBody markupBody) {
 		return false;
+	}
+
+	public List<EObject> getChildren(BlockCommand blockCommand) {
+		return blockCommand.getBlock().eContents();
 	}
 
 }

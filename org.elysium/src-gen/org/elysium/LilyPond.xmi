@@ -136,6 +136,7 @@
     </type>
     <alternatives xsi:type="xtext:Alternatives">
       <elements xsi:type="xtext:Keyword" value="!"/>
+      <elements xsi:type="xtext:Keyword" value="?"/>
       <elements xsi:type="xtext:Keyword" value="+"/>
       <elements xsi:type="xtext:Keyword" value="&lt;"/>
       <elements xsi:type="xtext:Keyword" value=">"/>
@@ -247,7 +248,9 @@
     </type>
     <alternatives xsi:type="xtext:Group">
       <elements xsi:type="xtext:Keyword" value="\"/>
-      <elements xsi:type="xtext:Keyword" value="include"/>
+      <elements xsi:type="xtext:Assignment" feature="keyword" operator="=">
+        <terminal xsi:type="xtext:Keyword" value="include"/>
+      </elements>
       <elements xsi:type="xtext:Assignment" feature="importURI" operator="=">
         <terminal xsi:type="xtext:RuleCall" rule="//@rules.48"/>
       </elements>
@@ -259,7 +262,9 @@
     </type>
     <alternatives xsi:type="xtext:Group">
       <elements xsi:type="xtext:Keyword" value="\"/>
-      <elements xsi:type="xtext:Keyword" value="version"/>
+      <elements xsi:type="xtext:Assignment" feature="keyword" operator="=">
+        <terminal xsi:type="xtext:Keyword" value="version"/>
+      </elements>
       <elements xsi:type="xtext:Assignment" feature="version" operator="=">
         <terminal xsi:type="xtext:RuleCall" rule="//@rules.48"/>
       </elements>
@@ -271,7 +276,9 @@
     </type>
     <alternatives xsi:type="xtext:Group">
       <elements xsi:type="xtext:Keyword" value="\"/>
-      <elements xsi:type="xtext:Keyword" value="markup"/>
+      <elements xsi:type="xtext:Assignment" feature="keyword" operator="=">
+        <terminal xsi:type="xtext:Keyword" value="markup"/>
+      </elements>
       <elements xsi:type="xtext:Assignment" feature="body" operator="=">
         <terminal xsi:type="xtext:RuleCall" rule="//@rules.22"/>
       </elements>
@@ -283,7 +290,9 @@
     </type>
     <alternatives xsi:type="xtext:Group">
       <elements xsi:type="xtext:Keyword" value="\"/>
-      <elements xsi:type="xtext:Keyword" value="markuplines"/>
+      <elements xsi:type="xtext:Assignment" feature="keyword" operator="=">
+        <terminal xsi:type="xtext:Keyword" value="markuplines"/>
+      </elements>
       <elements xsi:type="xtext:Assignment" feature="body" operator="=">
         <terminal xsi:type="xtext:RuleCall" rule="//@rules.22"/>
       </elements>
@@ -316,12 +325,14 @@
     </type>
     <alternatives xsi:type="xtext:Group">
       <elements xsi:type="xtext:Keyword" value="\"/>
-      <elements xsi:type="xtext:Alternatives">
-        <elements xsi:type="xtext:Keyword" value="book"/>
-        <elements xsi:type="xtext:Keyword" value="bookpart"/>
-        <elements xsi:type="xtext:Keyword" value="context"/>
-        <elements xsi:type="xtext:Keyword" value="header"/>
-        <elements xsi:type="xtext:Keyword" value="score"/>
+      <elements xsi:type="xtext:Assignment" feature="keyword" operator="=">
+        <terminal xsi:type="xtext:Alternatives">
+          <elements xsi:type="xtext:Keyword" value="book"/>
+          <elements xsi:type="xtext:Keyword" value="bookpart"/>
+          <elements xsi:type="xtext:Keyword" value="context"/>
+          <elements xsi:type="xtext:Keyword" value="header"/>
+          <elements xsi:type="xtext:Keyword" value="score"/>
+        </terminal>
       </elements>
       <elements xsi:type="xtext:Assignment" feature="block" operator="=">
         <terminal xsi:type="xtext:RuleCall" rule="//@rules.7"/>
@@ -334,23 +345,27 @@
     </type>
     <alternatives xsi:type="xtext:Group">
       <elements xsi:type="xtext:Keyword" value="\"/>
-      <elements xsi:type="xtext:Alternatives">
-        <elements xsi:type="xtext:Keyword" value="paper"/>
-        <elements xsi:type="xtext:Keyword" value="midi"/>
-        <elements xsi:type="xtext:Keyword" value="layout"/>
+      <elements xsi:type="xtext:Assignment" feature="keyword" operator="=">
+        <terminal xsi:type="xtext:Alternatives">
+          <elements xsi:type="xtext:Keyword" value="paper"/>
+          <elements xsi:type="xtext:Keyword" value="midi"/>
+          <elements xsi:type="xtext:Keyword" value="layout"/>
+        </terminal>
       </elements>
       <elements xsi:type="xtext:Assignment" feature="block" operator="=">
         <terminal xsi:type="xtext:RuleCall" rule="//@rules.11"/>
       </elements>
     </alternatives>
   </rules>
-  <rules xsi:type="xtext:ParserRule" name="Relative">
+  <rules xsi:type="xtext:ParserRule" name="RelativeMusic">
     <type metamodel="//@metamodelDeclarations.0">
-      <classifier xsi:type="ecore:EClass" href="http://www.elysium.org/LilyPond#//Relative"/>
+      <classifier xsi:type="ecore:EClass" href="http://www.elysium.org/LilyPond#//RelativeMusic"/>
     </type>
     <alternatives xsi:type="xtext:Group">
       <elements xsi:type="xtext:Keyword" value="\"/>
-      <elements xsi:type="xtext:Keyword" value="relative"/>
+      <elements xsi:type="xtext:Assignment" feature="keyword" operator="=">
+        <terminal xsi:type="xtext:Keyword" value="relative"/>
+      </elements>
       <elements xsi:type="xtext:Assignment" cardinality="?" feature="pitch" operator="=">
         <terminal xsi:type="xtext:RuleCall" rule="//@rules.26"/>
       </elements>

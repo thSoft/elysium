@@ -32,7 +32,7 @@ import org.elysium.lilypond.OutputDefinition;
 import org.elysium.lilypond.Pitch;
 import org.elysium.lilypond.PropertyAssignment;
 import org.elysium.lilypond.Reference;
-import org.elysium.lilypond.Relative;
+import org.elysium.lilypond.RelativeMusic;
 import org.elysium.lilypond.Scheme;
 import org.elysium.lilypond.SchemeBlock;
 import org.elysium.lilypond.SchemeBlockElement;
@@ -131,7 +131,7 @@ public class LilypondFactoryImpl extends EFactoryImpl implements LilypondFactory
       case LilypondPackage.MARKUP_BODY: return createMarkupBody();
       case LilypondPackage.BLOCK_COMMAND: return createBlockCommand();
       case LilypondPackage.OUTPUT_DEFINITION: return createOutputDefinition();
-      case LilypondPackage.RELATIVE: return createRelative();
+      case LilypondPackage.RELATIVE_MUSIC: return createRelativeMusic();
       case LilypondPackage.PITCH: return createPitch();
       case LilypondPackage.OCTAVE: return createOctave();
       case LilypondPackage.OTHER: return createOther();
@@ -421,10 +421,10 @@ public class LilypondFactoryImpl extends EFactoryImpl implements LilypondFactory
    * <!-- end-user-doc -->
    * @generated
    */
-  public Relative createRelative()
+  public RelativeMusic createRelativeMusic()
   {
-    RelativeImpl relative = new RelativeImpl();
-    return relative;
+    RelativeMusicImpl relativeMusic = new RelativeMusicImpl();
+    return relativeMusic;
   }
 
   /**

@@ -53,7 +53,7 @@ public class LilyPondLabelProvider extends DefaultEObjectLabelProvider {
 	}
 
 	public String text(SpecialCommand specialCommand) {
-		return LilyPondConstants.BACKSLASH + specialCommand.eClass().getName().toLowerCase();
+		return LilyPondConstants.BACKSLASH + specialCommand.getKeyword();
 	}
 
 	public String text(Other other) {

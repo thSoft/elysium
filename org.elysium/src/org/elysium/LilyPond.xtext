@@ -23,7 +23,7 @@ SimultaneousBlock: {SimultaneousBlock} "<<" expressions+=Expression* ">>";
 
 Command: SpecialCommand | Reference;
 
-SpecialCharacter: "!" | "+" | "<" | ">" | "[" | "]" | "~";
+SpecialCharacter: "!" | "?" | "+" | "<" | ">" | "[" | "]" | "~";
 
 UnparsedBlock: {UnparsedBlock} "{" expressions+=UnparsedExpression* "}";
 
@@ -39,25 +39,23 @@ Number: value=INT;
 
 // Commands
 
-// Rule names should be the command name
+SpecialCommand: Include | Version | Markup | MarkupLines | BlockCommand | OutputDefinition | RelativeMusic | Other;
 
-SpecialCommand: Include | Version | Markup | MarkupLines | BlockCommand | OutputDefinition | Relative | Other;
+Include: "\\" keyword="include" importURI=STRING;
 
-Include: "\\" "include" importURI=STRING;
+Version: "\\" keyword="version" version=STRING;
 
-Version: "\\" "version" version=STRING;
+Markup: "\\" keyword="markup" body=MarkupBody;
 
-Markup: "\\" "markup" body=MarkupBody;
-
-MarkupLines: "\\" "markuplines" body=MarkupBody;
+MarkupLines: "\\" keyword="markuplines" body=MarkupBody;
 
 MarkupBody: {MarkupBody} command+=(Scheme | UnparsedCommand)* block=UnparsedBlock?;
 
-BlockCommand: "\\" ("book" | "bookpart" | "context" | "header" | "score") block=SimpleBlock;
+BlockCommand: "\\" keyword=("book" | "bookpart" | "context" | "header" | "score") block=SimpleBlock;
 
-OutputDefinition: "\\" ("paper" | "midi" | "layout") block=UnparsedBlock;
+OutputDefinition: "\\" keyword=("paper" | "midi" | "layout") block=UnparsedBlock;
 
-Relative: "\\" "relative" pitch=Pitch? music=Expression;
+RelativeMusic: "\\" keyword="relative" pitch=Pitch? music=Expression;
 
 Pitch: base=ID octaveCheck?="="? octaveShift=Octave? reminderAccidental?="!"? cautionaryAccidental?="?"?;
 

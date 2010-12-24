@@ -63,6 +63,10 @@ public class Grammar extends LilyPondTest {
 		assertValid("#(set-default-paper-size \"a4\")");
 	}
 
+	public void testSchemeQuestionMark() throws Exception {
+		assertValid("#(eq? 1 2)");
+	}
+
 	public void testSchemeSingleLineComment() throws Exception {
 		assertValid("#(begin ; comment \n)");
 	}

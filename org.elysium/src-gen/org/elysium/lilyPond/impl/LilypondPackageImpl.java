@@ -31,7 +31,7 @@ import org.elysium.lilypond.OutputDefinition;
 import org.elysium.lilypond.Pitch;
 import org.elysium.lilypond.PropertyAssignment;
 import org.elysium.lilypond.Reference;
-import org.elysium.lilypond.Relative;
+import org.elysium.lilypond.RelativeMusic;
 import org.elysium.lilypond.Scheme;
 import org.elysium.lilypond.SchemeBlock;
 import org.elysium.lilypond.SchemeBlockElement;
@@ -235,7 +235,7 @@ public class LilypondPackageImpl extends EPackageImpl implements LilypondPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  private EClass relativeEClass = null;
+  private EClass relativeMusicEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -690,6 +690,16 @@ public class LilypondPackageImpl extends EPackageImpl implements LilypondPackage
    * <!-- end-user-doc -->
    * @generated
    */
+  public EAttribute getSpecialCommand_Keyword()
+  {
+    return (EAttribute)specialCommandEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public EClass getInclude()
   {
     return includeEClass;
@@ -840,9 +850,9 @@ public class LilypondPackageImpl extends EPackageImpl implements LilypondPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EClass getRelative()
+  public EClass getRelativeMusic()
   {
-    return relativeEClass;
+    return relativeMusicEClass;
   }
 
   /**
@@ -850,9 +860,9 @@ public class LilypondPackageImpl extends EPackageImpl implements LilypondPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getRelative_Pitch()
+  public EReference getRelativeMusic_Pitch()
   {
-    return (EReference)relativeEClass.getEStructuralFeatures().get(0);
+    return (EReference)relativeMusicEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -860,9 +870,9 @@ public class LilypondPackageImpl extends EPackageImpl implements LilypondPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EReference getRelative_Music()
+  public EReference getRelativeMusic_Music()
   {
-    return (EReference)relativeEClass.getEStructuralFeatures().get(1);
+    return (EReference)relativeMusicEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -963,16 +973,6 @@ public class LilypondPackageImpl extends EPackageImpl implements LilypondPackage
   public EClass getOther()
   {
     return otherEClass;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EAttribute getOther_Keyword()
-  {
-    return (EAttribute)otherEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -1319,6 +1319,7 @@ public class LilypondPackageImpl extends EPackageImpl implements LilypondPackage
     createEAttribute(numberEClass, NUMBER__VALUE);
 
     specialCommandEClass = createEClass(SPECIAL_COMMAND);
+    createEAttribute(specialCommandEClass, SPECIAL_COMMAND__KEYWORD);
 
     includeEClass = createEClass(INCLUDE);
     createEAttribute(includeEClass, INCLUDE__IMPORT_URI);
@@ -1342,9 +1343,9 @@ public class LilypondPackageImpl extends EPackageImpl implements LilypondPackage
     outputDefinitionEClass = createEClass(OUTPUT_DEFINITION);
     createEReference(outputDefinitionEClass, OUTPUT_DEFINITION__BLOCK);
 
-    relativeEClass = createEClass(RELATIVE);
-    createEReference(relativeEClass, RELATIVE__PITCH);
-    createEReference(relativeEClass, RELATIVE__MUSIC);
+    relativeMusicEClass = createEClass(RELATIVE_MUSIC);
+    createEReference(relativeMusicEClass, RELATIVE_MUSIC__PITCH);
+    createEReference(relativeMusicEClass, RELATIVE_MUSIC__MUSIC);
 
     pitchEClass = createEClass(PITCH);
     createEAttribute(pitchEClass, PITCH__BASE);
@@ -1358,7 +1359,6 @@ public class LilypondPackageImpl extends EPackageImpl implements LilypondPackage
     createEAttribute(octaveEClass, OCTAVE__DOWN);
 
     otherEClass = createEClass(OTHER);
-    createEAttribute(otherEClass, OTHER__KEYWORD);
 
     schemeEClass = createEClass(SCHEME);
     createEReference(schemeEClass, SCHEME__VALUE);
@@ -1452,7 +1452,7 @@ public class LilypondPackageImpl extends EPackageImpl implements LilypondPackage
     markupLinesEClass.getESuperTypes().add(this.getSpecialCommand());
     blockCommandEClass.getESuperTypes().add(this.getSpecialCommand());
     outputDefinitionEClass.getESuperTypes().add(this.getSpecialCommand());
-    relativeEClass.getESuperTypes().add(this.getSpecialCommand());
+    relativeMusicEClass.getESuperTypes().add(this.getSpecialCommand());
     otherEClass.getESuperTypes().add(this.getSpecialCommand());
     schemeEClass.getESuperTypes().add(this.getCommonExpression());
     schemeEClass.getESuperTypes().add(this.getUnparsedExpression());
@@ -1510,6 +1510,7 @@ public class LilypondPackageImpl extends EPackageImpl implements LilypondPackage
     initEAttribute(getNumber_Value(), ecorePackage.getEInt(), "value", null, 0, 1, org.elysium.lilypond.Number.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(specialCommandEClass, SpecialCommand.class, "SpecialCommand", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getSpecialCommand_Keyword(), ecorePackage.getEString(), "keyword", null, 0, 1, SpecialCommand.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(includeEClass, Include.class, "Include", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getInclude_ImportURI(), ecorePackage.getEString(), "importURI", null, 0, 1, Include.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1533,9 +1534,9 @@ public class LilypondPackageImpl extends EPackageImpl implements LilypondPackage
     initEClass(outputDefinitionEClass, OutputDefinition.class, "OutputDefinition", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getOutputDefinition_Block(), this.getUnparsedBlock(), null, "block", null, 0, 1, OutputDefinition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-    initEClass(relativeEClass, Relative.class, "Relative", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getRelative_Pitch(), this.getPitch(), null, "pitch", null, 0, 1, Relative.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getRelative_Music(), this.getExpression(), null, "music", null, 0, 1, Relative.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEClass(relativeMusicEClass, RelativeMusic.class, "RelativeMusic", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getRelativeMusic_Pitch(), this.getPitch(), null, "pitch", null, 0, 1, RelativeMusic.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getRelativeMusic_Music(), this.getExpression(), null, "music", null, 0, 1, RelativeMusic.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(pitchEClass, Pitch.class, "Pitch", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getPitch_Base(), ecorePackage.getEString(), "base", null, 0, 1, Pitch.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1549,7 +1550,6 @@ public class LilypondPackageImpl extends EPackageImpl implements LilypondPackage
     initEAttribute(getOctave_Down(), ecorePackage.getEString(), "down", null, 0, -1, Octave.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(otherEClass, Other.class, "Other", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getOther_Keyword(), ecorePackage.getEString(), "keyword", null, 0, 1, Other.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(schemeEClass, Scheme.class, "Scheme", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getScheme_Value(), this.getSchemeExpression(), null, "value", null, 0, 1, Scheme.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
