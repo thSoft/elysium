@@ -17,6 +17,7 @@ import org.elysium.lilypond.Block;
 import org.elysium.lilypond.BlockCommand;
 import org.elysium.lilypond.Command;
 import org.elysium.lilypond.CommonExpression;
+import org.elysium.lilypond.ContextDef;
 import org.elysium.lilypond.ContextModification;
 import org.elysium.lilypond.Expression;
 import org.elysium.lilypond.Include;
@@ -262,6 +263,11 @@ public class LilypondAdapterFactory extends AdapterFactoryImpl
       public Adapter caseContextModification(ContextModification object)
       {
         return createContextModificationAdapter();
+      }
+      @Override
+      public Adapter caseContextDef(ContextDef object)
+      {
+        return createContextDefAdapter();
       }
       @Override
       public Adapter caseOther(Other object)
@@ -781,6 +787,21 @@ public class LilypondAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createContextModificationAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.elysium.lilypond.ContextDef <em>Context Def</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.elysium.lilypond.ContextDef
+   * @generated
+   */
+  public Adapter createContextDefAdapter()
   {
     return null;
   }

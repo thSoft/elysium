@@ -39,7 +39,7 @@ Number: value=INT;
 
 // Commands
 
-SpecialCommand: Include | Version | Markup | MarkupLines | BlockCommand | OutputDefinition | RelativeMusic | NewContext | Other;
+SpecialCommand: Include | Version | Markup | MarkupLines | BlockCommand | OutputDefinition | RelativeMusic | NewContext | ContextDef | Other;
 
 Include: "\\" keyword="include" importURI=STRING;
 
@@ -51,7 +51,7 @@ MarkupLines: "\\" keyword="markuplines" body=MarkupBody;
 
 MarkupBody: {MarkupBody} command+=(Scheme | UnparsedCommand)* block=UnparsedBlock?;
 
-BlockCommand: "\\" keyword=("book" | "bookpart" | "context" | "header" | "score") block=SimpleBlock;
+BlockCommand: "\\" keyword=("book" | "bookpart" | "header" | "score") block=SimpleBlock;
 
 OutputDefinition: "\\" keyword=("paper" | "midi" | "layout") block=UnparsedBlock;
 
@@ -64,6 +64,8 @@ Octave: up+="'"+ | down+=","+;
 NewContext: "\\" keyword=("new" | "context") context=ID ("=" id=ID)? modification=ContextModification? music=Expression;
 
 ContextModification: "\\" "with" block=UnparsedBlock;
+
+ContextDef: "\\" keyword="context" block=UnparsedBlock;
 
 Other: "\\" keyword=(SpecialCharacter | "(" | ")" | OtherName);
 

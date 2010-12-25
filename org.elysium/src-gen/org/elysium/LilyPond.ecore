@@ -107,6 +107,10 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="block" eType="#//UnparsedBlock"
         containment="true"/>
   </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ContextDef" eSuperTypes="#//SpecialCommand">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="block" eType="#//UnparsedBlock"
+        containment="true"/>
+  </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Other" eSuperTypes="#//SpecialCommand"/>
   <eClassifiers xsi:type="ecore:EClass" name="Scheme" eSuperTypes="#//CommonExpression #//UnparsedExpression">
     <eStructuralFeatures xsi:type="ecore:EReference" name="value" eType="#//SchemeExpression"

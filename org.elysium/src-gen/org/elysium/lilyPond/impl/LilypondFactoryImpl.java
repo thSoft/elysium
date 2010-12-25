@@ -18,6 +18,7 @@ import org.elysium.lilypond.Block;
 import org.elysium.lilypond.BlockCommand;
 import org.elysium.lilypond.Command;
 import org.elysium.lilypond.CommonExpression;
+import org.elysium.lilypond.ContextDef;
 import org.elysium.lilypond.ContextModification;
 import org.elysium.lilypond.Expression;
 import org.elysium.lilypond.Include;
@@ -138,6 +139,7 @@ public class LilypondFactoryImpl extends EFactoryImpl implements LilypondFactory
       case LilypondPackage.OCTAVE: return createOctave();
       case LilypondPackage.NEW_CONTEXT: return createNewContext();
       case LilypondPackage.CONTEXT_MODIFICATION: return createContextModification();
+      case LilypondPackage.CONTEXT_DEF: return createContextDef();
       case LilypondPackage.OTHER: return createOther();
       case LilypondPackage.SCHEME: return createScheme();
       case LilypondPackage.SCHEME_EXPRESSION: return createSchemeExpression();
@@ -473,6 +475,17 @@ public class LilypondFactoryImpl extends EFactoryImpl implements LilypondFactory
   {
     ContextModificationImpl contextModification = new ContextModificationImpl();
     return contextModification;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public ContextDef createContextDef()
+  {
+    ContextDefImpl contextDef = new ContextDefImpl();
+    return contextDef;
   }
 
   /**

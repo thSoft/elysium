@@ -114,7 +114,7 @@ public interface LilypondPackage extends EPackage
    * @see org.elysium.lilypond.impl.LilypondPackageImpl#getSchemeBlockElement()
    * @generated
    */
-  int SCHEME_BLOCK_ELEMENT = 36;
+  int SCHEME_BLOCK_ELEMENT = 37;
 
   /**
    * The number of structural features of the '<em>Scheme Block Element</em>' class.
@@ -1026,6 +1026,43 @@ public interface LilypondPackage extends EPackage
   int CONTEXT_MODIFICATION_FEATURE_COUNT = 1;
 
   /**
+   * The meta object id for the '{@link org.elysium.lilypond.impl.ContextDefImpl <em>Context Def</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.elysium.lilypond.impl.ContextDefImpl
+   * @see org.elysium.lilypond.impl.LilypondPackageImpl#getContextDef()
+   * @generated
+   */
+  int CONTEXT_DEF = 29;
+
+  /**
+   * The feature id for the '<em><b>Keyword</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int CONTEXT_DEF__KEYWORD = SPECIAL_COMMAND__KEYWORD;
+
+  /**
+   * The feature id for the '<em><b>Block</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int CONTEXT_DEF__BLOCK = SPECIAL_COMMAND_FEATURE_COUNT + 0;
+
+  /**
+   * The number of structural features of the '<em>Context Def</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int CONTEXT_DEF_FEATURE_COUNT = SPECIAL_COMMAND_FEATURE_COUNT + 1;
+
+  /**
    * The meta object id for the '{@link org.elysium.lilypond.impl.OtherImpl <em>Other</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -1033,7 +1070,7 @@ public interface LilypondPackage extends EPackage
    * @see org.elysium.lilypond.impl.LilypondPackageImpl#getOther()
    * @generated
    */
-  int OTHER = 29;
+  int OTHER = 30;
 
   /**
    * The feature id for the '<em><b>Keyword</b></em>' attribute.
@@ -1061,7 +1098,7 @@ public interface LilypondPackage extends EPackage
    * @see org.elysium.lilypond.impl.LilypondPackageImpl#getScheme()
    * @generated
    */
-  int SCHEME = 30;
+  int SCHEME = 31;
 
   /**
    * The feature id for the '<em><b>Value</b></em>' containment reference.
@@ -1089,7 +1126,7 @@ public interface LilypondPackage extends EPackage
    * @see org.elysium.lilypond.impl.LilypondPackageImpl#getSchemeExpression()
    * @generated
    */
-  int SCHEME_EXPRESSION = 31;
+  int SCHEME_EXPRESSION = 32;
 
   /**
    * The feature id for the '<em><b>Quoted</b></em>' attribute.
@@ -1144,7 +1181,7 @@ public interface LilypondPackage extends EPackage
    * @see org.elysium.lilypond.impl.LilypondPackageImpl#getSchemeValue()
    * @generated
    */
-  int SCHEME_VALUE = 32;
+  int SCHEME_VALUE = 33;
 
   /**
    * The number of structural features of the '<em>Scheme Value</em>' class.
@@ -1163,7 +1200,7 @@ public interface LilypondPackage extends EPackage
    * @see org.elysium.lilypond.impl.LilypondPackageImpl#getSchemeBoolean()
    * @generated
    */
-  int SCHEME_BOOLEAN = 33;
+  int SCHEME_BOOLEAN = 34;
 
   /**
    * The feature id for the '<em><b>Value</b></em>' attribute.
@@ -1191,7 +1228,7 @@ public interface LilypondPackage extends EPackage
    * @see org.elysium.lilypond.impl.LilypondPackageImpl#getSchemeList()
    * @generated
    */
-  int SCHEME_LIST = 34;
+  int SCHEME_LIST = 35;
 
   /**
    * The feature id for the '<em><b>Vector</b></em>' attribute.
@@ -1228,7 +1265,7 @@ public interface LilypondPackage extends EPackage
    * @see org.elysium.lilypond.impl.LilypondPackageImpl#getSchemeBlock()
    * @generated
    */
-  int SCHEME_BLOCK = 35;
+  int SCHEME_BLOCK = 36;
 
   /**
    * The feature id for the '<em><b>Elements</b></em>' containment reference list.
@@ -1256,7 +1293,7 @@ public interface LilypondPackage extends EPackage
    * @see org.elysium.lilypond.impl.LilypondPackageImpl#getSchemeReference()
    * @generated
    */
-  int SCHEME_REFERENCE = 37;
+  int SCHEME_REFERENCE = 38;
 
   /**
    * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -1284,7 +1321,7 @@ public interface LilypondPackage extends EPackage
    * @see org.elysium.lilypond.impl.LilypondPackageImpl#getSchemeCharacter()
    * @generated
    */
-  int SCHEME_CHARACTER = 38;
+  int SCHEME_CHARACTER = 39;
 
   /**
    * The feature id for the '<em><b>Value</b></em>' attribute.
@@ -1312,7 +1349,7 @@ public interface LilypondPackage extends EPackage
    * @see org.elysium.lilypond.impl.LilypondPackageImpl#getSchemeText()
    * @generated
    */
-  int SCHEME_TEXT = 39;
+  int SCHEME_TEXT = 40;
 
   /**
    * The feature id for the '<em><b>Value</b></em>' attribute.
@@ -1340,7 +1377,7 @@ public interface LilypondPackage extends EPackage
    * @see org.elysium.lilypond.impl.LilypondPackageImpl#getSchemeNumber()
    * @generated
    */
-  int SCHEME_NUMBER = 40;
+  int SCHEME_NUMBER = 41;
 
   /**
    * The feature id for the '<em><b>Radix</b></em>' attribute.
@@ -1377,7 +1414,7 @@ public interface LilypondPackage extends EPackage
    * @see org.elysium.lilypond.impl.LilypondPackageImpl#getSchemeMarkupCommand()
    * @generated
    */
-  int SCHEME_MARKUP_COMMAND = 41;
+  int SCHEME_MARKUP_COMMAND = 42;
 
   /**
    * The feature id for the '<em><b>Command</b></em>' attribute.
@@ -2061,6 +2098,27 @@ public interface LilypondPackage extends EPackage
    * @generated
    */
   EReference getContextModification_Block();
+
+  /**
+   * Returns the meta object for class '{@link org.elysium.lilypond.ContextDef <em>Context Def</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Context Def</em>'.
+   * @see org.elysium.lilypond.ContextDef
+   * @generated
+   */
+  EClass getContextDef();
+
+  /**
+   * Returns the meta object for the containment reference '{@link org.elysium.lilypond.ContextDef#getBlock <em>Block</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Block</em>'.
+   * @see org.elysium.lilypond.ContextDef#getBlock()
+   * @see #getContextDef()
+   * @generated
+   */
+  EReference getContextDef_Block();
 
   /**
    * Returns the meta object for class '{@link org.elysium.lilypond.Other <em>Other</em>}'.
@@ -2941,6 +2999,24 @@ public interface LilypondPackage extends EPackage
      * @generated
      */
     EReference CONTEXT_MODIFICATION__BLOCK = eINSTANCE.getContextModification_Block();
+
+    /**
+     * The meta object literal for the '{@link org.elysium.lilypond.impl.ContextDefImpl <em>Context Def</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.elysium.lilypond.impl.ContextDefImpl
+     * @see org.elysium.lilypond.impl.LilypondPackageImpl#getContextDef()
+     * @generated
+     */
+    EClass CONTEXT_DEF = eINSTANCE.getContextDef();
+
+    /**
+     * The meta object literal for the '<em><b>Block</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference CONTEXT_DEF__BLOCK = eINSTANCE.getContextDef_Block();
 
     /**
      * The meta object literal for the '{@link org.elysium.lilypond.impl.OtherImpl <em>Other</em>}' class.

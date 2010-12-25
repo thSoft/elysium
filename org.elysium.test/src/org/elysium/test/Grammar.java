@@ -150,4 +150,8 @@ public class Grammar extends LilyPondTest {
 		assertValid("\\new Staff { c }");
 	}
 
+	public void testContextDef() throws Exception {
+		assertValid("\\context { \\Staff }");
+	}
+
 }

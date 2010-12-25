@@ -17,6 +17,7 @@ import org.elysium.lilypond.Block;
 import org.elysium.lilypond.BlockCommand;
 import org.elysium.lilypond.Command;
 import org.elysium.lilypond.CommonExpression;
+import org.elysium.lilypond.ContextDef;
 import org.elysium.lilypond.ContextModification;
 import org.elysium.lilypond.Expression;
 import org.elysium.lilypond.Include;
@@ -266,6 +267,13 @@ public class LilypondPackageImpl extends EPackageImpl implements LilypondPackage
    * @generated
    */
   private EClass contextModificationEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass contextDefEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -1056,6 +1064,26 @@ public class LilypondPackageImpl extends EPackageImpl implements LilypondPackage
    * <!-- end-user-doc -->
    * @generated
    */
+  public EClass getContextDef()
+  {
+    return contextDefEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getContextDef_Block()
+  {
+    return (EReference)contextDefEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public EClass getOther()
   {
     return otherEClass;
@@ -1453,6 +1481,9 @@ public class LilypondPackageImpl extends EPackageImpl implements LilypondPackage
     contextModificationEClass = createEClass(CONTEXT_MODIFICATION);
     createEReference(contextModificationEClass, CONTEXT_MODIFICATION__BLOCK);
 
+    contextDefEClass = createEClass(CONTEXT_DEF);
+    createEReference(contextDefEClass, CONTEXT_DEF__BLOCK);
+
     otherEClass = createEClass(OTHER);
 
     schemeEClass = createEClass(SCHEME);
@@ -1549,6 +1580,7 @@ public class LilypondPackageImpl extends EPackageImpl implements LilypondPackage
     outputDefinitionEClass.getESuperTypes().add(this.getSpecialCommand());
     relativeMusicEClass.getESuperTypes().add(this.getSpecialCommand());
     newContextEClass.getESuperTypes().add(this.getSpecialCommand());
+    contextDefEClass.getESuperTypes().add(this.getSpecialCommand());
     otherEClass.getESuperTypes().add(this.getSpecialCommand());
     schemeEClass.getESuperTypes().add(this.getCommonExpression());
     schemeEClass.getESuperTypes().add(this.getUnparsedExpression());
@@ -1654,6 +1686,9 @@ public class LilypondPackageImpl extends EPackageImpl implements LilypondPackage
 
     initEClass(contextModificationEClass, ContextModification.class, "ContextModification", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getContextModification_Block(), this.getUnparsedBlock(), null, "block", null, 0, 1, ContextModification.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(contextDefEClass, ContextDef.class, "ContextDef", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getContextDef_Block(), this.getUnparsedBlock(), null, "block", null, 0, 1, ContextDef.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(otherEClass, Other.class, "Other", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 

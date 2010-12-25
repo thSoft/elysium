@@ -15,6 +15,7 @@ import org.elysium.lilypond.Block;
 import org.elysium.lilypond.BlockCommand;
 import org.elysium.lilypond.Command;
 import org.elysium.lilypond.CommonExpression;
+import org.elysium.lilypond.ContextDef;
 import org.elysium.lilypond.ContextModification;
 import org.elysium.lilypond.Expression;
 import org.elysium.lilypond.Include;
@@ -431,6 +432,19 @@ public class LilypondSwitch<T>
       {
         ContextModification contextModification = (ContextModification)theEObject;
         T result = caseContextModification(contextModification);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case LilypondPackage.CONTEXT_DEF:
+      {
+        ContextDef contextDef = (ContextDef)theEObject;
+        T result = caseContextDef(contextDef);
+        if (result == null) result = caseSpecialCommand(contextDef);
+        if (result == null) result = caseCommand(contextDef);
+        if (result == null) result = caseCommonExpression(contextDef);
+        if (result == null) result = caseToplevelExpression(contextDef);
+        if (result == null) result = caseExpression(contextDef);
+        if (result == null) result = caseSchemeBlockElement(contextDef);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -1009,6 +1023,22 @@ public class LilypondSwitch<T>
    * @generated
    */
   public T caseContextModification(ContextModification object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Context Def</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Context Def</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseContextDef(ContextDef object)
   {
     return null;
   }

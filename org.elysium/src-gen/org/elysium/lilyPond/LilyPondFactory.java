@@ -287,6 +287,15 @@ public interface LilypondFactory extends EFactory
   ContextModification createContextModification();
 
   /**
+   * Returns a new object of class '<em>Context Def</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Context Def</em>'.
+   * @generated
+   */
+  ContextDef createContextDef();
+
+  /**
    * Returns a new object of class '<em>Other</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
