@@ -11,6 +11,7 @@ import org.eclipse.core.resources.IResource;
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.core.runtime.jobs.Job;
+import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
@@ -31,13 +32,14 @@ public class LilyPondBuilder implements IXtextBuilderParticipant {
 		Set<IFile> filesToCompile = new HashSet<IFile>();
 		Set<IFile> filesMarkedAsOutdated = new HashSet<IFile>();
 		for (Delta delta : context.getDeltas()) {
-			boolean lilyPond = LilyPondConstants.EXTENSIONS.contains(delta.getUri().fileExtension());
-			boolean changed = (delta.getNew() != null) && (delta.getOld() != null);
-			if (lilyPond && changed) {
-				IResource resource = ResourceUtils.findPlatformResource(delta.getUri());
+			URI uri = delta.getUri();
+			boolean lilyPond = LilyPondConstants.EXTENSIONS.contains(uri.fileExtension());
+			if (lilyPond) {
+				IResource resource = ResourceUtils.findPlatformResource(uri);
 				if ((resource != null) && (resource instanceof IFile)) {
 					IFile file = (IFile)resource;
-					if (delta.haveEObjectDescriptionsChanged()) {
+					boolean changed = (delta.getNew() != null) && (delta.getOld() != null);
+					if (changed && delta.haveEObjectDescriptionsChanged()) {
 						filesToCompile.add(file);
 					} else {
 						filesMarkedAsOutdated.add(file);
