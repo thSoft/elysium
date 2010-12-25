@@ -950,7 +950,9 @@ public class LilyPondGrammarAccess extends AbstractGrammarElementFinder {
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Keyword cReverseSolidusKeyword_0 = (Keyword)cGroup.eContents().get(0);
 		private final Assignment cKeywordAssignment_1 = (Assignment)cGroup.eContents().get(1);
-		private final Keyword cKeywordNewKeyword_1_0 = (Keyword)cKeywordAssignment_1.eContents().get(0);
+		private final Alternatives cKeywordAlternatives_1_0 = (Alternatives)cKeywordAssignment_1.eContents().get(0);
+		private final Keyword cKeywordNewKeyword_1_0_0 = (Keyword)cKeywordAlternatives_1_0.eContents().get(0);
+		private final Keyword cKeywordContextKeyword_1_0_1 = (Keyword)cKeywordAlternatives_1_0.eContents().get(1);
 		private final Assignment cContextAssignment_2 = (Assignment)cGroup.eContents().get(2);
 		private final RuleCall cContextIDTerminalRuleCall_2_0 = (RuleCall)cContextAssignment_2.eContents().get(0);
 		private final Group cGroup_3 = (Group)cGroup.eContents().get(3);
@@ -963,20 +965,26 @@ public class LilyPondGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cMusicExpressionParserRuleCall_5_0 = (RuleCall)cMusicAssignment_5.eContents().get(0);
 		
 		//NewContext:
-		//	"\\" keyword="new" context=ID ("=" id=ID)? modification=ContextModification? music=Expression;
+		//	"\\" keyword=("new" | "context") context=ID ("=" id=ID)? modification=ContextModification? music=Expression;
 		public ParserRule getRule() { return rule; }
 
-		//"\\" keyword="new" context=ID ("=" id=ID)? modification=ContextModification? music=Expression
+		//"\\" keyword=("new" | "context") context=ID ("=" id=ID)? modification=ContextModification? music=Expression
 		public Group getGroup() { return cGroup; }
 
 		//"\\"
 		public Keyword getReverseSolidusKeyword_0() { return cReverseSolidusKeyword_0; }
 
-		//keyword="new"
+		//keyword=("new" | "context")
 		public Assignment getKeywordAssignment_1() { return cKeywordAssignment_1; }
 
+		//"new" | "context"
+		public Alternatives getKeywordAlternatives_1_0() { return cKeywordAlternatives_1_0; }
+
 		//"new"
-		public Keyword getKeywordNewKeyword_1_0() { return cKeywordNewKeyword_1_0; }
+		public Keyword getKeywordNewKeyword_1_0_0() { return cKeywordNewKeyword_1_0_0; }
+
+		//"context"
+		public Keyword getKeywordContextKeyword_1_0_1() { return cKeywordContextKeyword_1_0_1; }
 
 		//context=ID
 		public Assignment getContextAssignment_2() { return cContextAssignment_2; }
@@ -1302,15 +1310,16 @@ public class LilyPondGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cLayoutKeyword_11 = (Keyword)cAlternatives.eContents().get(11);
 		private final Keyword cRelativeKeyword_12 = (Keyword)cAlternatives.eContents().get(12);
 		private final Keyword cNewKeyword_13 = (Keyword)cAlternatives.eContents().get(13);
-		private final RuleCall cOtherNameParserRuleCall_14 = (RuleCall)cAlternatives.eContents().get(14);
+		private final Keyword cWithKeyword_14 = (Keyword)cAlternatives.eContents().get(14);
+		private final RuleCall cOtherNameParserRuleCall_15 = (RuleCall)cAlternatives.eContents().get(15);
 		
 		//SpecialCommandName returns ecore::EString:
 		//	"include" | "version" | "markup" | "markuplines" | "book" | "bookpart" | "context" | "header" | "score" | "paper" |
-		//	"midi" | "layout" | "relative" | "new" | OtherName;
+		//	"midi" | "layout" | "relative" | "new" | "with" | OtherName;
 		public ParserRule getRule() { return rule; }
 
 		//"include" | "version" | "markup" | "markuplines" | "book" | "bookpart" | "context" | "header" | "score" | "paper" |
-		//"midi" | "layout" | "relative" | "new" | OtherName
+		//"midi" | "layout" | "relative" | "new" | "with" | OtherName
 		public Alternatives getAlternatives() { return cAlternatives; }
 
 		//"include"
@@ -1355,8 +1364,11 @@ public class LilyPondGrammarAccess extends AbstractGrammarElementFinder {
 		//"new"
 		public Keyword getNewKeyword_13() { return cNewKeyword_13; }
 
+		//"with"
+		public Keyword getWithKeyword_14() { return cWithKeyword_14; }
+
 		//OtherName
-		public RuleCall getOtherNameParserRuleCall_14() { return cOtherNameParserRuleCall_14; }
+		public RuleCall getOtherNameParserRuleCall_15() { return cOtherNameParserRuleCall_15; }
 	}
 
 	public class SchemeElements extends AbstractParserRuleElementFinder {
@@ -2220,7 +2232,7 @@ public class LilyPondGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//NewContext:
-	//	"\\" keyword="new" context=ID ("=" id=ID)? modification=ContextModification? music=Expression;
+	//	"\\" keyword=("new" | "context") context=ID ("=" id=ID)? modification=ContextModification? music=Expression;
 	public NewContextElements getNewContextAccess() {
 		return (pNewContext != null) ? pNewContext : (pNewContext = new NewContextElements());
 	}
@@ -2265,7 +2277,7 @@ public class LilyPondGrammarAccess extends AbstractGrammarElementFinder {
 
 	//SpecialCommandName returns ecore::EString:
 	//	"include" | "version" | "markup" | "markuplines" | "book" | "bookpart" | "context" | "header" | "score" | "paper" |
-	//	"midi" | "layout" | "relative" | "new" | OtherName;
+	//	"midi" | "layout" | "relative" | "new" | "with" | OtherName;
 	public SpecialCommandNameElements getSpecialCommandNameAccess() {
 		return (pSpecialCommandName != null) ? pSpecialCommandName : (pSpecialCommandName = new SpecialCommandNameElements());
 	}

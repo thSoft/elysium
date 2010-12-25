@@ -2428,10 +2428,11 @@ ruleNewContext returns [EObject current=null]
     }
 (
 (
-		lv_keyword_1_0=
+(
+		lv_keyword_1_1=
 	KEYWORD_31 
     {
-        createLeafNode(grammarAccess.getNewContextAccess().getKeywordNewKeyword_1_0(), "keyword"); 
+        createLeafNode(grammarAccess.getNewContextAccess().getKeywordNewKeyword_1_0_0(), "keyword"); 
     }
  
 	    {
@@ -2441,11 +2442,32 @@ ruleNewContext returns [EObject current=null]
 	        }
 	        
 	        try {
-	       		set($current, "keyword", lv_keyword_1_0, "new", lastConsumedNode);
+	       		set($current, "keyword", lv_keyword_1_1, null, lastConsumedNode);
 	        } catch (ValueConverterException vce) {
 				handleValueConverterException(vce);
 	        }
 	    }
+
+    |		lv_keyword_1_2=
+	KEYWORD_62 
+    {
+        createLeafNode(grammarAccess.getNewContextAccess().getKeywordContextKeyword_1_0_1(), "keyword"); 
+    }
+ 
+	    {
+	        if ($current==null) {
+	            $current = factory.create(grammarAccess.getNewContextRule().getType().getClassifier());
+	            associateNodeWithAstElement(currentNode, $current);
+	        }
+	        
+	        try {
+	       		set($current, "keyword", lv_keyword_1_2, null, lastConsumedNode);
+	        } catch (ValueConverterException vce) {
+				handleValueConverterException(vce);
+	        }
+	    }
+
+)
 
 )
 )(
@@ -3193,11 +3215,18 @@ ruleSpecialCommandName returns [AntlrDatatypeRuleToken current=new AntlrDatatype
     }
 
     |
-    { 
-        currentNode=createCompositeNode(grammarAccess.getSpecialCommandNameAccess().getOtherNameParserRuleCall_14(), currentNode); 
+	kw=KEYWORD_42 
+    {
+        $current.merge(kw);
+        createLeafNode(grammarAccess.getSpecialCommandNameAccess().getWithKeyword_14(), null); 
     }
-    this_OtherName_14=ruleOtherName    {
-		$current.merge(this_OtherName_14);
+
+    |
+    { 
+        currentNode=createCompositeNode(grammarAccess.getSpecialCommandNameAccess().getOtherNameParserRuleCall_15(), currentNode); 
+    }
+    this_OtherName_15=ruleOtherName    {
+		$current.merge(this_OtherName_15);
     }
 
     { 

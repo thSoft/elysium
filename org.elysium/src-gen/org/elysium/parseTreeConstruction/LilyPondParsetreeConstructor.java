@@ -4155,11 +4155,11 @@ protected class Octave_DownAssignment_1 extends AssignmentToken  {
 /************ begin Rule NewContext ****************
  *
  * NewContext:
- * 	"\\" keyword="new" context=ID ("=" id=ID)? modification=ContextModification? music=Expression;
+ * 	"\\" keyword=("new" | "context") context=ID ("=" id=ID)? modification=ContextModification? music=Expression;
  *
  **/
 
-// "\\" keyword="new" context=ID ("=" id=ID)? modification=ContextModification? music=Expression
+// "\\" keyword=("new" | "context") context=ID ("=" id=ID)? modification=ContextModification? music=Expression
 protected class NewContext_Group extends GroupToken {
 	
 	public NewContext_Group(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -4209,7 +4209,7 @@ protected class NewContext_ReverseSolidusKeyword_0 extends KeywordToken  {
 
 }
 
-// keyword="new"
+// keyword=("new" | "context")
 protected class NewContext_KeywordAssignment_1 extends AssignmentToken  {
 	
 	public NewContext_KeywordAssignment_1(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -4233,9 +4233,14 @@ protected class NewContext_KeywordAssignment_1 extends AssignmentToken  {
 	public IEObjectConsumer tryConsume() {
 		if((value = eObjectConsumer.getConsumable("keyword",true)) == null) return null;
 		IEObjectConsumer obj = eObjectConsumer.cloneAndConsume("keyword");
-		if(keywordSerializer.isValid(obj.getEObject(), grammarAccess.getNewContextAccess().getKeywordNewKeyword_1_0(), value, null)) {
+		if(keywordSerializer.isValid(obj.getEObject(), grammarAccess.getNewContextAccess().getKeywordNewKeyword_1_0_0(), value, null)) {
 			type = AssignmentType.KEYWORD;
-			element = grammarAccess.getNewContextAccess().getKeywordNewKeyword_1_0();
+			element = grammarAccess.getNewContextAccess().getKeywordNewKeyword_1_0_0();
+			return obj;
+		}
+		if(keywordSerializer.isValid(obj.getEObject(), grammarAccess.getNewContextAccess().getKeywordContextKeyword_1_0_1(), value, null)) {
+			type = AssignmentType.KEYWORD;
+			element = grammarAccess.getNewContextAccess().getKeywordContextKeyword_1_0_1();
 			return obj;
 		}
 		return null;

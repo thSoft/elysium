@@ -61,7 +61,7 @@ Pitch: base=ID octaveCheck?="="? octaveShift=Octave? reminderAccidental?="!"? ca
 
 Octave: up+="'"+ | down+=","+;
 
-NewContext: "\\" keyword="new" context=ID ("=" id=ID)? modification=ContextModification? music=Expression;
+NewContext: "\\" keyword=("new" | "context") context=ID ("=" id=ID)? modification=ContextModification? music=Expression;
 
 ContextModification: "\\" "with" block=UnparsedBlock;
 
@@ -69,7 +69,7 @@ Other: "\\" keyword=(SpecialCharacter | "(" | ")" | OtherName);
 
 OtherName: "accepts" | "addlyrics" | "alias" | "alternative" | "change" | "chordmode" | "chords" | "consists" | "default" | "defaultchild" | "denies" | "description" | "drummode" | "drums" | "figuremode" | "figures" | "grobdescriptions" | "key" | "lyricmode" | "lyrics" | "lyricsto" | "maininput" | "mark" | "name" | "notemode" | "objectid" | "octave" | "once" | "override" | "partial" | "remove" | "repeat" | "rest" | "revert" | "sequential" | "set" | "simultaneous" | "skip" | "sourcefileline" | "sourcefilename" | "tempo" | "time" | "times" | "transpose" | "type" | "unset" | "with";
 
-SpecialCommandName: "include" | "version" | "markup" | "markuplines" | "book" | "bookpart" | "context" | "header" | "score" | "paper" | "midi" | "layout" | "relative" | "new" | OtherName;
+SpecialCommandName: "include" | "version" | "markup" | "markuplines" | "book" | "bookpart" | "context" | "header" | "score" | "paper" | "midi" | "layout" | "relative" | "new" | "with" | OtherName;
 
 // Scheme
 

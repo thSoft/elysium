@@ -142,6 +142,7 @@ public class AbstractLilyPondProposalProvider extends AbstractJavaBasedContentPr
 	}
 	public void completeNewContext_Keyword(EObject model, Assignment assignment, ContentAssistContext context, ICompletionProposalAcceptor acceptor) {
 		// subclasses may override
+		// subclasses may override
 	}
 	public void completeNewContext_Context(EObject model, Assignment assignment, ContentAssistContext context, ICompletionProposalAcceptor acceptor) {
 		completeRuleCall(((RuleCall)assignment.getTerminal()), context, acceptor);
