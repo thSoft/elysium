@@ -2822,6 +2822,12 @@ rule__SchemeValue__Alternatives
 { after(grammarAccess.getSchemeValueAccess().getSchemeMarkupCommandParserRuleCall_6()); }
 )
 
+    |(
+{ before(grammarAccess.getSchemeValueAccess().getSchemeReferenceParserRuleCall_7()); }
+	ruleSchemeReference
+{ after(grammarAccess.getSchemeValueAccess().getSchemeReferenceParserRuleCall_7()); }
+)
+
 ;
 finally {
 	restoreStackSize(stackSize);

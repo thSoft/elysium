@@ -22,7 +22,7 @@ package org.elysium.lilypond;
  * @model
  * @generated
  */
-public interface SchemeReference extends SchemeBlockElement
+public interface SchemeReference extends SchemeValue, SchemeBlockElement
 {
   /**
    * Returns the value of the '<em><b>Id</b></em>' attribute.

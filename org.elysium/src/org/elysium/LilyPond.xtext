@@ -77,7 +77,7 @@ Scheme hidden(WS, SCHEME_SL_COMMENT, SCHEME_ML_COMMENT): "#" value=SchemeExpress
 
 SchemeExpression: (quoted?="'"? | quasiquoted?="`"? | unquoted?=","?)? value=SchemeValue;
 
-SchemeValue: SchemeBoolean | SchemeList | SchemeBlock | SchemeCharacter | SchemeText | SchemeNumber| SchemeMarkupCommand;
+SchemeValue: SchemeBoolean | SchemeList | SchemeBlock | SchemeCharacter | SchemeText | SchemeNumber| SchemeMarkupCommand | SchemeReference;
 
 SchemeBoolean: value=SchemeBooleanValue;
 

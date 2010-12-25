@@ -1555,6 +1555,7 @@ public class LilypondPackageImpl extends EPackageImpl implements LilypondPackage
     schemeBooleanEClass.getESuperTypes().add(this.getSchemeValue());
     schemeListEClass.getESuperTypes().add(this.getSchemeValue());
     schemeBlockEClass.getESuperTypes().add(this.getSchemeValue());
+    schemeReferenceEClass.getESuperTypes().add(this.getSchemeValue());
     schemeReferenceEClass.getESuperTypes().add(this.getSchemeBlockElement());
     schemeCharacterEClass.getESuperTypes().add(this.getSchemeValue());
     schemeTextEClass.getESuperTypes().add(this.getSchemeValue());

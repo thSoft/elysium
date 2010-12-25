@@ -1454,12 +1454,15 @@ public class LilyPondGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cSchemeTextParserRuleCall_4 = (RuleCall)cAlternatives.eContents().get(4);
 		private final RuleCall cSchemeNumberParserRuleCall_5 = (RuleCall)cAlternatives.eContents().get(5);
 		private final RuleCall cSchemeMarkupCommandParserRuleCall_6 = (RuleCall)cAlternatives.eContents().get(6);
+		private final RuleCall cSchemeReferenceParserRuleCall_7 = (RuleCall)cAlternatives.eContents().get(7);
 		
 		//SchemeValue:
-		//	SchemeBoolean | SchemeList | SchemeBlock | SchemeCharacter | SchemeText | SchemeNumber | SchemeMarkupCommand;
+		//	SchemeBoolean | SchemeList | SchemeBlock | SchemeCharacter | SchemeText | SchemeNumber | SchemeMarkupCommand |
+		//	SchemeReference;
 		public ParserRule getRule() { return rule; }
 
-		//SchemeBoolean | SchemeList | SchemeBlock | SchemeCharacter | SchemeText | SchemeNumber | SchemeMarkupCommand
+		//SchemeBoolean | SchemeList | SchemeBlock | SchemeCharacter | SchemeText | SchemeNumber | SchemeMarkupCommand |
+		//SchemeReference
 		public Alternatives getAlternatives() { return cAlternatives; }
 
 		//SchemeBoolean
@@ -1482,6 +1485,9 @@ public class LilyPondGrammarAccess extends AbstractGrammarElementFinder {
 
 		//SchemeMarkupCommand
 		public RuleCall getSchemeMarkupCommandParserRuleCall_6() { return cSchemeMarkupCommandParserRuleCall_6; }
+
+		//SchemeReference
+		public RuleCall getSchemeReferenceParserRuleCall_7() { return cSchemeReferenceParserRuleCall_7; }
 	}
 
 	public class SchemeBooleanElements extends AbstractParserRuleElementFinder {
@@ -2304,7 +2310,8 @@ public class LilyPondGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//SchemeValue:
-	//	SchemeBoolean | SchemeList | SchemeBlock | SchemeCharacter | SchemeText | SchemeNumber | SchemeMarkupCommand;
+	//	SchemeBoolean | SchemeList | SchemeBlock | SchemeCharacter | SchemeText | SchemeNumber | SchemeMarkupCommand |
+	//	SchemeReference;
 	public SchemeValueElements getSchemeValueAccess() {
 		return (pSchemeValue != null) ? pSchemeValue : (pSchemeValue = new SchemeValueElements());
 	}

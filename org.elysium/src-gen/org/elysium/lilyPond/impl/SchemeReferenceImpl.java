@@ -27,7 +27,7 @@ import org.elysium.lilypond.SchemeReference;
  *
  * @generated
  */
-public class SchemeReferenceImpl extends SchemeBlockElementImpl implements SchemeReference
+public class SchemeReferenceImpl extends SchemeValueImpl implements SchemeReference
 {
   /**
    * The default value of the '{@link #getId() <em>Id</em>}' attribute.

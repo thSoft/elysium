@@ -3522,6 +3522,19 @@ ruleSchemeValue returns [EObject current=null]
         $current = $this_SchemeMarkupCommand_6.current;
         currentNode = currentNode.getParent();
     }
+
+    |
+	{ 
+	  /* */ 
+	}
+    { 
+        currentNode=createCompositeNode(grammarAccess.getSchemeValueAccess().getSchemeReferenceParserRuleCall_7(), currentNode); 
+    }
+    this_SchemeReference_7=ruleSchemeReference
+    {
+        $current = $this_SchemeReference_7.current;
+        currentNode = currentNode.getParent();
+    }
 )
 ;
 

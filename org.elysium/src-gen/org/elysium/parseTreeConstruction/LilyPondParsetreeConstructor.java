@@ -5022,11 +5022,13 @@ protected class SchemeExpression_ValueAssignment_1 extends AssignmentToken  {
 /************ begin Rule SchemeValue ****************
  *
  * SchemeValue:
- * 	SchemeBoolean | SchemeList | SchemeBlock | SchemeCharacter | SchemeText | SchemeNumber | SchemeMarkupCommand;
+ * 	SchemeBoolean | SchemeList | SchemeBlock | SchemeCharacter | SchemeText | SchemeNumber | SchemeMarkupCommand |
+ * 	SchemeReference;
  *
  **/
 
-// SchemeBoolean | SchemeList | SchemeBlock | SchemeCharacter | SchemeText | SchemeNumber | SchemeMarkupCommand
+// SchemeBoolean | SchemeList | SchemeBlock | SchemeCharacter | SchemeText | SchemeNumber | SchemeMarkupCommand |
+// SchemeReference
 protected class SchemeValue_Alternatives extends AlternativesToken {
 
 	public SchemeValue_Alternatives(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -5048,6 +5050,7 @@ protected class SchemeValue_Alternatives extends AlternativesToken {
 			case 4: return new SchemeValue_SchemeTextParserRuleCall_4(lastRuleCallOrigin, this, 4, inst);
 			case 5: return new SchemeValue_SchemeNumberParserRuleCall_5(lastRuleCallOrigin, this, 5, inst);
 			case 6: return new SchemeValue_SchemeMarkupCommandParserRuleCall_6(lastRuleCallOrigin, this, 6, inst);
+			case 7: return new SchemeValue_SchemeReferenceParserRuleCall_7(lastRuleCallOrigin, this, 7, inst);
 			default: return null;
 		}	
 	}
@@ -5060,6 +5063,7 @@ protected class SchemeValue_Alternatives extends AlternativesToken {
 		   getEObject().eClass() != grammarAccess.getSchemeListAccess().getSchemeListAction_0().getType().getClassifier() && 
 		   getEObject().eClass() != grammarAccess.getSchemeMarkupCommandRule().getType().getClassifier() && 
 		   getEObject().eClass() != grammarAccess.getSchemeNumberRule().getType().getClassifier() && 
+		   getEObject().eClass() != grammarAccess.getSchemeReferenceRule().getType().getClassifier() && 
 		   getEObject().eClass() != grammarAccess.getSchemeTextRule().getType().getClassifier())
 			return null;
 		return eObjectConsumer;
@@ -5308,6 +5312,42 @@ protected class SchemeValue_SchemeMarkupCommandParserRuleCall_6 extends RuleCall
 		if(getEObject().eClass() != grammarAccess.getSchemeMarkupCommandRule().getType().getClassifier())
 			return null;
 		if(checkForRecursion(SchemeMarkupCommand_Group.class, eObjectConsumer)) return null;
+		return eObjectConsumer;
+	}
+	
+    @Override
+	public AbstractToken createFollowerAfterReturn(AbstractToken next,	int actIndex, int index, IEObjectConsumer inst) {
+		switch(index) {
+			default: return lastRuleCallOrigin.createFollowerAfterReturn(next, actIndex , index, inst);
+		}	
+	}	
+}
+
+// SchemeReference
+protected class SchemeValue_SchemeReferenceParserRuleCall_7 extends RuleCallToken {
+	
+	public SchemeValue_SchemeReferenceParserRuleCall_7(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
+		super(lastRuleCallOrigin, next, transitionIndex, eObjectConsumer);
+	}
+	
+	@Override
+	public RuleCall getGrammarElement() {
+		return grammarAccess.getSchemeValueAccess().getSchemeReferenceParserRuleCall_7();
+	}
+
+    @Override
+	public AbstractToken createFollower(int index, IEObjectConsumer inst) {
+		switch(index) {
+			case 0: return new SchemeReference_Group(this, this, 0, inst);
+			default: return null;
+		}	
+	}
+
+    @Override
+	public IEObjectConsumer tryConsume() {
+		if(getEObject().eClass() != grammarAccess.getSchemeReferenceRule().getType().getClassifier())
+			return null;
+		if(checkForRecursion(SchemeReference_Group.class, eObjectConsumer)) return null;
 		return eObjectConsumer;
 	}
 	

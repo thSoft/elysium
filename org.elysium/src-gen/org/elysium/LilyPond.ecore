@@ -133,7 +133,7 @@
         eType="#//SchemeBlockElement" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="SchemeBlockElement"/>
-  <eClassifiers xsi:type="ecore:EClass" name="SchemeReference" eSuperTypes="#//SchemeBlockElement">
+  <eClassifiers xsi:type="ecore:EClass" name="SchemeReference" eSuperTypes="#//SchemeValue #//SchemeBlockElement">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="SchemeCharacter" eSuperTypes="#//SchemeValue">

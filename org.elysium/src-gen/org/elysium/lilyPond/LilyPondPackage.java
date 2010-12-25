@@ -1265,7 +1265,7 @@ public interface LilypondPackage extends EPackage
    * @generated
    * @ordered
    */
-  int SCHEME_REFERENCE__ID = SCHEME_BLOCK_ELEMENT_FEATURE_COUNT + 0;
+  int SCHEME_REFERENCE__ID = SCHEME_VALUE_FEATURE_COUNT + 0;
 
   /**
    * The number of structural features of the '<em>Scheme Reference</em>' class.
@@ -1274,7 +1274,7 @@ public interface LilypondPackage extends EPackage
    * @generated
    * @ordered
    */
-  int SCHEME_REFERENCE_FEATURE_COUNT = SCHEME_BLOCK_ELEMENT_FEATURE_COUNT + 1;
+  int SCHEME_REFERENCE_FEATURE_COUNT = SCHEME_VALUE_FEATURE_COUNT + 1;
 
   /**
    * The meta object id for the '{@link org.elysium.lilypond.impl.SchemeCharacterImpl <em>Scheme Character</em>}' class.

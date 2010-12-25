@@ -96,6 +96,10 @@ public class Grammar extends LilyPondTest {
 	}
 
 	public void testSchemeReference() throws Exception {
+		assertValid("#(define $i #t)");
+	}
+
+	public void testSchemeReferenceInBlock() throws Exception {
 		assertValid(ASSIGNMENT + " ##{ $i #}");
 	}
 
