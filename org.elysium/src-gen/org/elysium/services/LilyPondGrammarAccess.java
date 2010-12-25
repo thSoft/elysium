@@ -1689,35 +1689,31 @@ public class LilyPondGrammarAccess extends AbstractGrammarElementFinder {
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final RuleCall cSchemeTextValueSegmentParserRuleCall_0 = (RuleCall)cGroup.eContents().get(0);
 		private final Group cGroup_1 = (Group)cGroup.eContents().get(1);
-		private final Alternatives cAlternatives_1_0 = (Alternatives)cGroup_1.eContents().get(0);
-		private final Keyword cColonKeyword_1_0_0 = (Keyword)cAlternatives_1_0.eContents().get(0);
-		private final Keyword cColonColonKeyword_1_0_1 = (Keyword)cAlternatives_1_0.eContents().get(1);
-		private final RuleCall cSchemeTextValueSegmentParserRuleCall_1_1 = (RuleCall)cGroup_1.eContents().get(1);
+		private final Keyword cColonKeyword_1_0 = (Keyword)cGroup_1.eContents().get(0);
+		private final Keyword cColonKeyword_1_1 = (Keyword)cGroup_1.eContents().get(1);
+		private final RuleCall cSchemeTextValueSegmentParserRuleCall_1_2 = (RuleCall)cGroup_1.eContents().get(2);
 		
 		//SchemeTextValue returns ecore::EString hidden():
-		//	SchemeTextValueSegment ((":" | "::") SchemeTextValueSegment)*;
+		//	SchemeTextValueSegment (":" ":"? SchemeTextValueSegment)*;
 		public ParserRule getRule() { return rule; }
 
-		//SchemeTextValueSegment ((":" | "::") SchemeTextValueSegment)*
+		//SchemeTextValueSegment (":" ":"? SchemeTextValueSegment)*
 		public Group getGroup() { return cGroup; }
 
 		//SchemeTextValueSegment
 		public RuleCall getSchemeTextValueSegmentParserRuleCall_0() { return cSchemeTextValueSegmentParserRuleCall_0; }
 
-		//((":" | "::") SchemeTextValueSegment)*
+		//(":" ":"? SchemeTextValueSegment)*
 		public Group getGroup_1() { return cGroup_1; }
 
-		//":" | "::"
-		public Alternatives getAlternatives_1_0() { return cAlternatives_1_0; }
-
 		//":"
-		public Keyword getColonKeyword_1_0_0() { return cColonKeyword_1_0_0; }
+		public Keyword getColonKeyword_1_0() { return cColonKeyword_1_0; }
 
-		//"::"
-		public Keyword getColonColonKeyword_1_0_1() { return cColonColonKeyword_1_0_1; }
+		//":"?
+		public Keyword getColonKeyword_1_1() { return cColonKeyword_1_1; }
 
 		//SchemeTextValueSegment
-		public RuleCall getSchemeTextValueSegmentParserRuleCall_1_1() { return cSchemeTextValueSegmentParserRuleCall_1_1; }
+		public RuleCall getSchemeTextValueSegmentParserRuleCall_1_2() { return cSchemeTextValueSegmentParserRuleCall_1_2; }
 	}
 
 	public class SchemeTextValueSegmentElements extends AbstractParserRuleElementFinder {
@@ -2398,7 +2394,7 @@ public class LilyPondGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//SchemeTextValue returns ecore::EString hidden():
-	//	SchemeTextValueSegment ((":" | "::") SchemeTextValueSegment)*;
+	//	SchemeTextValueSegment (":" ":"? SchemeTextValueSegment)*;
 	public SchemeTextValueElements getSchemeTextValueAccess() {
 		return (pSchemeTextValue != null) ? pSchemeTextValue : (pSchemeTextValue = new SchemeTextValueElements());
 	}

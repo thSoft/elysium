@@ -16,127 +16,127 @@ import org.eclipse.xtext.ui.editor.contentassist.antlr.internal.Lexer;
 
 
 
-KEYWORD_90 : 'grobdescriptions';
+KEYWORD_89 : 'grobdescriptions';
 
-KEYWORD_88 : 'sourcefileline';
+KEYWORD_87 : 'sourcefileline';
 
-KEYWORD_89 : 'sourcefilename';
+KEYWORD_88 : 'sourcefilename';
 
-KEYWORD_86 : 'defaultchild';
+KEYWORD_85 : 'defaultchild';
 
-KEYWORD_87 : 'simultaneous';
+KEYWORD_86 : 'simultaneous';
 
-KEYWORD_83 : 'alternative';
+KEYWORD_82 : 'alternative';
 
-KEYWORD_84 : 'description';
+KEYWORD_83 : 'description';
 
-KEYWORD_85 : 'markuplines';
+KEYWORD_84 : 'markuplines';
 
-KEYWORD_81 : 'figuremode';
+KEYWORD_80 : 'figuremode';
 
-KEYWORD_82 : 'sequential';
+KEYWORD_81 : 'sequential';
 
-KEYWORD_76 : 'addlyrics';
+KEYWORD_75 : 'addlyrics';
 
-KEYWORD_77 : 'chordmode';
+KEYWORD_76 : 'chordmode';
 
-KEYWORD_78 : 'lyricmode';
+KEYWORD_77 : 'lyricmode';
 
-KEYWORD_79 : 'maininput';
+KEYWORD_78 : 'maininput';
 
-KEYWORD_80 : 'transpose';
+KEYWORD_79 : 'transpose';
 
-KEYWORD_68 : 'bookpart';
+KEYWORD_67 : 'bookpart';
 
-KEYWORD_69 : 'consists';
+KEYWORD_68 : 'consists';
 
-KEYWORD_70 : 'drummode';
+KEYWORD_69 : 'drummode';
 
-KEYWORD_71 : 'lyricsto';
+KEYWORD_70 : 'lyricsto';
 
-KEYWORD_72 : 'notemode';
+KEYWORD_71 : 'notemode';
 
-KEYWORD_73 : 'objectid';
+KEYWORD_72 : 'objectid';
 
-KEYWORD_74 : 'override';
+KEYWORD_73 : 'override';
 
-KEYWORD_75 : 'relative';
+KEYWORD_74 : 'relative';
 
-KEYWORD_61 : 'accepts';
+KEYWORD_60 : 'accepts';
 
-KEYWORD_62 : 'context';
+KEYWORD_61 : 'context';
 
-KEYWORD_63 : 'default';
+KEYWORD_62 : 'default';
 
-KEYWORD_64 : 'figures';
+KEYWORD_63 : 'figures';
 
-KEYWORD_65 : 'include';
+KEYWORD_64 : 'include';
 
-KEYWORD_66 : 'partial';
+KEYWORD_65 : 'partial';
 
-KEYWORD_67 : 'version';
+KEYWORD_66 : 'version';
 
-KEYWORD_50 : 'change';
+KEYWORD_49 : 'change';
 
-KEYWORD_51 : 'chords';
+KEYWORD_50 : 'chords';
 
-KEYWORD_52 : 'denies';
+KEYWORD_51 : 'denies';
 
-KEYWORD_53 : 'header';
+KEYWORD_52 : 'header';
 
-KEYWORD_54 : 'layout';
+KEYWORD_53 : 'layout';
 
-KEYWORD_55 : 'lyrics';
+KEYWORD_54 : 'lyrics';
 
-KEYWORD_56 : 'markup';
+KEYWORD_55 : 'markup';
 
-KEYWORD_57 : 'octave';
+KEYWORD_56 : 'octave';
 
-KEYWORD_58 : 'remove';
+KEYWORD_57 : 'remove';
 
-KEYWORD_59 : 'repeat';
+KEYWORD_58 : 'repeat';
 
-KEYWORD_60 : 'revert';
+KEYWORD_59 : 'revert';
 
-KEYWORD_43 : 'alias';
+KEYWORD_42 : 'alias';
 
-KEYWORD_44 : 'drums';
+KEYWORD_43 : 'drums';
 
-KEYWORD_45 : 'paper';
+KEYWORD_44 : 'paper';
 
-KEYWORD_46 : 'score';
+KEYWORD_45 : 'score';
 
-KEYWORD_47 : 'tempo';
+KEYWORD_46 : 'tempo';
 
-KEYWORD_48 : 'times';
+KEYWORD_47 : 'times';
 
-KEYWORD_49 : 'unset';
+KEYWORD_48 : 'unset';
 
-KEYWORD_33 : 'book';
+KEYWORD_32 : 'book';
 
-KEYWORD_34 : 'mark';
+KEYWORD_33 : 'mark';
 
-KEYWORD_35 : 'midi';
+KEYWORD_34 : 'midi';
 
-KEYWORD_36 : 'name';
+KEYWORD_35 : 'name';
 
-KEYWORD_37 : 'once';
+KEYWORD_36 : 'once';
 
-KEYWORD_38 : 'rest';
+KEYWORD_37 : 'rest';
 
-KEYWORD_39 : 'skip';
+KEYWORD_38 : 'skip';
 
-KEYWORD_40 : 'time';
+KEYWORD_39 : 'time';
 
-KEYWORD_41 : 'type';
+KEYWORD_40 : 'type';
 
-KEYWORD_42 : 'with';
+KEYWORD_41 : 'with';
 
-KEYWORD_30 : 'key';
+KEYWORD_29 : 'key';
 
-KEYWORD_31 : 'new';
+KEYWORD_30 : 'new';
 
-KEYWORD_32 : 'set';
+KEYWORD_31 : 'set';
 
 KEYWORD_22 : '#:';
 
@@ -146,13 +146,11 @@ KEYWORD_24 : '#{';
 
 KEYWORD_25 : '#}';
 
-KEYWORD_26 : '::';
+KEYWORD_26 : '<<';
 
-KEYWORD_27 : '<<';
+KEYWORD_27 : '>>';
 
-KEYWORD_28 : '>>';
-
-KEYWORD_29 : '\\\\';
+KEYWORD_28 : '\\\\';
 
 KEYWORD_1 : '!';
 

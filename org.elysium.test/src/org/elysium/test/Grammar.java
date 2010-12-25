@@ -76,7 +76,7 @@ public class Grammar extends LilyPondTest {
 	}
 
 	public void testSchemeDoubleColon() throws Exception {
-		assertValid("#(lambda (grob) (ly:accidental-interface::print grob))");
+		assertValid("#ly:key-signature-interface::print");
 	}
 
 	public void testSchemeChord() throws Exception {
