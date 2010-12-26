@@ -6,6 +6,7 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.xtext.ui.label.DefaultEObjectLabelProvider;
 import org.elysium.LilyPondConstants;
 import org.elysium.lilypond.Assignment;
+import org.elysium.lilypond.NewContext;
 import org.elysium.lilypond.Other;
 import org.elysium.lilypond.PropertyAssignment;
 import org.elysium.lilypond.Reference;
@@ -74,6 +75,10 @@ public class LilyPondLabelProvider extends DefaultEObjectLabelProvider {
 
 	public String text(UnparsedBlock unparsedBlock) {
 		return "{ }"; //$NON-NLS-1$
+	}
+
+	public String text(NewContext newContext) {
+		return MessageFormat.format("\\{0} {1}", newContext.getKeyword(), newContext.getContext()); //$NON-NLS-1$
 	}
 
 }
