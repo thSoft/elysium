@@ -915,6 +915,43 @@ public interface LilypondPackage extends EPackage
   int OCTAVE_FEATURE_COUNT = 2;
 
   /**
+   * The meta object id for the '{@link org.elysium.lilypond.impl.ModeChangeImpl <em>Mode Change</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.elysium.lilypond.impl.ModeChangeImpl
+   * @see org.elysium.lilypond.impl.LilypondPackageImpl#getModeChange()
+   * @generated
+   */
+  int MODE_CHANGE = 27;
+
+  /**
+   * The feature id for the '<em><b>Keyword</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int MODE_CHANGE__KEYWORD = SPECIAL_COMMAND__KEYWORD;
+
+  /**
+   * The feature id for the '<em><b>Music</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int MODE_CHANGE__MUSIC = SPECIAL_COMMAND_FEATURE_COUNT + 0;
+
+  /**
+   * The number of structural features of the '<em>Mode Change</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int MODE_CHANGE_FEATURE_COUNT = SPECIAL_COMMAND_FEATURE_COUNT + 1;
+
+  /**
    * The meta object id for the '{@link org.elysium.lilypond.impl.NewContextImpl <em>New Context</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -922,7 +959,7 @@ public interface LilypondPackage extends EPackage
    * @see org.elysium.lilypond.impl.LilypondPackageImpl#getNewContext()
    * @generated
    */
-  int NEW_CONTEXT = 27;
+  int NEW_CONTEXT = 28;
 
   /**
    * The feature id for the '<em><b>Keyword</b></em>' attribute.
@@ -986,7 +1023,7 @@ public interface LilypondPackage extends EPackage
    * @see org.elysium.lilypond.impl.LilypondPackageImpl#getContextModification()
    * @generated
    */
-  int CONTEXT_MODIFICATION = 28;
+  int CONTEXT_MODIFICATION = 29;
 
   /**
    * The feature id for the '<em><b>Block</b></em>' containment reference.
@@ -1014,7 +1051,7 @@ public interface LilypondPackage extends EPackage
    * @see org.elysium.lilypond.impl.LilypondPackageImpl#getContextDef()
    * @generated
    */
-  int CONTEXT_DEF = 29;
+  int CONTEXT_DEF = 30;
 
   /**
    * The feature id for the '<em><b>Keyword</b></em>' attribute.
@@ -1051,7 +1088,7 @@ public interface LilypondPackage extends EPackage
    * @see org.elysium.lilypond.impl.LilypondPackageImpl#getOther()
    * @generated
    */
-  int OTHER = 30;
+  int OTHER = 31;
 
   /**
    * The feature id for the '<em><b>Keyword</b></em>' attribute.
@@ -1079,7 +1116,7 @@ public interface LilypondPackage extends EPackage
    * @see org.elysium.lilypond.impl.LilypondPackageImpl#getScheme()
    * @generated
    */
-  int SCHEME = 31;
+  int SCHEME = 32;
 
   /**
    * The feature id for the '<em><b>Value</b></em>' containment reference.
@@ -1107,7 +1144,7 @@ public interface LilypondPackage extends EPackage
    * @see org.elysium.lilypond.impl.LilypondPackageImpl#getSchemeExpression()
    * @generated
    */
-  int SCHEME_EXPRESSION = 32;
+  int SCHEME_EXPRESSION = 33;
 
   /**
    * The feature id for the '<em><b>Reference</b></em>' attribute.
@@ -1153,7 +1190,7 @@ public interface LilypondPackage extends EPackage
    * @see org.elysium.lilypond.impl.LilypondPackageImpl#getSchemeValue()
    * @generated
    */
-  int SCHEME_VALUE = 33;
+  int SCHEME_VALUE = 34;
 
   /**
    * The number of structural features of the '<em>Scheme Value</em>' class.
@@ -1172,7 +1209,7 @@ public interface LilypondPackage extends EPackage
    * @see org.elysium.lilypond.impl.LilypondPackageImpl#getSchemeBoolean()
    * @generated
    */
-  int SCHEME_BOOLEAN = 34;
+  int SCHEME_BOOLEAN = 35;
 
   /**
    * The feature id for the '<em><b>Value</b></em>' attribute.
@@ -1200,7 +1237,7 @@ public interface LilypondPackage extends EPackage
    * @see org.elysium.lilypond.impl.LilypondPackageImpl#getSchemeList()
    * @generated
    */
-  int SCHEME_LIST = 35;
+  int SCHEME_LIST = 36;
 
   /**
    * The feature id for the '<em><b>Vector</b></em>' attribute.
@@ -1237,7 +1274,7 @@ public interface LilypondPackage extends EPackage
    * @see org.elysium.lilypond.impl.LilypondPackageImpl#getSchemeBlock()
    * @generated
    */
-  int SCHEME_BLOCK = 36;
+  int SCHEME_BLOCK = 37;
 
   /**
    * The feature id for the '<em><b>Elements</b></em>' containment reference list.
@@ -1265,7 +1302,7 @@ public interface LilypondPackage extends EPackage
    * @see org.elysium.lilypond.impl.LilypondPackageImpl#getSchemeCharacter()
    * @generated
    */
-  int SCHEME_CHARACTER = 37;
+  int SCHEME_CHARACTER = 38;
 
   /**
    * The feature id for the '<em><b>Value</b></em>' attribute.
@@ -1293,7 +1330,7 @@ public interface LilypondPackage extends EPackage
    * @see org.elysium.lilypond.impl.LilypondPackageImpl#getSchemeText()
    * @generated
    */
-  int SCHEME_TEXT = 38;
+  int SCHEME_TEXT = 39;
 
   /**
    * The feature id for the '<em><b>Value</b></em>' attribute.
@@ -1321,7 +1358,7 @@ public interface LilypondPackage extends EPackage
    * @see org.elysium.lilypond.impl.LilypondPackageImpl#getSchemeNumber()
    * @generated
    */
-  int SCHEME_NUMBER = 39;
+  int SCHEME_NUMBER = 40;
 
   /**
    * The feature id for the '<em><b>Radix</b></em>' attribute.
@@ -1358,7 +1395,7 @@ public interface LilypondPackage extends EPackage
    * @see org.elysium.lilypond.impl.LilypondPackageImpl#getSchemeMarkupCommand()
    * @generated
    */
-  int SCHEME_MARKUP_COMMAND = 40;
+  int SCHEME_MARKUP_COMMAND = 41;
 
   /**
    * The feature id for the '<em><b>Command</b></em>' attribute.
@@ -1967,6 +2004,27 @@ public interface LilypondPackage extends EPackage
    * @generated
    */
   EAttribute getOctave_Down();
+
+  /**
+   * Returns the meta object for class '{@link org.elysium.lilypond.ModeChange <em>Mode Change</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Mode Change</em>'.
+   * @see org.elysium.lilypond.ModeChange
+   * @generated
+   */
+  EClass getModeChange();
+
+  /**
+   * Returns the meta object for the containment reference '{@link org.elysium.lilypond.ModeChange#getMusic <em>Music</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Music</em>'.
+   * @see org.elysium.lilypond.ModeChange#getMusic()
+   * @see #getModeChange()
+   * @generated
+   */
+  EReference getModeChange_Music();
 
   /**
    * Returns the meta object for class '{@link org.elysium.lilypond.NewContext <em>New Context</em>}'.
@@ -2841,6 +2899,24 @@ public interface LilypondPackage extends EPackage
      * @generated
      */
     EAttribute OCTAVE__DOWN = eINSTANCE.getOctave_Down();
+
+    /**
+     * The meta object literal for the '{@link org.elysium.lilypond.impl.ModeChangeImpl <em>Mode Change</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.elysium.lilypond.impl.ModeChangeImpl
+     * @see org.elysium.lilypond.impl.LilypondPackageImpl#getModeChange()
+     * @generated
+     */
+    EClass MODE_CHANGE = eINSTANCE.getModeChange();
+
+    /**
+     * The meta object literal for the '<em><b>Music</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference MODE_CHANGE__MUSIC = eINSTANCE.getModeChange_Music();
 
     /**
      * The meta object literal for the '{@link org.elysium.lilypond.impl.NewContextImpl <em>New Context</em>}' class.

@@ -28,6 +28,7 @@ import org.elysium.lilypond.LilypondPackage;
 import org.elysium.lilypond.Markup;
 import org.elysium.lilypond.MarkupBody;
 import org.elysium.lilypond.MarkupLines;
+import org.elysium.lilypond.ModeChange;
 import org.elysium.lilypond.NewContext;
 import org.elysium.lilypond.Octave;
 import org.elysium.lilypond.Other;
@@ -135,6 +136,7 @@ public class LilypondFactoryImpl extends EFactoryImpl implements LilypondFactory
       case LilypondPackage.RELATIVE_MUSIC: return createRelativeMusic();
       case LilypondPackage.PITCH: return createPitch();
       case LilypondPackage.OCTAVE: return createOctave();
+      case LilypondPackage.MODE_CHANGE: return createModeChange();
       case LilypondPackage.NEW_CONTEXT: return createNewContext();
       case LilypondPackage.CONTEXT_MODIFICATION: return createContextModification();
       case LilypondPackage.CONTEXT_DEF: return createContextDef();
@@ -449,6 +451,17 @@ public class LilypondFactoryImpl extends EFactoryImpl implements LilypondFactory
   {
     OctaveImpl octave = new OctaveImpl();
     return octave;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public ModeChange createModeChange()
+  {
+    ModeChangeImpl modeChange = new ModeChangeImpl();
+    return modeChange;
   }
 
   /**

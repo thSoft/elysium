@@ -95,6 +95,10 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="down" unique="false" upperBound="-1"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ModeChange" eSuperTypes="#//SpecialCommand">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="music" eType="#//Block"
+        containment="true"/>
+  </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="NewContext" eSuperTypes="#//SpecialCommand">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="context" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>

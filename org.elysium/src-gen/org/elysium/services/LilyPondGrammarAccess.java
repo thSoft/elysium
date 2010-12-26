@@ -522,18 +522,19 @@ public class LilyPondGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cBlockCommandParserRuleCall_4 = (RuleCall)cAlternatives.eContents().get(4);
 		private final RuleCall cOutputDefinitionParserRuleCall_5 = (RuleCall)cAlternatives.eContents().get(5);
 		private final RuleCall cRelativeMusicParserRuleCall_6 = (RuleCall)cAlternatives.eContents().get(6);
-		private final RuleCall cNewContextParserRuleCall_7 = (RuleCall)cAlternatives.eContents().get(7);
-		private final RuleCall cContextDefParserRuleCall_8 = (RuleCall)cAlternatives.eContents().get(8);
-		private final RuleCall cOtherParserRuleCall_9 = (RuleCall)cAlternatives.eContents().get(9);
+		private final RuleCall cModeChangeParserRuleCall_7 = (RuleCall)cAlternatives.eContents().get(7);
+		private final RuleCall cNewContextParserRuleCall_8 = (RuleCall)cAlternatives.eContents().get(8);
+		private final RuleCall cContextDefParserRuleCall_9 = (RuleCall)cAlternatives.eContents().get(9);
+		private final RuleCall cOtherParserRuleCall_10 = (RuleCall)cAlternatives.eContents().get(10);
 		
 		//// Commands
 		//SpecialCommand:
-		//	Include | Version | Markup | MarkupLines | BlockCommand | OutputDefinition | RelativeMusic | NewContext | ContextDef |
-		//	Other;
+		//	Include | Version | Markup | MarkupLines | BlockCommand | OutputDefinition | RelativeMusic | ModeChange | NewContext |
+		//	ContextDef | Other;
 		public ParserRule getRule() { return rule; }
 
-		//Include | Version | Markup | MarkupLines | BlockCommand | OutputDefinition | RelativeMusic | NewContext | ContextDef |
-		//Other
+		//Include | Version | Markup | MarkupLines | BlockCommand | OutputDefinition | RelativeMusic | ModeChange | NewContext |
+		//ContextDef | Other
 		public Alternatives getAlternatives() { return cAlternatives; }
 
 		//Include
@@ -557,14 +558,17 @@ public class LilyPondGrammarAccess extends AbstractGrammarElementFinder {
 		//RelativeMusic
 		public RuleCall getRelativeMusicParserRuleCall_6() { return cRelativeMusicParserRuleCall_6; }
 
+		//ModeChange
+		public RuleCall getModeChangeParserRuleCall_7() { return cModeChangeParserRuleCall_7; }
+
 		//NewContext
-		public RuleCall getNewContextParserRuleCall_7() { return cNewContextParserRuleCall_7; }
+		public RuleCall getNewContextParserRuleCall_8() { return cNewContextParserRuleCall_8; }
 
 		//ContextDef
-		public RuleCall getContextDefParserRuleCall_8() { return cContextDefParserRuleCall_8; }
+		public RuleCall getContextDefParserRuleCall_9() { return cContextDefParserRuleCall_9; }
 
 		//Other
-		public RuleCall getOtherParserRuleCall_9() { return cOtherParserRuleCall_9; }
+		public RuleCall getOtherParserRuleCall_10() { return cOtherParserRuleCall_10; }
 	}
 
 	public class IncludeElements extends AbstractParserRuleElementFinder {
@@ -947,6 +951,58 @@ public class LilyPondGrammarAccess extends AbstractGrammarElementFinder {
 		public Keyword getDownCommaKeyword_1_0() { return cDownCommaKeyword_1_0; }
 	}
 
+	public class ModeChangeElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "ModeChange");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Keyword cReverseSolidusKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final Assignment cKeywordAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final Alternatives cKeywordAlternatives_1_0 = (Alternatives)cKeywordAssignment_1.eContents().get(0);
+		private final Keyword cKeywordChordmodeKeyword_1_0_0 = (Keyword)cKeywordAlternatives_1_0.eContents().get(0);
+		private final Keyword cKeywordDrummodeKeyword_1_0_1 = (Keyword)cKeywordAlternatives_1_0.eContents().get(1);
+		private final Keyword cKeywordFiguremodeKeyword_1_0_2 = (Keyword)cKeywordAlternatives_1_0.eContents().get(2);
+		private final Keyword cKeywordLyricmodeKeyword_1_0_3 = (Keyword)cKeywordAlternatives_1_0.eContents().get(3);
+		private final Keyword cKeywordNotemodeKeyword_1_0_4 = (Keyword)cKeywordAlternatives_1_0.eContents().get(4);
+		private final Assignment cMusicAssignment_2 = (Assignment)cGroup.eContents().get(2);
+		private final RuleCall cMusicBlockParserRuleCall_2_0 = (RuleCall)cMusicAssignment_2.eContents().get(0);
+		
+		//ModeChange:
+		//	"\\" keyword=("chordmode" | "drummode" | "figuremode" | "lyricmode" | "notemode") music=Block;
+		public ParserRule getRule() { return rule; }
+
+		//"\\" keyword=("chordmode" | "drummode" | "figuremode" | "lyricmode" | "notemode") music=Block
+		public Group getGroup() { return cGroup; }
+
+		//"\\"
+		public Keyword getReverseSolidusKeyword_0() { return cReverseSolidusKeyword_0; }
+
+		//keyword=("chordmode" | "drummode" | "figuremode" | "lyricmode" | "notemode")
+		public Assignment getKeywordAssignment_1() { return cKeywordAssignment_1; }
+
+		//"chordmode" | "drummode" | "figuremode" | "lyricmode" | "notemode"
+		public Alternatives getKeywordAlternatives_1_0() { return cKeywordAlternatives_1_0; }
+
+		//"chordmode"
+		public Keyword getKeywordChordmodeKeyword_1_0_0() { return cKeywordChordmodeKeyword_1_0_0; }
+
+		//"drummode"
+		public Keyword getKeywordDrummodeKeyword_1_0_1() { return cKeywordDrummodeKeyword_1_0_1; }
+
+		//"figuremode"
+		public Keyword getKeywordFiguremodeKeyword_1_0_2() { return cKeywordFiguremodeKeyword_1_0_2; }
+
+		//"lyricmode"
+		public Keyword getKeywordLyricmodeKeyword_1_0_3() { return cKeywordLyricmodeKeyword_1_0_3; }
+
+		//"notemode"
+		public Keyword getKeywordNotemodeKeyword_1_0_4() { return cKeywordNotemodeKeyword_1_0_4; }
+
+		//music=Block
+		public Assignment getMusicAssignment_2() { return cMusicAssignment_2; }
+
+		//Block
+		public RuleCall getMusicBlockParserRuleCall_2_0() { return cMusicBlockParserRuleCall_2_0; }
+	}
+
 	public class NewContextElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "NewContext");
 		private final Group cGroup = (Group)rule.eContents().get(1);
@@ -1136,62 +1192,57 @@ public class LilyPondGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cAliasKeyword_2 = (Keyword)cAlternatives.eContents().get(2);
 		private final Keyword cAlternativeKeyword_3 = (Keyword)cAlternatives.eContents().get(3);
 		private final Keyword cChangeKeyword_4 = (Keyword)cAlternatives.eContents().get(4);
-		private final Keyword cChordmodeKeyword_5 = (Keyword)cAlternatives.eContents().get(5);
-		private final Keyword cChordsKeyword_6 = (Keyword)cAlternatives.eContents().get(6);
-		private final Keyword cConsistsKeyword_7 = (Keyword)cAlternatives.eContents().get(7);
-		private final Keyword cDefaultKeyword_8 = (Keyword)cAlternatives.eContents().get(8);
-		private final Keyword cDefaultchildKeyword_9 = (Keyword)cAlternatives.eContents().get(9);
-		private final Keyword cDeniesKeyword_10 = (Keyword)cAlternatives.eContents().get(10);
-		private final Keyword cDescriptionKeyword_11 = (Keyword)cAlternatives.eContents().get(11);
-		private final Keyword cDrummodeKeyword_12 = (Keyword)cAlternatives.eContents().get(12);
-		private final Keyword cDrumsKeyword_13 = (Keyword)cAlternatives.eContents().get(13);
-		private final Keyword cFiguremodeKeyword_14 = (Keyword)cAlternatives.eContents().get(14);
-		private final Keyword cFiguresKeyword_15 = (Keyword)cAlternatives.eContents().get(15);
-		private final Keyword cGrobdescriptionsKeyword_16 = (Keyword)cAlternatives.eContents().get(16);
-		private final Keyword cKeyKeyword_17 = (Keyword)cAlternatives.eContents().get(17);
-		private final Keyword cLyricmodeKeyword_18 = (Keyword)cAlternatives.eContents().get(18);
-		private final Keyword cLyricsKeyword_19 = (Keyword)cAlternatives.eContents().get(19);
-		private final Keyword cLyricstoKeyword_20 = (Keyword)cAlternatives.eContents().get(20);
-		private final Keyword cMaininputKeyword_21 = (Keyword)cAlternatives.eContents().get(21);
-		private final Keyword cMarkKeyword_22 = (Keyword)cAlternatives.eContents().get(22);
-		private final Keyword cNameKeyword_23 = (Keyword)cAlternatives.eContents().get(23);
-		private final Keyword cNotemodeKeyword_24 = (Keyword)cAlternatives.eContents().get(24);
-		private final Keyword cObjectidKeyword_25 = (Keyword)cAlternatives.eContents().get(25);
-		private final Keyword cOctaveKeyword_26 = (Keyword)cAlternatives.eContents().get(26);
-		private final Keyword cOnceKeyword_27 = (Keyword)cAlternatives.eContents().get(27);
-		private final Keyword cOverrideKeyword_28 = (Keyword)cAlternatives.eContents().get(28);
-		private final Keyword cPartialKeyword_29 = (Keyword)cAlternatives.eContents().get(29);
-		private final Keyword cRemoveKeyword_30 = (Keyword)cAlternatives.eContents().get(30);
-		private final Keyword cRepeatKeyword_31 = (Keyword)cAlternatives.eContents().get(31);
-		private final Keyword cRestKeyword_32 = (Keyword)cAlternatives.eContents().get(32);
-		private final Keyword cRevertKeyword_33 = (Keyword)cAlternatives.eContents().get(33);
-		private final Keyword cSequentialKeyword_34 = (Keyword)cAlternatives.eContents().get(34);
-		private final Keyword cSetKeyword_35 = (Keyword)cAlternatives.eContents().get(35);
-		private final Keyword cSimultaneousKeyword_36 = (Keyword)cAlternatives.eContents().get(36);
-		private final Keyword cSkipKeyword_37 = (Keyword)cAlternatives.eContents().get(37);
-		private final Keyword cSourcefilelineKeyword_38 = (Keyword)cAlternatives.eContents().get(38);
-		private final Keyword cSourcefilenameKeyword_39 = (Keyword)cAlternatives.eContents().get(39);
-		private final Keyword cTempoKeyword_40 = (Keyword)cAlternatives.eContents().get(40);
-		private final Keyword cTimeKeyword_41 = (Keyword)cAlternatives.eContents().get(41);
-		private final Keyword cTimesKeyword_42 = (Keyword)cAlternatives.eContents().get(42);
-		private final Keyword cTransposeKeyword_43 = (Keyword)cAlternatives.eContents().get(43);
-		private final Keyword cTypeKeyword_44 = (Keyword)cAlternatives.eContents().get(44);
-		private final Keyword cUnsetKeyword_45 = (Keyword)cAlternatives.eContents().get(45);
-		private final Keyword cWithKeyword_46 = (Keyword)cAlternatives.eContents().get(46);
+		private final Keyword cChordsKeyword_5 = (Keyword)cAlternatives.eContents().get(5);
+		private final Keyword cConsistsKeyword_6 = (Keyword)cAlternatives.eContents().get(6);
+		private final Keyword cDefaultKeyword_7 = (Keyword)cAlternatives.eContents().get(7);
+		private final Keyword cDefaultchildKeyword_8 = (Keyword)cAlternatives.eContents().get(8);
+		private final Keyword cDeniesKeyword_9 = (Keyword)cAlternatives.eContents().get(9);
+		private final Keyword cDescriptionKeyword_10 = (Keyword)cAlternatives.eContents().get(10);
+		private final Keyword cDrumsKeyword_11 = (Keyword)cAlternatives.eContents().get(11);
+		private final Keyword cFiguresKeyword_12 = (Keyword)cAlternatives.eContents().get(12);
+		private final Keyword cGrobdescriptionsKeyword_13 = (Keyword)cAlternatives.eContents().get(13);
+		private final Keyword cKeyKeyword_14 = (Keyword)cAlternatives.eContents().get(14);
+		private final Keyword cLyricsKeyword_15 = (Keyword)cAlternatives.eContents().get(15);
+		private final Keyword cLyricstoKeyword_16 = (Keyword)cAlternatives.eContents().get(16);
+		private final Keyword cMaininputKeyword_17 = (Keyword)cAlternatives.eContents().get(17);
+		private final Keyword cMarkKeyword_18 = (Keyword)cAlternatives.eContents().get(18);
+		private final Keyword cNameKeyword_19 = (Keyword)cAlternatives.eContents().get(19);
+		private final Keyword cObjectidKeyword_20 = (Keyword)cAlternatives.eContents().get(20);
+		private final Keyword cOctaveKeyword_21 = (Keyword)cAlternatives.eContents().get(21);
+		private final Keyword cOnceKeyword_22 = (Keyword)cAlternatives.eContents().get(22);
+		private final Keyword cOverrideKeyword_23 = (Keyword)cAlternatives.eContents().get(23);
+		private final Keyword cPartialKeyword_24 = (Keyword)cAlternatives.eContents().get(24);
+		private final Keyword cRemoveKeyword_25 = (Keyword)cAlternatives.eContents().get(25);
+		private final Keyword cRepeatKeyword_26 = (Keyword)cAlternatives.eContents().get(26);
+		private final Keyword cRestKeyword_27 = (Keyword)cAlternatives.eContents().get(27);
+		private final Keyword cRevertKeyword_28 = (Keyword)cAlternatives.eContents().get(28);
+		private final Keyword cSequentialKeyword_29 = (Keyword)cAlternatives.eContents().get(29);
+		private final Keyword cSetKeyword_30 = (Keyword)cAlternatives.eContents().get(30);
+		private final Keyword cSimultaneousKeyword_31 = (Keyword)cAlternatives.eContents().get(31);
+		private final Keyword cSkipKeyword_32 = (Keyword)cAlternatives.eContents().get(32);
+		private final Keyword cSourcefilelineKeyword_33 = (Keyword)cAlternatives.eContents().get(33);
+		private final Keyword cSourcefilenameKeyword_34 = (Keyword)cAlternatives.eContents().get(34);
+		private final Keyword cTempoKeyword_35 = (Keyword)cAlternatives.eContents().get(35);
+		private final Keyword cTimeKeyword_36 = (Keyword)cAlternatives.eContents().get(36);
+		private final Keyword cTimesKeyword_37 = (Keyword)cAlternatives.eContents().get(37);
+		private final Keyword cTransposeKeyword_38 = (Keyword)cAlternatives.eContents().get(38);
+		private final Keyword cTypeKeyword_39 = (Keyword)cAlternatives.eContents().get(39);
+		private final Keyword cUnsetKeyword_40 = (Keyword)cAlternatives.eContents().get(40);
+		private final Keyword cWithKeyword_41 = (Keyword)cAlternatives.eContents().get(41);
 		
 		//OtherName returns ecore::EString:
-		//	"accepts" | "addlyrics" | "alias" | "alternative" | "change" | "chordmode" | "chords" | "consists" | "default" |
-		//	"defaultchild" | "denies" | "description" | "drummode" | "drums" | "figuremode" | "figures" | "grobdescriptions" |
-		//	"key" | "lyricmode" | "lyrics" | "lyricsto" | "maininput" | "mark" | "name" | "notemode" | "objectid" | "octave" |
-		//	"once" | "override" | "partial" | "remove" | "repeat" | "rest" | "revert" | "sequential" | "set" | "simultaneous" |
-		//	"skip" | "sourcefileline" | "sourcefilename" | "tempo" | "time" | "times" | "transpose" | "type" | "unset" | "with";
+		//	"accepts" | "addlyrics" | "alias" | "alternative" | "change" | "chords" | "consists" | "default" | "defaultchild" |
+		//	"denies" | "description" | "drums" | "figures" | "grobdescriptions" | "key" | "lyrics" | "lyricsto" | "maininput" |
+		//	"mark" | "name" | "objectid" | "octave" | "once" | "override" | "partial" | "remove" | "repeat" | "rest" | "revert" |
+		//	"sequential" | "set" | "simultaneous" | "skip" | "sourcefileline" | "sourcefilename" | "tempo" | "time" | "times" |
+		//	"transpose" | "type" | "unset" | "with";
 		public ParserRule getRule() { return rule; }
 
-		//"accepts" | "addlyrics" | "alias" | "alternative" | "change" | "chordmode" | "chords" | "consists" | "default" |
-		//"defaultchild" | "denies" | "description" | "drummode" | "drums" | "figuremode" | "figures" | "grobdescriptions" |
-		//"key" | "lyricmode" | "lyrics" | "lyricsto" | "maininput" | "mark" | "name" | "notemode" | "objectid" | "octave" |
-		//"once" | "override" | "partial" | "remove" | "repeat" | "rest" | "revert" | "sequential" | "set" | "simultaneous" |
-		//"skip" | "sourcefileline" | "sourcefilename" | "tempo" | "time" | "times" | "transpose" | "type" | "unset" | "with"
+		//"accepts" | "addlyrics" | "alias" | "alternative" | "change" | "chords" | "consists" | "default" | "defaultchild" |
+		//"denies" | "description" | "drums" | "figures" | "grobdescriptions" | "key" | "lyrics" | "lyricsto" | "maininput" |
+		//"mark" | "name" | "objectid" | "octave" | "once" | "override" | "partial" | "remove" | "repeat" | "rest" | "revert" |
+		//"sequential" | "set" | "simultaneous" | "skip" | "sourcefileline" | "sourcefilename" | "tempo" | "time" | "times" |
+		//"transpose" | "type" | "unset" | "with"
 		public Alternatives getAlternatives() { return cAlternatives; }
 
 		//"accepts"
@@ -1209,131 +1260,116 @@ public class LilyPondGrammarAccess extends AbstractGrammarElementFinder {
 		//"change"
 		public Keyword getChangeKeyword_4() { return cChangeKeyword_4; }
 
-		//"chordmode"
-		public Keyword getChordmodeKeyword_5() { return cChordmodeKeyword_5; }
-
 		//"chords"
-		public Keyword getChordsKeyword_6() { return cChordsKeyword_6; }
+		public Keyword getChordsKeyword_5() { return cChordsKeyword_5; }
 
 		//"consists"
-		public Keyword getConsistsKeyword_7() { return cConsistsKeyword_7; }
+		public Keyword getConsistsKeyword_6() { return cConsistsKeyword_6; }
 
 		//"default"
-		public Keyword getDefaultKeyword_8() { return cDefaultKeyword_8; }
+		public Keyword getDefaultKeyword_7() { return cDefaultKeyword_7; }
 
 		//"defaultchild"
-		public Keyword getDefaultchildKeyword_9() { return cDefaultchildKeyword_9; }
+		public Keyword getDefaultchildKeyword_8() { return cDefaultchildKeyword_8; }
 
 		//"denies"
-		public Keyword getDeniesKeyword_10() { return cDeniesKeyword_10; }
+		public Keyword getDeniesKeyword_9() { return cDeniesKeyword_9; }
 
 		//"description"
-		public Keyword getDescriptionKeyword_11() { return cDescriptionKeyword_11; }
-
-		//"drummode"
-		public Keyword getDrummodeKeyword_12() { return cDrummodeKeyword_12; }
+		public Keyword getDescriptionKeyword_10() { return cDescriptionKeyword_10; }
 
 		//"drums"
-		public Keyword getDrumsKeyword_13() { return cDrumsKeyword_13; }
-
-		//"figuremode"
-		public Keyword getFiguremodeKeyword_14() { return cFiguremodeKeyword_14; }
+		public Keyword getDrumsKeyword_11() { return cDrumsKeyword_11; }
 
 		//"figures"
-		public Keyword getFiguresKeyword_15() { return cFiguresKeyword_15; }
+		public Keyword getFiguresKeyword_12() { return cFiguresKeyword_12; }
 
 		//"grobdescriptions"
-		public Keyword getGrobdescriptionsKeyword_16() { return cGrobdescriptionsKeyword_16; }
+		public Keyword getGrobdescriptionsKeyword_13() { return cGrobdescriptionsKeyword_13; }
 
 		//"key"
-		public Keyword getKeyKeyword_17() { return cKeyKeyword_17; }
-
-		//"lyricmode"
-		public Keyword getLyricmodeKeyword_18() { return cLyricmodeKeyword_18; }
+		public Keyword getKeyKeyword_14() { return cKeyKeyword_14; }
 
 		//"lyrics"
-		public Keyword getLyricsKeyword_19() { return cLyricsKeyword_19; }
+		public Keyword getLyricsKeyword_15() { return cLyricsKeyword_15; }
 
 		//"lyricsto"
-		public Keyword getLyricstoKeyword_20() { return cLyricstoKeyword_20; }
+		public Keyword getLyricstoKeyword_16() { return cLyricstoKeyword_16; }
 
 		//"maininput"
-		public Keyword getMaininputKeyword_21() { return cMaininputKeyword_21; }
+		public Keyword getMaininputKeyword_17() { return cMaininputKeyword_17; }
 
 		//"mark"
-		public Keyword getMarkKeyword_22() { return cMarkKeyword_22; }
+		public Keyword getMarkKeyword_18() { return cMarkKeyword_18; }
 
 		//"name"
-		public Keyword getNameKeyword_23() { return cNameKeyword_23; }
-
-		//"notemode"
-		public Keyword getNotemodeKeyword_24() { return cNotemodeKeyword_24; }
+		public Keyword getNameKeyword_19() { return cNameKeyword_19; }
 
 		//"objectid"
-		public Keyword getObjectidKeyword_25() { return cObjectidKeyword_25; }
+		public Keyword getObjectidKeyword_20() { return cObjectidKeyword_20; }
 
 		//"octave"
-		public Keyword getOctaveKeyword_26() { return cOctaveKeyword_26; }
+		public Keyword getOctaveKeyword_21() { return cOctaveKeyword_21; }
 
 		//"once"
-		public Keyword getOnceKeyword_27() { return cOnceKeyword_27; }
+		public Keyword getOnceKeyword_22() { return cOnceKeyword_22; }
 
 		//"override"
-		public Keyword getOverrideKeyword_28() { return cOverrideKeyword_28; }
+		public Keyword getOverrideKeyword_23() { return cOverrideKeyword_23; }
 
 		//"partial"
-		public Keyword getPartialKeyword_29() { return cPartialKeyword_29; }
+		public Keyword getPartialKeyword_24() { return cPartialKeyword_24; }
 
 		//"remove"
-		public Keyword getRemoveKeyword_30() { return cRemoveKeyword_30; }
+		public Keyword getRemoveKeyword_25() { return cRemoveKeyword_25; }
 
 		//"repeat"
-		public Keyword getRepeatKeyword_31() { return cRepeatKeyword_31; }
+		public Keyword getRepeatKeyword_26() { return cRepeatKeyword_26; }
 
 		//"rest"
-		public Keyword getRestKeyword_32() { return cRestKeyword_32; }
+		public Keyword getRestKeyword_27() { return cRestKeyword_27; }
 
 		//"revert"
-		public Keyword getRevertKeyword_33() { return cRevertKeyword_33; }
+		public Keyword getRevertKeyword_28() { return cRevertKeyword_28; }
 
 		//"sequential"
-		public Keyword getSequentialKeyword_34() { return cSequentialKeyword_34; }
+		public Keyword getSequentialKeyword_29() { return cSequentialKeyword_29; }
 
 		//"set"
-		public Keyword getSetKeyword_35() { return cSetKeyword_35; }
+		public Keyword getSetKeyword_30() { return cSetKeyword_30; }
 
 		//"simultaneous"
-		public Keyword getSimultaneousKeyword_36() { return cSimultaneousKeyword_36; }
+		public Keyword getSimultaneousKeyword_31() { return cSimultaneousKeyword_31; }
 
 		//"skip"
-		public Keyword getSkipKeyword_37() { return cSkipKeyword_37; }
+		public Keyword getSkipKeyword_32() { return cSkipKeyword_32; }
 
 		//"sourcefileline"
-		public Keyword getSourcefilelineKeyword_38() { return cSourcefilelineKeyword_38; }
+		public Keyword getSourcefilelineKeyword_33() { return cSourcefilelineKeyword_33; }
 
 		//"sourcefilename"
-		public Keyword getSourcefilenameKeyword_39() { return cSourcefilenameKeyword_39; }
+		public Keyword getSourcefilenameKeyword_34() { return cSourcefilenameKeyword_34; }
 
 		//"tempo"
-		public Keyword getTempoKeyword_40() { return cTempoKeyword_40; }
+		public Keyword getTempoKeyword_35() { return cTempoKeyword_35; }
 
 		//"time"
-		public Keyword getTimeKeyword_41() { return cTimeKeyword_41; }
+		public Keyword getTimeKeyword_36() { return cTimeKeyword_36; }
 
 		//"times"
-		public Keyword getTimesKeyword_42() { return cTimesKeyword_42; }
+		public Keyword getTimesKeyword_37() { return cTimesKeyword_37; }
 
 		//"transpose"
-		public Keyword getTransposeKeyword_43() { return cTransposeKeyword_43; }
+		public Keyword getTransposeKeyword_38() { return cTransposeKeyword_38; }
 
 		//"type"
-		public Keyword getTypeKeyword_44() { return cTypeKeyword_44; }
+		public Keyword getTypeKeyword_39() { return cTypeKeyword_39; }
 
 		//"unset"
-		public Keyword getUnsetKeyword_45() { return cUnsetKeyword_45; }
+		public Keyword getUnsetKeyword_40() { return cUnsetKeyword_40; }
 
 		//"with"
-		public Keyword getWithKeyword_46() { return cWithKeyword_46; }
+		public Keyword getWithKeyword_41() { return cWithKeyword_41; }
 	}
 
 	public class SpecialCommandNameElements extends AbstractParserRuleElementFinder {
@@ -1352,17 +1388,24 @@ public class LilyPondGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cMidiKeyword_10 = (Keyword)cAlternatives.eContents().get(10);
 		private final Keyword cLayoutKeyword_11 = (Keyword)cAlternatives.eContents().get(11);
 		private final Keyword cRelativeKeyword_12 = (Keyword)cAlternatives.eContents().get(12);
-		private final Keyword cNewKeyword_13 = (Keyword)cAlternatives.eContents().get(13);
-		private final Keyword cWithKeyword_14 = (Keyword)cAlternatives.eContents().get(14);
-		private final RuleCall cOtherNameParserRuleCall_15 = (RuleCall)cAlternatives.eContents().get(15);
+		private final Keyword cChordmodeKeyword_13 = (Keyword)cAlternatives.eContents().get(13);
+		private final Keyword cDrummodeKeyword_14 = (Keyword)cAlternatives.eContents().get(14);
+		private final Keyword cFiguremodeKeyword_15 = (Keyword)cAlternatives.eContents().get(15);
+		private final Keyword cLyricmodeKeyword_16 = (Keyword)cAlternatives.eContents().get(16);
+		private final Keyword cNotemodeKeyword_17 = (Keyword)cAlternatives.eContents().get(17);
+		private final Keyword cNewKeyword_18 = (Keyword)cAlternatives.eContents().get(18);
+		private final Keyword cWithKeyword_19 = (Keyword)cAlternatives.eContents().get(19);
+		private final RuleCall cOtherNameParserRuleCall_20 = (RuleCall)cAlternatives.eContents().get(20);
 		
 		//SpecialCommandName returns ecore::EString:
 		//	"include" | "version" | "markup" | "markuplines" | "book" | "bookpart" | "context" | "header" | "score" | "paper" |
-		//	"midi" | "layout" | "relative" | "new" | "with" | OtherName;
+		//	"midi" | "layout" | "relative" | "chordmode" | "drummode" | "figuremode" | "lyricmode" | "notemode" | "new" | "with" |
+		//	OtherName;
 		public ParserRule getRule() { return rule; }
 
 		//"include" | "version" | "markup" | "markuplines" | "book" | "bookpart" | "context" | "header" | "score" | "paper" |
-		//"midi" | "layout" | "relative" | "new" | "with" | OtherName
+		//"midi" | "layout" | "relative" | "chordmode" | "drummode" | "figuremode" | "lyricmode" | "notemode" | "new" | "with" |
+		//OtherName
 		public Alternatives getAlternatives() { return cAlternatives; }
 
 		//"include"
@@ -1404,14 +1447,29 @@ public class LilyPondGrammarAccess extends AbstractGrammarElementFinder {
 		//"relative"
 		public Keyword getRelativeKeyword_12() { return cRelativeKeyword_12; }
 
+		//"chordmode"
+		public Keyword getChordmodeKeyword_13() { return cChordmodeKeyword_13; }
+
+		//"drummode"
+		public Keyword getDrummodeKeyword_14() { return cDrummodeKeyword_14; }
+
+		//"figuremode"
+		public Keyword getFiguremodeKeyword_15() { return cFiguremodeKeyword_15; }
+
+		//"lyricmode"
+		public Keyword getLyricmodeKeyword_16() { return cLyricmodeKeyword_16; }
+
+		//"notemode"
+		public Keyword getNotemodeKeyword_17() { return cNotemodeKeyword_17; }
+
 		//"new"
-		public Keyword getNewKeyword_13() { return cNewKeyword_13; }
+		public Keyword getNewKeyword_18() { return cNewKeyword_18; }
 
 		//"with"
-		public Keyword getWithKeyword_14() { return cWithKeyword_14; }
+		public Keyword getWithKeyword_19() { return cWithKeyword_19; }
 
 		//OtherName
-		public RuleCall getOtherNameParserRuleCall_15() { return cOtherNameParserRuleCall_15; }
+		public RuleCall getOtherNameParserRuleCall_20() { return cOtherNameParserRuleCall_20; }
 	}
 
 	public class SchemeElements extends AbstractParserRuleElementFinder {
@@ -1912,6 +1970,7 @@ public class LilyPondGrammarAccess extends AbstractGrammarElementFinder {
 	private RelativeMusicElements pRelativeMusic;
 	private PitchElements pPitch;
 	private OctaveElements pOctave;
+	private ModeChangeElements pModeChange;
 	private NewContextElements pNewContext;
 	private ContextModificationElements pContextModification;
 	private ContextDefElements pContextDef;
@@ -2128,8 +2187,8 @@ public class LilyPondGrammarAccess extends AbstractGrammarElementFinder {
 
 	//// Commands
 	//SpecialCommand:
-	//	Include | Version | Markup | MarkupLines | BlockCommand | OutputDefinition | RelativeMusic | NewContext | ContextDef |
-	//	Other;
+	//	Include | Version | Markup | MarkupLines | BlockCommand | OutputDefinition | RelativeMusic | ModeChange | NewContext |
+	//	ContextDef | Other;
 	public SpecialCommandElements getSpecialCommandAccess() {
 		return (pSpecialCommand != null) ? pSpecialCommand : (pSpecialCommand = new SpecialCommandElements());
 	}
@@ -2238,6 +2297,16 @@ public class LilyPondGrammarAccess extends AbstractGrammarElementFinder {
 		return getOctaveAccess().getRule();
 	}
 
+	//ModeChange:
+	//	"\\" keyword=("chordmode" | "drummode" | "figuremode" | "lyricmode" | "notemode") music=Block;
+	public ModeChangeElements getModeChangeAccess() {
+		return (pModeChange != null) ? pModeChange : (pModeChange = new ModeChangeElements());
+	}
+	
+	public ParserRule getModeChangeRule() {
+		return getModeChangeAccess().getRule();
+	}
+
 	//NewContext:
 	//	"\\" keyword=("new" | "context") context=ID ("=" id=(ID | STRING))? modification=ContextModification?
 	//	music=Expression;
@@ -2280,11 +2349,11 @@ public class LilyPondGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//OtherName returns ecore::EString:
-	//	"accepts" | "addlyrics" | "alias" | "alternative" | "change" | "chordmode" | "chords" | "consists" | "default" |
-	//	"defaultchild" | "denies" | "description" | "drummode" | "drums" | "figuremode" | "figures" | "grobdescriptions" |
-	//	"key" | "lyricmode" | "lyrics" | "lyricsto" | "maininput" | "mark" | "name" | "notemode" | "objectid" | "octave" |
-	//	"once" | "override" | "partial" | "remove" | "repeat" | "rest" | "revert" | "sequential" | "set" | "simultaneous" |
-	//	"skip" | "sourcefileline" | "sourcefilename" | "tempo" | "time" | "times" | "transpose" | "type" | "unset" | "with";
+	//	"accepts" | "addlyrics" | "alias" | "alternative" | "change" | "chords" | "consists" | "default" | "defaultchild" |
+	//	"denies" | "description" | "drums" | "figures" | "grobdescriptions" | "key" | "lyrics" | "lyricsto" | "maininput" |
+	//	"mark" | "name" | "objectid" | "octave" | "once" | "override" | "partial" | "remove" | "repeat" | "rest" | "revert" |
+	//	"sequential" | "set" | "simultaneous" | "skip" | "sourcefileline" | "sourcefilename" | "tempo" | "time" | "times" |
+	//	"transpose" | "type" | "unset" | "with";
 	public OtherNameElements getOtherNameAccess() {
 		return (pOtherName != null) ? pOtherName : (pOtherName = new OtherNameElements());
 	}
@@ -2295,7 +2364,8 @@ public class LilyPondGrammarAccess extends AbstractGrammarElementFinder {
 
 	//SpecialCommandName returns ecore::EString:
 	//	"include" | "version" | "markup" | "markuplines" | "book" | "bookpart" | "context" | "header" | "score" | "paper" |
-	//	"midi" | "layout" | "relative" | "new" | "with" | OtherName;
+	//	"midi" | "layout" | "relative" | "chordmode" | "drummode" | "figuremode" | "lyricmode" | "notemode" | "new" | "with" |
+	//	OtherName;
 	public SpecialCommandNameElements getSpecialCommandNameAccess() {
 		return (pSpecialCommandName != null) ? pSpecialCommandName : (pSpecialCommandName = new SpecialCommandNameElements());
 	}

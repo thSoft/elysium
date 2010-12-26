@@ -27,6 +27,7 @@ import org.elysium.lilypond.LilypondPackage;
 import org.elysium.lilypond.Markup;
 import org.elysium.lilypond.MarkupBody;
 import org.elysium.lilypond.MarkupLines;
+import org.elysium.lilypond.ModeChange;
 import org.elysium.lilypond.NewContext;
 import org.elysium.lilypond.Octave;
 import org.elysium.lilypond.Other;
@@ -251,6 +252,13 @@ public class LilypondPackageImpl extends EPackageImpl implements LilypondPackage
    * @generated
    */
   private EClass octaveEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass modeChangeEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -978,6 +986,26 @@ public class LilypondPackageImpl extends EPackageImpl implements LilypondPackage
    * <!-- end-user-doc -->
    * @generated
    */
+  public EClass getModeChange()
+  {
+    return modeChangeEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getModeChange_Music()
+  {
+    return (EReference)modeChangeEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public EClass getNewContext()
   {
     return newContextEClass;
@@ -1416,6 +1444,9 @@ public class LilypondPackageImpl extends EPackageImpl implements LilypondPackage
     createEAttribute(octaveEClass, OCTAVE__UP);
     createEAttribute(octaveEClass, OCTAVE__DOWN);
 
+    modeChangeEClass = createEClass(MODE_CHANGE);
+    createEReference(modeChangeEClass, MODE_CHANGE__MUSIC);
+
     newContextEClass = createEClass(NEW_CONTEXT);
     createEAttribute(newContextEClass, NEW_CONTEXT__CONTEXT);
     createEAttribute(newContextEClass, NEW_CONTEXT__ID);
@@ -1516,6 +1547,7 @@ public class LilypondPackageImpl extends EPackageImpl implements LilypondPackage
     blockCommandEClass.getESuperTypes().add(this.getSpecialCommand());
     outputDefinitionEClass.getESuperTypes().add(this.getSpecialCommand());
     relativeMusicEClass.getESuperTypes().add(this.getSpecialCommand());
+    modeChangeEClass.getESuperTypes().add(this.getSpecialCommand());
     newContextEClass.getESuperTypes().add(this.getSpecialCommand());
     contextDefEClass.getESuperTypes().add(this.getSpecialCommand());
     otherEClass.getESuperTypes().add(this.getSpecialCommand());
@@ -1612,6 +1644,9 @@ public class LilypondPackageImpl extends EPackageImpl implements LilypondPackage
     initEClass(octaveEClass, Octave.class, "Octave", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getOctave_Up(), ecorePackage.getEString(), "up", null, 0, -1, Octave.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getOctave_Down(), ecorePackage.getEString(), "down", null, 0, -1, Octave.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(modeChangeEClass, ModeChange.class, "ModeChange", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getModeChange_Music(), this.getBlock(), null, "music", null, 0, 1, ModeChange.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(newContextEClass, NewContext.class, "NewContext", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getNewContext_Context(), ecorePackage.getEString(), "context", null, 0, 1, NewContext.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

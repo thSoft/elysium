@@ -26,6 +26,7 @@ import org.elysium.lilypond.LilypondPackage;
 import org.elysium.lilypond.Markup;
 import org.elysium.lilypond.MarkupBody;
 import org.elysium.lilypond.MarkupLines;
+import org.elysium.lilypond.ModeChange;
 import org.elysium.lilypond.NewContext;
 import org.elysium.lilypond.Octave;
 import org.elysium.lilypond.Other;
@@ -251,6 +252,11 @@ public class LilypondAdapterFactory extends AdapterFactoryImpl
       public Adapter caseOctave(Octave object)
       {
         return createOctaveAdapter();
+      }
+      @Override
+      public Adapter caseModeChange(ModeChange object)
+      {
+        return createModeChangeAdapter();
       }
       @Override
       public Adapter caseNewContext(NewContext object)
@@ -745,6 +751,21 @@ public class LilypondAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createOctaveAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.elysium.lilypond.ModeChange <em>Mode Change</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.elysium.lilypond.ModeChange
+   * @generated
+   */
+  public Adapter createModeChangeAdapter()
   {
     return null;
   }

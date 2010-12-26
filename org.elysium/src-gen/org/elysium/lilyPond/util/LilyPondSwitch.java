@@ -24,6 +24,7 @@ import org.elysium.lilypond.LilypondPackage;
 import org.elysium.lilypond.Markup;
 import org.elysium.lilypond.MarkupBody;
 import org.elysium.lilypond.MarkupLines;
+import org.elysium.lilypond.ModeChange;
 import org.elysium.lilypond.NewContext;
 import org.elysium.lilypond.Octave;
 import org.elysium.lilypond.Other;
@@ -392,6 +393,18 @@ public class LilypondSwitch<T>
       {
         Octave octave = (Octave)theEObject;
         T result = caseOctave(octave);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case LilypondPackage.MODE_CHANGE:
+      {
+        ModeChange modeChange = (ModeChange)theEObject;
+        T result = caseModeChange(modeChange);
+        if (result == null) result = caseSpecialCommand(modeChange);
+        if (result == null) result = caseCommand(modeChange);
+        if (result == null) result = caseCommonExpression(modeChange);
+        if (result == null) result = caseToplevelExpression(modeChange);
+        if (result == null) result = caseExpression(modeChange);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -951,6 +964,22 @@ public class LilypondSwitch<T>
    * @generated
    */
   public T caseOctave(Octave object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Mode Change</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Mode Change</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseModeChange(ModeChange object)
   {
     return null;
   }

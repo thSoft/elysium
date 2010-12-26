@@ -53,6 +53,7 @@ public class LilyPondParser extends AbstractContentAssistParser {
 					put(grammarAccess.getBlockCommandAccess().getKeywordAlternatives_1_0(), "rule__BlockCommand__KeywordAlternatives_1_0");
 					put(grammarAccess.getOutputDefinitionAccess().getKeywordAlternatives_1_0(), "rule__OutputDefinition__KeywordAlternatives_1_0");
 					put(grammarAccess.getOctaveAccess().getAlternatives(), "rule__Octave__Alternatives");
+					put(grammarAccess.getModeChangeAccess().getKeywordAlternatives_1_0(), "rule__ModeChange__KeywordAlternatives_1_0");
 					put(grammarAccess.getNewContextAccess().getKeywordAlternatives_1_0(), "rule__NewContext__KeywordAlternatives_1_0");
 					put(grammarAccess.getNewContextAccess().getIdAlternatives_3_1_0(), "rule__NewContext__IdAlternatives_3_1_0");
 					put(grammarAccess.getOtherAccess().getKeywordAlternatives_1_0(), "rule__Other__KeywordAlternatives_1_0");
@@ -80,6 +81,7 @@ public class LilyPondParser extends AbstractContentAssistParser {
 					put(grammarAccess.getOutputDefinitionAccess().getGroup(), "rule__OutputDefinition__Group__0");
 					put(grammarAccess.getRelativeMusicAccess().getGroup(), "rule__RelativeMusic__Group__0");
 					put(grammarAccess.getPitchAccess().getGroup(), "rule__Pitch__Group__0");
+					put(grammarAccess.getModeChangeAccess().getGroup(), "rule__ModeChange__Group__0");
 					put(grammarAccess.getNewContextAccess().getGroup(), "rule__NewContext__Group__0");
 					put(grammarAccess.getNewContextAccess().getGroup_3(), "rule__NewContext__Group_3__0");
 					put(grammarAccess.getContextModificationAccess().getGroup(), "rule__ContextModification__Group__0");
@@ -134,6 +136,8 @@ public class LilyPondParser extends AbstractContentAssistParser {
 					put(grammarAccess.getPitchAccess().getCautionaryAccidentalAssignment_4(), "rule__Pitch__CautionaryAccidentalAssignment_4");
 					put(grammarAccess.getOctaveAccess().getUpAssignment_0(), "rule__Octave__UpAssignment_0");
 					put(grammarAccess.getOctaveAccess().getDownAssignment_1(), "rule__Octave__DownAssignment_1");
+					put(grammarAccess.getModeChangeAccess().getKeywordAssignment_1(), "rule__ModeChange__KeywordAssignment_1");
+					put(grammarAccess.getModeChangeAccess().getMusicAssignment_2(), "rule__ModeChange__MusicAssignment_2");
 					put(grammarAccess.getNewContextAccess().getKeywordAssignment_1(), "rule__NewContext__KeywordAssignment_1");
 					put(grammarAccess.getNewContextAccess().getContextAssignment_2(), "rule__NewContext__ContextAssignment_2");
 					put(grammarAccess.getNewContextAccess().getIdAssignment_3_1(), "rule__NewContext__IdAssignment_3_1");

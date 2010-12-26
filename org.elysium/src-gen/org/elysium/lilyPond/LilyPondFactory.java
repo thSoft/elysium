@@ -269,6 +269,15 @@ public interface LilypondFactory extends EFactory
   Octave createOctave();
 
   /**
+   * Returns a new object of class '<em>Mode Change</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Mode Change</em>'.
+   * @generated
+   */
+  ModeChange createModeChange();
+
+  /**
    * Returns a new object of class '<em>New Context</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
