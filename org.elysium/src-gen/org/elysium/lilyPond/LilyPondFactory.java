@@ -359,24 +359,6 @@ public interface LilypondFactory extends EFactory
   SchemeBlock createSchemeBlock();
 
   /**
-   * Returns a new object of class '<em>Scheme Block Element</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Scheme Block Element</em>'.
-   * @generated
-   */
-  SchemeBlockElement createSchemeBlockElement();
-
-  /**
-   * Returns a new object of class '<em>Scheme Reference</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Scheme Reference</em>'.
-   * @generated
-   */
-  SchemeReference createSchemeReference();
-
-  /**
    * Returns a new object of class '<em>Scheme Character</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->

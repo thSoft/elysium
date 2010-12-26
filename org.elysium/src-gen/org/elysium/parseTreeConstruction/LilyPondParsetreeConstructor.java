@@ -68,12 +68,10 @@ protected class ThisRootNode extends RootToken {
 			case 34: return new SchemeBoolean_ValueAssignment(this, this, 34, inst);
 			case 35: return new SchemeList_Group(this, this, 35, inst);
 			case 36: return new SchemeBlock_Group(this, this, 36, inst);
-			case 37: return new SchemeBlockElement_Alternatives(this, this, 37, inst);
-			case 38: return new SchemeReference_Group(this, this, 38, inst);
-			case 39: return new SchemeCharacter_Group(this, this, 39, inst);
-			case 40: return new SchemeText_ValueAssignment(this, this, 40, inst);
-			case 41: return new SchemeNumber_Group(this, this, 41, inst);
-			case 42: return new SchemeMarkupCommand_Group(this, this, 42, inst);
+			case 37: return new SchemeCharacter_Group(this, this, 37, inst);
+			case 38: return new SchemeText_ValueAssignment(this, this, 38, inst);
+			case 39: return new SchemeNumber_Group(this, this, 39, inst);
+			case 40: return new SchemeMarkupCommand_Group(this, this, 40, inst);
 			default: return null;
 		}	
 	}	
@@ -4890,11 +4888,11 @@ protected class Other_KeywordAssignment_1 extends AssignmentToken  {
  *
  * // Scheme
  * Scheme hidden(WS, SCHEME_SL_COMMENT, SCHEME_ML_COMMENT):
- * 	"#" value=SchemeExpression;
+ * 	("#" | "$") value=SchemeExpression;
  *
  **/
 
-// "#" value=SchemeExpression
+// ("#" | "$") value=SchemeExpression
 protected class Scheme_Group extends GroupToken {
 	
 	public Scheme_Group(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -4923,16 +4921,38 @@ protected class Scheme_Group extends GroupToken {
 
 }
 
-// "#"
-protected class Scheme_NumberSignKeyword_0 extends KeywordToken  {
+// "#" | "$"
+protected class Scheme_Alternatives_0 extends AlternativesToken {
+
+	public Scheme_Alternatives_0(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
+		super(lastRuleCallOrigin, next, transitionIndex, eObjectConsumer);
+	}
 	
-	public Scheme_NumberSignKeyword_0(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
+	@Override
+	public Alternatives getGrammarElement() {
+		return grammarAccess.getSchemeAccess().getAlternatives_0();
+	}
+
+    @Override
+	public AbstractToken createFollower(int index, IEObjectConsumer inst) {
+		switch(index) {
+			case 0: return new Scheme_NumberSignKeyword_0_0(lastRuleCallOrigin, this, 0, inst);
+			default: return null;
+		}	
+	}
+
+}
+
+// "#"
+protected class Scheme_NumberSignKeyword_0_0 extends KeywordToken  {
+	
+	public Scheme_NumberSignKeyword_0_0(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
 		super(lastRuleCallOrigin, next, transitionIndex, eObjectConsumer);
 	}
 	
 	@Override
 	public Keyword getGrammarElement() {
-		return grammarAccess.getSchemeAccess().getNumberSignKeyword_0();
+		return grammarAccess.getSchemeAccess().getNumberSignKeyword_0_0();
 	}
 
     @Override
@@ -4943,6 +4963,7 @@ protected class Scheme_NumberSignKeyword_0 extends KeywordToken  {
 	}
 
 }
+
 
 // value=SchemeExpression
 protected class Scheme_ValueAssignment_1 extends AssignmentToken  {
@@ -4984,7 +5005,7 @@ protected class Scheme_ValueAssignment_1 extends AssignmentToken  {
 	public AbstractToken createFollowerAfterReturn(AbstractToken next,	int actIndex, int index, IEObjectConsumer inst) {
 		if(value == inst.getEObject() && !inst.isConsumed()) return null;
 		switch(index) {
-			case 0: return new Scheme_NumberSignKeyword_0(lastRuleCallOrigin, next, actIndex, consumed);
+			case 0: return new Scheme_Alternatives_0(lastRuleCallOrigin, next, actIndex, consumed);
 			default: return null;
 		}	
 	}	
@@ -5784,11 +5805,11 @@ protected class SchemeList_RightParenthesisKeyword_4 extends KeywordToken  {
 /************ begin Rule SchemeBlock ****************
  *
  * SchemeBlock:
- * 	"#{" elements+=SchemeBlockElement+ "#}";
+ * 	"#{" elements+=Expression+ "#}";
  *
  **/
 
-// "#{" elements+=SchemeBlockElement+ "#}"
+// "#{" elements+=Expression+ "#}"
 protected class SchemeBlock_Group extends GroupToken {
 	
 	public SchemeBlock_Group(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -5838,7 +5859,7 @@ protected class SchemeBlock_NumberSignLeftCurlyBracketKeyword_0 extends KeywordT
 
 }
 
-// elements+=SchemeBlockElement+
+// elements+=Expression+
 protected class SchemeBlock_ElementsAssignment_1 extends AssignmentToken  {
 	
 	public SchemeBlock_ElementsAssignment_1(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -5853,7 +5874,7 @@ protected class SchemeBlock_ElementsAssignment_1 extends AssignmentToken  {
     @Override
 	public AbstractToken createFollower(int index, IEObjectConsumer inst) {
 		switch(index) {
-			case 0: return new SchemeBlockElement_Alternatives(this, this, 0, inst);
+			case 0: return new Expression_Alternatives(this, this, 0, inst);
 			default: return null;
 		}	
 	}
@@ -5864,9 +5885,9 @@ protected class SchemeBlock_ElementsAssignment_1 extends AssignmentToken  {
 		IEObjectConsumer obj = eObjectConsumer.cloneAndConsume("elements");
 		if(value instanceof EObject) { // org::eclipse::xtext::impl::RuleCallImpl
 			IEObjectConsumer param = createEObjectConsumer((EObject)value);
-			if(param.isInstanceOf(grammarAccess.getSchemeBlockElementRule().getType().getClassifier())) {
+			if(param.isInstanceOf(grammarAccess.getExpressionRule().getType().getClassifier())) {
 				type = AssignmentType.PARSER_RULE_CALL;
-				element = grammarAccess.getSchemeBlockAccess().getElementsSchemeBlockElementParserRuleCall_1_0(); 
+				element = grammarAccess.getSchemeBlockAccess().getElementsExpressionParserRuleCall_1_0(); 
 				consumed = obj;
 				return param;
 			}
@@ -5909,259 +5930,6 @@ protected class SchemeBlock_NumberSignRightCurlyBracketKeyword_2 extends Keyword
 
 
 /************ end Rule SchemeBlock ****************/
-
-
-/************ begin Rule SchemeBlockElement ****************
- *
- * SchemeBlockElement:
- * 	Expression | SchemeReference;
- *
- **/
-
-// Expression | SchemeReference
-protected class SchemeBlockElement_Alternatives extends AlternativesToken {
-
-	public SchemeBlockElement_Alternatives(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
-		super(lastRuleCallOrigin, next, transitionIndex, eObjectConsumer);
-	}
-	
-	@Override
-	public Alternatives getGrammarElement() {
-		return grammarAccess.getSchemeBlockElementAccess().getAlternatives();
-	}
-
-    @Override
-	public AbstractToken createFollower(int index, IEObjectConsumer inst) {
-		switch(index) {
-			case 0: return new SchemeBlockElement_ExpressionParserRuleCall_0(lastRuleCallOrigin, this, 0, inst);
-			case 1: return new SchemeBlockElement_SchemeReferenceParserRuleCall_1(lastRuleCallOrigin, this, 1, inst);
-			default: return null;
-		}	
-	}
-
-    @Override
-	public IEObjectConsumer tryConsume() {
-		if(getEObject().eClass() != grammarAccess.getBlockCommandRule().getType().getClassifier() && 
-		   getEObject().eClass() != grammarAccess.getContextDefRule().getType().getClassifier() && 
-		   getEObject().eClass() != grammarAccess.getIncludeRule().getType().getClassifier() && 
-		   getEObject().eClass() != grammarAccess.getMarkupRule().getType().getClassifier() && 
-		   getEObject().eClass() != grammarAccess.getMarkupLinesRule().getType().getClassifier() && 
-		   getEObject().eClass() != grammarAccess.getNewContextRule().getType().getClassifier() && 
-		   getEObject().eClass() != grammarAccess.getNumberRule().getType().getClassifier() && 
-		   getEObject().eClass() != grammarAccess.getOtherRule().getType().getClassifier() && 
-		   getEObject().eClass() != grammarAccess.getOutputDefinitionRule().getType().getClassifier() && 
-		   getEObject().eClass() != grammarAccess.getPropertyAssignmentRule().getType().getClassifier() && 
-		   getEObject().eClass() != grammarAccess.getReferenceRule().getType().getClassifier() && 
-		   getEObject().eClass() != grammarAccess.getRelativeMusicRule().getType().getClassifier() && 
-		   getEObject().eClass() != grammarAccess.getSchemeRule().getType().getClassifier() && 
-		   getEObject().eClass() != grammarAccess.getSchemeReferenceRule().getType().getClassifier() && 
-		   getEObject().eClass() != grammarAccess.getSimpleBlockAccess().getSimpleBlockAction_0().getType().getClassifier() && 
-		   getEObject().eClass() != grammarAccess.getSimultaneousBlockAccess().getSimultaneousBlockAction_0().getType().getClassifier() && 
-		   getEObject().eClass() != grammarAccess.getTextRule().getType().getClassifier() && 
-		   getEObject().eClass() != grammarAccess.getVersionRule().getType().getClassifier())
-			return null;
-		return eObjectConsumer;
-	}
-
-}
-
-// Expression
-protected class SchemeBlockElement_ExpressionParserRuleCall_0 extends RuleCallToken {
-	
-	public SchemeBlockElement_ExpressionParserRuleCall_0(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
-		super(lastRuleCallOrigin, next, transitionIndex, eObjectConsumer);
-	}
-	
-	@Override
-	public RuleCall getGrammarElement() {
-		return grammarAccess.getSchemeBlockElementAccess().getExpressionParserRuleCall_0();
-	}
-
-    @Override
-	public AbstractToken createFollower(int index, IEObjectConsumer inst) {
-		switch(index) {
-			case 0: return new Expression_Alternatives(this, this, 0, inst);
-			default: return null;
-		}	
-	}
-
-    @Override
-	public IEObjectConsumer tryConsume() {
-		if(getEObject().eClass() != grammarAccess.getBlockCommandRule().getType().getClassifier() && 
-		   getEObject().eClass() != grammarAccess.getContextDefRule().getType().getClassifier() && 
-		   getEObject().eClass() != grammarAccess.getIncludeRule().getType().getClassifier() && 
-		   getEObject().eClass() != grammarAccess.getMarkupRule().getType().getClassifier() && 
-		   getEObject().eClass() != grammarAccess.getMarkupLinesRule().getType().getClassifier() && 
-		   getEObject().eClass() != grammarAccess.getNewContextRule().getType().getClassifier() && 
-		   getEObject().eClass() != grammarAccess.getNumberRule().getType().getClassifier() && 
-		   getEObject().eClass() != grammarAccess.getOtherRule().getType().getClassifier() && 
-		   getEObject().eClass() != grammarAccess.getOutputDefinitionRule().getType().getClassifier() && 
-		   getEObject().eClass() != grammarAccess.getPropertyAssignmentRule().getType().getClassifier() && 
-		   getEObject().eClass() != grammarAccess.getReferenceRule().getType().getClassifier() && 
-		   getEObject().eClass() != grammarAccess.getRelativeMusicRule().getType().getClassifier() && 
-		   getEObject().eClass() != grammarAccess.getSchemeRule().getType().getClassifier() && 
-		   getEObject().eClass() != grammarAccess.getSimpleBlockAccess().getSimpleBlockAction_0().getType().getClassifier() && 
-		   getEObject().eClass() != grammarAccess.getSimultaneousBlockAccess().getSimultaneousBlockAction_0().getType().getClassifier() && 
-		   getEObject().eClass() != grammarAccess.getTextRule().getType().getClassifier() && 
-		   getEObject().eClass() != grammarAccess.getVersionRule().getType().getClassifier())
-			return null;
-		if(checkForRecursion(Expression_Alternatives.class, eObjectConsumer)) return null;
-		return eObjectConsumer;
-	}
-	
-    @Override
-	public AbstractToken createFollowerAfterReturn(AbstractToken next,	int actIndex, int index, IEObjectConsumer inst) {
-		switch(index) {
-			default: return lastRuleCallOrigin.createFollowerAfterReturn(next, actIndex , index, inst);
-		}	
-	}	
-}
-
-// SchemeReference
-protected class SchemeBlockElement_SchemeReferenceParserRuleCall_1 extends RuleCallToken {
-	
-	public SchemeBlockElement_SchemeReferenceParserRuleCall_1(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
-		super(lastRuleCallOrigin, next, transitionIndex, eObjectConsumer);
-	}
-	
-	@Override
-	public RuleCall getGrammarElement() {
-		return grammarAccess.getSchemeBlockElementAccess().getSchemeReferenceParserRuleCall_1();
-	}
-
-    @Override
-	public AbstractToken createFollower(int index, IEObjectConsumer inst) {
-		switch(index) {
-			case 0: return new SchemeReference_Group(this, this, 0, inst);
-			default: return null;
-		}	
-	}
-
-    @Override
-	public IEObjectConsumer tryConsume() {
-		if(getEObject().eClass() != grammarAccess.getSchemeReferenceRule().getType().getClassifier())
-			return null;
-		if(checkForRecursion(SchemeReference_Group.class, eObjectConsumer)) return null;
-		return eObjectConsumer;
-	}
-	
-    @Override
-	public AbstractToken createFollowerAfterReturn(AbstractToken next,	int actIndex, int index, IEObjectConsumer inst) {
-		switch(index) {
-			default: return lastRuleCallOrigin.createFollowerAfterReturn(next, actIndex , index, inst);
-		}	
-	}	
-}
-
-
-/************ end Rule SchemeBlockElement ****************/
-
-
-/************ begin Rule SchemeReference ****************
- *
- * SchemeReference:
- * 	"$" value=SchemeValue;
- *
- **/
-
-// "$" value=SchemeValue
-protected class SchemeReference_Group extends GroupToken {
-	
-	public SchemeReference_Group(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
-		super(lastRuleCallOrigin, next, transitionIndex, eObjectConsumer);
-	}
-	
-	@Override
-	public Group getGrammarElement() {
-		return grammarAccess.getSchemeReferenceAccess().getGroup();
-	}
-
-    @Override
-	public AbstractToken createFollower(int index, IEObjectConsumer inst) {
-		switch(index) {
-			case 0: return new SchemeReference_ValueAssignment_1(lastRuleCallOrigin, this, 0, inst);
-			default: return null;
-		}	
-	}
-
-    @Override
-	public IEObjectConsumer tryConsume() {
-		if(getEObject().eClass() != grammarAccess.getSchemeReferenceRule().getType().getClassifier())
-			return null;
-		return eObjectConsumer;
-	}
-
-}
-
-// "$"
-protected class SchemeReference_DollarSignKeyword_0 extends KeywordToken  {
-	
-	public SchemeReference_DollarSignKeyword_0(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
-		super(lastRuleCallOrigin, next, transitionIndex, eObjectConsumer);
-	}
-	
-	@Override
-	public Keyword getGrammarElement() {
-		return grammarAccess.getSchemeReferenceAccess().getDollarSignKeyword_0();
-	}
-
-    @Override
-	public AbstractToken createFollower(int index, IEObjectConsumer inst) {
-		switch(index) {
-			default: return lastRuleCallOrigin.createFollowerAfterReturn(this, index, index, inst);
-		}	
-	}
-
-}
-
-// value=SchemeValue
-protected class SchemeReference_ValueAssignment_1 extends AssignmentToken  {
-	
-	public SchemeReference_ValueAssignment_1(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
-		super(lastRuleCallOrigin, next, transitionIndex, eObjectConsumer);
-	}
-	
-	@Override
-	public Assignment getGrammarElement() {
-		return grammarAccess.getSchemeReferenceAccess().getValueAssignment_1();
-	}
-
-    @Override
-	public AbstractToken createFollower(int index, IEObjectConsumer inst) {
-		switch(index) {
-			case 0: return new SchemeValue_Alternatives(this, this, 0, inst);
-			default: return null;
-		}	
-	}
-
-    @Override	
-	public IEObjectConsumer tryConsume() {
-		if((value = eObjectConsumer.getConsumable("value",true)) == null) return null;
-		IEObjectConsumer obj = eObjectConsumer.cloneAndConsume("value");
-		if(value instanceof EObject) { // org::eclipse::xtext::impl::RuleCallImpl
-			IEObjectConsumer param = createEObjectConsumer((EObject)value);
-			if(param.isInstanceOf(grammarAccess.getSchemeValueRule().getType().getClassifier())) {
-				type = AssignmentType.PARSER_RULE_CALL;
-				element = grammarAccess.getSchemeReferenceAccess().getValueSchemeValueParserRuleCall_1_0(); 
-				consumed = obj;
-				return param;
-			}
-		}
-		return null;
-	}
-
-    @Override
-	public AbstractToken createFollowerAfterReturn(AbstractToken next,	int actIndex, int index, IEObjectConsumer inst) {
-		if(value == inst.getEObject() && !inst.isConsumed()) return null;
-		switch(index) {
-			case 0: return new SchemeReference_DollarSignKeyword_0(lastRuleCallOrigin, next, actIndex, consumed);
-			default: return null;
-		}	
-	}	
-}
-
-
-/************ end Rule SchemeReference ****************/
 
 
 /************ begin Rule SchemeCharacter ****************

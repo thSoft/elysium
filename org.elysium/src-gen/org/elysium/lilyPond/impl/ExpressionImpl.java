@@ -7,6 +7,8 @@ package org.elysium.lilypond.impl;
 
 import org.eclipse.emf.ecore.EClass;
 
+import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
+
 import org.elysium.lilypond.Expression;
 import org.elysium.lilypond.LilypondPackage;
 
@@ -19,7 +21,7 @@ import org.elysium.lilypond.LilypondPackage;
  *
  * @generated
  */
-public class ExpressionImpl extends SchemeBlockElementImpl implements Expression
+public class ExpressionImpl extends MinimalEObjectImpl.Container implements Expression
 {
   /**
    * <!-- begin-user-doc -->

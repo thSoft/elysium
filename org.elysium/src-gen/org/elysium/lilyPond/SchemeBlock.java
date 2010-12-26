@@ -27,7 +27,7 @@ public interface SchemeBlock extends SchemeValue
 {
   /**
    * Returns the value of the '<em><b>Elements</b></em>' containment reference list.
-   * The list contents are of type {@link org.elysium.lilypond.SchemeBlockElement}.
+   * The list contents are of type {@link org.elysium.lilypond.Expression}.
    * <!-- begin-user-doc -->
    * <p>
    * If the meaning of the '<em>Elements</em>' containment reference list isn't clear,
@@ -39,6 +39,6 @@ public interface SchemeBlock extends SchemeValue
    * @model containment="true"
    * @generated
    */
-  EList<SchemeBlockElement> getElements();
+  EList<Expression> getElements();
 
 } // SchemeBlock

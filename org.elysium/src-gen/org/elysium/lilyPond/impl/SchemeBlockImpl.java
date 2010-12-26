@@ -17,9 +17,9 @@ import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
+import org.elysium.lilypond.Expression;
 import org.elysium.lilypond.LilypondPackage;
 import org.elysium.lilypond.SchemeBlock;
-import org.elysium.lilypond.SchemeBlockElement;
 
 /**
  * <!-- begin-user-doc -->
@@ -44,7 +44,7 @@ public class SchemeBlockImpl extends SchemeValueImpl implements SchemeBlock
    * @generated
    * @ordered
    */
-  protected EList<SchemeBlockElement> elements;
+  protected EList<Expression> elements;
 
   /**
    * <!-- begin-user-doc -->
@@ -72,11 +72,11 @@ public class SchemeBlockImpl extends SchemeValueImpl implements SchemeBlock
    * <!-- end-user-doc -->
    * @generated
    */
-  public EList<SchemeBlockElement> getElements()
+  public EList<Expression> getElements()
   {
     if (elements == null)
     {
-      elements = new EObjectContainmentEList<SchemeBlockElement>(SchemeBlockElement.class, this, LilypondPackage.SCHEME_BLOCK__ELEMENTS);
+      elements = new EObjectContainmentEList<Expression>(Expression.class, this, LilypondPackage.SCHEME_BLOCK__ELEMENTS);
     }
     return elements;
   }
@@ -126,7 +126,7 @@ public class SchemeBlockImpl extends SchemeValueImpl implements SchemeBlock
     {
       case LilypondPackage.SCHEME_BLOCK__ELEMENTS:
         getElements().clear();
-        getElements().addAll((Collection<? extends SchemeBlockElement>)newValue);
+        getElements().addAll((Collection<? extends Expression>)newValue);
         return;
     }
     super.eSet(featureID, newValue);

@@ -1408,20 +1408,28 @@ public class LilyPondGrammarAccess extends AbstractGrammarElementFinder {
 	public class SchemeElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "Scheme");
 		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Keyword cNumberSignKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final Alternatives cAlternatives_0 = (Alternatives)cGroup.eContents().get(0);
+		private final Keyword cNumberSignKeyword_0_0 = (Keyword)cAlternatives_0.eContents().get(0);
+		private final Keyword cDollarSignKeyword_0_1 = (Keyword)cAlternatives_0.eContents().get(1);
 		private final Assignment cValueAssignment_1 = (Assignment)cGroup.eContents().get(1);
 		private final RuleCall cValueSchemeExpressionParserRuleCall_1_0 = (RuleCall)cValueAssignment_1.eContents().get(0);
 		
 		//// Scheme
 		//Scheme hidden(WS, SCHEME_SL_COMMENT, SCHEME_ML_COMMENT):
-		//	"#" value=SchemeExpression;
+		//	("#" | "$") value=SchemeExpression;
 		public ParserRule getRule() { return rule; }
 
-		//"#" value=SchemeExpression
+		//("#" | "$") value=SchemeExpression
 		public Group getGroup() { return cGroup; }
 
+		//"#" | "$"
+		public Alternatives getAlternatives_0() { return cAlternatives_0; }
+
 		//"#"
-		public Keyword getNumberSignKeyword_0() { return cNumberSignKeyword_0; }
+		public Keyword getNumberSignKeyword_0_0() { return cNumberSignKeyword_0_0; }
+
+		//"$"
+		public Keyword getDollarSignKeyword_0_1() { return cDollarSignKeyword_0_1; }
 
 		//value=SchemeExpression
 		public Assignment getValueAssignment_1() { return cValueAssignment_1; }
@@ -1607,71 +1615,27 @@ public class LilyPondGrammarAccess extends AbstractGrammarElementFinder {
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Keyword cNumberSignLeftCurlyBracketKeyword_0 = (Keyword)cGroup.eContents().get(0);
 		private final Assignment cElementsAssignment_1 = (Assignment)cGroup.eContents().get(1);
-		private final RuleCall cElementsSchemeBlockElementParserRuleCall_1_0 = (RuleCall)cElementsAssignment_1.eContents().get(0);
+		private final RuleCall cElementsExpressionParserRuleCall_1_0 = (RuleCall)cElementsAssignment_1.eContents().get(0);
 		private final Keyword cNumberSignRightCurlyBracketKeyword_2 = (Keyword)cGroup.eContents().get(2);
 		
 		//SchemeBlock:
-		//	"#{" elements+=SchemeBlockElement+ "#}";
+		//	"#{" elements+=Expression+ "#}";
 		public ParserRule getRule() { return rule; }
 
-		//"#{" elements+=SchemeBlockElement+ "#}"
+		//"#{" elements+=Expression+ "#}"
 		public Group getGroup() { return cGroup; }
 
 		//"#{"
 		public Keyword getNumberSignLeftCurlyBracketKeyword_0() { return cNumberSignLeftCurlyBracketKeyword_0; }
 
-		//elements+=SchemeBlockElement+
+		//elements+=Expression+
 		public Assignment getElementsAssignment_1() { return cElementsAssignment_1; }
 
-		//SchemeBlockElement
-		public RuleCall getElementsSchemeBlockElementParserRuleCall_1_0() { return cElementsSchemeBlockElementParserRuleCall_1_0; }
+		//Expression
+		public RuleCall getElementsExpressionParserRuleCall_1_0() { return cElementsExpressionParserRuleCall_1_0; }
 
 		//"#}"
 		public Keyword getNumberSignRightCurlyBracketKeyword_2() { return cNumberSignRightCurlyBracketKeyword_2; }
-	}
-
-	public class SchemeBlockElementElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "SchemeBlockElement");
-		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
-		private final RuleCall cExpressionParserRuleCall_0 = (RuleCall)cAlternatives.eContents().get(0);
-		private final RuleCall cSchemeReferenceParserRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
-		
-		//SchemeBlockElement:
-		//	Expression | SchemeReference;
-		public ParserRule getRule() { return rule; }
-
-		//Expression | SchemeReference
-		public Alternatives getAlternatives() { return cAlternatives; }
-
-		//Expression
-		public RuleCall getExpressionParserRuleCall_0() { return cExpressionParserRuleCall_0; }
-
-		//SchemeReference
-		public RuleCall getSchemeReferenceParserRuleCall_1() { return cSchemeReferenceParserRuleCall_1; }
-	}
-
-	public class SchemeReferenceElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "SchemeReference");
-		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Keyword cDollarSignKeyword_0 = (Keyword)cGroup.eContents().get(0);
-		private final Assignment cValueAssignment_1 = (Assignment)cGroup.eContents().get(1);
-		private final RuleCall cValueSchemeValueParserRuleCall_1_0 = (RuleCall)cValueAssignment_1.eContents().get(0);
-		
-		//SchemeReference:
-		//	"$" value=SchemeValue;
-		public ParserRule getRule() { return rule; }
-
-		//"$" value=SchemeValue
-		public Group getGroup() { return cGroup; }
-
-		//"$"
-		public Keyword getDollarSignKeyword_0() { return cDollarSignKeyword_0; }
-
-		//value=SchemeValue
-		public Assignment getValueAssignment_1() { return cValueAssignment_1; }
-
-		//SchemeValue
-		public RuleCall getValueSchemeValueParserRuleCall_1_0() { return cValueSchemeValueParserRuleCall_1_0; }
 	}
 
 	public class SchemeCharacterElements extends AbstractParserRuleElementFinder {
@@ -1956,8 +1920,6 @@ public class LilyPondGrammarAccess extends AbstractGrammarElementFinder {
 	private SchemeBooleanValueElements pSchemeBooleanValue;
 	private SchemeListElements pSchemeList;
 	private SchemeBlockElements pSchemeBlock;
-	private SchemeBlockElementElements pSchemeBlockElement;
-	private SchemeReferenceElements pSchemeReference;
 	private SchemeCharacterElements pSchemeCharacter;
 	private SchemeTextElements pSchemeText;
 	private SchemeTextValueElements pSchemeTextValue;
@@ -2338,7 +2300,7 @@ public class LilyPondGrammarAccess extends AbstractGrammarElementFinder {
 
 	//// Scheme
 	//Scheme hidden(WS, SCHEME_SL_COMMENT, SCHEME_ML_COMMENT):
-	//	"#" value=SchemeExpression;
+	//	("#" | "$") value=SchemeExpression;
 	public SchemeElements getSchemeAccess() {
 		return (pScheme != null) ? pScheme : (pScheme = new SchemeElements());
 	}
@@ -2398,33 +2360,13 @@ public class LilyPondGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//SchemeBlock:
-	//	"#{" elements+=SchemeBlockElement+ "#}";
+	//	"#{" elements+=Expression+ "#}";
 	public SchemeBlockElements getSchemeBlockAccess() {
 		return (pSchemeBlock != null) ? pSchemeBlock : (pSchemeBlock = new SchemeBlockElements());
 	}
 	
 	public ParserRule getSchemeBlockRule() {
 		return getSchemeBlockAccess().getRule();
-	}
-
-	//SchemeBlockElement:
-	//	Expression | SchemeReference;
-	public SchemeBlockElementElements getSchemeBlockElementAccess() {
-		return (pSchemeBlockElement != null) ? pSchemeBlockElement : (pSchemeBlockElement = new SchemeBlockElementElements());
-	}
-	
-	public ParserRule getSchemeBlockElementRule() {
-		return getSchemeBlockElementAccess().getRule();
-	}
-
-	//SchemeReference:
-	//	"$" value=SchemeValue;
-	public SchemeReferenceElements getSchemeReferenceAccess() {
-		return (pSchemeReference != null) ? pSchemeReference : (pSchemeReference = new SchemeReferenceElements());
-	}
-	
-	public ParserRule getSchemeReferenceRule() {
-		return getSchemeReferenceAccess().getRule();
 	}
 
 	//SchemeCharacter:

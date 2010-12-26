@@ -38,14 +38,12 @@ import org.elysium.lilypond.Reference;
 import org.elysium.lilypond.RelativeMusic;
 import org.elysium.lilypond.Scheme;
 import org.elysium.lilypond.SchemeBlock;
-import org.elysium.lilypond.SchemeBlockElement;
 import org.elysium.lilypond.SchemeBoolean;
 import org.elysium.lilypond.SchemeCharacter;
 import org.elysium.lilypond.SchemeExpression;
 import org.elysium.lilypond.SchemeList;
 import org.elysium.lilypond.SchemeMarkupCommand;
 import org.elysium.lilypond.SchemeNumber;
-import org.elysium.lilypond.SchemeReference;
 import org.elysium.lilypond.SchemeText;
 import org.elysium.lilypond.SchemeValue;
 import org.elysium.lilypond.SimpleBlock;
@@ -147,8 +145,6 @@ public class LilypondFactoryImpl extends EFactoryImpl implements LilypondFactory
       case LilypondPackage.SCHEME_BOOLEAN: return createSchemeBoolean();
       case LilypondPackage.SCHEME_LIST: return createSchemeList();
       case LilypondPackage.SCHEME_BLOCK: return createSchemeBlock();
-      case LilypondPackage.SCHEME_BLOCK_ELEMENT: return createSchemeBlockElement();
-      case LilypondPackage.SCHEME_REFERENCE: return createSchemeReference();
       case LilypondPackage.SCHEME_CHARACTER: return createSchemeCharacter();
       case LilypondPackage.SCHEME_TEXT: return createSchemeText();
       case LilypondPackage.SCHEME_NUMBER: return createSchemeNumber();
@@ -563,28 +559,6 @@ public class LilypondFactoryImpl extends EFactoryImpl implements LilypondFactory
   {
     SchemeBlockImpl schemeBlock = new SchemeBlockImpl();
     return schemeBlock;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public SchemeBlockElement createSchemeBlockElement()
-  {
-    SchemeBlockElementImpl schemeBlockElement = new SchemeBlockElementImpl();
-    return schemeBlockElement;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public SchemeReference createSchemeReference()
-  {
-    SchemeReferenceImpl schemeReference = new SchemeReferenceImpl();
-    return schemeReference;
   }
 
   /**

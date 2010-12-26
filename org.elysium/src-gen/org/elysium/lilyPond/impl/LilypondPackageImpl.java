@@ -37,14 +37,12 @@ import org.elysium.lilypond.Reference;
 import org.elysium.lilypond.RelativeMusic;
 import org.elysium.lilypond.Scheme;
 import org.elysium.lilypond.SchemeBlock;
-import org.elysium.lilypond.SchemeBlockElement;
 import org.elysium.lilypond.SchemeBoolean;
 import org.elysium.lilypond.SchemeCharacter;
 import org.elysium.lilypond.SchemeExpression;
 import org.elysium.lilypond.SchemeList;
 import org.elysium.lilypond.SchemeMarkupCommand;
 import org.elysium.lilypond.SchemeNumber;
-import org.elysium.lilypond.SchemeReference;
 import org.elysium.lilypond.SchemeText;
 import org.elysium.lilypond.SchemeValue;
 import org.elysium.lilypond.SimpleBlock;
@@ -323,20 +321,6 @@ public class LilypondPackageImpl extends EPackageImpl implements LilypondPackage
    * @generated
    */
   private EClass schemeBlockEClass = null;
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  private EClass schemeBlockElementEClass = null;
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  private EClass schemeReferenceEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -1254,36 +1238,6 @@ public class LilypondPackageImpl extends EPackageImpl implements LilypondPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EClass getSchemeBlockElement()
-  {
-    return schemeBlockElementEClass;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EClass getSchemeReference()
-  {
-    return schemeReferenceEClass;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EReference getSchemeReference_Value()
-  {
-    return (EReference)schemeReferenceEClass.getEStructuralFeatures().get(0);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
   public EClass getSchemeCharacter()
   {
     return schemeCharacterEClass;
@@ -1518,11 +1472,6 @@ public class LilypondPackageImpl extends EPackageImpl implements LilypondPackage
     schemeBlockEClass = createEClass(SCHEME_BLOCK);
     createEReference(schemeBlockEClass, SCHEME_BLOCK__ELEMENTS);
 
-    schemeBlockElementEClass = createEClass(SCHEME_BLOCK_ELEMENT);
-
-    schemeReferenceEClass = createEClass(SCHEME_REFERENCE);
-    createEReference(schemeReferenceEClass, SCHEME_REFERENCE__VALUE);
-
     schemeCharacterEClass = createEClass(SCHEME_CHARACTER);
     createEAttribute(schemeCharacterEClass, SCHEME_CHARACTER__VALUE);
 
@@ -1566,7 +1515,6 @@ public class LilypondPackageImpl extends EPackageImpl implements LilypondPackage
     // Set bounds for type parameters
 
     // Add supertypes to classes
-    expressionEClass.getESuperTypes().add(this.getSchemeBlockElement());
     commonExpressionEClass.getESuperTypes().add(this.getToplevelExpression());
     commonExpressionEClass.getESuperTypes().add(this.getExpression());
     assignmentEClass.getESuperTypes().add(this.getToplevelExpression());
@@ -1598,7 +1546,6 @@ public class LilypondPackageImpl extends EPackageImpl implements LilypondPackage
     schemeBooleanEClass.getESuperTypes().add(this.getSchemeValue());
     schemeListEClass.getESuperTypes().add(this.getSchemeValue());
     schemeBlockEClass.getESuperTypes().add(this.getSchemeValue());
-    schemeReferenceEClass.getESuperTypes().add(this.getSchemeBlockElement());
     schemeCharacterEClass.getESuperTypes().add(this.getSchemeValue());
     schemeTextEClass.getESuperTypes().add(this.getSchemeValue());
     schemeNumberEClass.getESuperTypes().add(this.getSchemeValue());
@@ -1722,12 +1669,7 @@ public class LilypondPackageImpl extends EPackageImpl implements LilypondPackage
     initEReference(getSchemeList_Expressions(), this.getSchemeExpression(), null, "expressions", null, 0, -1, SchemeList.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(schemeBlockEClass, SchemeBlock.class, "SchemeBlock", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getSchemeBlock_Elements(), this.getSchemeBlockElement(), null, "elements", null, 0, -1, SchemeBlock.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-    initEClass(schemeBlockElementEClass, SchemeBlockElement.class, "SchemeBlockElement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-
-    initEClass(schemeReferenceEClass, SchemeReference.class, "SchemeReference", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getSchemeReference_Value(), this.getSchemeValue(), null, "value", null, 0, 1, SchemeReference.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getSchemeBlock_Elements(), this.getExpression(), null, "elements", null, 0, -1, SchemeBlock.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(schemeCharacterEClass, SchemeCharacter.class, "SchemeCharacter", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getSchemeCharacter_Value(), ecorePackage.getEString(), "value", null, 0, 1, SchemeCharacter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

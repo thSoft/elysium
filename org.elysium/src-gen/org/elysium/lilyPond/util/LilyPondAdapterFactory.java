@@ -36,14 +36,12 @@ import org.elysium.lilypond.Reference;
 import org.elysium.lilypond.RelativeMusic;
 import org.elysium.lilypond.Scheme;
 import org.elysium.lilypond.SchemeBlock;
-import org.elysium.lilypond.SchemeBlockElement;
 import org.elysium.lilypond.SchemeBoolean;
 import org.elysium.lilypond.SchemeCharacter;
 import org.elysium.lilypond.SchemeExpression;
 import org.elysium.lilypond.SchemeList;
 import org.elysium.lilypond.SchemeMarkupCommand;
 import org.elysium.lilypond.SchemeNumber;
-import org.elysium.lilypond.SchemeReference;
 import org.elysium.lilypond.SchemeText;
 import org.elysium.lilypond.SchemeValue;
 import org.elysium.lilypond.SimpleBlock;
@@ -303,16 +301,6 @@ public class LilypondAdapterFactory extends AdapterFactoryImpl
       public Adapter caseSchemeBlock(SchemeBlock object)
       {
         return createSchemeBlockAdapter();
-      }
-      @Override
-      public Adapter caseSchemeBlockElement(SchemeBlockElement object)
-      {
-        return createSchemeBlockElementAdapter();
-      }
-      @Override
-      public Adapter caseSchemeReference(SchemeReference object)
-      {
-        return createSchemeReferenceAdapter();
       }
       @Override
       public Adapter caseSchemeCharacter(SchemeCharacter object)
@@ -907,36 +895,6 @@ public class LilypondAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createSchemeBlockAdapter()
-  {
-    return null;
-  }
-
-  /**
-   * Creates a new adapter for an object of class '{@link org.elysium.lilypond.SchemeBlockElement <em>Scheme Block Element</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see org.elysium.lilypond.SchemeBlockElement
-   * @generated
-   */
-  public Adapter createSchemeBlockElementAdapter()
-  {
-    return null;
-  }
-
-  /**
-   * Creates a new adapter for an object of class '{@link org.elysium.lilypond.SchemeReference <em>Scheme Reference</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see org.elysium.lilypond.SchemeReference
-   * @generated
-   */
-  public Adapter createSchemeReferenceAdapter()
   {
     return null;
   }

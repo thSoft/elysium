@@ -75,7 +75,7 @@ SpecialCommandName: "include" | "version" | "markup" | "markuplines" | "book" | 
 
 // Scheme
 
-Scheme hidden(WS, SCHEME_SL_COMMENT, SCHEME_ML_COMMENT): "#" value=SchemeExpression;
+Scheme hidden(WS, SCHEME_SL_COMMENT, SCHEME_ML_COMMENT): ("#" | "$") value=SchemeExpression;
 
 SchemeExpression: (quoted?="'"? | quasiquoted?="`"? | unquoted?=","? | reference?="$"?)? value=SchemeValue;
 
@@ -87,11 +87,7 @@ SchemeBooleanValue returns ecore::EBoolean: "#" ID;
 
 SchemeList: {SchemeList} (vector?="#")? "(" expressions+=SchemeExpression* ")";
 
-SchemeBlock: "#{" elements+=SchemeBlockElement+ "#}";
-
-SchemeBlockElement: Expression | SchemeReference;
-
-SchemeReference: "$" value=SchemeValue;
+SchemeBlock: "#{" elements+=Expression+ "#}";
 
 SchemeCharacter: "#\\" value=(ID | SpecialCharacter | ANY_OTHER);
 

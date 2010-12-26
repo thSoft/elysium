@@ -5,6 +5,7 @@
  */
 package org.elysium.lilypond;
 
+import org.eclipse.emf.ecore.EObject;
 
 /**
  * <!-- begin-user-doc -->
@@ -16,6 +17,6 @@ package org.elysium.lilypond;
  * @model
  * @generated
  */
-public interface Expression extends SchemeBlockElement
+public interface Expression extends EObject
 {
 } // Expression

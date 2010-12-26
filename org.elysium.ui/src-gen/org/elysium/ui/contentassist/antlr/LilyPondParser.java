@@ -57,9 +57,9 @@ public class LilyPondParser extends AbstractContentAssistParser {
 					put(grammarAccess.getOtherAccess().getKeywordAlternatives_1_0(), "rule__Other__KeywordAlternatives_1_0");
 					put(grammarAccess.getOtherNameAccess().getAlternatives(), "rule__OtherName__Alternatives");
 					put(grammarAccess.getSpecialCommandNameAccess().getAlternatives(), "rule__SpecialCommandName__Alternatives");
+					put(grammarAccess.getSchemeAccess().getAlternatives_0(), "rule__Scheme__Alternatives_0");
 					put(grammarAccess.getSchemeExpressionAccess().getAlternatives_0(), "rule__SchemeExpression__Alternatives_0");
 					put(grammarAccess.getSchemeValueAccess().getAlternatives(), "rule__SchemeValue__Alternatives");
-					put(grammarAccess.getSchemeBlockElementAccess().getAlternatives(), "rule__SchemeBlockElement__Alternatives");
 					put(grammarAccess.getSchemeCharacterAccess().getValueAlternatives_1_0(), "rule__SchemeCharacter__ValueAlternatives_1_0");
 					put(grammarAccess.getSchemeTextValueSegmentAccess().getAlternatives(), "rule__SchemeTextValueSegment__Alternatives");
 					put(grammarAccess.getSchemeMarkupCommandAccess().getCommandAlternatives_1_0(), "rule__SchemeMarkupCommand__CommandAlternatives_1_0");
@@ -89,7 +89,6 @@ public class LilyPondParser extends AbstractContentAssistParser {
 					put(grammarAccess.getSchemeBooleanValueAccess().getGroup(), "rule__SchemeBooleanValue__Group__0");
 					put(grammarAccess.getSchemeListAccess().getGroup(), "rule__SchemeList__Group__0");
 					put(grammarAccess.getSchemeBlockAccess().getGroup(), "rule__SchemeBlock__Group__0");
-					put(grammarAccess.getSchemeReferenceAccess().getGroup(), "rule__SchemeReference__Group__0");
 					put(grammarAccess.getSchemeCharacterAccess().getGroup(), "rule__SchemeCharacter__Group__0");
 					put(grammarAccess.getSchemeTextValueAccess().getGroup(), "rule__SchemeTextValue__Group__0");
 					put(grammarAccess.getSchemeTextValueAccess().getGroup_1(), "rule__SchemeTextValue__Group_1__0");
@@ -153,7 +152,6 @@ public class LilyPondParser extends AbstractContentAssistParser {
 					put(grammarAccess.getSchemeListAccess().getVectorAssignment_1(), "rule__SchemeList__VectorAssignment_1");
 					put(grammarAccess.getSchemeListAccess().getExpressionsAssignment_3(), "rule__SchemeList__ExpressionsAssignment_3");
 					put(grammarAccess.getSchemeBlockAccess().getElementsAssignment_1(), "rule__SchemeBlock__ElementsAssignment_1");
-					put(grammarAccess.getSchemeReferenceAccess().getValueAssignment_1(), "rule__SchemeReference__ValueAssignment_1");
 					put(grammarAccess.getSchemeCharacterAccess().getValueAssignment_1(), "rule__SchemeCharacter__ValueAssignment_1");
 					put(grammarAccess.getSchemeTextAccess().getValueAssignment(), "rule__SchemeText__ValueAssignment");
 					put(grammarAccess.getSchemeNumberAccess().getRadixAssignment_0(), "rule__SchemeNumber__RadixAssignment_0");

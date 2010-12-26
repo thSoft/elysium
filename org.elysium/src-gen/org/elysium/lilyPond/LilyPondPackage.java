@@ -107,25 +107,6 @@ public interface LilypondPackage extends EPackage
   int TOPLEVEL_EXPRESSION_FEATURE_COUNT = 0;
 
   /**
-   * The meta object id for the '{@link org.elysium.lilypond.impl.SchemeBlockElementImpl <em>Scheme Block Element</em>}' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see org.elysium.lilypond.impl.SchemeBlockElementImpl
-   * @see org.elysium.lilypond.impl.LilypondPackageImpl#getSchemeBlockElement()
-   * @generated
-   */
-  int SCHEME_BLOCK_ELEMENT = 37;
-
-  /**
-   * The number of structural features of the '<em>Scheme Block Element</em>' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int SCHEME_BLOCK_ELEMENT_FEATURE_COUNT = 0;
-
-  /**
    * The meta object id for the '{@link org.elysium.lilypond.impl.ExpressionImpl <em>Expression</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -142,7 +123,7 @@ public interface LilypondPackage extends EPackage
    * @generated
    * @ordered
    */
-  int EXPRESSION_FEATURE_COUNT = SCHEME_BLOCK_ELEMENT_FEATURE_COUNT + 0;
+  int EXPRESSION_FEATURE_COUNT = 0;
 
   /**
    * The meta object id for the '{@link org.elysium.lilypond.impl.CommonExpressionImpl <em>Common Expression</em>}' class.
@@ -1295,34 +1276,6 @@ public interface LilypondPackage extends EPackage
   int SCHEME_BLOCK_FEATURE_COUNT = SCHEME_VALUE_FEATURE_COUNT + 1;
 
   /**
-   * The meta object id for the '{@link org.elysium.lilypond.impl.SchemeReferenceImpl <em>Scheme Reference</em>}' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see org.elysium.lilypond.impl.SchemeReferenceImpl
-   * @see org.elysium.lilypond.impl.LilypondPackageImpl#getSchemeReference()
-   * @generated
-   */
-  int SCHEME_REFERENCE = 38;
-
-  /**
-   * The feature id for the '<em><b>Value</b></em>' containment reference.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int SCHEME_REFERENCE__VALUE = SCHEME_BLOCK_ELEMENT_FEATURE_COUNT + 0;
-
-  /**
-   * The number of structural features of the '<em>Scheme Reference</em>' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int SCHEME_REFERENCE_FEATURE_COUNT = SCHEME_BLOCK_ELEMENT_FEATURE_COUNT + 1;
-
-  /**
    * The meta object id for the '{@link org.elysium.lilypond.impl.SchemeCharacterImpl <em>Scheme Character</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -1330,7 +1283,7 @@ public interface LilypondPackage extends EPackage
    * @see org.elysium.lilypond.impl.LilypondPackageImpl#getSchemeCharacter()
    * @generated
    */
-  int SCHEME_CHARACTER = 39;
+  int SCHEME_CHARACTER = 37;
 
   /**
    * The feature id for the '<em><b>Value</b></em>' attribute.
@@ -1358,7 +1311,7 @@ public interface LilypondPackage extends EPackage
    * @see org.elysium.lilypond.impl.LilypondPackageImpl#getSchemeText()
    * @generated
    */
-  int SCHEME_TEXT = 40;
+  int SCHEME_TEXT = 38;
 
   /**
    * The feature id for the '<em><b>Value</b></em>' attribute.
@@ -1386,7 +1339,7 @@ public interface LilypondPackage extends EPackage
    * @see org.elysium.lilypond.impl.LilypondPackageImpl#getSchemeNumber()
    * @generated
    */
-  int SCHEME_NUMBER = 41;
+  int SCHEME_NUMBER = 39;
 
   /**
    * The feature id for the '<em><b>Radix</b></em>' attribute.
@@ -1423,7 +1376,7 @@ public interface LilypondPackage extends EPackage
    * @see org.elysium.lilypond.impl.LilypondPackageImpl#getSchemeMarkupCommand()
    * @generated
    */
-  int SCHEME_MARKUP_COMMAND = 42;
+  int SCHEME_MARKUP_COMMAND = 40;
 
   /**
    * The feature id for the '<em><b>Command</b></em>' attribute.
@@ -2310,37 +2263,6 @@ public interface LilypondPackage extends EPackage
   EReference getSchemeBlock_Elements();
 
   /**
-   * Returns the meta object for class '{@link org.elysium.lilypond.SchemeBlockElement <em>Scheme Block Element</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Scheme Block Element</em>'.
-   * @see org.elysium.lilypond.SchemeBlockElement
-   * @generated
-   */
-  EClass getSchemeBlockElement();
-
-  /**
-   * Returns the meta object for class '{@link org.elysium.lilypond.SchemeReference <em>Scheme Reference</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Scheme Reference</em>'.
-   * @see org.elysium.lilypond.SchemeReference
-   * @generated
-   */
-  EClass getSchemeReference();
-
-  /**
-   * Returns the meta object for the containment reference '{@link org.elysium.lilypond.SchemeReference#getValue <em>Value</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the containment reference '<em>Value</em>'.
-   * @see org.elysium.lilypond.SchemeReference#getValue()
-   * @see #getSchemeReference()
-   * @generated
-   */
-  EReference getSchemeReference_Value();
-
-  /**
    * Returns the meta object for class '{@link org.elysium.lilypond.SchemeCharacter <em>Scheme Character</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -3187,34 +3109,6 @@ public interface LilypondPackage extends EPackage
      * @generated
      */
     EReference SCHEME_BLOCK__ELEMENTS = eINSTANCE.getSchemeBlock_Elements();
-
-    /**
-     * The meta object literal for the '{@link org.elysium.lilypond.impl.SchemeBlockElementImpl <em>Scheme Block Element</em>}' class.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see org.elysium.lilypond.impl.SchemeBlockElementImpl
-     * @see org.elysium.lilypond.impl.LilypondPackageImpl#getSchemeBlockElement()
-     * @generated
-     */
-    EClass SCHEME_BLOCK_ELEMENT = eINSTANCE.getSchemeBlockElement();
-
-    /**
-     * The meta object literal for the '{@link org.elysium.lilypond.impl.SchemeReferenceImpl <em>Scheme Reference</em>}' class.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see org.elysium.lilypond.impl.SchemeReferenceImpl
-     * @see org.elysium.lilypond.impl.LilypondPackageImpl#getSchemeReference()
-     * @generated
-     */
-    EClass SCHEME_REFERENCE = eINSTANCE.getSchemeReference();
-
-    /**
-     * The meta object literal for the '<em><b>Value</b></em>' containment reference feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EReference SCHEME_REFERENCE__VALUE = eINSTANCE.getSchemeReference_Value();
 
     /**
      * The meta object literal for the '{@link org.elysium.lilypond.impl.SchemeCharacterImpl <em>Scheme Character</em>}' class.
