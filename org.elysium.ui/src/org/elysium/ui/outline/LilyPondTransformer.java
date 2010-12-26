@@ -7,6 +7,7 @@ import org.elysium.lilypond.BlockCommand;
 import org.elysium.lilypond.LilyPond;
 import org.elysium.lilypond.MarkupBody;
 import org.elysium.lilypond.Number;
+import org.elysium.lilypond.Pitch;
 import org.elysium.lilypond.Reference;
 import org.elysium.lilypond.Scheme;
 import org.elysium.lilypond.SchemeExpression;
@@ -54,6 +55,14 @@ public class LilyPondTransformer extends AbstractDeclarativeSemanticModelTransfo
 
 	public List<EObject> getChildren(BlockCommand blockCommand) {
 		return blockCommand.getBlock().eContents();
+	}
+
+	public boolean consumeNode(Pitch pitch) {
+		return false;
+	}
+
+	public List<EObject> getChildren(Pitch pitch) {
+		return NO_CHILDREN;
 	}
 
 }
