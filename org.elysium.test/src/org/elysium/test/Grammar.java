@@ -7,7 +7,7 @@ public class Grammar extends LilyPondTest {
 
 	private static final String REFERENCE = " \\i";
 
-	private static final String ASSIGNMENT = "i = ##t";
+	private static final String ASSIGNMENT = "i = #1";
 
 	private static final String HEADER = "\\header { title = \"a\" }";
 
@@ -96,11 +96,19 @@ public class Grammar extends LilyPondTest {
 	}
 
 	public void testSchemeReference() throws Exception {
-		assertValid("#(define $i #t)");
+		assertValid("#(define $i 1)");
 	}
 
 	public void testSchemeReferenceInBlock() throws Exception {
 		assertValid(ASSIGNMENT + " ##{ $i #}");
+	}
+
+	public void testSchemeReferenceListInBlock() throws Exception {
+		assertValid("##{ #$(list 1) #}");
+	}
+
+	public void testSchemeBareReferenceListInBlock() throws Exception {
+		assertValid("##{ $(list 1) #}");
 	}
 
 	public void testHeader() throws Exception {

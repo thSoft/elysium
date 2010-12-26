@@ -77,9 +77,9 @@ SpecialCommandName: "include" | "version" | "markup" | "markuplines" | "book" | 
 
 Scheme hidden(WS, SCHEME_SL_COMMENT, SCHEME_ML_COMMENT): "#" value=SchemeExpression;
 
-SchemeExpression: (quoted?="'"? | quasiquoted?="`"? | unquoted?=","?)? value=SchemeValue;
+SchemeExpression: (quoted?="'"? | quasiquoted?="`"? | unquoted?=","? | reference?="$"?)? value=SchemeValue;
 
-SchemeValue: SchemeBoolean | SchemeList | SchemeBlock | SchemeCharacter | SchemeText | SchemeNumber| SchemeMarkupCommand | SchemeReference;
+SchemeValue: SchemeBoolean | SchemeList | SchemeBlock | SchemeCharacter | SchemeText | SchemeNumber| SchemeMarkupCommand;
 
 SchemeBoolean: value=SchemeBooleanValue;
 
@@ -91,7 +91,7 @@ SchemeBlock: "#{" elements+=SchemeBlockElement+ "#}";
 
 SchemeBlockElement: Expression | SchemeReference;
 
-SchemeReference: "$" id=SchemeIdentifier;
+SchemeReference: "$" value=SchemeValue;
 
 SchemeCharacter: "#\\" value=(ID | SpecialCharacter | ANY_OTHER);
 

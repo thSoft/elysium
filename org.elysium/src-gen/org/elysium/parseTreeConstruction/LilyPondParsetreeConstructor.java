@@ -4997,11 +4997,11 @@ protected class Scheme_ValueAssignment_1 extends AssignmentToken  {
 /************ begin Rule SchemeExpression ****************
  *
  * SchemeExpression:
- * 	(quoted?="\'"? | quasiquoted?="`"? | unquoted?=","?)? value=SchemeValue;
+ * 	(quoted?="\'"? | quasiquoted?="`"? | unquoted?=","? | reference?="$"?)? value=SchemeValue;
  *
  **/
 
-// (quoted?="\'"? | quasiquoted?="`"? | unquoted?=","?)? value=SchemeValue
+// (quoted?="\'"? | quasiquoted?="`"? | unquoted?=","? | reference?="$"?)? value=SchemeValue
 protected class SchemeExpression_Group extends GroupToken {
 	
 	public SchemeExpression_Group(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -5030,7 +5030,7 @@ protected class SchemeExpression_Group extends GroupToken {
 
 }
 
-// (quoted?="\'"? | quasiquoted?="`"? | unquoted?=","?)?
+// (quoted?="\'"? | quasiquoted?="`"? | unquoted?=","? | reference?="$"?)?
 protected class SchemeExpression_Alternatives_0 extends AlternativesToken {
 
 	public SchemeExpression_Alternatives_0(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -5048,6 +5048,7 @@ protected class SchemeExpression_Alternatives_0 extends AlternativesToken {
 			case 0: return new SchemeExpression_QuotedAssignment_0_0(lastRuleCallOrigin, this, 0, inst);
 			case 1: return new SchemeExpression_QuasiquotedAssignment_0_1(lastRuleCallOrigin, this, 1, inst);
 			case 2: return new SchemeExpression_UnquotedAssignment_0_2(lastRuleCallOrigin, this, 2, inst);
+			case 3: return new SchemeExpression_ReferenceAssignment_0_3(lastRuleCallOrigin, this, 3, inst);
 			default: return null;
 		}	
 	}
@@ -5153,6 +5154,39 @@ protected class SchemeExpression_UnquotedAssignment_0_2 extends AssignmentToken 
 
 }
 
+// reference?="$"?
+protected class SchemeExpression_ReferenceAssignment_0_3 extends AssignmentToken  {
+	
+	public SchemeExpression_ReferenceAssignment_0_3(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
+		super(lastRuleCallOrigin, next, transitionIndex, eObjectConsumer);
+	}
+	
+	@Override
+	public Assignment getGrammarElement() {
+		return grammarAccess.getSchemeExpressionAccess().getReferenceAssignment_0_3();
+	}
+
+    @Override
+	public AbstractToken createFollower(int index, IEObjectConsumer inst) {
+		switch(index) {
+			default: return lastRuleCallOrigin.createFollowerAfterReturn(this, index, index, inst);
+		}	
+	}
+
+    @Override	
+	public IEObjectConsumer tryConsume() {
+		if((value = eObjectConsumer.getConsumable("reference",false)) == null) return null;
+		IEObjectConsumer obj = eObjectConsumer.cloneAndConsume("reference");
+		if(Boolean.TRUE.equals(value)) { // org::eclipse::xtext::impl::KeywordImpl
+			type = AssignmentType.KEYWORD;
+			element = grammarAccess.getSchemeExpressionAccess().getReferenceDollarSignKeyword_0_3_0();
+			return obj;
+		}
+		return null;
+	}
+
+}
+
 
 // value=SchemeValue
 protected class SchemeExpression_ValueAssignment_1 extends AssignmentToken  {
@@ -5207,13 +5241,11 @@ protected class SchemeExpression_ValueAssignment_1 extends AssignmentToken  {
 /************ begin Rule SchemeValue ****************
  *
  * SchemeValue:
- * 	SchemeBoolean | SchemeList | SchemeBlock | SchemeCharacter | SchemeText | SchemeNumber | SchemeMarkupCommand |
- * 	SchemeReference;
+ * 	SchemeBoolean | SchemeList | SchemeBlock | SchemeCharacter | SchemeText | SchemeNumber | SchemeMarkupCommand;
  *
  **/
 
-// SchemeBoolean | SchemeList | SchemeBlock | SchemeCharacter | SchemeText | SchemeNumber | SchemeMarkupCommand |
-// SchemeReference
+// SchemeBoolean | SchemeList | SchemeBlock | SchemeCharacter | SchemeText | SchemeNumber | SchemeMarkupCommand
 protected class SchemeValue_Alternatives extends AlternativesToken {
 
 	public SchemeValue_Alternatives(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -5235,7 +5267,6 @@ protected class SchemeValue_Alternatives extends AlternativesToken {
 			case 4: return new SchemeValue_SchemeTextParserRuleCall_4(lastRuleCallOrigin, this, 4, inst);
 			case 5: return new SchemeValue_SchemeNumberParserRuleCall_5(lastRuleCallOrigin, this, 5, inst);
 			case 6: return new SchemeValue_SchemeMarkupCommandParserRuleCall_6(lastRuleCallOrigin, this, 6, inst);
-			case 7: return new SchemeValue_SchemeReferenceParserRuleCall_7(lastRuleCallOrigin, this, 7, inst);
 			default: return null;
 		}	
 	}
@@ -5248,7 +5279,6 @@ protected class SchemeValue_Alternatives extends AlternativesToken {
 		   getEObject().eClass() != grammarAccess.getSchemeListAccess().getSchemeListAction_0().getType().getClassifier() && 
 		   getEObject().eClass() != grammarAccess.getSchemeMarkupCommandRule().getType().getClassifier() && 
 		   getEObject().eClass() != grammarAccess.getSchemeNumberRule().getType().getClassifier() && 
-		   getEObject().eClass() != grammarAccess.getSchemeReferenceRule().getType().getClassifier() && 
 		   getEObject().eClass() != grammarAccess.getSchemeTextRule().getType().getClassifier())
 			return null;
 		return eObjectConsumer;
@@ -5497,42 +5527,6 @@ protected class SchemeValue_SchemeMarkupCommandParserRuleCall_6 extends RuleCall
 		if(getEObject().eClass() != grammarAccess.getSchemeMarkupCommandRule().getType().getClassifier())
 			return null;
 		if(checkForRecursion(SchemeMarkupCommand_Group.class, eObjectConsumer)) return null;
-		return eObjectConsumer;
-	}
-	
-    @Override
-	public AbstractToken createFollowerAfterReturn(AbstractToken next,	int actIndex, int index, IEObjectConsumer inst) {
-		switch(index) {
-			default: return lastRuleCallOrigin.createFollowerAfterReturn(next, actIndex , index, inst);
-		}	
-	}	
-}
-
-// SchemeReference
-protected class SchemeValue_SchemeReferenceParserRuleCall_7 extends RuleCallToken {
-	
-	public SchemeValue_SchemeReferenceParserRuleCall_7(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
-		super(lastRuleCallOrigin, next, transitionIndex, eObjectConsumer);
-	}
-	
-	@Override
-	public RuleCall getGrammarElement() {
-		return grammarAccess.getSchemeValueAccess().getSchemeReferenceParserRuleCall_7();
-	}
-
-    @Override
-	public AbstractToken createFollower(int index, IEObjectConsumer inst) {
-		switch(index) {
-			case 0: return new SchemeReference_Group(this, this, 0, inst);
-			default: return null;
-		}	
-	}
-
-    @Override
-	public IEObjectConsumer tryConsume() {
-		if(getEObject().eClass() != grammarAccess.getSchemeReferenceRule().getType().getClassifier())
-			return null;
-		if(checkForRecursion(SchemeReference_Group.class, eObjectConsumer)) return null;
 		return eObjectConsumer;
 	}
 	
@@ -6066,11 +6060,11 @@ protected class SchemeBlockElement_SchemeReferenceParserRuleCall_1 extends RuleC
 /************ begin Rule SchemeReference ****************
  *
  * SchemeReference:
- * 	"$" id=SchemeIdentifier;
+ * 	"$" value=SchemeValue;
  *
  **/
 
-// "$" id=SchemeIdentifier
+// "$" value=SchemeValue
 protected class SchemeReference_Group extends GroupToken {
 	
 	public SchemeReference_Group(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -6085,7 +6079,7 @@ protected class SchemeReference_Group extends GroupToken {
     @Override
 	public AbstractToken createFollower(int index, IEObjectConsumer inst) {
 		switch(index) {
-			case 0: return new SchemeReference_IdAssignment_1(lastRuleCallOrigin, this, 0, inst);
+			case 0: return new SchemeReference_ValueAssignment_1(lastRuleCallOrigin, this, 0, inst);
 			default: return null;
 		}	
 	}
@@ -6120,38 +6114,50 @@ protected class SchemeReference_DollarSignKeyword_0 extends KeywordToken  {
 
 }
 
-// id=SchemeIdentifier
-protected class SchemeReference_IdAssignment_1 extends AssignmentToken  {
+// value=SchemeValue
+protected class SchemeReference_ValueAssignment_1 extends AssignmentToken  {
 	
-	public SchemeReference_IdAssignment_1(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
+	public SchemeReference_ValueAssignment_1(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
 		super(lastRuleCallOrigin, next, transitionIndex, eObjectConsumer);
 	}
 	
 	@Override
 	public Assignment getGrammarElement() {
-		return grammarAccess.getSchemeReferenceAccess().getIdAssignment_1();
+		return grammarAccess.getSchemeReferenceAccess().getValueAssignment_1();
 	}
 
     @Override
 	public AbstractToken createFollower(int index, IEObjectConsumer inst) {
 		switch(index) {
-			case 0: return new SchemeReference_DollarSignKeyword_0(lastRuleCallOrigin, this, 0, inst);
+			case 0: return new SchemeValue_Alternatives(this, this, 0, inst);
 			default: return null;
 		}	
 	}
 
     @Override	
 	public IEObjectConsumer tryConsume() {
-		if((value = eObjectConsumer.getConsumable("id",true)) == null) return null;
-		IEObjectConsumer obj = eObjectConsumer.cloneAndConsume("id");
-		if(valueSerializer.isValid(obj.getEObject(), grammarAccess.getSchemeReferenceAccess().getIdSchemeIdentifierParserRuleCall_1_0(), value, null)) {
-			type = AssignmentType.DATATYPE_RULE_CALL;
-			element = grammarAccess.getSchemeReferenceAccess().getIdSchemeIdentifierParserRuleCall_1_0();
-			return obj;
+		if((value = eObjectConsumer.getConsumable("value",true)) == null) return null;
+		IEObjectConsumer obj = eObjectConsumer.cloneAndConsume("value");
+		if(value instanceof EObject) { // org::eclipse::xtext::impl::RuleCallImpl
+			IEObjectConsumer param = createEObjectConsumer((EObject)value);
+			if(param.isInstanceOf(grammarAccess.getSchemeValueRule().getType().getClassifier())) {
+				type = AssignmentType.PARSER_RULE_CALL;
+				element = grammarAccess.getSchemeReferenceAccess().getValueSchemeValueParserRuleCall_1_0(); 
+				consumed = obj;
+				return param;
+			}
 		}
 		return null;
 	}
 
+    @Override
+	public AbstractToken createFollowerAfterReturn(AbstractToken next,	int actIndex, int index, IEObjectConsumer inst) {
+		if(value == inst.getEObject() && !inst.isConsumed()) return null;
+		switch(index) {
+			case 0: return new SchemeReference_DollarSignKeyword_0(lastRuleCallOrigin, next, actIndex, consumed);
+			default: return null;
+		}	
+	}	
 }
 
 

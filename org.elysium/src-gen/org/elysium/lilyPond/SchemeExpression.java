@@ -18,6 +18,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link org.elysium.lilypond.SchemeExpression#isQuoted <em>Quoted</em>}</li>
  *   <li>{@link org.elysium.lilypond.SchemeExpression#isQuasiquoted <em>Quasiquoted</em>}</li>
  *   <li>{@link org.elysium.lilypond.SchemeExpression#isUnquoted <em>Unquoted</em>}</li>
+ *   <li>{@link org.elysium.lilypond.SchemeExpression#isReference <em>Reference</em>}</li>
  *   <li>{@link org.elysium.lilypond.SchemeExpression#getValue <em>Value</em>}</li>
  * </ul>
  * </p>
@@ -105,6 +106,32 @@ public interface SchemeExpression extends EObject
    * @generated
    */
   void setUnquoted(boolean value);
+
+  /**
+   * Returns the value of the '<em><b>Reference</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Reference</em>' attribute isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Reference</em>' attribute.
+   * @see #setReference(boolean)
+   * @see org.elysium.lilypond.LilypondPackage#getSchemeExpression_Reference()
+   * @model
+   * @generated
+   */
+  boolean isReference();
+
+  /**
+   * Sets the value of the '{@link org.elysium.lilypond.SchemeExpression#isReference <em>Reference</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @param value the new value of the '<em>Reference</em>' attribute.
+   * @see #isReference()
+   * @generated
+   */
+  void setReference(boolean value);
 
   /**
    * Returns the value of the '<em><b>Value</b></em>' containment reference.

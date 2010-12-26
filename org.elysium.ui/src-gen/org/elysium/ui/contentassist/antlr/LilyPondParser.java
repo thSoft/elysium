@@ -147,12 +147,13 @@ public class LilyPondParser extends AbstractContentAssistParser {
 					put(grammarAccess.getSchemeExpressionAccess().getQuotedAssignment_0_0(), "rule__SchemeExpression__QuotedAssignment_0_0");
 					put(grammarAccess.getSchemeExpressionAccess().getQuasiquotedAssignment_0_1(), "rule__SchemeExpression__QuasiquotedAssignment_0_1");
 					put(grammarAccess.getSchemeExpressionAccess().getUnquotedAssignment_0_2(), "rule__SchemeExpression__UnquotedAssignment_0_2");
+					put(grammarAccess.getSchemeExpressionAccess().getReferenceAssignment_0_3(), "rule__SchemeExpression__ReferenceAssignment_0_3");
 					put(grammarAccess.getSchemeExpressionAccess().getValueAssignment_1(), "rule__SchemeExpression__ValueAssignment_1");
 					put(grammarAccess.getSchemeBooleanAccess().getValueAssignment(), "rule__SchemeBoolean__ValueAssignment");
 					put(grammarAccess.getSchemeListAccess().getVectorAssignment_1(), "rule__SchemeList__VectorAssignment_1");
 					put(grammarAccess.getSchemeListAccess().getExpressionsAssignment_3(), "rule__SchemeList__ExpressionsAssignment_3");
 					put(grammarAccess.getSchemeBlockAccess().getElementsAssignment_1(), "rule__SchemeBlock__ElementsAssignment_1");
-					put(grammarAccess.getSchemeReferenceAccess().getIdAssignment_1(), "rule__SchemeReference__IdAssignment_1");
+					put(grammarAccess.getSchemeReferenceAccess().getValueAssignment_1(), "rule__SchemeReference__ValueAssignment_1");
 					put(grammarAccess.getSchemeCharacterAccess().getValueAssignment_1(), "rule__SchemeCharacter__ValueAssignment_1");
 					put(grammarAccess.getSchemeTextAccess().getValueAssignment(), "rule__SchemeText__ValueAssignment");
 					put(grammarAccess.getSchemeNumberAccess().getRadixAssignment_0(), "rule__SchemeNumber__RadixAssignment_0");

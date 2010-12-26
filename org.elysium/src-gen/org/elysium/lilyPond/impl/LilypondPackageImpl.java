@@ -1154,9 +1154,19 @@ public class LilypondPackageImpl extends EPackageImpl implements LilypondPackage
    * <!-- end-user-doc -->
    * @generated
    */
+  public EAttribute getSchemeExpression_Reference()
+  {
+    return (EAttribute)schemeExpressionEClass.getEStructuralFeatures().get(3);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public EReference getSchemeExpression_Value()
   {
-    return (EReference)schemeExpressionEClass.getEStructuralFeatures().get(3);
+    return (EReference)schemeExpressionEClass.getEStructuralFeatures().get(4);
   }
 
   /**
@@ -1264,9 +1274,9 @@ public class LilypondPackageImpl extends EPackageImpl implements LilypondPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getSchemeReference_Id()
+  public EReference getSchemeReference_Value()
   {
-    return (EAttribute)schemeReferenceEClass.getEStructuralFeatures().get(0);
+    return (EReference)schemeReferenceEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -1493,6 +1503,7 @@ public class LilypondPackageImpl extends EPackageImpl implements LilypondPackage
     createEAttribute(schemeExpressionEClass, SCHEME_EXPRESSION__QUOTED);
     createEAttribute(schemeExpressionEClass, SCHEME_EXPRESSION__QUASIQUOTED);
     createEAttribute(schemeExpressionEClass, SCHEME_EXPRESSION__UNQUOTED);
+    createEAttribute(schemeExpressionEClass, SCHEME_EXPRESSION__REFERENCE);
     createEReference(schemeExpressionEClass, SCHEME_EXPRESSION__VALUE);
 
     schemeValueEClass = createEClass(SCHEME_VALUE);
@@ -1510,7 +1521,7 @@ public class LilypondPackageImpl extends EPackageImpl implements LilypondPackage
     schemeBlockElementEClass = createEClass(SCHEME_BLOCK_ELEMENT);
 
     schemeReferenceEClass = createEClass(SCHEME_REFERENCE);
-    createEAttribute(schemeReferenceEClass, SCHEME_REFERENCE__ID);
+    createEReference(schemeReferenceEClass, SCHEME_REFERENCE__VALUE);
 
     schemeCharacterEClass = createEClass(SCHEME_CHARACTER);
     createEAttribute(schemeCharacterEClass, SCHEME_CHARACTER__VALUE);
@@ -1587,7 +1598,6 @@ public class LilypondPackageImpl extends EPackageImpl implements LilypondPackage
     schemeBooleanEClass.getESuperTypes().add(this.getSchemeValue());
     schemeListEClass.getESuperTypes().add(this.getSchemeValue());
     schemeBlockEClass.getESuperTypes().add(this.getSchemeValue());
-    schemeReferenceEClass.getESuperTypes().add(this.getSchemeValue());
     schemeReferenceEClass.getESuperTypes().add(this.getSchemeBlockElement());
     schemeCharacterEClass.getESuperTypes().add(this.getSchemeValue());
     schemeTextEClass.getESuperTypes().add(this.getSchemeValue());
@@ -1699,6 +1709,7 @@ public class LilypondPackageImpl extends EPackageImpl implements LilypondPackage
     initEAttribute(getSchemeExpression_Quoted(), ecorePackage.getEBoolean(), "quoted", null, 0, 1, SchemeExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getSchemeExpression_Quasiquoted(), ecorePackage.getEBoolean(), "quasiquoted", null, 0, 1, SchemeExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getSchemeExpression_Unquoted(), ecorePackage.getEBoolean(), "unquoted", null, 0, 1, SchemeExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getSchemeExpression_Reference(), ecorePackage.getEBoolean(), "reference", null, 0, 1, SchemeExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getSchemeExpression_Value(), this.getSchemeValue(), null, "value", null, 0, 1, SchemeExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(schemeValueEClass, SchemeValue.class, "SchemeValue", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -1716,7 +1727,7 @@ public class LilypondPackageImpl extends EPackageImpl implements LilypondPackage
     initEClass(schemeBlockElementEClass, SchemeBlockElement.class, "SchemeBlockElement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
     initEClass(schemeReferenceEClass, SchemeReference.class, "SchemeReference", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getSchemeReference_Id(), ecorePackage.getEString(), "id", null, 0, 1, SchemeReference.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getSchemeReference_Value(), this.getSchemeValue(), null, "value", null, 0, 1, SchemeReference.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(schemeCharacterEClass, SchemeCharacter.class, "SchemeCharacter", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getSchemeCharacter_Value(), ecorePackage.getEString(), "value", null, 0, 1, SchemeCharacter.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

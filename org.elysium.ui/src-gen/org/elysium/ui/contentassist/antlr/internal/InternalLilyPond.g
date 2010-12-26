@@ -2796,6 +2796,12 @@ rule__SchemeExpression__Alternatives_0
 { after(grammarAccess.getSchemeExpressionAccess().getUnquotedAssignment_0_2()); }
 )
 
+    |(
+{ before(grammarAccess.getSchemeExpressionAccess().getReferenceAssignment_0_3()); }
+(rule__SchemeExpression__ReferenceAssignment_0_3)?
+{ after(grammarAccess.getSchemeExpressionAccess().getReferenceAssignment_0_3()); }
+)
+
 ;
 finally {
 	restoreStackSize(stackSize);
@@ -2846,12 +2852,6 @@ rule__SchemeValue__Alternatives
 { before(grammarAccess.getSchemeValueAccess().getSchemeMarkupCommandParserRuleCall_6()); }
 	ruleSchemeMarkupCommand
 { after(grammarAccess.getSchemeValueAccess().getSchemeMarkupCommandParserRuleCall_6()); }
-)
-
-    |(
-{ before(grammarAccess.getSchemeValueAccess().getSchemeReferenceParserRuleCall_7()); }
-	ruleSchemeReference
-{ after(grammarAccess.getSchemeValueAccess().getSchemeReferenceParserRuleCall_7()); }
 )
 
 ;
@@ -5642,9 +5642,9 @@ rule__SchemeReference__Group__1__Impl
     }
 :
 (
-{ before(grammarAccess.getSchemeReferenceAccess().getIdAssignment_1()); }
-(rule__SchemeReference__IdAssignment_1)
-{ after(grammarAccess.getSchemeReferenceAccess().getIdAssignment_1()); }
+{ before(grammarAccess.getSchemeReferenceAccess().getValueAssignment_1()); }
+(rule__SchemeReference__ValueAssignment_1)
+{ after(grammarAccess.getSchemeReferenceAccess().getValueAssignment_1()); }
 )
 
 ;
@@ -7049,6 +7049,29 @@ finally {
 	restoreStackSize(stackSize);
 }
 
+rule__SchemeExpression__ReferenceAssignment_0_3
+    @init {
+		int stackSize = keepStackSize();
+    }
+:
+(
+{ before(grammarAccess.getSchemeExpressionAccess().getReferenceDollarSignKeyword_0_3_0()); }
+(
+{ before(grammarAccess.getSchemeExpressionAccess().getReferenceDollarSignKeyword_0_3_0()); }
+
+	KEYWORD_3 
+
+{ after(grammarAccess.getSchemeExpressionAccess().getReferenceDollarSignKeyword_0_3_0()); }
+)
+
+{ after(grammarAccess.getSchemeExpressionAccess().getReferenceDollarSignKeyword_0_3_0()); }
+)
+
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
 rule__SchemeExpression__ValueAssignment_1
     @init {
 		int stackSize = keepStackSize();
@@ -7132,14 +7155,14 @@ finally {
 	restoreStackSize(stackSize);
 }
 
-rule__SchemeReference__IdAssignment_1
+rule__SchemeReference__ValueAssignment_1
     @init {
 		int stackSize = keepStackSize();
     }
 :
 (
-{ before(grammarAccess.getSchemeReferenceAccess().getIdSchemeIdentifierParserRuleCall_1_0()); }
-	ruleSchemeIdentifier{ after(grammarAccess.getSchemeReferenceAccess().getIdSchemeIdentifierParserRuleCall_1_0()); }
+{ before(grammarAccess.getSchemeReferenceAccess().getValueSchemeValueParserRuleCall_1_0()); }
+	ruleSchemeValue{ after(grammarAccess.getSchemeReferenceAccess().getValueSchemeValueParserRuleCall_1_0()); }
 )
 
 ;

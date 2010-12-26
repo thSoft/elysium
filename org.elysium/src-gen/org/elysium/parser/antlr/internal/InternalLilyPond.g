@@ -3453,12 +3453,35 @@ ruleSchemeExpression returns [EObject current=null]
 	    }
 
 )
+)?
+    |(
+(
+		lv_reference_3_0=
+	KEYWORD_3 
+    {
+        createLeafNode(grammarAccess.getSchemeExpressionAccess().getReferenceDollarSignKeyword_0_3_0(), "reference"); 
+    }
+ 
+	    {
+	        if ($current==null) {
+	            $current = factory.create(grammarAccess.getSchemeExpressionRule().getType().getClassifier());
+	            associateNodeWithAstElement(currentNode, $current);
+	        }
+	        
+	        try {
+	       		set($current, "reference", true, "$", lastConsumedNode);
+	        } catch (ValueConverterException vce) {
+				handleValueConverterException(vce);
+	        }
+	    }
+
+)
 )?)?(
 (
 		{ 
 	        currentNode=createCompositeNode(grammarAccess.getSchemeExpressionAccess().getValueSchemeValueParserRuleCall_1_0(), currentNode); 
 	    }
-		lv_value_3_0=ruleSchemeValue		{
+		lv_value_4_0=ruleSchemeValue		{
 	        if ($current==null) {
 	            $current = factory.create(grammarAccess.getSchemeExpressionRule().getType().getClassifier());
 	            associateNodeWithAstElement(currentNode.getParent(), $current);
@@ -3467,7 +3490,7 @@ ruleSchemeExpression returns [EObject current=null]
 	       		set(
 	       			$current, 
 	       			"value",
-	        		lv_value_3_0, 
+	        		lv_value_4_0, 
 	        		"SchemeValue", 
 	        		currentNode);
 	        } catch (ValueConverterException vce) {
@@ -3588,19 +3611,6 @@ ruleSchemeValue returns [EObject current=null]
     this_SchemeMarkupCommand_6=ruleSchemeMarkupCommand
     {
         $current = $this_SchemeMarkupCommand_6.current;
-        currentNode = currentNode.getParent();
-    }
-
-    |
-	{ 
-	  /* */ 
-	}
-    { 
-        currentNode=createCompositeNode(grammarAccess.getSchemeValueAccess().getSchemeReferenceParserRuleCall_7(), currentNode); 
-    }
-    this_SchemeReference_7=ruleSchemeReference
-    {
-        $current = $this_SchemeReference_7.current;
         currentNode = currentNode.getParent();
     }
 )
@@ -3915,9 +3925,9 @@ ruleSchemeReference returns [EObject current=null]
 (
 (
 		{ 
-	        currentNode=createCompositeNode(grammarAccess.getSchemeReferenceAccess().getIdSchemeIdentifierParserRuleCall_1_0(), currentNode); 
+	        currentNode=createCompositeNode(grammarAccess.getSchemeReferenceAccess().getValueSchemeValueParserRuleCall_1_0(), currentNode); 
 	    }
-		lv_id_1_0=ruleSchemeIdentifier		{
+		lv_value_1_0=ruleSchemeValue		{
 	        if ($current==null) {
 	            $current = factory.create(grammarAccess.getSchemeReferenceRule().getType().getClassifier());
 	            associateNodeWithAstElement(currentNode.getParent(), $current);
@@ -3925,9 +3935,9 @@ ruleSchemeReference returns [EObject current=null]
 	        try {
 	       		set(
 	       			$current, 
-	       			"id",
-	        		lv_id_1_0, 
-	        		"SchemeIdentifier", 
+	       			"value",
+	        		lv_value_1_0, 
+	        		"SchemeValue", 
 	        		currentNode);
 	        } catch (ValueConverterException vce) {
 				handleValueConverterException(vce);

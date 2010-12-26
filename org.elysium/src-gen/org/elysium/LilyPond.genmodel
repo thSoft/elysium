@@ -104,6 +104,7 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute LilyPond.ecore#//SchemeExpression/quoted"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute LilyPond.ecore#//SchemeExpression/quasiquoted"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute LilyPond.ecore#//SchemeExpression/unquoted"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute LilyPond.ecore#//SchemeExpression/reference"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference LilyPond.ecore#//SchemeExpression/value"/>
     </genClasses>
     <genClasses ecoreClass="LilyPond.ecore#//SchemeValue"/>
@@ -119,7 +120,7 @@
     </genClasses>
     <genClasses ecoreClass="LilyPond.ecore#//SchemeBlockElement"/>
     <genClasses ecoreClass="LilyPond.ecore#//SchemeReference">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute LilyPond.ecore#//SchemeReference/id"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference LilyPond.ecore#//SchemeReference/value"/>
     </genClasses>
     <genClasses ecoreClass="LilyPond.ecore#//SchemeCharacter">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute LilyPond.ecore#//SchemeCharacter/value"/>

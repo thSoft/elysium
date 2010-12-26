@@ -28,6 +28,7 @@ import org.elysium.lilypond.SchemeValue;
  *   <li>{@link org.elysium.lilypond.impl.SchemeExpressionImpl#isQuoted <em>Quoted</em>}</li>
  *   <li>{@link org.elysium.lilypond.impl.SchemeExpressionImpl#isQuasiquoted <em>Quasiquoted</em>}</li>
  *   <li>{@link org.elysium.lilypond.impl.SchemeExpressionImpl#isUnquoted <em>Unquoted</em>}</li>
+ *   <li>{@link org.elysium.lilypond.impl.SchemeExpressionImpl#isReference <em>Reference</em>}</li>
  *   <li>{@link org.elysium.lilypond.impl.SchemeExpressionImpl#getValue <em>Value</em>}</li>
  * </ul>
  * </p>
@@ -95,6 +96,26 @@ public class SchemeExpressionImpl extends MinimalEObjectImpl.Container implement
    * @ordered
    */
   protected boolean unquoted = UNQUOTED_EDEFAULT;
+
+  /**
+   * The default value of the '{@link #isReference() <em>Reference</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #isReference()
+   * @generated
+   * @ordered
+   */
+  protected static final boolean REFERENCE_EDEFAULT = false;
+
+  /**
+   * The cached value of the '{@link #isReference() <em>Reference</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #isReference()
+   * @generated
+   * @ordered
+   */
+  protected boolean reference = REFERENCE_EDEFAULT;
 
   /**
    * The cached value of the '{@link #getValue() <em>Value</em>}' containment reference.
@@ -201,6 +222,29 @@ public class SchemeExpressionImpl extends MinimalEObjectImpl.Container implement
    * <!-- end-user-doc -->
    * @generated
    */
+  public boolean isReference()
+  {
+    return reference;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public void setReference(boolean newReference)
+  {
+    boolean oldReference = reference;
+    reference = newReference;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, LilypondPackage.SCHEME_EXPRESSION__REFERENCE, oldReference, reference));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public SchemeValue getValue()
   {
     return value;
@@ -276,6 +320,8 @@ public class SchemeExpressionImpl extends MinimalEObjectImpl.Container implement
         return isQuasiquoted();
       case LilypondPackage.SCHEME_EXPRESSION__UNQUOTED:
         return isUnquoted();
+      case LilypondPackage.SCHEME_EXPRESSION__REFERENCE:
+        return isReference();
       case LilypondPackage.SCHEME_EXPRESSION__VALUE:
         return getValue();
     }
@@ -300,6 +346,9 @@ public class SchemeExpressionImpl extends MinimalEObjectImpl.Container implement
         return;
       case LilypondPackage.SCHEME_EXPRESSION__UNQUOTED:
         setUnquoted((Boolean)newValue);
+        return;
+      case LilypondPackage.SCHEME_EXPRESSION__REFERENCE:
+        setReference((Boolean)newValue);
         return;
       case LilypondPackage.SCHEME_EXPRESSION__VALUE:
         setValue((SchemeValue)newValue);
@@ -327,6 +376,9 @@ public class SchemeExpressionImpl extends MinimalEObjectImpl.Container implement
       case LilypondPackage.SCHEME_EXPRESSION__UNQUOTED:
         setUnquoted(UNQUOTED_EDEFAULT);
         return;
+      case LilypondPackage.SCHEME_EXPRESSION__REFERENCE:
+        setReference(REFERENCE_EDEFAULT);
+        return;
       case LilypondPackage.SCHEME_EXPRESSION__VALUE:
         setValue((SchemeValue)null);
         return;
@@ -350,6 +402,8 @@ public class SchemeExpressionImpl extends MinimalEObjectImpl.Container implement
         return quasiquoted != QUASIQUOTED_EDEFAULT;
       case LilypondPackage.SCHEME_EXPRESSION__UNQUOTED:
         return unquoted != UNQUOTED_EDEFAULT;
+      case LilypondPackage.SCHEME_EXPRESSION__REFERENCE:
+        return reference != REFERENCE_EDEFAULT;
       case LilypondPackage.SCHEME_EXPRESSION__VALUE:
         return value != null;
     }
@@ -373,6 +427,8 @@ public class SchemeExpressionImpl extends MinimalEObjectImpl.Container implement
     result.append(quasiquoted);
     result.append(", unquoted: ");
     result.append(unquoted);
+    result.append(", reference: ");
+    result.append(reference);
     result.append(')');
     return result.toString();
   }

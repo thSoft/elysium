@@ -522,7 +522,6 @@ public class LilypondSwitch<T>
       {
         SchemeReference schemeReference = (SchemeReference)theEObject;
         T result = caseSchemeReference(schemeReference);
-        if (result == null) result = caseSchemeValue(schemeReference);
         if (result == null) result = caseSchemeBlockElement(schemeReference);
         if (result == null) result = defaultCase(theEObject);
         return result;
