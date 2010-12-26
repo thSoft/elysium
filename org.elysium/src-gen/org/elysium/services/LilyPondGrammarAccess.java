@@ -367,33 +367,37 @@ public class LilyPondGrammarAccess extends AbstractGrammarElementFinder {
 	public class UnparsedExpressionElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "UnparsedExpression");
 		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
-		private final RuleCall cUnparsedCommandParserRuleCall_0 = (RuleCall)cAlternatives.eContents().get(0);
-		private final RuleCall cUnparsedBlockParserRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
-		private final RuleCall cSchemeParserRuleCall_2 = (RuleCall)cAlternatives.eContents().get(2);
-		private final RuleCall cTextParserRuleCall_3 = (RuleCall)cAlternatives.eContents().get(3);
-		private final RuleCall cNumberParserRuleCall_4 = (RuleCall)cAlternatives.eContents().get(4);
+		private final RuleCall cPropertyAssignmentParserRuleCall_0 = (RuleCall)cAlternatives.eContents().get(0);
+		private final RuleCall cUnparsedCommandParserRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
+		private final RuleCall cUnparsedBlockParserRuleCall_2 = (RuleCall)cAlternatives.eContents().get(2);
+		private final RuleCall cSchemeParserRuleCall_3 = (RuleCall)cAlternatives.eContents().get(3);
+		private final RuleCall cTextParserRuleCall_4 = (RuleCall)cAlternatives.eContents().get(4);
+		private final RuleCall cNumberParserRuleCall_5 = (RuleCall)cAlternatives.eContents().get(5);
 		
 		//UnparsedExpression:
-		//	UnparsedCommand | UnparsedBlock | Scheme | Text | Number;
+		//	PropertyAssignment | UnparsedCommand | UnparsedBlock | Scheme | Text | Number;
 		public ParserRule getRule() { return rule; }
 
-		//UnparsedCommand | UnparsedBlock | Scheme | Text | Number
+		//PropertyAssignment | UnparsedCommand | UnparsedBlock | Scheme | Text | Number
 		public Alternatives getAlternatives() { return cAlternatives; }
 
+		//PropertyAssignment
+		public RuleCall getPropertyAssignmentParserRuleCall_0() { return cPropertyAssignmentParserRuleCall_0; }
+
 		//UnparsedCommand
-		public RuleCall getUnparsedCommandParserRuleCall_0() { return cUnparsedCommandParserRuleCall_0; }
+		public RuleCall getUnparsedCommandParserRuleCall_1() { return cUnparsedCommandParserRuleCall_1; }
 
 		//UnparsedBlock
-		public RuleCall getUnparsedBlockParserRuleCall_1() { return cUnparsedBlockParserRuleCall_1; }
+		public RuleCall getUnparsedBlockParserRuleCall_2() { return cUnparsedBlockParserRuleCall_2; }
 
 		//Scheme
-		public RuleCall getSchemeParserRuleCall_2() { return cSchemeParserRuleCall_2; }
+		public RuleCall getSchemeParserRuleCall_3() { return cSchemeParserRuleCall_3; }
 
 		//Text
-		public RuleCall getTextParserRuleCall_3() { return cTextParserRuleCall_3; }
+		public RuleCall getTextParserRuleCall_4() { return cTextParserRuleCall_4; }
 
 		//Number
-		public RuleCall getNumberParserRuleCall_4() { return cNumberParserRuleCall_4; }
+		public RuleCall getNumberParserRuleCall_5() { return cNumberParserRuleCall_5; }
 	}
 
 	public class UnparsedCommandElements extends AbstractParserRuleElementFinder {
@@ -2136,7 +2140,7 @@ public class LilyPondGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//UnparsedExpression:
-	//	UnparsedCommand | UnparsedBlock | Scheme | Text | Number;
+	//	PropertyAssignment | UnparsedCommand | UnparsedBlock | Scheme | Text | Number;
 	public UnparsedExpressionElements getUnparsedExpressionAccess() {
 		return (pUnparsedExpression != null) ? pUnparsedExpression : (pUnparsedExpression = new UnparsedExpressionElements());
 	}

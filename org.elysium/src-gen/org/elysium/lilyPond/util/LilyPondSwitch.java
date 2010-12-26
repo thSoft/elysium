@@ -179,6 +179,7 @@ public class LilypondSwitch<T>
         PropertyAssignment propertyAssignment = (PropertyAssignment)theEObject;
         T result = casePropertyAssignment(propertyAssignment);
         if (result == null) result = caseExpression(propertyAssignment);
+        if (result == null) result = caseUnparsedExpression(propertyAssignment);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }

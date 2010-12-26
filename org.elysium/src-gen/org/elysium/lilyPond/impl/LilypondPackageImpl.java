@@ -1528,6 +1528,7 @@ public class LilypondPackageImpl extends EPackageImpl implements LilypondPackage
     commonExpressionEClass.getESuperTypes().add(this.getExpression());
     assignmentEClass.getESuperTypes().add(this.getToplevelExpression());
     propertyAssignmentEClass.getESuperTypes().add(this.getExpression());
+    propertyAssignmentEClass.getESuperTypes().add(this.getUnparsedExpression());
     blockEClass.getESuperTypes().add(this.getCommonExpression());
     simpleBlockEClass.getESuperTypes().add(this.getBlock());
     simultaneousBlockEClass.getESuperTypes().add(this.getBlock());

@@ -1697,11 +1697,11 @@ protected class UnparsedBlock_RightCurlyBracketKeyword_3 extends KeywordToken  {
 /************ begin Rule UnparsedExpression ****************
  *
  * UnparsedExpression:
- * 	UnparsedCommand | UnparsedBlock | Scheme | Text | Number;
+ * 	PropertyAssignment | UnparsedCommand | UnparsedBlock | Scheme | Text | Number;
  *
  **/
 
-// UnparsedCommand | UnparsedBlock | Scheme | Text | Number
+// PropertyAssignment | UnparsedCommand | UnparsedBlock | Scheme | Text | Number
 protected class UnparsedExpression_Alternatives extends AlternativesToken {
 
 	public UnparsedExpression_Alternatives(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -1716,11 +1716,12 @@ protected class UnparsedExpression_Alternatives extends AlternativesToken {
     @Override
 	public AbstractToken createFollower(int index, IEObjectConsumer inst) {
 		switch(index) {
-			case 0: return new UnparsedExpression_UnparsedCommandParserRuleCall_0(lastRuleCallOrigin, this, 0, inst);
-			case 1: return new UnparsedExpression_UnparsedBlockParserRuleCall_1(lastRuleCallOrigin, this, 1, inst);
-			case 2: return new UnparsedExpression_SchemeParserRuleCall_2(lastRuleCallOrigin, this, 2, inst);
-			case 3: return new UnparsedExpression_TextParserRuleCall_3(lastRuleCallOrigin, this, 3, inst);
-			case 4: return new UnparsedExpression_NumberParserRuleCall_4(lastRuleCallOrigin, this, 4, inst);
+			case 0: return new UnparsedExpression_PropertyAssignmentParserRuleCall_0(lastRuleCallOrigin, this, 0, inst);
+			case 1: return new UnparsedExpression_UnparsedCommandParserRuleCall_1(lastRuleCallOrigin, this, 1, inst);
+			case 2: return new UnparsedExpression_UnparsedBlockParserRuleCall_2(lastRuleCallOrigin, this, 2, inst);
+			case 3: return new UnparsedExpression_SchemeParserRuleCall_3(lastRuleCallOrigin, this, 3, inst);
+			case 4: return new UnparsedExpression_TextParserRuleCall_4(lastRuleCallOrigin, this, 4, inst);
+			case 5: return new UnparsedExpression_NumberParserRuleCall_5(lastRuleCallOrigin, this, 5, inst);
 			default: return null;
 		}	
 	}
@@ -1728,6 +1729,7 @@ protected class UnparsedExpression_Alternatives extends AlternativesToken {
     @Override
 	public IEObjectConsumer tryConsume() {
 		if(getEObject().eClass() != grammarAccess.getNumberRule().getType().getClassifier() && 
+		   getEObject().eClass() != grammarAccess.getPropertyAssignmentRule().getType().getClassifier() && 
 		   getEObject().eClass() != grammarAccess.getSchemeRule().getType().getClassifier() && 
 		   getEObject().eClass() != grammarAccess.getTextRule().getType().getClassifier() && 
 		   getEObject().eClass() != grammarAccess.getUnparsedBlockAccess().getUnparsedBlockAction_0().getType().getClassifier() && 
@@ -1738,16 +1740,52 @@ protected class UnparsedExpression_Alternatives extends AlternativesToken {
 
 }
 
-// UnparsedCommand
-protected class UnparsedExpression_UnparsedCommandParserRuleCall_0 extends RuleCallToken {
+// PropertyAssignment
+protected class UnparsedExpression_PropertyAssignmentParserRuleCall_0 extends RuleCallToken {
 	
-	public UnparsedExpression_UnparsedCommandParserRuleCall_0(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
+	public UnparsedExpression_PropertyAssignmentParserRuleCall_0(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
 		super(lastRuleCallOrigin, next, transitionIndex, eObjectConsumer);
 	}
 	
 	@Override
 	public RuleCall getGrammarElement() {
-		return grammarAccess.getUnparsedExpressionAccess().getUnparsedCommandParserRuleCall_0();
+		return grammarAccess.getUnparsedExpressionAccess().getPropertyAssignmentParserRuleCall_0();
+	}
+
+    @Override
+	public AbstractToken createFollower(int index, IEObjectConsumer inst) {
+		switch(index) {
+			case 0: return new PropertyAssignment_Group(this, this, 0, inst);
+			default: return null;
+		}	
+	}
+
+    @Override
+	public IEObjectConsumer tryConsume() {
+		if(getEObject().eClass() != grammarAccess.getPropertyAssignmentRule().getType().getClassifier())
+			return null;
+		if(checkForRecursion(PropertyAssignment_Group.class, eObjectConsumer)) return null;
+		return eObjectConsumer;
+	}
+	
+    @Override
+	public AbstractToken createFollowerAfterReturn(AbstractToken next,	int actIndex, int index, IEObjectConsumer inst) {
+		switch(index) {
+			default: return lastRuleCallOrigin.createFollowerAfterReturn(next, actIndex , index, inst);
+		}	
+	}	
+}
+
+// UnparsedCommand
+protected class UnparsedExpression_UnparsedCommandParserRuleCall_1 extends RuleCallToken {
+	
+	public UnparsedExpression_UnparsedCommandParserRuleCall_1(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
+		super(lastRuleCallOrigin, next, transitionIndex, eObjectConsumer);
+	}
+	
+	@Override
+	public RuleCall getGrammarElement() {
+		return grammarAccess.getUnparsedExpressionAccess().getUnparsedCommandParserRuleCall_1();
 	}
 
     @Override
@@ -1775,15 +1813,15 @@ protected class UnparsedExpression_UnparsedCommandParserRuleCall_0 extends RuleC
 }
 
 // UnparsedBlock
-protected class UnparsedExpression_UnparsedBlockParserRuleCall_1 extends RuleCallToken {
+protected class UnparsedExpression_UnparsedBlockParserRuleCall_2 extends RuleCallToken {
 	
-	public UnparsedExpression_UnparsedBlockParserRuleCall_1(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
+	public UnparsedExpression_UnparsedBlockParserRuleCall_2(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
 		super(lastRuleCallOrigin, next, transitionIndex, eObjectConsumer);
 	}
 	
 	@Override
 	public RuleCall getGrammarElement() {
-		return grammarAccess.getUnparsedExpressionAccess().getUnparsedBlockParserRuleCall_1();
+		return grammarAccess.getUnparsedExpressionAccess().getUnparsedBlockParserRuleCall_2();
 	}
 
     @Override
@@ -1811,15 +1849,15 @@ protected class UnparsedExpression_UnparsedBlockParserRuleCall_1 extends RuleCal
 }
 
 // Scheme
-protected class UnparsedExpression_SchemeParserRuleCall_2 extends RuleCallToken {
+protected class UnparsedExpression_SchemeParserRuleCall_3 extends RuleCallToken {
 	
-	public UnparsedExpression_SchemeParserRuleCall_2(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
+	public UnparsedExpression_SchemeParserRuleCall_3(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
 		super(lastRuleCallOrigin, next, transitionIndex, eObjectConsumer);
 	}
 	
 	@Override
 	public RuleCall getGrammarElement() {
-		return grammarAccess.getUnparsedExpressionAccess().getSchemeParserRuleCall_2();
+		return grammarAccess.getUnparsedExpressionAccess().getSchemeParserRuleCall_3();
 	}
 
     @Override
@@ -1847,15 +1885,15 @@ protected class UnparsedExpression_SchemeParserRuleCall_2 extends RuleCallToken 
 }
 
 // Text
-protected class UnparsedExpression_TextParserRuleCall_3 extends RuleCallToken {
+protected class UnparsedExpression_TextParserRuleCall_4 extends RuleCallToken {
 	
-	public UnparsedExpression_TextParserRuleCall_3(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
+	public UnparsedExpression_TextParserRuleCall_4(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
 		super(lastRuleCallOrigin, next, transitionIndex, eObjectConsumer);
 	}
 	
 	@Override
 	public RuleCall getGrammarElement() {
-		return grammarAccess.getUnparsedExpressionAccess().getTextParserRuleCall_3();
+		return grammarAccess.getUnparsedExpressionAccess().getTextParserRuleCall_4();
 	}
 
     @Override
@@ -1883,15 +1921,15 @@ protected class UnparsedExpression_TextParserRuleCall_3 extends RuleCallToken {
 }
 
 // Number
-protected class UnparsedExpression_NumberParserRuleCall_4 extends RuleCallToken {
+protected class UnparsedExpression_NumberParserRuleCall_5 extends RuleCallToken {
 	
-	public UnparsedExpression_NumberParserRuleCall_4(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
+	public UnparsedExpression_NumberParserRuleCall_5(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
 		super(lastRuleCallOrigin, next, transitionIndex, eObjectConsumer);
 	}
 	
 	@Override
 	public RuleCall getGrammarElement() {
-		return grammarAccess.getUnparsedExpressionAccess().getNumberParserRuleCall_4();
+		return grammarAccess.getUnparsedExpressionAccess().getNumberParserRuleCall_5();
 	}
 
     @Override

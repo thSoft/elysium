@@ -167,6 +167,7 @@
       <classifier xsi:type="ecore:EClass" href="http://www.elysium.org/LilyPond#//UnparsedExpression"/>
     </type>
     <alternatives xsi:type="xtext:Alternatives">
+      <elements xsi:type="xtext:RuleCall" rule="//@rules.5"/>
       <elements xsi:type="xtext:RuleCall" rule="//@rules.13"/>
       <elements xsi:type="xtext:RuleCall" rule="//@rules.11"/>
       <elements xsi:type="xtext:RuleCall" rule="//@rules.35"/>

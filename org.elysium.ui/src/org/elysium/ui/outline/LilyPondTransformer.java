@@ -7,6 +7,7 @@ import org.elysium.lilypond.BlockCommand;
 import org.elysium.lilypond.LilyPond;
 import org.elysium.lilypond.MarkupBody;
 import org.elysium.lilypond.Number;
+import org.elysium.lilypond.OutputDefinition;
 import org.elysium.lilypond.Pitch;
 import org.elysium.lilypond.Reference;
 import org.elysium.lilypond.Scheme;
@@ -14,6 +15,7 @@ import org.elysium.lilypond.SchemeExpression;
 import org.elysium.lilypond.SchemeList;
 import org.elysium.lilypond.Text;
 import org.elysium.lilypond.UnparsedBlock;
+import org.elysium.lilypond.UnparsedCommand;
 
 /**
  * Transforms the structure of LilyPond outline nodes.
@@ -45,6 +47,10 @@ public class LilyPondTransformer extends AbstractDeclarativeSemanticModelTransfo
 		return reference.getAssignment().getName() != null;
 	}
 
+	public boolean consumeNode(UnparsedCommand unparsedCommand) {
+		return false;
+	}
+
 	public List<EObject> getChildren(UnparsedBlock unparsedBlock) {
 		return NO_CHILDREN;
 	}
@@ -55,6 +61,10 @@ public class LilyPondTransformer extends AbstractDeclarativeSemanticModelTransfo
 
 	public List<EObject> getChildren(BlockCommand blockCommand) {
 		return blockCommand.getBlock().eContents();
+	}
+
+	public List<EObject> getChildren(OutputDefinition outputDefinition) {
+		return outputDefinition.getBlock().eContents();
 	}
 
 	public boolean consumeNode(Pitch pitch) {

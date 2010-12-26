@@ -1844,33 +1844,39 @@ rule__UnparsedExpression__Alternatives
     }
 :
 (
-{ before(grammarAccess.getUnparsedExpressionAccess().getUnparsedCommandParserRuleCall_0()); }
+{ before(grammarAccess.getUnparsedExpressionAccess().getPropertyAssignmentParserRuleCall_0()); }
+	rulePropertyAssignment
+{ after(grammarAccess.getUnparsedExpressionAccess().getPropertyAssignmentParserRuleCall_0()); }
+)
+
+    |(
+{ before(grammarAccess.getUnparsedExpressionAccess().getUnparsedCommandParserRuleCall_1()); }
 	ruleUnparsedCommand
-{ after(grammarAccess.getUnparsedExpressionAccess().getUnparsedCommandParserRuleCall_0()); }
+{ after(grammarAccess.getUnparsedExpressionAccess().getUnparsedCommandParserRuleCall_1()); }
 )
 
     |(
-{ before(grammarAccess.getUnparsedExpressionAccess().getUnparsedBlockParserRuleCall_1()); }
+{ before(grammarAccess.getUnparsedExpressionAccess().getUnparsedBlockParserRuleCall_2()); }
 	ruleUnparsedBlock
-{ after(grammarAccess.getUnparsedExpressionAccess().getUnparsedBlockParserRuleCall_1()); }
+{ after(grammarAccess.getUnparsedExpressionAccess().getUnparsedBlockParserRuleCall_2()); }
 )
 
     |(
-{ before(grammarAccess.getUnparsedExpressionAccess().getSchemeParserRuleCall_2()); }
+{ before(grammarAccess.getUnparsedExpressionAccess().getSchemeParserRuleCall_3()); }
 	ruleScheme
-{ after(grammarAccess.getUnparsedExpressionAccess().getSchemeParserRuleCall_2()); }
+{ after(grammarAccess.getUnparsedExpressionAccess().getSchemeParserRuleCall_3()); }
 )
 
     |(
-{ before(grammarAccess.getUnparsedExpressionAccess().getTextParserRuleCall_3()); }
+{ before(grammarAccess.getUnparsedExpressionAccess().getTextParserRuleCall_4()); }
 	ruleText
-{ after(grammarAccess.getUnparsedExpressionAccess().getTextParserRuleCall_3()); }
+{ after(grammarAccess.getUnparsedExpressionAccess().getTextParserRuleCall_4()); }
 )
 
     |(
-{ before(grammarAccess.getUnparsedExpressionAccess().getNumberParserRuleCall_4()); }
+{ before(grammarAccess.getUnparsedExpressionAccess().getNumberParserRuleCall_5()); }
 	ruleNumber
-{ after(grammarAccess.getUnparsedExpressionAccess().getNumberParserRuleCall_4()); }
+{ after(grammarAccess.getUnparsedExpressionAccess().getNumberParserRuleCall_5()); }
 )
 
 ;
