@@ -25,7 +25,7 @@ public class LilyPondTransformer extends AbstractDeclarativeSemanticModelTransfo
 
 	public boolean consumeNode(Scheme scheme) {
 		SchemeExpression value = scheme.getValue();
-		return ((value != null) && !value.isQuoted() && (value.getValue() instanceof SchemeList));
+		return ((value != null) && (value.getValue() instanceof SchemeList));
 	}
 
 	public List<EObject> getChildren(Scheme scheme) {

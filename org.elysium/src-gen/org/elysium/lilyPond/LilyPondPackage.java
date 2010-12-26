@@ -1110,40 +1110,22 @@ public interface LilypondPackage extends EPackage
   int SCHEME_EXPRESSION = 32;
 
   /**
-   * The feature id for the '<em><b>Quoted</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int SCHEME_EXPRESSION__QUOTED = 0;
-
-  /**
-   * The feature id for the '<em><b>Quasiquoted</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int SCHEME_EXPRESSION__QUASIQUOTED = 1;
-
-  /**
-   * The feature id for the '<em><b>Unquoted</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int SCHEME_EXPRESSION__UNQUOTED = 2;
-
-  /**
    * The feature id for the '<em><b>Reference</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int SCHEME_EXPRESSION__REFERENCE = 3;
+  int SCHEME_EXPRESSION__REFERENCE = 0;
+
+  /**
+   * The feature id for the '<em><b>Quotations</b></em>' attribute list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int SCHEME_EXPRESSION__QUOTATIONS = 1;
 
   /**
    * The feature id for the '<em><b>Value</b></em>' containment reference.
@@ -1152,7 +1134,7 @@ public interface LilypondPackage extends EPackage
    * @generated
    * @ordered
    */
-  int SCHEME_EXPRESSION__VALUE = 4;
+  int SCHEME_EXPRESSION__VALUE = 2;
 
   /**
    * The number of structural features of the '<em>Scheme Expression</em>' class.
@@ -1161,7 +1143,7 @@ public interface LilypondPackage extends EPackage
    * @generated
    * @ordered
    */
-  int SCHEME_EXPRESSION_FEATURE_COUNT = 5;
+  int SCHEME_EXPRESSION_FEATURE_COUNT = 3;
 
   /**
    * The meta object id for the '{@link org.elysium.lilypond.impl.SchemeValueImpl <em>Scheme Value</em>}' class.
@@ -2124,39 +2106,6 @@ public interface LilypondPackage extends EPackage
   EClass getSchemeExpression();
 
   /**
-   * Returns the meta object for the attribute '{@link org.elysium.lilypond.SchemeExpression#isQuoted <em>Quoted</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Quoted</em>'.
-   * @see org.elysium.lilypond.SchemeExpression#isQuoted()
-   * @see #getSchemeExpression()
-   * @generated
-   */
-  EAttribute getSchemeExpression_Quoted();
-
-  /**
-   * Returns the meta object for the attribute '{@link org.elysium.lilypond.SchemeExpression#isQuasiquoted <em>Quasiquoted</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Quasiquoted</em>'.
-   * @see org.elysium.lilypond.SchemeExpression#isQuasiquoted()
-   * @see #getSchemeExpression()
-   * @generated
-   */
-  EAttribute getSchemeExpression_Quasiquoted();
-
-  /**
-   * Returns the meta object for the attribute '{@link org.elysium.lilypond.SchemeExpression#isUnquoted <em>Unquoted</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Unquoted</em>'.
-   * @see org.elysium.lilypond.SchemeExpression#isUnquoted()
-   * @see #getSchemeExpression()
-   * @generated
-   */
-  EAttribute getSchemeExpression_Unquoted();
-
-  /**
    * Returns the meta object for the attribute '{@link org.elysium.lilypond.SchemeExpression#isReference <em>Reference</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -2166,6 +2115,17 @@ public interface LilypondPackage extends EPackage
    * @generated
    */
   EAttribute getSchemeExpression_Reference();
+
+  /**
+   * Returns the meta object for the attribute list '{@link org.elysium.lilypond.SchemeExpression#getQuotations <em>Quotations</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute list '<em>Quotations</em>'.
+   * @see org.elysium.lilypond.SchemeExpression#getQuotations()
+   * @see #getSchemeExpression()
+   * @generated
+   */
+  EAttribute getSchemeExpression_Quotations();
 
   /**
    * Returns the meta object for the containment reference '{@link org.elysium.lilypond.SchemeExpression#getValue <em>Value</em>}'.
@@ -2999,36 +2959,20 @@ public interface LilypondPackage extends EPackage
     EClass SCHEME_EXPRESSION = eINSTANCE.getSchemeExpression();
 
     /**
-     * The meta object literal for the '<em><b>Quoted</b></em>' attribute feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EAttribute SCHEME_EXPRESSION__QUOTED = eINSTANCE.getSchemeExpression_Quoted();
-
-    /**
-     * The meta object literal for the '<em><b>Quasiquoted</b></em>' attribute feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EAttribute SCHEME_EXPRESSION__QUASIQUOTED = eINSTANCE.getSchemeExpression_Quasiquoted();
-
-    /**
-     * The meta object literal for the '<em><b>Unquoted</b></em>' attribute feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EAttribute SCHEME_EXPRESSION__UNQUOTED = eINSTANCE.getSchemeExpression_Unquoted();
-
-    /**
      * The meta object literal for the '<em><b>Reference</b></em>' attribute feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
     EAttribute SCHEME_EXPRESSION__REFERENCE = eINSTANCE.getSchemeExpression_Reference();
+
+    /**
+     * The meta object literal for the '<em><b>Quotations</b></em>' attribute list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute SCHEME_EXPRESSION__QUOTATIONS = eINSTANCE.getSchemeExpression_Quotations();
 
     /**
      * The meta object literal for the '<em><b>Value</b></em>' containment reference feature.

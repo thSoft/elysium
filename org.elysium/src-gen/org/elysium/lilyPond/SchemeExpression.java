@@ -5,6 +5,8 @@
  */
 package org.elysium.lilypond;
 
+import org.eclipse.emf.common.util.EList;
+
 import org.eclipse.emf.ecore.EObject;
 
 /**
@@ -15,10 +17,8 @@ import org.eclipse.emf.ecore.EObject;
  * <p>
  * The following features are supported:
  * <ul>
- *   <li>{@link org.elysium.lilypond.SchemeExpression#isQuoted <em>Quoted</em>}</li>
- *   <li>{@link org.elysium.lilypond.SchemeExpression#isQuasiquoted <em>Quasiquoted</em>}</li>
- *   <li>{@link org.elysium.lilypond.SchemeExpression#isUnquoted <em>Unquoted</em>}</li>
  *   <li>{@link org.elysium.lilypond.SchemeExpression#isReference <em>Reference</em>}</li>
+ *   <li>{@link org.elysium.lilypond.SchemeExpression#getQuotations <em>Quotations</em>}</li>
  *   <li>{@link org.elysium.lilypond.SchemeExpression#getValue <em>Value</em>}</li>
  * </ul>
  * </p>
@@ -29,84 +29,6 @@ import org.eclipse.emf.ecore.EObject;
  */
 public interface SchemeExpression extends EObject
 {
-  /**
-   * Returns the value of the '<em><b>Quoted</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <p>
-   * If the meaning of the '<em>Quoted</em>' attribute isn't clear,
-   * there really should be more of a description here...
-   * </p>
-   * <!-- end-user-doc -->
-   * @return the value of the '<em>Quoted</em>' attribute.
-   * @see #setQuoted(boolean)
-   * @see org.elysium.lilypond.LilypondPackage#getSchemeExpression_Quoted()
-   * @model
-   * @generated
-   */
-  boolean isQuoted();
-
-  /**
-   * Sets the value of the '{@link org.elysium.lilypond.SchemeExpression#isQuoted <em>Quoted</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Quoted</em>' attribute.
-   * @see #isQuoted()
-   * @generated
-   */
-  void setQuoted(boolean value);
-
-  /**
-   * Returns the value of the '<em><b>Quasiquoted</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <p>
-   * If the meaning of the '<em>Quasiquoted</em>' attribute isn't clear,
-   * there really should be more of a description here...
-   * </p>
-   * <!-- end-user-doc -->
-   * @return the value of the '<em>Quasiquoted</em>' attribute.
-   * @see #setQuasiquoted(boolean)
-   * @see org.elysium.lilypond.LilypondPackage#getSchemeExpression_Quasiquoted()
-   * @model
-   * @generated
-   */
-  boolean isQuasiquoted();
-
-  /**
-   * Sets the value of the '{@link org.elysium.lilypond.SchemeExpression#isQuasiquoted <em>Quasiquoted</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Quasiquoted</em>' attribute.
-   * @see #isQuasiquoted()
-   * @generated
-   */
-  void setQuasiquoted(boolean value);
-
-  /**
-   * Returns the value of the '<em><b>Unquoted</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <p>
-   * If the meaning of the '<em>Unquoted</em>' attribute isn't clear,
-   * there really should be more of a description here...
-   * </p>
-   * <!-- end-user-doc -->
-   * @return the value of the '<em>Unquoted</em>' attribute.
-   * @see #setUnquoted(boolean)
-   * @see org.elysium.lilypond.LilypondPackage#getSchemeExpression_Unquoted()
-   * @model
-   * @generated
-   */
-  boolean isUnquoted();
-
-  /**
-   * Sets the value of the '{@link org.elysium.lilypond.SchemeExpression#isUnquoted <em>Unquoted</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Unquoted</em>' attribute.
-   * @see #isUnquoted()
-   * @generated
-   */
-  void setUnquoted(boolean value);
-
   /**
    * Returns the value of the '<em><b>Reference</b></em>' attribute.
    * <!-- begin-user-doc -->
@@ -132,6 +54,22 @@ public interface SchemeExpression extends EObject
    * @generated
    */
   void setReference(boolean value);
+
+  /**
+   * Returns the value of the '<em><b>Quotations</b></em>' attribute list.
+   * The list contents are of type {@link java.lang.String}.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Quotations</em>' attribute list isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Quotations</em>' attribute list.
+   * @see org.elysium.lilypond.LilypondPackage#getSchemeExpression_Quotations()
+   * @model unique="false"
+   * @generated
+   */
+  EList<String> getQuotations();
 
   /**
    * Returns the value of the '<em><b>Value</b></em>' containment reference.

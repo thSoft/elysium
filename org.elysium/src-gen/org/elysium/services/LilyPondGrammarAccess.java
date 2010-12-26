@@ -1441,57 +1441,53 @@ public class LilyPondGrammarAccess extends AbstractGrammarElementFinder {
 	public class SchemeExpressionElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "SchemeExpression");
 		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Alternatives cAlternatives_0 = (Alternatives)cGroup.eContents().get(0);
-		private final Assignment cQuotedAssignment_0_0 = (Assignment)cAlternatives_0.eContents().get(0);
-		private final Keyword cQuotedApostropheKeyword_0_0_0 = (Keyword)cQuotedAssignment_0_0.eContents().get(0);
-		private final Assignment cQuasiquotedAssignment_0_1 = (Assignment)cAlternatives_0.eContents().get(1);
-		private final Keyword cQuasiquotedGraveAccentKeyword_0_1_0 = (Keyword)cQuasiquotedAssignment_0_1.eContents().get(0);
-		private final Assignment cUnquotedAssignment_0_2 = (Assignment)cAlternatives_0.eContents().get(2);
-		private final Keyword cUnquotedCommaKeyword_0_2_0 = (Keyword)cUnquotedAssignment_0_2.eContents().get(0);
-		private final Assignment cReferenceAssignment_0_3 = (Assignment)cAlternatives_0.eContents().get(3);
-		private final Keyword cReferenceDollarSignKeyword_0_3_0 = (Keyword)cReferenceAssignment_0_3.eContents().get(0);
-		private final Assignment cValueAssignment_1 = (Assignment)cGroup.eContents().get(1);
-		private final RuleCall cValueSchemeValueParserRuleCall_1_0 = (RuleCall)cValueAssignment_1.eContents().get(0);
+		private final Assignment cReferenceAssignment_0 = (Assignment)cGroup.eContents().get(0);
+		private final Keyword cReferenceDollarSignKeyword_0_0 = (Keyword)cReferenceAssignment_0.eContents().get(0);
+		private final Assignment cQuotationsAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final Alternatives cQuotationsAlternatives_1_0 = (Alternatives)cQuotationsAssignment_1.eContents().get(0);
+		private final Keyword cQuotationsApostropheKeyword_1_0_0 = (Keyword)cQuotationsAlternatives_1_0.eContents().get(0);
+		private final Keyword cQuotationsGraveAccentKeyword_1_0_1 = (Keyword)cQuotationsAlternatives_1_0.eContents().get(1);
+		private final Keyword cQuotationsCommaKeyword_1_0_2 = (Keyword)cQuotationsAlternatives_1_0.eContents().get(2);
+		private final Keyword cQuotationsCommercialAtKeyword_1_0_3 = (Keyword)cQuotationsAlternatives_1_0.eContents().get(3);
+		private final Assignment cValueAssignment_2 = (Assignment)cGroup.eContents().get(2);
+		private final RuleCall cValueSchemeValueParserRuleCall_2_0 = (RuleCall)cValueAssignment_2.eContents().get(0);
 		
 		//SchemeExpression:
-		//	(quoted?="\'"? | quasiquoted?="`"? | unquoted?=","? | reference?="$"?)? value=SchemeValue;
+		//	reference?="$"? quotations+=("\'" | "`" | "," | "@")* value=SchemeValue;
 		public ParserRule getRule() { return rule; }
 
-		//(quoted?="\'"? | quasiquoted?="`"? | unquoted?=","? | reference?="$"?)? value=SchemeValue
+		//reference?="$"? quotations+=("\'" | "`" | "," | "@")* value=SchemeValue
 		public Group getGroup() { return cGroup; }
 
-		//(quoted?="\'"? | quasiquoted?="`"? | unquoted?=","? | reference?="$"?)?
-		public Alternatives getAlternatives_0() { return cAlternatives_0; }
-
-		//quoted?="\'"?
-		public Assignment getQuotedAssignment_0_0() { return cQuotedAssignment_0_0; }
-
-		//"\'"
-		public Keyword getQuotedApostropheKeyword_0_0_0() { return cQuotedApostropheKeyword_0_0_0; }
-
-		//quasiquoted?="`"?
-		public Assignment getQuasiquotedAssignment_0_1() { return cQuasiquotedAssignment_0_1; }
-
-		//"`"
-		public Keyword getQuasiquotedGraveAccentKeyword_0_1_0() { return cQuasiquotedGraveAccentKeyword_0_1_0; }
-
-		//unquoted?=","?
-		public Assignment getUnquotedAssignment_0_2() { return cUnquotedAssignment_0_2; }
-
-		//","
-		public Keyword getUnquotedCommaKeyword_0_2_0() { return cUnquotedCommaKeyword_0_2_0; }
-
 		//reference?="$"?
-		public Assignment getReferenceAssignment_0_3() { return cReferenceAssignment_0_3; }
+		public Assignment getReferenceAssignment_0() { return cReferenceAssignment_0; }
 
 		//"$"
-		public Keyword getReferenceDollarSignKeyword_0_3_0() { return cReferenceDollarSignKeyword_0_3_0; }
+		public Keyword getReferenceDollarSignKeyword_0_0() { return cReferenceDollarSignKeyword_0_0; }
+
+		//quotations+=("\'" | "`" | "," | "@")*
+		public Assignment getQuotationsAssignment_1() { return cQuotationsAssignment_1; }
+
+		//"\'" | "`" | "," | "@"
+		public Alternatives getQuotationsAlternatives_1_0() { return cQuotationsAlternatives_1_0; }
+
+		//"\'"
+		public Keyword getQuotationsApostropheKeyword_1_0_0() { return cQuotationsApostropheKeyword_1_0_0; }
+
+		//"`"
+		public Keyword getQuotationsGraveAccentKeyword_1_0_1() { return cQuotationsGraveAccentKeyword_1_0_1; }
+
+		//","
+		public Keyword getQuotationsCommaKeyword_1_0_2() { return cQuotationsCommaKeyword_1_0_2; }
+
+		//"@"
+		public Keyword getQuotationsCommercialAtKeyword_1_0_3() { return cQuotationsCommercialAtKeyword_1_0_3; }
 
 		//value=SchemeValue
-		public Assignment getValueAssignment_1() { return cValueAssignment_1; }
+		public Assignment getValueAssignment_2() { return cValueAssignment_2; }
 
 		//SchemeValue
-		public RuleCall getValueSchemeValueParserRuleCall_1_0() { return cValueSchemeValueParserRuleCall_1_0; }
+		public RuleCall getValueSchemeValueParserRuleCall_2_0() { return cValueSchemeValueParserRuleCall_2_0; }
 	}
 
 	public class SchemeValueElements extends AbstractParserRuleElementFinder {
@@ -2310,7 +2306,7 @@ public class LilyPondGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//SchemeExpression:
-	//	(quoted?="\'"? | quasiquoted?="`"? | unquoted?=","? | reference?="$"?)? value=SchemeValue;
+	//	reference?="$"? quotations+=("\'" | "`" | "," | "@")* value=SchemeValue;
 	public SchemeExpressionElements getSchemeExpressionAccess() {
 		return (pSchemeExpression != null) ? pSchemeExpression : (pSchemeExpression = new SchemeExpressionElements());
 	}

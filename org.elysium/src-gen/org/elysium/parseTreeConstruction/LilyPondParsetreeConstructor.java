@@ -5018,11 +5018,11 @@ protected class Scheme_ValueAssignment_1 extends AssignmentToken  {
 /************ begin Rule SchemeExpression ****************
  *
  * SchemeExpression:
- * 	(quoted?="\'"? | quasiquoted?="`"? | unquoted?=","? | reference?="$"?)? value=SchemeValue;
+ * 	reference?="$"? quotations+=("\'" | "`" | "," | "@")* value=SchemeValue;
  *
  **/
 
-// (quoted?="\'"? | quasiquoted?="`"? | unquoted?=","? | reference?="$"?)? value=SchemeValue
+// reference?="$"? quotations+=("\'" | "`" | "," | "@")* value=SchemeValue
 protected class SchemeExpression_Group extends GroupToken {
 	
 	public SchemeExpression_Group(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -5037,7 +5037,7 @@ protected class SchemeExpression_Group extends GroupToken {
     @Override
 	public AbstractToken createFollower(int index, IEObjectConsumer inst) {
 		switch(index) {
-			case 0: return new SchemeExpression_ValueAssignment_1(lastRuleCallOrigin, this, 0, inst);
+			case 0: return new SchemeExpression_ValueAssignment_2(lastRuleCallOrigin, this, 0, inst);
 			default: return null;
 		}	
 	}
@@ -5051,140 +5051,16 @@ protected class SchemeExpression_Group extends GroupToken {
 
 }
 
-// (quoted?="\'"? | quasiquoted?="`"? | unquoted?=","? | reference?="$"?)?
-protected class SchemeExpression_Alternatives_0 extends AlternativesToken {
-
-	public SchemeExpression_Alternatives_0(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
-		super(lastRuleCallOrigin, next, transitionIndex, eObjectConsumer);
-	}
-	
-	@Override
-	public Alternatives getGrammarElement() {
-		return grammarAccess.getSchemeExpressionAccess().getAlternatives_0();
-	}
-
-    @Override
-	public AbstractToken createFollower(int index, IEObjectConsumer inst) {
-		switch(index) {
-			case 0: return new SchemeExpression_QuotedAssignment_0_0(lastRuleCallOrigin, this, 0, inst);
-			case 1: return new SchemeExpression_QuasiquotedAssignment_0_1(lastRuleCallOrigin, this, 1, inst);
-			case 2: return new SchemeExpression_UnquotedAssignment_0_2(lastRuleCallOrigin, this, 2, inst);
-			case 3: return new SchemeExpression_ReferenceAssignment_0_3(lastRuleCallOrigin, this, 3, inst);
-			default: return null;
-		}	
-	}
-
-}
-
-// quoted?="\'"?
-protected class SchemeExpression_QuotedAssignment_0_0 extends AssignmentToken  {
-	
-	public SchemeExpression_QuotedAssignment_0_0(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
-		super(lastRuleCallOrigin, next, transitionIndex, eObjectConsumer);
-	}
-	
-	@Override
-	public Assignment getGrammarElement() {
-		return grammarAccess.getSchemeExpressionAccess().getQuotedAssignment_0_0();
-	}
-
-    @Override
-	public AbstractToken createFollower(int index, IEObjectConsumer inst) {
-		switch(index) {
-			default: return lastRuleCallOrigin.createFollowerAfterReturn(this, index, index, inst);
-		}	
-	}
-
-    @Override	
-	public IEObjectConsumer tryConsume() {
-		if((value = eObjectConsumer.getConsumable("quoted",false)) == null) return null;
-		IEObjectConsumer obj = eObjectConsumer.cloneAndConsume("quoted");
-		if(Boolean.TRUE.equals(value)) { // org::eclipse::xtext::impl::KeywordImpl
-			type = AssignmentType.KEYWORD;
-			element = grammarAccess.getSchemeExpressionAccess().getQuotedApostropheKeyword_0_0_0();
-			return obj;
-		}
-		return null;
-	}
-
-}
-
-// quasiquoted?="`"?
-protected class SchemeExpression_QuasiquotedAssignment_0_1 extends AssignmentToken  {
-	
-	public SchemeExpression_QuasiquotedAssignment_0_1(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
-		super(lastRuleCallOrigin, next, transitionIndex, eObjectConsumer);
-	}
-	
-	@Override
-	public Assignment getGrammarElement() {
-		return grammarAccess.getSchemeExpressionAccess().getQuasiquotedAssignment_0_1();
-	}
-
-    @Override
-	public AbstractToken createFollower(int index, IEObjectConsumer inst) {
-		switch(index) {
-			default: return lastRuleCallOrigin.createFollowerAfterReturn(this, index, index, inst);
-		}	
-	}
-
-    @Override	
-	public IEObjectConsumer tryConsume() {
-		if((value = eObjectConsumer.getConsumable("quasiquoted",false)) == null) return null;
-		IEObjectConsumer obj = eObjectConsumer.cloneAndConsume("quasiquoted");
-		if(Boolean.TRUE.equals(value)) { // org::eclipse::xtext::impl::KeywordImpl
-			type = AssignmentType.KEYWORD;
-			element = grammarAccess.getSchemeExpressionAccess().getQuasiquotedGraveAccentKeyword_0_1_0();
-			return obj;
-		}
-		return null;
-	}
-
-}
-
-// unquoted?=","?
-protected class SchemeExpression_UnquotedAssignment_0_2 extends AssignmentToken  {
-	
-	public SchemeExpression_UnquotedAssignment_0_2(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
-		super(lastRuleCallOrigin, next, transitionIndex, eObjectConsumer);
-	}
-	
-	@Override
-	public Assignment getGrammarElement() {
-		return grammarAccess.getSchemeExpressionAccess().getUnquotedAssignment_0_2();
-	}
-
-    @Override
-	public AbstractToken createFollower(int index, IEObjectConsumer inst) {
-		switch(index) {
-			default: return lastRuleCallOrigin.createFollowerAfterReturn(this, index, index, inst);
-		}	
-	}
-
-    @Override	
-	public IEObjectConsumer tryConsume() {
-		if((value = eObjectConsumer.getConsumable("unquoted",false)) == null) return null;
-		IEObjectConsumer obj = eObjectConsumer.cloneAndConsume("unquoted");
-		if(Boolean.TRUE.equals(value)) { // org::eclipse::xtext::impl::KeywordImpl
-			type = AssignmentType.KEYWORD;
-			element = grammarAccess.getSchemeExpressionAccess().getUnquotedCommaKeyword_0_2_0();
-			return obj;
-		}
-		return null;
-	}
-
-}
-
 // reference?="$"?
-protected class SchemeExpression_ReferenceAssignment_0_3 extends AssignmentToken  {
+protected class SchemeExpression_ReferenceAssignment_0 extends AssignmentToken  {
 	
-	public SchemeExpression_ReferenceAssignment_0_3(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
+	public SchemeExpression_ReferenceAssignment_0(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
 		super(lastRuleCallOrigin, next, transitionIndex, eObjectConsumer);
 	}
 	
 	@Override
 	public Assignment getGrammarElement() {
-		return grammarAccess.getSchemeExpressionAccess().getReferenceAssignment_0_3();
+		return grammarAccess.getSchemeExpressionAccess().getReferenceAssignment_0();
 	}
 
     @Override
@@ -5200,7 +5076,7 @@ protected class SchemeExpression_ReferenceAssignment_0_3 extends AssignmentToken
 		IEObjectConsumer obj = eObjectConsumer.cloneAndConsume("reference");
 		if(Boolean.TRUE.equals(value)) { // org::eclipse::xtext::impl::KeywordImpl
 			type = AssignmentType.KEYWORD;
-			element = grammarAccess.getSchemeExpressionAccess().getReferenceDollarSignKeyword_0_3_0();
+			element = grammarAccess.getSchemeExpressionAccess().getReferenceDollarSignKeyword_0_0();
 			return obj;
 		}
 		return null;
@@ -5208,17 +5084,66 @@ protected class SchemeExpression_ReferenceAssignment_0_3 extends AssignmentToken
 
 }
 
-
-// value=SchemeValue
-protected class SchemeExpression_ValueAssignment_1 extends AssignmentToken  {
+// quotations+=("\'" | "`" | "," | "@")*
+protected class SchemeExpression_QuotationsAssignment_1 extends AssignmentToken  {
 	
-	public SchemeExpression_ValueAssignment_1(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
+	public SchemeExpression_QuotationsAssignment_1(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
 		super(lastRuleCallOrigin, next, transitionIndex, eObjectConsumer);
 	}
 	
 	@Override
 	public Assignment getGrammarElement() {
-		return grammarAccess.getSchemeExpressionAccess().getValueAssignment_1();
+		return grammarAccess.getSchemeExpressionAccess().getQuotationsAssignment_1();
+	}
+
+    @Override
+	public AbstractToken createFollower(int index, IEObjectConsumer inst) {
+		switch(index) {
+			case 0: return new SchemeExpression_QuotationsAssignment_1(lastRuleCallOrigin, this, 0, inst);
+			case 1: return new SchemeExpression_ReferenceAssignment_0(lastRuleCallOrigin, this, 1, inst);
+			default: return lastRuleCallOrigin.createFollowerAfterReturn(this, index, index - 2, inst);
+		}	
+	}
+
+    @Override	
+	public IEObjectConsumer tryConsume() {
+		if((value = eObjectConsumer.getConsumable("quotations",false)) == null) return null;
+		IEObjectConsumer obj = eObjectConsumer.cloneAndConsume("quotations");
+		if(keywordSerializer.isValid(obj.getEObject(), grammarAccess.getSchemeExpressionAccess().getQuotationsApostropheKeyword_1_0_0(), value, null)) {
+			type = AssignmentType.KEYWORD;
+			element = grammarAccess.getSchemeExpressionAccess().getQuotationsApostropheKeyword_1_0_0();
+			return obj;
+		}
+		if(keywordSerializer.isValid(obj.getEObject(), grammarAccess.getSchemeExpressionAccess().getQuotationsGraveAccentKeyword_1_0_1(), value, null)) {
+			type = AssignmentType.KEYWORD;
+			element = grammarAccess.getSchemeExpressionAccess().getQuotationsGraveAccentKeyword_1_0_1();
+			return obj;
+		}
+		if(keywordSerializer.isValid(obj.getEObject(), grammarAccess.getSchemeExpressionAccess().getQuotationsCommaKeyword_1_0_2(), value, null)) {
+			type = AssignmentType.KEYWORD;
+			element = grammarAccess.getSchemeExpressionAccess().getQuotationsCommaKeyword_1_0_2();
+			return obj;
+		}
+		if(keywordSerializer.isValid(obj.getEObject(), grammarAccess.getSchemeExpressionAccess().getQuotationsCommercialAtKeyword_1_0_3(), value, null)) {
+			type = AssignmentType.KEYWORD;
+			element = grammarAccess.getSchemeExpressionAccess().getQuotationsCommercialAtKeyword_1_0_3();
+			return obj;
+		}
+		return null;
+	}
+
+}
+
+// value=SchemeValue
+protected class SchemeExpression_ValueAssignment_2 extends AssignmentToken  {
+	
+	public SchemeExpression_ValueAssignment_2(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
+		super(lastRuleCallOrigin, next, transitionIndex, eObjectConsumer);
+	}
+	
+	@Override
+	public Assignment getGrammarElement() {
+		return grammarAccess.getSchemeExpressionAccess().getValueAssignment_2();
 	}
 
     @Override
@@ -5237,7 +5162,7 @@ protected class SchemeExpression_ValueAssignment_1 extends AssignmentToken  {
 			IEObjectConsumer param = createEObjectConsumer((EObject)value);
 			if(param.isInstanceOf(grammarAccess.getSchemeValueRule().getType().getClassifier())) {
 				type = AssignmentType.PARSER_RULE_CALL;
-				element = grammarAccess.getSchemeExpressionAccess().getValueSchemeValueParserRuleCall_1_0(); 
+				element = grammarAccess.getSchemeExpressionAccess().getValueSchemeValueParserRuleCall_2_0(); 
 				consumed = obj;
 				return param;
 			}
@@ -5249,8 +5174,9 @@ protected class SchemeExpression_ValueAssignment_1 extends AssignmentToken  {
 	public AbstractToken createFollowerAfterReturn(AbstractToken next,	int actIndex, int index, IEObjectConsumer inst) {
 		if(value == inst.getEObject() && !inst.isConsumed()) return null;
 		switch(index) {
-			case 0: return new SchemeExpression_Alternatives_0(lastRuleCallOrigin, next, actIndex, consumed);
-			default: return lastRuleCallOrigin.createFollowerAfterReturn(next, actIndex , index - 1, consumed);
+			case 0: return new SchemeExpression_QuotationsAssignment_1(lastRuleCallOrigin, next, actIndex, consumed);
+			case 1: return new SchemeExpression_ReferenceAssignment_0(lastRuleCallOrigin, next, actIndex, consumed);
+			default: return lastRuleCallOrigin.createFollowerAfterReturn(next, actIndex , index - 2, consumed);
 		}	
 	}	
 }
