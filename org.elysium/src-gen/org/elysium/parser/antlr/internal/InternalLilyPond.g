@@ -2495,9 +2495,10 @@ ruleNewContext returns [EObject current=null]
     }
 (
 (
-		lv_id_4_0=RULE_ID
+(
+		lv_id_4_1=RULE_ID
 		{
-			createLeafNode(grammarAccess.getNewContextAccess().getIdIDTerminalRuleCall_3_1_0(), "id"); 
+			createLeafNode(grammarAccess.getNewContextAccess().getIdIDTerminalRuleCall_3_1_0_0(), "id"); 
 		}
 		{
 	        if ($current==null) {
@@ -2508,13 +2509,36 @@ ruleNewContext returns [EObject current=null]
 	       		set(
 	       			$current, 
 	       			"id",
-	        		lv_id_4_0, 
+	        		lv_id_4_1, 
 	        		"ID", 
 	        		lastConsumedNode);
 	        } catch (ValueConverterException vce) {
 				handleValueConverterException(vce);
 	        }
 	    }
+
+    |		lv_id_4_2=RULE_STRING
+		{
+			createLeafNode(grammarAccess.getNewContextAccess().getIdSTRINGTerminalRuleCall_3_1_0_1(), "id"); 
+		}
+		{
+	        if ($current==null) {
+	            $current = factory.create(grammarAccess.getNewContextRule().getType().getClassifier());
+	            associateNodeWithAstElement(currentNode, $current);
+	        }
+	        try {
+	       		set(
+	       			$current, 
+	       			"id",
+	        		lv_id_4_2, 
+	        		"STRING", 
+	        		lastConsumedNode);
+	        } catch (ValueConverterException vce) {
+				handleValueConverterException(vce);
+	        }
+	    }
+
+)
 
 )
 ))?(

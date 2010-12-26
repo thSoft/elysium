@@ -61,7 +61,7 @@ Pitch: base=ID octaveCheck?="="? octaveShift=Octave? reminderAccidental?="!"? ca
 
 Octave: up+="'"+ | down+=","+;
 
-NewContext: "\\" keyword=("new" | "context") context=ID ("=" id=ID)? modification=ContextModification? music=Expression;
+NewContext: "\\" keyword=("new" | "context") context=ID ("=" id=(ID | STRING))? modification=ContextModification? music=Expression;
 
 ContextModification: "\\" "with" block=UnparsedBlock;
 

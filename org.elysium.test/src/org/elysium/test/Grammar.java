@@ -162,6 +162,10 @@ public class Grammar extends LilyPondTest {
 		assertValid("\\new Staff { c }");
 	}
 
+	public void testNewContextWithId() throws Exception {
+		assertValid("\\context Staff = \"a\" { c }");
+	}
+
 	public void testContextDef() throws Exception {
 		assertValid("\\context { \\Staff }");
 	}

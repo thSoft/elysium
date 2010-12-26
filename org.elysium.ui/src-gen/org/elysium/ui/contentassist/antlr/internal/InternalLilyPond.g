@@ -2158,6 +2158,28 @@ finally {
 	restoreStackSize(stackSize);
 }
 
+rule__NewContext__IdAlternatives_3_1_0
+    @init {
+		int stackSize = keepStackSize();
+    }
+:
+(
+{ before(grammarAccess.getNewContextAccess().getIdIDTerminalRuleCall_3_1_0_0()); }
+	RULE_ID
+{ after(grammarAccess.getNewContextAccess().getIdIDTerminalRuleCall_3_1_0_0()); }
+)
+
+    |(
+{ before(grammarAccess.getNewContextAccess().getIdSTRINGTerminalRuleCall_3_1_0_1()); }
+	RULE_STRING
+{ after(grammarAccess.getNewContextAccess().getIdSTRINGTerminalRuleCall_3_1_0_1()); }
+)
+
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
 rule__Other__KeywordAlternatives_1_0
     @init {
 		int stackSize = keepStackSize();
@@ -6780,8 +6802,9 @@ rule__NewContext__IdAssignment_3_1
     }
 :
 (
-{ before(grammarAccess.getNewContextAccess().getIdIDTerminalRuleCall_3_1_0()); }
-	RULE_ID{ after(grammarAccess.getNewContextAccess().getIdIDTerminalRuleCall_3_1_0()); }
+{ before(grammarAccess.getNewContextAccess().getIdAlternatives_3_1_0()); }
+(rule__NewContext__IdAlternatives_3_1_0)
+{ after(grammarAccess.getNewContextAccess().getIdAlternatives_3_1_0()); }
 )
 
 ;

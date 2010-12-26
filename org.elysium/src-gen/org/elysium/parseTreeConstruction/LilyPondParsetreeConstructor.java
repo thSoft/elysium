@@ -4197,11 +4197,12 @@ protected class Octave_DownAssignment_1 extends AssignmentToken  {
 /************ begin Rule NewContext ****************
  *
  * NewContext:
- * 	"\\" keyword=("new" | "context") context=ID ("=" id=ID)? modification=ContextModification? music=Expression;
+ * 	"\\" keyword=("new" | "context") context=ID ("=" id=(ID | STRING))? modification=ContextModification?
+ * 	music=Expression;
  *
  **/
 
-// "\\" keyword=("new" | "context") context=ID ("=" id=ID)? modification=ContextModification? music=Expression
+// "\\" keyword=("new" | "context") context=ID ("=" id=(ID | STRING))? modification=ContextModification? music=Expression
 protected class NewContext_Group extends GroupToken {
 	
 	public NewContext_Group(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -4324,7 +4325,7 @@ protected class NewContext_ContextAssignment_2 extends AssignmentToken  {
 
 }
 
-// ("=" id=ID)?
+// ("=" id=(ID | STRING))?
 protected class NewContext_Group_3 extends GroupToken {
 	
 	public NewContext_Group_3(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -4368,7 +4369,7 @@ protected class NewContext_EqualsSignKeyword_3_0 extends KeywordToken  {
 
 }
 
-// id=ID
+// id=(ID | STRING)
 protected class NewContext_IdAssignment_3_1 extends AssignmentToken  {
 	
 	public NewContext_IdAssignment_3_1(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -4392,9 +4393,14 @@ protected class NewContext_IdAssignment_3_1 extends AssignmentToken  {
 	public IEObjectConsumer tryConsume() {
 		if((value = eObjectConsumer.getConsumable("id",false)) == null) return null;
 		IEObjectConsumer obj = eObjectConsumer.cloneAndConsume("id");
-		if(valueSerializer.isValid(obj.getEObject(), grammarAccess.getNewContextAccess().getIdIDTerminalRuleCall_3_1_0(), value, null)) {
+		if(valueSerializer.isValid(obj.getEObject(), grammarAccess.getNewContextAccess().getIdIDTerminalRuleCall_3_1_0_0(), value, null)) {
 			type = AssignmentType.TERMINAL_RULE_CALL;
-			element = grammarAccess.getNewContextAccess().getIdIDTerminalRuleCall_3_1_0();
+			element = grammarAccess.getNewContextAccess().getIdIDTerminalRuleCall_3_1_0_0();
+			return obj;
+		}
+		if(valueSerializer.isValid(obj.getEObject(), grammarAccess.getNewContextAccess().getIdSTRINGTerminalRuleCall_3_1_0_1(), value, null)) {
+			type = AssignmentType.TERMINAL_RULE_CALL;
+			element = grammarAccess.getNewContextAccess().getIdSTRINGTerminalRuleCall_3_1_0_1();
 			return obj;
 		}
 		return null;

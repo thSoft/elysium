@@ -960,17 +960,20 @@ public class LilyPondGrammarAccess extends AbstractGrammarElementFinder {
 		private final Group cGroup_3 = (Group)cGroup.eContents().get(3);
 		private final Keyword cEqualsSignKeyword_3_0 = (Keyword)cGroup_3.eContents().get(0);
 		private final Assignment cIdAssignment_3_1 = (Assignment)cGroup_3.eContents().get(1);
-		private final RuleCall cIdIDTerminalRuleCall_3_1_0 = (RuleCall)cIdAssignment_3_1.eContents().get(0);
+		private final Alternatives cIdAlternatives_3_1_0 = (Alternatives)cIdAssignment_3_1.eContents().get(0);
+		private final RuleCall cIdIDTerminalRuleCall_3_1_0_0 = (RuleCall)cIdAlternatives_3_1_0.eContents().get(0);
+		private final RuleCall cIdSTRINGTerminalRuleCall_3_1_0_1 = (RuleCall)cIdAlternatives_3_1_0.eContents().get(1);
 		private final Assignment cModificationAssignment_4 = (Assignment)cGroup.eContents().get(4);
 		private final RuleCall cModificationContextModificationParserRuleCall_4_0 = (RuleCall)cModificationAssignment_4.eContents().get(0);
 		private final Assignment cMusicAssignment_5 = (Assignment)cGroup.eContents().get(5);
 		private final RuleCall cMusicExpressionParserRuleCall_5_0 = (RuleCall)cMusicAssignment_5.eContents().get(0);
 		
 		//NewContext:
-		//	"\\" keyword=("new" | "context") context=ID ("=" id=ID)? modification=ContextModification? music=Expression;
+		//	"\\" keyword=("new" | "context") context=ID ("=" id=(ID | STRING))? modification=ContextModification?
+		//	music=Expression;
 		public ParserRule getRule() { return rule; }
 
-		//"\\" keyword=("new" | "context") context=ID ("=" id=ID)? modification=ContextModification? music=Expression
+		//"\\" keyword=("new" | "context") context=ID ("=" id=(ID | STRING))? modification=ContextModification? music=Expression
 		public Group getGroup() { return cGroup; }
 
 		//"\\"
@@ -994,17 +997,23 @@ public class LilyPondGrammarAccess extends AbstractGrammarElementFinder {
 		//ID
 		public RuleCall getContextIDTerminalRuleCall_2_0() { return cContextIDTerminalRuleCall_2_0; }
 
-		//("=" id=ID)?
+		//("=" id=(ID | STRING))?
 		public Group getGroup_3() { return cGroup_3; }
 
 		//"="
 		public Keyword getEqualsSignKeyword_3_0() { return cEqualsSignKeyword_3_0; }
 
-		//id=ID
+		//id=(ID | STRING)
 		public Assignment getIdAssignment_3_1() { return cIdAssignment_3_1; }
 
+		//ID | STRING
+		public Alternatives getIdAlternatives_3_1_0() { return cIdAlternatives_3_1_0; }
+
 		//ID
-		public RuleCall getIdIDTerminalRuleCall_3_1_0() { return cIdIDTerminalRuleCall_3_1_0; }
+		public RuleCall getIdIDTerminalRuleCall_3_1_0_0() { return cIdIDTerminalRuleCall_3_1_0_0; }
+
+		//STRING
+		public RuleCall getIdSTRINGTerminalRuleCall_3_1_0_1() { return cIdSTRINGTerminalRuleCall_3_1_0_1; }
 
 		//modification=ContextModification?
 		public Assignment getModificationAssignment_4() { return cModificationAssignment_4; }
@@ -2230,7 +2239,8 @@ public class LilyPondGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//NewContext:
-	//	"\\" keyword=("new" | "context") context=ID ("=" id=ID)? modification=ContextModification? music=Expression;
+	//	"\\" keyword=("new" | "context") context=ID ("=" id=(ID | STRING))? modification=ContextModification?
+	//	music=Expression;
 	public NewContextElements getNewContextAccess() {
 		return (pNewContext != null) ? pNewContext : (pNewContext = new NewContextElements());
 	}
