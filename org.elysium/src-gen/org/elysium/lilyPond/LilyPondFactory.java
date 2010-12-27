@@ -278,6 +278,15 @@ public interface LilypondFactory extends EFactory
   ModeChange createModeChange();
 
   /**
+   * Returns a new object of class '<em>Music With Lyrics</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Music With Lyrics</em>'.
+   * @generated
+   */
+  MusicWithLyrics createMusicWithLyrics();
+
+  /**
    * Returns a new object of class '<em>New Context</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->

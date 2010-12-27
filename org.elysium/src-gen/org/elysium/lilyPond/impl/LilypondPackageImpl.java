@@ -28,6 +28,7 @@ import org.elysium.lilypond.Markup;
 import org.elysium.lilypond.MarkupBody;
 import org.elysium.lilypond.MarkupLines;
 import org.elysium.lilypond.ModeChange;
+import org.elysium.lilypond.MusicWithLyrics;
 import org.elysium.lilypond.NewContext;
 import org.elysium.lilypond.Octave;
 import org.elysium.lilypond.Other;
@@ -259,6 +260,13 @@ public class LilypondPackageImpl extends EPackageImpl implements LilypondPackage
    * @generated
    */
   private EClass modeChangeEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass musicWithLyricsEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -1006,6 +1014,36 @@ public class LilypondPackageImpl extends EPackageImpl implements LilypondPackage
    * <!-- end-user-doc -->
    * @generated
    */
+  public EClass getMusicWithLyrics()
+  {
+    return musicWithLyricsEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getMusicWithLyrics_Id()
+  {
+    return (EAttribute)musicWithLyricsEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getMusicWithLyrics_Lyrics()
+  {
+    return (EReference)musicWithLyricsEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public EClass getNewContext()
   {
     return newContextEClass;
@@ -1447,6 +1485,10 @@ public class LilypondPackageImpl extends EPackageImpl implements LilypondPackage
     modeChangeEClass = createEClass(MODE_CHANGE);
     createEReference(modeChangeEClass, MODE_CHANGE__MUSIC);
 
+    musicWithLyricsEClass = createEClass(MUSIC_WITH_LYRICS);
+    createEAttribute(musicWithLyricsEClass, MUSIC_WITH_LYRICS__ID);
+    createEReference(musicWithLyricsEClass, MUSIC_WITH_LYRICS__LYRICS);
+
     newContextEClass = createEClass(NEW_CONTEXT);
     createEAttribute(newContextEClass, NEW_CONTEXT__CONTEXT);
     createEAttribute(newContextEClass, NEW_CONTEXT__ID);
@@ -1549,6 +1591,7 @@ public class LilypondPackageImpl extends EPackageImpl implements LilypondPackage
     outputDefinitionEClass.getESuperTypes().add(this.getSpecialCommand());
     relativeMusicEClass.getESuperTypes().add(this.getSpecialCommand());
     modeChangeEClass.getESuperTypes().add(this.getSpecialCommand());
+    musicWithLyricsEClass.getESuperTypes().add(this.getSpecialCommand());
     newContextEClass.getESuperTypes().add(this.getSpecialCommand());
     contextDefEClass.getESuperTypes().add(this.getSpecialCommand());
     otherEClass.getESuperTypes().add(this.getSpecialCommand());
@@ -1648,6 +1691,10 @@ public class LilypondPackageImpl extends EPackageImpl implements LilypondPackage
 
     initEClass(modeChangeEClass, ModeChange.class, "ModeChange", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getModeChange_Music(), this.getBlock(), null, "music", null, 0, 1, ModeChange.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(musicWithLyricsEClass, MusicWithLyrics.class, "MusicWithLyrics", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getMusicWithLyrics_Id(), ecorePackage.getEString(), "id", null, 0, 1, MusicWithLyrics.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getMusicWithLyrics_Lyrics(), this.getExpression(), null, "lyrics", null, 0, 1, MusicWithLyrics.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(newContextEClass, NewContext.class, "NewContext", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getNewContext_Context(), ecorePackage.getEString(), "context", null, 0, 1, NewContext.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

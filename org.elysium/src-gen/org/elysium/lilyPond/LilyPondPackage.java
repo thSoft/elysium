@@ -952,6 +952,52 @@ public interface LilypondPackage extends EPackage
   int MODE_CHANGE_FEATURE_COUNT = SPECIAL_COMMAND_FEATURE_COUNT + 1;
 
   /**
+   * The meta object id for the '{@link org.elysium.lilypond.impl.MusicWithLyricsImpl <em>Music With Lyrics</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.elysium.lilypond.impl.MusicWithLyricsImpl
+   * @see org.elysium.lilypond.impl.LilypondPackageImpl#getMusicWithLyrics()
+   * @generated
+   */
+  int MUSIC_WITH_LYRICS = 28;
+
+  /**
+   * The feature id for the '<em><b>Keyword</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int MUSIC_WITH_LYRICS__KEYWORD = SPECIAL_COMMAND__KEYWORD;
+
+  /**
+   * The feature id for the '<em><b>Id</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int MUSIC_WITH_LYRICS__ID = SPECIAL_COMMAND_FEATURE_COUNT + 0;
+
+  /**
+   * The feature id for the '<em><b>Lyrics</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int MUSIC_WITH_LYRICS__LYRICS = SPECIAL_COMMAND_FEATURE_COUNT + 1;
+
+  /**
+   * The number of structural features of the '<em>Music With Lyrics</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int MUSIC_WITH_LYRICS_FEATURE_COUNT = SPECIAL_COMMAND_FEATURE_COUNT + 2;
+
+  /**
    * The meta object id for the '{@link org.elysium.lilypond.impl.NewContextImpl <em>New Context</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -959,7 +1005,7 @@ public interface LilypondPackage extends EPackage
    * @see org.elysium.lilypond.impl.LilypondPackageImpl#getNewContext()
    * @generated
    */
-  int NEW_CONTEXT = 28;
+  int NEW_CONTEXT = 29;
 
   /**
    * The feature id for the '<em><b>Keyword</b></em>' attribute.
@@ -1023,7 +1069,7 @@ public interface LilypondPackage extends EPackage
    * @see org.elysium.lilypond.impl.LilypondPackageImpl#getContextModification()
    * @generated
    */
-  int CONTEXT_MODIFICATION = 29;
+  int CONTEXT_MODIFICATION = 30;
 
   /**
    * The feature id for the '<em><b>Block</b></em>' containment reference.
@@ -1051,7 +1097,7 @@ public interface LilypondPackage extends EPackage
    * @see org.elysium.lilypond.impl.LilypondPackageImpl#getContextDef()
    * @generated
    */
-  int CONTEXT_DEF = 30;
+  int CONTEXT_DEF = 31;
 
   /**
    * The feature id for the '<em><b>Keyword</b></em>' attribute.
@@ -1088,7 +1134,7 @@ public interface LilypondPackage extends EPackage
    * @see org.elysium.lilypond.impl.LilypondPackageImpl#getOther()
    * @generated
    */
-  int OTHER = 31;
+  int OTHER = 32;
 
   /**
    * The feature id for the '<em><b>Keyword</b></em>' attribute.
@@ -1116,7 +1162,7 @@ public interface LilypondPackage extends EPackage
    * @see org.elysium.lilypond.impl.LilypondPackageImpl#getScheme()
    * @generated
    */
-  int SCHEME = 32;
+  int SCHEME = 33;
 
   /**
    * The feature id for the '<em><b>Value</b></em>' containment reference.
@@ -1144,7 +1190,7 @@ public interface LilypondPackage extends EPackage
    * @see org.elysium.lilypond.impl.LilypondPackageImpl#getSchemeExpression()
    * @generated
    */
-  int SCHEME_EXPRESSION = 33;
+  int SCHEME_EXPRESSION = 34;
 
   /**
    * The feature id for the '<em><b>Reference</b></em>' attribute.
@@ -1190,7 +1236,7 @@ public interface LilypondPackage extends EPackage
    * @see org.elysium.lilypond.impl.LilypondPackageImpl#getSchemeValue()
    * @generated
    */
-  int SCHEME_VALUE = 34;
+  int SCHEME_VALUE = 35;
 
   /**
    * The number of structural features of the '<em>Scheme Value</em>' class.
@@ -1209,7 +1255,7 @@ public interface LilypondPackage extends EPackage
    * @see org.elysium.lilypond.impl.LilypondPackageImpl#getSchemeBoolean()
    * @generated
    */
-  int SCHEME_BOOLEAN = 35;
+  int SCHEME_BOOLEAN = 36;
 
   /**
    * The feature id for the '<em><b>Value</b></em>' attribute.
@@ -1237,7 +1283,7 @@ public interface LilypondPackage extends EPackage
    * @see org.elysium.lilypond.impl.LilypondPackageImpl#getSchemeList()
    * @generated
    */
-  int SCHEME_LIST = 36;
+  int SCHEME_LIST = 37;
 
   /**
    * The feature id for the '<em><b>Vector</b></em>' attribute.
@@ -1274,7 +1320,7 @@ public interface LilypondPackage extends EPackage
    * @see org.elysium.lilypond.impl.LilypondPackageImpl#getSchemeBlock()
    * @generated
    */
-  int SCHEME_BLOCK = 37;
+  int SCHEME_BLOCK = 38;
 
   /**
    * The feature id for the '<em><b>Elements</b></em>' containment reference list.
@@ -1302,7 +1348,7 @@ public interface LilypondPackage extends EPackage
    * @see org.elysium.lilypond.impl.LilypondPackageImpl#getSchemeCharacter()
    * @generated
    */
-  int SCHEME_CHARACTER = 38;
+  int SCHEME_CHARACTER = 39;
 
   /**
    * The feature id for the '<em><b>Value</b></em>' attribute.
@@ -1330,7 +1376,7 @@ public interface LilypondPackage extends EPackage
    * @see org.elysium.lilypond.impl.LilypondPackageImpl#getSchemeText()
    * @generated
    */
-  int SCHEME_TEXT = 39;
+  int SCHEME_TEXT = 40;
 
   /**
    * The feature id for the '<em><b>Value</b></em>' attribute.
@@ -1358,7 +1404,7 @@ public interface LilypondPackage extends EPackage
    * @see org.elysium.lilypond.impl.LilypondPackageImpl#getSchemeNumber()
    * @generated
    */
-  int SCHEME_NUMBER = 40;
+  int SCHEME_NUMBER = 41;
 
   /**
    * The feature id for the '<em><b>Radix</b></em>' attribute.
@@ -1395,7 +1441,7 @@ public interface LilypondPackage extends EPackage
    * @see org.elysium.lilypond.impl.LilypondPackageImpl#getSchemeMarkupCommand()
    * @generated
    */
-  int SCHEME_MARKUP_COMMAND = 41;
+  int SCHEME_MARKUP_COMMAND = 42;
 
   /**
    * The feature id for the '<em><b>Command</b></em>' attribute.
@@ -2025,6 +2071,38 @@ public interface LilypondPackage extends EPackage
    * @generated
    */
   EReference getModeChange_Music();
+
+  /**
+   * Returns the meta object for class '{@link org.elysium.lilypond.MusicWithLyrics <em>Music With Lyrics</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Music With Lyrics</em>'.
+   * @see org.elysium.lilypond.MusicWithLyrics
+   * @generated
+   */
+  EClass getMusicWithLyrics();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.elysium.lilypond.MusicWithLyrics#getId <em>Id</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Id</em>'.
+   * @see org.elysium.lilypond.MusicWithLyrics#getId()
+   * @see #getMusicWithLyrics()
+   * @generated
+   */
+  EAttribute getMusicWithLyrics_Id();
+
+  /**
+   * Returns the meta object for the containment reference '{@link org.elysium.lilypond.MusicWithLyrics#getLyrics <em>Lyrics</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Lyrics</em>'.
+   * @see org.elysium.lilypond.MusicWithLyrics#getLyrics()
+   * @see #getMusicWithLyrics()
+   * @generated
+   */
+  EReference getMusicWithLyrics_Lyrics();
 
   /**
    * Returns the meta object for class '{@link org.elysium.lilypond.NewContext <em>New Context</em>}'.
@@ -2917,6 +2995,32 @@ public interface LilypondPackage extends EPackage
      * @generated
      */
     EReference MODE_CHANGE__MUSIC = eINSTANCE.getModeChange_Music();
+
+    /**
+     * The meta object literal for the '{@link org.elysium.lilypond.impl.MusicWithLyricsImpl <em>Music With Lyrics</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.elysium.lilypond.impl.MusicWithLyricsImpl
+     * @see org.elysium.lilypond.impl.LilypondPackageImpl#getMusicWithLyrics()
+     * @generated
+     */
+    EClass MUSIC_WITH_LYRICS = eINSTANCE.getMusicWithLyrics();
+
+    /**
+     * The meta object literal for the '<em><b>Id</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute MUSIC_WITH_LYRICS__ID = eINSTANCE.getMusicWithLyrics_Id();
+
+    /**
+     * The meta object literal for the '<em><b>Lyrics</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference MUSIC_WITH_LYRICS__LYRICS = eINSTANCE.getMusicWithLyrics_Lyrics();
 
     /**
      * The meta object literal for the '{@link org.elysium.lilypond.impl.NewContextImpl <em>New Context</em>}' class.

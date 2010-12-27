@@ -39,7 +39,7 @@ Number: value=INT;
 
 // Commands
 
-SpecialCommand: Include | Version | Markup | MarkupLines | BlockCommand | OutputDefinition | RelativeMusic | ModeChange | NewContext | ContextDef | Other;
+SpecialCommand: Include | Version | Markup | MarkupLines | BlockCommand | OutputDefinition | RelativeMusic | ModeChange | MusicWithLyrics | NewContext | ContextDef | Other;
 
 Include: "\\" keyword="include" importURI=STRING;
 
@@ -63,6 +63,8 @@ Octave: up+="'"+ | down+=","+;
 
 ModeChange: "\\" keyword=("chordmode" | "drummode" | "figuremode" | "lyricmode" | "notemode") music=Block;
 
+MusicWithLyrics: "\\" keyword="lyricsto" id=(ID | STRING) lyrics=Expression;
+
 NewContext: "\\" keyword=("new" | "context") context=ID ("=" id=(ID | STRING))? modification=ContextModification? music=Expression;
 
 ContextModification: "\\" "with" block=UnparsedBlock;
@@ -71,9 +73,9 @@ ContextDef: "\\" keyword="context" block=UnparsedBlock;
 
 Other: "\\" keyword=(SpecialCharacter | "(" | ")" | OtherName);
 
-OtherName: "accepts" | "addlyrics" | "alias" | "alternative" | "change" | "chords" | "consists" | "default" | "defaultchild" | "denies" | "description" | "drums" | "figures" | "grobdescriptions" | "key" | "lyrics" | "lyricsto" | "maininput" | "mark" | "name" | "objectid" | "octave" | "once" | "override" | "partial" | "remove" | "repeat" | "rest" | "revert" | "sequential" | "set" | "simultaneous" | "skip" | "sourcefileline" | "sourcefilename" | "tempo" | "time" | "times" | "transpose" | "type" | "unset" | "with";
+OtherName: "accepts" | "addlyrics" | "alias" | "alternative" | "change" | "chords" | "consists" | "default" | "defaultchild" | "denies" | "description" | "drums" | "figures" | "grobdescriptions" | "key" | "lyrics" | "maininput" | "mark" | "name" | "objectid" | "octave" | "once" | "override" | "partial" | "remove" | "repeat" | "rest" | "revert" | "sequential" | "set" | "simultaneous" | "skip" | "sourcefileline" | "sourcefilename" | "tempo" | "time" | "times" | "transpose" | "type" | "unset" | "with";
 
-SpecialCommandName: "include" | "version" | "markup" | "markuplines" | "book" | "bookpart" | "context" | "header" | "score" | "paper" | "midi" | "layout" | "relative" | "chordmode" | "drummode" | "figuremode" | "lyricmode" | "notemode" | "new" | "with" | OtherName;
+SpecialCommandName: "include" | "version" | "markup" | "markuplines" | "book" | "bookpart" | "context" | "header" | "score" | "paper" | "midi" | "layout" | "relative" | "chordmode" | "drummode" | "figuremode" | "lyricmode" | "notemode" | "lyricsto" | "new" | "with" | OtherName;
 
 // Scheme
 

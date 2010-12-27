@@ -27,6 +27,7 @@ import org.elysium.lilypond.Markup;
 import org.elysium.lilypond.MarkupBody;
 import org.elysium.lilypond.MarkupLines;
 import org.elysium.lilypond.ModeChange;
+import org.elysium.lilypond.MusicWithLyrics;
 import org.elysium.lilypond.NewContext;
 import org.elysium.lilypond.Octave;
 import org.elysium.lilypond.Other;
@@ -257,6 +258,11 @@ public class LilypondAdapterFactory extends AdapterFactoryImpl
       public Adapter caseModeChange(ModeChange object)
       {
         return createModeChangeAdapter();
+      }
+      @Override
+      public Adapter caseMusicWithLyrics(MusicWithLyrics object)
+      {
+        return createMusicWithLyricsAdapter();
       }
       @Override
       public Adapter caseNewContext(NewContext object)
@@ -766,6 +772,21 @@ public class LilypondAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createModeChangeAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.elysium.lilypond.MusicWithLyrics <em>Music With Lyrics</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.elysium.lilypond.MusicWithLyrics
+   * @generated
+   */
+  public Adapter createMusicWithLyricsAdapter()
   {
     return null;
   }

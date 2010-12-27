@@ -87,6 +87,10 @@
     <genClasses ecoreClass="LilyPond.ecore#//ModeChange">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference LilyPond.ecore#//ModeChange/music"/>
     </genClasses>
+    <genClasses ecoreClass="LilyPond.ecore#//MusicWithLyrics">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute LilyPond.ecore#//MusicWithLyrics/id"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference LilyPond.ecore#//MusicWithLyrics/lyrics"/>
+    </genClasses>
     <genClasses ecoreClass="LilyPond.ecore#//NewContext">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute LilyPond.ecore#//NewContext/context"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute LilyPond.ecore#//NewContext/id"/>
