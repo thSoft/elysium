@@ -84,6 +84,11 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute LilyPond.ecore#//Octave/up"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute LilyPond.ecore#//Octave/down"/>
     </genClasses>
+    <genClasses ecoreClass="LilyPond.ecore#//TransposedMusic">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference LilyPond.ecore#//TransposedMusic/source"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference LilyPond.ecore#//TransposedMusic/target"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference LilyPond.ecore#//TransposedMusic/music"/>
+    </genClasses>
     <genClasses ecoreClass="LilyPond.ecore#//ModeChange">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference LilyPond.ecore#//ModeChange/music"/>
     </genClasses>

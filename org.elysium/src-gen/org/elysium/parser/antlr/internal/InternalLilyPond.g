@@ -1391,11 +1391,11 @@ ruleSpecialCommand returns [EObject current=null]
 	  /* */ 
 	}
     { 
-        currentNode=createCompositeNode(grammarAccess.getSpecialCommandAccess().getModeChangeParserRuleCall_7(), currentNode); 
+        currentNode=createCompositeNode(grammarAccess.getSpecialCommandAccess().getTransposedMusicParserRuleCall_7(), currentNode); 
     }
-    this_ModeChange_7=ruleModeChange
+    this_TransposedMusic_7=ruleTransposedMusic
     {
-        $current = $this_ModeChange_7.current;
+        $current = $this_TransposedMusic_7.current;
         currentNode = currentNode.getParent();
     }
 
@@ -1404,11 +1404,11 @@ ruleSpecialCommand returns [EObject current=null]
 	  /* */ 
 	}
     { 
-        currentNode=createCompositeNode(grammarAccess.getSpecialCommandAccess().getMusicWithLyricsParserRuleCall_8(), currentNode); 
+        currentNode=createCompositeNode(grammarAccess.getSpecialCommandAccess().getModeChangeParserRuleCall_8(), currentNode); 
     }
-    this_MusicWithLyrics_8=ruleMusicWithLyrics
+    this_ModeChange_8=ruleModeChange
     {
-        $current = $this_MusicWithLyrics_8.current;
+        $current = $this_ModeChange_8.current;
         currentNode = currentNode.getParent();
     }
 
@@ -1417,11 +1417,11 @@ ruleSpecialCommand returns [EObject current=null]
 	  /* */ 
 	}
     { 
-        currentNode=createCompositeNode(grammarAccess.getSpecialCommandAccess().getNewContextParserRuleCall_9(), currentNode); 
+        currentNode=createCompositeNode(grammarAccess.getSpecialCommandAccess().getMusicWithLyricsParserRuleCall_9(), currentNode); 
     }
-    this_NewContext_9=ruleNewContext
+    this_MusicWithLyrics_9=ruleMusicWithLyrics
     {
-        $current = $this_NewContext_9.current;
+        $current = $this_MusicWithLyrics_9.current;
         currentNode = currentNode.getParent();
     }
 
@@ -1430,11 +1430,11 @@ ruleSpecialCommand returns [EObject current=null]
 	  /* */ 
 	}
     { 
-        currentNode=createCompositeNode(grammarAccess.getSpecialCommandAccess().getContextDefParserRuleCall_10(), currentNode); 
+        currentNode=createCompositeNode(grammarAccess.getSpecialCommandAccess().getNewContextParserRuleCall_10(), currentNode); 
     }
-    this_ContextDef_10=ruleContextDef
+    this_NewContext_10=ruleNewContext
     {
-        $current = $this_ContextDef_10.current;
+        $current = $this_NewContext_10.current;
         currentNode = currentNode.getParent();
     }
 
@@ -1443,11 +1443,24 @@ ruleSpecialCommand returns [EObject current=null]
 	  /* */ 
 	}
     { 
-        currentNode=createCompositeNode(grammarAccess.getSpecialCommandAccess().getOtherParserRuleCall_11(), currentNode); 
+        currentNode=createCompositeNode(grammarAccess.getSpecialCommandAccess().getContextDefParserRuleCall_11(), currentNode); 
     }
-    this_Other_11=ruleOther
+    this_ContextDef_11=ruleContextDef
     {
-        $current = $this_Other_11.current;
+        $current = $this_ContextDef_11.current;
+        currentNode = currentNode.getParent();
+    }
+
+    |
+	{ 
+	  /* */ 
+	}
+    { 
+        currentNode=createCompositeNode(grammarAccess.getSpecialCommandAccess().getOtherParserRuleCall_12(), currentNode); 
+    }
+    this_Other_12=ruleOther
+    {
+        $current = $this_Other_12.current;
         currentNode = currentNode.getParent();
     }
 )
@@ -2408,6 +2421,128 @@ ruleOctave returns [EObject current=null]
 
 )
 )+)
+;
+
+
+
+
+
+// Entry rule entryRuleTransposedMusic
+entryRuleTransposedMusic returns [EObject current=null]
+	:
+	{ currentNode = createCompositeNode(grammarAccess.getTransposedMusicRule(), currentNode); }
+	 iv_ruleTransposedMusic=ruleTransposedMusic 
+	 { $current=$iv_ruleTransposedMusic.current; } 
+	 EOF 
+;
+
+// Rule TransposedMusic
+ruleTransposedMusic returns [EObject current=null] 
+    @init { EObject temp=null; setCurrentLookahead(); resetLookahead(); 
+    }
+    @after { resetLookahead(); 
+    	lastConsumedNode = currentNode;
+    }:
+(
+	KEYWORD_17 
+    {
+        createLeafNode(grammarAccess.getTransposedMusicAccess().getReverseSolidusKeyword_0(), null); 
+    }
+(
+(
+		lv_keyword_1_0=
+	KEYWORD_80 
+    {
+        createLeafNode(grammarAccess.getTransposedMusicAccess().getKeywordTransposeKeyword_1_0(), "keyword"); 
+    }
+ 
+	    {
+	        if ($current==null) {
+	            $current = factory.create(grammarAccess.getTransposedMusicRule().getType().getClassifier());
+	            associateNodeWithAstElement(currentNode, $current);
+	        }
+	        
+	        try {
+	       		set($current, "keyword", lv_keyword_1_0, "transpose", lastConsumedNode);
+	        } catch (ValueConverterException vce) {
+				handleValueConverterException(vce);
+	        }
+	    }
+
+)
+)(
+(
+		{ 
+	        currentNode=createCompositeNode(grammarAccess.getTransposedMusicAccess().getSourcePitchParserRuleCall_2_0(), currentNode); 
+	    }
+		lv_source_2_0=rulePitch		{
+	        if ($current==null) {
+	            $current = factory.create(grammarAccess.getTransposedMusicRule().getType().getClassifier());
+	            associateNodeWithAstElement(currentNode.getParent(), $current);
+	        }
+	        try {
+	       		set(
+	       			$current, 
+	       			"source",
+	        		lv_source_2_0, 
+	        		"Pitch", 
+	        		currentNode);
+	        } catch (ValueConverterException vce) {
+				handleValueConverterException(vce);
+	        }
+	        currentNode = currentNode.getParent();
+	    }
+
+)
+)(
+(
+		{ 
+	        currentNode=createCompositeNode(grammarAccess.getTransposedMusicAccess().getTargetPitchParserRuleCall_3_0(), currentNode); 
+	    }
+		lv_target_3_0=rulePitch		{
+	        if ($current==null) {
+	            $current = factory.create(grammarAccess.getTransposedMusicRule().getType().getClassifier());
+	            associateNodeWithAstElement(currentNode.getParent(), $current);
+	        }
+	        try {
+	       		set(
+	       			$current, 
+	       			"target",
+	        		lv_target_3_0, 
+	        		"Pitch", 
+	        		currentNode);
+	        } catch (ValueConverterException vce) {
+				handleValueConverterException(vce);
+	        }
+	        currentNode = currentNode.getParent();
+	    }
+
+)
+)(
+(
+		{ 
+	        currentNode=createCompositeNode(grammarAccess.getTransposedMusicAccess().getMusicExpressionParserRuleCall_4_0(), currentNode); 
+	    }
+		lv_music_4_0=ruleExpression		{
+	        if ($current==null) {
+	            $current = factory.create(grammarAccess.getTransposedMusicRule().getType().getClassifier());
+	            associateNodeWithAstElement(currentNode.getParent(), $current);
+	        }
+	        try {
+	       		set(
+	       			$current, 
+	       			"music",
+	        		lv_music_4_0, 
+	        		"Expression", 
+	        		currentNode);
+	        } catch (ValueConverterException vce) {
+				handleValueConverterException(vce);
+	        }
+	        currentNode = currentNode.getParent();
+	    }
+
+)
+))
 ;
 
 
@@ -3407,31 +3542,24 @@ ruleOtherName returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken
     }
 
     |
-	kw=KEYWORD_80 
-    {
-        $current.merge(kw);
-        createLeafNode(grammarAccess.getOtherNameAccess().getTransposeKeyword_37(), null); 
-    }
-
-    |
 	kw=KEYWORD_41 
     {
         $current.merge(kw);
-        createLeafNode(grammarAccess.getOtherNameAccess().getTypeKeyword_38(), null); 
+        createLeafNode(grammarAccess.getOtherNameAccess().getTypeKeyword_37(), null); 
     }
 
     |
 	kw=KEYWORD_49 
     {
         $current.merge(kw);
-        createLeafNode(grammarAccess.getOtherNameAccess().getUnsetKeyword_39(), null); 
+        createLeafNode(grammarAccess.getOtherNameAccess().getUnsetKeyword_38(), null); 
     }
 
     |
 	kw=KEYWORD_42 
     {
         $current.merge(kw);
-        createLeafNode(grammarAccess.getOtherNameAccess().getWithKeyword_40(), null); 
+        createLeafNode(grammarAccess.getOtherNameAccess().getWithKeyword_39(), null); 
     }
 )
     ;
@@ -3548,67 +3676,74 @@ ruleSpecialCommandName returns [AntlrDatatypeRuleToken current=new AntlrDatatype
     }
 
     |
+	kw=KEYWORD_80 
+    {
+        $current.merge(kw);
+        createLeafNode(grammarAccess.getSpecialCommandNameAccess().getTransposeKeyword_13(), null); 
+    }
+
+    |
 	kw=KEYWORD_77 
     {
         $current.merge(kw);
-        createLeafNode(grammarAccess.getSpecialCommandNameAccess().getChordmodeKeyword_13(), null); 
+        createLeafNode(grammarAccess.getSpecialCommandNameAccess().getChordmodeKeyword_14(), null); 
     }
 
     |
 	kw=KEYWORD_70 
     {
         $current.merge(kw);
-        createLeafNode(grammarAccess.getSpecialCommandNameAccess().getDrummodeKeyword_14(), null); 
+        createLeafNode(grammarAccess.getSpecialCommandNameAccess().getDrummodeKeyword_15(), null); 
     }
 
     |
 	kw=KEYWORD_81 
     {
         $current.merge(kw);
-        createLeafNode(grammarAccess.getSpecialCommandNameAccess().getFiguremodeKeyword_15(), null); 
+        createLeafNode(grammarAccess.getSpecialCommandNameAccess().getFiguremodeKeyword_16(), null); 
     }
 
     |
 	kw=KEYWORD_78 
     {
         $current.merge(kw);
-        createLeafNode(grammarAccess.getSpecialCommandNameAccess().getLyricmodeKeyword_16(), null); 
+        createLeafNode(grammarAccess.getSpecialCommandNameAccess().getLyricmodeKeyword_17(), null); 
     }
 
     |
 	kw=KEYWORD_72 
     {
         $current.merge(kw);
-        createLeafNode(grammarAccess.getSpecialCommandNameAccess().getNotemodeKeyword_17(), null); 
+        createLeafNode(grammarAccess.getSpecialCommandNameAccess().getNotemodeKeyword_18(), null); 
     }
 
     |
 	kw=KEYWORD_71 
     {
         $current.merge(kw);
-        createLeafNode(grammarAccess.getSpecialCommandNameAccess().getLyricstoKeyword_18(), null); 
+        createLeafNode(grammarAccess.getSpecialCommandNameAccess().getLyricstoKeyword_19(), null); 
     }
 
     |
 	kw=KEYWORD_31 
     {
         $current.merge(kw);
-        createLeafNode(grammarAccess.getSpecialCommandNameAccess().getNewKeyword_19(), null); 
+        createLeafNode(grammarAccess.getSpecialCommandNameAccess().getNewKeyword_20(), null); 
     }
 
     |
 	kw=KEYWORD_42 
     {
         $current.merge(kw);
-        createLeafNode(grammarAccess.getSpecialCommandNameAccess().getWithKeyword_20(), null); 
+        createLeafNode(grammarAccess.getSpecialCommandNameAccess().getWithKeyword_21(), null); 
     }
 
     |
     { 
-        currentNode=createCompositeNode(grammarAccess.getSpecialCommandNameAccess().getOtherNameParserRuleCall_21(), currentNode); 
+        currentNode=createCompositeNode(grammarAccess.getSpecialCommandNameAccess().getOtherNameParserRuleCall_22(), currentNode); 
     }
-    this_OtherName_21=ruleOtherName    {
-		$current.merge(this_OtherName_21);
+    this_OtherName_22=ruleOtherName    {
+		$current.merge(this_OtherName_22);
     }
 
     { 

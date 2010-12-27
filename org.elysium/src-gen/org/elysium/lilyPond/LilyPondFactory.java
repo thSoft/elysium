@@ -269,6 +269,15 @@ public interface LilypondFactory extends EFactory
   Octave createOctave();
 
   /**
+   * Returns a new object of class '<em>Transposed Music</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Transposed Music</em>'.
+   * @generated
+   */
+  TransposedMusic createTransposedMusic();
+
+  /**
    * Returns a new object of class '<em>Mode Change</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->

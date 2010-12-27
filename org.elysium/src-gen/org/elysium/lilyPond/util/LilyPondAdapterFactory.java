@@ -51,6 +51,7 @@ import org.elysium.lilypond.SimultaneousBlock;
 import org.elysium.lilypond.SpecialCommand;
 import org.elysium.lilypond.Text;
 import org.elysium.lilypond.ToplevelExpression;
+import org.elysium.lilypond.TransposedMusic;
 import org.elysium.lilypond.UnparsedBlock;
 import org.elysium.lilypond.UnparsedCommand;
 import org.elysium.lilypond.UnparsedExpression;
@@ -253,6 +254,11 @@ public class LilypondAdapterFactory extends AdapterFactoryImpl
       public Adapter caseOctave(Octave object)
       {
         return createOctaveAdapter();
+      }
+      @Override
+      public Adapter caseTransposedMusic(TransposedMusic object)
+      {
+        return createTransposedMusicAdapter();
       }
       @Override
       public Adapter caseModeChange(ModeChange object)
@@ -757,6 +763,21 @@ public class LilypondAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createOctaveAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.elysium.lilypond.TransposedMusic <em>Transposed Music</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.elysium.lilypond.TransposedMusic
+   * @generated
+   */
+  public Adapter createTransposedMusicAdapter()
   {
     return null;
   }

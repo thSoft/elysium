@@ -95,6 +95,14 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="down" unique="false" upperBound="-1"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="TransposedMusic" eSuperTypes="#//SpecialCommand">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="source" eType="#//Pitch"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="target" eType="#//Pitch"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="music" eType="#//Expression"
+        containment="true"/>
+  </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ModeChange" eSuperTypes="#//SpecialCommand">
     <eStructuralFeatures xsi:type="ecore:EReference" name="music" eType="#//Block"
         containment="true"/>

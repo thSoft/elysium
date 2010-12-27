@@ -53,6 +53,7 @@ import org.elysium.lilypond.SimultaneousBlock;
 import org.elysium.lilypond.SpecialCommand;
 import org.elysium.lilypond.Text;
 import org.elysium.lilypond.ToplevelExpression;
+import org.elysium.lilypond.TransposedMusic;
 import org.elysium.lilypond.UnparsedBlock;
 import org.elysium.lilypond.UnparsedCommand;
 import org.elysium.lilypond.UnparsedExpression;
@@ -137,6 +138,7 @@ public class LilypondFactoryImpl extends EFactoryImpl implements LilypondFactory
       case LilypondPackage.RELATIVE_MUSIC: return createRelativeMusic();
       case LilypondPackage.PITCH: return createPitch();
       case LilypondPackage.OCTAVE: return createOctave();
+      case LilypondPackage.TRANSPOSED_MUSIC: return createTransposedMusic();
       case LilypondPackage.MODE_CHANGE: return createModeChange();
       case LilypondPackage.MUSIC_WITH_LYRICS: return createMusicWithLyrics();
       case LilypondPackage.NEW_CONTEXT: return createNewContext();
@@ -453,6 +455,17 @@ public class LilypondFactoryImpl extends EFactoryImpl implements LilypondFactory
   {
     OctaveImpl octave = new OctaveImpl();
     return octave;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public TransposedMusic createTransposedMusic()
+  {
+    TransposedMusicImpl transposedMusic = new TransposedMusicImpl();
+    return transposedMusic;
   }
 
   /**

@@ -158,6 +158,10 @@ public class Grammar extends LilyPondTest {
 		assertValid("\\relative c' { c }");
 	}
 
+	public void testTransposedMusic() throws Exception {
+		assertValid("\\transpose c d { c }");
+	}
+
 	public void testNewContext() throws Exception {
 		assertValid("\\new Staff { c }");
 	}

@@ -52,6 +52,7 @@ import org.elysium.lilypond.SimultaneousBlock;
 import org.elysium.lilypond.SpecialCommand;
 import org.elysium.lilypond.Text;
 import org.elysium.lilypond.ToplevelExpression;
+import org.elysium.lilypond.TransposedMusic;
 import org.elysium.lilypond.UnparsedBlock;
 import org.elysium.lilypond.UnparsedCommand;
 import org.elysium.lilypond.UnparsedExpression;
@@ -253,6 +254,13 @@ public class LilypondPackageImpl extends EPackageImpl implements LilypondPackage
    * @generated
    */
   private EClass octaveEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass transposedMusicEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -994,6 +1002,46 @@ public class LilypondPackageImpl extends EPackageImpl implements LilypondPackage
    * <!-- end-user-doc -->
    * @generated
    */
+  public EClass getTransposedMusic()
+  {
+    return transposedMusicEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getTransposedMusic_Source()
+  {
+    return (EReference)transposedMusicEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getTransposedMusic_Target()
+  {
+    return (EReference)transposedMusicEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EReference getTransposedMusic_Music()
+  {
+    return (EReference)transposedMusicEClass.getEStructuralFeatures().get(2);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public EClass getModeChange()
   {
     return modeChangeEClass;
@@ -1482,6 +1530,11 @@ public class LilypondPackageImpl extends EPackageImpl implements LilypondPackage
     createEAttribute(octaveEClass, OCTAVE__UP);
     createEAttribute(octaveEClass, OCTAVE__DOWN);
 
+    transposedMusicEClass = createEClass(TRANSPOSED_MUSIC);
+    createEReference(transposedMusicEClass, TRANSPOSED_MUSIC__SOURCE);
+    createEReference(transposedMusicEClass, TRANSPOSED_MUSIC__TARGET);
+    createEReference(transposedMusicEClass, TRANSPOSED_MUSIC__MUSIC);
+
     modeChangeEClass = createEClass(MODE_CHANGE);
     createEReference(modeChangeEClass, MODE_CHANGE__MUSIC);
 
@@ -1590,6 +1643,7 @@ public class LilypondPackageImpl extends EPackageImpl implements LilypondPackage
     blockCommandEClass.getESuperTypes().add(this.getSpecialCommand());
     outputDefinitionEClass.getESuperTypes().add(this.getSpecialCommand());
     relativeMusicEClass.getESuperTypes().add(this.getSpecialCommand());
+    transposedMusicEClass.getESuperTypes().add(this.getSpecialCommand());
     modeChangeEClass.getESuperTypes().add(this.getSpecialCommand());
     musicWithLyricsEClass.getESuperTypes().add(this.getSpecialCommand());
     newContextEClass.getESuperTypes().add(this.getSpecialCommand());
@@ -1688,6 +1742,11 @@ public class LilypondPackageImpl extends EPackageImpl implements LilypondPackage
     initEClass(octaveEClass, Octave.class, "Octave", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getOctave_Up(), ecorePackage.getEString(), "up", null, 0, -1, Octave.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getOctave_Down(), ecorePackage.getEString(), "down", null, 0, -1, Octave.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(transposedMusicEClass, TransposedMusic.class, "TransposedMusic", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getTransposedMusic_Source(), this.getPitch(), null, "source", null, 0, 1, TransposedMusic.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getTransposedMusic_Target(), this.getPitch(), null, "target", null, 0, 1, TransposedMusic.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getTransposedMusic_Music(), this.getExpression(), null, "music", null, 0, 1, TransposedMusic.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(modeChangeEClass, ModeChange.class, "ModeChange", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getModeChange_Music(), this.getBlock(), null, "music", null, 0, 1, ModeChange.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

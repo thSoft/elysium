@@ -49,6 +49,7 @@ import org.elysium.lilypond.SimultaneousBlock;
 import org.elysium.lilypond.SpecialCommand;
 import org.elysium.lilypond.Text;
 import org.elysium.lilypond.ToplevelExpression;
+import org.elysium.lilypond.TransposedMusic;
 import org.elysium.lilypond.UnparsedBlock;
 import org.elysium.lilypond.UnparsedCommand;
 import org.elysium.lilypond.UnparsedExpression;
@@ -395,6 +396,18 @@ public class LilypondSwitch<T>
       {
         Octave octave = (Octave)theEObject;
         T result = caseOctave(octave);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case LilypondPackage.TRANSPOSED_MUSIC:
+      {
+        TransposedMusic transposedMusic = (TransposedMusic)theEObject;
+        T result = caseTransposedMusic(transposedMusic);
+        if (result == null) result = caseSpecialCommand(transposedMusic);
+        if (result == null) result = caseCommand(transposedMusic);
+        if (result == null) result = caseCommonExpression(transposedMusic);
+        if (result == null) result = caseToplevelExpression(transposedMusic);
+        if (result == null) result = caseExpression(transposedMusic);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -978,6 +991,22 @@ public class LilypondSwitch<T>
    * @generated
    */
   public T caseOctave(Octave object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Transposed Music</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Transposed Music</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseTransposedMusic(TransposedMusic object)
   {
     return null;
   }

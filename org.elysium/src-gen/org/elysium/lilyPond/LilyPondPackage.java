@@ -915,6 +915,61 @@ public interface LilypondPackage extends EPackage
   int OCTAVE_FEATURE_COUNT = 2;
 
   /**
+   * The meta object id for the '{@link org.elysium.lilypond.impl.TransposedMusicImpl <em>Transposed Music</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.elysium.lilypond.impl.TransposedMusicImpl
+   * @see org.elysium.lilypond.impl.LilypondPackageImpl#getTransposedMusic()
+   * @generated
+   */
+  int TRANSPOSED_MUSIC = 27;
+
+  /**
+   * The feature id for the '<em><b>Keyword</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int TRANSPOSED_MUSIC__KEYWORD = SPECIAL_COMMAND__KEYWORD;
+
+  /**
+   * The feature id for the '<em><b>Source</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int TRANSPOSED_MUSIC__SOURCE = SPECIAL_COMMAND_FEATURE_COUNT + 0;
+
+  /**
+   * The feature id for the '<em><b>Target</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int TRANSPOSED_MUSIC__TARGET = SPECIAL_COMMAND_FEATURE_COUNT + 1;
+
+  /**
+   * The feature id for the '<em><b>Music</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int TRANSPOSED_MUSIC__MUSIC = SPECIAL_COMMAND_FEATURE_COUNT + 2;
+
+  /**
+   * The number of structural features of the '<em>Transposed Music</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int TRANSPOSED_MUSIC_FEATURE_COUNT = SPECIAL_COMMAND_FEATURE_COUNT + 3;
+
+  /**
    * The meta object id for the '{@link org.elysium.lilypond.impl.ModeChangeImpl <em>Mode Change</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -922,7 +977,7 @@ public interface LilypondPackage extends EPackage
    * @see org.elysium.lilypond.impl.LilypondPackageImpl#getModeChange()
    * @generated
    */
-  int MODE_CHANGE = 27;
+  int MODE_CHANGE = 28;
 
   /**
    * The feature id for the '<em><b>Keyword</b></em>' attribute.
@@ -959,7 +1014,7 @@ public interface LilypondPackage extends EPackage
    * @see org.elysium.lilypond.impl.LilypondPackageImpl#getMusicWithLyrics()
    * @generated
    */
-  int MUSIC_WITH_LYRICS = 28;
+  int MUSIC_WITH_LYRICS = 29;
 
   /**
    * The feature id for the '<em><b>Keyword</b></em>' attribute.
@@ -1005,7 +1060,7 @@ public interface LilypondPackage extends EPackage
    * @see org.elysium.lilypond.impl.LilypondPackageImpl#getNewContext()
    * @generated
    */
-  int NEW_CONTEXT = 29;
+  int NEW_CONTEXT = 30;
 
   /**
    * The feature id for the '<em><b>Keyword</b></em>' attribute.
@@ -1069,7 +1124,7 @@ public interface LilypondPackage extends EPackage
    * @see org.elysium.lilypond.impl.LilypondPackageImpl#getContextModification()
    * @generated
    */
-  int CONTEXT_MODIFICATION = 30;
+  int CONTEXT_MODIFICATION = 31;
 
   /**
    * The feature id for the '<em><b>Block</b></em>' containment reference.
@@ -1097,7 +1152,7 @@ public interface LilypondPackage extends EPackage
    * @see org.elysium.lilypond.impl.LilypondPackageImpl#getContextDef()
    * @generated
    */
-  int CONTEXT_DEF = 31;
+  int CONTEXT_DEF = 32;
 
   /**
    * The feature id for the '<em><b>Keyword</b></em>' attribute.
@@ -1134,7 +1189,7 @@ public interface LilypondPackage extends EPackage
    * @see org.elysium.lilypond.impl.LilypondPackageImpl#getOther()
    * @generated
    */
-  int OTHER = 32;
+  int OTHER = 33;
 
   /**
    * The feature id for the '<em><b>Keyword</b></em>' attribute.
@@ -1162,7 +1217,7 @@ public interface LilypondPackage extends EPackage
    * @see org.elysium.lilypond.impl.LilypondPackageImpl#getScheme()
    * @generated
    */
-  int SCHEME = 33;
+  int SCHEME = 34;
 
   /**
    * The feature id for the '<em><b>Value</b></em>' containment reference.
@@ -1190,7 +1245,7 @@ public interface LilypondPackage extends EPackage
    * @see org.elysium.lilypond.impl.LilypondPackageImpl#getSchemeExpression()
    * @generated
    */
-  int SCHEME_EXPRESSION = 34;
+  int SCHEME_EXPRESSION = 35;
 
   /**
    * The feature id for the '<em><b>Reference</b></em>' attribute.
@@ -1236,7 +1291,7 @@ public interface LilypondPackage extends EPackage
    * @see org.elysium.lilypond.impl.LilypondPackageImpl#getSchemeValue()
    * @generated
    */
-  int SCHEME_VALUE = 35;
+  int SCHEME_VALUE = 36;
 
   /**
    * The number of structural features of the '<em>Scheme Value</em>' class.
@@ -1255,7 +1310,7 @@ public interface LilypondPackage extends EPackage
    * @see org.elysium.lilypond.impl.LilypondPackageImpl#getSchemeBoolean()
    * @generated
    */
-  int SCHEME_BOOLEAN = 36;
+  int SCHEME_BOOLEAN = 37;
 
   /**
    * The feature id for the '<em><b>Value</b></em>' attribute.
@@ -1283,7 +1338,7 @@ public interface LilypondPackage extends EPackage
    * @see org.elysium.lilypond.impl.LilypondPackageImpl#getSchemeList()
    * @generated
    */
-  int SCHEME_LIST = 37;
+  int SCHEME_LIST = 38;
 
   /**
    * The feature id for the '<em><b>Vector</b></em>' attribute.
@@ -1320,7 +1375,7 @@ public interface LilypondPackage extends EPackage
    * @see org.elysium.lilypond.impl.LilypondPackageImpl#getSchemeBlock()
    * @generated
    */
-  int SCHEME_BLOCK = 38;
+  int SCHEME_BLOCK = 39;
 
   /**
    * The feature id for the '<em><b>Elements</b></em>' containment reference list.
@@ -1348,7 +1403,7 @@ public interface LilypondPackage extends EPackage
    * @see org.elysium.lilypond.impl.LilypondPackageImpl#getSchemeCharacter()
    * @generated
    */
-  int SCHEME_CHARACTER = 39;
+  int SCHEME_CHARACTER = 40;
 
   /**
    * The feature id for the '<em><b>Value</b></em>' attribute.
@@ -1376,7 +1431,7 @@ public interface LilypondPackage extends EPackage
    * @see org.elysium.lilypond.impl.LilypondPackageImpl#getSchemeText()
    * @generated
    */
-  int SCHEME_TEXT = 40;
+  int SCHEME_TEXT = 41;
 
   /**
    * The feature id for the '<em><b>Value</b></em>' attribute.
@@ -1404,7 +1459,7 @@ public interface LilypondPackage extends EPackage
    * @see org.elysium.lilypond.impl.LilypondPackageImpl#getSchemeNumber()
    * @generated
    */
-  int SCHEME_NUMBER = 41;
+  int SCHEME_NUMBER = 42;
 
   /**
    * The feature id for the '<em><b>Radix</b></em>' attribute.
@@ -1441,7 +1496,7 @@ public interface LilypondPackage extends EPackage
    * @see org.elysium.lilypond.impl.LilypondPackageImpl#getSchemeMarkupCommand()
    * @generated
    */
-  int SCHEME_MARKUP_COMMAND = 42;
+  int SCHEME_MARKUP_COMMAND = 43;
 
   /**
    * The feature id for the '<em><b>Command</b></em>' attribute.
@@ -2050,6 +2105,49 @@ public interface LilypondPackage extends EPackage
    * @generated
    */
   EAttribute getOctave_Down();
+
+  /**
+   * Returns the meta object for class '{@link org.elysium.lilypond.TransposedMusic <em>Transposed Music</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Transposed Music</em>'.
+   * @see org.elysium.lilypond.TransposedMusic
+   * @generated
+   */
+  EClass getTransposedMusic();
+
+  /**
+   * Returns the meta object for the containment reference '{@link org.elysium.lilypond.TransposedMusic#getSource <em>Source</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Source</em>'.
+   * @see org.elysium.lilypond.TransposedMusic#getSource()
+   * @see #getTransposedMusic()
+   * @generated
+   */
+  EReference getTransposedMusic_Source();
+
+  /**
+   * Returns the meta object for the containment reference '{@link org.elysium.lilypond.TransposedMusic#getTarget <em>Target</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Target</em>'.
+   * @see org.elysium.lilypond.TransposedMusic#getTarget()
+   * @see #getTransposedMusic()
+   * @generated
+   */
+  EReference getTransposedMusic_Target();
+
+  /**
+   * Returns the meta object for the containment reference '{@link org.elysium.lilypond.TransposedMusic#getMusic <em>Music</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Music</em>'.
+   * @see org.elysium.lilypond.TransposedMusic#getMusic()
+   * @see #getTransposedMusic()
+   * @generated
+   */
+  EReference getTransposedMusic_Music();
 
   /**
    * Returns the meta object for class '{@link org.elysium.lilypond.ModeChange <em>Mode Change</em>}'.
@@ -2977,6 +3075,40 @@ public interface LilypondPackage extends EPackage
      * @generated
      */
     EAttribute OCTAVE__DOWN = eINSTANCE.getOctave_Down();
+
+    /**
+     * The meta object literal for the '{@link org.elysium.lilypond.impl.TransposedMusicImpl <em>Transposed Music</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.elysium.lilypond.impl.TransposedMusicImpl
+     * @see org.elysium.lilypond.impl.LilypondPackageImpl#getTransposedMusic()
+     * @generated
+     */
+    EClass TRANSPOSED_MUSIC = eINSTANCE.getTransposedMusic();
+
+    /**
+     * The meta object literal for the '<em><b>Source</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference TRANSPOSED_MUSIC__SOURCE = eINSTANCE.getTransposedMusic_Source();
+
+    /**
+     * The meta object literal for the '<em><b>Target</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference TRANSPOSED_MUSIC__TARGET = eINSTANCE.getTransposedMusic_Target();
+
+    /**
+     * The meta object literal for the '<em><b>Music</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference TRANSPOSED_MUSIC__MUSIC = eINSTANCE.getTransposedMusic_Music();
 
     /**
      * The meta object literal for the '{@link org.elysium.lilypond.impl.ModeChangeImpl <em>Mode Change</em>}' class.
