@@ -59,6 +59,7 @@ public class LilyPondQuickfixProvider extends AbstractDeclarativeQuickfixProvide
 				if (element instanceof LilyPond) {
 					LilyPond lilypond = (LilyPond)element;
 					Version version = LilypondFactory.eINSTANCE.createVersion();
+					version.setKeyword("version"); //$NON-NLS-1$
 					version.setVersion(LilyPondVersion.get());
 					lilypond.getExpressions().add(0, version);
 				}
