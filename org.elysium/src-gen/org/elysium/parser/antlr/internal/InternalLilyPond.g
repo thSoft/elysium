@@ -421,50 +421,26 @@ rulePropertyAssignment returns [EObject current=null]
     }:
 ((
 (
-(
-		lv_id_0_1=RULE_ID
-		{
-			createLeafNode(grammarAccess.getPropertyAssignmentAccess().getIdIDTerminalRuleCall_0_0_0(), "id"); 
-		}
-		{
+		{ 
+	        currentNode=createCompositeNode(grammarAccess.getPropertyAssignmentAccess().getIdSchemeIdentifierParserRuleCall_0_0(), currentNode); 
+	    }
+		lv_id_0_0=ruleSchemeIdentifier		{
 	        if ($current==null) {
 	            $current = factory.create(grammarAccess.getPropertyAssignmentRule().getType().getClassifier());
-	            associateNodeWithAstElement(currentNode, $current);
+	            associateNodeWithAstElement(currentNode.getParent(), $current);
 	        }
 	        try {
 	       		set(
 	       			$current, 
 	       			"id",
-	        		lv_id_0_1, 
-	        		"ID", 
-	        		lastConsumedNode);
+	        		lv_id_0_0, 
+	        		"SchemeIdentifier", 
+	        		currentNode);
 	        } catch (ValueConverterException vce) {
 				handleValueConverterException(vce);
 	        }
+	        currentNode = currentNode.getParent();
 	    }
-
-    |		lv_id_0_2=RULE_STRING
-		{
-			createLeafNode(grammarAccess.getPropertyAssignmentAccess().getIdSTRINGTerminalRuleCall_0_0_1(), "id"); 
-		}
-		{
-	        if ($current==null) {
-	            $current = factory.create(grammarAccess.getPropertyAssignmentRule().getType().getClassifier());
-	            associateNodeWithAstElement(currentNode, $current);
-	        }
-	        try {
-	       		set(
-	       			$current, 
-	       			"id",
-	        		lv_id_0_2, 
-	        		"STRING", 
-	        		lastConsumedNode);
-	        } catch (ValueConverterException vce) {
-				handleValueConverterException(vce);
-	        }
-	    }
-
-)
 
 )
 )

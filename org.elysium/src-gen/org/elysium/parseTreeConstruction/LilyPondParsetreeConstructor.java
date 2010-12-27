@@ -828,11 +828,11 @@ protected class Assignment_ValueAssignment_2 extends AssignmentToken  {
 /************ begin Rule PropertyAssignment ****************
  *
  * PropertyAssignment:
- * 	id=(ID | STRING) "=" value=Expression;
+ * 	id=SchemeIdentifier "=" value=Expression;
  *
  **/
 
-// id=(ID | STRING) "=" value=Expression
+// id=SchemeIdentifier "=" value=Expression
 protected class PropertyAssignment_Group extends GroupToken {
 	
 	public PropertyAssignment_Group(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -861,7 +861,7 @@ protected class PropertyAssignment_Group extends GroupToken {
 
 }
 
-// id=(ID | STRING)
+// id=SchemeIdentifier
 protected class PropertyAssignment_IdAssignment_0 extends AssignmentToken  {
 	
 	public PropertyAssignment_IdAssignment_0(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -884,14 +884,9 @@ protected class PropertyAssignment_IdAssignment_0 extends AssignmentToken  {
 	public IEObjectConsumer tryConsume() {
 		if((value = eObjectConsumer.getConsumable("id",true)) == null) return null;
 		IEObjectConsumer obj = eObjectConsumer.cloneAndConsume("id");
-		if(valueSerializer.isValid(obj.getEObject(), grammarAccess.getPropertyAssignmentAccess().getIdIDTerminalRuleCall_0_0_0(), value, null)) {
-			type = AssignmentType.TERMINAL_RULE_CALL;
-			element = grammarAccess.getPropertyAssignmentAccess().getIdIDTerminalRuleCall_0_0_0();
-			return obj;
-		}
-		if(valueSerializer.isValid(obj.getEObject(), grammarAccess.getPropertyAssignmentAccess().getIdSTRINGTerminalRuleCall_0_0_1(), value, null)) {
-			type = AssignmentType.TERMINAL_RULE_CALL;
-			element = grammarAccess.getPropertyAssignmentAccess().getIdSTRINGTerminalRuleCall_0_0_1();
+		if(valueSerializer.isValid(obj.getEObject(), grammarAccess.getPropertyAssignmentAccess().getIdSchemeIdentifierParserRuleCall_0_0(), value, null)) {
+			type = AssignmentType.DATATYPE_RULE_CALL;
+			element = grammarAccess.getPropertyAssignmentAccess().getIdSchemeIdentifierParserRuleCall_0_0();
 			return obj;
 		}
 		return null;

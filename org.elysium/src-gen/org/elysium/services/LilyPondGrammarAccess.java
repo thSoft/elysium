@@ -148,31 +148,23 @@ public class LilyPondGrammarAccess extends AbstractGrammarElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "PropertyAssignment");
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Assignment cIdAssignment_0 = (Assignment)cGroup.eContents().get(0);
-		private final Alternatives cIdAlternatives_0_0 = (Alternatives)cIdAssignment_0.eContents().get(0);
-		private final RuleCall cIdIDTerminalRuleCall_0_0_0 = (RuleCall)cIdAlternatives_0_0.eContents().get(0);
-		private final RuleCall cIdSTRINGTerminalRuleCall_0_0_1 = (RuleCall)cIdAlternatives_0_0.eContents().get(1);
+		private final RuleCall cIdSchemeIdentifierParserRuleCall_0_0 = (RuleCall)cIdAssignment_0.eContents().get(0);
 		private final Keyword cEqualsSignKeyword_1 = (Keyword)cGroup.eContents().get(1);
 		private final Assignment cValueAssignment_2 = (Assignment)cGroup.eContents().get(2);
 		private final RuleCall cValueExpressionParserRuleCall_2_0 = (RuleCall)cValueAssignment_2.eContents().get(0);
 		
 		//PropertyAssignment:
-		//	id=(ID | STRING) "=" value=Expression;
+		//	id=SchemeIdentifier "=" value=Expression;
 		public ParserRule getRule() { return rule; }
 
-		//id=(ID | STRING) "=" value=Expression
+		//id=SchemeIdentifier "=" value=Expression
 		public Group getGroup() { return cGroup; }
 
-		//id=(ID | STRING)
+		//id=SchemeIdentifier
 		public Assignment getIdAssignment_0() { return cIdAssignment_0; }
 
-		//ID | STRING
-		public Alternatives getIdAlternatives_0_0() { return cIdAlternatives_0_0; }
-
-		//ID
-		public RuleCall getIdIDTerminalRuleCall_0_0_0() { return cIdIDTerminalRuleCall_0_0_0; }
-
-		//STRING
-		public RuleCall getIdSTRINGTerminalRuleCall_0_0_1() { return cIdSTRINGTerminalRuleCall_0_0_1; }
+		//SchemeIdentifier
+		public RuleCall getIdSchemeIdentifierParserRuleCall_0_0() { return cIdSchemeIdentifierParserRuleCall_0_0; }
 
 		//"="
 		public Keyword getEqualsSignKeyword_1() { return cEqualsSignKeyword_1; }
@@ -2070,7 +2062,7 @@ public class LilyPondGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//PropertyAssignment:
-	//	id=(ID | STRING) "=" value=Expression;
+	//	id=SchemeIdentifier "=" value=Expression;
 	public PropertyAssignmentElements getPropertyAssignmentAccess() {
 		return (pPropertyAssignment != null) ? pPropertyAssignment : (pPropertyAssignment = new PropertyAssignmentElements());
 	}

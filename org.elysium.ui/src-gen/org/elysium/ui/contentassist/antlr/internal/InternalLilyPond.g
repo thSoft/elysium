@@ -1698,28 +1698,6 @@ finally {
 	restoreStackSize(stackSize);
 }
 
-rule__PropertyAssignment__IdAlternatives_0_0
-    @init {
-		int stackSize = keepStackSize();
-    }
-:
-(
-{ before(grammarAccess.getPropertyAssignmentAccess().getIdIDTerminalRuleCall_0_0_0()); }
-	RULE_ID
-{ after(grammarAccess.getPropertyAssignmentAccess().getIdIDTerminalRuleCall_0_0_0()); }
-)
-
-    |(
-{ before(grammarAccess.getPropertyAssignmentAccess().getIdSTRINGTerminalRuleCall_0_0_1()); }
-	RULE_STRING
-{ after(grammarAccess.getPropertyAssignmentAccess().getIdSTRINGTerminalRuleCall_0_0_1()); }
-)
-
-;
-finally {
-	restoreStackSize(stackSize);
-}
-
 rule__Block__Alternatives
     @init {
 		int stackSize = keepStackSize();
@@ -6370,9 +6348,8 @@ rule__PropertyAssignment__IdAssignment_0
     }
 :
 (
-{ before(grammarAccess.getPropertyAssignmentAccess().getIdAlternatives_0_0()); }
-(rule__PropertyAssignment__IdAlternatives_0_0)
-{ after(grammarAccess.getPropertyAssignmentAccess().getIdAlternatives_0_0()); }
+{ before(grammarAccess.getPropertyAssignmentAccess().getIdSchemeIdentifierParserRuleCall_0_0()); }
+	ruleSchemeIdentifier{ after(grammarAccess.getPropertyAssignmentAccess().getIdSchemeIdentifierParserRuleCall_0_0()); }
 )
 
 ;

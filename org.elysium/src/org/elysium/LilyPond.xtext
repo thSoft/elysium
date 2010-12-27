@@ -13,7 +13,7 @@ CommonExpression: Command | Block | Scheme | Text | Number;
 
 Assignment: name=(ID | STRING) "=" value=Expression;
 
-PropertyAssignment: id=(ID | STRING) "=" value=Expression;
+PropertyAssignment: id=SchemeIdentifier "=" value=Expression;
 
 Block: SimpleBlock | SimultaneousBlock;
 
