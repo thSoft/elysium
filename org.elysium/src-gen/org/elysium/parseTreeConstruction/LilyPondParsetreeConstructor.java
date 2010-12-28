@@ -50,31 +50,33 @@ protected class ThisRootNode extends RootToken {
 			case 16: return new SpecialCommand_Alternatives(this, this, 16, inst);
 			case 17: return new Include_Group(this, this, 17, inst);
 			case 18: return new Version_Group(this, this, 18, inst);
-			case 19: return new Markup_Group(this, this, 19, inst);
-			case 20: return new MarkupLines_Group(this, this, 20, inst);
-			case 21: return new MarkupBody_Group(this, this, 21, inst);
-			case 22: return new BlockCommand_Group(this, this, 22, inst);
-			case 23: return new OutputDefinition_Group(this, this, 23, inst);
-			case 24: return new RelativeMusic_Group(this, this, 24, inst);
-			case 25: return new Pitch_Group(this, this, 25, inst);
-			case 26: return new Octave_Alternatives(this, this, 26, inst);
-			case 27: return new TransposedMusic_Group(this, this, 27, inst);
-			case 28: return new ModeChange_Group(this, this, 28, inst);
-			case 29: return new MusicWithLyrics_Group(this, this, 29, inst);
-			case 30: return new NewContext_Group(this, this, 30, inst);
-			case 31: return new ContextModification_Group(this, this, 31, inst);
-			case 32: return new ContextDef_Group(this, this, 32, inst);
-			case 33: return new Other_Group(this, this, 33, inst);
-			case 34: return new Scheme_Group(this, this, 34, inst);
-			case 35: return new SchemeExpression_Group(this, this, 35, inst);
-			case 36: return new SchemeValue_Alternatives(this, this, 36, inst);
-			case 37: return new SchemeBoolean_ValueAssignment(this, this, 37, inst);
-			case 38: return new SchemeList_Group(this, this, 38, inst);
-			case 39: return new SchemeBlock_Group(this, this, 39, inst);
-			case 40: return new SchemeCharacter_Group(this, this, 40, inst);
-			case 41: return new SchemeText_ValueAssignment(this, this, 41, inst);
-			case 42: return new SchemeNumber_Group(this, this, 42, inst);
-			case 43: return new SchemeMarkupCommand_Group(this, this, 43, inst);
+			case 19: return new SourceFileName_Group(this, this, 19, inst);
+			case 20: return new SourceFileLine_Group(this, this, 20, inst);
+			case 21: return new Markup_Group(this, this, 21, inst);
+			case 22: return new MarkupLines_Group(this, this, 22, inst);
+			case 23: return new MarkupBody_Group(this, this, 23, inst);
+			case 24: return new BlockCommand_Group(this, this, 24, inst);
+			case 25: return new OutputDefinition_Group(this, this, 25, inst);
+			case 26: return new RelativeMusic_Group(this, this, 26, inst);
+			case 27: return new Pitch_Group(this, this, 27, inst);
+			case 28: return new Octave_Alternatives(this, this, 28, inst);
+			case 29: return new TransposedMusic_Group(this, this, 29, inst);
+			case 30: return new ModeChange_Group(this, this, 30, inst);
+			case 31: return new MusicWithLyrics_Group(this, this, 31, inst);
+			case 32: return new NewContext_Group(this, this, 32, inst);
+			case 33: return new ContextModification_Group(this, this, 33, inst);
+			case 34: return new ContextDef_Group(this, this, 34, inst);
+			case 35: return new Other_Group(this, this, 35, inst);
+			case 36: return new Scheme_Group(this, this, 36, inst);
+			case 37: return new SchemeExpression_Group(this, this, 37, inst);
+			case 38: return new SchemeValue_Alternatives(this, this, 38, inst);
+			case 39: return new SchemeBoolean_ValueAssignment(this, this, 39, inst);
+			case 40: return new SchemeList_Group(this, this, 40, inst);
+			case 41: return new SchemeBlock_Group(this, this, 41, inst);
+			case 42: return new SchemeCharacter_Group(this, this, 42, inst);
+			case 43: return new SchemeText_ValueAssignment(this, this, 43, inst);
+			case 44: return new SchemeNumber_Group(this, this, 44, inst);
+			case 45: return new SchemeMarkupCommand_Group(this, this, 45, inst);
 			default: return null;
 		}	
 	}	
@@ -184,6 +186,8 @@ protected class ToplevelExpression_Alternatives extends AlternativesToken {
 		   getEObject().eClass() != grammarAccess.getSchemeRule().getType().getClassifier() && 
 		   getEObject().eClass() != grammarAccess.getSimpleBlockAccess().getSimpleBlockAction_0().getType().getClassifier() && 
 		   getEObject().eClass() != grammarAccess.getSimultaneousBlockAccess().getSimultaneousBlockAction_0().getType().getClassifier() && 
+		   getEObject().eClass() != grammarAccess.getSourceFileLineRule().getType().getClassifier() && 
+		   getEObject().eClass() != grammarAccess.getSourceFileNameRule().getType().getClassifier() && 
 		   getEObject().eClass() != grammarAccess.getTextRule().getType().getClassifier() && 
 		   getEObject().eClass() != grammarAccess.getTransposedMusicRule().getType().getClassifier() && 
 		   getEObject().eClass() != grammarAccess.getVersionRule().getType().getClassifier())
@@ -267,6 +271,8 @@ protected class ToplevelExpression_CommonExpressionParserRuleCall_1 extends Rule
 		   getEObject().eClass() != grammarAccess.getSchemeRule().getType().getClassifier() && 
 		   getEObject().eClass() != grammarAccess.getSimpleBlockAccess().getSimpleBlockAction_0().getType().getClassifier() && 
 		   getEObject().eClass() != grammarAccess.getSimultaneousBlockAccess().getSimultaneousBlockAction_0().getType().getClassifier() && 
+		   getEObject().eClass() != grammarAccess.getSourceFileLineRule().getType().getClassifier() && 
+		   getEObject().eClass() != grammarAccess.getSourceFileNameRule().getType().getClassifier() && 
 		   getEObject().eClass() != grammarAccess.getTextRule().getType().getClassifier() && 
 		   getEObject().eClass() != grammarAccess.getTransposedMusicRule().getType().getClassifier() && 
 		   getEObject().eClass() != grammarAccess.getVersionRule().getType().getClassifier())
@@ -334,6 +340,8 @@ protected class Expression_Alternatives extends AlternativesToken {
 		   getEObject().eClass() != grammarAccess.getSchemeRule().getType().getClassifier() && 
 		   getEObject().eClass() != grammarAccess.getSimpleBlockAccess().getSimpleBlockAction_0().getType().getClassifier() && 
 		   getEObject().eClass() != grammarAccess.getSimultaneousBlockAccess().getSimultaneousBlockAction_0().getType().getClassifier() && 
+		   getEObject().eClass() != grammarAccess.getSourceFileLineRule().getType().getClassifier() && 
+		   getEObject().eClass() != grammarAccess.getSourceFileNameRule().getType().getClassifier() && 
 		   getEObject().eClass() != grammarAccess.getTextRule().getType().getClassifier() && 
 		   getEObject().eClass() != grammarAccess.getTransposedMusicRule().getType().getClassifier() && 
 		   getEObject().eClass() != grammarAccess.getVersionRule().getType().getClassifier())
@@ -417,6 +425,8 @@ protected class Expression_CommonExpressionParserRuleCall_1 extends RuleCallToke
 		   getEObject().eClass() != grammarAccess.getSchemeRule().getType().getClassifier() && 
 		   getEObject().eClass() != grammarAccess.getSimpleBlockAccess().getSimpleBlockAction_0().getType().getClassifier() && 
 		   getEObject().eClass() != grammarAccess.getSimultaneousBlockAccess().getSimultaneousBlockAction_0().getType().getClassifier() && 
+		   getEObject().eClass() != grammarAccess.getSourceFileLineRule().getType().getClassifier() && 
+		   getEObject().eClass() != grammarAccess.getSourceFileNameRule().getType().getClassifier() && 
 		   getEObject().eClass() != grammarAccess.getTextRule().getType().getClassifier() && 
 		   getEObject().eClass() != grammarAccess.getTransposedMusicRule().getType().getClassifier() && 
 		   getEObject().eClass() != grammarAccess.getVersionRule().getType().getClassifier())
@@ -486,6 +496,8 @@ protected class CommonExpression_Alternatives extends AlternativesToken {
 		   getEObject().eClass() != grammarAccess.getSchemeRule().getType().getClassifier() && 
 		   getEObject().eClass() != grammarAccess.getSimpleBlockAccess().getSimpleBlockAction_0().getType().getClassifier() && 
 		   getEObject().eClass() != grammarAccess.getSimultaneousBlockAccess().getSimultaneousBlockAction_0().getType().getClassifier() && 
+		   getEObject().eClass() != grammarAccess.getSourceFileLineRule().getType().getClassifier() && 
+		   getEObject().eClass() != grammarAccess.getSourceFileNameRule().getType().getClassifier() && 
 		   getEObject().eClass() != grammarAccess.getTextRule().getType().getClassifier() && 
 		   getEObject().eClass() != grammarAccess.getTransposedMusicRule().getType().getClassifier() && 
 		   getEObject().eClass() != grammarAccess.getVersionRule().getType().getClassifier())
@@ -529,6 +541,8 @@ protected class CommonExpression_CommandParserRuleCall_0 extends RuleCallToken {
 		   getEObject().eClass() != grammarAccess.getOutputDefinitionRule().getType().getClassifier() && 
 		   getEObject().eClass() != grammarAccess.getReferenceRule().getType().getClassifier() && 
 		   getEObject().eClass() != grammarAccess.getRelativeMusicRule().getType().getClassifier() && 
+		   getEObject().eClass() != grammarAccess.getSourceFileLineRule().getType().getClassifier() && 
+		   getEObject().eClass() != grammarAccess.getSourceFileNameRule().getType().getClassifier() && 
 		   getEObject().eClass() != grammarAccess.getTransposedMusicRule().getType().getClassifier() && 
 		   getEObject().eClass() != grammarAccess.getVersionRule().getType().getClassifier())
 			return null;
@@ -1452,6 +1466,8 @@ protected class Command_Alternatives extends AlternativesToken {
 		   getEObject().eClass() != grammarAccess.getOutputDefinitionRule().getType().getClassifier() && 
 		   getEObject().eClass() != grammarAccess.getReferenceRule().getType().getClassifier() && 
 		   getEObject().eClass() != grammarAccess.getRelativeMusicRule().getType().getClassifier() && 
+		   getEObject().eClass() != grammarAccess.getSourceFileLineRule().getType().getClassifier() && 
+		   getEObject().eClass() != grammarAccess.getSourceFileNameRule().getType().getClassifier() && 
 		   getEObject().eClass() != grammarAccess.getTransposedMusicRule().getType().getClassifier() && 
 		   getEObject().eClass() != grammarAccess.getVersionRule().getType().getClassifier())
 			return null;
@@ -1493,6 +1509,8 @@ protected class Command_SpecialCommandParserRuleCall_0 extends RuleCallToken {
 		   getEObject().eClass() != grammarAccess.getOtherRule().getType().getClassifier() && 
 		   getEObject().eClass() != grammarAccess.getOutputDefinitionRule().getType().getClassifier() && 
 		   getEObject().eClass() != grammarAccess.getRelativeMusicRule().getType().getClassifier() && 
+		   getEObject().eClass() != grammarAccess.getSourceFileLineRule().getType().getClassifier() && 
+		   getEObject().eClass() != grammarAccess.getSourceFileNameRule().getType().getClassifier() && 
 		   getEObject().eClass() != grammarAccess.getTransposedMusicRule().getType().getClassifier() && 
 		   getEObject().eClass() != grammarAccess.getVersionRule().getType().getClassifier())
 			return null;
@@ -2290,13 +2308,13 @@ protected class Number_ValueAssignment extends AssignmentToken  {
  *
  * // Commands
  * SpecialCommand:
- * 	Include | Version | Markup | MarkupLines | BlockCommand | OutputDefinition | RelativeMusic | TransposedMusic |
- * 	ModeChange | MusicWithLyrics | NewContext | ContextDef | Other;
+ * 	Include | Version | SourceFileName | SourceFileLine | Markup | MarkupLines | BlockCommand | OutputDefinition |
+ * 	RelativeMusic | TransposedMusic | ModeChange | MusicWithLyrics | NewContext | ContextDef | Other;
  *
  **/
 
-// Include | Version | Markup | MarkupLines | BlockCommand | OutputDefinition | RelativeMusic | TransposedMusic |
-// ModeChange | MusicWithLyrics | NewContext | ContextDef | Other
+// Include | Version | SourceFileName | SourceFileLine | Markup | MarkupLines | BlockCommand | OutputDefinition |
+// RelativeMusic | TransposedMusic | ModeChange | MusicWithLyrics | NewContext | ContextDef | Other
 protected class SpecialCommand_Alternatives extends AlternativesToken {
 
 	public SpecialCommand_Alternatives(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -2313,17 +2331,19 @@ protected class SpecialCommand_Alternatives extends AlternativesToken {
 		switch(index) {
 			case 0: return new SpecialCommand_IncludeParserRuleCall_0(lastRuleCallOrigin, this, 0, inst);
 			case 1: return new SpecialCommand_VersionParserRuleCall_1(lastRuleCallOrigin, this, 1, inst);
-			case 2: return new SpecialCommand_MarkupParserRuleCall_2(lastRuleCallOrigin, this, 2, inst);
-			case 3: return new SpecialCommand_MarkupLinesParserRuleCall_3(lastRuleCallOrigin, this, 3, inst);
-			case 4: return new SpecialCommand_BlockCommandParserRuleCall_4(lastRuleCallOrigin, this, 4, inst);
-			case 5: return new SpecialCommand_OutputDefinitionParserRuleCall_5(lastRuleCallOrigin, this, 5, inst);
-			case 6: return new SpecialCommand_RelativeMusicParserRuleCall_6(lastRuleCallOrigin, this, 6, inst);
-			case 7: return new SpecialCommand_TransposedMusicParserRuleCall_7(lastRuleCallOrigin, this, 7, inst);
-			case 8: return new SpecialCommand_ModeChangeParserRuleCall_8(lastRuleCallOrigin, this, 8, inst);
-			case 9: return new SpecialCommand_MusicWithLyricsParserRuleCall_9(lastRuleCallOrigin, this, 9, inst);
-			case 10: return new SpecialCommand_NewContextParserRuleCall_10(lastRuleCallOrigin, this, 10, inst);
-			case 11: return new SpecialCommand_ContextDefParserRuleCall_11(lastRuleCallOrigin, this, 11, inst);
-			case 12: return new SpecialCommand_OtherParserRuleCall_12(lastRuleCallOrigin, this, 12, inst);
+			case 2: return new SpecialCommand_SourceFileNameParserRuleCall_2(lastRuleCallOrigin, this, 2, inst);
+			case 3: return new SpecialCommand_SourceFileLineParserRuleCall_3(lastRuleCallOrigin, this, 3, inst);
+			case 4: return new SpecialCommand_MarkupParserRuleCall_4(lastRuleCallOrigin, this, 4, inst);
+			case 5: return new SpecialCommand_MarkupLinesParserRuleCall_5(lastRuleCallOrigin, this, 5, inst);
+			case 6: return new SpecialCommand_BlockCommandParserRuleCall_6(lastRuleCallOrigin, this, 6, inst);
+			case 7: return new SpecialCommand_OutputDefinitionParserRuleCall_7(lastRuleCallOrigin, this, 7, inst);
+			case 8: return new SpecialCommand_RelativeMusicParserRuleCall_8(lastRuleCallOrigin, this, 8, inst);
+			case 9: return new SpecialCommand_TransposedMusicParserRuleCall_9(lastRuleCallOrigin, this, 9, inst);
+			case 10: return new SpecialCommand_ModeChangeParserRuleCall_10(lastRuleCallOrigin, this, 10, inst);
+			case 11: return new SpecialCommand_MusicWithLyricsParserRuleCall_11(lastRuleCallOrigin, this, 11, inst);
+			case 12: return new SpecialCommand_NewContextParserRuleCall_12(lastRuleCallOrigin, this, 12, inst);
+			case 13: return new SpecialCommand_ContextDefParserRuleCall_13(lastRuleCallOrigin, this, 13, inst);
+			case 14: return new SpecialCommand_OtherParserRuleCall_14(lastRuleCallOrigin, this, 14, inst);
 			default: return null;
 		}	
 	}
@@ -2341,6 +2361,8 @@ protected class SpecialCommand_Alternatives extends AlternativesToken {
 		   getEObject().eClass() != grammarAccess.getOtherRule().getType().getClassifier() && 
 		   getEObject().eClass() != grammarAccess.getOutputDefinitionRule().getType().getClassifier() && 
 		   getEObject().eClass() != grammarAccess.getRelativeMusicRule().getType().getClassifier() && 
+		   getEObject().eClass() != grammarAccess.getSourceFileLineRule().getType().getClassifier() && 
+		   getEObject().eClass() != grammarAccess.getSourceFileNameRule().getType().getClassifier() && 
 		   getEObject().eClass() != grammarAccess.getTransposedMusicRule().getType().getClassifier() && 
 		   getEObject().eClass() != grammarAccess.getVersionRule().getType().getClassifier())
 			return null;
@@ -2421,16 +2443,88 @@ protected class SpecialCommand_VersionParserRuleCall_1 extends RuleCallToken {
 	}	
 }
 
-// Markup
-protected class SpecialCommand_MarkupParserRuleCall_2 extends RuleCallToken {
+// SourceFileName
+protected class SpecialCommand_SourceFileNameParserRuleCall_2 extends RuleCallToken {
 	
-	public SpecialCommand_MarkupParserRuleCall_2(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
+	public SpecialCommand_SourceFileNameParserRuleCall_2(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
 		super(lastRuleCallOrigin, next, transitionIndex, eObjectConsumer);
 	}
 	
 	@Override
 	public RuleCall getGrammarElement() {
-		return grammarAccess.getSpecialCommandAccess().getMarkupParserRuleCall_2();
+		return grammarAccess.getSpecialCommandAccess().getSourceFileNameParserRuleCall_2();
+	}
+
+    @Override
+	public AbstractToken createFollower(int index, IEObjectConsumer inst) {
+		switch(index) {
+			case 0: return new SourceFileName_Group(this, this, 0, inst);
+			default: return null;
+		}	
+	}
+
+    @Override
+	public IEObjectConsumer tryConsume() {
+		if(getEObject().eClass() != grammarAccess.getSourceFileNameRule().getType().getClassifier())
+			return null;
+		if(checkForRecursion(SourceFileName_Group.class, eObjectConsumer)) return null;
+		return eObjectConsumer;
+	}
+	
+    @Override
+	public AbstractToken createFollowerAfterReturn(AbstractToken next,	int actIndex, int index, IEObjectConsumer inst) {
+		switch(index) {
+			default: return lastRuleCallOrigin.createFollowerAfterReturn(next, actIndex , index, inst);
+		}	
+	}	
+}
+
+// SourceFileLine
+protected class SpecialCommand_SourceFileLineParserRuleCall_3 extends RuleCallToken {
+	
+	public SpecialCommand_SourceFileLineParserRuleCall_3(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
+		super(lastRuleCallOrigin, next, transitionIndex, eObjectConsumer);
+	}
+	
+	@Override
+	public RuleCall getGrammarElement() {
+		return grammarAccess.getSpecialCommandAccess().getSourceFileLineParserRuleCall_3();
+	}
+
+    @Override
+	public AbstractToken createFollower(int index, IEObjectConsumer inst) {
+		switch(index) {
+			case 0: return new SourceFileLine_Group(this, this, 0, inst);
+			default: return null;
+		}	
+	}
+
+    @Override
+	public IEObjectConsumer tryConsume() {
+		if(getEObject().eClass() != grammarAccess.getSourceFileLineRule().getType().getClassifier())
+			return null;
+		if(checkForRecursion(SourceFileLine_Group.class, eObjectConsumer)) return null;
+		return eObjectConsumer;
+	}
+	
+    @Override
+	public AbstractToken createFollowerAfterReturn(AbstractToken next,	int actIndex, int index, IEObjectConsumer inst) {
+		switch(index) {
+			default: return lastRuleCallOrigin.createFollowerAfterReturn(next, actIndex , index, inst);
+		}	
+	}	
+}
+
+// Markup
+protected class SpecialCommand_MarkupParserRuleCall_4 extends RuleCallToken {
+	
+	public SpecialCommand_MarkupParserRuleCall_4(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
+		super(lastRuleCallOrigin, next, transitionIndex, eObjectConsumer);
+	}
+	
+	@Override
+	public RuleCall getGrammarElement() {
+		return grammarAccess.getSpecialCommandAccess().getMarkupParserRuleCall_4();
 	}
 
     @Override
@@ -2458,15 +2552,15 @@ protected class SpecialCommand_MarkupParserRuleCall_2 extends RuleCallToken {
 }
 
 // MarkupLines
-protected class SpecialCommand_MarkupLinesParserRuleCall_3 extends RuleCallToken {
+protected class SpecialCommand_MarkupLinesParserRuleCall_5 extends RuleCallToken {
 	
-	public SpecialCommand_MarkupLinesParserRuleCall_3(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
+	public SpecialCommand_MarkupLinesParserRuleCall_5(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
 		super(lastRuleCallOrigin, next, transitionIndex, eObjectConsumer);
 	}
 	
 	@Override
 	public RuleCall getGrammarElement() {
-		return grammarAccess.getSpecialCommandAccess().getMarkupLinesParserRuleCall_3();
+		return grammarAccess.getSpecialCommandAccess().getMarkupLinesParserRuleCall_5();
 	}
 
     @Override
@@ -2494,15 +2588,15 @@ protected class SpecialCommand_MarkupLinesParserRuleCall_3 extends RuleCallToken
 }
 
 // BlockCommand
-protected class SpecialCommand_BlockCommandParserRuleCall_4 extends RuleCallToken {
+protected class SpecialCommand_BlockCommandParserRuleCall_6 extends RuleCallToken {
 	
-	public SpecialCommand_BlockCommandParserRuleCall_4(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
+	public SpecialCommand_BlockCommandParserRuleCall_6(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
 		super(lastRuleCallOrigin, next, transitionIndex, eObjectConsumer);
 	}
 	
 	@Override
 	public RuleCall getGrammarElement() {
-		return grammarAccess.getSpecialCommandAccess().getBlockCommandParserRuleCall_4();
+		return grammarAccess.getSpecialCommandAccess().getBlockCommandParserRuleCall_6();
 	}
 
     @Override
@@ -2530,15 +2624,15 @@ protected class SpecialCommand_BlockCommandParserRuleCall_4 extends RuleCallToke
 }
 
 // OutputDefinition
-protected class SpecialCommand_OutputDefinitionParserRuleCall_5 extends RuleCallToken {
+protected class SpecialCommand_OutputDefinitionParserRuleCall_7 extends RuleCallToken {
 	
-	public SpecialCommand_OutputDefinitionParserRuleCall_5(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
+	public SpecialCommand_OutputDefinitionParserRuleCall_7(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
 		super(lastRuleCallOrigin, next, transitionIndex, eObjectConsumer);
 	}
 	
 	@Override
 	public RuleCall getGrammarElement() {
-		return grammarAccess.getSpecialCommandAccess().getOutputDefinitionParserRuleCall_5();
+		return grammarAccess.getSpecialCommandAccess().getOutputDefinitionParserRuleCall_7();
 	}
 
     @Override
@@ -2566,15 +2660,15 @@ protected class SpecialCommand_OutputDefinitionParserRuleCall_5 extends RuleCall
 }
 
 // RelativeMusic
-protected class SpecialCommand_RelativeMusicParserRuleCall_6 extends RuleCallToken {
+protected class SpecialCommand_RelativeMusicParserRuleCall_8 extends RuleCallToken {
 	
-	public SpecialCommand_RelativeMusicParserRuleCall_6(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
+	public SpecialCommand_RelativeMusicParserRuleCall_8(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
 		super(lastRuleCallOrigin, next, transitionIndex, eObjectConsumer);
 	}
 	
 	@Override
 	public RuleCall getGrammarElement() {
-		return grammarAccess.getSpecialCommandAccess().getRelativeMusicParserRuleCall_6();
+		return grammarAccess.getSpecialCommandAccess().getRelativeMusicParserRuleCall_8();
 	}
 
     @Override
@@ -2602,15 +2696,15 @@ protected class SpecialCommand_RelativeMusicParserRuleCall_6 extends RuleCallTok
 }
 
 // TransposedMusic
-protected class SpecialCommand_TransposedMusicParserRuleCall_7 extends RuleCallToken {
+protected class SpecialCommand_TransposedMusicParserRuleCall_9 extends RuleCallToken {
 	
-	public SpecialCommand_TransposedMusicParserRuleCall_7(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
+	public SpecialCommand_TransposedMusicParserRuleCall_9(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
 		super(lastRuleCallOrigin, next, transitionIndex, eObjectConsumer);
 	}
 	
 	@Override
 	public RuleCall getGrammarElement() {
-		return grammarAccess.getSpecialCommandAccess().getTransposedMusicParserRuleCall_7();
+		return grammarAccess.getSpecialCommandAccess().getTransposedMusicParserRuleCall_9();
 	}
 
     @Override
@@ -2638,15 +2732,15 @@ protected class SpecialCommand_TransposedMusicParserRuleCall_7 extends RuleCallT
 }
 
 // ModeChange
-protected class SpecialCommand_ModeChangeParserRuleCall_8 extends RuleCallToken {
+protected class SpecialCommand_ModeChangeParserRuleCall_10 extends RuleCallToken {
 	
-	public SpecialCommand_ModeChangeParserRuleCall_8(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
+	public SpecialCommand_ModeChangeParserRuleCall_10(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
 		super(lastRuleCallOrigin, next, transitionIndex, eObjectConsumer);
 	}
 	
 	@Override
 	public RuleCall getGrammarElement() {
-		return grammarAccess.getSpecialCommandAccess().getModeChangeParserRuleCall_8();
+		return grammarAccess.getSpecialCommandAccess().getModeChangeParserRuleCall_10();
 	}
 
     @Override
@@ -2674,15 +2768,15 @@ protected class SpecialCommand_ModeChangeParserRuleCall_8 extends RuleCallToken 
 }
 
 // MusicWithLyrics
-protected class SpecialCommand_MusicWithLyricsParserRuleCall_9 extends RuleCallToken {
+protected class SpecialCommand_MusicWithLyricsParserRuleCall_11 extends RuleCallToken {
 	
-	public SpecialCommand_MusicWithLyricsParserRuleCall_9(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
+	public SpecialCommand_MusicWithLyricsParserRuleCall_11(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
 		super(lastRuleCallOrigin, next, transitionIndex, eObjectConsumer);
 	}
 	
 	@Override
 	public RuleCall getGrammarElement() {
-		return grammarAccess.getSpecialCommandAccess().getMusicWithLyricsParserRuleCall_9();
+		return grammarAccess.getSpecialCommandAccess().getMusicWithLyricsParserRuleCall_11();
 	}
 
     @Override
@@ -2710,15 +2804,15 @@ protected class SpecialCommand_MusicWithLyricsParserRuleCall_9 extends RuleCallT
 }
 
 // NewContext
-protected class SpecialCommand_NewContextParserRuleCall_10 extends RuleCallToken {
+protected class SpecialCommand_NewContextParserRuleCall_12 extends RuleCallToken {
 	
-	public SpecialCommand_NewContextParserRuleCall_10(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
+	public SpecialCommand_NewContextParserRuleCall_12(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
 		super(lastRuleCallOrigin, next, transitionIndex, eObjectConsumer);
 	}
 	
 	@Override
 	public RuleCall getGrammarElement() {
-		return grammarAccess.getSpecialCommandAccess().getNewContextParserRuleCall_10();
+		return grammarAccess.getSpecialCommandAccess().getNewContextParserRuleCall_12();
 	}
 
     @Override
@@ -2746,15 +2840,15 @@ protected class SpecialCommand_NewContextParserRuleCall_10 extends RuleCallToken
 }
 
 // ContextDef
-protected class SpecialCommand_ContextDefParserRuleCall_11 extends RuleCallToken {
+protected class SpecialCommand_ContextDefParserRuleCall_13 extends RuleCallToken {
 	
-	public SpecialCommand_ContextDefParserRuleCall_11(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
+	public SpecialCommand_ContextDefParserRuleCall_13(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
 		super(lastRuleCallOrigin, next, transitionIndex, eObjectConsumer);
 	}
 	
 	@Override
 	public RuleCall getGrammarElement() {
-		return grammarAccess.getSpecialCommandAccess().getContextDefParserRuleCall_11();
+		return grammarAccess.getSpecialCommandAccess().getContextDefParserRuleCall_13();
 	}
 
     @Override
@@ -2782,15 +2876,15 @@ protected class SpecialCommand_ContextDefParserRuleCall_11 extends RuleCallToken
 }
 
 // Other
-protected class SpecialCommand_OtherParserRuleCall_12 extends RuleCallToken {
+protected class SpecialCommand_OtherParserRuleCall_14 extends RuleCallToken {
 	
-	public SpecialCommand_OtherParserRuleCall_12(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
+	public SpecialCommand_OtherParserRuleCall_14(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
 		super(lastRuleCallOrigin, next, transitionIndex, eObjectConsumer);
 	}
 	
 	@Override
 	public RuleCall getGrammarElement() {
-		return grammarAccess.getSpecialCommandAccess().getOtherParserRuleCall_12();
+		return grammarAccess.getSpecialCommandAccess().getOtherParserRuleCall_14();
 	}
 
     @Override
@@ -3077,6 +3171,264 @@ protected class Version_VersionAssignment_2 extends AssignmentToken  {
 
 
 /************ end Rule Version ****************/
+
+
+/************ begin Rule SourceFileName ****************
+ *
+ * SourceFileName:
+ * 	"\\" keyword="sourcefilename" filename=STRING;
+ *
+ **/
+
+// "\\" keyword="sourcefilename" filename=STRING
+protected class SourceFileName_Group extends GroupToken {
+	
+	public SourceFileName_Group(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
+		super(lastRuleCallOrigin, next, transitionIndex, eObjectConsumer);
+	}
+	
+	@Override
+	public Group getGrammarElement() {
+		return grammarAccess.getSourceFileNameAccess().getGroup();
+	}
+
+    @Override
+	public AbstractToken createFollower(int index, IEObjectConsumer inst) {
+		switch(index) {
+			case 0: return new SourceFileName_FilenameAssignment_2(lastRuleCallOrigin, this, 0, inst);
+			default: return null;
+		}	
+	}
+
+    @Override
+	public IEObjectConsumer tryConsume() {
+		if(getEObject().eClass() != grammarAccess.getSourceFileNameRule().getType().getClassifier())
+			return null;
+		return eObjectConsumer;
+	}
+
+}
+
+// "\\"
+protected class SourceFileName_ReverseSolidusKeyword_0 extends KeywordToken  {
+	
+	public SourceFileName_ReverseSolidusKeyword_0(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
+		super(lastRuleCallOrigin, next, transitionIndex, eObjectConsumer);
+	}
+	
+	@Override
+	public Keyword getGrammarElement() {
+		return grammarAccess.getSourceFileNameAccess().getReverseSolidusKeyword_0();
+	}
+
+    @Override
+	public AbstractToken createFollower(int index, IEObjectConsumer inst) {
+		switch(index) {
+			default: return lastRuleCallOrigin.createFollowerAfterReturn(this, index, index, inst);
+		}	
+	}
+
+}
+
+// keyword="sourcefilename"
+protected class SourceFileName_KeywordAssignment_1 extends AssignmentToken  {
+	
+	public SourceFileName_KeywordAssignment_1(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
+		super(lastRuleCallOrigin, next, transitionIndex, eObjectConsumer);
+	}
+	
+	@Override
+	public Assignment getGrammarElement() {
+		return grammarAccess.getSourceFileNameAccess().getKeywordAssignment_1();
+	}
+
+    @Override
+	public AbstractToken createFollower(int index, IEObjectConsumer inst) {
+		switch(index) {
+			case 0: return new SourceFileName_ReverseSolidusKeyword_0(lastRuleCallOrigin, this, 0, inst);
+			default: return null;
+		}	
+	}
+
+    @Override	
+	public IEObjectConsumer tryConsume() {
+		if((value = eObjectConsumer.getConsumable("keyword",true)) == null) return null;
+		IEObjectConsumer obj = eObjectConsumer.cloneAndConsume("keyword");
+		if(keywordSerializer.isValid(obj.getEObject(), grammarAccess.getSourceFileNameAccess().getKeywordSourcefilenameKeyword_1_0(), value, null)) {
+			type = AssignmentType.KEYWORD;
+			element = grammarAccess.getSourceFileNameAccess().getKeywordSourcefilenameKeyword_1_0();
+			return obj;
+		}
+		return null;
+	}
+
+}
+
+// filename=STRING
+protected class SourceFileName_FilenameAssignment_2 extends AssignmentToken  {
+	
+	public SourceFileName_FilenameAssignment_2(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
+		super(lastRuleCallOrigin, next, transitionIndex, eObjectConsumer);
+	}
+	
+	@Override
+	public Assignment getGrammarElement() {
+		return grammarAccess.getSourceFileNameAccess().getFilenameAssignment_2();
+	}
+
+    @Override
+	public AbstractToken createFollower(int index, IEObjectConsumer inst) {
+		switch(index) {
+			case 0: return new SourceFileName_KeywordAssignment_1(lastRuleCallOrigin, this, 0, inst);
+			default: return null;
+		}	
+	}
+
+    @Override	
+	public IEObjectConsumer tryConsume() {
+		if((value = eObjectConsumer.getConsumable("filename",true)) == null) return null;
+		IEObjectConsumer obj = eObjectConsumer.cloneAndConsume("filename");
+		if(valueSerializer.isValid(obj.getEObject(), grammarAccess.getSourceFileNameAccess().getFilenameSTRINGTerminalRuleCall_2_0(), value, null)) {
+			type = AssignmentType.TERMINAL_RULE_CALL;
+			element = grammarAccess.getSourceFileNameAccess().getFilenameSTRINGTerminalRuleCall_2_0();
+			return obj;
+		}
+		return null;
+	}
+
+}
+
+
+/************ end Rule SourceFileName ****************/
+
+
+/************ begin Rule SourceFileLine ****************
+ *
+ * SourceFileLine:
+ * 	"\\" keyword="sourcefileline" line=INT;
+ *
+ **/
+
+// "\\" keyword="sourcefileline" line=INT
+protected class SourceFileLine_Group extends GroupToken {
+	
+	public SourceFileLine_Group(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
+		super(lastRuleCallOrigin, next, transitionIndex, eObjectConsumer);
+	}
+	
+	@Override
+	public Group getGrammarElement() {
+		return grammarAccess.getSourceFileLineAccess().getGroup();
+	}
+
+    @Override
+	public AbstractToken createFollower(int index, IEObjectConsumer inst) {
+		switch(index) {
+			case 0: return new SourceFileLine_LineAssignment_2(lastRuleCallOrigin, this, 0, inst);
+			default: return null;
+		}	
+	}
+
+    @Override
+	public IEObjectConsumer tryConsume() {
+		if(getEObject().eClass() != grammarAccess.getSourceFileLineRule().getType().getClassifier())
+			return null;
+		return eObjectConsumer;
+	}
+
+}
+
+// "\\"
+protected class SourceFileLine_ReverseSolidusKeyword_0 extends KeywordToken  {
+	
+	public SourceFileLine_ReverseSolidusKeyword_0(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
+		super(lastRuleCallOrigin, next, transitionIndex, eObjectConsumer);
+	}
+	
+	@Override
+	public Keyword getGrammarElement() {
+		return grammarAccess.getSourceFileLineAccess().getReverseSolidusKeyword_0();
+	}
+
+    @Override
+	public AbstractToken createFollower(int index, IEObjectConsumer inst) {
+		switch(index) {
+			default: return lastRuleCallOrigin.createFollowerAfterReturn(this, index, index, inst);
+		}	
+	}
+
+}
+
+// keyword="sourcefileline"
+protected class SourceFileLine_KeywordAssignment_1 extends AssignmentToken  {
+	
+	public SourceFileLine_KeywordAssignment_1(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
+		super(lastRuleCallOrigin, next, transitionIndex, eObjectConsumer);
+	}
+	
+	@Override
+	public Assignment getGrammarElement() {
+		return grammarAccess.getSourceFileLineAccess().getKeywordAssignment_1();
+	}
+
+    @Override
+	public AbstractToken createFollower(int index, IEObjectConsumer inst) {
+		switch(index) {
+			case 0: return new SourceFileLine_ReverseSolidusKeyword_0(lastRuleCallOrigin, this, 0, inst);
+			default: return null;
+		}	
+	}
+
+    @Override	
+	public IEObjectConsumer tryConsume() {
+		if((value = eObjectConsumer.getConsumable("keyword",true)) == null) return null;
+		IEObjectConsumer obj = eObjectConsumer.cloneAndConsume("keyword");
+		if(keywordSerializer.isValid(obj.getEObject(), grammarAccess.getSourceFileLineAccess().getKeywordSourcefilelineKeyword_1_0(), value, null)) {
+			type = AssignmentType.KEYWORD;
+			element = grammarAccess.getSourceFileLineAccess().getKeywordSourcefilelineKeyword_1_0();
+			return obj;
+		}
+		return null;
+	}
+
+}
+
+// line=INT
+protected class SourceFileLine_LineAssignment_2 extends AssignmentToken  {
+	
+	public SourceFileLine_LineAssignment_2(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
+		super(lastRuleCallOrigin, next, transitionIndex, eObjectConsumer);
+	}
+	
+	@Override
+	public Assignment getGrammarElement() {
+		return grammarAccess.getSourceFileLineAccess().getLineAssignment_2();
+	}
+
+    @Override
+	public AbstractToken createFollower(int index, IEObjectConsumer inst) {
+		switch(index) {
+			case 0: return new SourceFileLine_KeywordAssignment_1(lastRuleCallOrigin, this, 0, inst);
+			default: return null;
+		}	
+	}
+
+    @Override	
+	public IEObjectConsumer tryConsume() {
+		if((value = eObjectConsumer.getConsumable("line",true)) == null) return null;
+		IEObjectConsumer obj = eObjectConsumer.cloneAndConsume("line");
+		if(valueSerializer.isValid(obj.getEObject(), grammarAccess.getSourceFileLineAccess().getLineINTTerminalRuleCall_2_0(), value, null)) {
+			type = AssignmentType.TERMINAL_RULE_CALL;
+			element = grammarAccess.getSourceFileLineAccess().getLineINTTerminalRuleCall_2_0();
+			return obj;
+		}
+		return null;
+	}
+
+}
+
+
+/************ end Rule SourceFileLine ****************/
 
 
 /************ begin Rule Markup ****************

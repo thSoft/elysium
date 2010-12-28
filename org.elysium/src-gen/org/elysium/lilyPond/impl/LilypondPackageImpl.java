@@ -49,6 +49,8 @@ import org.elysium.lilypond.SchemeText;
 import org.elysium.lilypond.SchemeValue;
 import org.elysium.lilypond.SimpleBlock;
 import org.elysium.lilypond.SimultaneousBlock;
+import org.elysium.lilypond.SourceFileLine;
+import org.elysium.lilypond.SourceFileName;
 import org.elysium.lilypond.SpecialCommand;
 import org.elysium.lilypond.Text;
 import org.elysium.lilypond.ToplevelExpression;
@@ -198,6 +200,20 @@ public class LilypondPackageImpl extends EPackageImpl implements LilypondPackage
    * @generated
    */
   private EClass versionEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass sourceFileNameEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass sourceFileLineEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -765,6 +781,46 @@ public class LilypondPackageImpl extends EPackageImpl implements LilypondPackage
   public EAttribute getVersion_Version()
   {
     return (EAttribute)versionEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getSourceFileName()
+  {
+    return sourceFileNameEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getSourceFileName_Filename()
+  {
+    return (EAttribute)sourceFileNameEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EClass getSourceFileLine()
+  {
+    return sourceFileLineEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getSourceFileLine_Line()
+  {
+    return (EAttribute)sourceFileLineEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -1499,6 +1555,12 @@ public class LilypondPackageImpl extends EPackageImpl implements LilypondPackage
     versionEClass = createEClass(VERSION);
     createEAttribute(versionEClass, VERSION__VERSION);
 
+    sourceFileNameEClass = createEClass(SOURCE_FILE_NAME);
+    createEAttribute(sourceFileNameEClass, SOURCE_FILE_NAME__FILENAME);
+
+    sourceFileLineEClass = createEClass(SOURCE_FILE_LINE);
+    createEAttribute(sourceFileLineEClass, SOURCE_FILE_LINE__LINE);
+
     markupEClass = createEClass(MARKUP);
     createEReference(markupEClass, MARKUP__BODY);
 
@@ -1638,6 +1700,8 @@ public class LilypondPackageImpl extends EPackageImpl implements LilypondPackage
     specialCommandEClass.getESuperTypes().add(this.getCommand());
     includeEClass.getESuperTypes().add(this.getSpecialCommand());
     versionEClass.getESuperTypes().add(this.getSpecialCommand());
+    sourceFileNameEClass.getESuperTypes().add(this.getSpecialCommand());
+    sourceFileLineEClass.getESuperTypes().add(this.getSpecialCommand());
     markupEClass.getESuperTypes().add(this.getSpecialCommand());
     markupLinesEClass.getESuperTypes().add(this.getSpecialCommand());
     blockCommandEClass.getESuperTypes().add(this.getSpecialCommand());
@@ -1711,6 +1775,12 @@ public class LilypondPackageImpl extends EPackageImpl implements LilypondPackage
 
     initEClass(versionEClass, Version.class, "Version", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getVersion_Version(), ecorePackage.getEString(), "version", null, 0, 1, Version.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(sourceFileNameEClass, SourceFileName.class, "SourceFileName", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getSourceFileName_Filename(), ecorePackage.getEString(), "filename", null, 0, 1, SourceFileName.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(sourceFileLineEClass, SourceFileLine.class, "SourceFileLine", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getSourceFileLine_Line(), ecorePackage.getEInt(), "line", null, 0, 1, SourceFileLine.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(markupEClass, Markup.class, "Markup", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getMarkup_Body(), this.getMarkupBody(), null, "body", null, 0, 1, Markup.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

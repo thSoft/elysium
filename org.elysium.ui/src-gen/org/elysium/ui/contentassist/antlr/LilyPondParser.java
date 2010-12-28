@@ -74,6 +74,8 @@ public class LilyPondParser extends AbstractContentAssistParser {
 					put(grammarAccess.getReferenceAccess().getGroup(), "rule__Reference__Group__0");
 					put(grammarAccess.getIncludeAccess().getGroup(), "rule__Include__Group__0");
 					put(grammarAccess.getVersionAccess().getGroup(), "rule__Version__Group__0");
+					put(grammarAccess.getSourceFileNameAccess().getGroup(), "rule__SourceFileName__Group__0");
+					put(grammarAccess.getSourceFileLineAccess().getGroup(), "rule__SourceFileLine__Group__0");
 					put(grammarAccess.getMarkupAccess().getGroup(), "rule__Markup__Group__0");
 					put(grammarAccess.getMarkupLinesAccess().getGroup(), "rule__MarkupLines__Group__0");
 					put(grammarAccess.getMarkupBodyAccess().getGroup(), "rule__MarkupBody__Group__0");
@@ -118,6 +120,10 @@ public class LilyPondParser extends AbstractContentAssistParser {
 					put(grammarAccess.getIncludeAccess().getImportURIAssignment_2(), "rule__Include__ImportURIAssignment_2");
 					put(grammarAccess.getVersionAccess().getKeywordAssignment_1(), "rule__Version__KeywordAssignment_1");
 					put(grammarAccess.getVersionAccess().getVersionAssignment_2(), "rule__Version__VersionAssignment_2");
+					put(grammarAccess.getSourceFileNameAccess().getKeywordAssignment_1(), "rule__SourceFileName__KeywordAssignment_1");
+					put(grammarAccess.getSourceFileNameAccess().getFilenameAssignment_2(), "rule__SourceFileName__FilenameAssignment_2");
+					put(grammarAccess.getSourceFileLineAccess().getKeywordAssignment_1(), "rule__SourceFileLine__KeywordAssignment_1");
+					put(grammarAccess.getSourceFileLineAccess().getLineAssignment_2(), "rule__SourceFileLine__LineAssignment_2");
 					put(grammarAccess.getMarkupAccess().getKeywordAssignment_1(), "rule__Markup__KeywordAssignment_1");
 					put(grammarAccess.getMarkupAccess().getBodyAssignment_2(), "rule__Markup__BodyAssignment_2");
 					put(grammarAccess.getMarkupLinesAccess().getKeywordAssignment_1(), "rule__MarkupLines__KeywordAssignment_1");

@@ -46,6 +46,8 @@ import org.elysium.lilypond.SchemeText;
 import org.elysium.lilypond.SchemeValue;
 import org.elysium.lilypond.SimpleBlock;
 import org.elysium.lilypond.SimultaneousBlock;
+import org.elysium.lilypond.SourceFileLine;
+import org.elysium.lilypond.SourceFileName;
 import org.elysium.lilypond.SpecialCommand;
 import org.elysium.lilypond.Text;
 import org.elysium.lilypond.ToplevelExpression;
@@ -315,6 +317,30 @@ public class LilypondSwitch<T>
         if (result == null) result = caseCommonExpression(version);
         if (result == null) result = caseToplevelExpression(version);
         if (result == null) result = caseExpression(version);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case LilypondPackage.SOURCE_FILE_NAME:
+      {
+        SourceFileName sourceFileName = (SourceFileName)theEObject;
+        T result = caseSourceFileName(sourceFileName);
+        if (result == null) result = caseSpecialCommand(sourceFileName);
+        if (result == null) result = caseCommand(sourceFileName);
+        if (result == null) result = caseCommonExpression(sourceFileName);
+        if (result == null) result = caseToplevelExpression(sourceFileName);
+        if (result == null) result = caseExpression(sourceFileName);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case LilypondPackage.SOURCE_FILE_LINE:
+      {
+        SourceFileLine sourceFileLine = (SourceFileLine)theEObject;
+        T result = caseSourceFileLine(sourceFileLine);
+        if (result == null) result = caseSpecialCommand(sourceFileLine);
+        if (result == null) result = caseCommand(sourceFileLine);
+        if (result == null) result = caseCommonExpression(sourceFileLine);
+        if (result == null) result = caseToplevelExpression(sourceFileLine);
+        if (result == null) result = caseExpression(sourceFileLine);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -863,6 +889,38 @@ public class LilypondSwitch<T>
    * @generated
    */
   public T caseVersion(Version object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Source File Name</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Source File Name</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseSourceFileName(SourceFileName object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Source File Line</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Source File Line</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseSourceFileLine(SourceFileLine object)
   {
     return null;
   }

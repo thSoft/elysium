@@ -197,6 +197,24 @@ public interface LilypondFactory extends EFactory
   Version createVersion();
 
   /**
+   * Returns a new object of class '<em>Source File Name</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Source File Name</em>'.
+   * @generated
+   */
+  SourceFileName createSourceFileName();
+
+  /**
+   * Returns a new object of class '<em>Source File Line</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Source File Line</em>'.
+   * @generated
+   */
+  SourceFileLine createSourceFileLine();
+
+  /**
    * Returns a new object of class '<em>Markup</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->

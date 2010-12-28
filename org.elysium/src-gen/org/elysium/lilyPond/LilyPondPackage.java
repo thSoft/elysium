@@ -583,6 +583,80 @@ public interface LilypondPackage extends EPackage
   int VERSION_FEATURE_COUNT = SPECIAL_COMMAND_FEATURE_COUNT + 1;
 
   /**
+   * The meta object id for the '{@link org.elysium.lilypond.impl.SourceFileNameImpl <em>Source File Name</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.elysium.lilypond.impl.SourceFileNameImpl
+   * @see org.elysium.lilypond.impl.LilypondPackageImpl#getSourceFileName()
+   * @generated
+   */
+  int SOURCE_FILE_NAME = 19;
+
+  /**
+   * The feature id for the '<em><b>Keyword</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int SOURCE_FILE_NAME__KEYWORD = SPECIAL_COMMAND__KEYWORD;
+
+  /**
+   * The feature id for the '<em><b>Filename</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int SOURCE_FILE_NAME__FILENAME = SPECIAL_COMMAND_FEATURE_COUNT + 0;
+
+  /**
+   * The number of structural features of the '<em>Source File Name</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int SOURCE_FILE_NAME_FEATURE_COUNT = SPECIAL_COMMAND_FEATURE_COUNT + 1;
+
+  /**
+   * The meta object id for the '{@link org.elysium.lilypond.impl.SourceFileLineImpl <em>Source File Line</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.elysium.lilypond.impl.SourceFileLineImpl
+   * @see org.elysium.lilypond.impl.LilypondPackageImpl#getSourceFileLine()
+   * @generated
+   */
+  int SOURCE_FILE_LINE = 20;
+
+  /**
+   * The feature id for the '<em><b>Keyword</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int SOURCE_FILE_LINE__KEYWORD = SPECIAL_COMMAND__KEYWORD;
+
+  /**
+   * The feature id for the '<em><b>Line</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int SOURCE_FILE_LINE__LINE = SPECIAL_COMMAND_FEATURE_COUNT + 0;
+
+  /**
+   * The number of structural features of the '<em>Source File Line</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int SOURCE_FILE_LINE_FEATURE_COUNT = SPECIAL_COMMAND_FEATURE_COUNT + 1;
+
+  /**
    * The meta object id for the '{@link org.elysium.lilypond.impl.MarkupImpl <em>Markup</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -590,7 +664,7 @@ public interface LilypondPackage extends EPackage
    * @see org.elysium.lilypond.impl.LilypondPackageImpl#getMarkup()
    * @generated
    */
-  int MARKUP = 19;
+  int MARKUP = 21;
 
   /**
    * The feature id for the '<em><b>Keyword</b></em>' attribute.
@@ -627,7 +701,7 @@ public interface LilypondPackage extends EPackage
    * @see org.elysium.lilypond.impl.LilypondPackageImpl#getMarkupLines()
    * @generated
    */
-  int MARKUP_LINES = 20;
+  int MARKUP_LINES = 22;
 
   /**
    * The feature id for the '<em><b>Keyword</b></em>' attribute.
@@ -664,7 +738,7 @@ public interface LilypondPackage extends EPackage
    * @see org.elysium.lilypond.impl.LilypondPackageImpl#getMarkupBody()
    * @generated
    */
-  int MARKUP_BODY = 21;
+  int MARKUP_BODY = 23;
 
   /**
    * The feature id for the '<em><b>Command</b></em>' containment reference list.
@@ -701,7 +775,7 @@ public interface LilypondPackage extends EPackage
    * @see org.elysium.lilypond.impl.LilypondPackageImpl#getBlockCommand()
    * @generated
    */
-  int BLOCK_COMMAND = 22;
+  int BLOCK_COMMAND = 24;
 
   /**
    * The feature id for the '<em><b>Keyword</b></em>' attribute.
@@ -738,7 +812,7 @@ public interface LilypondPackage extends EPackage
    * @see org.elysium.lilypond.impl.LilypondPackageImpl#getOutputDefinition()
    * @generated
    */
-  int OUTPUT_DEFINITION = 23;
+  int OUTPUT_DEFINITION = 25;
 
   /**
    * The feature id for the '<em><b>Keyword</b></em>' attribute.
@@ -775,7 +849,7 @@ public interface LilypondPackage extends EPackage
    * @see org.elysium.lilypond.impl.LilypondPackageImpl#getRelativeMusic()
    * @generated
    */
-  int RELATIVE_MUSIC = 24;
+  int RELATIVE_MUSIC = 26;
 
   /**
    * The feature id for the '<em><b>Keyword</b></em>' attribute.
@@ -821,7 +895,7 @@ public interface LilypondPackage extends EPackage
    * @see org.elysium.lilypond.impl.LilypondPackageImpl#getPitch()
    * @generated
    */
-  int PITCH = 25;
+  int PITCH = 27;
 
   /**
    * The feature id for the '<em><b>Base</b></em>' attribute.
@@ -885,7 +959,7 @@ public interface LilypondPackage extends EPackage
    * @see org.elysium.lilypond.impl.LilypondPackageImpl#getOctave()
    * @generated
    */
-  int OCTAVE = 26;
+  int OCTAVE = 28;
 
   /**
    * The feature id for the '<em><b>Up</b></em>' attribute list.
@@ -922,7 +996,7 @@ public interface LilypondPackage extends EPackage
    * @see org.elysium.lilypond.impl.LilypondPackageImpl#getTransposedMusic()
    * @generated
    */
-  int TRANSPOSED_MUSIC = 27;
+  int TRANSPOSED_MUSIC = 29;
 
   /**
    * The feature id for the '<em><b>Keyword</b></em>' attribute.
@@ -977,7 +1051,7 @@ public interface LilypondPackage extends EPackage
    * @see org.elysium.lilypond.impl.LilypondPackageImpl#getModeChange()
    * @generated
    */
-  int MODE_CHANGE = 28;
+  int MODE_CHANGE = 30;
 
   /**
    * The feature id for the '<em><b>Keyword</b></em>' attribute.
@@ -1014,7 +1088,7 @@ public interface LilypondPackage extends EPackage
    * @see org.elysium.lilypond.impl.LilypondPackageImpl#getMusicWithLyrics()
    * @generated
    */
-  int MUSIC_WITH_LYRICS = 29;
+  int MUSIC_WITH_LYRICS = 31;
 
   /**
    * The feature id for the '<em><b>Keyword</b></em>' attribute.
@@ -1060,7 +1134,7 @@ public interface LilypondPackage extends EPackage
    * @see org.elysium.lilypond.impl.LilypondPackageImpl#getNewContext()
    * @generated
    */
-  int NEW_CONTEXT = 30;
+  int NEW_CONTEXT = 32;
 
   /**
    * The feature id for the '<em><b>Keyword</b></em>' attribute.
@@ -1124,7 +1198,7 @@ public interface LilypondPackage extends EPackage
    * @see org.elysium.lilypond.impl.LilypondPackageImpl#getContextModification()
    * @generated
    */
-  int CONTEXT_MODIFICATION = 31;
+  int CONTEXT_MODIFICATION = 33;
 
   /**
    * The feature id for the '<em><b>Block</b></em>' containment reference.
@@ -1152,7 +1226,7 @@ public interface LilypondPackage extends EPackage
    * @see org.elysium.lilypond.impl.LilypondPackageImpl#getContextDef()
    * @generated
    */
-  int CONTEXT_DEF = 32;
+  int CONTEXT_DEF = 34;
 
   /**
    * The feature id for the '<em><b>Keyword</b></em>' attribute.
@@ -1189,7 +1263,7 @@ public interface LilypondPackage extends EPackage
    * @see org.elysium.lilypond.impl.LilypondPackageImpl#getOther()
    * @generated
    */
-  int OTHER = 33;
+  int OTHER = 35;
 
   /**
    * The feature id for the '<em><b>Keyword</b></em>' attribute.
@@ -1217,7 +1291,7 @@ public interface LilypondPackage extends EPackage
    * @see org.elysium.lilypond.impl.LilypondPackageImpl#getScheme()
    * @generated
    */
-  int SCHEME = 34;
+  int SCHEME = 36;
 
   /**
    * The feature id for the '<em><b>Value</b></em>' containment reference.
@@ -1245,7 +1319,7 @@ public interface LilypondPackage extends EPackage
    * @see org.elysium.lilypond.impl.LilypondPackageImpl#getSchemeExpression()
    * @generated
    */
-  int SCHEME_EXPRESSION = 35;
+  int SCHEME_EXPRESSION = 37;
 
   /**
    * The feature id for the '<em><b>Reference</b></em>' attribute.
@@ -1291,7 +1365,7 @@ public interface LilypondPackage extends EPackage
    * @see org.elysium.lilypond.impl.LilypondPackageImpl#getSchemeValue()
    * @generated
    */
-  int SCHEME_VALUE = 36;
+  int SCHEME_VALUE = 38;
 
   /**
    * The number of structural features of the '<em>Scheme Value</em>' class.
@@ -1310,7 +1384,7 @@ public interface LilypondPackage extends EPackage
    * @see org.elysium.lilypond.impl.LilypondPackageImpl#getSchemeBoolean()
    * @generated
    */
-  int SCHEME_BOOLEAN = 37;
+  int SCHEME_BOOLEAN = 39;
 
   /**
    * The feature id for the '<em><b>Value</b></em>' attribute.
@@ -1338,7 +1412,7 @@ public interface LilypondPackage extends EPackage
    * @see org.elysium.lilypond.impl.LilypondPackageImpl#getSchemeList()
    * @generated
    */
-  int SCHEME_LIST = 38;
+  int SCHEME_LIST = 40;
 
   /**
    * The feature id for the '<em><b>Vector</b></em>' attribute.
@@ -1375,7 +1449,7 @@ public interface LilypondPackage extends EPackage
    * @see org.elysium.lilypond.impl.LilypondPackageImpl#getSchemeBlock()
    * @generated
    */
-  int SCHEME_BLOCK = 39;
+  int SCHEME_BLOCK = 41;
 
   /**
    * The feature id for the '<em><b>Elements</b></em>' containment reference list.
@@ -1403,7 +1477,7 @@ public interface LilypondPackage extends EPackage
    * @see org.elysium.lilypond.impl.LilypondPackageImpl#getSchemeCharacter()
    * @generated
    */
-  int SCHEME_CHARACTER = 40;
+  int SCHEME_CHARACTER = 42;
 
   /**
    * The feature id for the '<em><b>Value</b></em>' attribute.
@@ -1431,7 +1505,7 @@ public interface LilypondPackage extends EPackage
    * @see org.elysium.lilypond.impl.LilypondPackageImpl#getSchemeText()
    * @generated
    */
-  int SCHEME_TEXT = 41;
+  int SCHEME_TEXT = 43;
 
   /**
    * The feature id for the '<em><b>Value</b></em>' attribute.
@@ -1459,7 +1533,7 @@ public interface LilypondPackage extends EPackage
    * @see org.elysium.lilypond.impl.LilypondPackageImpl#getSchemeNumber()
    * @generated
    */
-  int SCHEME_NUMBER = 42;
+  int SCHEME_NUMBER = 44;
 
   /**
    * The feature id for the '<em><b>Radix</b></em>' attribute.
@@ -1496,7 +1570,7 @@ public interface LilypondPackage extends EPackage
    * @see org.elysium.lilypond.impl.LilypondPackageImpl#getSchemeMarkupCommand()
    * @generated
    */
-  int SCHEME_MARKUP_COMMAND = 43;
+  int SCHEME_MARKUP_COMMAND = 45;
 
   /**
    * The feature id for the '<em><b>Command</b></em>' attribute.
@@ -1860,6 +1934,48 @@ public interface LilypondPackage extends EPackage
    * @generated
    */
   EAttribute getVersion_Version();
+
+  /**
+   * Returns the meta object for class '{@link org.elysium.lilypond.SourceFileName <em>Source File Name</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Source File Name</em>'.
+   * @see org.elysium.lilypond.SourceFileName
+   * @generated
+   */
+  EClass getSourceFileName();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.elysium.lilypond.SourceFileName#getFilename <em>Filename</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Filename</em>'.
+   * @see org.elysium.lilypond.SourceFileName#getFilename()
+   * @see #getSourceFileName()
+   * @generated
+   */
+  EAttribute getSourceFileName_Filename();
+
+  /**
+   * Returns the meta object for class '{@link org.elysium.lilypond.SourceFileLine <em>Source File Line</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Source File Line</em>'.
+   * @see org.elysium.lilypond.SourceFileLine
+   * @generated
+   */
+  EClass getSourceFileLine();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.elysium.lilypond.SourceFileLine#getLine <em>Line</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Line</em>'.
+   * @see org.elysium.lilypond.SourceFileLine#getLine()
+   * @see #getSourceFileLine()
+   * @generated
+   */
+  EAttribute getSourceFileLine_Line();
 
   /**
    * Returns the meta object for class '{@link org.elysium.lilypond.Markup <em>Markup</em>}'.
@@ -2875,6 +2991,42 @@ public interface LilypondPackage extends EPackage
      * @generated
      */
     EAttribute VERSION__VERSION = eINSTANCE.getVersion_Version();
+
+    /**
+     * The meta object literal for the '{@link org.elysium.lilypond.impl.SourceFileNameImpl <em>Source File Name</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.elysium.lilypond.impl.SourceFileNameImpl
+     * @see org.elysium.lilypond.impl.LilypondPackageImpl#getSourceFileName()
+     * @generated
+     */
+    EClass SOURCE_FILE_NAME = eINSTANCE.getSourceFileName();
+
+    /**
+     * The meta object literal for the '<em><b>Filename</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute SOURCE_FILE_NAME__FILENAME = eINSTANCE.getSourceFileName_Filename();
+
+    /**
+     * The meta object literal for the '{@link org.elysium.lilypond.impl.SourceFileLineImpl <em>Source File Line</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.elysium.lilypond.impl.SourceFileLineImpl
+     * @see org.elysium.lilypond.impl.LilypondPackageImpl#getSourceFileLine()
+     * @generated
+     */
+    EClass SOURCE_FILE_LINE = eINSTANCE.getSourceFileLine();
+
+    /**
+     * The meta object literal for the '<em><b>Line</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute SOURCE_FILE_LINE__LINE = eINSTANCE.getSourceFileLine_Line();
 
     /**
      * The meta object literal for the '{@link org.elysium.lilypond.impl.MarkupImpl <em>Markup</em>}' class.

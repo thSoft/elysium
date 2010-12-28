@@ -53,6 +53,12 @@
     <genClasses ecoreClass="LilyPond.ecore#//Version">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute LilyPond.ecore#//Version/version"/>
     </genClasses>
+    <genClasses ecoreClass="LilyPond.ecore#//SourceFileName">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute LilyPond.ecore#//SourceFileName/filename"/>
+    </genClasses>
+    <genClasses ecoreClass="LilyPond.ecore#//SourceFileLine">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute LilyPond.ecore#//SourceFileLine/line"/>
+    </genClasses>
     <genClasses ecoreClass="LilyPond.ecore#//Markup">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference LilyPond.ecore#//Markup/body"/>
     </genClasses>

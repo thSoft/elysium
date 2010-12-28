@@ -39,11 +39,15 @@ Number: value=INT;
 
 // Commands
 
-SpecialCommand: Include | Version | Markup | MarkupLines | BlockCommand | OutputDefinition | RelativeMusic | TransposedMusic | ModeChange | MusicWithLyrics | NewContext | ContextDef | Other;
+SpecialCommand: Include | Version | SourceFileName | SourceFileLine | Markup | MarkupLines | BlockCommand | OutputDefinition | RelativeMusic | TransposedMusic | ModeChange | MusicWithLyrics | NewContext | ContextDef | Other;
 
 Include: "\\" keyword="include" importURI=STRING;
 
 Version: "\\" keyword="version" version=STRING;
+
+SourceFileName: "\\" keyword="sourcefilename" filename=STRING;
+
+SourceFileLine: "\\" keyword="sourcefileline" line=INT;
 
 Markup: "\\" keyword="markup" body=MarkupBody;
 
@@ -75,9 +79,9 @@ ContextDef: "\\" keyword="context" block=UnparsedBlock;
 
 Other: "\\" keyword=(SpecialCharacter | "(" | ")" | OtherName);
 
-OtherName: "accepts" | "addlyrics" | "alias" | "alternative" | "change" | "chords" | "consists" | "default" | "defaultchild" | "denies" | "description" | "drums" | "figures" | "grobdescriptions" | "key" | "lyrics" | "maininput" | "mark" | "name" | "objectid" | "octave" | "once" | "override" | "partial" | "remove" | "repeat" | "rest" | "revert" | "sequential" | "set" | "simultaneous" | "skip" | "sourcefileline" | "sourcefilename" | "tempo" | "time" | "times" | "type" | "unset" | "with";
+OtherName: "accepts" | "addlyrics" | "alias" | "alternative" | "change" | "chords" | "consists" | "default" | "defaultchild" | "denies" | "description" | "drums" | "figures" | "grobdescriptions" | "key" | "lyrics" | "maininput" | "mark" | "name" | "objectid" | "octave" | "once" | "override" | "partial" | "remove" | "repeat" | "rest" | "revert" | "sequential" | "set" | "simultaneous" | "skip" | "tempo" | "time" | "times" | "type" | "unset" | "with";
 
-SpecialCommandName: "include" | "version" | "markup" | "markuplines" | "book" | "bookpart" | "context" | "header" | "score" | "paper" | "midi" | "layout" | "relative" | "transpose" | "chordmode" | "drummode" | "figuremode" | "lyricmode" | "notemode" | "lyricsto" | "new" | "with" | OtherName;
+SpecialCommandName: "include" | "version" | "sourcefilename" | "sourcefileline" | "markup" | "markuplines" | "book" | "bookpart" | "context" | "header" | "score" | "paper" | "midi" | "layout" | "relative" | "transpose" | "chordmode" | "drummode" | "figuremode" | "lyricmode" | "notemode" | "lyricsto" | "new" | "with" | OtherName;
 
 // Scheme
 
