@@ -9084,13 +9084,13 @@ public class InternalLilyPondParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start rule__SpecialCommandName__Alternatives
-    // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:2761:1: rule__SpecialCommandName__Alternatives : ( ( KEYWORD_65 ) | ( KEYWORD_67 ) | ( KEYWORD_88 ) | ( KEYWORD_89 ) | ( KEYWORD_56 ) | ( KEYWORD_85 ) | ( KEYWORD_33 ) | ( KEYWORD_68 ) | ( KEYWORD_62 ) | ( KEYWORD_53 ) | ( KEYWORD_46 ) | ( KEYWORD_45 ) | ( KEYWORD_35 ) | ( KEYWORD_54 ) | ( KEYWORD_75 ) | ( KEYWORD_80 ) | ( KEYWORD_77 ) | ( KEYWORD_70 ) | ( KEYWORD_81 ) | ( KEYWORD_78 ) | ( KEYWORD_72 ) | ( KEYWORD_71 ) | ( KEYWORD_31 ) | ( KEYWORD_42 ) | ( ruleOtherName ) );
+    // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:2761:1: rule__SpecialCommandName__Alternatives : ( ( KEYWORD_65 ) | ( KEYWORD_67 ) | ( KEYWORD_89 ) | ( KEYWORD_88 ) | ( KEYWORD_56 ) | ( KEYWORD_85 ) | ( KEYWORD_33 ) | ( KEYWORD_68 ) | ( KEYWORD_62 ) | ( KEYWORD_53 ) | ( KEYWORD_46 ) | ( KEYWORD_45 ) | ( KEYWORD_35 ) | ( KEYWORD_54 ) | ( KEYWORD_75 ) | ( KEYWORD_80 ) | ( KEYWORD_77 ) | ( KEYWORD_70 ) | ( KEYWORD_81 ) | ( KEYWORD_78 ) | ( KEYWORD_72 ) | ( KEYWORD_71 ) | ( KEYWORD_31 ) | ( KEYWORD_42 ) | ( ruleOtherName ) );
     public final void rule__SpecialCommandName__Alternatives() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:2765:1: ( ( KEYWORD_65 ) | ( KEYWORD_67 ) | ( KEYWORD_88 ) | ( KEYWORD_89 ) | ( KEYWORD_56 ) | ( KEYWORD_85 ) | ( KEYWORD_33 ) | ( KEYWORD_68 ) | ( KEYWORD_62 ) | ( KEYWORD_53 ) | ( KEYWORD_46 ) | ( KEYWORD_45 ) | ( KEYWORD_35 ) | ( KEYWORD_54 ) | ( KEYWORD_75 ) | ( KEYWORD_80 ) | ( KEYWORD_77 ) | ( KEYWORD_70 ) | ( KEYWORD_81 ) | ( KEYWORD_78 ) | ( KEYWORD_72 ) | ( KEYWORD_71 ) | ( KEYWORD_31 ) | ( KEYWORD_42 ) | ( ruleOtherName ) )
+            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:2765:1: ( ( KEYWORD_65 ) | ( KEYWORD_67 ) | ( KEYWORD_89 ) | ( KEYWORD_88 ) | ( KEYWORD_56 ) | ( KEYWORD_85 ) | ( KEYWORD_33 ) | ( KEYWORD_68 ) | ( KEYWORD_62 ) | ( KEYWORD_53 ) | ( KEYWORD_46 ) | ( KEYWORD_45 ) | ( KEYWORD_35 ) | ( KEYWORD_54 ) | ( KEYWORD_75 ) | ( KEYWORD_80 ) | ( KEYWORD_77 ) | ( KEYWORD_70 ) | ( KEYWORD_81 ) | ( KEYWORD_78 ) | ( KEYWORD_72 ) | ( KEYWORD_71 ) | ( KEYWORD_31 ) | ( KEYWORD_42 ) | ( ruleOtherName ) )
             int alt25=25;
             switch ( input.LA(1) ) {
             case KEYWORD_65:
@@ -9103,12 +9103,12 @@ public class InternalLilyPondParser extends AbstractInternalContentAssistParser 
                 alt25=2;
                 }
                 break;
-            case KEYWORD_88:
+            case KEYWORD_89:
                 {
                 alt25=3;
                 }
                 break;
-            case KEYWORD_89:
+            case KEYWORD_88:
                 {
                 alt25=4;
                 }
@@ -9221,7 +9221,7 @@ public class InternalLilyPondParser extends AbstractInternalContentAssistParser 
                 else {
                     if (backtracking>0) {failed=true; return ;}
                     NoViableAltException nvae =
-                        new NoViableAltException("2761:1: rule__SpecialCommandName__Alternatives : ( ( KEYWORD_65 ) | ( KEYWORD_67 ) | ( KEYWORD_88 ) | ( KEYWORD_89 ) | ( KEYWORD_56 ) | ( KEYWORD_85 ) | ( KEYWORD_33 ) | ( KEYWORD_68 ) | ( KEYWORD_62 ) | ( KEYWORD_53 ) | ( KEYWORD_46 ) | ( KEYWORD_45 ) | ( KEYWORD_35 ) | ( KEYWORD_54 ) | ( KEYWORD_75 ) | ( KEYWORD_80 ) | ( KEYWORD_77 ) | ( KEYWORD_70 ) | ( KEYWORD_81 ) | ( KEYWORD_78 ) | ( KEYWORD_72 ) | ( KEYWORD_71 ) | ( KEYWORD_31 ) | ( KEYWORD_42 ) | ( ruleOtherName ) );", 25, 24, input);
+                        new NoViableAltException("2761:1: rule__SpecialCommandName__Alternatives : ( ( KEYWORD_65 ) | ( KEYWORD_67 ) | ( KEYWORD_89 ) | ( KEYWORD_88 ) | ( KEYWORD_56 ) | ( KEYWORD_85 ) | ( KEYWORD_33 ) | ( KEYWORD_68 ) | ( KEYWORD_62 ) | ( KEYWORD_53 ) | ( KEYWORD_46 ) | ( KEYWORD_45 ) | ( KEYWORD_35 ) | ( KEYWORD_54 ) | ( KEYWORD_75 ) | ( KEYWORD_80 ) | ( KEYWORD_77 ) | ( KEYWORD_70 ) | ( KEYWORD_81 ) | ( KEYWORD_78 ) | ( KEYWORD_72 ) | ( KEYWORD_71 ) | ( KEYWORD_31 ) | ( KEYWORD_42 ) | ( ruleOtherName ) );", 25, 24, input);
 
                     throw nvae;
                 }
@@ -9271,7 +9271,7 @@ public class InternalLilyPondParser extends AbstractInternalContentAssistParser 
             default:
                 if (backtracking>0) {failed=true; return ;}
                 NoViableAltException nvae =
-                    new NoViableAltException("2761:1: rule__SpecialCommandName__Alternatives : ( ( KEYWORD_65 ) | ( KEYWORD_67 ) | ( KEYWORD_88 ) | ( KEYWORD_89 ) | ( KEYWORD_56 ) | ( KEYWORD_85 ) | ( KEYWORD_33 ) | ( KEYWORD_68 ) | ( KEYWORD_62 ) | ( KEYWORD_53 ) | ( KEYWORD_46 ) | ( KEYWORD_45 ) | ( KEYWORD_35 ) | ( KEYWORD_54 ) | ( KEYWORD_75 ) | ( KEYWORD_80 ) | ( KEYWORD_77 ) | ( KEYWORD_70 ) | ( KEYWORD_81 ) | ( KEYWORD_78 ) | ( KEYWORD_72 ) | ( KEYWORD_71 ) | ( KEYWORD_31 ) | ( KEYWORD_42 ) | ( ruleOtherName ) );", 25, 0, input);
+                    new NoViableAltException("2761:1: rule__SpecialCommandName__Alternatives : ( ( KEYWORD_65 ) | ( KEYWORD_67 ) | ( KEYWORD_89 ) | ( KEYWORD_88 ) | ( KEYWORD_56 ) | ( KEYWORD_85 ) | ( KEYWORD_33 ) | ( KEYWORD_68 ) | ( KEYWORD_62 ) | ( KEYWORD_53 ) | ( KEYWORD_46 ) | ( KEYWORD_45 ) | ( KEYWORD_35 ) | ( KEYWORD_54 ) | ( KEYWORD_75 ) | ( KEYWORD_80 ) | ( KEYWORD_77 ) | ( KEYWORD_70 ) | ( KEYWORD_81 ) | ( KEYWORD_78 ) | ( KEYWORD_72 ) | ( KEYWORD_71 ) | ( KEYWORD_31 ) | ( KEYWORD_42 ) | ( ruleOtherName ) );", 25, 0, input);
 
                 throw nvae;
             }
@@ -9316,17 +9316,17 @@ public class InternalLilyPondParser extends AbstractInternalContentAssistParser 
                     }
                     break;
                 case 3 :
-                    // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:2782:6: ( KEYWORD_88 )
+                    // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:2782:6: ( KEYWORD_89 )
                     {
-                    // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:2782:6: ( KEYWORD_88 )
-                    // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:2783:1: KEYWORD_88
+                    // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:2782:6: ( KEYWORD_89 )
+                    // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:2783:1: KEYWORD_89
                     {
                     if ( backtracking==0 ) {
-                       before(grammarAccess.getSpecialCommandNameAccess().getSourcefilelineKeyword_2()); 
+                       before(grammarAccess.getSpecialCommandNameAccess().getSourcefilenameKeyword_2()); 
                     }
-                    match(input,KEYWORD_88,FOLLOW_KEYWORD_88_in_rule__SpecialCommandName__Alternatives6136); if (failed) return ;
+                    match(input,KEYWORD_89,FOLLOW_KEYWORD_89_in_rule__SpecialCommandName__Alternatives6136); if (failed) return ;
                     if ( backtracking==0 ) {
-                       after(grammarAccess.getSpecialCommandNameAccess().getSourcefilelineKeyword_2()); 
+                       after(grammarAccess.getSpecialCommandNameAccess().getSourcefilenameKeyword_2()); 
                     }
 
                     }
@@ -9335,17 +9335,17 @@ public class InternalLilyPondParser extends AbstractInternalContentAssistParser 
                     }
                     break;
                 case 4 :
-                    // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:2790:6: ( KEYWORD_89 )
+                    // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:2790:6: ( KEYWORD_88 )
                     {
-                    // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:2790:6: ( KEYWORD_89 )
-                    // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:2791:1: KEYWORD_89
+                    // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:2790:6: ( KEYWORD_88 )
+                    // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:2791:1: KEYWORD_88
                     {
                     if ( backtracking==0 ) {
-                       before(grammarAccess.getSpecialCommandNameAccess().getSourcefilenameKeyword_3()); 
+                       before(grammarAccess.getSpecialCommandNameAccess().getSourcefilelineKeyword_3()); 
                     }
-                    match(input,KEYWORD_89,FOLLOW_KEYWORD_89_in_rule__SpecialCommandName__Alternatives6156); if (failed) return ;
+                    match(input,KEYWORD_88,FOLLOW_KEYWORD_88_in_rule__SpecialCommandName__Alternatives6156); if (failed) return ;
                     if ( backtracking==0 ) {
-                       after(grammarAccess.getSpecialCommandNameAccess().getSourcefilenameKeyword_3()); 
+                       after(grammarAccess.getSpecialCommandNameAccess().getSourcefilelineKeyword_3()); 
                     }
 
                     }
@@ -19869,7 +19869,7 @@ public class InternalLilyPondParser extends AbstractInternalContentAssistParser 
 
                             }
                             break;
-                        case KEYWORD_88:
+                        case KEYWORD_89:
                             {
                             int LA49_17 = input.LA(4);
 
@@ -19880,7 +19880,7 @@ public class InternalLilyPondParser extends AbstractInternalContentAssistParser 
 
                             }
                             break;
-                        case KEYWORD_89:
+                        case KEYWORD_88:
                             {
                             int LA49_18 = input.LA(4);
 
@@ -20688,7 +20688,7 @@ public class InternalLilyPondParser extends AbstractInternalContentAssistParser 
 
                         }
                         break;
-                    case KEYWORD_88:
+                    case KEYWORD_89:
                         {
                         int LA49_17 = input.LA(3);
 
@@ -20699,7 +20699,7 @@ public class InternalLilyPondParser extends AbstractInternalContentAssistParser 
 
                         }
                         break;
-                    case KEYWORD_89:
+                    case KEYWORD_88:
                         {
                         int LA49_18 = input.LA(3);
 
@@ -26827,8 +26827,8 @@ public class InternalLilyPondParser extends AbstractInternalContentAssistParser 
     public static final BitSet FOLLOW_KEYWORD_42_in_rule__OtherName__Alternatives6061 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_KEYWORD_65_in_rule__SpecialCommandName__Alternatives6096 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_KEYWORD_67_in_rule__SpecialCommandName__Alternatives6116 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_KEYWORD_88_in_rule__SpecialCommandName__Alternatives6136 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_KEYWORD_89_in_rule__SpecialCommandName__Alternatives6156 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_KEYWORD_89_in_rule__SpecialCommandName__Alternatives6136 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_KEYWORD_88_in_rule__SpecialCommandName__Alternatives6156 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_KEYWORD_56_in_rule__SpecialCommandName__Alternatives6176 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_KEYWORD_85_in_rule__SpecialCommandName__Alternatives6196 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_KEYWORD_33_in_rule__SpecialCommandName__Alternatives6216 = new BitSet(new long[]{0x0000000000000002L});

@@ -121,7 +121,7 @@ terminal STRING: '"' ("\\" ("b" | "t" | "n" | "f" | "r" | '"' | "'" | "\\") | !(
 
 terminal INT returns ecore::EInt: ("0".."9")+;
 
-terminal ID: ("a".."z" | "A".."Z")+;
+terminal ID: ("a".."z" | "A".."Z" | "¡".."ￜ")+;
 
 terminal WS: (" " | "\t" | "\r" | "\n")+;
 

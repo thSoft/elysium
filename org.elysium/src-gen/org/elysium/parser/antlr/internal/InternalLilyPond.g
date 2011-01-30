@@ -3759,17 +3759,17 @@ ruleSpecialCommandName returns [AntlrDatatypeRuleToken current=new AntlrDatatype
     }
 
     |
-	kw=KEYWORD_88 
-    {
-        $current.merge(kw);
-        createLeafNode(grammarAccess.getSpecialCommandNameAccess().getSourcefilelineKeyword_2(), null); 
-    }
-
-    |
 	kw=KEYWORD_89 
     {
         $current.merge(kw);
-        createLeafNode(grammarAccess.getSpecialCommandNameAccess().getSourcefilenameKeyword_3(), null); 
+        createLeafNode(grammarAccess.getSpecialCommandNameAccess().getSourcefilenameKeyword_2(), null); 
+    }
+
+    |
+	kw=KEYWORD_88 
+    {
+        $current.merge(kw);
+        createLeafNode(grammarAccess.getSpecialCommandNameAccess().getSourcefilelineKeyword_3(), null); 
     }
 
     |

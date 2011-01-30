@@ -1531,8 +1531,8 @@ public class LilyPondGrammarAccess extends AbstractGrammarElementFinder {
 		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
 		private final Keyword cIncludeKeyword_0 = (Keyword)cAlternatives.eContents().get(0);
 		private final Keyword cVersionKeyword_1 = (Keyword)cAlternatives.eContents().get(1);
-		private final Keyword cSourcefilelineKeyword_2 = (Keyword)cAlternatives.eContents().get(2);
-		private final Keyword cSourcefilenameKeyword_3 = (Keyword)cAlternatives.eContents().get(3);
+		private final Keyword cSourcefilenameKeyword_2 = (Keyword)cAlternatives.eContents().get(2);
+		private final Keyword cSourcefilelineKeyword_3 = (Keyword)cAlternatives.eContents().get(3);
 		private final Keyword cMarkupKeyword_4 = (Keyword)cAlternatives.eContents().get(4);
 		private final Keyword cMarkuplinesKeyword_5 = (Keyword)cAlternatives.eContents().get(5);
 		private final Keyword cBookKeyword_6 = (Keyword)cAlternatives.eContents().get(6);
@@ -1556,12 +1556,12 @@ public class LilyPondGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cOtherNameParserRuleCall_24 = (RuleCall)cAlternatives.eContents().get(24);
 		
 		//SpecialCommandName returns ecore::EString:
-		//	"include" | "version" | "sourcefileline" | "sourcefilename" | "markup" | "markuplines" | "book" | "bookpart" |
+		//	"include" | "version" | "sourcefilename" | "sourcefileline" | "markup" | "markuplines" | "book" | "bookpart" |
 		//	"context" | "header" | "score" | "paper" | "midi" | "layout" | "relative" | "transpose" | "chordmode" | "drummode" |
 		//	"figuremode" | "lyricmode" | "notemode" | "lyricsto" | "new" | "with" | OtherName;
 		public ParserRule getRule() { return rule; }
 
-		//"include" | "version" | "sourcefileline" | "sourcefilename" | "markup" | "markuplines" | "book" | "bookpart" | "context"
+		//"include" | "version" | "sourcefilename" | "sourcefileline" | "markup" | "markuplines" | "book" | "bookpart" | "context"
 		//| "header" | "score" | "paper" | "midi" | "layout" | "relative" | "transpose" | "chordmode" | "drummode" | "figuremode"
 		//| "lyricmode" | "notemode" | "lyricsto" | "new" | "with" | OtherName
 		public Alternatives getAlternatives() { return cAlternatives; }
@@ -1572,11 +1572,11 @@ public class LilyPondGrammarAccess extends AbstractGrammarElementFinder {
 		//"version"
 		public Keyword getVersionKeyword_1() { return cVersionKeyword_1; }
 
-		//"sourcefileline"
-		public Keyword getSourcefilelineKeyword_2() { return cSourcefilelineKeyword_2; }
-
 		//"sourcefilename"
-		public Keyword getSourcefilenameKeyword_3() { return cSourcefilenameKeyword_3; }
+		public Keyword getSourcefilenameKeyword_2() { return cSourcefilenameKeyword_2; }
+
+		//"sourcefileline"
+		public Keyword getSourcefilelineKeyword_3() { return cSourcefilelineKeyword_3; }
 
 		//"markup"
 		public Keyword getMarkupKeyword_4() { return cMarkupKeyword_4; }
@@ -2576,7 +2576,7 @@ public class LilyPondGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//SpecialCommandName returns ecore::EString:
-	//	"include" | "version" | "sourcefileline" | "sourcefilename" | "markup" | "markuplines" | "book" | "bookpart" |
+	//	"include" | "version" | "sourcefilename" | "sourcefileline" | "markup" | "markuplines" | "book" | "bookpart" |
 	//	"context" | "header" | "score" | "paper" | "midi" | "layout" | "relative" | "transpose" | "chordmode" | "drummode" |
 	//	"figuremode" | "lyricmode" | "notemode" | "lyricsto" | "new" | "with" | OtherName;
 	public SpecialCommandNameElements getSpecialCommandNameAccess() {
@@ -2752,7 +2752,7 @@ public class LilyPondGrammarAccess extends AbstractGrammarElementFinder {
 	} 
 
 	//terminal ID:
-	//	("a".."z" | "A".."Z")+;
+	//	("a".."z" | "A".."Z" | "¡".."ￜ")+;
 	public TerminalRule getIDRule() {
 		return (tID != null) ? tID : (tID = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "ID"));
 	} 

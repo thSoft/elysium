@@ -2780,19 +2780,19 @@ rule__SpecialCommandName__Alternatives
 )
 
     |(
-{ before(grammarAccess.getSpecialCommandNameAccess().getSourcefilelineKeyword_2()); }
-
-	KEYWORD_88 
-
-{ after(grammarAccess.getSpecialCommandNameAccess().getSourcefilelineKeyword_2()); }
-)
-
-    |(
-{ before(grammarAccess.getSpecialCommandNameAccess().getSourcefilenameKeyword_3()); }
+{ before(grammarAccess.getSpecialCommandNameAccess().getSourcefilenameKeyword_2()); }
 
 	KEYWORD_89 
 
-{ after(grammarAccess.getSpecialCommandNameAccess().getSourcefilenameKeyword_3()); }
+{ after(grammarAccess.getSpecialCommandNameAccess().getSourcefilenameKeyword_2()); }
+)
+
+    |(
+{ before(grammarAccess.getSpecialCommandNameAccess().getSourcefilelineKeyword_3()); }
+
+	KEYWORD_88 
+
+{ after(grammarAccess.getSpecialCommandNameAccess().getSourcefilelineKeyword_3()); }
 )
 
     |(

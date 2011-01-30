@@ -5,9 +5,9 @@ import org.eclipse.xtext.util.Files;
 
 public class Grammar extends LilyPondTest {
 
-	private static final String REFERENCE = " \\i";
+	private static final String REFERENCE = " \\árvíztűrőTükörfúrógép";
 
-	private static final String ASSIGNMENT = "i = #1";
+	private static final String ASSIGNMENT = "árvíztűrőTükörfúrógép = #1";
 
 	private static final String HEADER = "\\header { title = \"a\" }";
 
