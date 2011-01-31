@@ -34,6 +34,8 @@ public class LilyPondFormatter extends AbstractDeclarativeFormatter {
 		// Line break after
 		config.setLinewrap().after(grammar.getIncludeRule());
 		config.setLinewrap(2).after(grammar.getVersionRule());
+		config.setLinewrap(2).after(grammar.getAssignmentRule());
+		config.setLinewrap().after(grammar.getPropertyAssignmentRule());
 		// Blocks
 		for (String[] blockKeywordPair : BLOCK_KEYWORD_PAIRS) {
 			for (Pair<Keyword, Keyword> pair : grammar.findKeywordPairs(blockKeywordPair[0], blockKeywordPair[1])) {
