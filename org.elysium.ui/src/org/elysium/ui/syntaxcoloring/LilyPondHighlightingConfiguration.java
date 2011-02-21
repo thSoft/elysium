@@ -8,9 +8,11 @@ import org.eclipse.xtext.ui.editor.syntaxcoloring.IHighlightingConfigurationAcce
  */
 public class LilyPondHighlightingConfiguration extends DefaultHighlightingConfiguration {
 
+	public static final String COMMAND_ID = "command";
+
 	@Override
 	public void configure(IHighlightingConfigurationAcceptor acceptor) {
-		acceptor.acceptDefaultHighlighting(KEYWORD_ID, "Command", keywordTextStyle());
+		acceptor.acceptDefaultHighlighting(COMMAND_ID, "Command", keywordTextStyle());
 		acceptor.acceptDefaultHighlighting(COMMENT_ID, "Comment", commentTextStyle());
 		acceptor.acceptDefaultHighlighting(STRING_ID, "String", stringTextStyle());
 		acceptor.acceptDefaultHighlighting(NUMBER_ID, "Number", numberTextStyle());

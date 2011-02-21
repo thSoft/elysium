@@ -4,11 +4,11 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.xtext.parsetree.AbstractNode;
 import org.eclipse.xtext.parsetree.NodeUtil;
 import org.eclipse.xtext.resource.XtextResource;
-import org.eclipse.xtext.ui.editor.syntaxcoloring.DefaultHighlightingConfiguration;
 import org.eclipse.xtext.ui.editor.syntaxcoloring.IHighlightedPositionAcceptor;
 import org.eclipse.xtext.ui.editor.syntaxcoloring.ISemanticHighlightingCalculator;
 import org.elysium.lilypond.Assignment;
 import org.elysium.lilypond.Reference;
+import org.elysium.lilypond.SpecialCommand;
 import org.elysium.lilypond.UnparsedCommand;
 
 /**
@@ -28,14 +28,20 @@ public class LilyPondSemanticHighlightingCalculator implements ISemanticHighligh
 					if (assignment != null) {
 						String name = assignment.getName();
 						if (name != null) {
-							acceptor.addPosition(node.getOffset(), name.length() + 1, DefaultHighlightingConfiguration.KEYWORD_ID);
+							acceptor.addPosition(node.getOffset(), name.length() + 1, LilyPondHighlightingConfiguration.COMMAND_ID);
 						}
 					}
 				} else if (element instanceof UnparsedCommand) {
-					UnparsedCommand UnparsedCommand = (UnparsedCommand)element;
-					String name = UnparsedCommand.getCommand();
+					UnparsedCommand unparsedCommand = (UnparsedCommand)element;
+					String name = unparsedCommand.getCommand();
 					if (name != null) {
-						acceptor.addPosition(node.getOffset(), name.length() + 1, DefaultHighlightingConfiguration.KEYWORD_ID);
+						acceptor.addPosition(node.getOffset(), name.length() + 1, LilyPondHighlightingConfiguration.COMMAND_ID);
+					}
+				} else if (element instanceof SpecialCommand) {
+					SpecialCommand specialCommand = (SpecialCommand)element;
+					String keyword = specialCommand.getKeyword();
+					if (keyword != null) {
+						acceptor.addPosition(node.getOffset(), keyword.length() + 1, LilyPondHighlightingConfiguration.COMMAND_ID);
 					}
 				}
 			}
