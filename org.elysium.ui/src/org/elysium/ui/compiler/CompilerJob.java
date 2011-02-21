@@ -70,6 +70,7 @@ public class CompilerJob extends Job {
 	protected IStatus run(IProgressMonitor monitor) {
 		try {
 			console.clearConsole();
+			console.firePropertyChange(this, IConsoleConstants.P_CONSOLE_OUTPUT_COMPLETE, null, false);
 			ConsoleUtils.showConsole(console);
 
 			long start = System.currentTimeMillis();
@@ -92,7 +93,7 @@ public class CompilerJob extends Job {
 
 			float executionTimeInSeconds = (stop - start) / 1000f;
 			console.printMeta(MessageFormat.format("LilyPond terminated in {0} seconds.", executionTimeInSeconds));
-			console.firePropertyChange(this, IConsoleConstants.P_CONSOLE_OUTPUT_COMPLETE, false, true);
+			console.firePropertyChange(this, IConsoleConstants.P_CONSOLE_OUTPUT_COMPLETE, null, true);
 
 			try {
 				file.getProject().refreshLocal(IResource.DEPTH_INFINITE, new NullProgressMonitor());
