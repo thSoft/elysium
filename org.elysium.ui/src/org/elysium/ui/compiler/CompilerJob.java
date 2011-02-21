@@ -26,6 +26,7 @@ import org.eclipse.swt.widgets.Shell;
 import org.eclipse.ui.IEditorPart;
 import org.eclipse.ui.IWorkbenchPage;
 import org.eclipse.ui.PartInitException;
+import org.eclipse.ui.console.IConsoleConstants;
 import org.eclipse.ui.dialogs.PreferencesUtil;
 import org.eclipse.ui.ide.IDE;
 import org.eclipse.ui.progress.IProgressConstants;
@@ -91,6 +92,7 @@ public class CompilerJob extends Job {
 
 			float executionTimeInSeconds = (stop - start) / 1000f;
 			console.printMeta(MessageFormat.format("LilyPond terminated in {0} seconds.", executionTimeInSeconds));
+			console.firePropertyChange(this, IConsoleConstants.P_CONSOLE_OUTPUT_COMPLETE, false, true);
 
 			try {
 				file.getProject().refreshLocal(IResource.DEPTH_INFINITE, new NullProgressMonitor());
