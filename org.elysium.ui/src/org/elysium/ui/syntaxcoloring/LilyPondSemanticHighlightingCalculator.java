@@ -1,5 +1,6 @@
 package org.elysium.ui.syntaxcoloring;
 
+import static org.elysium.ui.syntaxcoloring.LilyPondHighlightingConfiguration.COMMAND_ID;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.xtext.parsetree.AbstractNode;
 import org.eclipse.xtext.parsetree.NodeUtil;
@@ -28,24 +29,28 @@ public class LilyPondSemanticHighlightingCalculator implements ISemanticHighligh
 					if (assignment != null) {
 						String name = assignment.getName();
 						if (name != null) {
-							acceptor.addPosition(node.getOffset(), name.length() + 1, LilyPondHighlightingConfiguration.COMMAND_ID);
+							highlight(acceptor, node, name);
 						}
 					}
 				} else if (element instanceof UnparsedCommand) {
 					UnparsedCommand unparsedCommand = (UnparsedCommand)element;
 					String name = unparsedCommand.getCommand();
 					if (name != null) {
-						acceptor.addPosition(node.getOffset(), name.length() + 1, LilyPondHighlightingConfiguration.COMMAND_ID);
+						highlight(acceptor, node, name);
 					}
 				} else if (element instanceof SpecialCommand) {
 					SpecialCommand specialCommand = (SpecialCommand)element;
 					String keyword = specialCommand.getKeyword();
 					if (keyword != null) {
-						acceptor.addPosition(node.getOffset(), keyword.length() + 1, LilyPondHighlightingConfiguration.COMMAND_ID);
+						highlight(acceptor, node, keyword);
 					}
 				}
 			}
 		}
+	}
+
+	private static void highlight(IHighlightedPositionAcceptor acceptor, AbstractNode node, String name) {
+		acceptor.addPosition(node.getOffset(), name.length() + 1, COMMAND_ID);
 	}
 
 }
