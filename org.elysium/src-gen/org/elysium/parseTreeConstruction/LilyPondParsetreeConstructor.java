@@ -5993,7 +5993,7 @@ protected class Other_KeywordAssignment_1 extends AssignmentToken  {
 /************ begin Rule Scheme ****************
  *
  * // Scheme
- * Scheme hidden(WS, SCHEME_SL_COMMENT, SCHEME_ML_COMMENT):
+ * Scheme hidden(WS, SCHEME_ML_COMMENT):
  * 	("#" | "$") value=SchemeExpression;
  *
  **/

@@ -1652,7 +1652,7 @@ public class LilyPondGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cValueSchemeExpressionParserRuleCall_1_0 = (RuleCall)cValueAssignment_1.eContents().get(0);
 		
 		//// Scheme
-		//Scheme hidden(WS, SCHEME_SL_COMMENT, SCHEME_ML_COMMENT):
+		//Scheme hidden(WS, SCHEME_ML_COMMENT):
 		//	("#" | "$") value=SchemeExpression;
 		public ParserRule getRule() { return rule; }
 
@@ -2172,7 +2172,6 @@ public class LilyPondGrammarAccess extends AbstractGrammarElementFinder {
 	private TerminalRule tWS;
 	private TerminalRule tSL_COMMENT;
 	private TerminalRule tML_COMMENT;
-	private TerminalRule tSCHEME_SL_COMMENT;
 	private TerminalRule tSCHEME_ML_COMMENT;
 	private TerminalRule tANY_OTHER;
 	
@@ -2588,7 +2587,7 @@ public class LilyPondGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//// Scheme
-	//Scheme hidden(WS, SCHEME_SL_COMMENT, SCHEME_ML_COMMENT):
+	//Scheme hidden(WS, SCHEME_ML_COMMENT):
 	//	("#" | "$") value=SchemeExpression;
 	public SchemeElements getSchemeAccess() {
 		return (pScheme != null) ? pScheme : (pScheme = new SchemeElements());
@@ -2773,12 +2772,6 @@ public class LilyPondGrammarAccess extends AbstractGrammarElementFinder {
 	//	"%{"->"%}";
 	public TerminalRule getML_COMMENTRule() {
 		return (tML_COMMENT != null) ? tML_COMMENT : (tML_COMMENT = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "ML_COMMENT"));
-	} 
-
-	//terminal SCHEME_SL_COMMENT:
-	//	";" !("\n" | "\r")* ("\r"? "\n")?;
-	public TerminalRule getSCHEME_SL_COMMENTRule() {
-		return (tSCHEME_SL_COMMENT != null) ? tSCHEME_SL_COMMENT : (tSCHEME_SL_COMMENT = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "SCHEME_SL_COMMENT"));
 	} 
 
 	//terminal SCHEME_ML_COMMENT:

@@ -210,8 +210,6 @@ RULE_SL_COMMENT : '%' ~(('\n'|'\r'))* ('\r'? '\n')?;
 
 RULE_ML_COMMENT : '%{' ( options {greedy=false;} : . )*'%}';
 
-RULE_SCHEME_SL_COMMENT : ';' ~(('\n'|'\r'))* ('\r'? '\n')?;
-
 RULE_SCHEME_ML_COMMENT : '#!' ( options {greedy=false;} : . )*'!#';
 
 RULE_ANY_OTHER : .;

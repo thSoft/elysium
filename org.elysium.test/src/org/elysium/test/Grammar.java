@@ -174,4 +174,8 @@ public class Grammar extends LilyPondTest {
 		assertValid("\\context { \\Staff }");
 	}
 
+	public void testLyricSemicolon() throws Exception {
+		assertValid("i = \\lyricmode { a; }");
+	}
+
 }
