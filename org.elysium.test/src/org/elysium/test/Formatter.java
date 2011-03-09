@@ -9,8 +9,16 @@ public class Formatter extends LilyPondTest {
 		assertEquals(formatted, getNodeModelFormatter().format(rootNode, 0, rootNode.getLength()).getFormattedText());
 	}
 
+	private void checkFormattingSame(String model) throws Exception {
+		checkFormatting(model, model);
+	}
+
 	public void testSimple() throws Exception {
 		checkFormatting("{ c' }", "{\n\tc'\n}");
+	}
+
+	public void testSchemeNegativeNumber() throws Exception {
+		checkFormattingSame("i = #-42");
 	}
 
 }

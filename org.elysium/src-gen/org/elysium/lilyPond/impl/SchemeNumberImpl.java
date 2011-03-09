@@ -58,7 +58,7 @@ public class SchemeNumberImpl extends SchemeValueImpl implements SchemeNumber
    * @generated
    * @ordered
    */
-  protected static final int VALUE_EDEFAULT = 0;
+  protected static final String VALUE_EDEFAULT = null;
 
   /**
    * The cached value of the '{@link #getValue() <em>Value</em>}' attribute.
@@ -68,7 +68,7 @@ public class SchemeNumberImpl extends SchemeValueImpl implements SchemeNumber
    * @generated
    * @ordered
    */
-  protected int value = VALUE_EDEFAULT;
+  protected String value = VALUE_EDEFAULT;
 
   /**
    * <!-- begin-user-doc -->
@@ -119,7 +119,7 @@ public class SchemeNumberImpl extends SchemeValueImpl implements SchemeNumber
    * <!-- end-user-doc -->
    * @generated
    */
-  public int getValue()
+  public String getValue()
   {
     return value;
   }
@@ -129,9 +129,9 @@ public class SchemeNumberImpl extends SchemeValueImpl implements SchemeNumber
    * <!-- end-user-doc -->
    * @generated
    */
-  public void setValue(int newValue)
+  public void setValue(String newValue)
   {
-    int oldValue = value;
+    String oldValue = value;
     value = newValue;
     if (eNotificationRequired())
       eNotify(new ENotificationImpl(this, Notification.SET, LilypondPackage.SCHEME_NUMBER__VALUE, oldValue, value));
@@ -169,7 +169,7 @@ public class SchemeNumberImpl extends SchemeValueImpl implements SchemeNumber
         setRadix((String)newValue);
         return;
       case LilypondPackage.SCHEME_NUMBER__VALUE:
-        setValue((Integer)newValue);
+        setValue((String)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -208,7 +208,7 @@ public class SchemeNumberImpl extends SchemeValueImpl implements SchemeNumber
       case LilypondPackage.SCHEME_NUMBER__RADIX:
         return RADIX_EDEFAULT == null ? radix != null : !RADIX_EDEFAULT.equals(radix);
       case LilypondPackage.SCHEME_NUMBER__VALUE:
-        return value != VALUE_EDEFAULT;
+        return VALUE_EDEFAULT == null ? value != null : !VALUE_EDEFAULT.equals(value);
     }
     return super.eIsSet(featureID);
   }

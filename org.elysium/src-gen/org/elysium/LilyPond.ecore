@@ -167,7 +167,7 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="SchemeNumber" eSuperTypes="#//SchemeValue">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="radix" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="SchemeMarkupCommand" eSuperTypes="#//SchemeValue">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="command" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>

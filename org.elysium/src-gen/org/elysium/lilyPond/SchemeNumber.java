@@ -60,12 +60,12 @@ public interface SchemeNumber extends SchemeValue
    * </p>
    * <!-- end-user-doc -->
    * @return the value of the '<em>Value</em>' attribute.
-   * @see #setValue(int)
+   * @see #setValue(String)
    * @see org.elysium.lilypond.LilypondPackage#getSchemeNumber_Value()
    * @model
    * @generated
    */
-  int getValue();
+  String getValue();
 
   /**
    * Sets the value of the '{@link org.elysium.lilypond.SchemeNumber#getValue <em>Value</em>}' attribute.
@@ -75,6 +75,6 @@ public interface SchemeNumber extends SchemeValue
    * @see #getValue()
    * @generated
    */
-  void setValue(int value);
+  void setValue(String value);
 
 } // SchemeNumber

@@ -363,14 +363,14 @@ public class LilyPondGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cUnparsedCommandParserRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
 		private final RuleCall cUnparsedBlockParserRuleCall_2 = (RuleCall)cAlternatives.eContents().get(2);
 		private final RuleCall cSchemeParserRuleCall_3 = (RuleCall)cAlternatives.eContents().get(3);
-		private final RuleCall cTextParserRuleCall_4 = (RuleCall)cAlternatives.eContents().get(4);
-		private final RuleCall cNumberParserRuleCall_5 = (RuleCall)cAlternatives.eContents().get(5);
+		private final RuleCall cNumberParserRuleCall_4 = (RuleCall)cAlternatives.eContents().get(4);
+		private final RuleCall cTextParserRuleCall_5 = (RuleCall)cAlternatives.eContents().get(5);
 		
 		//UnparsedExpression:
-		//	PropertyAssignment | UnparsedCommand | UnparsedBlock | Scheme | Text | Number;
+		//	PropertyAssignment | UnparsedCommand | UnparsedBlock | Scheme | Number | Text;
 		public ParserRule getRule() { return rule; }
 
-		//PropertyAssignment | UnparsedCommand | UnparsedBlock | Scheme | Text | Number
+		//PropertyAssignment | UnparsedCommand | UnparsedBlock | Scheme | Number | Text
 		public Alternatives getAlternatives() { return cAlternatives; }
 
 		//PropertyAssignment
@@ -385,11 +385,11 @@ public class LilyPondGrammarAccess extends AbstractGrammarElementFinder {
 		//Scheme
 		public RuleCall getSchemeParserRuleCall_3() { return cSchemeParserRuleCall_3; }
 
-		//Text
-		public RuleCall getTextParserRuleCall_4() { return cTextParserRuleCall_4; }
-
 		//Number
-		public RuleCall getNumberParserRuleCall_5() { return cNumberParserRuleCall_5; }
+		public RuleCall getNumberParserRuleCall_4() { return cNumberParserRuleCall_4; }
+
+		//Text
+		public RuleCall getTextParserRuleCall_5() { return cTextParserRuleCall_5; }
 	}
 
 	public class UnparsedCommandElements extends AbstractParserRuleElementFinder {
@@ -1734,15 +1734,15 @@ public class LilyPondGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cSchemeListParserRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
 		private final RuleCall cSchemeBlockParserRuleCall_2 = (RuleCall)cAlternatives.eContents().get(2);
 		private final RuleCall cSchemeCharacterParserRuleCall_3 = (RuleCall)cAlternatives.eContents().get(3);
-		private final RuleCall cSchemeTextParserRuleCall_4 = (RuleCall)cAlternatives.eContents().get(4);
-		private final RuleCall cSchemeNumberParserRuleCall_5 = (RuleCall)cAlternatives.eContents().get(5);
+		private final RuleCall cSchemeNumberParserRuleCall_4 = (RuleCall)cAlternatives.eContents().get(4);
+		private final RuleCall cSchemeTextParserRuleCall_5 = (RuleCall)cAlternatives.eContents().get(5);
 		private final RuleCall cSchemeMarkupCommandParserRuleCall_6 = (RuleCall)cAlternatives.eContents().get(6);
 		
 		//SchemeValue:
-		//	SchemeBoolean | SchemeList | SchemeBlock | SchemeCharacter | SchemeText | SchemeNumber | SchemeMarkupCommand;
+		//	SchemeBoolean | SchemeList | SchemeBlock | SchemeCharacter | SchemeNumber | SchemeText | SchemeMarkupCommand;
 		public ParserRule getRule() { return rule; }
 
-		//SchemeBoolean | SchemeList | SchemeBlock | SchemeCharacter | SchemeText | SchemeNumber | SchemeMarkupCommand
+		//SchemeBoolean | SchemeList | SchemeBlock | SchemeCharacter | SchemeNumber | SchemeText | SchemeMarkupCommand
 		public Alternatives getAlternatives() { return cAlternatives; }
 
 		//SchemeBoolean
@@ -1757,11 +1757,11 @@ public class LilyPondGrammarAccess extends AbstractGrammarElementFinder {
 		//SchemeCharacter
 		public RuleCall getSchemeCharacterParserRuleCall_3() { return cSchemeCharacterParserRuleCall_3; }
 
-		//SchemeText
-		public RuleCall getSchemeTextParserRuleCall_4() { return cSchemeTextParserRuleCall_4; }
-
 		//SchemeNumber
-		public RuleCall getSchemeNumberParserRuleCall_5() { return cSchemeNumberParserRuleCall_5; }
+		public RuleCall getSchemeNumberParserRuleCall_4() { return cSchemeNumberParserRuleCall_4; }
+
+		//SchemeText
+		public RuleCall getSchemeTextParserRuleCall_5() { return cSchemeTextParserRuleCall_5; }
 
 		//SchemeMarkupCommand
 		public RuleCall getSchemeMarkupCommandParserRuleCall_6() { return cSchemeMarkupCommandParserRuleCall_6; }
@@ -2037,13 +2037,13 @@ public class LilyPondGrammarAccess extends AbstractGrammarElementFinder {
 		private final Assignment cRadixAssignment_0 = (Assignment)cGroup.eContents().get(0);
 		private final RuleCall cRadixSchemeNumberRadixParserRuleCall_0_0 = (RuleCall)cRadixAssignment_0.eContents().get(0);
 		private final Assignment cValueAssignment_1 = (Assignment)cGroup.eContents().get(1);
-		private final RuleCall cValueINTTerminalRuleCall_1_0 = (RuleCall)cValueAssignment_1.eContents().get(0);
+		private final RuleCall cValueSignedIntegerParserRuleCall_1_0 = (RuleCall)cValueAssignment_1.eContents().get(0);
 		
 		//SchemeNumber hidden():
-		//	radix=SchemeNumberRadix? value=INT;
+		//	radix=SchemeNumberRadix? value=SignedInteger;
 		public ParserRule getRule() { return rule; }
 
-		//radix=SchemeNumberRadix? value=INT
+		//radix=SchemeNumberRadix? value=SignedInteger
 		public Group getGroup() { return cGroup; }
 
 		//radix=SchemeNumberRadix?
@@ -2052,11 +2052,31 @@ public class LilyPondGrammarAccess extends AbstractGrammarElementFinder {
 		//SchemeNumberRadix
 		public RuleCall getRadixSchemeNumberRadixParserRuleCall_0_0() { return cRadixSchemeNumberRadixParserRuleCall_0_0; }
 
-		//value=INT
+		//value=SignedInteger
 		public Assignment getValueAssignment_1() { return cValueAssignment_1; }
 
+		//SignedInteger
+		public RuleCall getValueSignedIntegerParserRuleCall_1_0() { return cValueSignedIntegerParserRuleCall_1_0; }
+	}
+
+	public class SignedIntegerElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "SignedInteger");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Keyword cHyphenMinusKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final RuleCall cINTTerminalRuleCall_1 = (RuleCall)cGroup.eContents().get(1);
+		
+		//SignedInteger returns ecore::EString:
+		//	"-"? INT;
+		public ParserRule getRule() { return rule; }
+
+		//"-"? INT
+		public Group getGroup() { return cGroup; }
+
+		//"-"?
+		public Keyword getHyphenMinusKeyword_0() { return cHyphenMinusKeyword_0; }
+
 		//INT
-		public RuleCall getValueINTTerminalRuleCall_1_0() { return cValueINTTerminalRuleCall_1_0; }
+		public RuleCall getINTTerminalRuleCall_1() { return cINTTerminalRuleCall_1; }
 	}
 
 	public class SchemeNumberRadixElements extends AbstractParserRuleElementFinder {
@@ -2164,6 +2184,7 @@ public class LilyPondGrammarAccess extends AbstractGrammarElementFinder {
 	private SchemeTextValueSegmentElements pSchemeTextValueSegment;
 	private SchemeIdentifierElements pSchemeIdentifier;
 	private SchemeNumberElements pSchemeNumber;
+	private SignedIntegerElements pSignedInteger;
 	private SchemeNumberRadixElements pSchemeNumberRadix;
 	private SchemeMarkupCommandElements pSchemeMarkupCommand;
 	private TerminalRule tSTRING;
@@ -2309,7 +2330,7 @@ public class LilyPondGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//UnparsedExpression:
-	//	PropertyAssignment | UnparsedCommand | UnparsedBlock | Scheme | Text | Number;
+	//	PropertyAssignment | UnparsedCommand | UnparsedBlock | Scheme | Number | Text;
 	public UnparsedExpressionElements getUnparsedExpressionAccess() {
 		return (pUnparsedExpression != null) ? pUnparsedExpression : (pUnparsedExpression = new UnparsedExpressionElements());
 	}
@@ -2608,7 +2629,7 @@ public class LilyPondGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//SchemeValue:
-	//	SchemeBoolean | SchemeList | SchemeBlock | SchemeCharacter | SchemeText | SchemeNumber | SchemeMarkupCommand;
+	//	SchemeBoolean | SchemeList | SchemeBlock | SchemeCharacter | SchemeNumber | SchemeText | SchemeMarkupCommand;
 	public SchemeValueElements getSchemeValueAccess() {
 		return (pSchemeValue != null) ? pSchemeValue : (pSchemeValue = new SchemeValueElements());
 	}
@@ -2708,13 +2729,23 @@ public class LilyPondGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//SchemeNumber hidden():
-	//	radix=SchemeNumberRadix? value=INT;
+	//	radix=SchemeNumberRadix? value=SignedInteger;
 	public SchemeNumberElements getSchemeNumberAccess() {
 		return (pSchemeNumber != null) ? pSchemeNumber : (pSchemeNumber = new SchemeNumberElements());
 	}
 	
 	public ParserRule getSchemeNumberRule() {
 		return getSchemeNumberAccess().getRule();
+	}
+
+	//SignedInteger returns ecore::EString:
+	//	"-"? INT;
+	public SignedIntegerElements getSignedIntegerAccess() {
+		return (pSignedInteger != null) ? pSignedInteger : (pSignedInteger = new SignedIntegerElements());
+	}
+	
+	public ParserRule getSignedIntegerRule() {
+		return getSignedIntegerAccess().getRule();
 	}
 
 	//SchemeNumberRadix returns ecore::EString:
@@ -2774,6 +2805,7 @@ public class LilyPondGrammarAccess extends AbstractGrammarElementFinder {
 		return (tML_COMMENT != null) ? tML_COMMENT : (tML_COMMENT = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "ML_COMMENT"));
 	} 
 
+	//// TODO SCHEME_SL_COMMENT - must be context-dependent
 	//terminal SCHEME_ML_COMMENT:
 	//	"#!"->"!#";
 	public TerminalRule getSCHEME_ML_COMMENTRule() {

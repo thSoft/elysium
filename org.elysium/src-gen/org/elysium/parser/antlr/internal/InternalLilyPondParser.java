@@ -130,7 +130,7 @@ public class InternalLilyPondParser extends AbstractInternalAntlrParser {
 
         public InternalLilyPondParser(TokenStream input) {
             super(input);
-            ruleMemo = new HashMap[272+1];
+            ruleMemo = new HashMap[275+1];
          }
         
 
@@ -2582,7 +2582,7 @@ public class InternalLilyPondParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start ruleUnparsedExpression
-    // ../org.elysium/src-gen/org/elysium/parser/antlr/internal/InternalLilyPond.g:879:1: ruleUnparsedExpression returns [EObject current=null] : (this_PropertyAssignment_0= rulePropertyAssignment | this_UnparsedCommand_1= ruleUnparsedCommand | this_UnparsedBlock_2= ruleUnparsedBlock | this_Scheme_3= ruleScheme | this_Text_4= ruleText | this_Number_5= ruleNumber ) ;
+    // ../org.elysium/src-gen/org/elysium/parser/antlr/internal/InternalLilyPond.g:879:1: ruleUnparsedExpression returns [EObject current=null] : (this_PropertyAssignment_0= rulePropertyAssignment | this_UnparsedCommand_1= ruleUnparsedCommand | this_UnparsedBlock_2= ruleUnparsedBlock | this_Scheme_3= ruleScheme | this_Number_4= ruleNumber | this_Text_5= ruleText ) ;
     public final EObject ruleUnparsedExpression() throws RecognitionException {
         EObject current = null;
 
@@ -2594,18 +2594,18 @@ public class InternalLilyPondParser extends AbstractInternalAntlrParser {
 
         EObject this_Scheme_3 = null;
 
-        EObject this_Text_4 = null;
+        EObject this_Number_4 = null;
 
-        EObject this_Number_5 = null;
+        EObject this_Text_5 = null;
 
 
          EObject temp=null; setCurrentLookahead(); resetLookahead(); 
             
         try {
-            // ../org.elysium/src-gen/org/elysium/parser/antlr/internal/InternalLilyPond.g:884:6: ( (this_PropertyAssignment_0= rulePropertyAssignment | this_UnparsedCommand_1= ruleUnparsedCommand | this_UnparsedBlock_2= ruleUnparsedBlock | this_Scheme_3= ruleScheme | this_Text_4= ruleText | this_Number_5= ruleNumber ) )
-            // ../org.elysium/src-gen/org/elysium/parser/antlr/internal/InternalLilyPond.g:885:1: (this_PropertyAssignment_0= rulePropertyAssignment | this_UnparsedCommand_1= ruleUnparsedCommand | this_UnparsedBlock_2= ruleUnparsedBlock | this_Scheme_3= ruleScheme | this_Text_4= ruleText | this_Number_5= ruleNumber )
+            // ../org.elysium/src-gen/org/elysium/parser/antlr/internal/InternalLilyPond.g:884:6: ( (this_PropertyAssignment_0= rulePropertyAssignment | this_UnparsedCommand_1= ruleUnparsedCommand | this_UnparsedBlock_2= ruleUnparsedBlock | this_Scheme_3= ruleScheme | this_Number_4= ruleNumber | this_Text_5= ruleText ) )
+            // ../org.elysium/src-gen/org/elysium/parser/antlr/internal/InternalLilyPond.g:885:1: (this_PropertyAssignment_0= rulePropertyAssignment | this_UnparsedCommand_1= ruleUnparsedCommand | this_UnparsedBlock_2= ruleUnparsedBlock | this_Scheme_3= ruleScheme | this_Number_4= ruleNumber | this_Text_5= ruleText )
             {
-            // ../org.elysium/src-gen/org/elysium/parser/antlr/internal/InternalLilyPond.g:885:1: (this_PropertyAssignment_0= rulePropertyAssignment | this_UnparsedCommand_1= ruleUnparsedCommand | this_UnparsedBlock_2= ruleUnparsedBlock | this_Scheme_3= ruleScheme | this_Text_4= ruleText | this_Number_5= ruleNumber )
+            // ../org.elysium/src-gen/org/elysium/parser/antlr/internal/InternalLilyPond.g:885:1: (this_PropertyAssignment_0= rulePropertyAssignment | this_UnparsedCommand_1= ruleUnparsedCommand | this_UnparsedBlock_2= ruleUnparsedBlock | this_Scheme_3= ruleScheme | this_Number_4= ruleNumber | this_Text_5= ruleText )
             int alt12=6;
             switch ( input.LA(1) ) {
             case RULE_ID:
@@ -2615,13 +2615,13 @@ public class InternalLilyPondParser extends AbstractInternalAntlrParser {
                 if ( (synpred21()) ) {
                     alt12=1;
                 }
-                else if ( (synpred25()) ) {
-                    alt12=5;
+                else if ( (true) ) {
+                    alt12=6;
                 }
                 else {
                     if (backtracking>0) {failed=true; return current;}
                     NoViableAltException nvae =
-                        new NoViableAltException("885:1: (this_PropertyAssignment_0= rulePropertyAssignment | this_UnparsedCommand_1= ruleUnparsedCommand | this_UnparsedBlock_2= ruleUnparsedBlock | this_Scheme_3= ruleScheme | this_Text_4= ruleText | this_Number_5= ruleNumber )", 12, 1, input);
+                        new NoViableAltException("885:1: (this_PropertyAssignment_0= rulePropertyAssignment | this_UnparsedCommand_1= ruleUnparsedCommand | this_UnparsedBlock_2= ruleUnparsedBlock | this_Scheme_3= ruleScheme | this_Number_4= ruleNumber | this_Text_5= ruleText )", 12, 1, input);
 
                     throw nvae;
                 }
@@ -2641,6 +2641,25 @@ public class InternalLilyPondParser extends AbstractInternalAntlrParser {
             case KEYWORD_3:
                 {
                 alt12=4;
+                }
+                break;
+            case RULE_INT:
+                {
+                int LA12_6 = input.LA(2);
+
+                if ( (synpred25()) ) {
+                    alt12=5;
+                }
+                else if ( (true) ) {
+                    alt12=6;
+                }
+                else {
+                    if (backtracking>0) {failed=true; return current;}
+                    NoViableAltException nvae =
+                        new NoViableAltException("885:1: (this_PropertyAssignment_0= rulePropertyAssignment | this_UnparsedCommand_1= ruleUnparsedCommand | this_UnparsedBlock_2= ruleUnparsedBlock | this_Scheme_3= ruleScheme | this_Number_4= ruleNumber | this_Text_5= ruleText )", 12, 6, input);
+
+                    throw nvae;
+                }
                 }
                 break;
             case KEYWORD_90:
@@ -2723,32 +2742,13 @@ public class InternalLilyPondParser extends AbstractInternalAntlrParser {
             case RULE_STRING:
             case RULE_ANY_OTHER:
                 {
-                alt12=5;
-                }
-                break;
-            case RULE_INT:
-                {
-                int LA12_79 = input.LA(2);
-
-                if ( (synpred25()) ) {
-                    alt12=5;
-                }
-                else if ( (true) ) {
-                    alt12=6;
-                }
-                else {
-                    if (backtracking>0) {failed=true; return current;}
-                    NoViableAltException nvae =
-                        new NoViableAltException("885:1: (this_PropertyAssignment_0= rulePropertyAssignment | this_UnparsedCommand_1= ruleUnparsedCommand | this_UnparsedBlock_2= ruleUnparsedBlock | this_Scheme_3= ruleScheme | this_Text_4= ruleText | this_Number_5= ruleNumber )", 12, 79, input);
-
-                    throw nvae;
-                }
+                alt12=6;
                 }
                 break;
             default:
                 if (backtracking>0) {failed=true; return current;}
                 NoViableAltException nvae =
-                    new NoViableAltException("885:1: (this_PropertyAssignment_0= rulePropertyAssignment | this_UnparsedCommand_1= ruleUnparsedCommand | this_UnparsedBlock_2= ruleUnparsedBlock | this_Scheme_3= ruleScheme | this_Text_4= ruleText | this_Number_5= ruleNumber )", 12, 0, input);
+                    new NoViableAltException("885:1: (this_PropertyAssignment_0= rulePropertyAssignment | this_UnparsedCommand_1= ruleUnparsedCommand | this_UnparsedBlock_2= ruleUnparsedBlock | this_Scheme_3= ruleScheme | this_Number_4= ruleNumber | this_Text_5= ruleText )", 12, 0, input);
 
                 throw nvae;
             }
@@ -2859,7 +2859,7 @@ public class InternalLilyPondParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 5 :
-                    // ../org.elysium/src-gen/org/elysium/parser/antlr/internal/InternalLilyPond.g:938:2: this_Text_4= ruleText
+                    // ../org.elysium/src-gen/org/elysium/parser/antlr/internal/InternalLilyPond.g:938:2: this_Number_4= ruleNumber
                     {
                     if ( backtracking==0 ) {
                        
@@ -2868,16 +2868,16 @@ public class InternalLilyPondParser extends AbstractInternalAntlrParser {
                     }
                     if ( backtracking==0 ) {
                        
-                              currentNode=createCompositeNode(grammarAccess.getUnparsedExpressionAccess().getTextParserRuleCall_4(), currentNode); 
+                              currentNode=createCompositeNode(grammarAccess.getUnparsedExpressionAccess().getNumberParserRuleCall_4(), currentNode); 
                           
                     }
-                    pushFollow(FOLLOW_ruleText_in_ruleUnparsedExpression1925);
-                    this_Text_4=ruleText();
+                    pushFollow(FOLLOW_ruleNumber_in_ruleUnparsedExpression1925);
+                    this_Number_4=ruleNumber();
                     _fsp--;
                     if (failed) return current;
                     if ( backtracking==0 ) {
 
-                              current = this_Text_4;
+                              current = this_Number_4;
                               currentNode = currentNode.getParent();
                           
                     }
@@ -2885,7 +2885,7 @@ public class InternalLilyPondParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 6 :
-                    // ../org.elysium/src-gen/org/elysium/parser/antlr/internal/InternalLilyPond.g:951:2: this_Number_5= ruleNumber
+                    // ../org.elysium/src-gen/org/elysium/parser/antlr/internal/InternalLilyPond.g:951:2: this_Text_5= ruleText
                     {
                     if ( backtracking==0 ) {
                        
@@ -2894,16 +2894,16 @@ public class InternalLilyPondParser extends AbstractInternalAntlrParser {
                     }
                     if ( backtracking==0 ) {
                        
-                              currentNode=createCompositeNode(grammarAccess.getUnparsedExpressionAccess().getNumberParserRuleCall_5(), currentNode); 
+                              currentNode=createCompositeNode(grammarAccess.getUnparsedExpressionAccess().getTextParserRuleCall_5(), currentNode); 
                           
                     }
-                    pushFollow(FOLLOW_ruleNumber_in_ruleUnparsedExpression1955);
-                    this_Number_5=ruleNumber();
+                    pushFollow(FOLLOW_ruleText_in_ruleUnparsedExpression1955);
+                    this_Text_5=ruleText();
                     _fsp--;
                     if (failed) return current;
                     if ( backtracking==0 ) {
 
-                              current = this_Number_5;
+                              current = this_Text_5;
                               currentNode = currentNode.getParent();
                           
                     }
@@ -3810,6 +3810,11 @@ public class InternalLilyPondParser extends AbstractInternalAntlrParser {
 
             if ( (LA15_0==KEYWORD_17) ) {
                 switch ( input.LA(2) ) {
+                case KEYWORD_88:
+                    {
+                    alt15=4;
+                    }
+                    break;
                 case KEYWORD_89:
                     {
                     alt15=3;
@@ -3820,29 +3825,19 @@ public class InternalLilyPondParser extends AbstractInternalAntlrParser {
                     alt15=12;
                     }
                     break;
-                case KEYWORD_88:
-                    {
-                    alt15=4;
-                    }
-                    break;
-                case KEYWORD_85:
-                    {
-                    alt15=6;
-                    }
-                    break;
                 case KEYWORD_67:
                     {
                     alt15=2;
                     }
                     break;
-                case KEYWORD_56:
-                    {
-                    alt15=5;
-                    }
-                    break;
                 case KEYWORD_65:
                     {
                     alt15=1;
+                    }
+                    break;
+                case KEYWORD_56:
+                    {
+                    alt15=5;
                     }
                     break;
                 case KEYWORD_80:
@@ -3855,15 +3850,20 @@ public class InternalLilyPondParser extends AbstractInternalAntlrParser {
                     alt15=9;
                     }
                     break;
+                case KEYWORD_85:
+                    {
+                    alt15=6;
+                    }
+                    break;
                 case KEYWORD_62:
                     {
                     int LA15_11 = input.LA(3);
 
-                    if ( (LA15_11==RULE_ID) ) {
-                        alt15=13;
-                    }
-                    else if ( (LA15_11==KEYWORD_20) ) {
+                    if ( (LA15_11==KEYWORD_20) ) {
                         alt15=14;
+                    }
+                    else if ( (LA15_11==RULE_ID) ) {
+                        alt15=13;
                     }
                     else {
                         if (backtracking>0) {failed=true; return current;}
@@ -3874,20 +3874,17 @@ public class InternalLilyPondParser extends AbstractInternalAntlrParser {
                     }
                     }
                     break;
-                case KEYWORD_81:
-                case KEYWORD_77:
-                case KEYWORD_78:
-                case KEYWORD_70:
-                case KEYWORD_72:
+                case KEYWORD_31:
                     {
-                    alt15=11;
+                    alt15=13;
                     }
                     break;
-                case KEYWORD_54:
-                case KEYWORD_45:
-                case KEYWORD_35:
+                case KEYWORD_68:
+                case KEYWORD_53:
+                case KEYWORD_46:
+                case KEYWORD_33:
                     {
-                    alt15=8;
+                    alt15=7;
                     }
                     break;
                 case KEYWORD_90:
@@ -3942,17 +3939,20 @@ public class InternalLilyPondParser extends AbstractInternalAntlrParser {
                     alt15=15;
                     }
                     break;
-                case KEYWORD_68:
-                case KEYWORD_53:
-                case KEYWORD_46:
-                case KEYWORD_33:
+                case KEYWORD_81:
+                case KEYWORD_77:
+                case KEYWORD_78:
+                case KEYWORD_70:
+                case KEYWORD_72:
                     {
-                    alt15=7;
+                    alt15=11;
                     }
                     break;
-                case KEYWORD_31:
+                case KEYWORD_54:
+                case KEYWORD_45:
+                case KEYWORD_35:
                     {
-                    alt15=13;
+                    alt15=8;
                     }
                     break;
                 default:
@@ -10796,7 +10796,7 @@ public class InternalLilyPondParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start ruleSchemeValue
-    // ../org.elysium/src-gen/org/elysium/parser/antlr/internal/InternalLilyPond.g:4162:1: ruleSchemeValue returns [EObject current=null] : (this_SchemeBoolean_0= ruleSchemeBoolean | this_SchemeList_1= ruleSchemeList | this_SchemeBlock_2= ruleSchemeBlock | this_SchemeCharacter_3= ruleSchemeCharacter | this_SchemeText_4= ruleSchemeText | this_SchemeNumber_5= ruleSchemeNumber | this_SchemeMarkupCommand_6= ruleSchemeMarkupCommand ) ;
+    // ../org.elysium/src-gen/org/elysium/parser/antlr/internal/InternalLilyPond.g:4162:1: ruleSchemeValue returns [EObject current=null] : (this_SchemeBoolean_0= ruleSchemeBoolean | this_SchemeList_1= ruleSchemeList | this_SchemeBlock_2= ruleSchemeBlock | this_SchemeCharacter_3= ruleSchemeCharacter | this_SchemeNumber_4= ruleSchemeNumber | this_SchemeText_5= ruleSchemeText | this_SchemeMarkupCommand_6= ruleSchemeMarkupCommand ) ;
     public final EObject ruleSchemeValue() throws RecognitionException {
         EObject current = null;
 
@@ -10808,9 +10808,9 @@ public class InternalLilyPondParser extends AbstractInternalAntlrParser {
 
         EObject this_SchemeCharacter_3 = null;
 
-        EObject this_SchemeText_4 = null;
+        EObject this_SchemeNumber_4 = null;
 
-        EObject this_SchemeNumber_5 = null;
+        EObject this_SchemeText_5 = null;
 
         EObject this_SchemeMarkupCommand_6 = null;
 
@@ -10818,10 +10818,10 @@ public class InternalLilyPondParser extends AbstractInternalAntlrParser {
          EObject temp=null; setCurrentLookahead(); resetLookahead(); 
             
         try {
-            // ../org.elysium/src-gen/org/elysium/parser/antlr/internal/InternalLilyPond.g:4167:6: ( (this_SchemeBoolean_0= ruleSchemeBoolean | this_SchemeList_1= ruleSchemeList | this_SchemeBlock_2= ruleSchemeBlock | this_SchemeCharacter_3= ruleSchemeCharacter | this_SchemeText_4= ruleSchemeText | this_SchemeNumber_5= ruleSchemeNumber | this_SchemeMarkupCommand_6= ruleSchemeMarkupCommand ) )
-            // ../org.elysium/src-gen/org/elysium/parser/antlr/internal/InternalLilyPond.g:4168:1: (this_SchemeBoolean_0= ruleSchemeBoolean | this_SchemeList_1= ruleSchemeList | this_SchemeBlock_2= ruleSchemeBlock | this_SchemeCharacter_3= ruleSchemeCharacter | this_SchemeText_4= ruleSchemeText | this_SchemeNumber_5= ruleSchemeNumber | this_SchemeMarkupCommand_6= ruleSchemeMarkupCommand )
+            // ../org.elysium/src-gen/org/elysium/parser/antlr/internal/InternalLilyPond.g:4167:6: ( (this_SchemeBoolean_0= ruleSchemeBoolean | this_SchemeList_1= ruleSchemeList | this_SchemeBlock_2= ruleSchemeBlock | this_SchemeCharacter_3= ruleSchemeCharacter | this_SchemeNumber_4= ruleSchemeNumber | this_SchemeText_5= ruleSchemeText | this_SchemeMarkupCommand_6= ruleSchemeMarkupCommand ) )
+            // ../org.elysium/src-gen/org/elysium/parser/antlr/internal/InternalLilyPond.g:4168:1: (this_SchemeBoolean_0= ruleSchemeBoolean | this_SchemeList_1= ruleSchemeList | this_SchemeBlock_2= ruleSchemeBlock | this_SchemeCharacter_3= ruleSchemeCharacter | this_SchemeNumber_4= ruleSchemeNumber | this_SchemeText_5= ruleSchemeText | this_SchemeMarkupCommand_6= ruleSchemeMarkupCommand )
             {
-            // ../org.elysium/src-gen/org/elysium/parser/antlr/internal/InternalLilyPond.g:4168:1: (this_SchemeBoolean_0= ruleSchemeBoolean | this_SchemeList_1= ruleSchemeList | this_SchemeBlock_2= ruleSchemeBlock | this_SchemeCharacter_3= ruleSchemeCharacter | this_SchemeText_4= ruleSchemeText | this_SchemeNumber_5= ruleSchemeNumber | this_SchemeMarkupCommand_6= ruleSchemeMarkupCommand )
+            // ../org.elysium/src-gen/org/elysium/parser/antlr/internal/InternalLilyPond.g:4168:1: (this_SchemeBoolean_0= ruleSchemeBoolean | this_SchemeList_1= ruleSchemeList | this_SchemeBlock_2= ruleSchemeBlock | this_SchemeCharacter_3= ruleSchemeCharacter | this_SchemeNumber_4= ruleSchemeNumber | this_SchemeText_5= ruleSchemeText | this_SchemeMarkupCommand_6= ruleSchemeMarkupCommand )
             int alt42=7;
             switch ( input.LA(1) ) {
             case KEYWORD_2:
@@ -10829,18 +10829,18 @@ public class InternalLilyPondParser extends AbstractInternalAntlrParser {
                 int LA42_1 = input.LA(2);
 
                 if ( (LA42_1==RULE_ID) ) {
-                    int LA42_8 = input.LA(3);
+                    int LA42_9 = input.LA(3);
 
                     if ( (synpred141()) ) {
                         alt42=1;
                     }
-                    else if ( (synpred146()) ) {
-                        alt42=6;
+                    else if ( (synpred145()) ) {
+                        alt42=5;
                     }
                     else {
                         if (backtracking>0) {failed=true; return current;}
                         NoViableAltException nvae =
-                            new NoViableAltException("4168:1: (this_SchemeBoolean_0= ruleSchemeBoolean | this_SchemeList_1= ruleSchemeList | this_SchemeBlock_2= ruleSchemeBlock | this_SchemeCharacter_3= ruleSchemeCharacter | this_SchemeText_4= ruleSchemeText | this_SchemeNumber_5= ruleSchemeNumber | this_SchemeMarkupCommand_6= ruleSchemeMarkupCommand )", 42, 8, input);
+                            new NoViableAltException("4168:1: (this_SchemeBoolean_0= ruleSchemeBoolean | this_SchemeList_1= ruleSchemeList | this_SchemeBlock_2= ruleSchemeBlock | this_SchemeCharacter_3= ruleSchemeCharacter | this_SchemeNumber_4= ruleSchemeNumber | this_SchemeText_5= ruleSchemeText | this_SchemeMarkupCommand_6= ruleSchemeMarkupCommand )", 42, 9, input);
 
                         throw nvae;
                     }
@@ -10851,7 +10851,7 @@ public class InternalLilyPondParser extends AbstractInternalAntlrParser {
                 else {
                     if (backtracking>0) {failed=true; return current;}
                     NoViableAltException nvae =
-                        new NoViableAltException("4168:1: (this_SchemeBoolean_0= ruleSchemeBoolean | this_SchemeList_1= ruleSchemeList | this_SchemeBlock_2= ruleSchemeBlock | this_SchemeCharacter_3= ruleSchemeCharacter | this_SchemeText_4= ruleSchemeText | this_SchemeNumber_5= ruleSchemeNumber | this_SchemeMarkupCommand_6= ruleSchemeMarkupCommand )", 42, 1, input);
+                        new NoViableAltException("4168:1: (this_SchemeBoolean_0= ruleSchemeBoolean | this_SchemeList_1= ruleSchemeList | this_SchemeBlock_2= ruleSchemeBlock | this_SchemeCharacter_3= ruleSchemeCharacter | this_SchemeNumber_4= ruleSchemeNumber | this_SchemeText_5= ruleSchemeText | this_SchemeMarkupCommand_6= ruleSchemeMarkupCommand )", 42, 1, input);
 
                     throw nvae;
                 }
@@ -10870,6 +10870,44 @@ public class InternalLilyPondParser extends AbstractInternalAntlrParser {
             case KEYWORD_24:
                 {
                 alt42=4;
+                }
+                break;
+            case KEYWORD_9:
+                {
+                int LA42_5 = input.LA(2);
+
+                if ( (synpred145()) ) {
+                    alt42=5;
+                }
+                else if ( (synpred146()) ) {
+                    alt42=6;
+                }
+                else {
+                    if (backtracking>0) {failed=true; return current;}
+                    NoViableAltException nvae =
+                        new NoViableAltException("4168:1: (this_SchemeBoolean_0= ruleSchemeBoolean | this_SchemeList_1= ruleSchemeList | this_SchemeBlock_2= ruleSchemeBlock | this_SchemeCharacter_3= ruleSchemeCharacter | this_SchemeNumber_4= ruleSchemeNumber | this_SchemeText_5= ruleSchemeText | this_SchemeMarkupCommand_6= ruleSchemeMarkupCommand )", 42, 5, input);
+
+                    throw nvae;
+                }
+                }
+                break;
+            case RULE_INT:
+                {
+                int LA42_6 = input.LA(2);
+
+                if ( (synpred145()) ) {
+                    alt42=5;
+                }
+                else if ( (synpred146()) ) {
+                    alt42=6;
+                }
+                else {
+                    if (backtracking>0) {failed=true; return current;}
+                    NoViableAltException nvae =
+                        new NoViableAltException("4168:1: (this_SchemeBoolean_0= ruleSchemeBoolean | this_SchemeList_1= ruleSchemeList | this_SchemeBlock_2= ruleSchemeBlock | this_SchemeCharacter_3= ruleSchemeCharacter | this_SchemeNumber_4= ruleSchemeNumber | this_SchemeText_5= ruleSchemeText | this_SchemeMarkupCommand_6= ruleSchemeMarkupCommand )", 42, 6, input);
+
+                    throw nvae;
+                }
                 }
                 break;
             case KEYWORD_90:
@@ -10936,7 +10974,6 @@ public class InternalLilyPondParser extends AbstractInternalAntlrParser {
             case KEYWORD_29:
             case KEYWORD_1:
             case KEYWORD_7:
-            case KEYWORD_9:
             case KEYWORD_11:
             case KEYWORD_12:
             case KEYWORD_13:
@@ -10948,26 +10985,7 @@ public class InternalLilyPondParser extends AbstractInternalAntlrParser {
             case RULE_ID:
             case RULE_ANY_OTHER:
                 {
-                alt42=5;
-                }
-                break;
-            case RULE_INT:
-                {
-                int LA42_6 = input.LA(2);
-
-                if ( (synpred145()) ) {
-                    alt42=5;
-                }
-                else if ( (synpred146()) ) {
-                    alt42=6;
-                }
-                else {
-                    if (backtracking>0) {failed=true; return current;}
-                    NoViableAltException nvae =
-                        new NoViableAltException("4168:1: (this_SchemeBoolean_0= ruleSchemeBoolean | this_SchemeList_1= ruleSchemeList | this_SchemeBlock_2= ruleSchemeBlock | this_SchemeCharacter_3= ruleSchemeCharacter | this_SchemeText_4= ruleSchemeText | this_SchemeNumber_5= ruleSchemeNumber | this_SchemeMarkupCommand_6= ruleSchemeMarkupCommand )", 42, 6, input);
-
-                    throw nvae;
-                }
+                alt42=6;
                 }
                 break;
             case KEYWORD_23:
@@ -10978,7 +10996,7 @@ public class InternalLilyPondParser extends AbstractInternalAntlrParser {
             default:
                 if (backtracking>0) {failed=true; return current;}
                 NoViableAltException nvae =
-                    new NoViableAltException("4168:1: (this_SchemeBoolean_0= ruleSchemeBoolean | this_SchemeList_1= ruleSchemeList | this_SchemeBlock_2= ruleSchemeBlock | this_SchemeCharacter_3= ruleSchemeCharacter | this_SchemeText_4= ruleSchemeText | this_SchemeNumber_5= ruleSchemeNumber | this_SchemeMarkupCommand_6= ruleSchemeMarkupCommand )", 42, 0, input);
+                    new NoViableAltException("4168:1: (this_SchemeBoolean_0= ruleSchemeBoolean | this_SchemeList_1= ruleSchemeList | this_SchemeBlock_2= ruleSchemeBlock | this_SchemeCharacter_3= ruleSchemeCharacter | this_SchemeNumber_4= ruleSchemeNumber | this_SchemeText_5= ruleSchemeText | this_SchemeMarkupCommand_6= ruleSchemeMarkupCommand )", 42, 0, input);
 
                 throw nvae;
             }
@@ -11089,7 +11107,7 @@ public class InternalLilyPondParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 5 :
-                    // ../org.elysium/src-gen/org/elysium/parser/antlr/internal/InternalLilyPond.g:4221:2: this_SchemeText_4= ruleSchemeText
+                    // ../org.elysium/src-gen/org/elysium/parser/antlr/internal/InternalLilyPond.g:4221:2: this_SchemeNumber_4= ruleSchemeNumber
                     {
                     if ( backtracking==0 ) {
                        
@@ -11098,16 +11116,16 @@ public class InternalLilyPondParser extends AbstractInternalAntlrParser {
                     }
                     if ( backtracking==0 ) {
                        
-                              currentNode=createCompositeNode(grammarAccess.getSchemeValueAccess().getSchemeTextParserRuleCall_4(), currentNode); 
+                              currentNode=createCompositeNode(grammarAccess.getSchemeValueAccess().getSchemeNumberParserRuleCall_4(), currentNode); 
                           
                     }
-                    pushFollow(FOLLOW_ruleSchemeText_in_ruleSchemeValue8205);
-                    this_SchemeText_4=ruleSchemeText();
+                    pushFollow(FOLLOW_ruleSchemeNumber_in_ruleSchemeValue8205);
+                    this_SchemeNumber_4=ruleSchemeNumber();
                     _fsp--;
                     if (failed) return current;
                     if ( backtracking==0 ) {
 
-                              current = this_SchemeText_4;
+                              current = this_SchemeNumber_4;
                               currentNode = currentNode.getParent();
                           
                     }
@@ -11115,7 +11133,7 @@ public class InternalLilyPondParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 6 :
-                    // ../org.elysium/src-gen/org/elysium/parser/antlr/internal/InternalLilyPond.g:4234:2: this_SchemeNumber_5= ruleSchemeNumber
+                    // ../org.elysium/src-gen/org/elysium/parser/antlr/internal/InternalLilyPond.g:4234:2: this_SchemeText_5= ruleSchemeText
                     {
                     if ( backtracking==0 ) {
                        
@@ -11124,16 +11142,16 @@ public class InternalLilyPondParser extends AbstractInternalAntlrParser {
                     }
                     if ( backtracking==0 ) {
                        
-                              currentNode=createCompositeNode(grammarAccess.getSchemeValueAccess().getSchemeNumberParserRuleCall_5(), currentNode); 
+                              currentNode=createCompositeNode(grammarAccess.getSchemeValueAccess().getSchemeTextParserRuleCall_5(), currentNode); 
                           
                     }
-                    pushFollow(FOLLOW_ruleSchemeNumber_in_ruleSchemeValue8235);
-                    this_SchemeNumber_5=ruleSchemeNumber();
+                    pushFollow(FOLLOW_ruleSchemeText_in_ruleSchemeValue8235);
+                    this_SchemeText_5=ruleSchemeText();
                     _fsp--;
                     if (failed) return current;
                     if ( backtracking==0 ) {
 
-                              current = this_SchemeNumber_5;
+                              current = this_SchemeText_5;
                               currentNode = currentNode.getParent();
                           
                     }
@@ -13057,17 +13075,6 @@ public class InternalLilyPondParser extends AbstractInternalAntlrParser {
                     case KEYWORD_10:
                         {
                         switch ( input.LA(3) ) {
-                        case RULE_ID:
-                            {
-                            int LA48_3 = input.LA(4);
-
-                            if ( (synpred153()) ) {
-                                alt48=1;
-                            }
-
-
-                            }
-                            break;
                         case KEYWORD_29:
                             {
                             int LA48_4 = input.LA(4);
@@ -13860,6 +13867,17 @@ public class InternalLilyPondParser extends AbstractInternalAntlrParser {
 
                             }
                             break;
+                        case RULE_ID:
+                            {
+                            int LA48_3 = input.LA(4);
+
+                            if ( (synpred153()) ) {
+                                alt48=1;
+                            }
+
+
+                            }
+                            break;
                         case RULE_STRING:
                             {
                             int LA48_76 = input.LA(4);
@@ -14581,23 +14599,24 @@ public class InternalLilyPondParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start ruleSchemeNumber
-    // ../org.elysium/src-gen/org/elysium/parser/antlr/internal/InternalLilyPond.g:4881:1: ruleSchemeNumber returns [EObject current=null] : ( ( (lv_radix_0_0= ruleSchemeNumberRadix ) )? ( (lv_value_1_0= RULE_INT ) ) ) ;
+    // ../org.elysium/src-gen/org/elysium/parser/antlr/internal/InternalLilyPond.g:4881:1: ruleSchemeNumber returns [EObject current=null] : ( ( (lv_radix_0_0= ruleSchemeNumberRadix ) )? ( (lv_value_1_0= ruleSignedInteger ) ) ) ;
     public final EObject ruleSchemeNumber() throws RecognitionException {
         EObject current = null;
 
-        Token lv_value_1_0=null;
         AntlrDatatypeRuleToken lv_radix_0_0 = null;
+
+        AntlrDatatypeRuleToken lv_value_1_0 = null;
 
 
          EObject temp=null; setCurrentLookahead(); resetLookahead(); 
         		HiddenTokens myHiddenTokenState = ((XtextTokenStream)input).setHiddenTokens();
             
         try {
-            // ../org.elysium/src-gen/org/elysium/parser/antlr/internal/InternalLilyPond.g:4887:6: ( ( ( (lv_radix_0_0= ruleSchemeNumberRadix ) )? ( (lv_value_1_0= RULE_INT ) ) ) )
-            // ../org.elysium/src-gen/org/elysium/parser/antlr/internal/InternalLilyPond.g:4888:1: ( ( (lv_radix_0_0= ruleSchemeNumberRadix ) )? ( (lv_value_1_0= RULE_INT ) ) )
+            // ../org.elysium/src-gen/org/elysium/parser/antlr/internal/InternalLilyPond.g:4887:6: ( ( ( (lv_radix_0_0= ruleSchemeNumberRadix ) )? ( (lv_value_1_0= ruleSignedInteger ) ) ) )
+            // ../org.elysium/src-gen/org/elysium/parser/antlr/internal/InternalLilyPond.g:4888:1: ( ( (lv_radix_0_0= ruleSchemeNumberRadix ) )? ( (lv_value_1_0= ruleSignedInteger ) ) )
             {
-            // ../org.elysium/src-gen/org/elysium/parser/antlr/internal/InternalLilyPond.g:4888:1: ( ( (lv_radix_0_0= ruleSchemeNumberRadix ) )? ( (lv_value_1_0= RULE_INT ) ) )
-            // ../org.elysium/src-gen/org/elysium/parser/antlr/internal/InternalLilyPond.g:4888:2: ( (lv_radix_0_0= ruleSchemeNumberRadix ) )? ( (lv_value_1_0= RULE_INT ) )
+            // ../org.elysium/src-gen/org/elysium/parser/antlr/internal/InternalLilyPond.g:4888:1: ( ( (lv_radix_0_0= ruleSchemeNumberRadix ) )? ( (lv_value_1_0= ruleSignedInteger ) ) )
+            // ../org.elysium/src-gen/org/elysium/parser/antlr/internal/InternalLilyPond.g:4888:2: ( (lv_radix_0_0= ruleSchemeNumberRadix ) )? ( (lv_value_1_0= ruleSignedInteger ) )
             {
             // ../org.elysium/src-gen/org/elysium/parser/antlr/internal/InternalLilyPond.g:4888:2: ( (lv_radix_0_0= ruleSchemeNumberRadix ) )?
             int alt51=2;
@@ -14650,35 +14669,38 @@ public class InternalLilyPondParser extends AbstractInternalAntlrParser {
 
             }
 
-            // ../org.elysium/src-gen/org/elysium/parser/antlr/internal/InternalLilyPond.g:4912:3: ( (lv_value_1_0= RULE_INT ) )
-            // ../org.elysium/src-gen/org/elysium/parser/antlr/internal/InternalLilyPond.g:4913:1: (lv_value_1_0= RULE_INT )
+            // ../org.elysium/src-gen/org/elysium/parser/antlr/internal/InternalLilyPond.g:4912:3: ( (lv_value_1_0= ruleSignedInteger ) )
+            // ../org.elysium/src-gen/org/elysium/parser/antlr/internal/InternalLilyPond.g:4913:1: (lv_value_1_0= ruleSignedInteger )
             {
-            // ../org.elysium/src-gen/org/elysium/parser/antlr/internal/InternalLilyPond.g:4913:1: (lv_value_1_0= RULE_INT )
-            // ../org.elysium/src-gen/org/elysium/parser/antlr/internal/InternalLilyPond.g:4914:3: lv_value_1_0= RULE_INT
+            // ../org.elysium/src-gen/org/elysium/parser/antlr/internal/InternalLilyPond.g:4913:1: (lv_value_1_0= ruleSignedInteger )
+            // ../org.elysium/src-gen/org/elysium/parser/antlr/internal/InternalLilyPond.g:4914:3: lv_value_1_0= ruleSignedInteger
             {
-            lv_value_1_0=(Token)input.LT(1);
-            match(input,RULE_INT,FOLLOW_RULE_INT_in_ruleSchemeNumber9716); if (failed) return current;
             if ( backtracking==0 ) {
-
-              			createLeafNode(grammarAccess.getSchemeNumberAccess().getValueINTTerminalRuleCall_1_0(), "value"); 
-              		
+               
+              	        currentNode=createCompositeNode(grammarAccess.getSchemeNumberAccess().getValueSignedIntegerParserRuleCall_1_0(), currentNode); 
+              	    
             }
+            pushFollow(FOLLOW_ruleSignedInteger_in_ruleSchemeNumber9720);
+            lv_value_1_0=ruleSignedInteger();
+            _fsp--;
+            if (failed) return current;
             if ( backtracking==0 ) {
 
               	        if (current==null) {
               	            current = factory.create(grammarAccess.getSchemeNumberRule().getType().getClassifier());
-              	            associateNodeWithAstElement(currentNode, current);
+              	            associateNodeWithAstElement(currentNode.getParent(), current);
               	        }
               	        try {
               	       		set(
               	       			current, 
               	       			"value",
               	        		lv_value_1_0, 
-              	        		"INT", 
-              	        		lastConsumedNode);
+              	        		"SignedInteger", 
+              	        		currentNode);
               	        } catch (ValueConverterException vce) {
               				handleValueConverterException(vce);
               	        }
+              	        currentNode = currentNode.getParent();
               	    
             }
 
@@ -14714,8 +14736,125 @@ public class InternalLilyPondParser extends AbstractInternalAntlrParser {
     // $ANTLR end ruleSchemeNumber
 
 
+    // $ANTLR start entryRuleSignedInteger
+    // ../org.elysium/src-gen/org/elysium/parser/antlr/internal/InternalLilyPond.g:4947:1: entryRuleSignedInteger returns [String current=null] : iv_ruleSignedInteger= ruleSignedInteger EOF ;
+    public final String entryRuleSignedInteger() throws RecognitionException {
+        String current = null;
+
+        AntlrDatatypeRuleToken iv_ruleSignedInteger = null;
+
+
+        try {
+            // ../org.elysium/src-gen/org/elysium/parser/antlr/internal/InternalLilyPond.g:4948:1: (iv_ruleSignedInteger= ruleSignedInteger EOF )
+            // ../org.elysium/src-gen/org/elysium/parser/antlr/internal/InternalLilyPond.g:4949:2: iv_ruleSignedInteger= ruleSignedInteger EOF
+            {
+            if ( backtracking==0 ) {
+               currentNode = createCompositeNode(grammarAccess.getSignedIntegerRule(), currentNode); 
+            }
+            pushFollow(FOLLOW_ruleSignedInteger_in_entryRuleSignedInteger9760);
+            iv_ruleSignedInteger=ruleSignedInteger();
+            _fsp--;
+            if (failed) return current;
+            if ( backtracking==0 ) {
+               current =iv_ruleSignedInteger.getText(); 
+            }
+            match(input,EOF,FOLLOW_EOF_in_entryRuleSignedInteger9771); if (failed) return current;
+
+            }
+
+        }
+         
+            catch (RecognitionException re) { 
+                recover(input,re); 
+                appendSkippedTokens();
+            } 
+        finally {
+        }
+        return current;
+    }
+    // $ANTLR end entryRuleSignedInteger
+
+
+    // $ANTLR start ruleSignedInteger
+    // ../org.elysium/src-gen/org/elysium/parser/antlr/internal/InternalLilyPond.g:4956:1: ruleSignedInteger returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()] : ( (kw= KEYWORD_9 )? this_INT_1= RULE_INT ) ;
+    public final AntlrDatatypeRuleToken ruleSignedInteger() throws RecognitionException {
+        AntlrDatatypeRuleToken current = new AntlrDatatypeRuleToken();
+
+        Token kw=null;
+        Token this_INT_1=null;
+
+         setCurrentLookahead(); resetLookahead(); 
+            
+        try {
+            // ../org.elysium/src-gen/org/elysium/parser/antlr/internal/InternalLilyPond.g:4961:6: ( ( (kw= KEYWORD_9 )? this_INT_1= RULE_INT ) )
+            // ../org.elysium/src-gen/org/elysium/parser/antlr/internal/InternalLilyPond.g:4962:1: ( (kw= KEYWORD_9 )? this_INT_1= RULE_INT )
+            {
+            // ../org.elysium/src-gen/org/elysium/parser/antlr/internal/InternalLilyPond.g:4962:1: ( (kw= KEYWORD_9 )? this_INT_1= RULE_INT )
+            // ../org.elysium/src-gen/org/elysium/parser/antlr/internal/InternalLilyPond.g:4962:2: (kw= KEYWORD_9 )? this_INT_1= RULE_INT
+            {
+            // ../org.elysium/src-gen/org/elysium/parser/antlr/internal/InternalLilyPond.g:4962:2: (kw= KEYWORD_9 )?
+            int alt52=2;
+            int LA52_0 = input.LA(1);
+
+            if ( (LA52_0==KEYWORD_9) ) {
+                alt52=1;
+            }
+            switch (alt52) {
+                case 1 :
+                    // ../org.elysium/src-gen/org/elysium/parser/antlr/internal/InternalLilyPond.g:4963:2: kw= KEYWORD_9
+                    {
+                    kw=(Token)input.LT(1);
+                    match(input,KEYWORD_9,FOLLOW_KEYWORD_9_in_ruleSignedInteger9810); if (failed) return current;
+                    if ( backtracking==0 ) {
+
+                              current.merge(kw);
+                              createLeafNode(grammarAccess.getSignedIntegerAccess().getHyphenMinusKeyword_0(), null); 
+                          
+                    }
+
+                    }
+                    break;
+
+            }
+
+            this_INT_1=(Token)input.LT(1);
+            match(input,RULE_INT,FOLLOW_RULE_INT_in_ruleSignedInteger9827); if (failed) return current;
+            if ( backtracking==0 ) {
+
+              		current.merge(this_INT_1);
+                  
+            }
+            if ( backtracking==0 ) {
+               
+                  createLeafNode(grammarAccess.getSignedIntegerAccess().getINTTerminalRuleCall_1(), null); 
+                  
+            }
+
+            }
+
+
+            }
+
+            if ( backtracking==0 ) {
+               resetLookahead(); 
+              	    lastConsumedNode = currentNode;
+                  
+            }
+        }
+         
+            catch (RecognitionException re) { 
+                recover(input,re); 
+                appendSkippedTokens();
+            } 
+        finally {
+        }
+        return current;
+    }
+    // $ANTLR end ruleSignedInteger
+
+
     // $ANTLR start entryRuleSchemeNumberRadix
-    // ../org.elysium/src-gen/org/elysium/parser/antlr/internal/InternalLilyPond.g:4947:1: entryRuleSchemeNumberRadix returns [String current=null] : iv_ruleSchemeNumberRadix= ruleSchemeNumberRadix EOF ;
+    // ../org.elysium/src-gen/org/elysium/parser/antlr/internal/InternalLilyPond.g:4983:1: entryRuleSchemeNumberRadix returns [String current=null] : iv_ruleSchemeNumberRadix= ruleSchemeNumberRadix EOF ;
     public final String entryRuleSchemeNumberRadix() throws RecognitionException {
         String current = null;
 
@@ -14723,20 +14862,20 @@ public class InternalLilyPondParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // ../org.elysium/src-gen/org/elysium/parser/antlr/internal/InternalLilyPond.g:4948:1: (iv_ruleSchemeNumberRadix= ruleSchemeNumberRadix EOF )
-            // ../org.elysium/src-gen/org/elysium/parser/antlr/internal/InternalLilyPond.g:4949:2: iv_ruleSchemeNumberRadix= ruleSchemeNumberRadix EOF
+            // ../org.elysium/src-gen/org/elysium/parser/antlr/internal/InternalLilyPond.g:4984:1: (iv_ruleSchemeNumberRadix= ruleSchemeNumberRadix EOF )
+            // ../org.elysium/src-gen/org/elysium/parser/antlr/internal/InternalLilyPond.g:4985:2: iv_ruleSchemeNumberRadix= ruleSchemeNumberRadix EOF
             {
             if ( backtracking==0 ) {
                currentNode = createCompositeNode(grammarAccess.getSchemeNumberRadixRule(), currentNode); 
             }
-            pushFollow(FOLLOW_ruleSchemeNumberRadix_in_entryRuleSchemeNumberRadix9761);
+            pushFollow(FOLLOW_ruleSchemeNumberRadix_in_entryRuleSchemeNumberRadix9872);
             iv_ruleSchemeNumberRadix=ruleSchemeNumberRadix();
             _fsp--;
             if (failed) return current;
             if ( backtracking==0 ) {
                current =iv_ruleSchemeNumberRadix.getText(); 
             }
-            match(input,EOF,FOLLOW_EOF_in_entryRuleSchemeNumberRadix9772); if (failed) return current;
+            match(input,EOF,FOLLOW_EOF_in_entryRuleSchemeNumberRadix9883); if (failed) return current;
 
             }
 
@@ -14754,7 +14893,7 @@ public class InternalLilyPondParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start ruleSchemeNumberRadix
-    // ../org.elysium/src-gen/org/elysium/parser/antlr/internal/InternalLilyPond.g:4956:1: ruleSchemeNumberRadix returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()] : (kw= KEYWORD_2 this_ID_1= RULE_ID ) ;
+    // ../org.elysium/src-gen/org/elysium/parser/antlr/internal/InternalLilyPond.g:4992:1: ruleSchemeNumberRadix returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()] : (kw= KEYWORD_2 this_ID_1= RULE_ID ) ;
     public final AntlrDatatypeRuleToken ruleSchemeNumberRadix() throws RecognitionException {
         AntlrDatatypeRuleToken current = new AntlrDatatypeRuleToken();
 
@@ -14764,14 +14903,14 @@ public class InternalLilyPondParser extends AbstractInternalAntlrParser {
          setCurrentLookahead(); resetLookahead(); 
             
         try {
-            // ../org.elysium/src-gen/org/elysium/parser/antlr/internal/InternalLilyPond.g:4961:6: ( (kw= KEYWORD_2 this_ID_1= RULE_ID ) )
-            // ../org.elysium/src-gen/org/elysium/parser/antlr/internal/InternalLilyPond.g:4962:1: (kw= KEYWORD_2 this_ID_1= RULE_ID )
+            // ../org.elysium/src-gen/org/elysium/parser/antlr/internal/InternalLilyPond.g:4997:6: ( (kw= KEYWORD_2 this_ID_1= RULE_ID ) )
+            // ../org.elysium/src-gen/org/elysium/parser/antlr/internal/InternalLilyPond.g:4998:1: (kw= KEYWORD_2 this_ID_1= RULE_ID )
             {
-            // ../org.elysium/src-gen/org/elysium/parser/antlr/internal/InternalLilyPond.g:4962:1: (kw= KEYWORD_2 this_ID_1= RULE_ID )
-            // ../org.elysium/src-gen/org/elysium/parser/antlr/internal/InternalLilyPond.g:4963:2: kw= KEYWORD_2 this_ID_1= RULE_ID
+            // ../org.elysium/src-gen/org/elysium/parser/antlr/internal/InternalLilyPond.g:4998:1: (kw= KEYWORD_2 this_ID_1= RULE_ID )
+            // ../org.elysium/src-gen/org/elysium/parser/antlr/internal/InternalLilyPond.g:4999:2: kw= KEYWORD_2 this_ID_1= RULE_ID
             {
             kw=(Token)input.LT(1);
-            match(input,KEYWORD_2,FOLLOW_KEYWORD_2_in_ruleSchemeNumberRadix9810); if (failed) return current;
+            match(input,KEYWORD_2,FOLLOW_KEYWORD_2_in_ruleSchemeNumberRadix9921); if (failed) return current;
             if ( backtracking==0 ) {
 
                       current.merge(kw);
@@ -14779,7 +14918,7 @@ public class InternalLilyPondParser extends AbstractInternalAntlrParser {
                   
             }
             this_ID_1=(Token)input.LT(1);
-            match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleSchemeNumberRadix9825); if (failed) return current;
+            match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleSchemeNumberRadix9936); if (failed) return current;
             if ( backtracking==0 ) {
 
               		current.merge(this_ID_1);
@@ -14815,7 +14954,7 @@ public class InternalLilyPondParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start entryRuleSchemeMarkupCommand
-    // ../org.elysium/src-gen/org/elysium/parser/antlr/internal/InternalLilyPond.g:4983:1: entryRuleSchemeMarkupCommand returns [EObject current=null] : iv_ruleSchemeMarkupCommand= ruleSchemeMarkupCommand EOF ;
+    // ../org.elysium/src-gen/org/elysium/parser/antlr/internal/InternalLilyPond.g:5019:1: entryRuleSchemeMarkupCommand returns [EObject current=null] : iv_ruleSchemeMarkupCommand= ruleSchemeMarkupCommand EOF ;
     public final EObject entryRuleSchemeMarkupCommand() throws RecognitionException {
         EObject current = null;
 
@@ -14826,20 +14965,20 @@ public class InternalLilyPondParser extends AbstractInternalAntlrParser {
         		HiddenTokens myHiddenTokenState = ((XtextTokenStream)input).setHiddenTokens();
         	
         try {
-            // ../org.elysium/src-gen/org/elysium/parser/antlr/internal/InternalLilyPond.g:4987:2: (iv_ruleSchemeMarkupCommand= ruleSchemeMarkupCommand EOF )
-            // ../org.elysium/src-gen/org/elysium/parser/antlr/internal/InternalLilyPond.g:4988:2: iv_ruleSchemeMarkupCommand= ruleSchemeMarkupCommand EOF
+            // ../org.elysium/src-gen/org/elysium/parser/antlr/internal/InternalLilyPond.g:5023:2: (iv_ruleSchemeMarkupCommand= ruleSchemeMarkupCommand EOF )
+            // ../org.elysium/src-gen/org/elysium/parser/antlr/internal/InternalLilyPond.g:5024:2: iv_ruleSchemeMarkupCommand= ruleSchemeMarkupCommand EOF
             {
             if ( backtracking==0 ) {
                currentNode = createCompositeNode(grammarAccess.getSchemeMarkupCommandRule(), currentNode); 
             }
-            pushFollow(FOLLOW_ruleSchemeMarkupCommand_in_entryRuleSchemeMarkupCommand9875);
+            pushFollow(FOLLOW_ruleSchemeMarkupCommand_in_entryRuleSchemeMarkupCommand9986);
             iv_ruleSchemeMarkupCommand=ruleSchemeMarkupCommand();
             _fsp--;
             if (failed) return current;
             if ( backtracking==0 ) {
                current =iv_ruleSchemeMarkupCommand; 
             }
-            match(input,EOF,FOLLOW_EOF_in_entryRuleSchemeMarkupCommand9885); if (failed) return current;
+            match(input,EOF,FOLLOW_EOF_in_entryRuleSchemeMarkupCommand9996); if (failed) return current;
 
             }
 
@@ -14860,7 +14999,7 @@ public class InternalLilyPondParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start ruleSchemeMarkupCommand
-    // ../org.elysium/src-gen/org/elysium/parser/antlr/internal/InternalLilyPond.g:4998:1: ruleSchemeMarkupCommand returns [EObject current=null] : ( KEYWORD_23 ( ( (lv_command_1_1= RULE_ID | lv_command_1_2= ruleSpecialCommandName ) ) ) ) ;
+    // ../org.elysium/src-gen/org/elysium/parser/antlr/internal/InternalLilyPond.g:5034:1: ruleSchemeMarkupCommand returns [EObject current=null] : ( KEYWORD_23 ( ( (lv_command_1_1= RULE_ID | lv_command_1_2= ruleSpecialCommandName ) ) ) ) ;
     public final EObject ruleSchemeMarkupCommand() throws RecognitionException {
         EObject current = null;
 
@@ -14872,47 +15011,47 @@ public class InternalLilyPondParser extends AbstractInternalAntlrParser {
         		HiddenTokens myHiddenTokenState = ((XtextTokenStream)input).setHiddenTokens();
             
         try {
-            // ../org.elysium/src-gen/org/elysium/parser/antlr/internal/InternalLilyPond.g:5004:6: ( ( KEYWORD_23 ( ( (lv_command_1_1= RULE_ID | lv_command_1_2= ruleSpecialCommandName ) ) ) ) )
-            // ../org.elysium/src-gen/org/elysium/parser/antlr/internal/InternalLilyPond.g:5005:1: ( KEYWORD_23 ( ( (lv_command_1_1= RULE_ID | lv_command_1_2= ruleSpecialCommandName ) ) ) )
+            // ../org.elysium/src-gen/org/elysium/parser/antlr/internal/InternalLilyPond.g:5040:6: ( ( KEYWORD_23 ( ( (lv_command_1_1= RULE_ID | lv_command_1_2= ruleSpecialCommandName ) ) ) ) )
+            // ../org.elysium/src-gen/org/elysium/parser/antlr/internal/InternalLilyPond.g:5041:1: ( KEYWORD_23 ( ( (lv_command_1_1= RULE_ID | lv_command_1_2= ruleSpecialCommandName ) ) ) )
             {
-            // ../org.elysium/src-gen/org/elysium/parser/antlr/internal/InternalLilyPond.g:5005:1: ( KEYWORD_23 ( ( (lv_command_1_1= RULE_ID | lv_command_1_2= ruleSpecialCommandName ) ) ) )
-            // ../org.elysium/src-gen/org/elysium/parser/antlr/internal/InternalLilyPond.g:5006:2: KEYWORD_23 ( ( (lv_command_1_1= RULE_ID | lv_command_1_2= ruleSpecialCommandName ) ) )
+            // ../org.elysium/src-gen/org/elysium/parser/antlr/internal/InternalLilyPond.g:5041:1: ( KEYWORD_23 ( ( (lv_command_1_1= RULE_ID | lv_command_1_2= ruleSpecialCommandName ) ) ) )
+            // ../org.elysium/src-gen/org/elysium/parser/antlr/internal/InternalLilyPond.g:5042:2: KEYWORD_23 ( ( (lv_command_1_1= RULE_ID | lv_command_1_2= ruleSpecialCommandName ) ) )
             {
-            match(input,KEYWORD_23,FOLLOW_KEYWORD_23_in_ruleSchemeMarkupCommand9925); if (failed) return current;
+            match(input,KEYWORD_23,FOLLOW_KEYWORD_23_in_ruleSchemeMarkupCommand10036); if (failed) return current;
             if ( backtracking==0 ) {
 
                       createLeafNode(grammarAccess.getSchemeMarkupCommandAccess().getNumberSignColonKeyword_0(), null); 
                   
             }
-            // ../org.elysium/src-gen/org/elysium/parser/antlr/internal/InternalLilyPond.g:5010:1: ( ( (lv_command_1_1= RULE_ID | lv_command_1_2= ruleSpecialCommandName ) ) )
-            // ../org.elysium/src-gen/org/elysium/parser/antlr/internal/InternalLilyPond.g:5011:1: ( (lv_command_1_1= RULE_ID | lv_command_1_2= ruleSpecialCommandName ) )
+            // ../org.elysium/src-gen/org/elysium/parser/antlr/internal/InternalLilyPond.g:5046:1: ( ( (lv_command_1_1= RULE_ID | lv_command_1_2= ruleSpecialCommandName ) ) )
+            // ../org.elysium/src-gen/org/elysium/parser/antlr/internal/InternalLilyPond.g:5047:1: ( (lv_command_1_1= RULE_ID | lv_command_1_2= ruleSpecialCommandName ) )
             {
-            // ../org.elysium/src-gen/org/elysium/parser/antlr/internal/InternalLilyPond.g:5011:1: ( (lv_command_1_1= RULE_ID | lv_command_1_2= ruleSpecialCommandName ) )
-            // ../org.elysium/src-gen/org/elysium/parser/antlr/internal/InternalLilyPond.g:5012:1: (lv_command_1_1= RULE_ID | lv_command_1_2= ruleSpecialCommandName )
+            // ../org.elysium/src-gen/org/elysium/parser/antlr/internal/InternalLilyPond.g:5047:1: ( (lv_command_1_1= RULE_ID | lv_command_1_2= ruleSpecialCommandName ) )
+            // ../org.elysium/src-gen/org/elysium/parser/antlr/internal/InternalLilyPond.g:5048:1: (lv_command_1_1= RULE_ID | lv_command_1_2= ruleSpecialCommandName )
             {
-            // ../org.elysium/src-gen/org/elysium/parser/antlr/internal/InternalLilyPond.g:5012:1: (lv_command_1_1= RULE_ID | lv_command_1_2= ruleSpecialCommandName )
-            int alt52=2;
-            int LA52_0 = input.LA(1);
+            // ../org.elysium/src-gen/org/elysium/parser/antlr/internal/InternalLilyPond.g:5048:1: (lv_command_1_1= RULE_ID | lv_command_1_2= ruleSpecialCommandName )
+            int alt53=2;
+            int LA53_0 = input.LA(1);
 
-            if ( (LA52_0==RULE_ID) ) {
-                alt52=1;
+            if ( (LA53_0==RULE_ID) ) {
+                alt53=1;
             }
-            else if ( ((LA52_0>=KEYWORD_90 && LA52_0<=KEYWORD_32)) ) {
-                alt52=2;
+            else if ( ((LA53_0>=KEYWORD_90 && LA53_0<=KEYWORD_32)) ) {
+                alt53=2;
             }
             else {
                 if (backtracking>0) {failed=true; return current;}
                 NoViableAltException nvae =
-                    new NoViableAltException("5012:1: (lv_command_1_1= RULE_ID | lv_command_1_2= ruleSpecialCommandName )", 52, 0, input);
+                    new NoViableAltException("5048:1: (lv_command_1_1= RULE_ID | lv_command_1_2= ruleSpecialCommandName )", 53, 0, input);
 
                 throw nvae;
             }
-            switch (alt52) {
+            switch (alt53) {
                 case 1 :
-                    // ../org.elysium/src-gen/org/elysium/parser/antlr/internal/InternalLilyPond.g:5013:3: lv_command_1_1= RULE_ID
+                    // ../org.elysium/src-gen/org/elysium/parser/antlr/internal/InternalLilyPond.g:5049:3: lv_command_1_1= RULE_ID
                     {
                     lv_command_1_1=(Token)input.LT(1);
-                    match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleSchemeMarkupCommand9944); if (failed) return current;
+                    match(input,RULE_ID,FOLLOW_RULE_ID_in_ruleSchemeMarkupCommand10055); if (failed) return current;
                     if ( backtracking==0 ) {
 
                       			createLeafNode(grammarAccess.getSchemeMarkupCommandAccess().getCommandIDTerminalRuleCall_1_0_0(), "command"); 
@@ -14940,14 +15079,14 @@ public class InternalLilyPondParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 2 :
-                    // ../org.elysium/src-gen/org/elysium/parser/antlr/internal/InternalLilyPond.g:5034:8: lv_command_1_2= ruleSpecialCommandName
+                    // ../org.elysium/src-gen/org/elysium/parser/antlr/internal/InternalLilyPond.g:5070:8: lv_command_1_2= ruleSpecialCommandName
                     {
                     if ( backtracking==0 ) {
                        
                       	        currentNode=createCompositeNode(grammarAccess.getSchemeMarkupCommandAccess().getCommandSpecialCommandNameParserRuleCall_1_0_1(), currentNode); 
                       	    
                     }
-                    pushFollow(FOLLOW_ruleSpecialCommandName_in_ruleSchemeMarkupCommand9968);
+                    pushFollow(FOLLOW_ruleSpecialCommandName_in_ruleSchemeMarkupCommand10079);
                     lv_command_1_2=ruleSpecialCommandName();
                     _fsp--;
                     if (failed) return current;
@@ -15086,16 +15225,16 @@ public class InternalLilyPondParser extends AbstractInternalAntlrParser {
 
     // $ANTLR start synpred25
     public final void synpred25_fragment() throws RecognitionException {   
-        // ../org.elysium/src-gen/org/elysium/parser/antlr/internal/InternalLilyPond.g:938:2: ( ruleText )
-        // ../org.elysium/src-gen/org/elysium/parser/antlr/internal/InternalLilyPond.g:938:2: ruleText
+        // ../org.elysium/src-gen/org/elysium/parser/antlr/internal/InternalLilyPond.g:938:2: ( ruleNumber )
+        // ../org.elysium/src-gen/org/elysium/parser/antlr/internal/InternalLilyPond.g:938:2: ruleNumber
         {
         if ( backtracking==0 ) {
            
           	  /* */ 
           	
         }
-        pushFollow(FOLLOW_ruleText_in_synpred251925);
-        ruleText();
+        pushFollow(FOLLOW_ruleNumber_in_synpred251925);
+        ruleNumber();
         _fsp--;
         if (failed) return ;
 
@@ -15112,23 +15251,23 @@ public class InternalLilyPondParser extends AbstractInternalAntlrParser {
         // ../org.elysium/src-gen/org/elysium/parser/antlr/internal/InternalLilyPond.g:1975:1: ( ruleScheme | ruleUnparsedCommand )
         {
         // ../org.elysium/src-gen/org/elysium/parser/antlr/internal/InternalLilyPond.g:1975:1: ( ruleScheme | ruleUnparsedCommand )
-        int alt53=2;
-        int LA53_0 = input.LA(1);
+        int alt54=2;
+        int LA54_0 = input.LA(1);
 
-        if ( ((LA53_0>=KEYWORD_2 && LA53_0<=KEYWORD_3)) ) {
-            alt53=1;
+        if ( ((LA54_0>=KEYWORD_2 && LA54_0<=KEYWORD_3)) ) {
+            alt54=1;
         }
-        else if ( (LA53_0==KEYWORD_17) ) {
-            alt53=2;
+        else if ( (LA54_0==KEYWORD_17) ) {
+            alt54=2;
         }
         else {
             if (backtracking>0) {failed=true; return ;}
             NoViableAltException nvae =
-                new NoViableAltException("1975:1: ( ruleScheme | ruleUnparsedCommand )", 53, 0, input);
+                new NoViableAltException("1975:1: ( ruleScheme | ruleUnparsedCommand )", 54, 0, input);
 
             throw nvae;
         }
-        switch (alt53) {
+        switch (alt54) {
             case 1 :
                 // ../org.elysium/src-gen/org/elysium/parser/antlr/internal/InternalLilyPond.g:1976:3: ruleScheme
                 {
@@ -15416,16 +15555,16 @@ public class InternalLilyPondParser extends AbstractInternalAntlrParser {
 
     // $ANTLR start synpred145
     public final void synpred145_fragment() throws RecognitionException {   
-        // ../org.elysium/src-gen/org/elysium/parser/antlr/internal/InternalLilyPond.g:4221:2: ( ruleSchemeText )
-        // ../org.elysium/src-gen/org/elysium/parser/antlr/internal/InternalLilyPond.g:4221:2: ruleSchemeText
+        // ../org.elysium/src-gen/org/elysium/parser/antlr/internal/InternalLilyPond.g:4221:2: ( ruleSchemeNumber )
+        // ../org.elysium/src-gen/org/elysium/parser/antlr/internal/InternalLilyPond.g:4221:2: ruleSchemeNumber
         {
         if ( backtracking==0 ) {
            
           	  /* */ 
           	
         }
-        pushFollow(FOLLOW_ruleSchemeText_in_synpred1458205);
-        ruleSchemeText();
+        pushFollow(FOLLOW_ruleSchemeNumber_in_synpred1458205);
+        ruleSchemeNumber();
         _fsp--;
         if (failed) return ;
 
@@ -15435,16 +15574,16 @@ public class InternalLilyPondParser extends AbstractInternalAntlrParser {
 
     // $ANTLR start synpred146
     public final void synpred146_fragment() throws RecognitionException {   
-        // ../org.elysium/src-gen/org/elysium/parser/antlr/internal/InternalLilyPond.g:4234:2: ( ruleSchemeNumber )
-        // ../org.elysium/src-gen/org/elysium/parser/antlr/internal/InternalLilyPond.g:4234:2: ruleSchemeNumber
+        // ../org.elysium/src-gen/org/elysium/parser/antlr/internal/InternalLilyPond.g:4234:2: ( ruleSchemeText )
+        // ../org.elysium/src-gen/org/elysium/parser/antlr/internal/InternalLilyPond.g:4234:2: ruleSchemeText
         {
         if ( backtracking==0 ) {
            
           	  /* */ 
           	
         }
-        pushFollow(FOLLOW_ruleSchemeNumber_in_synpred1468235);
-        ruleSchemeNumber();
+        pushFollow(FOLLOW_ruleSchemeText_in_synpred1468235);
+        ruleSchemeText();
         _fsp--;
         if (failed) return ;
 
@@ -15459,13 +15598,13 @@ public class InternalLilyPondParser extends AbstractInternalAntlrParser {
         {
         match(input,KEYWORD_10,FOLLOW_KEYWORD_10_in_synpred1539094); if (failed) return ;
         // ../org.elysium/src-gen/org/elysium/parser/antlr/internal/InternalLilyPond.g:4682:1: ( KEYWORD_10 )?
-        int alt55=2;
-        int LA55_0 = input.LA(1);
+        int alt56=2;
+        int LA56_0 = input.LA(1);
 
-        if ( (LA55_0==KEYWORD_10) ) {
-            alt55=1;
+        if ( (LA56_0==KEYWORD_10) ) {
+            alt56=1;
         }
-        switch (alt55) {
+        switch (alt56) {
             case 1 :
                 // ../org.elysium/src-gen/org/elysium/parser/antlr/internal/InternalLilyPond.g:4683:2: KEYWORD_10
                 {
@@ -15877,8 +16016,8 @@ public class InternalLilyPondParser extends AbstractInternalAntlrParser {
     public static final BitSet FOLLOW_ruleUnparsedCommand_in_ruleUnparsedExpression1835 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_ruleUnparsedBlock_in_ruleUnparsedExpression1865 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_ruleScheme_in_ruleUnparsedExpression1895 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleText_in_ruleUnparsedExpression1925 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleNumber_in_ruleUnparsedExpression1955 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleNumber_in_ruleUnparsedExpression1925 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleText_in_ruleUnparsedExpression1955 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_ruleUnparsedCommand_in_entryRuleUnparsedCommand1989 = new BitSet(new long[]{0x0000000000000000L});
     public static final BitSet FOLLOW_EOF_in_entryRuleUnparsedCommand1999 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_KEYWORD_17_in_ruleUnparsedCommand2035 = new BitSet(new long[]{0xFFFFFFFFFFFFFFF0L,0x0000000100000001L});
@@ -16120,8 +16259,8 @@ public class InternalLilyPondParser extends AbstractInternalAntlrParser {
     public static final BitSet FOLLOW_ruleSchemeList_in_ruleSchemeValue8115 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_ruleSchemeBlock_in_ruleSchemeValue8145 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_ruleSchemeCharacter_in_ruleSchemeValue8175 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleSchemeText_in_ruleSchemeValue8205 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleSchemeNumber_in_ruleSchemeValue8235 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleSchemeNumber_in_ruleSchemeValue8205 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleSchemeText_in_ruleSchemeValue8235 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_ruleSchemeMarkupCommand_in_ruleSchemeValue8265 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_ruleSchemeBoolean_in_entryRuleSchemeBoolean8299 = new BitSet(new long[]{0x0000000000000000L});
     public static final BitSet FOLLOW_EOF_in_entryRuleSchemeBoolean8309 = new BitSet(new long[]{0x0000000000000002L});
@@ -16174,22 +16313,26 @@ public class InternalLilyPondParser extends AbstractInternalAntlrParser {
     public static final BitSet FOLLOW_RULE_ID_in_ruleSchemeIdentifier9582 = new BitSet(new long[]{0x0000000000000002L,0x0000000000010000L});
     public static final BitSet FOLLOW_ruleSchemeNumber_in_entryRuleSchemeNumber9638 = new BitSet(new long[]{0x0000000000000000L});
     public static final BitSet FOLLOW_EOF_in_entryRuleSchemeNumber9648 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleSchemeNumberRadix_in_ruleSchemeNumber9698 = new BitSet(new long[]{0x0000000000000000L,0x0000000080000000L});
-    public static final BitSet FOLLOW_RULE_INT_in_ruleSchemeNumber9716 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleSchemeNumberRadix_in_entryRuleSchemeNumberRadix9761 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleSchemeNumberRadix9772 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_KEYWORD_2_in_ruleSchemeNumberRadix9810 = new BitSet(new long[]{0x0000000000000000L,0x0000000100000000L});
-    public static final BitSet FOLLOW_RULE_ID_in_ruleSchemeNumberRadix9825 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleSchemeMarkupCommand_in_entryRuleSchemeMarkupCommand9875 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleSchemeMarkupCommand9885 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_KEYWORD_23_in_ruleSchemeMarkupCommand9925 = new BitSet(new long[]{0xFFFFFFFFFFFFFFF0L,0x0000000100000001L});
-    public static final BitSet FOLLOW_RULE_ID_in_ruleSchemeMarkupCommand9944 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleSpecialCommandName_in_ruleSchemeMarkupCommand9968 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleSchemeNumberRadix_in_ruleSchemeNumber9698 = new BitSet(new long[]{0x0000000000000000L,0x0000000080010000L});
+    public static final BitSet FOLLOW_ruleSignedInteger_in_ruleSchemeNumber9720 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleSignedInteger_in_entryRuleSignedInteger9760 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleSignedInteger9771 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_KEYWORD_9_in_ruleSignedInteger9810 = new BitSet(new long[]{0x0000000000000000L,0x0000000080000000L});
+    public static final BitSet FOLLOW_RULE_INT_in_ruleSignedInteger9827 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleSchemeNumberRadix_in_entryRuleSchemeNumberRadix9872 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleSchemeNumberRadix9883 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_KEYWORD_2_in_ruleSchemeNumberRadix9921 = new BitSet(new long[]{0x0000000000000000L,0x0000000100000000L});
+    public static final BitSet FOLLOW_RULE_ID_in_ruleSchemeNumberRadix9936 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleSchemeMarkupCommand_in_entryRuleSchemeMarkupCommand9986 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleSchemeMarkupCommand9996 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_KEYWORD_23_in_ruleSchemeMarkupCommand10036 = new BitSet(new long[]{0xFFFFFFFFFFFFFFF0L,0x0000000100000001L});
+    public static final BitSet FOLLOW_RULE_ID_in_ruleSchemeMarkupCommand10055 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleSpecialCommandName_in_ruleSchemeMarkupCommand10079 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_ruleAssignment_in_synpred2223 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_rulePropertyAssignment_in_synpred3347 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_ruleText_in_synpred7561 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_rulePropertyAssignment_in_synpred211805 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleText_in_synpred251925 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleNumber_in_synpred251925 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_ruleScheme_in_synpred473945 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_ruleUnparsedCommand_in_synpred473964 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_ruleUnparsedBlock_in_synpred483989 = new BitSet(new long[]{0x0000000000000002L});
@@ -16205,8 +16348,8 @@ public class InternalLilyPondParser extends AbstractInternalAntlrParser {
     public static final BitSet FOLLOW_ruleContextModification_in_synpred705797 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_KEYWORD_42_in_synpred1347566 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_ruleSchemeBoolean_in_synpred1418085 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleSchemeText_in_synpred1458205 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleSchemeNumber_in_synpred1468235 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleSchemeNumber_in_synpred1458205 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleSchemeText_in_synpred1468235 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_KEYWORD_10_in_synpred1539094 = new BitSet(new long[]{0xFFFFFFFFFFFFFFF0L,0x00000021E2BF4181L});
     public static final BitSet FOLLOW_KEYWORD_10_in_synpred1539108 = new BitSet(new long[]{0xFFFFFFFFFFFFFFF0L,0x00000021E2BD4181L});
     public static final BitSet FOLLOW_ruleSchemeTextValueSegment_in_synpred1539132 = new BitSet(new long[]{0x0000000000000002L});

@@ -939,11 +939,11 @@ ruleUnparsedExpression returns [EObject current=null]
 	  /* */ 
 	}
     { 
-        currentNode=createCompositeNode(grammarAccess.getUnparsedExpressionAccess().getTextParserRuleCall_4(), currentNode); 
+        currentNode=createCompositeNode(grammarAccess.getUnparsedExpressionAccess().getNumberParserRuleCall_4(), currentNode); 
     }
-    this_Text_4=ruleText
+    this_Number_4=ruleNumber
     {
-        $current = $this_Text_4.current;
+        $current = $this_Number_4.current;
         currentNode = currentNode.getParent();
     }
 
@@ -952,11 +952,11 @@ ruleUnparsedExpression returns [EObject current=null]
 	  /* */ 
 	}
     { 
-        currentNode=createCompositeNode(grammarAccess.getUnparsedExpressionAccess().getNumberParserRuleCall_5(), currentNode); 
+        currentNode=createCompositeNode(grammarAccess.getUnparsedExpressionAccess().getTextParserRuleCall_5(), currentNode); 
     }
-    this_Number_5=ruleNumber
+    this_Text_5=ruleText
     {
-        $current = $this_Number_5.current;
+        $current = $this_Text_5.current;
         currentNode = currentNode.getParent();
     }
 )
@@ -4222,11 +4222,11 @@ ruleSchemeValue returns [EObject current=null]
 	  /* */ 
 	}
     { 
-        currentNode=createCompositeNode(grammarAccess.getSchemeValueAccess().getSchemeTextParserRuleCall_4(), currentNode); 
+        currentNode=createCompositeNode(grammarAccess.getSchemeValueAccess().getSchemeNumberParserRuleCall_4(), currentNode); 
     }
-    this_SchemeText_4=ruleSchemeText
+    this_SchemeNumber_4=ruleSchemeNumber
     {
-        $current = $this_SchemeText_4.current;
+        $current = $this_SchemeNumber_4.current;
         currentNode = currentNode.getParent();
     }
 
@@ -4235,11 +4235,11 @@ ruleSchemeValue returns [EObject current=null]
 	  /* */ 
 	}
     { 
-        currentNode=createCompositeNode(grammarAccess.getSchemeValueAccess().getSchemeNumberParserRuleCall_5(), currentNode); 
+        currentNode=createCompositeNode(grammarAccess.getSchemeValueAccess().getSchemeTextParserRuleCall_5(), currentNode); 
     }
-    this_SchemeNumber_5=ruleSchemeNumber
+    this_SchemeText_5=ruleSchemeText
     {
-        $current = $this_SchemeNumber_5.current;
+        $current = $this_SchemeText_5.current;
         currentNode = currentNode.getParent();
     }
 
@@ -4911,25 +4911,25 @@ ruleSchemeNumber returns [EObject current=null]
 )
 )?(
 (
-		lv_value_1_0=RULE_INT
-		{
-			createLeafNode(grammarAccess.getSchemeNumberAccess().getValueINTTerminalRuleCall_1_0(), "value"); 
-		}
-		{
+		{ 
+	        currentNode=createCompositeNode(grammarAccess.getSchemeNumberAccess().getValueSignedIntegerParserRuleCall_1_0(), currentNode); 
+	    }
+		lv_value_1_0=ruleSignedInteger		{
 	        if ($current==null) {
 	            $current = factory.create(grammarAccess.getSchemeNumberRule().getType().getClassifier());
-	            associateNodeWithAstElement(currentNode, $current);
+	            associateNodeWithAstElement(currentNode.getParent(), $current);
 	        }
 	        try {
 	       		set(
 	       			$current, 
 	       			"value",
 	        		lv_value_1_0, 
-	        		"INT", 
-	        		lastConsumedNode);
+	        		"SignedInteger", 
+	        		currentNode);
 	        } catch (ValueConverterException vce) {
 				handleValueConverterException(vce);
 	        }
+	        currentNode = currentNode.getParent();
 	    }
 
 )
@@ -4938,6 +4938,42 @@ ruleSchemeNumber returns [EObject current=null]
 finally {
 	myHiddenTokenState.restore();
 }
+
+
+
+
+
+// Entry rule entryRuleSignedInteger
+entryRuleSignedInteger returns [String current=null] 
+:
+	{ currentNode = createCompositeNode(grammarAccess.getSignedIntegerRule(), currentNode); } 
+	 iv_ruleSignedInteger=ruleSignedInteger 
+	 { $current=$iv_ruleSignedInteger.current.getText(); }  
+	 EOF 
+;
+
+// Rule SignedInteger
+ruleSignedInteger returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()] 
+    @init { setCurrentLookahead(); resetLookahead(); 
+    }
+    @after { resetLookahead(); 
+	    lastConsumedNode = currentNode;
+    }:
+((
+	kw=KEYWORD_9 
+    {
+        $current.merge(kw);
+        createLeafNode(grammarAccess.getSignedIntegerAccess().getHyphenMinusKeyword_0(), null); 
+    }
+)?    this_INT_1=RULE_INT    {
+		$current.merge(this_INT_1);
+    }
+
+    { 
+    createLeafNode(grammarAccess.getSignedIntegerAccess().getINTTerminalRuleCall_1(), null); 
+    }
+)
+    ;
 
 
 

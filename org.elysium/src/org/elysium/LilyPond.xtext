@@ -27,7 +27,7 @@ SpecialCharacter: "!" | "?" | "+" | "<" | ">" | "[" | "]" | "~";
 
 UnparsedBlock: {UnparsedBlock} "{" expressions+=UnparsedExpression* "}";
 
-UnparsedExpression: PropertyAssignment | UnparsedCommand | UnparsedBlock | Scheme | Text | Number;
+UnparsedExpression: PropertyAssignment | UnparsedCommand | UnparsedBlock | Scheme | Number | Text;
 
 UnparsedCommand: "\\" command=(ID | SpecialCommandName);
 
@@ -89,7 +89,7 @@ Scheme hidden(WS, SCHEME_ML_COMMENT): ("#" | "$") value=SchemeExpression;
 
 SchemeExpression: reference?="$"? quotations+=("'" | "`" | "," | "@")* value=SchemeValue;
 
-SchemeValue: SchemeBoolean | SchemeList | SchemeBlock | SchemeCharacter | SchemeText | SchemeNumber| SchemeMarkupCommand;
+SchemeValue: SchemeBoolean | SchemeList | SchemeBlock | SchemeCharacter | SchemeNumber | SchemeText | SchemeMarkupCommand;
 
 SchemeBoolean: value=SchemeBooleanValue;
 
@@ -109,7 +109,9 @@ SchemeTextValueSegment: "\\\\" | "=" | "-" | SpecialCharacter | SpecialCommandNa
 
 SchemeIdentifier hidden(): ID ("-" ID)*;
 
-SchemeNumber hidden(): radix=SchemeNumberRadix? value=INT;
+SchemeNumber hidden(): radix=SchemeNumberRadix? value=SignedInteger;
+
+SignedInteger: "-"? INT;
 
 SchemeNumberRadix: "#" ID;
 

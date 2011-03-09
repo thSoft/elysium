@@ -19,19 +19,18 @@ public class LilyPondFormatter extends AbstractDeclarativeFormatter {
 	@Override
 	protected void configureFormatting(FormattingConfig config) {
 		LilyPondGrammarAccess grammar = (LilyPondGrammarAccess)getGrammarAccess();
-		// No space after
+		// No space
 		List<Keyword> noSpaceAfter = grammar.findKeywords(LilyPondConstants.BACKSLASH, "#"); //$NON-NLS-1$
 		for (Keyword keyword : noSpaceAfter) {
 			config.setNoSpace().after(keyword);
 		}
-		// No space before
 		List<Keyword> noSpaceBefore = grammar.findKeywords("'", ",", "(", ")"); //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$ //$NON-NLS-4$
 		for (Keyword keyword : noSpaceBefore) {
 			config.setNoSpace().before(keyword);
 		}
 		config.setNoSpace().before(grammar.getNumberRule());
 		config.setNoSpace().before(grammar.getANY_OTHERRule()); // FIXME doesn't seem to apply
-		// Line break after
+		// Line wrap
 		config.setLinewrap().after(grammar.getIncludeRule());
 		config.setLinewrap(2).after(grammar.getVersionRule());
 		config.setLinewrap(2).after(grammar.getAssignmentRule());
