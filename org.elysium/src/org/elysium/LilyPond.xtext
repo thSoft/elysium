@@ -95,7 +95,7 @@ SchemeBoolean: value=SchemeBooleanValue;
 
 SchemeBooleanValue returns ecore::EBoolean: "#" ID;
 
-SchemeList: {SchemeList} (vector?="#")? "(" expressions+=SchemeExpression* ")";
+SchemeList: {SchemeList} vector?="#"? "(" expressions+=SchemeExpression* ")";
 
 SchemeBlock: "#{" elements+=Expression+ "#}";
 
@@ -111,9 +111,9 @@ SchemeIdentifier hidden(): ID ("-" ID)*;
 
 SchemeNumber hidden(): radix=SchemeNumberRadix? value=SignedInteger;
 
-SignedInteger: "-"? INT;
-
 SchemeNumberRadix: "#" ID;
+
+SignedInteger: "-"? INT;
 
 SchemeMarkupCommand hidden(): "#:" command=(ID | SpecialCommandName);
 
