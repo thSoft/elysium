@@ -1639,34 +1639,6 @@ finally {
 
 
 
-// Entry rule entryRuleSignedInteger
-entryRuleSignedInteger 
-:
-{ before(grammarAccess.getSignedIntegerRule()); }
-	 ruleSignedInteger
-{ after(grammarAccess.getSignedIntegerRule()); } 
-	 EOF 
-;
-
-// Rule SignedInteger
-ruleSignedInteger 
-    @init {
-		int stackSize = keepStackSize();
-    }
-    :
-(
-{ before(grammarAccess.getSignedIntegerAccess().getGroup()); }
-(rule__SignedInteger__Group__0)
-{ after(grammarAccess.getSignedIntegerAccess().getGroup()); }
-)
-
-;
-finally {
-	restoreStackSize(stackSize);
-}
-
-
-
 // Entry rule entryRuleSchemeNumberRadix
 entryRuleSchemeNumberRadix 
 :
@@ -1686,6 +1658,34 @@ ruleSchemeNumberRadix
 { before(grammarAccess.getSchemeNumberRadixAccess().getGroup()); }
 (rule__SchemeNumberRadix__Group__0)
 { after(grammarAccess.getSchemeNumberRadixAccess().getGroup()); }
+)
+
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+
+
+// Entry rule entryRuleSignedInteger
+entryRuleSignedInteger 
+:
+{ before(grammarAccess.getSignedIntegerRule()); }
+	 ruleSignedInteger
+{ after(grammarAccess.getSignedIntegerRule()); } 
+	 EOF 
+;
+
+// Rule SignedInteger
+ruleSignedInteger 
+    @init {
+		int stackSize = keepStackSize();
+    }
+    :
+(
+{ before(grammarAccess.getSignedIntegerAccess().getGroup()); }
+(rule__SignedInteger__Group__0)
+{ after(grammarAccess.getSignedIntegerAccess().getGroup()); }
 )
 
 ;
@@ -2008,9 +2008,9 @@ rule__UnparsedCommand__CommandAlternatives_1_0
     }
 :
 (
-{ before(grammarAccess.getUnparsedCommandAccess().getCommandIDTerminalRuleCall_1_0_0()); }
-	RULE_ID
-{ after(grammarAccess.getUnparsedCommandAccess().getCommandIDTerminalRuleCall_1_0_0()); }
+{ before(grammarAccess.getUnparsedCommandAccess().getCommandSchemeIdentifierParserRuleCall_1_0_0()); }
+	ruleSchemeIdentifier
+{ after(grammarAccess.getUnparsedCommandAccess().getCommandSchemeIdentifierParserRuleCall_1_0_0()); }
 )
 
     |(
@@ -6824,69 +6824,6 @@ finally {
 
 
 
-rule__SignedInteger__Group__0
-    @init {
-		int stackSize = keepStackSize();
-    }
-:
-	rule__SignedInteger__Group__0__Impl
-	rule__SignedInteger__Group__1
-;
-finally {
-	restoreStackSize(stackSize);
-}
-
-rule__SignedInteger__Group__0__Impl
-    @init {
-		int stackSize = keepStackSize();
-    }
-:
-(
-{ before(grammarAccess.getSignedIntegerAccess().getHyphenMinusKeyword_0()); }
-(
-	KEYWORD_9 
-)?
-{ after(grammarAccess.getSignedIntegerAccess().getHyphenMinusKeyword_0()); }
-)
-
-;
-finally {
-	restoreStackSize(stackSize);
-}
-
-
-rule__SignedInteger__Group__1
-    @init {
-		int stackSize = keepStackSize();
-    }
-:
-	rule__SignedInteger__Group__1__Impl
-;
-finally {
-	restoreStackSize(stackSize);
-}
-
-rule__SignedInteger__Group__1__Impl
-    @init {
-		int stackSize = keepStackSize();
-    }
-:
-(
-{ before(grammarAccess.getSignedIntegerAccess().getINTTerminalRuleCall_1()); }
-	RULE_INT
-{ after(grammarAccess.getSignedIntegerAccess().getINTTerminalRuleCall_1()); }
-)
-
-;
-finally {
-	restoreStackSize(stackSize);
-}
-
-
-
-
-
-
 rule__SchemeNumberRadix__Group__0
     @init {
 		int stackSize = keepStackSize();
@@ -6938,6 +6875,69 @@ rule__SchemeNumberRadix__Group__1__Impl
 { before(grammarAccess.getSchemeNumberRadixAccess().getIDTerminalRuleCall_1()); }
 	RULE_ID
 { after(grammarAccess.getSchemeNumberRadixAccess().getIDTerminalRuleCall_1()); }
+)
+
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+
+
+
+
+
+rule__SignedInteger__Group__0
+    @init {
+		int stackSize = keepStackSize();
+    }
+:
+	rule__SignedInteger__Group__0__Impl
+	rule__SignedInteger__Group__1
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__SignedInteger__Group__0__Impl
+    @init {
+		int stackSize = keepStackSize();
+    }
+:
+(
+{ before(grammarAccess.getSignedIntegerAccess().getHyphenMinusKeyword_0()); }
+(
+	KEYWORD_9 
+)?
+{ after(grammarAccess.getSignedIntegerAccess().getHyphenMinusKeyword_0()); }
+)
+
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+
+rule__SignedInteger__Group__1
+    @init {
+		int stackSize = keepStackSize();
+    }
+:
+	rule__SignedInteger__Group__1__Impl
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__SignedInteger__Group__1__Impl
+    @init {
+		int stackSize = keepStackSize();
+    }
+:
+(
+{ before(grammarAccess.getSignedIntegerAccess().getINTTerminalRuleCall_1()); }
+	RULE_INT
+{ after(grammarAccess.getSignedIntegerAccess().getINTTerminalRuleCall_1()); }
 )
 
 ;

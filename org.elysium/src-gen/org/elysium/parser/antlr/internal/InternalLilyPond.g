@@ -990,25 +990,25 @@ ruleUnparsedCommand returns [EObject current=null]
 (
 (
 (
-		lv_command_1_1=RULE_ID
-		{
-			createLeafNode(grammarAccess.getUnparsedCommandAccess().getCommandIDTerminalRuleCall_1_0_0(), "command"); 
-		}
-		{
+		{ 
+	        currentNode=createCompositeNode(grammarAccess.getUnparsedCommandAccess().getCommandSchemeIdentifierParserRuleCall_1_0_0(), currentNode); 
+	    }
+		lv_command_1_1=ruleSchemeIdentifier		{
 	        if ($current==null) {
 	            $current = factory.create(grammarAccess.getUnparsedCommandRule().getType().getClassifier());
-	            associateNodeWithAstElement(currentNode, $current);
+	            associateNodeWithAstElement(currentNode.getParent(), $current);
 	        }
 	        try {
 	       		set(
 	       			$current, 
 	       			"command",
 	        		lv_command_1_1, 
-	        		"ID", 
-	        		lastConsumedNode);
+	        		"SchemeIdentifier", 
+	        		currentNode);
 	        } catch (ValueConverterException vce) {
 				handleValueConverterException(vce);
 	        }
+	        currentNode = currentNode.getParent();
 	    }
 
     |		{ 
@@ -4943,42 +4943,6 @@ finally {
 
 
 
-// Entry rule entryRuleSignedInteger
-entryRuleSignedInteger returns [String current=null] 
-:
-	{ currentNode = createCompositeNode(grammarAccess.getSignedIntegerRule(), currentNode); } 
-	 iv_ruleSignedInteger=ruleSignedInteger 
-	 { $current=$iv_ruleSignedInteger.current.getText(); }  
-	 EOF 
-;
-
-// Rule SignedInteger
-ruleSignedInteger returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()] 
-    @init { setCurrentLookahead(); resetLookahead(); 
-    }
-    @after { resetLookahead(); 
-	    lastConsumedNode = currentNode;
-    }:
-((
-	kw=KEYWORD_9 
-    {
-        $current.merge(kw);
-        createLeafNode(grammarAccess.getSignedIntegerAccess().getHyphenMinusKeyword_0(), null); 
-    }
-)?    this_INT_1=RULE_INT    {
-		$current.merge(this_INT_1);
-    }
-
-    { 
-    createLeafNode(grammarAccess.getSignedIntegerAccess().getINTTerminalRuleCall_1(), null); 
-    }
-)
-    ;
-
-
-
-
-
 // Entry rule entryRuleSchemeNumberRadix
 entryRuleSchemeNumberRadix returns [String current=null] 
 :
@@ -5007,6 +4971,42 @@ ruleSchemeNumberRadix returns [AntlrDatatypeRuleToken current=new AntlrDatatypeR
 
     { 
     createLeafNode(grammarAccess.getSchemeNumberRadixAccess().getIDTerminalRuleCall_1(), null); 
+    }
+)
+    ;
+
+
+
+
+
+// Entry rule entryRuleSignedInteger
+entryRuleSignedInteger returns [String current=null] 
+:
+	{ currentNode = createCompositeNode(grammarAccess.getSignedIntegerRule(), currentNode); } 
+	 iv_ruleSignedInteger=ruleSignedInteger 
+	 { $current=$iv_ruleSignedInteger.current.getText(); }  
+	 EOF 
+;
+
+// Rule SignedInteger
+ruleSignedInteger returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()] 
+    @init { setCurrentLookahead(); resetLookahead(); 
+    }
+    @after { resetLookahead(); 
+	    lastConsumedNode = currentNode;
+    }:
+((
+	kw=KEYWORD_9 
+    {
+        $current.merge(kw);
+        createLeafNode(grammarAccess.getSignedIntegerAccess().getHyphenMinusKeyword_0(), null); 
+    }
+)?    this_INT_1=RULE_INT    {
+		$current.merge(this_INT_1);
+    }
+
+    { 
+    createLeafNode(grammarAccess.getSignedIntegerAccess().getINTTerminalRuleCall_1(), null); 
     }
 )
     ;

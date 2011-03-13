@@ -139,6 +139,10 @@ public class Grammar extends LilyPondTest {
 		assertValid("\\markup { árvíztűrő tükörfúrógép }");
 	}
 
+	public void testMarkupCommandWithHyphen() throws Exception {
+		assertValid("\\markup \\fill-line { \\on-the-fly #not-first-page \\fromproperty #'header:instrument }");
+	}
+
 	public void testAssignment() throws Exception {
 		assertValid(ASSIGNMENT + REFERENCE);
 	}

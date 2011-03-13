@@ -29,7 +29,7 @@ UnparsedBlock: {UnparsedBlock} "{" expressions+=UnparsedExpression* "}";
 
 UnparsedExpression: PropertyAssignment | UnparsedCommand | UnparsedBlock | Scheme | Number | Text;
 
-UnparsedCommand: "\\" command=(ID | SpecialCommandName);
+UnparsedCommand: "\\" command=(SchemeIdentifier | SpecialCommandName);
 
 Reference: "\\" assignment=[Assignment];
 

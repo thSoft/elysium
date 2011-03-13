@@ -4623,107 +4623,24 @@ public class InternalLilyPondParser extends AbstractInternalContentAssistParser 
     // $ANTLR end ruleSchemeNumber
 
 
-    // $ANTLR start entryRuleSignedInteger
-    // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:1643:1: entryRuleSignedInteger : ruleSignedInteger EOF ;
-    public final void entryRuleSignedInteger() throws RecognitionException {
-        try {
-            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:1644:1: ( ruleSignedInteger EOF )
-            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:1645:1: ruleSignedInteger EOF
-            {
-            if ( backtracking==0 ) {
-               before(grammarAccess.getSignedIntegerRule()); 
-            }
-            pushFollow(FOLLOW_ruleSignedInteger_in_entryRuleSignedInteger3425);
-            ruleSignedInteger();
-            _fsp--;
-            if (failed) return ;
-            if ( backtracking==0 ) {
-               after(grammarAccess.getSignedIntegerRule()); 
-            }
-            match(input,EOF,FOLLOW_EOF_in_entryRuleSignedInteger3432); if (failed) return ;
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-        }
-        return ;
-    }
-    // $ANTLR end entryRuleSignedInteger
-
-
-    // $ANTLR start ruleSignedInteger
-    // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:1652:1: ruleSignedInteger : ( ( rule__SignedInteger__Group__0 ) ) ;
-    public final void ruleSignedInteger() throws RecognitionException {
-
-        		int stackSize = keepStackSize();
-            
-        try {
-            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:1656:5: ( ( ( rule__SignedInteger__Group__0 ) ) )
-            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:1657:1: ( ( rule__SignedInteger__Group__0 ) )
-            {
-            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:1657:1: ( ( rule__SignedInteger__Group__0 ) )
-            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:1658:1: ( rule__SignedInteger__Group__0 )
-            {
-            if ( backtracking==0 ) {
-               before(grammarAccess.getSignedIntegerAccess().getGroup()); 
-            }
-            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:1659:1: ( rule__SignedInteger__Group__0 )
-            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:1659:2: rule__SignedInteger__Group__0
-            {
-            pushFollow(FOLLOW_rule__SignedInteger__Group__0_in_ruleSignedInteger3462);
-            rule__SignedInteger__Group__0();
-            _fsp--;
-            if (failed) return ;
-
-            }
-
-            if ( backtracking==0 ) {
-               after(grammarAccess.getSignedIntegerAccess().getGroup()); 
-            }
-
-            }
-
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-
-            	restoreStackSize(stackSize);
-
-        }
-        return ;
-    }
-    // $ANTLR end ruleSignedInteger
-
-
     // $ANTLR start entryRuleSchemeNumberRadix
-    // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:1671:1: entryRuleSchemeNumberRadix : ruleSchemeNumberRadix EOF ;
+    // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:1643:1: entryRuleSchemeNumberRadix : ruleSchemeNumberRadix EOF ;
     public final void entryRuleSchemeNumberRadix() throws RecognitionException {
         try {
-            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:1672:1: ( ruleSchemeNumberRadix EOF )
-            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:1673:1: ruleSchemeNumberRadix EOF
+            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:1644:1: ( ruleSchemeNumberRadix EOF )
+            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:1645:1: ruleSchemeNumberRadix EOF
             {
             if ( backtracking==0 ) {
                before(grammarAccess.getSchemeNumberRadixRule()); 
             }
-            pushFollow(FOLLOW_ruleSchemeNumberRadix_in_entryRuleSchemeNumberRadix3489);
+            pushFollow(FOLLOW_ruleSchemeNumberRadix_in_entryRuleSchemeNumberRadix3425);
             ruleSchemeNumberRadix();
             _fsp--;
             if (failed) return ;
             if ( backtracking==0 ) {
                after(grammarAccess.getSchemeNumberRadixRule()); 
             }
-            match(input,EOF,FOLLOW_EOF_in_entryRuleSchemeNumberRadix3496); if (failed) return ;
+            match(input,EOF,FOLLOW_EOF_in_entryRuleSchemeNumberRadix3432); if (failed) return ;
 
             }
 
@@ -4740,25 +4657,25 @@ public class InternalLilyPondParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start ruleSchemeNumberRadix
-    // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:1680:1: ruleSchemeNumberRadix : ( ( rule__SchemeNumberRadix__Group__0 ) ) ;
+    // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:1652:1: ruleSchemeNumberRadix : ( ( rule__SchemeNumberRadix__Group__0 ) ) ;
     public final void ruleSchemeNumberRadix() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:1684:5: ( ( ( rule__SchemeNumberRadix__Group__0 ) ) )
-            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:1685:1: ( ( rule__SchemeNumberRadix__Group__0 ) )
+            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:1656:5: ( ( ( rule__SchemeNumberRadix__Group__0 ) ) )
+            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:1657:1: ( ( rule__SchemeNumberRadix__Group__0 ) )
             {
-            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:1685:1: ( ( rule__SchemeNumberRadix__Group__0 ) )
-            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:1686:1: ( rule__SchemeNumberRadix__Group__0 )
+            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:1657:1: ( ( rule__SchemeNumberRadix__Group__0 ) )
+            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:1658:1: ( rule__SchemeNumberRadix__Group__0 )
             {
             if ( backtracking==0 ) {
                before(grammarAccess.getSchemeNumberRadixAccess().getGroup()); 
             }
-            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:1687:1: ( rule__SchemeNumberRadix__Group__0 )
-            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:1687:2: rule__SchemeNumberRadix__Group__0
+            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:1659:1: ( rule__SchemeNumberRadix__Group__0 )
+            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:1659:2: rule__SchemeNumberRadix__Group__0
             {
-            pushFollow(FOLLOW_rule__SchemeNumberRadix__Group__0_in_ruleSchemeNumberRadix3526);
+            pushFollow(FOLLOW_rule__SchemeNumberRadix__Group__0_in_ruleSchemeNumberRadix3462);
             rule__SchemeNumberRadix__Group__0();
             _fsp--;
             if (failed) return ;
@@ -4787,6 +4704,89 @@ public class InternalLilyPondParser extends AbstractInternalContentAssistParser 
         return ;
     }
     // $ANTLR end ruleSchemeNumberRadix
+
+
+    // $ANTLR start entryRuleSignedInteger
+    // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:1671:1: entryRuleSignedInteger : ruleSignedInteger EOF ;
+    public final void entryRuleSignedInteger() throws RecognitionException {
+        try {
+            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:1672:1: ( ruleSignedInteger EOF )
+            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:1673:1: ruleSignedInteger EOF
+            {
+            if ( backtracking==0 ) {
+               before(grammarAccess.getSignedIntegerRule()); 
+            }
+            pushFollow(FOLLOW_ruleSignedInteger_in_entryRuleSignedInteger3489);
+            ruleSignedInteger();
+            _fsp--;
+            if (failed) return ;
+            if ( backtracking==0 ) {
+               after(grammarAccess.getSignedIntegerRule()); 
+            }
+            match(input,EOF,FOLLOW_EOF_in_entryRuleSignedInteger3496); if (failed) return ;
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+        }
+        return ;
+    }
+    // $ANTLR end entryRuleSignedInteger
+
+
+    // $ANTLR start ruleSignedInteger
+    // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:1680:1: ruleSignedInteger : ( ( rule__SignedInteger__Group__0 ) ) ;
+    public final void ruleSignedInteger() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+            
+        try {
+            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:1684:5: ( ( ( rule__SignedInteger__Group__0 ) ) )
+            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:1685:1: ( ( rule__SignedInteger__Group__0 ) )
+            {
+            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:1685:1: ( ( rule__SignedInteger__Group__0 ) )
+            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:1686:1: ( rule__SignedInteger__Group__0 )
+            {
+            if ( backtracking==0 ) {
+               before(grammarAccess.getSignedIntegerAccess().getGroup()); 
+            }
+            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:1687:1: ( rule__SignedInteger__Group__0 )
+            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:1687:2: rule__SignedInteger__Group__0
+            {
+            pushFollow(FOLLOW_rule__SignedInteger__Group__0_in_ruleSignedInteger3526);
+            rule__SignedInteger__Group__0();
+            _fsp--;
+            if (failed) return ;
+
+            }
+
+            if ( backtracking==0 ) {
+               after(grammarAccess.getSignedIntegerAccess().getGroup()); 
+            }
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end ruleSignedInteger
 
 
     // $ANTLR start entryRuleSchemeMarkupCommand
@@ -6249,13 +6249,13 @@ public class InternalLilyPondParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start rule__UnparsedCommand__CommandAlternatives_1_0
-    // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:2005:1: rule__UnparsedCommand__CommandAlternatives_1_0 : ( ( RULE_ID ) | ( ruleSpecialCommandName ) );
+    // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:2005:1: rule__UnparsedCommand__CommandAlternatives_1_0 : ( ( ruleSchemeIdentifier ) | ( ruleSpecialCommandName ) );
     public final void rule__UnparsedCommand__CommandAlternatives_1_0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:2009:1: ( ( RULE_ID ) | ( ruleSpecialCommandName ) )
+            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:2009:1: ( ( ruleSchemeIdentifier ) | ( ruleSpecialCommandName ) )
             int alt10=2;
             int LA10_0 = input.LA(1);
 
@@ -6268,23 +6268,26 @@ public class InternalLilyPondParser extends AbstractInternalContentAssistParser 
             else {
                 if (backtracking>0) {failed=true; return ;}
                 NoViableAltException nvae =
-                    new NoViableAltException("2005:1: rule__UnparsedCommand__CommandAlternatives_1_0 : ( ( RULE_ID ) | ( ruleSpecialCommandName ) );", 10, 0, input);
+                    new NoViableAltException("2005:1: rule__UnparsedCommand__CommandAlternatives_1_0 : ( ( ruleSchemeIdentifier ) | ( ruleSpecialCommandName ) );", 10, 0, input);
 
                 throw nvae;
             }
             switch (alt10) {
                 case 1 :
-                    // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:2010:1: ( RULE_ID )
+                    // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:2010:1: ( ruleSchemeIdentifier )
                     {
-                    // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:2010:1: ( RULE_ID )
-                    // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:2011:1: RULE_ID
+                    // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:2010:1: ( ruleSchemeIdentifier )
+                    // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:2011:1: ruleSchemeIdentifier
                     {
                     if ( backtracking==0 ) {
-                       before(grammarAccess.getUnparsedCommandAccess().getCommandIDTerminalRuleCall_1_0_0()); 
+                       before(grammarAccess.getUnparsedCommandAccess().getCommandSchemeIdentifierParserRuleCall_1_0_0()); 
                     }
-                    match(input,RULE_ID,FOLLOW_RULE_ID_in_rule__UnparsedCommand__CommandAlternatives_1_04272); if (failed) return ;
+                    pushFollow(FOLLOW_ruleSchemeIdentifier_in_rule__UnparsedCommand__CommandAlternatives_1_04272);
+                    ruleSchemeIdentifier();
+                    _fsp--;
+                    if (failed) return ;
                     if ( backtracking==0 ) {
-                       after(grammarAccess.getUnparsedCommandAccess().getCommandIDTerminalRuleCall_1_0_0()); 
+                       after(grammarAccess.getUnparsedCommandAccess().getCommandSchemeIdentifierParserRuleCall_1_0_0()); 
                     }
 
                     }
@@ -6602,16 +6605,6 @@ public class InternalLilyPondParser extends AbstractInternalContentAssistParser 
 
             if ( (LA12_0==KEYWORD_17) ) {
                 switch ( input.LA(2) ) {
-                case KEYWORD_56:
-                    {
-                    alt12=5;
-                    }
-                    break;
-                case KEYWORD_67:
-                    {
-                    alt12=2;
-                    }
-                    break;
                 case KEYWORD_54:
                 case KEYWORD_45:
                 case KEYWORD_35:
@@ -6619,38 +6612,28 @@ public class InternalLilyPondParser extends AbstractInternalContentAssistParser 
                     alt12=8;
                     }
                     break;
-                case KEYWORD_75:
-                    {
-                    alt12=9;
-                    }
-                    break;
-                case KEYWORD_62:
-                    {
-                    int LA12_6 = input.LA(3);
-
-                    if ( (LA12_6==RULE_ID) ) {
-                        alt12=13;
-                    }
-                    else if ( (LA12_6==KEYWORD_20) ) {
-                        alt12=14;
-                    }
-                    else {
-                        if (backtracking>0) {failed=true; return ;}
-                        NoViableAltException nvae =
-                            new NoViableAltException("2083:1: rule__SpecialCommand__Alternatives : ( ( ruleInclude ) | ( ruleVersion ) | ( ruleSourceFileName ) | ( ruleSourceFileLine ) | ( ruleMarkup ) | ( ruleMarkupLines ) | ( ruleBlockCommand ) | ( ruleOutputDefinition ) | ( ruleRelativeMusic ) | ( ruleTransposedMusic ) | ( ruleModeChange ) | ( ruleMusicWithLyrics ) | ( ruleNewContext ) | ( ruleContextDef ) | ( ruleOther ) );", 12, 6, input);
-
-                        throw nvae;
-                    }
-                    }
-                    break;
-                case KEYWORD_85:
-                    {
-                    alt12=6;
-                    }
-                    break;
                 case KEYWORD_71:
                     {
                     alt12=12;
+                    }
+                    break;
+                case KEYWORD_56:
+                    {
+                    alt12=5;
+                    }
+                    break;
+                case KEYWORD_81:
+                case KEYWORD_77:
+                case KEYWORD_78:
+                case KEYWORD_70:
+                case KEYWORD_72:
+                    {
+                    alt12=11;
+                    }
+                    break;
+                case KEYWORD_67:
+                    {
+                    alt12=2;
                     }
                     break;
                 case KEYWORD_88:
@@ -6663,14 +6646,38 @@ public class InternalLilyPondParser extends AbstractInternalContentAssistParser 
                     alt12=3;
                     }
                     break;
-                case KEYWORD_31:
+                case KEYWORD_75:
                     {
-                    alt12=13;
+                    alt12=9;
                     }
                     break;
                 case KEYWORD_80:
                     {
                     alt12=10;
+                    }
+                    break;
+                case KEYWORD_31:
+                    {
+                    alt12=13;
+                    }
+                    break;
+                case KEYWORD_62:
+                    {
+                    int LA12_12 = input.LA(3);
+
+                    if ( (LA12_12==KEYWORD_20) ) {
+                        alt12=14;
+                    }
+                    else if ( (LA12_12==RULE_ID) ) {
+                        alt12=13;
+                    }
+                    else {
+                        if (backtracking>0) {failed=true; return ;}
+                        NoViableAltException nvae =
+                            new NoViableAltException("2083:1: rule__SpecialCommand__Alternatives : ( ( ruleInclude ) | ( ruleVersion ) | ( ruleSourceFileName ) | ( ruleSourceFileLine ) | ( ruleMarkup ) | ( ruleMarkupLines ) | ( ruleBlockCommand ) | ( ruleOutputDefinition ) | ( ruleRelativeMusic ) | ( ruleTransposedMusic ) | ( ruleModeChange ) | ( ruleMusicWithLyrics ) | ( ruleNewContext ) | ( ruleContextDef ) | ( ruleOther ) );", 12, 12, input);
+
+                        throw nvae;
+                    }
                     }
                     break;
                 case KEYWORD_65:
@@ -6686,13 +6693,9 @@ public class InternalLilyPondParser extends AbstractInternalContentAssistParser 
                     alt12=7;
                     }
                     break;
-                case KEYWORD_81:
-                case KEYWORD_77:
-                case KEYWORD_78:
-                case KEYWORD_70:
-                case KEYWORD_72:
+                case KEYWORD_85:
                     {
-                    alt12=11;
+                    alt12=6;
                     }
                     break;
                 case KEYWORD_90:
@@ -19812,7 +19815,7 @@ public class InternalLilyPondParser extends AbstractInternalContentAssistParser 
 
                         }
                         break;
-                    case KEYWORD_29:
+                    case RULE_STRING:
                         {
                         int LA49_4 = input.LA(3);
 
@@ -19823,7 +19826,7 @@ public class InternalLilyPondParser extends AbstractInternalContentAssistParser 
 
                         }
                         break;
-                    case KEYWORD_12:
+                    case KEYWORD_29:
                         {
                         int LA49_5 = input.LA(3);
 
@@ -19834,7 +19837,7 @@ public class InternalLilyPondParser extends AbstractInternalContentAssistParser 
 
                         }
                         break;
-                    case KEYWORD_9:
+                    case KEYWORD_12:
                         {
                         int LA49_6 = input.LA(3);
 
@@ -19845,7 +19848,7 @@ public class InternalLilyPondParser extends AbstractInternalContentAssistParser 
 
                         }
                         break;
-                    case KEYWORD_1:
+                    case KEYWORD_9:
                         {
                         int LA49_7 = input.LA(3);
 
@@ -19856,7 +19859,7 @@ public class InternalLilyPondParser extends AbstractInternalContentAssistParser 
 
                         }
                         break;
-                    case KEYWORD_14:
+                    case KEYWORD_1:
                         {
                         int LA49_8 = input.LA(3);
 
@@ -19867,7 +19870,7 @@ public class InternalLilyPondParser extends AbstractInternalContentAssistParser 
 
                         }
                         break;
-                    case KEYWORD_7:
+                    case KEYWORD_14:
                         {
                         int LA49_9 = input.LA(3);
 
@@ -19878,7 +19881,7 @@ public class InternalLilyPondParser extends AbstractInternalContentAssistParser 
 
                         }
                         break;
-                    case KEYWORD_11:
+                    case KEYWORD_7:
                         {
                         int LA49_10 = input.LA(3);
 
@@ -19889,7 +19892,7 @@ public class InternalLilyPondParser extends AbstractInternalContentAssistParser 
 
                         }
                         break;
-                    case KEYWORD_13:
+                    case KEYWORD_11:
                         {
                         int LA49_11 = input.LA(3);
 
@@ -19900,7 +19903,7 @@ public class InternalLilyPondParser extends AbstractInternalContentAssistParser 
 
                         }
                         break;
-                    case KEYWORD_16:
+                    case KEYWORD_13:
                         {
                         int LA49_12 = input.LA(3);
 
@@ -19911,7 +19914,7 @@ public class InternalLilyPondParser extends AbstractInternalContentAssistParser 
 
                         }
                         break;
-                    case KEYWORD_18:
+                    case KEYWORD_16:
                         {
                         int LA49_13 = input.LA(3);
 
@@ -19922,7 +19925,7 @@ public class InternalLilyPondParser extends AbstractInternalContentAssistParser 
 
                         }
                         break;
-                    case KEYWORD_22:
+                    case KEYWORD_18:
                         {
                         int LA49_14 = input.LA(3);
 
@@ -19933,7 +19936,7 @@ public class InternalLilyPondParser extends AbstractInternalContentAssistParser 
 
                         }
                         break;
-                    case KEYWORD_65:
+                    case KEYWORD_22:
                         {
                         int LA49_15 = input.LA(3);
 
@@ -19944,7 +19947,7 @@ public class InternalLilyPondParser extends AbstractInternalContentAssistParser 
 
                         }
                         break;
-                    case KEYWORD_67:
+                    case KEYWORD_65:
                         {
                         int LA49_16 = input.LA(3);
 
@@ -19955,7 +19958,7 @@ public class InternalLilyPondParser extends AbstractInternalContentAssistParser 
 
                         }
                         break;
-                    case KEYWORD_89:
+                    case KEYWORD_67:
                         {
                         int LA49_17 = input.LA(3);
 
@@ -19966,7 +19969,7 @@ public class InternalLilyPondParser extends AbstractInternalContentAssistParser 
 
                         }
                         break;
-                    case KEYWORD_88:
+                    case KEYWORD_89:
                         {
                         int LA49_18 = input.LA(3);
 
@@ -19977,7 +19980,7 @@ public class InternalLilyPondParser extends AbstractInternalContentAssistParser 
 
                         }
                         break;
-                    case KEYWORD_56:
+                    case KEYWORD_88:
                         {
                         int LA49_19 = input.LA(3);
 
@@ -19988,7 +19991,7 @@ public class InternalLilyPondParser extends AbstractInternalContentAssistParser 
 
                         }
                         break;
-                    case KEYWORD_85:
+                    case KEYWORD_56:
                         {
                         int LA49_20 = input.LA(3);
 
@@ -19999,7 +20002,7 @@ public class InternalLilyPondParser extends AbstractInternalContentAssistParser 
 
                         }
                         break;
-                    case KEYWORD_33:
+                    case KEYWORD_85:
                         {
                         int LA49_21 = input.LA(3);
 
@@ -20010,7 +20013,7 @@ public class InternalLilyPondParser extends AbstractInternalContentAssistParser 
 
                         }
                         break;
-                    case KEYWORD_68:
+                    case KEYWORD_33:
                         {
                         int LA49_22 = input.LA(3);
 
@@ -20021,7 +20024,7 @@ public class InternalLilyPondParser extends AbstractInternalContentAssistParser 
 
                         }
                         break;
-                    case KEYWORD_62:
+                    case KEYWORD_68:
                         {
                         int LA49_23 = input.LA(3);
 
@@ -20032,7 +20035,7 @@ public class InternalLilyPondParser extends AbstractInternalContentAssistParser 
 
                         }
                         break;
-                    case KEYWORD_53:
+                    case KEYWORD_62:
                         {
                         int LA49_24 = input.LA(3);
 
@@ -20043,7 +20046,7 @@ public class InternalLilyPondParser extends AbstractInternalContentAssistParser 
 
                         }
                         break;
-                    case KEYWORD_46:
+                    case KEYWORD_53:
                         {
                         int LA49_25 = input.LA(3);
 
@@ -20054,7 +20057,7 @@ public class InternalLilyPondParser extends AbstractInternalContentAssistParser 
 
                         }
                         break;
-                    case KEYWORD_45:
+                    case KEYWORD_46:
                         {
                         int LA49_26 = input.LA(3);
 
@@ -20065,7 +20068,7 @@ public class InternalLilyPondParser extends AbstractInternalContentAssistParser 
 
                         }
                         break;
-                    case KEYWORD_35:
+                    case KEYWORD_45:
                         {
                         int LA49_27 = input.LA(3);
 
@@ -20076,7 +20079,7 @@ public class InternalLilyPondParser extends AbstractInternalContentAssistParser 
 
                         }
                         break;
-                    case KEYWORD_54:
+                    case KEYWORD_35:
                         {
                         int LA49_28 = input.LA(3);
 
@@ -20087,7 +20090,7 @@ public class InternalLilyPondParser extends AbstractInternalContentAssistParser 
 
                         }
                         break;
-                    case KEYWORD_75:
+                    case KEYWORD_54:
                         {
                         int LA49_29 = input.LA(3);
 
@@ -20098,7 +20101,7 @@ public class InternalLilyPondParser extends AbstractInternalContentAssistParser 
 
                         }
                         break;
-                    case KEYWORD_80:
+                    case KEYWORD_75:
                         {
                         int LA49_30 = input.LA(3);
 
@@ -20109,7 +20112,7 @@ public class InternalLilyPondParser extends AbstractInternalContentAssistParser 
 
                         }
                         break;
-                    case KEYWORD_77:
+                    case KEYWORD_80:
                         {
                         int LA49_31 = input.LA(3);
 
@@ -20120,7 +20123,7 @@ public class InternalLilyPondParser extends AbstractInternalContentAssistParser 
 
                         }
                         break;
-                    case KEYWORD_70:
+                    case KEYWORD_77:
                         {
                         int LA49_32 = input.LA(3);
 
@@ -20131,7 +20134,7 @@ public class InternalLilyPondParser extends AbstractInternalContentAssistParser 
 
                         }
                         break;
-                    case KEYWORD_81:
+                    case KEYWORD_70:
                         {
                         int LA49_33 = input.LA(3);
 
@@ -20142,7 +20145,7 @@ public class InternalLilyPondParser extends AbstractInternalContentAssistParser 
 
                         }
                         break;
-                    case KEYWORD_78:
+                    case KEYWORD_81:
                         {
                         int LA49_34 = input.LA(3);
 
@@ -20153,7 +20156,7 @@ public class InternalLilyPondParser extends AbstractInternalContentAssistParser 
 
                         }
                         break;
-                    case KEYWORD_72:
+                    case KEYWORD_78:
                         {
                         int LA49_35 = input.LA(3);
 
@@ -20164,7 +20167,7 @@ public class InternalLilyPondParser extends AbstractInternalContentAssistParser 
 
                         }
                         break;
-                    case KEYWORD_71:
+                    case KEYWORD_72:
                         {
                         int LA49_36 = input.LA(3);
 
@@ -20175,7 +20178,7 @@ public class InternalLilyPondParser extends AbstractInternalContentAssistParser 
 
                         }
                         break;
-                    case KEYWORD_31:
+                    case KEYWORD_71:
                         {
                         int LA49_37 = input.LA(3);
 
@@ -20186,7 +20189,7 @@ public class InternalLilyPondParser extends AbstractInternalContentAssistParser 
 
                         }
                         break;
-                    case KEYWORD_42:
+                    case KEYWORD_31:
                         {
                         int LA49_38 = input.LA(3);
 
@@ -20197,7 +20200,7 @@ public class InternalLilyPondParser extends AbstractInternalContentAssistParser 
 
                         }
                         break;
-                    case KEYWORD_61:
+                    case KEYWORD_42:
                         {
                         int LA49_39 = input.LA(3);
 
@@ -20208,7 +20211,7 @@ public class InternalLilyPondParser extends AbstractInternalContentAssistParser 
 
                         }
                         break;
-                    case KEYWORD_76:
+                    case KEYWORD_61:
                         {
                         int LA49_40 = input.LA(3);
 
@@ -20219,7 +20222,7 @@ public class InternalLilyPondParser extends AbstractInternalContentAssistParser 
 
                         }
                         break;
-                    case KEYWORD_43:
+                    case KEYWORD_76:
                         {
                         int LA49_41 = input.LA(3);
 
@@ -20230,7 +20233,7 @@ public class InternalLilyPondParser extends AbstractInternalContentAssistParser 
 
                         }
                         break;
-                    case KEYWORD_83:
+                    case KEYWORD_43:
                         {
                         int LA49_42 = input.LA(3);
 
@@ -20241,7 +20244,7 @@ public class InternalLilyPondParser extends AbstractInternalContentAssistParser 
 
                         }
                         break;
-                    case KEYWORD_50:
+                    case KEYWORD_83:
                         {
                         int LA49_43 = input.LA(3);
 
@@ -20252,7 +20255,7 @@ public class InternalLilyPondParser extends AbstractInternalContentAssistParser 
 
                         }
                         break;
-                    case KEYWORD_51:
+                    case KEYWORD_50:
                         {
                         int LA49_44 = input.LA(3);
 
@@ -20263,7 +20266,7 @@ public class InternalLilyPondParser extends AbstractInternalContentAssistParser 
 
                         }
                         break;
-                    case KEYWORD_69:
+                    case KEYWORD_51:
                         {
                         int LA49_45 = input.LA(3);
 
@@ -20274,7 +20277,7 @@ public class InternalLilyPondParser extends AbstractInternalContentAssistParser 
 
                         }
                         break;
-                    case KEYWORD_63:
+                    case KEYWORD_69:
                         {
                         int LA49_46 = input.LA(3);
 
@@ -20285,7 +20288,7 @@ public class InternalLilyPondParser extends AbstractInternalContentAssistParser 
 
                         }
                         break;
-                    case KEYWORD_86:
+                    case KEYWORD_63:
                         {
                         int LA49_47 = input.LA(3);
 
@@ -20296,7 +20299,7 @@ public class InternalLilyPondParser extends AbstractInternalContentAssistParser 
 
                         }
                         break;
-                    case KEYWORD_52:
+                    case KEYWORD_86:
                         {
                         int LA49_48 = input.LA(3);
 
@@ -20307,7 +20310,7 @@ public class InternalLilyPondParser extends AbstractInternalContentAssistParser 
 
                         }
                         break;
-                    case KEYWORD_84:
+                    case KEYWORD_52:
                         {
                         int LA49_49 = input.LA(3);
 
@@ -20318,7 +20321,7 @@ public class InternalLilyPondParser extends AbstractInternalContentAssistParser 
 
                         }
                         break;
-                    case KEYWORD_44:
+                    case KEYWORD_84:
                         {
                         int LA49_50 = input.LA(3);
 
@@ -20329,7 +20332,7 @@ public class InternalLilyPondParser extends AbstractInternalContentAssistParser 
 
                         }
                         break;
-                    case KEYWORD_64:
+                    case KEYWORD_44:
                         {
                         int LA49_51 = input.LA(3);
 
@@ -20340,7 +20343,7 @@ public class InternalLilyPondParser extends AbstractInternalContentAssistParser 
 
                         }
                         break;
-                    case KEYWORD_90:
+                    case KEYWORD_64:
                         {
                         int LA49_52 = input.LA(3);
 
@@ -20351,7 +20354,7 @@ public class InternalLilyPondParser extends AbstractInternalContentAssistParser 
 
                         }
                         break;
-                    case KEYWORD_30:
+                    case KEYWORD_90:
                         {
                         int LA49_53 = input.LA(3);
 
@@ -20362,7 +20365,7 @@ public class InternalLilyPondParser extends AbstractInternalContentAssistParser 
 
                         }
                         break;
-                    case KEYWORD_55:
+                    case KEYWORD_30:
                         {
                         int LA49_54 = input.LA(3);
 
@@ -20373,7 +20376,7 @@ public class InternalLilyPondParser extends AbstractInternalContentAssistParser 
 
                         }
                         break;
-                    case KEYWORD_79:
+                    case KEYWORD_55:
                         {
                         int LA49_55 = input.LA(3);
 
@@ -20384,7 +20387,7 @@ public class InternalLilyPondParser extends AbstractInternalContentAssistParser 
 
                         }
                         break;
-                    case KEYWORD_34:
+                    case KEYWORD_79:
                         {
                         int LA49_56 = input.LA(3);
 
@@ -20395,7 +20398,7 @@ public class InternalLilyPondParser extends AbstractInternalContentAssistParser 
 
                         }
                         break;
-                    case KEYWORD_36:
+                    case KEYWORD_34:
                         {
                         int LA49_57 = input.LA(3);
 
@@ -20406,7 +20409,7 @@ public class InternalLilyPondParser extends AbstractInternalContentAssistParser 
 
                         }
                         break;
-                    case KEYWORD_73:
+                    case KEYWORD_36:
                         {
                         int LA49_58 = input.LA(3);
 
@@ -20417,7 +20420,7 @@ public class InternalLilyPondParser extends AbstractInternalContentAssistParser 
 
                         }
                         break;
-                    case KEYWORD_57:
+                    case KEYWORD_73:
                         {
                         int LA49_59 = input.LA(3);
 
@@ -20428,7 +20431,7 @@ public class InternalLilyPondParser extends AbstractInternalContentAssistParser 
 
                         }
                         break;
-                    case KEYWORD_37:
+                    case KEYWORD_57:
                         {
                         int LA49_60 = input.LA(3);
 
@@ -20439,7 +20442,7 @@ public class InternalLilyPondParser extends AbstractInternalContentAssistParser 
 
                         }
                         break;
-                    case KEYWORD_74:
+                    case KEYWORD_37:
                         {
                         int LA49_61 = input.LA(3);
 
@@ -20450,7 +20453,7 @@ public class InternalLilyPondParser extends AbstractInternalContentAssistParser 
 
                         }
                         break;
-                    case KEYWORD_66:
+                    case KEYWORD_74:
                         {
                         int LA49_62 = input.LA(3);
 
@@ -20461,7 +20464,7 @@ public class InternalLilyPondParser extends AbstractInternalContentAssistParser 
 
                         }
                         break;
-                    case KEYWORD_58:
+                    case KEYWORD_66:
                         {
                         int LA49_63 = input.LA(3);
 
@@ -20472,7 +20475,7 @@ public class InternalLilyPondParser extends AbstractInternalContentAssistParser 
 
                         }
                         break;
-                    case KEYWORD_59:
+                    case KEYWORD_58:
                         {
                         int LA49_64 = input.LA(3);
 
@@ -20483,7 +20486,7 @@ public class InternalLilyPondParser extends AbstractInternalContentAssistParser 
 
                         }
                         break;
-                    case KEYWORD_38:
+                    case KEYWORD_59:
                         {
                         int LA49_65 = input.LA(3);
 
@@ -20494,7 +20497,7 @@ public class InternalLilyPondParser extends AbstractInternalContentAssistParser 
 
                         }
                         break;
-                    case KEYWORD_60:
+                    case KEYWORD_38:
                         {
                         int LA49_66 = input.LA(3);
 
@@ -20505,7 +20508,7 @@ public class InternalLilyPondParser extends AbstractInternalContentAssistParser 
 
                         }
                         break;
-                    case KEYWORD_82:
+                    case KEYWORD_60:
                         {
                         int LA49_67 = input.LA(3);
 
@@ -20516,7 +20519,7 @@ public class InternalLilyPondParser extends AbstractInternalContentAssistParser 
 
                         }
                         break;
-                    case KEYWORD_32:
+                    case KEYWORD_82:
                         {
                         int LA49_68 = input.LA(3);
 
@@ -20527,7 +20530,7 @@ public class InternalLilyPondParser extends AbstractInternalContentAssistParser 
 
                         }
                         break;
-                    case KEYWORD_87:
+                    case KEYWORD_32:
                         {
                         int LA49_69 = input.LA(3);
 
@@ -20538,7 +20541,7 @@ public class InternalLilyPondParser extends AbstractInternalContentAssistParser 
 
                         }
                         break;
-                    case KEYWORD_39:
+                    case KEYWORD_87:
                         {
                         int LA49_70 = input.LA(3);
 
@@ -20549,7 +20552,7 @@ public class InternalLilyPondParser extends AbstractInternalContentAssistParser 
 
                         }
                         break;
-                    case KEYWORD_47:
+                    case KEYWORD_39:
                         {
                         int LA49_71 = input.LA(3);
 
@@ -20560,7 +20563,7 @@ public class InternalLilyPondParser extends AbstractInternalContentAssistParser 
 
                         }
                         break;
-                    case KEYWORD_40:
+                    case KEYWORD_47:
                         {
                         int LA49_72 = input.LA(3);
 
@@ -20571,7 +20574,7 @@ public class InternalLilyPondParser extends AbstractInternalContentAssistParser 
 
                         }
                         break;
-                    case KEYWORD_48:
+                    case KEYWORD_40:
                         {
                         int LA49_73 = input.LA(3);
 
@@ -20582,7 +20585,7 @@ public class InternalLilyPondParser extends AbstractInternalContentAssistParser 
 
                         }
                         break;
-                    case KEYWORD_41:
+                    case KEYWORD_48:
                         {
                         int LA49_74 = input.LA(3);
 
@@ -20593,7 +20596,7 @@ public class InternalLilyPondParser extends AbstractInternalContentAssistParser 
 
                         }
                         break;
-                    case KEYWORD_49:
+                    case KEYWORD_41:
                         {
                         int LA49_75 = input.LA(3);
 
@@ -20604,7 +20607,7 @@ public class InternalLilyPondParser extends AbstractInternalContentAssistParser 
 
                         }
                         break;
-                    case RULE_STRING:
+                    case KEYWORD_49:
                         {
                         int LA49_76 = input.LA(3);
 
@@ -20651,7 +20654,7 @@ public class InternalLilyPondParser extends AbstractInternalContentAssistParser 
 
                             }
                             break;
-                        case KEYWORD_29:
+                        case RULE_STRING:
                             {
                             int LA49_4 = input.LA(4);
 
@@ -20662,7 +20665,7 @@ public class InternalLilyPondParser extends AbstractInternalContentAssistParser 
 
                             }
                             break;
-                        case KEYWORD_12:
+                        case KEYWORD_29:
                             {
                             int LA49_5 = input.LA(4);
 
@@ -20673,7 +20676,7 @@ public class InternalLilyPondParser extends AbstractInternalContentAssistParser 
 
                             }
                             break;
-                        case KEYWORD_9:
+                        case KEYWORD_12:
                             {
                             int LA49_6 = input.LA(4);
 
@@ -20684,7 +20687,7 @@ public class InternalLilyPondParser extends AbstractInternalContentAssistParser 
 
                             }
                             break;
-                        case KEYWORD_1:
+                        case KEYWORD_9:
                             {
                             int LA49_7 = input.LA(4);
 
@@ -20695,7 +20698,7 @@ public class InternalLilyPondParser extends AbstractInternalContentAssistParser 
 
                             }
                             break;
-                        case KEYWORD_14:
+                        case KEYWORD_1:
                             {
                             int LA49_8 = input.LA(4);
 
@@ -20706,7 +20709,7 @@ public class InternalLilyPondParser extends AbstractInternalContentAssistParser 
 
                             }
                             break;
-                        case KEYWORD_7:
+                        case KEYWORD_14:
                             {
                             int LA49_9 = input.LA(4);
 
@@ -20717,7 +20720,7 @@ public class InternalLilyPondParser extends AbstractInternalContentAssistParser 
 
                             }
                             break;
-                        case KEYWORD_11:
+                        case KEYWORD_7:
                             {
                             int LA49_10 = input.LA(4);
 
@@ -20728,7 +20731,7 @@ public class InternalLilyPondParser extends AbstractInternalContentAssistParser 
 
                             }
                             break;
-                        case KEYWORD_13:
+                        case KEYWORD_11:
                             {
                             int LA49_11 = input.LA(4);
 
@@ -20739,7 +20742,7 @@ public class InternalLilyPondParser extends AbstractInternalContentAssistParser 
 
                             }
                             break;
-                        case KEYWORD_16:
+                        case KEYWORD_13:
                             {
                             int LA49_12 = input.LA(4);
 
@@ -20750,7 +20753,7 @@ public class InternalLilyPondParser extends AbstractInternalContentAssistParser 
 
                             }
                             break;
-                        case KEYWORD_18:
+                        case KEYWORD_16:
                             {
                             int LA49_13 = input.LA(4);
 
@@ -20761,7 +20764,7 @@ public class InternalLilyPondParser extends AbstractInternalContentAssistParser 
 
                             }
                             break;
-                        case KEYWORD_22:
+                        case KEYWORD_18:
                             {
                             int LA49_14 = input.LA(4);
 
@@ -20772,7 +20775,7 @@ public class InternalLilyPondParser extends AbstractInternalContentAssistParser 
 
                             }
                             break;
-                        case KEYWORD_65:
+                        case KEYWORD_22:
                             {
                             int LA49_15 = input.LA(4);
 
@@ -20783,7 +20786,7 @@ public class InternalLilyPondParser extends AbstractInternalContentAssistParser 
 
                             }
                             break;
-                        case KEYWORD_67:
+                        case KEYWORD_65:
                             {
                             int LA49_16 = input.LA(4);
 
@@ -20794,7 +20797,7 @@ public class InternalLilyPondParser extends AbstractInternalContentAssistParser 
 
                             }
                             break;
-                        case KEYWORD_89:
+                        case KEYWORD_67:
                             {
                             int LA49_17 = input.LA(4);
 
@@ -20805,7 +20808,7 @@ public class InternalLilyPondParser extends AbstractInternalContentAssistParser 
 
                             }
                             break;
-                        case KEYWORD_88:
+                        case KEYWORD_89:
                             {
                             int LA49_18 = input.LA(4);
 
@@ -20816,7 +20819,7 @@ public class InternalLilyPondParser extends AbstractInternalContentAssistParser 
 
                             }
                             break;
-                        case KEYWORD_56:
+                        case KEYWORD_88:
                             {
                             int LA49_19 = input.LA(4);
 
@@ -20827,7 +20830,7 @@ public class InternalLilyPondParser extends AbstractInternalContentAssistParser 
 
                             }
                             break;
-                        case KEYWORD_85:
+                        case KEYWORD_56:
                             {
                             int LA49_20 = input.LA(4);
 
@@ -20838,7 +20841,7 @@ public class InternalLilyPondParser extends AbstractInternalContentAssistParser 
 
                             }
                             break;
-                        case KEYWORD_33:
+                        case KEYWORD_85:
                             {
                             int LA49_21 = input.LA(4);
 
@@ -20849,7 +20852,7 @@ public class InternalLilyPondParser extends AbstractInternalContentAssistParser 
 
                             }
                             break;
-                        case KEYWORD_68:
+                        case KEYWORD_33:
                             {
                             int LA49_22 = input.LA(4);
 
@@ -20860,7 +20863,7 @@ public class InternalLilyPondParser extends AbstractInternalContentAssistParser 
 
                             }
                             break;
-                        case KEYWORD_62:
+                        case KEYWORD_68:
                             {
                             int LA49_23 = input.LA(4);
 
@@ -20871,7 +20874,7 @@ public class InternalLilyPondParser extends AbstractInternalContentAssistParser 
 
                             }
                             break;
-                        case KEYWORD_53:
+                        case KEYWORD_62:
                             {
                             int LA49_24 = input.LA(4);
 
@@ -20882,7 +20885,7 @@ public class InternalLilyPondParser extends AbstractInternalContentAssistParser 
 
                             }
                             break;
-                        case KEYWORD_46:
+                        case KEYWORD_53:
                             {
                             int LA49_25 = input.LA(4);
 
@@ -20893,7 +20896,7 @@ public class InternalLilyPondParser extends AbstractInternalContentAssistParser 
 
                             }
                             break;
-                        case KEYWORD_45:
+                        case KEYWORD_46:
                             {
                             int LA49_26 = input.LA(4);
 
@@ -20904,7 +20907,7 @@ public class InternalLilyPondParser extends AbstractInternalContentAssistParser 
 
                             }
                             break;
-                        case KEYWORD_35:
+                        case KEYWORD_45:
                             {
                             int LA49_27 = input.LA(4);
 
@@ -20915,7 +20918,7 @@ public class InternalLilyPondParser extends AbstractInternalContentAssistParser 
 
                             }
                             break;
-                        case KEYWORD_54:
+                        case KEYWORD_35:
                             {
                             int LA49_28 = input.LA(4);
 
@@ -20926,7 +20929,7 @@ public class InternalLilyPondParser extends AbstractInternalContentAssistParser 
 
                             }
                             break;
-                        case KEYWORD_75:
+                        case KEYWORD_54:
                             {
                             int LA49_29 = input.LA(4);
 
@@ -20937,7 +20940,7 @@ public class InternalLilyPondParser extends AbstractInternalContentAssistParser 
 
                             }
                             break;
-                        case KEYWORD_80:
+                        case KEYWORD_75:
                             {
                             int LA49_30 = input.LA(4);
 
@@ -20948,7 +20951,7 @@ public class InternalLilyPondParser extends AbstractInternalContentAssistParser 
 
                             }
                             break;
-                        case KEYWORD_77:
+                        case KEYWORD_80:
                             {
                             int LA49_31 = input.LA(4);
 
@@ -20959,7 +20962,7 @@ public class InternalLilyPondParser extends AbstractInternalContentAssistParser 
 
                             }
                             break;
-                        case KEYWORD_70:
+                        case KEYWORD_77:
                             {
                             int LA49_32 = input.LA(4);
 
@@ -20970,7 +20973,7 @@ public class InternalLilyPondParser extends AbstractInternalContentAssistParser 
 
                             }
                             break;
-                        case KEYWORD_81:
+                        case KEYWORD_70:
                             {
                             int LA49_33 = input.LA(4);
 
@@ -20981,7 +20984,7 @@ public class InternalLilyPondParser extends AbstractInternalContentAssistParser 
 
                             }
                             break;
-                        case KEYWORD_78:
+                        case KEYWORD_81:
                             {
                             int LA49_34 = input.LA(4);
 
@@ -20992,7 +20995,7 @@ public class InternalLilyPondParser extends AbstractInternalContentAssistParser 
 
                             }
                             break;
-                        case KEYWORD_72:
+                        case KEYWORD_78:
                             {
                             int LA49_35 = input.LA(4);
 
@@ -21003,7 +21006,7 @@ public class InternalLilyPondParser extends AbstractInternalContentAssistParser 
 
                             }
                             break;
-                        case KEYWORD_71:
+                        case KEYWORD_72:
                             {
                             int LA49_36 = input.LA(4);
 
@@ -21014,7 +21017,7 @@ public class InternalLilyPondParser extends AbstractInternalContentAssistParser 
 
                             }
                             break;
-                        case KEYWORD_31:
+                        case KEYWORD_71:
                             {
                             int LA49_37 = input.LA(4);
 
@@ -21025,7 +21028,7 @@ public class InternalLilyPondParser extends AbstractInternalContentAssistParser 
 
                             }
                             break;
-                        case KEYWORD_42:
+                        case KEYWORD_31:
                             {
                             int LA49_38 = input.LA(4);
 
@@ -21036,7 +21039,7 @@ public class InternalLilyPondParser extends AbstractInternalContentAssistParser 
 
                             }
                             break;
-                        case KEYWORD_61:
+                        case KEYWORD_42:
                             {
                             int LA49_39 = input.LA(4);
 
@@ -21047,7 +21050,7 @@ public class InternalLilyPondParser extends AbstractInternalContentAssistParser 
 
                             }
                             break;
-                        case KEYWORD_76:
+                        case KEYWORD_61:
                             {
                             int LA49_40 = input.LA(4);
 
@@ -21058,7 +21061,7 @@ public class InternalLilyPondParser extends AbstractInternalContentAssistParser 
 
                             }
                             break;
-                        case KEYWORD_43:
+                        case KEYWORD_76:
                             {
                             int LA49_41 = input.LA(4);
 
@@ -21069,7 +21072,7 @@ public class InternalLilyPondParser extends AbstractInternalContentAssistParser 
 
                             }
                             break;
-                        case KEYWORD_83:
+                        case KEYWORD_43:
                             {
                             int LA49_42 = input.LA(4);
 
@@ -21080,7 +21083,7 @@ public class InternalLilyPondParser extends AbstractInternalContentAssistParser 
 
                             }
                             break;
-                        case KEYWORD_50:
+                        case KEYWORD_83:
                             {
                             int LA49_43 = input.LA(4);
 
@@ -21091,7 +21094,7 @@ public class InternalLilyPondParser extends AbstractInternalContentAssistParser 
 
                             }
                             break;
-                        case KEYWORD_51:
+                        case KEYWORD_50:
                             {
                             int LA49_44 = input.LA(4);
 
@@ -21102,7 +21105,7 @@ public class InternalLilyPondParser extends AbstractInternalContentAssistParser 
 
                             }
                             break;
-                        case KEYWORD_69:
+                        case KEYWORD_51:
                             {
                             int LA49_45 = input.LA(4);
 
@@ -21113,7 +21116,7 @@ public class InternalLilyPondParser extends AbstractInternalContentAssistParser 
 
                             }
                             break;
-                        case KEYWORD_63:
+                        case KEYWORD_69:
                             {
                             int LA49_46 = input.LA(4);
 
@@ -21124,7 +21127,7 @@ public class InternalLilyPondParser extends AbstractInternalContentAssistParser 
 
                             }
                             break;
-                        case KEYWORD_86:
+                        case KEYWORD_63:
                             {
                             int LA49_47 = input.LA(4);
 
@@ -21135,7 +21138,7 @@ public class InternalLilyPondParser extends AbstractInternalContentAssistParser 
 
                             }
                             break;
-                        case KEYWORD_52:
+                        case KEYWORD_86:
                             {
                             int LA49_48 = input.LA(4);
 
@@ -21146,7 +21149,7 @@ public class InternalLilyPondParser extends AbstractInternalContentAssistParser 
 
                             }
                             break;
-                        case KEYWORD_84:
+                        case KEYWORD_52:
                             {
                             int LA49_49 = input.LA(4);
 
@@ -21157,7 +21160,7 @@ public class InternalLilyPondParser extends AbstractInternalContentAssistParser 
 
                             }
                             break;
-                        case KEYWORD_44:
+                        case KEYWORD_84:
                             {
                             int LA49_50 = input.LA(4);
 
@@ -21168,7 +21171,7 @@ public class InternalLilyPondParser extends AbstractInternalContentAssistParser 
 
                             }
                             break;
-                        case KEYWORD_64:
+                        case KEYWORD_44:
                             {
                             int LA49_51 = input.LA(4);
 
@@ -21179,7 +21182,7 @@ public class InternalLilyPondParser extends AbstractInternalContentAssistParser 
 
                             }
                             break;
-                        case KEYWORD_90:
+                        case KEYWORD_64:
                             {
                             int LA49_52 = input.LA(4);
 
@@ -21190,7 +21193,7 @@ public class InternalLilyPondParser extends AbstractInternalContentAssistParser 
 
                             }
                             break;
-                        case KEYWORD_30:
+                        case KEYWORD_90:
                             {
                             int LA49_53 = input.LA(4);
 
@@ -21201,7 +21204,7 @@ public class InternalLilyPondParser extends AbstractInternalContentAssistParser 
 
                             }
                             break;
-                        case KEYWORD_55:
+                        case KEYWORD_30:
                             {
                             int LA49_54 = input.LA(4);
 
@@ -21212,7 +21215,7 @@ public class InternalLilyPondParser extends AbstractInternalContentAssistParser 
 
                             }
                             break;
-                        case KEYWORD_79:
+                        case KEYWORD_55:
                             {
                             int LA49_55 = input.LA(4);
 
@@ -21223,7 +21226,7 @@ public class InternalLilyPondParser extends AbstractInternalContentAssistParser 
 
                             }
                             break;
-                        case KEYWORD_34:
+                        case KEYWORD_79:
                             {
                             int LA49_56 = input.LA(4);
 
@@ -21234,7 +21237,7 @@ public class InternalLilyPondParser extends AbstractInternalContentAssistParser 
 
                             }
                             break;
-                        case KEYWORD_36:
+                        case KEYWORD_34:
                             {
                             int LA49_57 = input.LA(4);
 
@@ -21245,7 +21248,7 @@ public class InternalLilyPondParser extends AbstractInternalContentAssistParser 
 
                             }
                             break;
-                        case KEYWORD_73:
+                        case KEYWORD_36:
                             {
                             int LA49_58 = input.LA(4);
 
@@ -21256,7 +21259,7 @@ public class InternalLilyPondParser extends AbstractInternalContentAssistParser 
 
                             }
                             break;
-                        case KEYWORD_57:
+                        case KEYWORD_73:
                             {
                             int LA49_59 = input.LA(4);
 
@@ -21267,7 +21270,7 @@ public class InternalLilyPondParser extends AbstractInternalContentAssistParser 
 
                             }
                             break;
-                        case KEYWORD_37:
+                        case KEYWORD_57:
                             {
                             int LA49_60 = input.LA(4);
 
@@ -21278,7 +21281,7 @@ public class InternalLilyPondParser extends AbstractInternalContentAssistParser 
 
                             }
                             break;
-                        case KEYWORD_74:
+                        case KEYWORD_37:
                             {
                             int LA49_61 = input.LA(4);
 
@@ -21289,7 +21292,7 @@ public class InternalLilyPondParser extends AbstractInternalContentAssistParser 
 
                             }
                             break;
-                        case KEYWORD_66:
+                        case KEYWORD_74:
                             {
                             int LA49_62 = input.LA(4);
 
@@ -21300,7 +21303,7 @@ public class InternalLilyPondParser extends AbstractInternalContentAssistParser 
 
                             }
                             break;
-                        case KEYWORD_58:
+                        case KEYWORD_66:
                             {
                             int LA49_63 = input.LA(4);
 
@@ -21311,7 +21314,7 @@ public class InternalLilyPondParser extends AbstractInternalContentAssistParser 
 
                             }
                             break;
-                        case KEYWORD_59:
+                        case KEYWORD_58:
                             {
                             int LA49_64 = input.LA(4);
 
@@ -21322,7 +21325,7 @@ public class InternalLilyPondParser extends AbstractInternalContentAssistParser 
 
                             }
                             break;
-                        case KEYWORD_38:
+                        case KEYWORD_59:
                             {
                             int LA49_65 = input.LA(4);
 
@@ -21333,7 +21336,7 @@ public class InternalLilyPondParser extends AbstractInternalContentAssistParser 
 
                             }
                             break;
-                        case KEYWORD_60:
+                        case KEYWORD_38:
                             {
                             int LA49_66 = input.LA(4);
 
@@ -21344,7 +21347,7 @@ public class InternalLilyPondParser extends AbstractInternalContentAssistParser 
 
                             }
                             break;
-                        case KEYWORD_82:
+                        case KEYWORD_60:
                             {
                             int LA49_67 = input.LA(4);
 
@@ -21355,7 +21358,7 @@ public class InternalLilyPondParser extends AbstractInternalContentAssistParser 
 
                             }
                             break;
-                        case KEYWORD_32:
+                        case KEYWORD_82:
                             {
                             int LA49_68 = input.LA(4);
 
@@ -21366,7 +21369,7 @@ public class InternalLilyPondParser extends AbstractInternalContentAssistParser 
 
                             }
                             break;
-                        case KEYWORD_87:
+                        case KEYWORD_32:
                             {
                             int LA49_69 = input.LA(4);
 
@@ -21377,7 +21380,7 @@ public class InternalLilyPondParser extends AbstractInternalContentAssistParser 
 
                             }
                             break;
-                        case KEYWORD_39:
+                        case KEYWORD_87:
                             {
                             int LA49_70 = input.LA(4);
 
@@ -21388,7 +21391,7 @@ public class InternalLilyPondParser extends AbstractInternalContentAssistParser 
 
                             }
                             break;
-                        case KEYWORD_47:
+                        case KEYWORD_39:
                             {
                             int LA49_71 = input.LA(4);
 
@@ -21399,7 +21402,7 @@ public class InternalLilyPondParser extends AbstractInternalContentAssistParser 
 
                             }
                             break;
-                        case KEYWORD_40:
+                        case KEYWORD_47:
                             {
                             int LA49_72 = input.LA(4);
 
@@ -21410,7 +21413,7 @@ public class InternalLilyPondParser extends AbstractInternalContentAssistParser 
 
                             }
                             break;
-                        case KEYWORD_48:
+                        case KEYWORD_40:
                             {
                             int LA49_73 = input.LA(4);
 
@@ -21421,7 +21424,7 @@ public class InternalLilyPondParser extends AbstractInternalContentAssistParser 
 
                             }
                             break;
-                        case KEYWORD_41:
+                        case KEYWORD_48:
                             {
                             int LA49_74 = input.LA(4);
 
@@ -21432,7 +21435,7 @@ public class InternalLilyPondParser extends AbstractInternalContentAssistParser 
 
                             }
                             break;
-                        case KEYWORD_49:
+                        case KEYWORD_41:
                             {
                             int LA49_75 = input.LA(4);
 
@@ -21443,7 +21446,7 @@ public class InternalLilyPondParser extends AbstractInternalContentAssistParser 
 
                             }
                             break;
-                        case RULE_STRING:
+                        case KEYWORD_49:
                             {
                             int LA49_76 = input.LA(4);
 
@@ -22293,21 +22296,171 @@ public class InternalLilyPondParser extends AbstractInternalContentAssistParser 
     // $ANTLR end rule__SchemeNumber__Group__1__Impl
 
 
+    // $ANTLR start rule__SchemeNumberRadix__Group__0
+    // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:6827:1: rule__SchemeNumberRadix__Group__0 : rule__SchemeNumberRadix__Group__0__Impl rule__SchemeNumberRadix__Group__1 ;
+    public final void rule__SchemeNumberRadix__Group__0() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+            
+        try {
+            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:6831:1: ( rule__SchemeNumberRadix__Group__0__Impl rule__SchemeNumberRadix__Group__1 )
+            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:6832:2: rule__SchemeNumberRadix__Group__0__Impl rule__SchemeNumberRadix__Group__1
+            {
+            pushFollow(FOLLOW_rule__SchemeNumberRadix__Group__0__Impl_in_rule__SchemeNumberRadix__Group__014315);
+            rule__SchemeNumberRadix__Group__0__Impl();
+            _fsp--;
+            if (failed) return ;
+            pushFollow(FOLLOW_rule__SchemeNumberRadix__Group__1_in_rule__SchemeNumberRadix__Group__014318);
+            rule__SchemeNumberRadix__Group__1();
+            _fsp--;
+            if (failed) return ;
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end rule__SchemeNumberRadix__Group__0
+
+
+    // $ANTLR start rule__SchemeNumberRadix__Group__0__Impl
+    // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:6839:1: rule__SchemeNumberRadix__Group__0__Impl : ( KEYWORD_2 ) ;
+    public final void rule__SchemeNumberRadix__Group__0__Impl() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+            
+        try {
+            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:6843:1: ( ( KEYWORD_2 ) )
+            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:6844:1: ( KEYWORD_2 )
+            {
+            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:6844:1: ( KEYWORD_2 )
+            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:6845:1: KEYWORD_2
+            {
+            if ( backtracking==0 ) {
+               before(grammarAccess.getSchemeNumberRadixAccess().getNumberSignKeyword_0()); 
+            }
+            match(input,KEYWORD_2,FOLLOW_KEYWORD_2_in_rule__SchemeNumberRadix__Group__0__Impl14346); if (failed) return ;
+            if ( backtracking==0 ) {
+               after(grammarAccess.getSchemeNumberRadixAccess().getNumberSignKeyword_0()); 
+            }
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end rule__SchemeNumberRadix__Group__0__Impl
+
+
+    // $ANTLR start rule__SchemeNumberRadix__Group__1
+    // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:6858:1: rule__SchemeNumberRadix__Group__1 : rule__SchemeNumberRadix__Group__1__Impl ;
+    public final void rule__SchemeNumberRadix__Group__1() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+            
+        try {
+            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:6862:1: ( rule__SchemeNumberRadix__Group__1__Impl )
+            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:6863:2: rule__SchemeNumberRadix__Group__1__Impl
+            {
+            pushFollow(FOLLOW_rule__SchemeNumberRadix__Group__1__Impl_in_rule__SchemeNumberRadix__Group__114377);
+            rule__SchemeNumberRadix__Group__1__Impl();
+            _fsp--;
+            if (failed) return ;
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end rule__SchemeNumberRadix__Group__1
+
+
+    // $ANTLR start rule__SchemeNumberRadix__Group__1__Impl
+    // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:6869:1: rule__SchemeNumberRadix__Group__1__Impl : ( RULE_ID ) ;
+    public final void rule__SchemeNumberRadix__Group__1__Impl() throws RecognitionException {
+
+        		int stackSize = keepStackSize();
+            
+        try {
+            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:6873:1: ( ( RULE_ID ) )
+            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:6874:1: ( RULE_ID )
+            {
+            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:6874:1: ( RULE_ID )
+            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:6875:1: RULE_ID
+            {
+            if ( backtracking==0 ) {
+               before(grammarAccess.getSchemeNumberRadixAccess().getIDTerminalRuleCall_1()); 
+            }
+            match(input,RULE_ID,FOLLOW_RULE_ID_in_rule__SchemeNumberRadix__Group__1__Impl14404); if (failed) return ;
+            if ( backtracking==0 ) {
+               after(grammarAccess.getSchemeNumberRadixAccess().getIDTerminalRuleCall_1()); 
+            }
+
+            }
+
+
+            }
+
+        }
+        catch (RecognitionException re) {
+            reportError(re);
+            recover(input,re);
+        }
+        finally {
+
+            	restoreStackSize(stackSize);
+
+        }
+        return ;
+    }
+    // $ANTLR end rule__SchemeNumberRadix__Group__1__Impl
+
+
     // $ANTLR start rule__SignedInteger__Group__0
-    // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:6827:1: rule__SignedInteger__Group__0 : rule__SignedInteger__Group__0__Impl rule__SignedInteger__Group__1 ;
+    // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:6890:1: rule__SignedInteger__Group__0 : rule__SignedInteger__Group__0__Impl rule__SignedInteger__Group__1 ;
     public final void rule__SignedInteger__Group__0() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:6831:1: ( rule__SignedInteger__Group__0__Impl rule__SignedInteger__Group__1 )
-            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:6832:2: rule__SignedInteger__Group__0__Impl rule__SignedInteger__Group__1
+            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:6894:1: ( rule__SignedInteger__Group__0__Impl rule__SignedInteger__Group__1 )
+            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:6895:2: rule__SignedInteger__Group__0__Impl rule__SignedInteger__Group__1
             {
-            pushFollow(FOLLOW_rule__SignedInteger__Group__0__Impl_in_rule__SignedInteger__Group__014315);
+            pushFollow(FOLLOW_rule__SignedInteger__Group__0__Impl_in_rule__SignedInteger__Group__014437);
             rule__SignedInteger__Group__0__Impl();
             _fsp--;
             if (failed) return ;
-            pushFollow(FOLLOW_rule__SignedInteger__Group__1_in_rule__SignedInteger__Group__014318);
+            pushFollow(FOLLOW_rule__SignedInteger__Group__1_in_rule__SignedInteger__Group__014440);
             rule__SignedInteger__Group__1();
             _fsp--;
             if (failed) return ;
@@ -22330,22 +22483,22 @@ public class InternalLilyPondParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start rule__SignedInteger__Group__0__Impl
-    // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:6839:1: rule__SignedInteger__Group__0__Impl : ( ( KEYWORD_9 )? ) ;
+    // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:6902:1: rule__SignedInteger__Group__0__Impl : ( ( KEYWORD_9 )? ) ;
     public final void rule__SignedInteger__Group__0__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:6843:1: ( ( ( KEYWORD_9 )? ) )
-            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:6844:1: ( ( KEYWORD_9 )? )
+            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:6906:1: ( ( ( KEYWORD_9 )? ) )
+            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:6907:1: ( ( KEYWORD_9 )? )
             {
-            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:6844:1: ( ( KEYWORD_9 )? )
-            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:6845:1: ( KEYWORD_9 )?
+            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:6907:1: ( ( KEYWORD_9 )? )
+            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:6908:1: ( KEYWORD_9 )?
             {
             if ( backtracking==0 ) {
                before(grammarAccess.getSignedIntegerAccess().getHyphenMinusKeyword_0()); 
             }
-            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:6846:1: ( KEYWORD_9 )?
+            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:6909:1: ( KEYWORD_9 )?
             int alt53=2;
             int LA53_0 = input.LA(1);
 
@@ -22354,9 +22507,9 @@ public class InternalLilyPondParser extends AbstractInternalContentAssistParser 
             }
             switch (alt53) {
                 case 1 :
-                    // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:6847:2: KEYWORD_9
+                    // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:6910:2: KEYWORD_9
                     {
-                    match(input,KEYWORD_9,FOLLOW_KEYWORD_9_in_rule__SignedInteger__Group__0__Impl14347); if (failed) return ;
+                    match(input,KEYWORD_9,FOLLOW_KEYWORD_9_in_rule__SignedInteger__Group__0__Impl14469); if (failed) return ;
 
                     }
                     break;
@@ -22388,16 +22541,16 @@ public class InternalLilyPondParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start rule__SignedInteger__Group__1
-    // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:6858:1: rule__SignedInteger__Group__1 : rule__SignedInteger__Group__1__Impl ;
+    // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:6921:1: rule__SignedInteger__Group__1 : rule__SignedInteger__Group__1__Impl ;
     public final void rule__SignedInteger__Group__1() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:6862:1: ( rule__SignedInteger__Group__1__Impl )
-            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:6863:2: rule__SignedInteger__Group__1__Impl
+            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:6925:1: ( rule__SignedInteger__Group__1__Impl )
+            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:6926:2: rule__SignedInteger__Group__1__Impl
             {
-            pushFollow(FOLLOW_rule__SignedInteger__Group__1__Impl_in_rule__SignedInteger__Group__114380);
+            pushFollow(FOLLOW_rule__SignedInteger__Group__1__Impl_in_rule__SignedInteger__Group__114502);
             rule__SignedInteger__Group__1__Impl();
             _fsp--;
             if (failed) return ;
@@ -22420,22 +22573,22 @@ public class InternalLilyPondParser extends AbstractInternalContentAssistParser 
 
 
     // $ANTLR start rule__SignedInteger__Group__1__Impl
-    // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:6869:1: rule__SignedInteger__Group__1__Impl : ( RULE_INT ) ;
+    // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:6932:1: rule__SignedInteger__Group__1__Impl : ( RULE_INT ) ;
     public final void rule__SignedInteger__Group__1__Impl() throws RecognitionException {
 
         		int stackSize = keepStackSize();
             
         try {
-            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:6873:1: ( ( RULE_INT ) )
-            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:6874:1: ( RULE_INT )
+            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:6936:1: ( ( RULE_INT ) )
+            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:6937:1: ( RULE_INT )
             {
-            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:6874:1: ( RULE_INT )
-            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:6875:1: RULE_INT
+            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:6937:1: ( RULE_INT )
+            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:6938:1: RULE_INT
             {
             if ( backtracking==0 ) {
                before(grammarAccess.getSignedIntegerAccess().getINTTerminalRuleCall_1()); 
             }
-            match(input,RULE_INT,FOLLOW_RULE_INT_in_rule__SignedInteger__Group__1__Impl14407); if (failed) return ;
+            match(input,RULE_INT,FOLLOW_RULE_INT_in_rule__SignedInteger__Group__1__Impl14529); if (failed) return ;
             if ( backtracking==0 ) {
                after(grammarAccess.getSignedIntegerAccess().getINTTerminalRuleCall_1()); 
             }
@@ -22458,156 +22611,6 @@ public class InternalLilyPondParser extends AbstractInternalContentAssistParser 
         return ;
     }
     // $ANTLR end rule__SignedInteger__Group__1__Impl
-
-
-    // $ANTLR start rule__SchemeNumberRadix__Group__0
-    // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:6890:1: rule__SchemeNumberRadix__Group__0 : rule__SchemeNumberRadix__Group__0__Impl rule__SchemeNumberRadix__Group__1 ;
-    public final void rule__SchemeNumberRadix__Group__0() throws RecognitionException {
-
-        		int stackSize = keepStackSize();
-            
-        try {
-            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:6894:1: ( rule__SchemeNumberRadix__Group__0__Impl rule__SchemeNumberRadix__Group__1 )
-            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:6895:2: rule__SchemeNumberRadix__Group__0__Impl rule__SchemeNumberRadix__Group__1
-            {
-            pushFollow(FOLLOW_rule__SchemeNumberRadix__Group__0__Impl_in_rule__SchemeNumberRadix__Group__014440);
-            rule__SchemeNumberRadix__Group__0__Impl();
-            _fsp--;
-            if (failed) return ;
-            pushFollow(FOLLOW_rule__SchemeNumberRadix__Group__1_in_rule__SchemeNumberRadix__Group__014443);
-            rule__SchemeNumberRadix__Group__1();
-            _fsp--;
-            if (failed) return ;
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-
-            	restoreStackSize(stackSize);
-
-        }
-        return ;
-    }
-    // $ANTLR end rule__SchemeNumberRadix__Group__0
-
-
-    // $ANTLR start rule__SchemeNumberRadix__Group__0__Impl
-    // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:6902:1: rule__SchemeNumberRadix__Group__0__Impl : ( KEYWORD_2 ) ;
-    public final void rule__SchemeNumberRadix__Group__0__Impl() throws RecognitionException {
-
-        		int stackSize = keepStackSize();
-            
-        try {
-            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:6906:1: ( ( KEYWORD_2 ) )
-            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:6907:1: ( KEYWORD_2 )
-            {
-            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:6907:1: ( KEYWORD_2 )
-            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:6908:1: KEYWORD_2
-            {
-            if ( backtracking==0 ) {
-               before(grammarAccess.getSchemeNumberRadixAccess().getNumberSignKeyword_0()); 
-            }
-            match(input,KEYWORD_2,FOLLOW_KEYWORD_2_in_rule__SchemeNumberRadix__Group__0__Impl14471); if (failed) return ;
-            if ( backtracking==0 ) {
-               after(grammarAccess.getSchemeNumberRadixAccess().getNumberSignKeyword_0()); 
-            }
-
-            }
-
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-
-            	restoreStackSize(stackSize);
-
-        }
-        return ;
-    }
-    // $ANTLR end rule__SchemeNumberRadix__Group__0__Impl
-
-
-    // $ANTLR start rule__SchemeNumberRadix__Group__1
-    // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:6921:1: rule__SchemeNumberRadix__Group__1 : rule__SchemeNumberRadix__Group__1__Impl ;
-    public final void rule__SchemeNumberRadix__Group__1() throws RecognitionException {
-
-        		int stackSize = keepStackSize();
-            
-        try {
-            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:6925:1: ( rule__SchemeNumberRadix__Group__1__Impl )
-            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:6926:2: rule__SchemeNumberRadix__Group__1__Impl
-            {
-            pushFollow(FOLLOW_rule__SchemeNumberRadix__Group__1__Impl_in_rule__SchemeNumberRadix__Group__114502);
-            rule__SchemeNumberRadix__Group__1__Impl();
-            _fsp--;
-            if (failed) return ;
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-
-            	restoreStackSize(stackSize);
-
-        }
-        return ;
-    }
-    // $ANTLR end rule__SchemeNumberRadix__Group__1
-
-
-    // $ANTLR start rule__SchemeNumberRadix__Group__1__Impl
-    // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:6932:1: rule__SchemeNumberRadix__Group__1__Impl : ( RULE_ID ) ;
-    public final void rule__SchemeNumberRadix__Group__1__Impl() throws RecognitionException {
-
-        		int stackSize = keepStackSize();
-            
-        try {
-            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:6936:1: ( ( RULE_ID ) )
-            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:6937:1: ( RULE_ID )
-            {
-            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:6937:1: ( RULE_ID )
-            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:6938:1: RULE_ID
-            {
-            if ( backtracking==0 ) {
-               before(grammarAccess.getSchemeNumberRadixAccess().getIDTerminalRuleCall_1()); 
-            }
-            match(input,RULE_ID,FOLLOW_RULE_ID_in_rule__SchemeNumberRadix__Group__1__Impl14529); if (failed) return ;
-            if ( backtracking==0 ) {
-               after(grammarAccess.getSchemeNumberRadixAccess().getIDTerminalRuleCall_1()); 
-            }
-
-            }
-
-
-            }
-
-        }
-        catch (RecognitionException re) {
-            reportError(re);
-            recover(input,re);
-        }
-        finally {
-
-            	restoreStackSize(stackSize);
-
-        }
-        return ;
-    }
-    // $ANTLR end rule__SchemeNumberRadix__Group__1__Impl
 
 
     // $ANTLR start rule__SchemeMarkupCommand__Group__0
@@ -26971,12 +26974,12 @@ public class InternalLilyPondParser extends AbstractInternalContentAssistParser 
     public static final BitSet FOLLOW_ruleSchemeNumber_in_entryRuleSchemeNumber3357 = new BitSet(new long[]{0x0000000000000000L});
     public static final BitSet FOLLOW_EOF_in_entryRuleSchemeNumber3364 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_rule__SchemeNumber__Group__0_in_ruleSchemeNumber3398 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleSignedInteger_in_entryRuleSignedInteger3425 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleSignedInteger3432 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__SignedInteger__Group__0_in_ruleSignedInteger3462 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_ruleSchemeNumberRadix_in_entryRuleSchemeNumberRadix3489 = new BitSet(new long[]{0x0000000000000000L});
-    public static final BitSet FOLLOW_EOF_in_entryRuleSchemeNumberRadix3496 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__SchemeNumberRadix__Group__0_in_ruleSchemeNumberRadix3526 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleSchemeNumberRadix_in_entryRuleSchemeNumberRadix3425 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleSchemeNumberRadix3432 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__SchemeNumberRadix__Group__0_in_ruleSchemeNumberRadix3462 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleSignedInteger_in_entryRuleSignedInteger3489 = new BitSet(new long[]{0x0000000000000000L});
+    public static final BitSet FOLLOW_EOF_in_entryRuleSignedInteger3496 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__SignedInteger__Group__0_in_ruleSignedInteger3526 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_ruleSchemeMarkupCommand_in_entryRuleSchemeMarkupCommand3558 = new BitSet(new long[]{0x0000000000000000L});
     public static final BitSet FOLLOW_EOF_in_entryRuleSchemeMarkupCommand3565 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_rule__SchemeMarkupCommand__Group__0_in_ruleSchemeMarkupCommand3599 = new BitSet(new long[]{0x0000000000000002L});
@@ -27009,7 +27012,7 @@ public class InternalLilyPondParser extends AbstractInternalContentAssistParser 
     public static final BitSet FOLLOW_ruleScheme_in_rule__UnparsedExpression__Alternatives4206 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_ruleNumber_in_rule__UnparsedExpression__Alternatives4223 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_ruleText_in_rule__UnparsedExpression__Alternatives4240 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_RULE_ID_in_rule__UnparsedCommand__CommandAlternatives_1_04272 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_ruleSchemeIdentifier_in_rule__UnparsedCommand__CommandAlternatives_1_04272 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_ruleSpecialCommandName_in_rule__UnparsedCommand__CommandAlternatives_1_04289 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_ruleSchemeTextValueSegment_in_rule__Text__ValueAlternatives_04321 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_KEYWORD_5_in_rule__Text__ValueAlternatives_04339 = new BitSet(new long[]{0x0000000000000002L});
@@ -27451,16 +27454,16 @@ public class InternalLilyPondParser extends AbstractInternalContentAssistParser 
     public static final BitSet FOLLOW_rule__SchemeNumber__RadixAssignment_0_in_rule__SchemeNumber__Group__0__Impl14223 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_rule__SchemeNumber__Group__1__Impl_in_rule__SchemeNumber__Group__114254 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_rule__SchemeNumber__ValueAssignment_1_in_rule__SchemeNumber__Group__1__Impl14281 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__SignedInteger__Group__0__Impl_in_rule__SignedInteger__Group__014315 = new BitSet(new long[]{0x0000000000000000L,0x0000000080000000L});
-    public static final BitSet FOLLOW_rule__SignedInteger__Group__1_in_rule__SignedInteger__Group__014318 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_KEYWORD_9_in_rule__SignedInteger__Group__0__Impl14347 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__SignedInteger__Group__1__Impl_in_rule__SignedInteger__Group__114380 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_RULE_INT_in_rule__SignedInteger__Group__1__Impl14407 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__SchemeNumberRadix__Group__0__Impl_in_rule__SchemeNumberRadix__Group__014440 = new BitSet(new long[]{0x0000000000000000L,0x0000000100000000L});
-    public static final BitSet FOLLOW_rule__SchemeNumberRadix__Group__1_in_rule__SchemeNumberRadix__Group__014443 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_KEYWORD_2_in_rule__SchemeNumberRadix__Group__0__Impl14471 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_rule__SchemeNumberRadix__Group__1__Impl_in_rule__SchemeNumberRadix__Group__114502 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_RULE_ID_in_rule__SchemeNumberRadix__Group__1__Impl14529 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__SchemeNumberRadix__Group__0__Impl_in_rule__SchemeNumberRadix__Group__014315 = new BitSet(new long[]{0x0000000000000000L,0x0000000100000000L});
+    public static final BitSet FOLLOW_rule__SchemeNumberRadix__Group__1_in_rule__SchemeNumberRadix__Group__014318 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_KEYWORD_2_in_rule__SchemeNumberRadix__Group__0__Impl14346 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__SchemeNumberRadix__Group__1__Impl_in_rule__SchemeNumberRadix__Group__114377 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_RULE_ID_in_rule__SchemeNumberRadix__Group__1__Impl14404 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__SignedInteger__Group__0__Impl_in_rule__SignedInteger__Group__014437 = new BitSet(new long[]{0x0000000000000000L,0x0000000080000000L});
+    public static final BitSet FOLLOW_rule__SignedInteger__Group__1_in_rule__SignedInteger__Group__014440 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_KEYWORD_9_in_rule__SignedInteger__Group__0__Impl14469 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_rule__SignedInteger__Group__1__Impl_in_rule__SignedInteger__Group__114502 = new BitSet(new long[]{0x0000000000000002L});
+    public static final BitSet FOLLOW_RULE_INT_in_rule__SignedInteger__Group__1__Impl14529 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_rule__SchemeMarkupCommand__Group__0__Impl_in_rule__SchemeMarkupCommand__Group__014562 = new BitSet(new long[]{0xFFFFFFFFFFFFFFF0L,0x0000000100000001L});
     public static final BitSet FOLLOW_rule__SchemeMarkupCommand__Group__1_in_rule__SchemeMarkupCommand__Group__014565 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_KEYWORD_23_in_rule__SchemeMarkupCommand__Group__0__Impl14593 = new BitSet(new long[]{0x0000000000000002L});

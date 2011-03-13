@@ -1994,11 +1994,11 @@ protected class UnparsedExpression_TextParserRuleCall_5 extends RuleCallToken {
 /************ begin Rule UnparsedCommand ****************
  *
  * UnparsedCommand:
- * 	"\\" command=(ID | SpecialCommandName);
+ * 	"\\" command=(SchemeIdentifier | SpecialCommandName);
  *
  **/
 
-// "\\" command=(ID | SpecialCommandName)
+// "\\" command=(SchemeIdentifier | SpecialCommandName)
 protected class UnparsedCommand_Group extends GroupToken {
 	
 	public UnparsedCommand_Group(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -2048,7 +2048,7 @@ protected class UnparsedCommand_ReverseSolidusKeyword_0 extends KeywordToken  {
 
 }
 
-// command=(ID | SpecialCommandName)
+// command=(SchemeIdentifier | SpecialCommandName)
 protected class UnparsedCommand_CommandAssignment_1 extends AssignmentToken  {
 	
 	public UnparsedCommand_CommandAssignment_1(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -2072,9 +2072,9 @@ protected class UnparsedCommand_CommandAssignment_1 extends AssignmentToken  {
 	public IEObjectConsumer tryConsume() {
 		if((value = eObjectConsumer.getConsumable("command",true)) == null) return null;
 		IEObjectConsumer obj = eObjectConsumer.cloneAndConsume("command");
-		if(valueSerializer.isValid(obj.getEObject(), grammarAccess.getUnparsedCommandAccess().getCommandIDTerminalRuleCall_1_0_0(), value, null)) {
-			type = AssignmentType.TERMINAL_RULE_CALL;
-			element = grammarAccess.getUnparsedCommandAccess().getCommandIDTerminalRuleCall_1_0_0();
+		if(valueSerializer.isValid(obj.getEObject(), grammarAccess.getUnparsedCommandAccess().getCommandSchemeIdentifierParserRuleCall_1_0_0(), value, null)) {
+			type = AssignmentType.DATATYPE_RULE_CALL;
+			element = grammarAccess.getUnparsedCommandAccess().getCommandSchemeIdentifierParserRuleCall_1_0_0();
 			return obj;
 		}
 		if(valueSerializer.isValid(obj.getEObject(), grammarAccess.getUnparsedCommandAccess().getCommandSpecialCommandNameParserRuleCall_1_0_1(), value, null)) {
