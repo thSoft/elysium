@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/org.elysium/src-gen"
+    editDirectory="/org.elysium.edit/src" editorDirectory="/org.elysium.editor/src"
+    modelPluginID="org.elysium" forceOverwrite="true" modelName="LilyPond" updateClasspath="false"
+    rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container" complianceLevel="5.0"
+    copyrightFields="false" editPluginID="org.elysium.edit" editorPluginID="org.elysium.editor">
+  <genPackages prefix="Lilypond" basePackage="org.elysium" disposableProviderFactory="true"
+      ecorePackage="platform:/resource/org.elysium/src-gen/org/elysium/LilyPond.ecore#/">
+    <genClasses ecoreClass="platform:/resource/org.elysium/src-gen/org/elysium/LilyPond.ecore#//LilyPond">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference platform:/resource/org.elysium/src-gen/org/elysium/LilyPond.ecore#//LilyPond/expressions"/>
+    </genClasses>
+    <genClasses ecoreClass="platform:/resource/org.elysium/src-gen/org/elysium/LilyPond.ecore#//ToplevelExpression"/>
+    <genClasses ecoreClass="platform:/resource/org.elysium/src-gen/org/elysium/LilyPond.ecore#//Expression"/>
+    <genClasses ecoreClass="platform:/resource/org.elysium/src-gen/org/elysium/LilyPond.ecore#//CommonExpression"/>
+    <genClasses ecoreClass="platform:/resource/org.elysium/src-gen/org/elysium/LilyPond.ecore#//Assignment">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute platform:/resource/org.elysium/src-gen/org/elysium/LilyPond.ecore#//Assignment/name"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference platform:/resource/org.elysium/src-gen/org/elysium/LilyPond.ecore#//Assignment/value"/>
+    </genClasses>
+    <genClasses ecoreClass="platform:/resource/org.elysium/src-gen/org/elysium/LilyPond.ecore#//PropertyAssignment">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute platform:/resource/org.elysium/src-gen/org/elysium/LilyPond.ecore#//PropertyAssignment/id"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference platform:/resource/org.elysium/src-gen/org/elysium/LilyPond.ecore#//PropertyAssignment/value"/>
+    </genClasses>
+    <genClasses ecoreClass="platform:/resource/org.elysium/src-gen/org/elysium/LilyPond.ecore#//Block">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference platform:/resource/org.elysium/src-gen/org/elysium/LilyPond.ecore#//Block/expressions"/>
+    </genClasses>
+    <genClasses ecoreClass="platform:/resource/org.elysium/src-gen/org/elysium/LilyPond.ecore#//SimpleBlock"/>
+    <genClasses ecoreClass="platform:/resource/org.elysium/src-gen/org/elysium/LilyPond.ecore#//SimultaneousBlock"/>
+    <genClasses ecoreClass="platform:/resource/org.elysium/src-gen/org/elysium/LilyPond.ecore#//Command"/>
+    <genClasses ecoreClass="platform:/resource/org.elysium/src-gen/org/elysium/LilyPond.ecore#//UnparsedBlock">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference platform:/resource/org.elysium/src-gen/org/elysium/LilyPond.ecore#//UnparsedBlock/expressions"/>
+    </genClasses>
+    <genClasses ecoreClass="platform:/resource/org.elysium/src-gen/org/elysium/LilyPond.ecore#//UnparsedExpression"/>
+    <genClasses ecoreClass="platform:/resource/org.elysium/src-gen/org/elysium/LilyPond.ecore#//UnparsedCommand">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute platform:/resource/org.elysium/src-gen/org/elysium/LilyPond.ecore#//UnparsedCommand/command"/>
+    </genClasses>
+    <genClasses ecoreClass="platform:/resource/org.elysium/src-gen/org/elysium/LilyPond.ecore#//Reference">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference platform:/resource/org.elysium/src-gen/org/elysium/LilyPond.ecore#//Reference/assignment"/>
+    </genClasses>
+    <genClasses ecoreClass="platform:/resource/org.elysium/src-gen/org/elysium/LilyPond.ecore#//Text">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute platform:/resource/org.elysium/src-gen/org/elysium/LilyPond.ecore#//Text/value"/>
+    </genClasses>
+    <genClasses ecoreClass="platform:/resource/org.elysium/src-gen/org/elysium/LilyPond.ecore#//Number">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute platform:/resource/org.elysium/src-gen/org/elysium/LilyPond.ecore#//Number/value"/>
+    </genClasses>
+    <genClasses ecoreClass="platform:/resource/org.elysium/src-gen/org/elysium/LilyPond.ecore#//SpecialCommand">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute platform:/resource/org.elysium/src-gen/org/elysium/LilyPond.ecore#//SpecialCommand/keyword"/>
+    </genClasses>
+    <genClasses ecoreClass="platform:/resource/org.elysium/src-gen/org/elysium/LilyPond.ecore#//Include">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute platform:/resource/org.elysium/src-gen/org/elysium/LilyPond.ecore#//Include/importURI"/>
+    </genClasses>
+    <genClasses ecoreClass="platform:/resource/org.elysium/src-gen/org/elysium/LilyPond.ecore#//Version">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute platform:/resource/org.elysium/src-gen/org/elysium/LilyPond.ecore#//Version/version"/>
+    </genClasses>
+    <genClasses ecoreClass="platform:/resource/org.elysium/src-gen/org/elysium/LilyPond.ecore#//SourceFileName">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute platform:/resource/org.elysium/src-gen/org/elysium/LilyPond.ecore#//SourceFileName/filename"/>
+    </genClasses>
+    <genClasses ecoreClass="platform:/resource/org.elysium/src-gen/org/elysium/LilyPond.ecore#//SourceFileLine">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute platform:/resource/org.elysium/src-gen/org/elysium/LilyPond.ecore#//SourceFileLine/line"/>
+    </genClasses>
+    <genClasses ecoreClass="platform:/resource/org.elysium/src-gen/org/elysium/LilyPond.ecore#//Markup">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference platform:/resource/org.elysium/src-gen/org/elysium/LilyPond.ecore#//Markup/body"/>
+    </genClasses>
+    <genClasses ecoreClass="platform:/resource/org.elysium/src-gen/org/elysium/LilyPond.ecore#//MarkupLines">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference platform:/resource/org.elysium/src-gen/org/elysium/LilyPond.ecore#//MarkupLines/body"/>
+    </genClasses>
+    <genClasses ecoreClass="platform:/resource/org.elysium/src-gen/org/elysium/LilyPond.ecore#//MarkupBody">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference platform:/resource/org.elysium/src-gen/org/elysium/LilyPond.ecore#//MarkupBody/command"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference platform:/resource/org.elysium/src-gen/org/elysium/LilyPond.ecore#//MarkupBody/block"/>
+    </genClasses>
+    <genClasses ecoreClass="platform:/resource/org.elysium/src-gen/org/elysium/LilyPond.ecore#//BlockCommand">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference platform:/resource/org.elysium/src-gen/org/elysium/LilyPond.ecore#//BlockCommand/block"/>
+    </genClasses>
+    <genClasses ecoreClass="platform:/resource/org.elysium/src-gen/org/elysium/LilyPond.ecore#//OutputDefinition">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference platform:/resource/org.elysium/src-gen/org/elysium/LilyPond.ecore#//OutputDefinition/block"/>
+    </genClasses>
+    <genClasses ecoreClass="platform:/resource/org.elysium/src-gen/org/elysium/LilyPond.ecore#//RelativeMusic">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference platform:/resource/org.elysium/src-gen/org/elysium/LilyPond.ecore#//RelativeMusic/pitch"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference platform:/resource/org.elysium/src-gen/org/elysium/LilyPond.ecore#//RelativeMusic/music"/>
+    </genClasses>
+    <genClasses ecoreClass="platform:/resource/org.elysium/src-gen/org/elysium/LilyPond.ecore#//Pitch">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute platform:/resource/org.elysium/src-gen/org/elysium/LilyPond.ecore#//Pitch/base"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute platform:/resource/org.elysium/src-gen/org/elysium/LilyPond.ecore#//Pitch/octaveCheck"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference platform:/resource/org.elysium/src-gen/org/elysium/LilyPond.ecore#//Pitch/octaveShift"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute platform:/resource/org.elysium/src-gen/org/elysium/LilyPond.ecore#//Pitch/reminderAccidental"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute platform:/resource/org.elysium/src-gen/org/elysium/LilyPond.ecore#//Pitch/cautionaryAccidental"/>
+    </genClasses>
+    <genClasses ecoreClass="platform:/resource/org.elysium/src-gen/org/elysium/LilyPond.ecore#//Octave">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute platform:/resource/org.elysium/src-gen/org/elysium/LilyPond.ecore#//Octave/up"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute platform:/resource/org.elysium/src-gen/org/elysium/LilyPond.ecore#//Octave/down"/>
+    </genClasses>
+    <genClasses ecoreClass="platform:/resource/org.elysium/src-gen/org/elysium/LilyPond.ecore#//TransposedMusic">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference platform:/resource/org.elysium/src-gen/org/elysium/LilyPond.ecore#//TransposedMusic/source"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference platform:/resource/org.elysium/src-gen/org/elysium/LilyPond.ecore#//TransposedMusic/target"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference platform:/resource/org.elysium/src-gen/org/elysium/LilyPond.ecore#//TransposedMusic/music"/>
+    </genClasses>
+    <genClasses ecoreClass="platform:/resource/org.elysium/src-gen/org/elysium/LilyPond.ecore#//ModeChange">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference platform:/resource/org.elysium/src-gen/org/elysium/LilyPond.ecore#//ModeChange/music"/>
+    </genClasses>
+    <genClasses ecoreClass="platform:/resource/org.elysium/src-gen/org/elysium/LilyPond.ecore#//MusicWithLyrics">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute platform:/resource/org.elysium/src-gen/org/elysium/LilyPond.ecore#//MusicWithLyrics/id"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference platform:/resource/org.elysium/src-gen/org/elysium/LilyPond.ecore#//MusicWithLyrics/lyrics"/>
+    </genClasses>
+    <genClasses ecoreClass="platform:/resource/org.elysium/src-gen/org/elysium/LilyPond.ecore#//NewContext">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute platform:/resource/org.elysium/src-gen/org/elysium/LilyPond.ecore#//NewContext/context"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute platform:/resource/org.elysium/src-gen/org/elysium/LilyPond.ecore#//NewContext/id"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference platform:/resource/org.elysium/src-gen/org/elysium/LilyPond.ecore#//NewContext/modification"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference platform:/resource/org.elysium/src-gen/org/elysium/LilyPond.ecore#//NewContext/music"/>
+    </genClasses>
+    <genClasses ecoreClass="platform:/resource/org.elysium/src-gen/org/elysium/LilyPond.ecore#//ContextModification">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference platform:/resource/org.elysium/src-gen/org/elysium/LilyPond.ecore#//ContextModification/block"/>
+    </genClasses>
+    <genClasses ecoreClass="platform:/resource/org.elysium/src-gen/org/elysium/LilyPond.ecore#//ContextDef">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference platform:/resource/org.elysium/src-gen/org/elysium/LilyPond.ecore#//ContextDef/block"/>
+    </genClasses>
+    <genClasses ecoreClass="platform:/resource/org.elysium/src-gen/org/elysium/LilyPond.ecore#//Other"/>
+    <genClasses ecoreClass="platform:/resource/org.elysium/src-gen/org/elysium/LilyPond.ecore#//Scheme">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference platform:/resource/org.elysium/src-gen/org/elysium/LilyPond.ecore#//Scheme/value"/>
+    </genClasses>
+    <genClasses ecoreClass="platform:/resource/org.elysium/src-gen/org/elysium/LilyPond.ecore#//SchemeExpression">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute platform:/resource/org.elysium/src-gen/org/elysium/LilyPond.ecore#//SchemeExpression/reference"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute platform:/resource/org.elysium/src-gen/org/elysium/LilyPond.ecore#//SchemeExpression/quotations"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference platform:/resource/org.elysium/src-gen/org/elysium/LilyPond.ecore#//SchemeExpression/value"/>
+    </genClasses>
+    <genClasses ecoreClass="platform:/resource/org.elysium/src-gen/org/elysium/LilyPond.ecore#//SchemeValue"/>
+    <genClasses ecoreClass="platform:/resource/org.elysium/src-gen/org/elysium/LilyPond.ecore#//SchemeBoolean">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute platform:/resource/org.elysium/src-gen/org/elysium/LilyPond.ecore#//SchemeBoolean/value"/>
+    </genClasses>
+    <genClasses ecoreClass="platform:/resource/org.elysium/src-gen/org/elysium/LilyPond.ecore#//SchemeList">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute platform:/resource/org.elysium/src-gen/org/elysium/LilyPond.ecore#//SchemeList/vector"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference platform:/resource/org.elysium/src-gen/org/elysium/LilyPond.ecore#//SchemeList/expressions"/>
+    </genClasses>
+    <genClasses ecoreClass="platform:/resource/org.elysium/src-gen/org/elysium/LilyPond.ecore#//SchemeBlock">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference platform:/resource/org.elysium/src-gen/org/elysium/LilyPond.ecore#//SchemeBlock/elements"/>
+    </genClasses>
+    <genClasses ecoreClass="platform:/resource/org.elysium/src-gen/org/elysium/LilyPond.ecore#//SchemeCharacter">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute platform:/resource/org.elysium/src-gen/org/elysium/LilyPond.ecore#//SchemeCharacter/value"/>
+    </genClasses>
+    <genClasses ecoreClass="platform:/resource/org.elysium/src-gen/org/elysium/LilyPond.ecore#//SchemeText">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute platform:/resource/org.elysium/src-gen/org/elysium/LilyPond.ecore#//SchemeText/value"/>
+    </genClasses>
+    <genClasses ecoreClass="platform:/resource/org.elysium/src-gen/org/elysium/LilyPond.ecore#//SchemeNumber">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute platform:/resource/org.elysium/src-gen/org/elysium/LilyPond.ecore#//SchemeNumber/radix"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute platform:/resource/org.elysium/src-gen/org/elysium/LilyPond.ecore#//SchemeNumber/value"/>
+    </genClasses>
+    <genClasses ecoreClass="platform:/resource/org.elysium/src-gen/org/elysium/LilyPond.ecore#//SchemeMarkupCommand">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute platform:/resource/org.elysium/src-gen/org/elysium/LilyPond.ecore#//SchemeMarkupCommand/command"/>
+    </genClasses>
+  </genPackages>
+</genmodel:GenModel>

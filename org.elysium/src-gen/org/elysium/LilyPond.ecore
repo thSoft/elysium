@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="lilypond"
+    nsURI="http://www.elysium.org/LilyPond" nsPrefix="lilypond">
+  <eClassifiers xsi:type="ecore:EClass" name="LilyPond">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="expressions" upperBound="-1"
+        eType="ecore:EClass platform:/resource/org.elysium/src-gen/org/elysium/LilyPond.ecore#//ToplevelExpression"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ToplevelExpression"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Expression"/>
+  <eClassifiers xsi:type="ecore:EClass" name="CommonExpression" eSuperTypes="platform:/resource/org.elysium/src-gen/org/elysium/LilyPond.ecore#//ToplevelExpression platform:/resource/org.elysium/src-gen/org/elysium/LilyPond.ecore#//Expression"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Assignment" eSuperTypes="platform:/resource/org.elysium/src-gen/org/elysium/LilyPond.ecore#//ToplevelExpression">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="value" eType="ecore:EClass platform:/resource/org.elysium/src-gen/org/elysium/LilyPond.ecore#//Expression"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="PropertyAssignment" eSuperTypes="platform:/resource/org.elysium/src-gen/org/elysium/LilyPond.ecore#//Expression platform:/resource/org.elysium/src-gen/org/elysium/LilyPond.ecore#//UnparsedExpression">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="value" eType="ecore:EClass platform:/resource/org.elysium/src-gen/org/elysium/LilyPond.ecore#//Expression"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Block" eSuperTypes="platform:/resource/org.elysium/src-gen/org/elysium/LilyPond.ecore#//CommonExpression">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="expressions" upperBound="-1"
+        eType="ecore:EClass platform:/resource/org.elysium/src-gen/org/elysium/LilyPond.ecore#//Expression"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="SimpleBlock" eSuperTypes="platform:/resource/org.elysium/src-gen/org/elysium/LilyPond.ecore#//Block"/>
+  <eClassifiers xsi:type="ecore:EClass" name="SimultaneousBlock" eSuperTypes="platform:/resource/org.elysium/src-gen/org/elysium/LilyPond.ecore#//Block"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Command" eSuperTypes="platform:/resource/org.elysium/src-gen/org/elysium/LilyPond.ecore#//CommonExpression"/>
+  <eClassifiers xsi:type="ecore:EClass" name="UnparsedBlock" eSuperTypes="platform:/resource/org.elysium/src-gen/org/elysium/LilyPond.ecore#//UnparsedExpression">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="expressions" upperBound="-1"
+        eType="ecore:EClass platform:/resource/org.elysium/src-gen/org/elysium/LilyPond.ecore#//UnparsedExpression"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="UnparsedExpression"/>
+  <eClassifiers xsi:type="ecore:EClass" name="UnparsedCommand" eSuperTypes="platform:/resource/org.elysium/src-gen/org/elysium/LilyPond.ecore#//UnparsedExpression">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="command" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Reference" eSuperTypes="platform:/resource/org.elysium/src-gen/org/elysium/LilyPond.ecore#//Command">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="assignment" eType="ecore:EClass platform:/resource/org.elysium/src-gen/org/elysium/LilyPond.ecore#//Assignment"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Text" eSuperTypes="platform:/resource/org.elysium/src-gen/org/elysium/LilyPond.ecore#//CommonExpression platform:/resource/org.elysium/src-gen/org/elysium/LilyPond.ecore#//UnparsedExpression">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Number" eSuperTypes="platform:/resource/org.elysium/src-gen/org/elysium/LilyPond.ecore#//CommonExpression platform:/resource/org.elysium/src-gen/org/elysium/LilyPond.ecore#//UnparsedExpression">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="SpecialCommand" eSuperTypes="platform:/resource/org.elysium/src-gen/org/elysium/LilyPond.ecore#//Command">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="keyword" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Include" eSuperTypes="platform:/resource/org.elysium/src-gen/org/elysium/LilyPond.ecore#//SpecialCommand">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="importURI" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Version" eSuperTypes="platform:/resource/org.elysium/src-gen/org/elysium/LilyPond.ecore#//SpecialCommand">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="version" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="SourceFileName" eSuperTypes="platform:/resource/org.elysium/src-gen/org/elysium/LilyPond.ecore#//SpecialCommand">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="filename" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="SourceFileLine" eSuperTypes="platform:/resource/org.elysium/src-gen/org/elysium/LilyPond.ecore#//SpecialCommand">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="line" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Markup" eSuperTypes="platform:/resource/org.elysium/src-gen/org/elysium/LilyPond.ecore#//SpecialCommand">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="body" eType="ecore:EClass platform:/resource/org.elysium/src-gen/org/elysium/LilyPond.ecore#//MarkupBody"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="MarkupLines" eSuperTypes="platform:/resource/org.elysium/src-gen/org/elysium/LilyPond.ecore#//SpecialCommand">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="body" eType="ecore:EClass platform:/resource/org.elysium/src-gen/org/elysium/LilyPond.ecore#//MarkupBody"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="MarkupBody">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="command" upperBound="-1"
+        eType="ecore:EClass platform:/resource/org.elysium/src-gen/org/elysium/LilyPond.ecore#//UnparsedExpression"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="block" eType="ecore:EClass platform:/resource/org.elysium/src-gen/org/elysium/LilyPond.ecore#//UnparsedBlock"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="BlockCommand" eSuperTypes="platform:/resource/org.elysium/src-gen/org/elysium/LilyPond.ecore#//SpecialCommand">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="block" eType="ecore:EClass platform:/resource/org.elysium/src-gen/org/elysium/LilyPond.ecore#//SimpleBlock"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="OutputDefinition" eSuperTypes="platform:/resource/org.elysium/src-gen/org/elysium/LilyPond.ecore#//SpecialCommand">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="block" eType="ecore:EClass platform:/resource/org.elysium/src-gen/org/elysium/LilyPond.ecore#//UnparsedBlock"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="RelativeMusic" eSuperTypes="platform:/resource/org.elysium/src-gen/org/elysium/LilyPond.ecore#//SpecialCommand">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="pitch" eType="ecore:EClass platform:/resource/org.elysium/src-gen/org/elysium/LilyPond.ecore#//Pitch"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="music" eType="ecore:EClass platform:/resource/org.elysium/src-gen/org/elysium/LilyPond.ecore#//Expression"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Pitch">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="base" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="octaveCheck" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="octaveShift" eType="ecore:EClass platform:/resource/org.elysium/src-gen/org/elysium/LilyPond.ecore#//Octave"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="reminderAccidental" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="cautionaryAccidental" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Octave">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="up" unique="false" upperBound="-1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="down" unique="false" upperBound="-1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="TransposedMusic" eSuperTypes="platform:/resource/org.elysium/src-gen/org/elysium/LilyPond.ecore#//SpecialCommand">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="source" eType="ecore:EClass platform:/resource/org.elysium/src-gen/org/elysium/LilyPond.ecore#//Pitch"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="target" eType="ecore:EClass platform:/resource/org.elysium/src-gen/org/elysium/LilyPond.ecore#//Pitch"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="music" eType="ecore:EClass platform:/resource/org.elysium/src-gen/org/elysium/LilyPond.ecore#//Expression"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ModeChange" eSuperTypes="platform:/resource/org.elysium/src-gen/org/elysium/LilyPond.ecore#//SpecialCommand">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="music" eType="ecore:EClass platform:/resource/org.elysium/src-gen/org/elysium/LilyPond.ecore#//Block"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="MusicWithLyrics" eSuperTypes="platform:/resource/org.elysium/src-gen/org/elysium/LilyPond.ecore#//SpecialCommand">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="lyrics" eType="ecore:EClass platform:/resource/org.elysium/src-gen/org/elysium/LilyPond.ecore#//Expression"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="NewContext" eSuperTypes="platform:/resource/org.elysium/src-gen/org/elysium/LilyPond.ecore#//SpecialCommand">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="context" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="modification" eType="ecore:EClass platform:/resource/org.elysium/src-gen/org/elysium/LilyPond.ecore#//ContextModification"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="music" eType="ecore:EClass platform:/resource/org.elysium/src-gen/org/elysium/LilyPond.ecore#//Expression"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ContextModification">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="block" eType="ecore:EClass platform:/resource/org.elysium/src-gen/org/elysium/LilyPond.ecore#//UnparsedBlock"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ContextDef" eSuperTypes="platform:/resource/org.elysium/src-gen/org/elysium/LilyPond.ecore#//SpecialCommand">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="block" eType="ecore:EClass platform:/resource/org.elysium/src-gen/org/elysium/LilyPond.ecore#//UnparsedBlock"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Other" eSuperTypes="platform:/resource/org.elysium/src-gen/org/elysium/LilyPond.ecore#//SpecialCommand"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Scheme" eSuperTypes="platform:/resource/org.elysium/src-gen/org/elysium/LilyPond.ecore#//CommonExpression platform:/resource/org.elysium/src-gen/org/elysium/LilyPond.ecore#//UnparsedExpression">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="value" eType="ecore:EClass platform:/resource/org.elysium/src-gen/org/elysium/LilyPond.ecore#//SchemeExpression"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="SchemeExpression">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="reference" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="quotations" unique="false"
+        upperBound="-1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="value" eType="ecore:EClass platform:/resource/org.elysium/src-gen/org/elysium/LilyPond.ecore#//SchemeValue"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="SchemeValue"/>
+  <eClassifiers xsi:type="ecore:EClass" name="SchemeBoolean" eSuperTypes="platform:/resource/org.elysium/src-gen/org/elysium/LilyPond.ecore#//SchemeValue">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="SchemeList" eSuperTypes="platform:/resource/org.elysium/src-gen/org/elysium/LilyPond.ecore#//SchemeValue">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="vector" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="expressions" upperBound="-1"
+        eType="ecore:EClass platform:/resource/org.elysium/src-gen/org/elysium/LilyPond.ecore#//SchemeExpression"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="SchemeBlock" eSuperTypes="platform:/resource/org.elysium/src-gen/org/elysium/LilyPond.ecore#//SchemeValue">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="elements" upperBound="-1"
+        eType="ecore:EClass platform:/resource/org.elysium/src-gen/org/elysium/LilyPond.ecore#//Expression"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="SchemeCharacter" eSuperTypes="platform:/resource/org.elysium/src-gen/org/elysium/LilyPond.ecore#//SchemeValue">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="SchemeText" eSuperTypes="platform:/resource/org.elysium/src-gen/org/elysium/LilyPond.ecore#//SchemeValue">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="SchemeNumber" eSuperTypes="platform:/resource/org.elysium/src-gen/org/elysium/LilyPond.ecore#//SchemeValue">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="radix" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="SchemeMarkupCommand" eSuperTypes="platform:/resource/org.elysium/src-gen/org/elysium/LilyPond.ecore#//SchemeValue">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="command" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+</ecore:EPackage>
