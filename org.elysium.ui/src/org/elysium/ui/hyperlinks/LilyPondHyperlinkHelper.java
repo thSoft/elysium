@@ -21,8 +21,8 @@ import org.eclipse.ui.views.pdf.PdfViewType;
 import org.eclipse.util.DocumentUtils;
 import org.eclipse.util.UiUtils;
 import org.eclipse.xtext.EcoreUtil2;
-import org.eclipse.xtext.parsetree.AbstractNode;
-import org.eclipse.xtext.parsetree.NodeUtil;
+import org.eclipse.xtext.nodemodel.ILeafNode;
+import org.eclipse.xtext.nodemodel.util.NodeModelUtils;
 import org.eclipse.xtext.resource.XtextResource;
 import org.eclipse.xtext.ui.editor.hyperlinking.HyperlinkHelper;
 import org.eclipse.xtext.ui.editor.hyperlinking.XtextHyperlink;
@@ -52,20 +52,20 @@ public class LilyPondHyperlinkHelper extends HyperlinkHelper {
 			hyperlinks = Arrays.asList(defaultHyperlinks);
 		}
 		// Add hyperlinks
-		AbstractNode node = NodeUtil.findLeafNodeAtOffset(xtextResource.getParseResult().getRootNode(), offset + 1);
+		ILeafNode node = NodeModelUtils.findLeafNodeAtOffset(xtextResource.getParseResult().getRootNode(), offset);
 		if (node != null) {
-			EObject object = NodeUtil.getNearestSemanticObject(node);
+			EObject object = NodeModelUtils.findActualSemanticObjectFor(node);
 			int nodeOffset = node.getOffset();
 			int nodeLength = node.getLength();
 			// Include -> File
-			if ((object instanceof Include) && NodeUtil.findNodesForFeature(object, LilypondPackage.eINSTANCE.getInclude_ImportURI()).contains(node)) {
+			if ((object instanceof Include) && NodeModelUtils.findNodesForFeature(object, LilypondPackage.eINSTANCE.getInclude_ImportURI()).contains(node)) {
 				Include include = (Include)object;
 				Resource includedEResource = EcoreUtil2.getResource(xtextResource, include.getImportURI());
 				IResource includedResource = ResourceUtils.convertEResourceToPlatformResource(includedEResource);
 				if (includedResource != null) {
 					int linkOffset = nodeOffset + 1; // Ignore the surrounding quotation marks
 					int linkLength = nodeLength - 2;
-					if ((linkOffset <= offset) && (offset < linkOffset + linkLength)) {
+					if ((linkOffset <= offset) && (offset < (linkOffset + linkLength))) {
 						XtextHyperlink hyperlink = hyperlinkProvider.get();
 						hyperlink.setHyperlinkRegion(new Region(linkOffset, linkLength));
 						hyperlink.setHyperlinkText("Open included file");
@@ -94,7 +94,7 @@ public class LilyPondHyperlinkHelper extends HyperlinkHelper {
 										if (resource.equals(targetFile)) {
 											try {
 												int annotationOffset = DocumentUtils.getOffsetOfPosition(DocumentUtils.getDocumentFromFile(targetFile), pdfAnnotation.lineNumber, pdfAnnotation.columnNumber, 1);
-												if ((nodeOffset <= annotationOffset) && (annotationOffset < nodeOffset + nodeLength)) { // TODO smarter hyperlink region
+												if ((nodeOffset <= annotationOffset) && (annotationOffset < (nodeOffset + nodeLength))) { // TODO smarter hyperlink region
 													SourceToScoreHyperlink hyperlink = new SourceToScoreHyperlink(pdfViewPage, pdfAnnotation);
 													hyperlink.setHyperlinkRegion(new Region(nodeOffset, nodeLength));
 													hyperlinks.add(hyperlink);
@@ -114,7 +114,7 @@ public class LilyPondHyperlinkHelper extends HyperlinkHelper {
 		if (hyperlinks.isEmpty()) { // Must return null instead of empty array if there are no hyperlinks
 			return null;
 		} else {
-			return Iterables.newArray(hyperlinks, IHyperlink.class);
+			return Iterables.toArray(hyperlinks, IHyperlink.class);
 		}
 	}
 }

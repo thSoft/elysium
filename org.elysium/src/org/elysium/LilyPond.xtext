@@ -103,7 +103,7 @@ SchemeCharacter: "#\\" value=(ID | SpecialCharacter | ANY_OTHER);
 
 SchemeText: value=SchemeTextValue;
 
-SchemeTextValue hidden(): SchemeTextValueSegment (":" ":"? SchemeTextValueSegment)*;
+SchemeTextValue: SchemeTextValueSegment (":" ":"? SchemeTextValueSegment)*;
 
 SchemeTextValueSegment: "\\\\" | "=" | "-" | SpecialCharacter | SpecialCommandName | SchemeIdentifier | STRING | INT | ANY_OTHER;
 

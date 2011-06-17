@@ -1,11 +1,11 @@
 package org.elysium.test;
 
-import org.eclipse.xtext.parsetree.CompositeNode;
+import org.eclipse.xtext.nodemodel.ICompositeNode;
 
 public class Formatter extends LilyPondTest {
 
 	private void checkFormatting(String unformatted, String formatted) throws Exception {
-		CompositeNode rootNode = getRootNode(unformatted);
+		ICompositeNode rootNode = getRootNode(unformatted);
 		assertEquals(formatted, getNodeModelFormatter().format(rootNode, 0, rootNode.getLength()).getFormattedText());
 	}
 

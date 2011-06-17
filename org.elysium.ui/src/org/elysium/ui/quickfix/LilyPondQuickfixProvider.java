@@ -2,7 +2,7 @@ package org.elysium.ui.quickfix;
 
 import java.util.Iterator;
 import org.eclipse.emf.ecore.EObject;
-import org.eclipse.xtext.parsetree.LeafNode;
+import org.eclipse.xtext.nodemodel.ILeafNode;
 import org.eclipse.xtext.ui.editor.model.edit.IModificationContext;
 import org.eclipse.xtext.ui.editor.model.edit.ISemanticModification;
 import org.eclipse.xtext.ui.editor.quickfix.AbstractDeclarativeQuickfixProvider;
@@ -30,8 +30,8 @@ public class LilyPondQuickfixProvider extends AbstractDeclarativeQuickfixProvide
 				if (element instanceof Command) {
 					int start = -1;
 					int end = -1;
-					for (Iterator<LeafNode> hiddenTokens = LilyPondJavaValidator.getHiddenTokensAfterBackslash((Command)element); hiddenTokens.hasNext();) {
-						LeafNode next = hiddenTokens.next();
+					for (Iterator<ILeafNode> hiddenTokens = LilyPondJavaValidator.getHiddenTokensAfterBackslash((Command)element); hiddenTokens.hasNext();) {
+						ILeafNode next = hiddenTokens.next();
 						if (next.isHidden()) {
 							if (start == -1) {
 								start = next.getOffset();

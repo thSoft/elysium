@@ -1,9 +1,9 @@
 package org.elysium.ui.syntaxcoloring;
 
 import static org.elysium.ui.syntaxcoloring.LilyPondHighlightingConfiguration.COMMAND_ID;
+import javax.util.collections.IterableIterator;
 import org.eclipse.emf.ecore.EObject;
-import org.eclipse.xtext.parsetree.AbstractNode;
-import org.eclipse.xtext.parsetree.NodeUtil;
+import org.eclipse.xtext.nodemodel.util.NodeModelUtils;
 import org.eclipse.xtext.resource.XtextResource;
 import org.eclipse.xtext.ui.editor.syntaxcoloring.IHighlightedPositionAcceptor;
 import org.eclipse.xtext.ui.editor.syntaxcoloring.ISemanticHighlightingCalculator;
@@ -21,36 +21,38 @@ public class LilyPondSemanticHighlightingCalculator implements ISemanticHighligh
 	@Override
 	public void provideHighlightingFor(XtextResource resource, IHighlightedPositionAcceptor acceptor) {
 		if (resource != null) {
-			for (AbstractNode node : NodeUtil.getAllContents(resource.getParseResult().getRootNode())) {
-				EObject element = node.getElement();
-				if (element instanceof Reference) {
-					Reference reference = (Reference)element;
-					Assignment assignment = reference.getAssignment();
-					if (assignment != null) {
-						String name = assignment.getName();
-						if (name != null) {
-							highlight(acceptor, node, name);
+			EObject root = resource.getParseResult().getRootASTElement();
+			if (root != null) {
+				for (EObject element : new IterableIterator<EObject>(root.eAllContents())) {
+					if (element instanceof Reference) {
+						Reference reference = (Reference)element;
+						Assignment assignment = reference.getAssignment();
+						if (assignment != null) {
+							String name = assignment.getName();
+							if (name != null) {
+								highlight(acceptor, element, name);
+							}
 						}
-					}
-				} else if (element instanceof UnparsedCommand) {
-					UnparsedCommand unparsedCommand = (UnparsedCommand)element;
-					String name = unparsedCommand.getCommand();
-					if (name != null) {
-						highlight(acceptor, node, name);
-					}
-				} else if (element instanceof SpecialCommand) {
-					SpecialCommand specialCommand = (SpecialCommand)element;
-					String keyword = specialCommand.getKeyword();
-					if (keyword != null) {
-						highlight(acceptor, node, keyword);
+					} else if (element instanceof UnparsedCommand) {
+						UnparsedCommand unparsedCommand = (UnparsedCommand)element;
+						String name = unparsedCommand.getCommand();
+						if (name != null) {
+							highlight(acceptor, element, name);
+						}
+					} else if (element instanceof SpecialCommand) {
+						SpecialCommand specialCommand = (SpecialCommand)element;
+						String keyword = specialCommand.getKeyword();
+						if (keyword != null) {
+							highlight(acceptor, element, keyword);
+						}
 					}
 				}
 			}
 		}
 	}
 
-	private static void highlight(IHighlightedPositionAcceptor acceptor, AbstractNode node, String name) {
-		acceptor.addPosition(node.getOffset(), name.length() + 1, COMMAND_ID);
+	private static void highlight(IHighlightedPositionAcceptor acceptor, EObject element, String name) {
+		acceptor.addPosition(NodeModelUtils.getNode(element).getOffset(), name.length() + 1, COMMAND_ID);
 	}
 
 }

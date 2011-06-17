@@ -43,8 +43,7 @@ Workflow {
 				fileExtensions = file.extensions
 			}
 
-			fragment = parser.antlr.ex.rt.AntlrGeneratorFragment {
-				antlrParam = "-Xconversiontimeout" antlrParam = "10000"
+			fragment = parser.antlr.XtextAntlrGeneratorFragment {
 				options = {
 					backtrack = true
 				}
@@ -62,13 +61,12 @@ Workflow {
 
 			fragment = labeling.LabelProviderFragment {}
 
-			fragment = outline.TransformerFragment {}
+			fragment = outline.OutlineTreeProviderFragment {}
 			fragment = outline.QuickOutlineFragment {}
 
 			fragment = contentAssist.JavaBasedContentAssistFragment {}
 
-			fragment = parser.antlr.ex.ca.ContentAssistParserGeneratorFragment {
-				antlrParam = "-Xconversiontimeout" antlrParam = "10000"
+			fragment = parser.antlr.XtextAntlrUiGeneratorFragment {
 				options = {
 					backtrack = true
 				}

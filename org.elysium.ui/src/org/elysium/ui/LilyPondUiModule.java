@@ -1,9 +1,9 @@
 package org.elysium.ui;
 
-import org.eclipse.jface.text.IAutoEditStrategy;
 import org.eclipse.ui.plugin.AbstractUIPlugin;
 import org.eclipse.xtext.resource.containers.IAllContainersState;
 import org.eclipse.xtext.ui.editor.IXtextEditorCallback;
+import org.eclipse.xtext.ui.editor.autoedit.AbstractEditStrategyProvider;
 import org.eclipse.xtext.ui.editor.hyperlinking.IHyperlinkHelper;
 import org.eclipse.xtext.ui.editor.model.IResourceForEditorInputFactory;
 import org.eclipse.xtext.ui.editor.model.ResourceForIEditorInputFactory;
@@ -13,7 +13,7 @@ import org.eclipse.xtext.ui.resource.IResourceSetProvider;
 import org.eclipse.xtext.ui.resource.SimpleResourceSetProvider;
 import org.eclipse.xtext.ui.shared.Access;
 import org.elysium.importuri.ILilyPondPathProvider;
-import org.elysium.ui.autoedit.LilyPondAutoEditStrategy;
+import org.elysium.ui.autoedit.LilyPondAutoEditStrategyProvider;
 import org.elysium.ui.hyperlinks.LilyPondHyperlinkHelper;
 import org.elysium.ui.syntaxcoloring.LilyPondHighlightingConfiguration;
 import org.elysium.ui.syntaxcoloring.LilyPondSemanticHighlightingCalculator;
@@ -35,8 +35,6 @@ public class LilyPondUiModule extends AbstractLilyPondUiModule {
 		super.configure(binder);
 		// Icon path
 		binder.bind(String.class).annotatedWith(Names.named("org.eclipse.xtext.ui.PluginImageHelper.pathSuffix")).toInstance("icons/nodes/"); //$NON-NLS-1$ //$NON-NLS-2$
-		// Auto edit
-		binder.bind(IAutoEditStrategy.class).to(LilyPondAutoEditStrategy.class);
 		// Hyperlinks
 		binder.bind(IHyperlinkHelper.class).to(LilyPondHyperlinkHelper.class);
 		// Syntax coloring
@@ -49,6 +47,11 @@ public class LilyPondUiModule extends AbstractLilyPondUiModule {
 	@Override
 	public Class<? extends IXtextEditorCallback> bindIXtextEditorCallback() {
 		return LilyPondEditorCallback.class;
+	}
+
+	@Override
+	public Class<? extends AbstractEditStrategyProvider> bindAbstractEditStrategyProvider() {
+		return LilyPondAutoEditStrategyProvider.class;
 	}
 
 	// Avoid dependency on JDT

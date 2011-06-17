@@ -1,11 +1,9 @@
 package org.elysium.validation;
 
 import java.util.Iterator;
-import java.util.ListIterator;
-import org.eclipse.emf.common.util.EList;
-import org.eclipse.xtext.parsetree.CompositeNode;
-import org.eclipse.xtext.parsetree.LeafNode;
-import org.eclipse.xtext.parsetree.NodeUtil;
+import org.eclipse.xtext.nodemodel.ICompositeNode;
+import org.eclipse.xtext.nodemodel.ILeafNode;
+import org.eclipse.xtext.nodemodel.util.NodeModelUtils;
 import org.eclipse.xtext.validation.Check;
 import org.elysium.LilyPondConstants;
 import org.elysium.lilypond.Command;
@@ -22,14 +20,14 @@ public class LilyPondJavaValidator extends AbstractLilyPondJavaValidator {
 
 	public static final String HIDDEN_TOKEN_AFTER_BACKSLASH = "HIDDEN_TOKEN_AFTER_BACKSLASH"; //$NON-NLS-1$
 
-	public static Iterator<LeafNode> getHiddenTokensAfterBackslash(Command object) {
-		CompositeNode node = NodeUtil.getNode(object);
-		EList<LeafNode> leafNodes = node.getLeafNodes();
-		for (ListIterator<LeafNode> iterator = leafNodes.listIterator(); iterator.hasNext();) { // There may be hidden tokens before \
+	public static Iterator<ILeafNode> getHiddenTokensAfterBackslash(Command object) {
+		ICompositeNode node = NodeModelUtils.getNode(object);
+		Iterable<ILeafNode> leafNodes = node.getLeafNodes();
+		for (Iterator<ILeafNode> iterator = leafNodes.iterator(); iterator.hasNext();) { // There may be hidden tokens before \
 			if (LilyPondConstants.BACKSLASH.equals(iterator.next().getText())) {
+				Iterator<ILeafNode> previousIterator = iterator;
 				if (iterator.hasNext() && iterator.next().isHidden()) {
-					iterator.previous();
-					return iterator;
+					return previousIterator;
 				}
 			}
 		}
@@ -39,7 +37,7 @@ public class LilyPondJavaValidator extends AbstractLilyPondJavaValidator {
 	@Check
 	public void checkNoHiddenTokenAfterBackslash(Command object) {
 		if (getHiddenTokensAfterBackslash(object) != null) {
-			error("Command name must immediately follow backslash", 0, HIDDEN_TOKEN_AFTER_BACKSLASH);
+			error("Command name must immediately follow backslash", null, HIDDEN_TOKEN_AFTER_BACKSLASH);
 		}
 	}
 
@@ -52,7 +50,7 @@ public class LilyPondJavaValidator extends AbstractLilyPondJavaValidator {
 				return;
 			}
 		}
-		warning("Version should be specified", LilypondPackage.LILY_POND__EXPRESSIONS, NO_VERSION);
+		warning("Version should be specified", LilypondPackage.eINSTANCE.getLilyPond_Expressions(), NO_VERSION);
 	}
 
 }

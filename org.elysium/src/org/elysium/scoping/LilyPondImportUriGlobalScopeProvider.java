@@ -8,11 +8,12 @@ import java.util.LinkedHashSet;
 import java.util.Set;
 import org.eclipse.emf.common.util.TreeIterator;
 import org.eclipse.emf.common.util.URI;
+import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
-import org.eclipse.emf.ecore.EReference;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
 import org.eclipse.xtext.EcoreUtil2;
+import org.eclipse.xtext.resource.IEObjectDescription;
 import org.eclipse.xtext.resource.IResourceDescription;
 import org.eclipse.xtext.resource.IResourceDescriptions;
 import org.eclipse.xtext.scoping.IScope;
@@ -20,10 +21,11 @@ import org.eclipse.xtext.scoping.impl.AbstractGlobalScopeProvider;
 import org.eclipse.xtext.scoping.impl.ImportUriGlobalScopeProvider;
 import org.eclipse.xtext.scoping.impl.ImportUriResolver;
 import org.eclipse.xtext.scoping.impl.LoadOnDemandResourceDescriptions;
-import org.eclipse.xtext.scoping.impl.ResourceDescriptionBasedScope;
+import org.eclipse.xtext.scoping.impl.SelectableBasedScope;
 import org.eclipse.xtext.util.IResourceScopeCache;
 import org.elysium.lilypond.Include;
 import org.elysium.lilypond.LilypondFactory;
+import com.google.common.base.Predicate;
 import com.google.common.collect.Lists;
 import com.google.inject.Inject;
 import com.google.inject.Provider;
@@ -68,24 +70,24 @@ public class LilyPondImportUriGlobalScopeProvider extends AbstractGlobalScopePro
 	}
 
 	@Override
-	public IScope getScope(EObject context, EReference reference) {
-		final LinkedHashSet<URI> uniqueImportUris = getImportedUris(context);
-		IResourceDescriptions descriptions = getResourceDescriptions(context, uniqueImportUris);
+	protected IScope getScope(Resource resource, boolean ignoreCase, EClass type, Predicate<IEObjectDescription> filter) {
+		final LinkedHashSet<URI> uniqueImportUris = getImportedUris(resource);
+		IResourceDescriptions descriptions = getResourceDescriptions(resource, uniqueImportUris);
 		ArrayList<URI> newArrayList = Lists.newArrayList(uniqueImportUris);
 		Collections.reverse(newArrayList);
 		IScope scope = IScope.NULLSCOPE;
 		for (URI uri : newArrayList) {
-			scope = createLazyResourceScope(scope, uri, descriptions, reference);
+			scope = createLazyResourceScope(scope, uri, descriptions, type, filter, ignoreCase);
 		}
 		return scope;
 	}
 
-	protected LinkedHashSet<URI> getImportedUris(final EObject context) {
-		return getCache().get(ImportUriGlobalScopeProvider.class.getName(), context.eResource(), new Provider<LinkedHashSet<URI>>() {
+	protected LinkedHashSet<URI> getImportedUris(final Resource resource) {
+		return getCache().get(ImportUriGlobalScopeProvider.class.getName(), resource, new Provider<LinkedHashSet<URI>>() {
 
 			@Override
 			public LinkedHashSet<URI> get() {
-				Set<Resource> resources = getAllImportedResources(context.eResource());
+				Set<Resource> resources = getAllImportedResources(resource);
 
 				Include include = LilypondFactory.eINSTANCE.createInclude();
 				include.setImportURI("init.ly"); //$NON-NLS-1$
@@ -125,19 +127,16 @@ public class LilyPondImportUriGlobalScopeProvider extends AbstractGlobalScopePro
 		return result;
 	}
 
-	public IResourceDescriptions getResourceDescriptions(EObject context, Collection<URI> importUris) {
-		IResourceDescriptions result = getResourceDescriptions(context);
+	public IResourceDescriptions getResourceDescriptions(Resource resource, Collection<URI> importUris) {
+		IResourceDescriptions result = getResourceDescriptions(resource);
 		LoadOnDemandResourceDescriptions demandResourceDescriptions = getLoadOnDemandDescriptions().get();
-		demandResourceDescriptions.initialize(result, importUris, context.eResource());
+		demandResourceDescriptions.initialize(result, importUris, resource);
 		return demandResourceDescriptions;
 	}
 
-	protected IScope createLazyResourceScope(IScope parent, final URI uri, final IResourceDescriptions descriptions, final EReference reference) {
+	protected IScope createLazyResourceScope(IScope parent, final URI uri, final IResourceDescriptions descriptions, EClass type, final Predicate<IEObjectDescription> filter, boolean ignoreCase) {
 		IResourceDescription description = descriptions.getResourceDescription(uri);
-		if (description == null) {
-			return parent;
-		}
-		return new ResourceDescriptionBasedScope(parent, description, reference.getEReferenceType());
+		return SelectableBasedScope.createScope(parent, description, filter, type, ignoreCase);
 	}
 
 }

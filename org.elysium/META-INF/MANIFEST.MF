@@ -4,15 +4,14 @@ Bundle-Name: LilyPond DSL
 Bundle-Version: 0.2.0.qualifier
 Bundle-SymbolicName: org.elysium; singleton:=true
 Bundle-ActivationPolicy: lazy
-Require-Bundle: org.eclipse.xtext,
+Require-Bundle: org.eclipse.xtext;bundle-version="2.0.0",
  org.eclipse.xtext.generator;resolution:=optional,
- de.itemis.xtext.antlr;resolution:=optional,
  org.apache.commons.logging;resolution:=optional,
  org.eclipse.emf.codegen.ecore;resolution:=optional,
  org.eclipse.emf.mwe.utils;resolution:=optional,
  org.eclipse.emf.mwe2.launch;resolution:=optional,
  com.ibm.icu;resolution:=optional,
- org.eclipse.xtext.xtend;resolution:=optional,
+ org.eclipse.xtext.xtend2;resolution:=optional,
  org.eclipse.xtext.util,
  org.eclipse.emf.ecore,
  org.eclipse.emf.common,
@@ -31,7 +30,6 @@ Export-Package: org.elysium,
  org.elysium.parseTreeConstruction,
  org.elysium.parser.antlr,
  org.elysium.parser.antlr.internal,
- org.elysium.parser.antlr.lexer,
  org.elysium.services,
  org.elysium.validation
 Bundle-Activator: org.elysium.Activator

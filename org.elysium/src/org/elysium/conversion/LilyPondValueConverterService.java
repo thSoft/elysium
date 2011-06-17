@@ -4,7 +4,7 @@ import org.eclipse.xtext.common.services.DefaultTerminalConverters;
 import org.eclipse.xtext.conversion.IValueConverter;
 import org.eclipse.xtext.conversion.ValueConverter;
 import org.eclipse.xtext.conversion.impl.AbstractNullSafeConverter;
-import org.eclipse.xtext.parsetree.AbstractNode;
+import org.eclipse.xtext.nodemodel.INode;
 
 /**
  * Value converters for LilyPond literals.
@@ -14,7 +14,7 @@ public class LilyPondValueConverterService extends DefaultTerminalConverters {
 	private static final IValueConverter<Integer> INT_VALUE_CONVERTER = new org.eclipse.xtext.conversion.impl.INTValueConverter() {
 
 		@Override
-		public Integer toValue(String string, AbstractNode node) {
+		public Integer toValue(String string, INode node) {
 			try {
 				return Integer.valueOf(string);
 			} catch (NumberFormatException e) {
@@ -36,7 +36,7 @@ public class LilyPondValueConverterService extends DefaultTerminalConverters {
 		public static final String TRUE = "#t"; //$NON-NLS-1$
 
 		@Override
-		protected Boolean internalToValue(String string, AbstractNode node) {
+		protected Boolean internalToValue(String string, INode node) {
 			return string.equals(TRUE);
 		}
 

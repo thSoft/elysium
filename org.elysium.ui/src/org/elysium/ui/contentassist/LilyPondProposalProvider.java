@@ -8,8 +8,8 @@ import org.eclipse.core.runtime.IPath;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.util.ResourceUtils;
 import org.eclipse.xtext.Assignment;
-import org.eclipse.xtext.parsetree.AbstractNode;
-import org.eclipse.xtext.parsetree.LeafNode;
+import org.eclipse.xtext.nodemodel.ILeafNode;
+import org.eclipse.xtext.nodemodel.INode;
 import org.eclipse.xtext.ui.editor.contentassist.ContentAssistContext;
 import org.eclipse.xtext.ui.editor.contentassist.ICompletionProposalAcceptor;
 import org.elysium.LilyPondConstants;
@@ -25,10 +25,10 @@ public class LilyPondProposalProvider extends AbstractLilyPondProposalProvider {
 
 	private void propose(String proposal, ContentAssistContext context, ICompletionProposalAcceptor acceptor) {
 		if (proposal.endsWith(QUOTE)) {
-			AbstractNode currentNode = context.getCurrentNode();
-			if (currentNode instanceof LeafNode) {
-				LeafNode leafNode = (LeafNode)currentNode;
-				if (leafNode.getText().endsWith(QUOTE) && proposal.length() > 1) {
+			INode currentNode = context.getCurrentNode();
+			if (currentNode instanceof ILeafNode) {
+				ILeafNode leafNode = (ILeafNode)currentNode;
+				if (leafNode.getText().endsWith(QUOTE) && (proposal.length() > 1)) {
 					proposal = proposal.substring(0, proposal.length() - 1);
 				}
 			}
