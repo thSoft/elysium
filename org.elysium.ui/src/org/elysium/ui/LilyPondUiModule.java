@@ -26,6 +26,8 @@ import com.google.inject.name.Names;
  */
 public class LilyPondUiModule extends AbstractLilyPondUiModule {
 
+	public static final String ICON_PATH = "icons/nodes/"; //$NON-NLS-1$
+
 	public LilyPondUiModule(AbstractUIPlugin plugin) {
 		super(plugin);
 	}
@@ -34,7 +36,7 @@ public class LilyPondUiModule extends AbstractLilyPondUiModule {
 	public void configure(Binder binder) {
 		super.configure(binder);
 		// Icon path
-		binder.bind(String.class).annotatedWith(Names.named("org.eclipse.xtext.ui.PluginImageHelper.pathSuffix")).toInstance("icons/nodes/"); //$NON-NLS-1$ //$NON-NLS-2$
+		binder.bind(String.class).annotatedWith(Names.named("org.eclipse.xtext.ui.PluginImageHelper.pathSuffix")).toInstance(ICON_PATH); //$NON-NLS-1$
 		// Hyperlinks
 		binder.bind(IHyperlinkHelper.class).to(LilyPondHyperlinkHelper.class);
 		// Syntax coloring

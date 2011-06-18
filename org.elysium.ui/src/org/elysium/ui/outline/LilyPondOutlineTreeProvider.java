@@ -1,8 +1,10 @@
 package org.elysium.ui.outline;
 
 import org.eclipse.emf.ecore.EObject;
+import org.eclipse.swt.graphics.Image;
 import org.eclipse.xtext.ui.editor.outline.IOutlineNode;
 import org.eclipse.xtext.ui.editor.outline.impl.DefaultOutlineTreeProvider;
+import org.eclipse.xtext.ui.editor.outline.impl.DocumentRootNode;
 import org.elysium.lilypond.BlockCommand;
 import org.elysium.lilypond.LilyPond;
 import org.elysium.lilypond.MarkupBody;
@@ -14,15 +16,21 @@ import org.elysium.lilypond.Scheme;
 import org.elysium.lilypond.SchemeExpression;
 import org.elysium.lilypond.SchemeList;
 import org.elysium.lilypond.Text;
+import org.elysium.lilypond.ToplevelExpression;
 import org.elysium.lilypond.UnparsedBlock;
 import org.elysium.lilypond.UnparsedCommand;
+import org.elysium.ui.Activator;
+import org.elysium.ui.LilyPondUiModule;
 
 /**
  * Transforms the structure of LilyPond outline nodes.
  */
 public class LilyPondOutlineTreeProvider extends DefaultOutlineTreeProvider {
 
-	protected void _createNode(IOutlineNode parentNode, LilyPond lilyPond) {
+	protected void _createNode(DocumentRootNode parentNode, LilyPond lilyPond) {
+		for (ToplevelExpression expression : lilyPond.getExpressions()) {
+			createNode(parentNode, expression);
+		}
 	}
 
 	protected void _createNode(IOutlineNode parentNode, Scheme scheme) {
@@ -43,7 +51,7 @@ public class LilyPondOutlineTreeProvider extends DefaultOutlineTreeProvider {
 
 	protected void _createNode(IOutlineNode parentNode, Reference reference) {
 		if (reference.getAssignment().getName() != null) {
-			createNode(parentNode, reference);
+			createEObjectNode(parentNode, reference);
 		}
 	}
 
@@ -72,6 +80,16 @@ public class LilyPondOutlineTreeProvider extends DefaultOutlineTreeProvider {
 	}
 
 	protected void _createChildren(IOutlineNode parentNode, Pitch pitch) {
+	}
+
+	@Override
+	protected Image _image(Object modelElement) {
+		Image image = super._image(modelElement);
+		if (image == null) {
+			return Activator.getImageDescriptor(LilyPondUiModule.ICON_PATH + "Node.png").createImage();
+		} else {
+			return image;
+		}
 	}
 
 }
