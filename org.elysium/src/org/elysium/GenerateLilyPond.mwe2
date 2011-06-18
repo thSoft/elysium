@@ -75,6 +75,8 @@ Workflow {
 			fragment = builder.BuilderIntegrationFragment {}
 
 			fragment = quickfix.QuickfixProviderFragment {}
+			
+			fragment = refactoring.RefactorElementNameFragment {}
 		}
 	}
 
