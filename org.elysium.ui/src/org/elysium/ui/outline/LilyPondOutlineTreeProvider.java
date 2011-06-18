@@ -36,11 +36,11 @@ public class LilyPondOutlineTreeProvider extends DefaultOutlineTreeProvider {
 	protected void _createNode(IOutlineNode parentNode, Scheme scheme) {
 		SchemeExpression value = scheme.getValue();
 		if ((value != null) && (value.getValue() instanceof SchemeList)) {
-			createNode(parentNode, scheme);
+			createEObjectNode(parentNode, scheme);
 		}
 	}
 
-	protected void _createChildren(Scheme scheme) {
+	protected void _createChildren(IOutlineNode parentNode, Scheme scheme) {
 	}
 
 	protected void _createNode(IOutlineNode parentNode, Text text) {

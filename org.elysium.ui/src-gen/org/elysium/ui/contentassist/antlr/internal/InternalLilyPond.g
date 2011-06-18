@@ -1153,7 +1153,7 @@ finally {
 // Entry rule entryRuleScheme
 entryRuleScheme 
 @init {
-	HiddenTokens myHiddenTokenState = ((XtextTokenStream)input).setHiddenTokens("RULE_WS", "RULE_SCHEME_ML_COMMENT");
+	HiddenTokens myHiddenTokenState = ((XtextTokenStream)input).setHiddenTokens("RULE_WS", "RULE_SCHEME_SL_COMMENT", "RULE_SCHEME_ML_COMMENT");
 }
 :
 { before(grammarAccess.getSchemeRule()); }
@@ -1168,7 +1168,7 @@ finally {
 // Rule Scheme
 ruleScheme
     @init {
-		HiddenTokens myHiddenTokenState = ((XtextTokenStream)input).setHiddenTokens("RULE_WS", "RULE_SCHEME_ML_COMMENT");
+		HiddenTokens myHiddenTokenState = ((XtextTokenStream)input).setHiddenTokens("RULE_WS", "RULE_SCHEME_SL_COMMENT", "RULE_SCHEME_ML_COMMENT");
 		int stackSize = keepStackSize();
     }
 	:
@@ -8144,6 +8144,8 @@ RULE_WS : (' '|'\t'|'\r'|'\n')+;
 RULE_SL_COMMENT : '%' ~(('\n'|'\r'))* ('\r'? '\n')?;
 
 RULE_ML_COMMENT : '%{' ( options {greedy=false;} : . )*'%}';
+
+RULE_SCHEME_SL_COMMENT : ';;' ~(('\n'|'\r'))* ('\r'? '\n')?;
 
 RULE_SCHEME_ML_COMMENT : '#!' ( options {greedy=false;} : . )*'!#';
 

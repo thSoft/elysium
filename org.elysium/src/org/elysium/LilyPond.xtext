@@ -85,7 +85,7 @@ SpecialCommandName: "include" | "version" | "sourcefilename" | "sourcefileline" 
 
 // Scheme
 
-Scheme hidden(WS, SCHEME_ML_COMMENT): ("#" | "$") value=SchemeExpression;
+Scheme hidden(WS, SCHEME_SL_COMMENT, SCHEME_ML_COMMENT): ("#" | "$") value=SchemeExpression;
 
 SchemeExpression: reference?="$"? quotations+=("'" | "`" | "," | "@")* value=SchemeValue;
 
@@ -131,7 +131,7 @@ terminal SL_COMMENT: "%" !("\n" | "\r")* ("\r"? "\n")?;
 
 terminal ML_COMMENT: "%{" -> "%}";
 
-// TODO SCHEME_SL_COMMENT - must be context-dependent
+terminal SCHEME_SL_COMMENT: ";;" !("\n" | "\r")* ("\r"? "\n")?;
 
 terminal SCHEME_ML_COMMENT: "#!" -> "!#";
 

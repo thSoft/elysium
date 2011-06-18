@@ -182,4 +182,8 @@ public class Grammar extends LilyPondTest {
 		assertValid("i = \\lyricmode { a; }");
 	}
 
+	public void testClef() throws Exception {
+		assertValid("{ \\clef treble }");
+	}
+
 }

@@ -14,6 +14,7 @@ import java.util.ArrayList;
 public class InternalLilyPondLexer extends Lexer {
     public static final int RULE_ID=4;
     public static final int T__29=29;
+    public static final int RULE_SCHEME_SL_COMMENT=11;
     public static final int T__28=28;
     public static final int T__27=27;
     public static final int T__26=26;
@@ -35,10 +36,9 @@ public class InternalLilyPondLexer extends Lexer {
     public static final int T__15=15;
     public static final int T__18=18;
     public static final int T__17=17;
-    public static final int T__12=12;
     public static final int T__14=14;
     public static final int T__13=13;
-    public static final int RULE_SCHEME_ML_COMMENT=11;
+    public static final int RULE_SCHEME_ML_COMMENT=12;
     public static final int T__99=99;
     public static final int T__98=98;
     public static final int T__97=97;
@@ -97,6 +97,7 @@ public class InternalLilyPondLexer extends Lexer {
     public static final int T__45=45;
     public static final int T__48=48;
     public static final int T__49=49;
+    public static final int T__102=102;
     public static final int T__101=101;
     public static final int T__100=100;
     public static final int RULE_SL_COMMENT=9;
@@ -125,35 +126,15 @@ public class InternalLilyPondLexer extends Lexer {
     }
     public String getGrammarFileName() { return "../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g"; }
 
-    // $ANTLR start "T__12"
-    public final void mT__12() throws RecognitionException {
-        try {
-            int _type = T__12;
-            int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:11:7: ( '!' )
-            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:11:9: '!'
-            {
-            match('!'); 
-
-            }
-
-            state.type = _type;
-            state.channel = _channel;
-        }
-        finally {
-        }
-    }
-    // $ANTLR end "T__12"
-
     // $ANTLR start "T__13"
     public final void mT__13() throws RecognitionException {
         try {
             int _type = T__13;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:12:7: ( '?' )
-            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:12:9: '?'
+            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:11:7: ( '!' )
+            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:11:9: '!'
             {
-            match('?'); 
+            match('!'); 
 
             }
 
@@ -170,10 +151,10 @@ public class InternalLilyPondLexer extends Lexer {
         try {
             int _type = T__14;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:13:7: ( '+' )
-            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:13:9: '+'
+            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:12:7: ( '?' )
+            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:12:9: '?'
             {
-            match('+'); 
+            match('?'); 
 
             }
 
@@ -190,10 +171,10 @@ public class InternalLilyPondLexer extends Lexer {
         try {
             int _type = T__15;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:14:7: ( '<' )
-            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:14:9: '<'
+            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:13:7: ( '+' )
+            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:13:9: '+'
             {
-            match('<'); 
+            match('+'); 
 
             }
 
@@ -210,10 +191,10 @@ public class InternalLilyPondLexer extends Lexer {
         try {
             int _type = T__16;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:15:7: ( '>' )
-            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:15:9: '>'
+            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:14:7: ( '<' )
+            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:14:9: '<'
             {
-            match('>'); 
+            match('<'); 
 
             }
 
@@ -230,10 +211,10 @@ public class InternalLilyPondLexer extends Lexer {
         try {
             int _type = T__17;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:16:7: ( '[' )
-            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:16:9: '['
+            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:15:7: ( '>' )
+            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:15:9: '>'
             {
-            match('['); 
+            match('>'); 
 
             }
 
@@ -250,10 +231,10 @@ public class InternalLilyPondLexer extends Lexer {
         try {
             int _type = T__18;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:17:7: ( ']' )
-            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:17:9: ']'
+            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:16:7: ( '[' )
+            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:16:9: '['
             {
-            match(']'); 
+            match('['); 
 
             }
 
@@ -270,10 +251,10 @@ public class InternalLilyPondLexer extends Lexer {
         try {
             int _type = T__19;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:18:7: ( '~' )
-            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:18:9: '~'
+            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:17:7: ( ']' )
+            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:17:9: ']'
             {
-            match('~'); 
+            match(']'); 
 
             }
 
@@ -290,10 +271,10 @@ public class InternalLilyPondLexer extends Lexer {
         try {
             int _type = T__20;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:19:7: ( '(' )
-            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:19:9: '('
+            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:18:7: ( '~' )
+            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:18:9: '~'
             {
-            match('('); 
+            match('~'); 
 
             }
 
@@ -310,10 +291,10 @@ public class InternalLilyPondLexer extends Lexer {
         try {
             int _type = T__21;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:20:7: ( ')' )
-            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:20:9: ')'
+            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:19:7: ( '(' )
+            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:19:9: '('
             {
-            match(')'); 
+            match('('); 
 
             }
 
@@ -330,10 +311,10 @@ public class InternalLilyPondLexer extends Lexer {
         try {
             int _type = T__22;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:21:7: ( '\\'' )
-            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:21:9: '\\''
+            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:20:7: ( ')' )
+            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:20:9: ')'
             {
-            match('\''); 
+            match(')'); 
 
             }
 
@@ -350,10 +331,10 @@ public class InternalLilyPondLexer extends Lexer {
         try {
             int _type = T__23;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:22:7: ( ',' )
-            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:22:9: ','
+            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:21:7: ( '\\'' )
+            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:21:9: '\\''
             {
-            match(','); 
+            match('\''); 
 
             }
 
@@ -370,10 +351,10 @@ public class InternalLilyPondLexer extends Lexer {
         try {
             int _type = T__24;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:23:7: ( ':' )
-            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:23:9: ':'
+            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:22:7: ( ',' )
+            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:22:9: ','
             {
-            match(':'); 
+            match(','); 
 
             }
 
@@ -390,11 +371,10 @@ public class InternalLilyPondLexer extends Lexer {
         try {
             int _type = T__25;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:24:7: ( 'book' )
-            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:24:9: 'book'
+            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:23:7: ( ':' )
+            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:23:9: ':'
             {
-            match("book"); 
-
+            match(':'); 
 
             }
 
@@ -411,10 +391,10 @@ public class InternalLilyPondLexer extends Lexer {
         try {
             int _type = T__26;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:25:7: ( 'bookpart' )
-            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:25:9: 'bookpart'
+            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:24:7: ( 'book' )
+            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:24:9: 'book'
             {
-            match("bookpart"); 
+            match("book"); 
 
 
             }
@@ -432,10 +412,10 @@ public class InternalLilyPondLexer extends Lexer {
         try {
             int _type = T__27;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:26:7: ( 'header' )
-            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:26:9: 'header'
+            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:25:7: ( 'bookpart' )
+            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:25:9: 'bookpart'
             {
-            match("header"); 
+            match("bookpart"); 
 
 
             }
@@ -453,10 +433,10 @@ public class InternalLilyPondLexer extends Lexer {
         try {
             int _type = T__28;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:27:7: ( 'score' )
-            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:27:9: 'score'
+            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:26:7: ( 'header' )
+            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:26:9: 'header'
             {
-            match("score"); 
+            match("header"); 
 
 
             }
@@ -474,10 +454,10 @@ public class InternalLilyPondLexer extends Lexer {
         try {
             int _type = T__29;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:28:7: ( 'paper' )
-            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:28:9: 'paper'
+            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:27:7: ( 'score' )
+            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:27:9: 'score'
             {
-            match("paper"); 
+            match("score"); 
 
 
             }
@@ -495,10 +475,10 @@ public class InternalLilyPondLexer extends Lexer {
         try {
             int _type = T__30;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:29:7: ( 'midi' )
-            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:29:9: 'midi'
+            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:28:7: ( 'paper' )
+            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:28:9: 'paper'
             {
-            match("midi"); 
+            match("paper"); 
 
 
             }
@@ -516,10 +496,10 @@ public class InternalLilyPondLexer extends Lexer {
         try {
             int _type = T__31;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:30:7: ( 'layout' )
-            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:30:9: 'layout'
+            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:29:7: ( 'midi' )
+            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:29:9: 'midi'
             {
-            match("layout"); 
+            match("midi"); 
 
 
             }
@@ -537,10 +517,10 @@ public class InternalLilyPondLexer extends Lexer {
         try {
             int _type = T__32;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:31:7: ( 'chordmode' )
-            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:31:9: 'chordmode'
+            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:30:7: ( 'layout' )
+            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:30:9: 'layout'
             {
-            match("chordmode"); 
+            match("layout"); 
 
 
             }
@@ -558,10 +538,10 @@ public class InternalLilyPondLexer extends Lexer {
         try {
             int _type = T__33;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:32:7: ( 'drummode' )
-            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:32:9: 'drummode'
+            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:31:7: ( 'chordmode' )
+            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:31:9: 'chordmode'
             {
-            match("drummode"); 
+            match("chordmode"); 
 
 
             }
@@ -579,10 +559,10 @@ public class InternalLilyPondLexer extends Lexer {
         try {
             int _type = T__34;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:33:7: ( 'figuremode' )
-            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:33:9: 'figuremode'
+            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:32:7: ( 'drummode' )
+            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:32:9: 'drummode'
             {
-            match("figuremode"); 
+            match("drummode"); 
 
 
             }
@@ -600,10 +580,10 @@ public class InternalLilyPondLexer extends Lexer {
         try {
             int _type = T__35;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:34:7: ( 'lyricmode' )
-            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:34:9: 'lyricmode'
+            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:33:7: ( 'figuremode' )
+            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:33:9: 'figuremode'
             {
-            match("lyricmode"); 
+            match("figuremode"); 
 
 
             }
@@ -621,10 +601,10 @@ public class InternalLilyPondLexer extends Lexer {
         try {
             int _type = T__36;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:35:7: ( 'notemode' )
-            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:35:9: 'notemode'
+            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:34:7: ( 'lyricmode' )
+            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:34:9: 'lyricmode'
             {
-            match("notemode"); 
+            match("lyricmode"); 
 
 
             }
@@ -642,10 +622,10 @@ public class InternalLilyPondLexer extends Lexer {
         try {
             int _type = T__37;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:36:7: ( 'new' )
-            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:36:9: 'new'
+            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:35:7: ( 'notemode' )
+            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:35:9: 'notemode'
             {
-            match("new"); 
+            match("notemode"); 
 
 
             }
@@ -663,10 +643,10 @@ public class InternalLilyPondLexer extends Lexer {
         try {
             int _type = T__38;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:37:7: ( 'context' )
-            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:37:9: 'context'
+            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:36:7: ( 'new' )
+            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:36:9: 'new'
             {
-            match("context"); 
+            match("new"); 
 
 
             }
@@ -684,10 +664,10 @@ public class InternalLilyPondLexer extends Lexer {
         try {
             int _type = T__39;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:38:7: ( 'accepts' )
-            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:38:9: 'accepts'
+            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:37:7: ( 'context' )
+            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:37:9: 'context'
             {
-            match("accepts"); 
+            match("context"); 
 
 
             }
@@ -705,10 +685,10 @@ public class InternalLilyPondLexer extends Lexer {
         try {
             int _type = T__40;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:39:7: ( 'addlyrics' )
-            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:39:9: 'addlyrics'
+            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:38:7: ( 'accepts' )
+            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:38:9: 'accepts'
             {
-            match("addlyrics"); 
+            match("accepts"); 
 
 
             }
@@ -726,10 +706,10 @@ public class InternalLilyPondLexer extends Lexer {
         try {
             int _type = T__41;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:40:7: ( 'alias' )
-            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:40:9: 'alias'
+            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:39:7: ( 'addlyrics' )
+            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:39:9: 'addlyrics'
             {
-            match("alias"); 
+            match("addlyrics"); 
 
 
             }
@@ -747,10 +727,10 @@ public class InternalLilyPondLexer extends Lexer {
         try {
             int _type = T__42;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:41:7: ( 'alternative' )
-            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:41:9: 'alternative'
+            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:40:7: ( 'alias' )
+            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:40:9: 'alias'
             {
-            match("alternative"); 
+            match("alias"); 
 
 
             }
@@ -768,10 +748,10 @@ public class InternalLilyPondLexer extends Lexer {
         try {
             int _type = T__43;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:42:7: ( 'change' )
-            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:42:9: 'change'
+            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:41:7: ( 'alternative' )
+            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:41:9: 'alternative'
             {
-            match("change"); 
+            match("alternative"); 
 
 
             }
@@ -789,10 +769,10 @@ public class InternalLilyPondLexer extends Lexer {
         try {
             int _type = T__44;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:43:7: ( 'chords' )
-            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:43:9: 'chords'
+            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:42:7: ( 'change' )
+            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:42:9: 'change'
             {
-            match("chords"); 
+            match("change"); 
 
 
             }
@@ -810,10 +790,10 @@ public class InternalLilyPondLexer extends Lexer {
         try {
             int _type = T__45;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:44:7: ( 'consists' )
-            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:44:9: 'consists'
+            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:43:7: ( 'chords' )
+            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:43:9: 'chords'
             {
-            match("consists"); 
+            match("chords"); 
 
 
             }
@@ -831,10 +811,10 @@ public class InternalLilyPondLexer extends Lexer {
         try {
             int _type = T__46;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:45:7: ( 'default' )
-            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:45:9: 'default'
+            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:44:7: ( 'consists' )
+            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:44:9: 'consists'
             {
-            match("default"); 
+            match("consists"); 
 
 
             }
@@ -852,10 +832,10 @@ public class InternalLilyPondLexer extends Lexer {
         try {
             int _type = T__47;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:46:7: ( 'defaultchild' )
-            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:46:9: 'defaultchild'
+            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:45:7: ( 'default' )
+            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:45:9: 'default'
             {
-            match("defaultchild"); 
+            match("default"); 
 
 
             }
@@ -873,10 +853,10 @@ public class InternalLilyPondLexer extends Lexer {
         try {
             int _type = T__48;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:47:7: ( 'denies' )
-            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:47:9: 'denies'
+            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:46:7: ( 'defaultchild' )
+            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:46:9: 'defaultchild'
             {
-            match("denies"); 
+            match("defaultchild"); 
 
 
             }
@@ -894,10 +874,10 @@ public class InternalLilyPondLexer extends Lexer {
         try {
             int _type = T__49;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:48:7: ( 'description' )
-            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:48:9: 'description'
+            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:47:7: ( 'denies' )
+            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:47:9: 'denies'
             {
-            match("description"); 
+            match("denies"); 
 
 
             }
@@ -915,10 +895,10 @@ public class InternalLilyPondLexer extends Lexer {
         try {
             int _type = T__50;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:49:7: ( 'drums' )
-            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:49:9: 'drums'
+            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:48:7: ( 'description' )
+            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:48:9: 'description'
             {
-            match("drums"); 
+            match("description"); 
 
 
             }
@@ -936,10 +916,10 @@ public class InternalLilyPondLexer extends Lexer {
         try {
             int _type = T__51;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:50:7: ( 'figures' )
-            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:50:9: 'figures'
+            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:49:7: ( 'drums' )
+            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:49:9: 'drums'
             {
-            match("figures"); 
+            match("drums"); 
 
 
             }
@@ -957,10 +937,10 @@ public class InternalLilyPondLexer extends Lexer {
         try {
             int _type = T__52;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:51:7: ( 'grobdescriptions' )
-            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:51:9: 'grobdescriptions'
+            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:50:7: ( 'figures' )
+            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:50:9: 'figures'
             {
-            match("grobdescriptions"); 
+            match("figures"); 
 
 
             }
@@ -978,10 +958,10 @@ public class InternalLilyPondLexer extends Lexer {
         try {
             int _type = T__53;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:52:7: ( 'key' )
-            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:52:9: 'key'
+            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:51:7: ( 'grobdescriptions' )
+            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:51:9: 'grobdescriptions'
             {
-            match("key"); 
+            match("grobdescriptions"); 
 
 
             }
@@ -999,10 +979,10 @@ public class InternalLilyPondLexer extends Lexer {
         try {
             int _type = T__54;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:53:7: ( 'lyrics' )
-            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:53:9: 'lyrics'
+            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:52:7: ( 'key' )
+            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:52:9: 'key'
             {
-            match("lyrics"); 
+            match("key"); 
 
 
             }
@@ -1020,10 +1000,10 @@ public class InternalLilyPondLexer extends Lexer {
         try {
             int _type = T__55;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:54:7: ( 'maininput' )
-            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:54:9: 'maininput'
+            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:53:7: ( 'lyrics' )
+            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:53:9: 'lyrics'
             {
-            match("maininput"); 
+            match("lyrics"); 
 
 
             }
@@ -1041,10 +1021,10 @@ public class InternalLilyPondLexer extends Lexer {
         try {
             int _type = T__56;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:55:7: ( 'mark' )
-            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:55:9: 'mark'
+            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:54:7: ( 'maininput' )
+            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:54:9: 'maininput'
             {
-            match("mark"); 
+            match("maininput"); 
 
 
             }
@@ -1062,10 +1042,10 @@ public class InternalLilyPondLexer extends Lexer {
         try {
             int _type = T__57;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:56:7: ( 'name' )
-            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:56:9: 'name'
+            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:55:7: ( 'mark' )
+            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:55:9: 'mark'
             {
-            match("name"); 
+            match("mark"); 
 
 
             }
@@ -1083,10 +1063,10 @@ public class InternalLilyPondLexer extends Lexer {
         try {
             int _type = T__58;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:57:7: ( 'objectid' )
-            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:57:9: 'objectid'
+            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:56:7: ( 'name' )
+            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:56:9: 'name'
             {
-            match("objectid"); 
+            match("name"); 
 
 
             }
@@ -1104,10 +1084,10 @@ public class InternalLilyPondLexer extends Lexer {
         try {
             int _type = T__59;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:58:7: ( 'octave' )
-            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:58:9: 'octave'
+            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:57:7: ( 'objectid' )
+            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:57:9: 'objectid'
             {
-            match("octave"); 
+            match("objectid"); 
 
 
             }
@@ -1125,10 +1105,10 @@ public class InternalLilyPondLexer extends Lexer {
         try {
             int _type = T__60;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:59:7: ( 'once' )
-            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:59:9: 'once'
+            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:58:7: ( 'octave' )
+            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:58:9: 'octave'
             {
-            match("once"); 
+            match("octave"); 
 
 
             }
@@ -1146,10 +1126,10 @@ public class InternalLilyPondLexer extends Lexer {
         try {
             int _type = T__61;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:60:7: ( 'override' )
-            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:60:9: 'override'
+            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:59:7: ( 'once' )
+            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:59:9: 'once'
             {
-            match("override"); 
+            match("once"); 
 
 
             }
@@ -1167,10 +1147,10 @@ public class InternalLilyPondLexer extends Lexer {
         try {
             int _type = T__62;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:61:7: ( 'partial' )
-            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:61:9: 'partial'
+            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:60:7: ( 'override' )
+            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:60:9: 'override'
             {
-            match("partial"); 
+            match("override"); 
 
 
             }
@@ -1188,10 +1168,10 @@ public class InternalLilyPondLexer extends Lexer {
         try {
             int _type = T__63;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:62:7: ( 'remove' )
-            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:62:9: 'remove'
+            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:61:7: ( 'partial' )
+            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:61:9: 'partial'
             {
-            match("remove"); 
+            match("partial"); 
 
 
             }
@@ -1209,10 +1189,10 @@ public class InternalLilyPondLexer extends Lexer {
         try {
             int _type = T__64;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:63:7: ( 'repeat' )
-            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:63:9: 'repeat'
+            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:62:7: ( 'remove' )
+            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:62:9: 'remove'
             {
-            match("repeat"); 
+            match("remove"); 
 
 
             }
@@ -1230,10 +1210,10 @@ public class InternalLilyPondLexer extends Lexer {
         try {
             int _type = T__65;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:64:7: ( 'rest' )
-            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:64:9: 'rest'
+            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:63:7: ( 'repeat' )
+            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:63:9: 'repeat'
             {
-            match("rest"); 
+            match("repeat"); 
 
 
             }
@@ -1251,10 +1231,10 @@ public class InternalLilyPondLexer extends Lexer {
         try {
             int _type = T__66;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:65:7: ( 'revert' )
-            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:65:9: 'revert'
+            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:64:7: ( 'rest' )
+            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:64:9: 'rest'
             {
-            match("revert"); 
+            match("rest"); 
 
 
             }
@@ -1272,10 +1252,10 @@ public class InternalLilyPondLexer extends Lexer {
         try {
             int _type = T__67;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:66:7: ( 'sequential' )
-            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:66:9: 'sequential'
+            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:65:7: ( 'revert' )
+            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:65:9: 'revert'
             {
-            match("sequential"); 
+            match("revert"); 
 
 
             }
@@ -1293,10 +1273,10 @@ public class InternalLilyPondLexer extends Lexer {
         try {
             int _type = T__68;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:67:7: ( 'set' )
-            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:67:9: 'set'
+            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:66:7: ( 'sequential' )
+            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:66:9: 'sequential'
             {
-            match("set"); 
+            match("sequential"); 
 
 
             }
@@ -1314,10 +1294,10 @@ public class InternalLilyPondLexer extends Lexer {
         try {
             int _type = T__69;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:68:7: ( 'simultaneous' )
-            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:68:9: 'simultaneous'
+            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:67:7: ( 'set' )
+            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:67:9: 'set'
             {
-            match("simultaneous"); 
+            match("set"); 
 
 
             }
@@ -1335,10 +1315,10 @@ public class InternalLilyPondLexer extends Lexer {
         try {
             int _type = T__70;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:69:7: ( 'skip' )
-            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:69:9: 'skip'
+            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:68:7: ( 'simultaneous' )
+            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:68:9: 'simultaneous'
             {
-            match("skip"); 
+            match("simultaneous"); 
 
 
             }
@@ -1356,10 +1336,10 @@ public class InternalLilyPondLexer extends Lexer {
         try {
             int _type = T__71;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:70:7: ( 'tempo' )
-            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:70:9: 'tempo'
+            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:69:7: ( 'skip' )
+            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:69:9: 'skip'
             {
-            match("tempo"); 
+            match("skip"); 
 
 
             }
@@ -1377,10 +1357,10 @@ public class InternalLilyPondLexer extends Lexer {
         try {
             int _type = T__72;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:71:7: ( 'time' )
-            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:71:9: 'time'
+            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:70:7: ( 'tempo' )
+            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:70:9: 'tempo'
             {
-            match("time"); 
+            match("tempo"); 
 
 
             }
@@ -1398,10 +1378,10 @@ public class InternalLilyPondLexer extends Lexer {
         try {
             int _type = T__73;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:72:7: ( 'times' )
-            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:72:9: 'times'
+            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:71:7: ( 'time' )
+            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:71:9: 'time'
             {
-            match("times"); 
+            match("time"); 
 
 
             }
@@ -1419,10 +1399,10 @@ public class InternalLilyPondLexer extends Lexer {
         try {
             int _type = T__74;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:73:7: ( 'type' )
-            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:73:9: 'type'
+            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:72:7: ( 'times' )
+            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:72:9: 'times'
             {
-            match("type"); 
+            match("times"); 
 
 
             }
@@ -1440,10 +1420,10 @@ public class InternalLilyPondLexer extends Lexer {
         try {
             int _type = T__75;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:74:7: ( 'unset' )
-            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:74:9: 'unset'
+            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:73:7: ( 'type' )
+            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:73:9: 'type'
             {
-            match("unset"); 
+            match("type"); 
 
 
             }
@@ -1461,10 +1441,10 @@ public class InternalLilyPondLexer extends Lexer {
         try {
             int _type = T__76;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:75:7: ( 'with' )
-            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:75:9: 'with'
+            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:74:7: ( 'unset' )
+            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:74:9: 'unset'
             {
-            match("with"); 
+            match("unset"); 
 
 
             }
@@ -1482,10 +1462,10 @@ public class InternalLilyPondLexer extends Lexer {
         try {
             int _type = T__77;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:76:7: ( 'include' )
-            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:76:9: 'include'
+            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:75:7: ( 'with' )
+            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:75:9: 'with'
             {
-            match("include"); 
+            match("with"); 
 
 
             }
@@ -1503,10 +1483,10 @@ public class InternalLilyPondLexer extends Lexer {
         try {
             int _type = T__78;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:77:7: ( 'version' )
-            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:77:9: 'version'
+            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:76:7: ( 'include' )
+            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:76:9: 'include'
             {
-            match("version"); 
+            match("include"); 
 
 
             }
@@ -1524,10 +1504,10 @@ public class InternalLilyPondLexer extends Lexer {
         try {
             int _type = T__79;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:78:7: ( 'sourcefilename' )
-            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:78:9: 'sourcefilename'
+            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:77:7: ( 'version' )
+            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:77:9: 'version'
             {
-            match("sourcefilename"); 
+            match("version"); 
 
 
             }
@@ -1545,10 +1525,10 @@ public class InternalLilyPondLexer extends Lexer {
         try {
             int _type = T__80;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:79:7: ( 'sourcefileline' )
-            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:79:9: 'sourcefileline'
+            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:78:7: ( 'sourcefilename' )
+            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:78:9: 'sourcefilename'
             {
-            match("sourcefileline"); 
+            match("sourcefilename"); 
 
 
             }
@@ -1566,10 +1546,10 @@ public class InternalLilyPondLexer extends Lexer {
         try {
             int _type = T__81;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:80:7: ( 'markup' )
-            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:80:9: 'markup'
+            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:79:7: ( 'sourcefileline' )
+            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:79:9: 'sourcefileline'
             {
-            match("markup"); 
+            match("sourcefileline"); 
 
 
             }
@@ -1587,10 +1567,10 @@ public class InternalLilyPondLexer extends Lexer {
         try {
             int _type = T__82;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:81:7: ( 'markuplines' )
-            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:81:9: 'markuplines'
+            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:80:7: ( 'markup' )
+            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:80:9: 'markup'
             {
-            match("markuplines"); 
+            match("markup"); 
 
 
             }
@@ -1608,10 +1588,10 @@ public class InternalLilyPondLexer extends Lexer {
         try {
             int _type = T__83;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:82:7: ( 'relative' )
-            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:82:9: 'relative'
+            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:81:7: ( 'markuplines' )
+            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:81:9: 'markuplines'
             {
-            match("relative"); 
+            match("markuplines"); 
 
 
             }
@@ -1629,10 +1609,10 @@ public class InternalLilyPondLexer extends Lexer {
         try {
             int _type = T__84;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:83:7: ( 'transpose' )
-            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:83:9: 'transpose'
+            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:82:7: ( 'relative' )
+            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:82:9: 'relative'
             {
-            match("transpose"); 
+            match("relative"); 
 
 
             }
@@ -1650,10 +1630,10 @@ public class InternalLilyPondLexer extends Lexer {
         try {
             int _type = T__85;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:84:7: ( 'lyricsto' )
-            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:84:9: 'lyricsto'
+            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:83:7: ( 'transpose' )
+            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:83:9: 'transpose'
             {
-            match("lyricsto"); 
+            match("transpose"); 
 
 
             }
@@ -1671,10 +1651,11 @@ public class InternalLilyPondLexer extends Lexer {
         try {
             int _type = T__86;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:85:7: ( '#' )
-            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:85:9: '#'
+            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:84:7: ( 'lyricsto' )
+            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:84:9: 'lyricsto'
             {
-            match('#'); 
+            match("lyricsto"); 
+
 
             }
 
@@ -1691,10 +1672,10 @@ public class InternalLilyPondLexer extends Lexer {
         try {
             int _type = T__87;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:86:7: ( '$' )
-            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:86:9: '$'
+            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:85:7: ( '#' )
+            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:85:9: '#'
             {
-            match('$'); 
+            match('#'); 
 
             }
 
@@ -1711,10 +1692,10 @@ public class InternalLilyPondLexer extends Lexer {
         try {
             int _type = T__88;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:87:7: ( '`' )
-            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:87:9: '`'
+            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:86:7: ( '$' )
+            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:86:9: '$'
             {
-            match('`'); 
+            match('$'); 
 
             }
 
@@ -1731,10 +1712,10 @@ public class InternalLilyPondLexer extends Lexer {
         try {
             int _type = T__89;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:88:7: ( '@' )
-            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:88:9: '@'
+            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:87:7: ( '`' )
+            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:87:9: '`'
             {
-            match('@'); 
+            match('`'); 
 
             }
 
@@ -1751,11 +1732,10 @@ public class InternalLilyPondLexer extends Lexer {
         try {
             int _type = T__90;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:89:7: ( '\\\\\\\\' )
-            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:89:9: '\\\\\\\\'
+            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:88:7: ( '@' )
+            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:88:9: '@'
             {
-            match("\\\\"); 
-
+            match('@'); 
 
             }
 
@@ -1772,10 +1752,11 @@ public class InternalLilyPondLexer extends Lexer {
         try {
             int _type = T__91;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:90:7: ( '=' )
-            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:90:9: '='
+            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:89:7: ( '\\\\\\\\' )
+            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:89:9: '\\\\\\\\'
             {
-            match('='); 
+            match("\\\\"); 
+
 
             }
 
@@ -1792,10 +1773,10 @@ public class InternalLilyPondLexer extends Lexer {
         try {
             int _type = T__92;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:91:7: ( '-' )
-            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:91:9: '-'
+            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:90:7: ( '=' )
+            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:90:9: '='
             {
-            match('-'); 
+            match('='); 
 
             }
 
@@ -1812,10 +1793,10 @@ public class InternalLilyPondLexer extends Lexer {
         try {
             int _type = T__93;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:92:7: ( '{' )
-            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:92:9: '{'
+            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:91:7: ( '-' )
+            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:91:9: '-'
             {
-            match('{'); 
+            match('-'); 
 
             }
 
@@ -1832,10 +1813,10 @@ public class InternalLilyPondLexer extends Lexer {
         try {
             int _type = T__94;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:93:7: ( '}' )
-            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:93:9: '}'
+            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:92:7: ( '{' )
+            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:92:9: '{'
             {
-            match('}'); 
+            match('{'); 
 
             }
 
@@ -1852,11 +1833,10 @@ public class InternalLilyPondLexer extends Lexer {
         try {
             int _type = T__95;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:94:7: ( '<<' )
-            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:94:9: '<<'
+            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:93:7: ( '}' )
+            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:93:9: '}'
             {
-            match("<<"); 
-
+            match('}'); 
 
             }
 
@@ -1873,10 +1853,10 @@ public class InternalLilyPondLexer extends Lexer {
         try {
             int _type = T__96;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:95:7: ( '>>' )
-            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:95:9: '>>'
+            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:94:7: ( '<<' )
+            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:94:9: '<<'
             {
-            match(">>"); 
+            match("<<"); 
 
 
             }
@@ -1894,10 +1874,11 @@ public class InternalLilyPondLexer extends Lexer {
         try {
             int _type = T__97;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:96:7: ( '\\\\' )
-            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:96:9: '\\\\'
+            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:95:7: ( '>>' )
+            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:95:9: '>>'
             {
-            match('\\'); 
+            match(">>"); 
+
 
             }
 
@@ -1914,11 +1895,10 @@ public class InternalLilyPondLexer extends Lexer {
         try {
             int _type = T__98;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:97:7: ( '#{' )
-            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:97:9: '#{'
+            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:96:7: ( '\\\\' )
+            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:96:9: '\\\\'
             {
-            match("#{"); 
-
+            match('\\'); 
 
             }
 
@@ -1935,10 +1915,10 @@ public class InternalLilyPondLexer extends Lexer {
         try {
             int _type = T__99;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:98:7: ( '#}' )
-            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:98:9: '#}'
+            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:97:7: ( '#{' )
+            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:97:9: '#{'
             {
-            match("#}"); 
+            match("#{"); 
 
 
             }
@@ -1956,10 +1936,10 @@ public class InternalLilyPondLexer extends Lexer {
         try {
             int _type = T__100;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:99:8: ( '#\\\\' )
-            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:99:10: '#\\\\'
+            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:98:8: ( '#}' )
+            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:98:10: '#}'
             {
-            match("#\\"); 
+            match("#}"); 
 
 
             }
@@ -1977,6 +1957,27 @@ public class InternalLilyPondLexer extends Lexer {
         try {
             int _type = T__101;
             int _channel = DEFAULT_TOKEN_CHANNEL;
+            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:99:8: ( '#\\\\' )
+            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:99:10: '#\\\\'
+            {
+            match("#\\"); 
+
+
+            }
+
+            state.type = _type;
+            state.channel = _channel;
+        }
+        finally {
+        }
+    }
+    // $ANTLR end "T__101"
+
+    // $ANTLR start "T__102"
+    public final void mT__102() throws RecognitionException {
+        try {
+            int _type = T__102;
+            int _channel = DEFAULT_TOKEN_CHANNEL;
             // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:100:8: ( '#:' )
             // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:100:10: '#:'
             {
@@ -1991,7 +1992,7 @@ public class InternalLilyPondLexer extends Lexer {
         finally {
         }
     }
-    // $ANTLR end "T__101"
+    // $ANTLR end "T__102"
 
     // $ANTLR start "RULE_STRING"
     public final void mRULE_STRING() throws RecognitionException {
@@ -2378,42 +2379,132 @@ public class InternalLilyPondLexer extends Lexer {
     }
     // $ANTLR end "RULE_ML_COMMENT"
 
-    // $ANTLR start "RULE_SCHEME_ML_COMMENT"
-    public final void mRULE_SCHEME_ML_COMMENT() throws RecognitionException {
+    // $ANTLR start "RULE_SCHEME_SL_COMMENT"
+    public final void mRULE_SCHEME_SL_COMMENT() throws RecognitionException {
         try {
-            int _type = RULE_SCHEME_ML_COMMENT;
+            int _type = RULE_SCHEME_SL_COMMENT;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:8148:24: ( '#!' ( options {greedy=false; } : . )* '!#' )
-            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:8148:26: '#!' ( options {greedy=false; } : . )* '!#'
+            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:8148:24: ( ';;' (~ ( ( '\\n' | '\\r' ) ) )* ( ( '\\r' )? '\\n' )? )
+            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:8148:26: ';;' (~ ( ( '\\n' | '\\r' ) ) )* ( ( '\\r' )? '\\n' )?
             {
-            match("#!"); 
+            match(";;"); 
 
-            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:8148:31: ( options {greedy=false; } : . )*
+            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:8148:31: (~ ( ( '\\n' | '\\r' ) ) )*
             loop9:
             do {
                 int alt9=2;
                 int LA9_0 = input.LA(1);
 
-                if ( (LA9_0=='!') ) {
-                    int LA9_1 = input.LA(2);
-
-                    if ( (LA9_1=='#') ) {
-                        alt9=2;
-                    }
-                    else if ( ((LA9_1>='\u0000' && LA9_1<='\"')||(LA9_1>='$' && LA9_1<='\uFFFF')) ) {
-                        alt9=1;
-                    }
-
-
-                }
-                else if ( ((LA9_0>='\u0000' && LA9_0<=' ')||(LA9_0>='\"' && LA9_0<='\uFFFF')) ) {
+                if ( ((LA9_0>='\u0000' && LA9_0<='\t')||(LA9_0>='\u000B' && LA9_0<='\f')||(LA9_0>='\u000E' && LA9_0<='\uFFFF')) ) {
                     alt9=1;
                 }
 
 
                 switch (alt9) {
             	case 1 :
-            	    // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:8148:59: .
+            	    // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:8148:31: ~ ( ( '\\n' | '\\r' ) )
+            	    {
+            	    if ( (input.LA(1)>='\u0000' && input.LA(1)<='\t')||(input.LA(1)>='\u000B' && input.LA(1)<='\f')||(input.LA(1)>='\u000E' && input.LA(1)<='\uFFFF') ) {
+            	        input.consume();
+
+            	    }
+            	    else {
+            	        MismatchedSetException mse = new MismatchedSetException(null,input);
+            	        recover(mse);
+            	        throw mse;}
+
+
+            	    }
+            	    break;
+
+            	default :
+            	    break loop9;
+                }
+            } while (true);
+
+            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:8148:47: ( ( '\\r' )? '\\n' )?
+            int alt11=2;
+            int LA11_0 = input.LA(1);
+
+            if ( (LA11_0=='\n'||LA11_0=='\r') ) {
+                alt11=1;
+            }
+            switch (alt11) {
+                case 1 :
+                    // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:8148:48: ( '\\r' )? '\\n'
+                    {
+                    // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:8148:48: ( '\\r' )?
+                    int alt10=2;
+                    int LA10_0 = input.LA(1);
+
+                    if ( (LA10_0=='\r') ) {
+                        alt10=1;
+                    }
+                    switch (alt10) {
+                        case 1 :
+                            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:8148:48: '\\r'
+                            {
+                            match('\r'); 
+
+                            }
+                            break;
+
+                    }
+
+                    match('\n'); 
+
+                    }
+                    break;
+
+            }
+
+
+            }
+
+            state.type = _type;
+            state.channel = _channel;
+        }
+        finally {
+        }
+    }
+    // $ANTLR end "RULE_SCHEME_SL_COMMENT"
+
+    // $ANTLR start "RULE_SCHEME_ML_COMMENT"
+    public final void mRULE_SCHEME_ML_COMMENT() throws RecognitionException {
+        try {
+            int _type = RULE_SCHEME_ML_COMMENT;
+            int _channel = DEFAULT_TOKEN_CHANNEL;
+            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:8150:24: ( '#!' ( options {greedy=false; } : . )* '!#' )
+            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:8150:26: '#!' ( options {greedy=false; } : . )* '!#'
+            {
+            match("#!"); 
+
+            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:8150:31: ( options {greedy=false; } : . )*
+            loop12:
+            do {
+                int alt12=2;
+                int LA12_0 = input.LA(1);
+
+                if ( (LA12_0=='!') ) {
+                    int LA12_1 = input.LA(2);
+
+                    if ( (LA12_1=='#') ) {
+                        alt12=2;
+                    }
+                    else if ( ((LA12_1>='\u0000' && LA12_1<='\"')||(LA12_1>='$' && LA12_1<='\uFFFF')) ) {
+                        alt12=1;
+                    }
+
+
+                }
+                else if ( ((LA12_0>='\u0000' && LA12_0<=' ')||(LA12_0>='\"' && LA12_0<='\uFFFF')) ) {
+                    alt12=1;
+                }
+
+
+                switch (alt12) {
+            	case 1 :
+            	    // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:8150:59: .
             	    {
             	    matchAny(); 
 
@@ -2421,7 +2512,7 @@ public class InternalLilyPondLexer extends Lexer {
             	    break;
 
             	default :
-            	    break loop9;
+            	    break loop12;
                 }
             } while (true);
 
@@ -2443,8 +2534,8 @@ public class InternalLilyPondLexer extends Lexer {
         try {
             int _type = RULE_ANY_OTHER;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:8150:16: ( . )
-            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:8150:18: .
+            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:8152:16: ( . )
+            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:8152:18: .
             {
             matchAny(); 
 
@@ -2459,691 +2550,698 @@ public class InternalLilyPondLexer extends Lexer {
     // $ANTLR end "RULE_ANY_OTHER"
 
     public void mTokens() throws RecognitionException {
-        // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:1:8: ( T__12 | T__13 | T__14 | T__15 | T__16 | T__17 | T__18 | T__19 | T__20 | T__21 | T__22 | T__23 | T__24 | T__25 | T__26 | T__27 | T__28 | T__29 | T__30 | T__31 | T__32 | T__33 | T__34 | T__35 | T__36 | T__37 | T__38 | T__39 | T__40 | T__41 | T__42 | T__43 | T__44 | T__45 | T__46 | T__47 | T__48 | T__49 | T__50 | T__51 | T__52 | T__53 | T__54 | T__55 | T__56 | T__57 | T__58 | T__59 | T__60 | T__61 | T__62 | T__63 | T__64 | T__65 | T__66 | T__67 | T__68 | T__69 | T__70 | T__71 | T__72 | T__73 | T__74 | T__75 | T__76 | T__77 | T__78 | T__79 | T__80 | T__81 | T__82 | T__83 | T__84 | T__85 | T__86 | T__87 | T__88 | T__89 | T__90 | T__91 | T__92 | T__93 | T__94 | T__95 | T__96 | T__97 | T__98 | T__99 | T__100 | T__101 | RULE_STRING | RULE_INT | RULE_ID | RULE_WS | RULE_SL_COMMENT | RULE_ML_COMMENT | RULE_SCHEME_ML_COMMENT | RULE_ANY_OTHER )
-        int alt10=98;
-        alt10 = dfa10.predict(input);
-        switch (alt10) {
+        // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:1:8: ( T__13 | T__14 | T__15 | T__16 | T__17 | T__18 | T__19 | T__20 | T__21 | T__22 | T__23 | T__24 | T__25 | T__26 | T__27 | T__28 | T__29 | T__30 | T__31 | T__32 | T__33 | T__34 | T__35 | T__36 | T__37 | T__38 | T__39 | T__40 | T__41 | T__42 | T__43 | T__44 | T__45 | T__46 | T__47 | T__48 | T__49 | T__50 | T__51 | T__52 | T__53 | T__54 | T__55 | T__56 | T__57 | T__58 | T__59 | T__60 | T__61 | T__62 | T__63 | T__64 | T__65 | T__66 | T__67 | T__68 | T__69 | T__70 | T__71 | T__72 | T__73 | T__74 | T__75 | T__76 | T__77 | T__78 | T__79 | T__80 | T__81 | T__82 | T__83 | T__84 | T__85 | T__86 | T__87 | T__88 | T__89 | T__90 | T__91 | T__92 | T__93 | T__94 | T__95 | T__96 | T__97 | T__98 | T__99 | T__100 | T__101 | T__102 | RULE_STRING | RULE_INT | RULE_ID | RULE_WS | RULE_SL_COMMENT | RULE_ML_COMMENT | RULE_SCHEME_SL_COMMENT | RULE_SCHEME_ML_COMMENT | RULE_ANY_OTHER )
+        int alt13=99;
+        alt13 = dfa13.predict(input);
+        switch (alt13) {
             case 1 :
-                // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:1:10: T__12
-                {
-                mT__12(); 
-
-                }
-                break;
-            case 2 :
-                // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:1:16: T__13
+                // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:1:10: T__13
                 {
                 mT__13(); 
 
                 }
                 break;
-            case 3 :
-                // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:1:22: T__14
+            case 2 :
+                // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:1:16: T__14
                 {
                 mT__14(); 
 
                 }
                 break;
-            case 4 :
-                // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:1:28: T__15
+            case 3 :
+                // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:1:22: T__15
                 {
                 mT__15(); 
 
                 }
                 break;
-            case 5 :
-                // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:1:34: T__16
+            case 4 :
+                // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:1:28: T__16
                 {
                 mT__16(); 
 
                 }
                 break;
-            case 6 :
-                // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:1:40: T__17
+            case 5 :
+                // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:1:34: T__17
                 {
                 mT__17(); 
 
                 }
                 break;
-            case 7 :
-                // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:1:46: T__18
+            case 6 :
+                // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:1:40: T__18
                 {
                 mT__18(); 
 
                 }
                 break;
-            case 8 :
-                // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:1:52: T__19
+            case 7 :
+                // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:1:46: T__19
                 {
                 mT__19(); 
 
                 }
                 break;
-            case 9 :
-                // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:1:58: T__20
+            case 8 :
+                // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:1:52: T__20
                 {
                 mT__20(); 
 
                 }
                 break;
-            case 10 :
-                // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:1:64: T__21
+            case 9 :
+                // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:1:58: T__21
                 {
                 mT__21(); 
 
                 }
                 break;
-            case 11 :
-                // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:1:70: T__22
+            case 10 :
+                // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:1:64: T__22
                 {
                 mT__22(); 
 
                 }
                 break;
-            case 12 :
-                // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:1:76: T__23
+            case 11 :
+                // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:1:70: T__23
                 {
                 mT__23(); 
 
                 }
                 break;
-            case 13 :
-                // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:1:82: T__24
+            case 12 :
+                // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:1:76: T__24
                 {
                 mT__24(); 
 
                 }
                 break;
-            case 14 :
-                // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:1:88: T__25
+            case 13 :
+                // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:1:82: T__25
                 {
                 mT__25(); 
 
                 }
                 break;
-            case 15 :
-                // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:1:94: T__26
+            case 14 :
+                // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:1:88: T__26
                 {
                 mT__26(); 
 
                 }
                 break;
-            case 16 :
-                // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:1:100: T__27
+            case 15 :
+                // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:1:94: T__27
                 {
                 mT__27(); 
 
                 }
                 break;
-            case 17 :
-                // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:1:106: T__28
+            case 16 :
+                // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:1:100: T__28
                 {
                 mT__28(); 
 
                 }
                 break;
-            case 18 :
-                // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:1:112: T__29
+            case 17 :
+                // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:1:106: T__29
                 {
                 mT__29(); 
 
                 }
                 break;
-            case 19 :
-                // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:1:118: T__30
+            case 18 :
+                // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:1:112: T__30
                 {
                 mT__30(); 
 
                 }
                 break;
-            case 20 :
-                // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:1:124: T__31
+            case 19 :
+                // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:1:118: T__31
                 {
                 mT__31(); 
 
                 }
                 break;
-            case 21 :
-                // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:1:130: T__32
+            case 20 :
+                // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:1:124: T__32
                 {
                 mT__32(); 
 
                 }
                 break;
-            case 22 :
-                // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:1:136: T__33
+            case 21 :
+                // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:1:130: T__33
                 {
                 mT__33(); 
 
                 }
                 break;
-            case 23 :
-                // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:1:142: T__34
+            case 22 :
+                // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:1:136: T__34
                 {
                 mT__34(); 
 
                 }
                 break;
-            case 24 :
-                // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:1:148: T__35
+            case 23 :
+                // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:1:142: T__35
                 {
                 mT__35(); 
 
                 }
                 break;
-            case 25 :
-                // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:1:154: T__36
+            case 24 :
+                // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:1:148: T__36
                 {
                 mT__36(); 
 
                 }
                 break;
-            case 26 :
-                // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:1:160: T__37
+            case 25 :
+                // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:1:154: T__37
                 {
                 mT__37(); 
 
                 }
                 break;
-            case 27 :
-                // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:1:166: T__38
+            case 26 :
+                // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:1:160: T__38
                 {
                 mT__38(); 
 
                 }
                 break;
-            case 28 :
-                // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:1:172: T__39
+            case 27 :
+                // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:1:166: T__39
                 {
                 mT__39(); 
 
                 }
                 break;
-            case 29 :
-                // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:1:178: T__40
+            case 28 :
+                // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:1:172: T__40
                 {
                 mT__40(); 
 
                 }
                 break;
-            case 30 :
-                // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:1:184: T__41
+            case 29 :
+                // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:1:178: T__41
                 {
                 mT__41(); 
 
                 }
                 break;
-            case 31 :
-                // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:1:190: T__42
+            case 30 :
+                // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:1:184: T__42
                 {
                 mT__42(); 
 
                 }
                 break;
-            case 32 :
-                // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:1:196: T__43
+            case 31 :
+                // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:1:190: T__43
                 {
                 mT__43(); 
 
                 }
                 break;
-            case 33 :
-                // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:1:202: T__44
+            case 32 :
+                // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:1:196: T__44
                 {
                 mT__44(); 
 
                 }
                 break;
-            case 34 :
-                // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:1:208: T__45
+            case 33 :
+                // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:1:202: T__45
                 {
                 mT__45(); 
 
                 }
                 break;
-            case 35 :
-                // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:1:214: T__46
+            case 34 :
+                // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:1:208: T__46
                 {
                 mT__46(); 
 
                 }
                 break;
-            case 36 :
-                // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:1:220: T__47
+            case 35 :
+                // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:1:214: T__47
                 {
                 mT__47(); 
 
                 }
                 break;
-            case 37 :
-                // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:1:226: T__48
+            case 36 :
+                // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:1:220: T__48
                 {
                 mT__48(); 
 
                 }
                 break;
-            case 38 :
-                // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:1:232: T__49
+            case 37 :
+                // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:1:226: T__49
                 {
                 mT__49(); 
 
                 }
                 break;
-            case 39 :
-                // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:1:238: T__50
+            case 38 :
+                // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:1:232: T__50
                 {
                 mT__50(); 
 
                 }
                 break;
-            case 40 :
-                // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:1:244: T__51
+            case 39 :
+                // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:1:238: T__51
                 {
                 mT__51(); 
 
                 }
                 break;
-            case 41 :
-                // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:1:250: T__52
+            case 40 :
+                // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:1:244: T__52
                 {
                 mT__52(); 
 
                 }
                 break;
-            case 42 :
-                // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:1:256: T__53
+            case 41 :
+                // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:1:250: T__53
                 {
                 mT__53(); 
 
                 }
                 break;
-            case 43 :
-                // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:1:262: T__54
+            case 42 :
+                // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:1:256: T__54
                 {
                 mT__54(); 
 
                 }
                 break;
-            case 44 :
-                // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:1:268: T__55
+            case 43 :
+                // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:1:262: T__55
                 {
                 mT__55(); 
 
                 }
                 break;
-            case 45 :
-                // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:1:274: T__56
+            case 44 :
+                // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:1:268: T__56
                 {
                 mT__56(); 
 
                 }
                 break;
-            case 46 :
-                // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:1:280: T__57
+            case 45 :
+                // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:1:274: T__57
                 {
                 mT__57(); 
 
                 }
                 break;
-            case 47 :
-                // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:1:286: T__58
+            case 46 :
+                // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:1:280: T__58
                 {
                 mT__58(); 
 
                 }
                 break;
-            case 48 :
-                // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:1:292: T__59
+            case 47 :
+                // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:1:286: T__59
                 {
                 mT__59(); 
 
                 }
                 break;
-            case 49 :
-                // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:1:298: T__60
+            case 48 :
+                // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:1:292: T__60
                 {
                 mT__60(); 
 
                 }
                 break;
-            case 50 :
-                // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:1:304: T__61
+            case 49 :
+                // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:1:298: T__61
                 {
                 mT__61(); 
 
                 }
                 break;
-            case 51 :
-                // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:1:310: T__62
+            case 50 :
+                // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:1:304: T__62
                 {
                 mT__62(); 
 
                 }
                 break;
-            case 52 :
-                // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:1:316: T__63
+            case 51 :
+                // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:1:310: T__63
                 {
                 mT__63(); 
 
                 }
                 break;
-            case 53 :
-                // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:1:322: T__64
+            case 52 :
+                // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:1:316: T__64
                 {
                 mT__64(); 
 
                 }
                 break;
-            case 54 :
-                // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:1:328: T__65
+            case 53 :
+                // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:1:322: T__65
                 {
                 mT__65(); 
 
                 }
                 break;
-            case 55 :
-                // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:1:334: T__66
+            case 54 :
+                // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:1:328: T__66
                 {
                 mT__66(); 
 
                 }
                 break;
-            case 56 :
-                // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:1:340: T__67
+            case 55 :
+                // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:1:334: T__67
                 {
                 mT__67(); 
 
                 }
                 break;
-            case 57 :
-                // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:1:346: T__68
+            case 56 :
+                // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:1:340: T__68
                 {
                 mT__68(); 
 
                 }
                 break;
-            case 58 :
-                // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:1:352: T__69
+            case 57 :
+                // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:1:346: T__69
                 {
                 mT__69(); 
 
                 }
                 break;
-            case 59 :
-                // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:1:358: T__70
+            case 58 :
+                // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:1:352: T__70
                 {
                 mT__70(); 
 
                 }
                 break;
-            case 60 :
-                // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:1:364: T__71
+            case 59 :
+                // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:1:358: T__71
                 {
                 mT__71(); 
 
                 }
                 break;
-            case 61 :
-                // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:1:370: T__72
+            case 60 :
+                // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:1:364: T__72
                 {
                 mT__72(); 
 
                 }
                 break;
-            case 62 :
-                // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:1:376: T__73
+            case 61 :
+                // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:1:370: T__73
                 {
                 mT__73(); 
 
                 }
                 break;
-            case 63 :
-                // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:1:382: T__74
+            case 62 :
+                // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:1:376: T__74
                 {
                 mT__74(); 
 
                 }
                 break;
-            case 64 :
-                // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:1:388: T__75
+            case 63 :
+                // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:1:382: T__75
                 {
                 mT__75(); 
 
                 }
                 break;
-            case 65 :
-                // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:1:394: T__76
+            case 64 :
+                // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:1:388: T__76
                 {
                 mT__76(); 
 
                 }
                 break;
-            case 66 :
-                // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:1:400: T__77
+            case 65 :
+                // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:1:394: T__77
                 {
                 mT__77(); 
 
                 }
                 break;
-            case 67 :
-                // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:1:406: T__78
+            case 66 :
+                // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:1:400: T__78
                 {
                 mT__78(); 
 
                 }
                 break;
-            case 68 :
-                // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:1:412: T__79
+            case 67 :
+                // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:1:406: T__79
                 {
                 mT__79(); 
 
                 }
                 break;
-            case 69 :
-                // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:1:418: T__80
+            case 68 :
+                // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:1:412: T__80
                 {
                 mT__80(); 
 
                 }
                 break;
-            case 70 :
-                // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:1:424: T__81
+            case 69 :
+                // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:1:418: T__81
                 {
                 mT__81(); 
 
                 }
                 break;
-            case 71 :
-                // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:1:430: T__82
+            case 70 :
+                // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:1:424: T__82
                 {
                 mT__82(); 
 
                 }
                 break;
-            case 72 :
-                // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:1:436: T__83
+            case 71 :
+                // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:1:430: T__83
                 {
                 mT__83(); 
 
                 }
                 break;
-            case 73 :
-                // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:1:442: T__84
+            case 72 :
+                // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:1:436: T__84
                 {
                 mT__84(); 
 
                 }
                 break;
-            case 74 :
-                // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:1:448: T__85
+            case 73 :
+                // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:1:442: T__85
                 {
                 mT__85(); 
 
                 }
                 break;
-            case 75 :
-                // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:1:454: T__86
+            case 74 :
+                // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:1:448: T__86
                 {
                 mT__86(); 
 
                 }
                 break;
-            case 76 :
-                // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:1:460: T__87
+            case 75 :
+                // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:1:454: T__87
                 {
                 mT__87(); 
 
                 }
                 break;
-            case 77 :
-                // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:1:466: T__88
+            case 76 :
+                // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:1:460: T__88
                 {
                 mT__88(); 
 
                 }
                 break;
-            case 78 :
-                // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:1:472: T__89
+            case 77 :
+                // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:1:466: T__89
                 {
                 mT__89(); 
 
                 }
                 break;
-            case 79 :
-                // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:1:478: T__90
+            case 78 :
+                // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:1:472: T__90
                 {
                 mT__90(); 
 
                 }
                 break;
-            case 80 :
-                // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:1:484: T__91
+            case 79 :
+                // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:1:478: T__91
                 {
                 mT__91(); 
 
                 }
                 break;
-            case 81 :
-                // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:1:490: T__92
+            case 80 :
+                // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:1:484: T__92
                 {
                 mT__92(); 
 
                 }
                 break;
-            case 82 :
-                // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:1:496: T__93
+            case 81 :
+                // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:1:490: T__93
                 {
                 mT__93(); 
 
                 }
                 break;
-            case 83 :
-                // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:1:502: T__94
+            case 82 :
+                // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:1:496: T__94
                 {
                 mT__94(); 
 
                 }
                 break;
-            case 84 :
-                // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:1:508: T__95
+            case 83 :
+                // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:1:502: T__95
                 {
                 mT__95(); 
 
                 }
                 break;
-            case 85 :
-                // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:1:514: T__96
+            case 84 :
+                // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:1:508: T__96
                 {
                 mT__96(); 
 
                 }
                 break;
-            case 86 :
-                // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:1:520: T__97
+            case 85 :
+                // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:1:514: T__97
                 {
                 mT__97(); 
 
                 }
                 break;
-            case 87 :
-                // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:1:526: T__98
+            case 86 :
+                // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:1:520: T__98
                 {
                 mT__98(); 
 
                 }
                 break;
-            case 88 :
-                // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:1:532: T__99
+            case 87 :
+                // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:1:526: T__99
                 {
                 mT__99(); 
 
                 }
                 break;
-            case 89 :
-                // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:1:538: T__100
+            case 88 :
+                // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:1:532: T__100
                 {
                 mT__100(); 
 
                 }
                 break;
-            case 90 :
-                // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:1:545: T__101
+            case 89 :
+                // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:1:539: T__101
                 {
                 mT__101(); 
 
                 }
                 break;
+            case 90 :
+                // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:1:546: T__102
+                {
+                mT__102(); 
+
+                }
+                break;
             case 91 :
-                // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:1:552: RULE_STRING
+                // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:1:553: RULE_STRING
                 {
                 mRULE_STRING(); 
 
                 }
                 break;
             case 92 :
-                // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:1:564: RULE_INT
+                // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:1:565: RULE_INT
                 {
                 mRULE_INT(); 
 
                 }
                 break;
             case 93 :
-                // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:1:573: RULE_ID
+                // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:1:574: RULE_ID
                 {
                 mRULE_ID(); 
 
                 }
                 break;
             case 94 :
-                // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:1:581: RULE_WS
+                // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:1:582: RULE_WS
                 {
                 mRULE_WS(); 
 
                 }
                 break;
             case 95 :
-                // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:1:589: RULE_SL_COMMENT
+                // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:1:590: RULE_SL_COMMENT
                 {
                 mRULE_SL_COMMENT(); 
 
                 }
                 break;
             case 96 :
-                // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:1:605: RULE_ML_COMMENT
+                // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:1:606: RULE_ML_COMMENT
                 {
                 mRULE_ML_COMMENT(); 
 
                 }
                 break;
             case 97 :
-                // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:1:621: RULE_SCHEME_ML_COMMENT
+                // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:1:622: RULE_SCHEME_SL_COMMENT
+                {
+                mRULE_SCHEME_SL_COMMENT(); 
+
+                }
+                break;
+            case 98 :
+                // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:1:645: RULE_SCHEME_ML_COMMENT
                 {
                 mRULE_SCHEME_ML_COMMENT(); 
 
                 }
                 break;
-            case 98 :
-                // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:1:644: RULE_ANY_OTHER
+            case 99 :
+                // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:1:668: RULE_ANY_OTHER
                 {
                 mRULE_ANY_OTHER(); 
 
@@ -3155,60 +3253,60 @@ public class InternalLilyPondLexer extends Lexer {
     }
 
 
-    protected DFA10 dfa10 = new DFA10(this);
-    static final String DFA10_eotS =
-        "\4\uffff\1\65\1\67\10\uffff\24\101\1\154\3\uffff\1\161\4\uffff\1"+
-        "\60\3\uffff\1\172\20\uffff\1\101\1\uffff\45\101\22\uffff\1\172\1"+
-        "\uffff\4\101\1\u00b4\23\101\1\u00c9\6\101\1\u00d0\21\101\1\uffff"+
-        "\3\172\1\u00e5\3\101\1\uffff\1\101\1\u00ea\3\101\1\u00ee\1\101\1"+
-        "\u00f1\14\101\1\uffff\1\u00ff\5\101\1\uffff\2\101\1\u0107\3\101"+
-        "\1\u010b\3\101\1\u0110\1\u0111\2\101\1\u0114\2\101\1\uffff\1\172"+
-        "\1\101\1\uffff\1\101\1\u0119\2\101\1\uffff\1\101\1\u011d\1\101\1"+
-        "\uffff\2\101\1\uffff\7\101\1\u012a\5\101\1\uffff\2\101\1\u0132\4"+
-        "\101\1\uffff\3\101\1\uffff\2\101\1\u013c\1\u013d\2\uffff\1\101\1"+
-        "\u013f\1\uffff\3\101\1\u0143\1\uffff\3\101\1\uffff\2\101\1\u014a"+
-        "\1\u014b\1\101\1\u014e\1\101\1\u0150\1\u0151\3\101\1\uffff\1\101"+
-        "\1\u0156\5\101\1\uffff\3\101\1\u0160\1\101\1\u0162\1\u0163\1\u0164"+
-        "\1\101\2\uffff\1\101\1\uffff\3\101\1\uffff\3\101\1\u016d\2\101\2"+
-        "\uffff\2\101\1\uffff\1\101\2\uffff\1\u0173\2\101\1\u0177\1\uffff"+
-        "\2\101\1\u017a\1\101\1\u017c\4\101\1\uffff\1\101\3\uffff\2\101\1"+
-        "\u0184\1\u0185\1\u0186\3\101\1\uffff\3\101\1\u018d\1\101\1\uffff"+
-        "\1\u018f\1\u0190\1\101\1\uffff\2\101\1\uffff\1\u0194\1\uffff\3\101"+
-        "\1\u0198\1\u0199\1\u019a\1\101\3\uffff\3\101\1\u019f\1\101\1\u01a1"+
-        "\1\uffff\1\u01a2\2\uffff\3\101\1\uffff\1\u01a6\2\101\3\uffff\1\u01a9"+
-        "\1\u01aa\2\101\1\uffff\1\101\2\uffff\2\101\1\u01b1\1\uffff\2\101"+
-        "\2\uffff\3\101\1\u01b7\1\101\1\u01b9\1\uffff\1\u01ba\1\101\1\u01bc"+
-        "\2\101\1\uffff\1\u01bf\2\uffff\1\101\1\uffff\2\101\1\uffff\1\101"+
-        "\1\u01c4\1\u01c5\1\101\2\uffff\1\101\1\u01c8\1\uffff";
-    static final String DFA10_eofS =
-        "\u01c9\uffff";
-    static final String DFA10_minS =
+    protected DFA13 dfa13 = new DFA13(this);
+    static final String DFA13_eotS =
+        "\4\uffff\1\66\1\70\10\uffff\24\102\1\155\3\uffff\1\162\4\uffff\1"+
+        "\61\3\uffff\1\173\1\61\20\uffff\1\102\1\uffff\45\102\22\uffff\1"+
+        "\173\2\uffff\4\102\1\u00b6\23\102\1\u00cb\6\102\1\u00d2\21\102\1"+
+        "\uffff\3\173\1\u00e7\3\102\1\uffff\1\102\1\u00ec\3\102\1\u00f0\1"+
+        "\102\1\u00f3\14\102\1\uffff\1\u0101\5\102\1\uffff\2\102\1\u0109"+
+        "\3\102\1\u010d\3\102\1\u0112\1\u0113\2\102\1\u0116\2\102\1\uffff"+
+        "\1\173\1\102\1\uffff\1\102\1\u011b\2\102\1\uffff\1\102\1\u011f\1"+
+        "\102\1\uffff\2\102\1\uffff\7\102\1\u012c\5\102\1\uffff\2\102\1\u0134"+
+        "\4\102\1\uffff\3\102\1\uffff\2\102\1\u013e\1\u013f\2\uffff\1\102"+
+        "\1\u0141\1\uffff\3\102\1\u0145\1\uffff\3\102\1\uffff\2\102\1\u014c"+
+        "\1\u014d\1\102\1\u0150\1\102\1\u0152\1\u0153\3\102\1\uffff\1\102"+
+        "\1\u0158\5\102\1\uffff\3\102\1\u0162\1\102\1\u0164\1\u0165\1\u0166"+
+        "\1\102\2\uffff\1\102\1\uffff\3\102\1\uffff\3\102\1\u016f\2\102\2"+
+        "\uffff\2\102\1\uffff\1\102\2\uffff\1\u0175\2\102\1\u0179\1\uffff"+
+        "\2\102\1\u017c\1\102\1\u017e\4\102\1\uffff\1\102\3\uffff\2\102\1"+
+        "\u0186\1\u0187\1\u0188\3\102\1\uffff\3\102\1\u018f\1\102\1\uffff"+
+        "\1\u0191\1\u0192\1\102\1\uffff\2\102\1\uffff\1\u0196\1\uffff\3\102"+
+        "\1\u019a\1\u019b\1\u019c\1\102\3\uffff\3\102\1\u01a1\1\102\1\u01a3"+
+        "\1\uffff\1\u01a4\2\uffff\3\102\1\uffff\1\u01a8\2\102\3\uffff\1\u01ab"+
+        "\1\u01ac\2\102\1\uffff\1\102\2\uffff\2\102\1\u01b3\1\uffff\2\102"+
+        "\2\uffff\3\102\1\u01b9\1\102\1\u01bb\1\uffff\1\u01bc\1\102\1\u01be"+
+        "\2\102\1\uffff\1\u01c1\2\uffff\1\102\1\uffff\2\102\1\uffff\1\102"+
+        "\1\u01c6\1\u01c7\1\102\2\uffff\1\102\1\u01ca\1\uffff";
+    static final String DFA13_eofS =
+        "\u01cb\uffff";
+    static final String DFA13_minS =
         "\1\0\3\uffff\1\74\1\76\10\uffff\1\157\1\145\1\143\3\141\1\150\1"+
         "\145\1\151\1\141\1\143\1\162\1\145\1\142\2\145\1\156\1\151\1\156"+
-        "\1\145\1\41\3\uffff\1\134\4\uffff\1\0\3\uffff\1\173\20\uffff\1\157"+
-        "\1\uffff\1\141\1\157\1\161\1\155\1\151\1\165\1\160\1\144\1\151\1"+
-        "\171\1\162\1\141\1\156\1\165\1\146\1\147\1\164\1\167\1\155\1\143"+
-        "\1\144\1\151\1\157\1\171\1\152\1\164\1\143\1\145\1\154\2\155\1\160"+
-        "\1\141\1\163\1\164\1\143\1\162\22\uffff\1\0\1\uffff\1\153\1\144"+
-        "\1\162\1\165\1\101\1\165\1\160\1\162\1\145\1\164\1\151\1\156\1\153"+
-        "\1\157\1\151\1\162\1\156\1\163\1\155\1\141\1\151\1\143\1\165\1\145"+
-        "\1\101\2\145\1\154\1\141\1\145\1\142\1\101\1\145\1\141\1\145\1\162"+
-        "\1\157\1\145\1\164\1\145\1\141\1\160\2\145\1\156\1\145\1\150\1\154"+
-        "\1\163\4\0\1\101\3\145\1\uffff\1\154\1\101\1\143\1\162\1\151\1\101"+
-        "\1\151\1\101\1\165\1\143\1\144\1\147\1\145\1\151\1\155\1\165\1\145"+
-        "\2\162\1\155\1\uffff\1\101\1\160\1\171\1\163\1\162\1\144\1\uffff"+
-        "\1\143\1\166\1\101\1\162\1\166\1\141\1\101\1\162\1\164\1\157\2\101"+
-        "\1\163\1\164\1\101\1\165\1\151\1\uffff\1\0\1\141\1\uffff\1\162\1"+
-        "\101\1\156\1\164\1\uffff\1\145\1\101\1\141\1\uffff\1\156\1\160\1"+
-        "\uffff\1\164\2\155\1\145\1\170\1\163\1\157\1\101\1\154\1\163\1\151"+
-        "\1\145\1\157\1\uffff\1\164\1\162\1\101\1\156\1\145\1\164\1\145\1"+
-        "\uffff\1\151\1\145\1\164\1\uffff\1\164\1\151\2\101\2\uffff\1\160"+
-        "\1\101\1\uffff\1\144\1\157\1\162\1\101\1\uffff\1\164\1\141\1\146"+
-        "\1\uffff\1\154\1\160\2\101\1\157\1\101\1\157\2\101\2\164\1\144\1"+
-        "\uffff\1\164\1\101\1\160\1\155\1\144\1\163\1\151\1\uffff\1\141\1"+
-        "\163\1\151\1\101\1\144\3\101\1\166\2\uffff\1\157\1\uffff\1\145\1"+
-        "\156\1\164\1\uffff\1\151\1\156\1\151\1\101\1\165\1\151\2\uffff\1"+
-        "\144\1\157\1\uffff\1\144\2\uffff\1\101\1\163\1\145\1\101\1\uffff"+
+        "\1\145\1\41\3\uffff\1\134\4\uffff\1\0\3\uffff\1\173\1\73\20\uffff"+
+        "\1\157\1\uffff\1\141\1\157\1\161\1\155\1\151\1\165\1\160\1\144\1"+
+        "\151\1\171\1\162\1\141\1\156\1\165\1\146\1\147\1\164\1\167\1\155"+
+        "\1\143\1\144\1\151\1\157\1\171\1\152\1\164\1\143\1\145\1\154\2\155"+
+        "\1\160\1\141\1\163\1\164\1\143\1\162\22\uffff\1\0\2\uffff\1\153"+
+        "\1\144\1\162\1\165\1\101\1\165\1\160\1\162\1\145\1\164\1\151\1\156"+
+        "\1\153\1\157\1\151\1\162\1\156\1\163\1\155\1\141\1\151\1\143\1\165"+
+        "\1\145\1\101\2\145\1\154\1\141\1\145\1\142\1\101\1\145\1\141\1\145"+
+        "\1\162\1\157\1\145\1\164\1\145\1\141\1\160\2\145\1\156\1\145\1\150"+
+        "\1\154\1\163\4\0\1\101\3\145\1\uffff\1\154\1\101\1\143\1\162\1\151"+
+        "\1\101\1\151\1\101\1\165\1\143\1\144\1\147\1\145\1\151\1\155\1\165"+
+        "\1\145\2\162\1\155\1\uffff\1\101\1\160\1\171\1\163\1\162\1\144\1"+
+        "\uffff\1\143\1\166\1\101\1\162\1\166\1\141\1\101\1\162\1\164\1\157"+
+        "\2\101\1\163\1\164\1\101\1\165\1\151\1\uffff\1\0\1\141\1\uffff\1"+
+        "\162\1\101\1\156\1\164\1\uffff\1\145\1\101\1\141\1\uffff\1\156\1"+
+        "\160\1\uffff\1\164\2\155\1\145\1\170\1\163\1\157\1\101\1\154\1\163"+
+        "\1\151\1\145\1\157\1\uffff\1\164\1\162\1\101\1\156\1\145\1\164\1"+
+        "\145\1\uffff\1\151\1\145\1\164\1\uffff\1\164\1\151\2\101\2\uffff"+
+        "\1\160\1\101\1\uffff\1\144\1\157\1\162\1\101\1\uffff\1\164\1\141"+
+        "\1\146\1\uffff\1\154\1\160\2\101\1\157\1\101\1\157\2\101\2\164\1"+
+        "\144\1\uffff\1\164\1\101\1\160\1\155\1\144\1\163\1\151\1\uffff\1"+
+        "\141\1\163\1\151\1\101\1\144\3\101\1\166\2\uffff\1\157\1\uffff\1"+
+        "\145\1\156\1\164\1\uffff\1\151\1\156\1\151\1\101\1\165\1\151\2\uffff"+
+        "\1\144\1\157\1\uffff\1\144\2\uffff\1\101\1\163\1\145\1\101\1\uffff"+
         "\1\164\1\157\1\101\1\145\1\101\1\143\1\164\1\143\1\144\1\uffff\1"+
         "\145\3\uffff\1\145\1\163\3\101\1\141\1\145\1\154\1\uffff\1\164\1"+
         "\156\1\145\1\101\1\145\1\uffff\2\101\1\150\1\uffff\1\151\1\144\1"+
@@ -3219,178 +3317,179 @@ public class InternalLilyPondLexer extends Lexer {
         "\1\141\1\151\1\101\1\144\1\101\1\uffff\1\101\1\164\1\101\1\155\1"+
         "\156\1\uffff\1\101\2\uffff\1\151\1\uffff\2\145\1\uffff\1\157\2\101"+
         "\1\156\2\uffff\1\163\1\101\1\uffff";
-    static final String DFA10_maxS =
+    static final String DFA13_maxS =
         "\1\uffff\3\uffff\1\74\1\76\10\uffff\1\157\1\145\1\157\1\141\1\151"+
         "\1\171\1\157\1\162\1\151\1\157\1\154\1\162\1\145\1\166\1\145\1\171"+
         "\1\156\1\151\1\156\1\145\1\175\3\uffff\1\134\4\uffff\1\uffff\3\uffff"+
-        "\1\173\20\uffff\1\157\1\uffff\1\141\1\157\1\164\1\155\1\151\1\165"+
-        "\1\162\1\144\1\162\1\171\1\162\1\157\1\156\1\165\1\163\1\147\1\164"+
-        "\1\167\1\155\1\143\1\144\1\164\1\157\1\171\1\152\1\164\1\143\1\145"+
-        "\1\166\2\155\1\160\1\141\1\163\1\164\1\143\1\162\22\uffff\1\uffff"+
-        "\1\uffff\1\153\1\144\1\162\1\165\1\uffdc\1\165\1\160\1\162\1\145"+
-        "\1\164\1\151\1\156\1\153\1\157\1\151\1\162\1\156\1\164\1\155\1\141"+
-        "\1\151\1\143\1\165\1\145\1\uffdc\2\145\1\154\1\141\1\145\1\142\1"+
-        "\uffdc\1\145\1\141\1\145\1\162\1\157\1\145\1\164\1\145\1\141\1\160"+
-        "\2\145\1\156\1\145\1\150\1\154\1\163\4\uffff\1\uffdc\3\145\1\uffff"+
-        "\1\154\1\uffdc\1\143\1\162\1\151\1\uffdc\1\151\1\uffdc\1\165\1\143"+
-        "\1\144\1\147\1\145\1\151\1\163\1\165\1\145\2\162\1\155\1\uffff\1"+
-        "\uffdc\1\160\1\171\1\163\1\162\1\144\1\uffff\1\143\1\166\1\uffdc"+
-        "\1\162\1\166\1\141\1\uffdc\1\162\1\164\1\157\2\uffdc\1\163\1\164"+
-        "\1\uffdc\1\165\1\151\1\uffff\1\uffff\1\141\1\uffff\1\162\1\uffdc"+
-        "\1\156\1\164\1\uffff\1\145\1\uffdc\1\141\1\uffff\1\156\1\160\1\uffff"+
-        "\1\164\2\163\1\145\1\170\1\163\1\157\1\uffdc\1\154\1\163\1\151\1"+
-        "\145\1\157\1\uffff\1\164\1\162\1\uffdc\1\156\1\145\1\164\1\145\1"+
-        "\uffff\1\151\1\145\1\164\1\uffff\1\164\1\151\2\uffdc\2\uffff\1\160"+
-        "\1\uffdc\1\uffff\1\144\1\157\1\162\1\uffdc\1\uffff\1\164\1\141\1"+
-        "\146\1\uffff\1\154\1\160\2\uffdc\1\157\1\uffdc\1\157\2\uffdc\2\164"+
-        "\1\144\1\uffff\1\164\1\uffdc\1\160\1\163\1\144\1\163\1\151\1\uffff"+
-        "\1\141\1\163\1\151\1\uffdc\1\144\3\uffdc\1\166\2\uffff\1\157\1\uffff"+
-        "\1\145\1\156\1\164\1\uffff\1\151\1\156\1\151\1\uffdc\1\165\1\151"+
-        "\2\uffff\1\144\1\157\1\uffff\1\144\2\uffff\1\uffdc\1\163\1\145\1"+
-        "\uffdc\1\uffff\1\164\1\157\1\uffdc\1\145\1\uffdc\1\143\1\164\1\143"+
-        "\1\144\1\uffff\1\145\3\uffff\1\145\1\163\3\uffdc\1\141\1\145\1\154"+
-        "\1\uffff\1\164\1\156\1\145\1\uffdc\1\145\1\uffff\2\uffdc\1\150\1"+
-        "\uffff\1\151\1\144\1\uffff\1\uffdc\1\uffff\1\163\1\151\1\162\3\uffdc"+
-        "\1\145\3\uffff\1\154\1\157\1\145\1\uffdc\1\145\1\uffdc\1\uffff\1"+
-        "\uffdc\2\uffff\1\151\1\157\1\145\1\uffff\1\uffdc\1\166\1\151\3\uffff"+
-        "\2\uffdc\1\165\1\156\1\uffff\1\163\2\uffff\1\154\1\156\1\uffdc\1"+
-        "\uffff\1\145\1\160\2\uffff\1\163\1\141\1\151\1\uffdc\1\144\1\uffdc"+
-        "\1\uffff\1\uffdc\1\164\1\uffdc\1\155\1\156\1\uffff\1\uffdc\2\uffff"+
-        "\1\151\1\uffff\2\145\1\uffff\1\157\2\uffdc\1\156\2\uffff\1\163\1"+
-        "\uffdc\1\uffff";
-    static final String DFA10_acceptS =
+        "\1\173\1\73\20\uffff\1\157\1\uffff\1\141\1\157\1\164\1\155\1\151"+
+        "\1\165\1\162\1\144\1\162\1\171\1\162\1\157\1\156\1\165\1\163\1\147"+
+        "\1\164\1\167\1\155\1\143\1\144\1\164\1\157\1\171\1\152\1\164\1\143"+
+        "\1\145\1\166\2\155\1\160\1\141\1\163\1\164\1\143\1\162\22\uffff"+
+        "\1\uffff\2\uffff\1\153\1\144\1\162\1\165\1\uffdc\1\165\1\160\1\162"+
+        "\1\145\1\164\1\151\1\156\1\153\1\157\1\151\1\162\1\156\1\164\1\155"+
+        "\1\141\1\151\1\143\1\165\1\145\1\uffdc\2\145\1\154\1\141\1\145\1"+
+        "\142\1\uffdc\1\145\1\141\1\145\1\162\1\157\1\145\1\164\1\145\1\141"+
+        "\1\160\2\145\1\156\1\145\1\150\1\154\1\163\4\uffff\1\uffdc\3\145"+
+        "\1\uffff\1\154\1\uffdc\1\143\1\162\1\151\1\uffdc\1\151\1\uffdc\1"+
+        "\165\1\143\1\144\1\147\1\145\1\151\1\163\1\165\1\145\2\162\1\155"+
+        "\1\uffff\1\uffdc\1\160\1\171\1\163\1\162\1\144\1\uffff\1\143\1\166"+
+        "\1\uffdc\1\162\1\166\1\141\1\uffdc\1\162\1\164\1\157\2\uffdc\1\163"+
+        "\1\164\1\uffdc\1\165\1\151\1\uffff\1\uffff\1\141\1\uffff\1\162\1"+
+        "\uffdc\1\156\1\164\1\uffff\1\145\1\uffdc\1\141\1\uffff\1\156\1\160"+
+        "\1\uffff\1\164\2\163\1\145\1\170\1\163\1\157\1\uffdc\1\154\1\163"+
+        "\1\151\1\145\1\157\1\uffff\1\164\1\162\1\uffdc\1\156\1\145\1\164"+
+        "\1\145\1\uffff\1\151\1\145\1\164\1\uffff\1\164\1\151\2\uffdc\2\uffff"+
+        "\1\160\1\uffdc\1\uffff\1\144\1\157\1\162\1\uffdc\1\uffff\1\164\1"+
+        "\141\1\146\1\uffff\1\154\1\160\2\uffdc\1\157\1\uffdc\1\157\2\uffdc"+
+        "\2\164\1\144\1\uffff\1\164\1\uffdc\1\160\1\163\1\144\1\163\1\151"+
+        "\1\uffff\1\141\1\163\1\151\1\uffdc\1\144\3\uffdc\1\166\2\uffff\1"+
+        "\157\1\uffff\1\145\1\156\1\164\1\uffff\1\151\1\156\1\151\1\uffdc"+
+        "\1\165\1\151\2\uffff\1\144\1\157\1\uffff\1\144\2\uffff\1\uffdc\1"+
+        "\163\1\145\1\uffdc\1\uffff\1\164\1\157\1\uffdc\1\145\1\uffdc\1\143"+
+        "\1\164\1\143\1\144\1\uffff\1\145\3\uffff\1\145\1\163\3\uffdc\1\141"+
+        "\1\145\1\154\1\uffff\1\164\1\156\1\145\1\uffdc\1\145\1\uffff\2\uffdc"+
+        "\1\150\1\uffff\1\151\1\144\1\uffff\1\uffdc\1\uffff\1\163\1\151\1"+
+        "\162\3\uffdc\1\145\3\uffff\1\154\1\157\1\145\1\uffdc\1\145\1\uffdc"+
+        "\1\uffff\1\uffdc\2\uffff\1\151\1\157\1\145\1\uffff\1\uffdc\1\166"+
+        "\1\151\3\uffff\2\uffdc\1\165\1\156\1\uffff\1\163\2\uffff\1\154\1"+
+        "\156\1\uffdc\1\uffff\1\145\1\160\2\uffff\1\163\1\141\1\151\1\uffdc"+
+        "\1\144\1\uffdc\1\uffff\1\uffdc\1\164\1\uffdc\1\155\1\156\1\uffff"+
+        "\1\uffdc\2\uffff\1\151\1\uffff\2\145\1\uffff\1\157\2\uffdc\1\156"+
+        "\2\uffff\1\163\1\uffdc\1\uffff";
+    static final String DFA13_acceptS =
         "\1\uffff\1\1\1\2\1\3\2\uffff\1\6\1\7\1\10\1\11\1\12\1\13\1\14\1"+
         "\15\25\uffff\1\114\1\115\1\116\1\uffff\1\120\1\121\1\122\1\123\1"+
-        "\uffff\1\134\1\135\1\136\1\uffff\1\142\1\1\1\2\1\3\1\124\1\4\1\125"+
+        "\uffff\1\134\1\135\1\136\2\uffff\1\143\1\1\1\2\1\3\1\124\1\4\1\125"+
         "\1\5\1\6\1\7\1\10\1\11\1\12\1\13\1\14\1\15\1\uffff\1\135\45\uffff"+
-        "\1\127\1\130\1\131\1\132\1\141\1\113\1\114\1\115\1\116\1\117\1\126"+
-        "\1\120\1\121\1\122\1\123\1\133\1\134\1\136\1\uffff\1\137\71\uffff"+
-        "\1\71\24\uffff\1\32\6\uffff\1\52\21\uffff\1\140\2\uffff\1\16\4\uffff"+
-        "\1\73\3\uffff\1\23\2\uffff\1\55\15\uffff\1\56\7\uffff\1\61\3\uffff"+
-        "\1\66\4\uffff\1\75\1\77\2\uffff\1\101\4\uffff\1\21\3\uffff\1\22"+
-        "\14\uffff\1\47\7\uffff\1\36\11\uffff\1\74\1\76\1\uffff\1\100\3\uffff"+
-        "\1\20\6\uffff\1\106\1\24\2\uffff\1\53\1\uffff\1\41\1\40\4\uffff"+
-        "\1\45\11\uffff\1\60\1\uffff\1\64\1\65\1\67\10\uffff\1\63\5\uffff"+
-        "\1\33\3\uffff\1\43\2\uffff\1\50\1\uffff\1\34\7\uffff\1\102\1\103"+
-        "\1\17\6\uffff\1\112\1\uffff\1\42\1\26\3\uffff\1\31\3\uffff\1\57"+
-        "\1\62\1\110\4\uffff\1\54\1\uffff\1\30\1\25\3\uffff\1\35\2\uffff"+
-        "\1\111\1\70\6\uffff\1\27\5\uffff\1\107\1\uffff\1\46\1\37\1\uffff"+
-        "\1\72\2\uffff\1\44\4\uffff\1\104\1\105\2\uffff\1\51";
-    static final String DFA10_specialS =
-        "\1\6\52\uffff\1\7\115\uffff\1\2\62\uffff\1\3\1\1\1\4\1\5\63\uffff"+
-        "\1\0\u00e5\uffff}>";
-    static final String[] DFA10_transitionS = {
-            "\11\60\2\56\2\60\1\56\22\60\1\56\1\1\1\53\1\42\1\43\1\57\1\60"+
-            "\1\13\1\11\1\12\1\60\1\3\1\14\1\50\2\60\12\54\1\15\1\60\1\4"+
-            "\1\47\1\5\1\2\1\45\32\55\1\6\1\46\1\7\2\60\1\44\1\30\1\16\1"+
+        "\1\127\1\130\1\131\1\132\1\142\1\113\1\114\1\115\1\116\1\117\1\126"+
+        "\1\120\1\121\1\122\1\123\1\133\1\134\1\136\1\uffff\1\137\1\141\71"+
+        "\uffff\1\71\24\uffff\1\32\6\uffff\1\52\21\uffff\1\140\2\uffff\1"+
+        "\16\4\uffff\1\73\3\uffff\1\23\2\uffff\1\55\15\uffff\1\56\7\uffff"+
+        "\1\61\3\uffff\1\66\4\uffff\1\75\1\77\2\uffff\1\101\4\uffff\1\21"+
+        "\3\uffff\1\22\14\uffff\1\47\7\uffff\1\36\11\uffff\1\74\1\76\1\uffff"+
+        "\1\100\3\uffff\1\20\6\uffff\1\106\1\24\2\uffff\1\53\1\uffff\1\41"+
+        "\1\40\4\uffff\1\45\11\uffff\1\60\1\uffff\1\64\1\65\1\67\10\uffff"+
+        "\1\63\5\uffff\1\33\3\uffff\1\43\2\uffff\1\50\1\uffff\1\34\7\uffff"+
+        "\1\102\1\103\1\17\6\uffff\1\112\1\uffff\1\42\1\26\3\uffff\1\31\3"+
+        "\uffff\1\57\1\62\1\110\4\uffff\1\54\1\uffff\1\30\1\25\3\uffff\1"+
+        "\35\2\uffff\1\111\1\70\6\uffff\1\27\5\uffff\1\107\1\uffff\1\46\1"+
+        "\37\1\uffff\1\72\2\uffff\1\44\4\uffff\1\104\1\105\2\uffff\1\51";
+    static final String DFA13_specialS =
+        "\1\5\52\uffff\1\6\116\uffff\1\1\63\uffff\1\4\1\0\1\2\1\3\63\uffff"+
+        "\1\7\u00e5\uffff}>";
+    static final String[] DFA13_transitionS = {
+            "\11\61\2\56\2\61\1\56\22\61\1\56\1\1\1\53\1\42\1\43\1\57\1\61"+
+            "\1\13\1\11\1\12\1\61\1\3\1\14\1\50\2\61\12\54\1\15\1\60\1\4"+
+            "\1\47\1\5\1\2\1\45\32\55\1\6\1\46\1\7\2\61\1\44\1\30\1\16\1"+
             "\24\1\25\1\55\1\26\1\31\1\17\1\40\1\55\1\32\1\23\1\22\1\27\1"+
-            "\33\1\21\1\55\1\34\1\20\1\35\1\36\1\41\1\37\3\55\1\51\1\60\1"+
-            "\52\1\10\42\60\uff3c\55\43\60",
+            "\33\1\21\1\55\1\34\1\20\1\35\1\36\1\41\1\37\3\55\1\51\1\61\1"+
+            "\52\1\10\42\61\uff3c\55\43\61",
             "",
             "",
             "",
-            "\1\64",
-            "\1\66",
-            "",
-            "",
-            "",
-            "",
+            "\1\65",
+            "\1\67",
             "",
             "",
             "",
             "",
-            "\1\100",
-            "\1\102",
-            "\1\103\1\uffff\1\104\3\uffff\1\105\1\uffff\1\106\3\uffff\1"+
-            "\107",
-            "\1\110",
-            "\1\112\7\uffff\1\111",
-            "\1\113\27\uffff\1\114",
-            "\1\115\6\uffff\1\116",
-            "\1\120\14\uffff\1\117",
-            "\1\121",
-            "\1\124\3\uffff\1\123\11\uffff\1\122",
-            "\1\125\1\126\7\uffff\1\127",
-            "\1\130",
+            "",
+            "",
+            "",
+            "",
+            "\1\101",
+            "\1\103",
+            "\1\104\1\uffff\1\105\3\uffff\1\106\1\uffff\1\107\3\uffff\1"+
+            "\110",
+            "\1\111",
+            "\1\113\7\uffff\1\112",
+            "\1\114\27\uffff\1\115",
+            "\1\116\6\uffff\1\117",
+            "\1\121\14\uffff\1\120",
+            "\1\122",
+            "\1\125\3\uffff\1\124\11\uffff\1\123",
+            "\1\126\1\127\7\uffff\1\130",
             "\1\131",
-            "\1\132\1\133\12\uffff\1\134\7\uffff\1\135",
-            "\1\136",
-            "\1\137\3\uffff\1\140\10\uffff\1\142\6\uffff\1\141",
-            "\1\143",
+            "\1\132",
+            "\1\133\1\134\12\uffff\1\135\7\uffff\1\136",
+            "\1\137",
+            "\1\140\3\uffff\1\141\10\uffff\1\143\6\uffff\1\142",
             "\1\144",
             "\1\145",
             "\1\146",
-            "\1\153\30\uffff\1\152\41\uffff\1\151\36\uffff\1\147\1\uffff"+
-            "\1\150",
+            "\1\147",
+            "\1\154\30\uffff\1\153\41\uffff\1\152\36\uffff\1\150\1\uffff"+
+            "\1\151",
             "",
             "",
             "",
-            "\1\160",
-            "",
-            "",
-            "",
-            "",
-            "\0\166",
-            "",
-            "",
-            "",
-            "\1\171",
+            "\1\161",
             "",
             "",
             "",
             "",
+            "\0\167",
             "",
             "",
             "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "",
-            "\1\173",
-            "",
+            "\1\172",
             "\1\174",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
+            "",
             "\1\175",
-            "\1\176\2\uffff\1\177",
-            "\1\u0080",
-            "\1\u0081",
+            "",
+            "\1\176",
+            "\1\177",
+            "\1\u0080\2\uffff\1\u0081",
             "\1\u0082",
-            "\1\u0083\1\uffff\1\u0084",
-            "\1\u0085",
-            "\1\u0086\10\uffff\1\u0087",
-            "\1\u0088",
-            "\1\u0089",
-            "\1\u008b\15\uffff\1\u008a",
-            "\1\u008c",
-            "\1\u008d",
-            "\1\u008e\7\uffff\1\u008f\4\uffff\1\u0090",
-            "\1\u0091",
-            "\1\u0092",
+            "\1\u0083",
+            "\1\u0084",
+            "\1\u0085\1\uffff\1\u0086",
+            "\1\u0087",
+            "\1\u0088\10\uffff\1\u0089",
+            "\1\u008a",
+            "\1\u008b",
+            "\1\u008d\15\uffff\1\u008c",
+            "\1\u008e",
+            "\1\u008f",
+            "\1\u0090\7\uffff\1\u0091\4\uffff\1\u0092",
             "\1\u0093",
             "\1\u0094",
             "\1\u0095",
             "\1\u0096",
-            "\1\u0097\12\uffff\1\u0098",
-            "\1\u0099",
-            "\1\u009a",
+            "\1\u0097",
+            "\1\u0098",
+            "\1\u0099\12\uffff\1\u009a",
             "\1\u009b",
             "\1\u009c",
             "\1\u009d",
             "\1\u009e",
-            "\1\u00a3\1\u009f\2\uffff\1\u00a0\2\uffff\1\u00a1\2\uffff\1"+
-            "\u00a2",
-            "\1\u00a4",
-            "\1\u00a5",
+            "\1\u009f",
+            "\1\u00a0",
+            "\1\u00a5\1\u00a1\2\uffff\1\u00a2\2\uffff\1\u00a3\2\uffff\1"+
+            "\u00a4",
             "\1\u00a6",
             "\1\u00a7",
             "\1\u00a8",
             "\1\u00a9",
             "\1\u00aa",
             "\1\u00ab",
+            "\1\u00ac",
+            "\1\u00ad",
             "",
             "",
             "",
@@ -3409,15 +3508,14 @@ public class InternalLilyPondLexer extends Lexer {
             "",
             "",
             "",
-            "\12\u00af\1\u00ad\2\u00af\1\u00ac\27\u00af\1\u00ae\uffda\u00af",
+            "\12\u00b1\1\u00af\2\u00b1\1\u00ae\27\u00b1\1\u00b0\uffda\u00b1",
             "",
-            "\1\u00b0",
-            "\1\u00b1",
+            "",
             "\1\u00b2",
             "\1\u00b3",
-            "\32\101\6\uffff\32\101\46\uffff\uff3c\101",
+            "\1\u00b4",
             "\1\u00b5",
-            "\1\u00b6",
+            "\32\102\6\uffff\32\102\46\uffff\uff3c\102",
             "\1\u00b7",
             "\1\u00b8",
             "\1\u00b9",
@@ -3428,23 +3526,23 @@ public class InternalLilyPondLexer extends Lexer {
             "\1\u00be",
             "\1\u00bf",
             "\1\u00c0",
-            "\1\u00c2\1\u00c1",
-            "\1\u00c3",
-            "\1\u00c4",
+            "\1\u00c1",
+            "\1\u00c2",
+            "\1\u00c4\1\u00c3",
             "\1\u00c5",
             "\1\u00c6",
             "\1\u00c7",
             "\1\u00c8",
-            "\32\101\6\uffff\32\101\46\uffff\uff3c\101",
+            "\1\u00c9",
             "\1\u00ca",
-            "\1\u00cb",
+            "\32\102\6\uffff\32\102\46\uffff\uff3c\102",
             "\1\u00cc",
             "\1\u00cd",
             "\1\u00ce",
             "\1\u00cf",
-            "\32\101\6\uffff\32\101\46\uffff\uff3c\101",
+            "\1\u00d0",
             "\1\u00d1",
-            "\1\u00d2",
+            "\32\102\6\uffff\32\102\46\uffff\uff3c\102",
             "\1\u00d3",
             "\1\u00d4",
             "\1\u00d5",
@@ -3460,531 +3558,535 @@ public class InternalLilyPondLexer extends Lexer {
             "\1\u00df",
             "\1\u00e0",
             "\1\u00e1",
-            "\12\u00e2\1\u00ad\ufff5\u00e2",
-            "\0\u00e2",
-            "\12\u00af\1\u00ad\2\u00af\1\u00ac\27\u00af\1\u00ae\127\u00af"+
-            "\1\u00e3\uff82\u00af",
-            "\12\u00af\1\u00ad\2\u00af\1\u00ac\27\u00af\1\u00ae\uffda\u00af",
-            "\32\101\6\uffff\17\101\1\u00e4\12\101\46\uffff\uff3c\101",
-            "\1\u00e6",
-            "\1\u00e7",
+            "\1\u00e2",
+            "\1\u00e3",
+            "\12\u00e4\1\u00af\ufff5\u00e4",
+            "\0\u00e4",
+            "\12\u00b1\1\u00af\2\u00b1\1\u00ae\27\u00b1\1\u00b0\127\u00b1"+
+            "\1\u00e5\uff82\u00b1",
+            "\12\u00b1\1\u00af\2\u00b1\1\u00ae\27\u00b1\1\u00b0\uffda\u00b1",
+            "\32\102\6\uffff\17\102\1\u00e6\12\102\46\uffff\uff3c\102",
             "\1\u00e8",
-            "",
             "\1\u00e9",
-            "\32\101\6\uffff\32\101\46\uffff\uff3c\101",
+            "\1\u00ea",
+            "",
             "\1\u00eb",
-            "\1\u00ec",
+            "\32\102\6\uffff\32\102\46\uffff\uff3c\102",
             "\1\u00ed",
-            "\32\101\6\uffff\32\101\46\uffff\uff3c\101",
+            "\1\u00ee",
             "\1\u00ef",
-            "\32\101\6\uffff\24\101\1\u00f0\5\101\46\uffff\uff3c\101",
-            "\1\u00f2",
-            "\1\u00f3",
+            "\32\102\6\uffff\32\102\46\uffff\uff3c\102",
+            "\1\u00f1",
+            "\32\102\6\uffff\24\102\1\u00f2\5\102\46\uffff\uff3c\102",
             "\1\u00f4",
             "\1\u00f5",
             "\1\u00f6",
             "\1\u00f7",
-            "\1\u00f8\5\uffff\1\u00f9",
-            "\1\u00fa",
-            "\1\u00fb",
+            "\1\u00f8",
+            "\1\u00f9",
+            "\1\u00fa\5\uffff\1\u00fb",
             "\1\u00fc",
             "\1\u00fd",
             "\1\u00fe",
-            "",
-            "\32\101\6\uffff\32\101\46\uffff\uff3c\101",
+            "\1\u00ff",
             "\1\u0100",
-            "\1\u0101",
+            "",
+            "\32\102\6\uffff\32\102\46\uffff\uff3c\102",
             "\1\u0102",
             "\1\u0103",
             "\1\u0104",
-            "",
             "\1\u0105",
             "\1\u0106",
-            "\32\101\6\uffff\32\101\46\uffff\uff3c\101",
+            "",
+            "\1\u0107",
             "\1\u0108",
-            "\1\u0109",
+            "\32\102\6\uffff\32\102\46\uffff\uff3c\102",
             "\1\u010a",
-            "\32\101\6\uffff\32\101\46\uffff\uff3c\101",
+            "\1\u010b",
             "\1\u010c",
-            "\1\u010d",
+            "\32\102\6\uffff\32\102\46\uffff\uff3c\102",
             "\1\u010e",
-            "\32\101\6\uffff\22\101\1\u010f\7\101\46\uffff\uff3c\101",
-            "\32\101\6\uffff\32\101\46\uffff\uff3c\101",
-            "\1\u0112",
-            "\1\u0113",
-            "\32\101\6\uffff\32\101\46\uffff\uff3c\101",
+            "\1\u010f",
+            "\1\u0110",
+            "\32\102\6\uffff\22\102\1\u0111\7\102\46\uffff\uff3c\102",
+            "\32\102\6\uffff\32\102\46\uffff\uff3c\102",
+            "\1\u0114",
             "\1\u0115",
-            "\1\u0116",
-            "",
-            "\12\u00af\1\u00ad\2\u00af\1\u00ac\27\u00af\1\u00ae\uffda\u00af",
+            "\32\102\6\uffff\32\102\46\uffff\uff3c\102",
             "\1\u0117",
-            "",
             "\1\u0118",
-            "\32\101\6\uffff\32\101\46\uffff\uff3c\101",
+            "",
+            "\12\u00b1\1\u00af\2\u00b1\1\u00ae\27\u00b1\1\u00b0\uffda\u00b1",
+            "\1\u0119",
+            "",
             "\1\u011a",
-            "\1\u011b",
-            "",
+            "\32\102\6\uffff\32\102\46\uffff\uff3c\102",
             "\1\u011c",
-            "\32\101\6\uffff\32\101\46\uffff\uff3c\101",
-            "\1\u011e",
+            "\1\u011d",
             "",
-            "\1\u011f",
+            "\1\u011e",
+            "\32\102\6\uffff\32\102\46\uffff\uff3c\102",
             "\1\u0120",
             "",
             "\1\u0121",
-            "\1\u0122\5\uffff\1\u0123",
+            "\1\u0122",
+            "",
+            "\1\u0123",
             "\1\u0124\5\uffff\1\u0125",
-            "\1\u0126",
-            "\1\u0127",
+            "\1\u0126\5\uffff\1\u0127",
             "\1\u0128",
             "\1\u0129",
-            "\32\101\6\uffff\32\101\46\uffff\uff3c\101",
+            "\1\u012a",
             "\1\u012b",
-            "\1\u012c",
+            "\32\102\6\uffff\32\102\46\uffff\uff3c\102",
             "\1\u012d",
             "\1\u012e",
             "\1\u012f",
-            "",
             "\1\u0130",
             "\1\u0131",
-            "\32\101\6\uffff\32\101\46\uffff\uff3c\101",
+            "",
+            "\1\u0132",
             "\1\u0133",
-            "\1\u0134",
+            "\32\102\6\uffff\32\102\46\uffff\uff3c\102",
             "\1\u0135",
             "\1\u0136",
-            "",
             "\1\u0137",
             "\1\u0138",
-            "\1\u0139",
             "",
+            "\1\u0139",
             "\1\u013a",
             "\1\u013b",
-            "\32\101\6\uffff\32\101\46\uffff\uff3c\101",
-            "\32\101\6\uffff\32\101\46\uffff\uff3c\101",
             "",
+            "\1\u013c",
+            "\1\u013d",
+            "\32\102\6\uffff\32\102\46\uffff\uff3c\102",
+            "\32\102\6\uffff\32\102\46\uffff\uff3c\102",
             "",
-            "\1\u013e",
-            "\32\101\6\uffff\32\101\46\uffff\uff3c\101",
             "",
             "\1\u0140",
-            "\1\u0141",
+            "\32\102\6\uffff\32\102\46\uffff\uff3c\102",
+            "",
             "\1\u0142",
-            "\32\101\6\uffff\32\101\46\uffff\uff3c\101",
-            "",
+            "\1\u0143",
             "\1\u0144",
-            "\1\u0145",
-            "\1\u0146",
+            "\32\102\6\uffff\32\102\46\uffff\uff3c\102",
             "",
+            "\1\u0146",
             "\1\u0147",
             "\1\u0148",
-            "\32\101\6\uffff\13\101\1\u0149\16\101\46\uffff\uff3c\101",
-            "\32\101\6\uffff\32\101\46\uffff\uff3c\101",
-            "\1\u014c",
-            "\32\101\6\uffff\23\101\1\u014d\6\101\46\uffff\uff3c\101",
-            "\1\u014f",
-            "\32\101\6\uffff\32\101\46\uffff\uff3c\101",
-            "\32\101\6\uffff\32\101\46\uffff\uff3c\101",
-            "\1\u0152",
-            "\1\u0153",
+            "",
+            "\1\u0149",
+            "\1\u014a",
+            "\32\102\6\uffff\13\102\1\u014b\16\102\46\uffff\uff3c\102",
+            "\32\102\6\uffff\32\102\46\uffff\uff3c\102",
+            "\1\u014e",
+            "\32\102\6\uffff\23\102\1\u014f\6\102\46\uffff\uff3c\102",
+            "\1\u0151",
+            "\32\102\6\uffff\32\102\46\uffff\uff3c\102",
+            "\32\102\6\uffff\32\102\46\uffff\uff3c\102",
             "\1\u0154",
-            "",
             "\1\u0155",
-            "\32\101\6\uffff\32\101\46\uffff\uff3c\101",
-            "\1\u0157",
-            "\1\u0158\5\uffff\1\u0159",
-            "\1\u015a",
-            "\1\u015b",
-            "\1\u015c",
+            "\1\u0156",
             "",
+            "\1\u0157",
+            "\32\102\6\uffff\32\102\46\uffff\uff3c\102",
+            "\1\u0159",
+            "\1\u015a\5\uffff\1\u015b",
+            "\1\u015c",
             "\1\u015d",
             "\1\u015e",
+            "",
             "\1\u015f",
-            "\32\101\6\uffff\32\101\46\uffff\uff3c\101",
+            "\1\u0160",
             "\1\u0161",
-            "\32\101\6\uffff\32\101\46\uffff\uff3c\101",
-            "\32\101\6\uffff\32\101\46\uffff\uff3c\101",
-            "\32\101\6\uffff\32\101\46\uffff\uff3c\101",
-            "\1\u0165",
-            "",
-            "",
-            "\1\u0166",
-            "",
+            "\32\102\6\uffff\32\102\46\uffff\uff3c\102",
+            "\1\u0163",
+            "\32\102\6\uffff\32\102\46\uffff\uff3c\102",
+            "\32\102\6\uffff\32\102\46\uffff\uff3c\102",
+            "\32\102\6\uffff\32\102\46\uffff\uff3c\102",
             "\1\u0167",
-            "\1\u0168",
-            "\1\u0169",
             "",
+            "",
+            "\1\u0168",
+            "",
+            "\1\u0169",
             "\1\u016a",
             "\1\u016b",
+            "",
             "\1\u016c",
-            "\32\101\6\uffff\32\101\46\uffff\uff3c\101",
+            "\1\u016d",
             "\1\u016e",
-            "\1\u016f",
-            "",
-            "",
+            "\32\102\6\uffff\32\102\46\uffff\uff3c\102",
             "\1\u0170",
             "\1\u0171",
             "",
+            "",
             "\1\u0172",
+            "\1\u0173",
             "",
-            "",
-            "\32\101\6\uffff\32\101\46\uffff\uff3c\101",
             "\1\u0174",
-            "\1\u0175",
-            "\32\101\6\uffff\2\101\1\u0176\27\101\46\uffff\uff3c\101",
             "",
-            "\1\u0178",
-            "\1\u0179",
-            "\32\101\6\uffff\32\101\46\uffff\uff3c\101",
+            "",
+            "\32\102\6\uffff\32\102\46\uffff\uff3c\102",
+            "\1\u0176",
+            "\1\u0177",
+            "\32\102\6\uffff\2\102\1\u0178\27\102\46\uffff\uff3c\102",
+            "",
+            "\1\u017a",
             "\1\u017b",
-            "\32\101\6\uffff\32\101\46\uffff\uff3c\101",
+            "\32\102\6\uffff\32\102\46\uffff\uff3c\102",
             "\1\u017d",
-            "\1\u017e",
+            "\32\102\6\uffff\32\102\46\uffff\uff3c\102",
             "\1\u017f",
             "\1\u0180",
-            "",
             "\1\u0181",
-            "",
-            "",
-            "",
             "\1\u0182",
-            "\1\u0183",
-            "\32\101\6\uffff\32\101\46\uffff\uff3c\101",
-            "\32\101\6\uffff\32\101\46\uffff\uff3c\101",
-            "\32\101\6\uffff\32\101\46\uffff\uff3c\101",
-            "\1\u0187",
-            "\1\u0188",
-            "\1\u0189",
             "",
+            "\1\u0183",
+            "",
+            "",
+            "",
+            "\1\u0184",
+            "\1\u0185",
+            "\32\102\6\uffff\32\102\46\uffff\uff3c\102",
+            "\32\102\6\uffff\32\102\46\uffff\uff3c\102",
+            "\32\102\6\uffff\32\102\46\uffff\uff3c\102",
+            "\1\u0189",
             "\1\u018a",
             "\1\u018b",
+            "",
             "\1\u018c",
-            "\32\101\6\uffff\32\101\46\uffff\uff3c\101",
+            "\1\u018d",
             "\1\u018e",
+            "\32\102\6\uffff\32\102\46\uffff\uff3c\102",
+            "\1\u0190",
             "",
-            "\32\101\6\uffff\32\101\46\uffff\uff3c\101",
-            "\32\101\6\uffff\32\101\46\uffff\uff3c\101",
-            "\1\u0191",
-            "",
-            "\1\u0192",
+            "\32\102\6\uffff\32\102\46\uffff\uff3c\102",
+            "\32\102\6\uffff\32\102\46\uffff\uff3c\102",
             "\1\u0193",
             "",
-            "\32\101\6\uffff\32\101\46\uffff\uff3c\101",
-            "",
+            "\1\u0194",
             "\1\u0195",
-            "\1\u0196",
+            "",
+            "\32\102\6\uffff\32\102\46\uffff\uff3c\102",
+            "",
             "\1\u0197",
-            "\32\101\6\uffff\32\101\46\uffff\uff3c\101",
-            "\32\101\6\uffff\32\101\46\uffff\uff3c\101",
-            "\32\101\6\uffff\32\101\46\uffff\uff3c\101",
-            "\1\u019b",
-            "",
-            "",
-            "",
-            "\1\u019c",
+            "\1\u0198",
+            "\1\u0199",
+            "\32\102\6\uffff\32\102\46\uffff\uff3c\102",
+            "\32\102\6\uffff\32\102\46\uffff\uff3c\102",
+            "\32\102\6\uffff\32\102\46\uffff\uff3c\102",
             "\1\u019d",
+            "",
+            "",
+            "",
             "\1\u019e",
-            "\32\101\6\uffff\32\101\46\uffff\uff3c\101",
+            "\1\u019f",
             "\1\u01a0",
-            "\32\101\6\uffff\32\101\46\uffff\uff3c\101",
+            "\32\102\6\uffff\32\102\46\uffff\uff3c\102",
+            "\1\u01a2",
+            "\32\102\6\uffff\32\102\46\uffff\uff3c\102",
             "",
-            "\32\101\6\uffff\32\101\46\uffff\uff3c\101",
+            "\32\102\6\uffff\32\102\46\uffff\uff3c\102",
             "",
             "",
-            "\1\u01a3",
-            "\1\u01a4",
             "\1\u01a5",
-            "",
-            "\32\101\6\uffff\32\101\46\uffff\uff3c\101",
+            "\1\u01a6",
             "\1\u01a7",
-            "\1\u01a8",
+            "",
+            "\32\102\6\uffff\32\102\46\uffff\uff3c\102",
+            "\1\u01a9",
+            "\1\u01aa",
             "",
             "",
             "",
-            "\32\101\6\uffff\32\101\46\uffff\uff3c\101",
-            "\32\101\6\uffff\32\101\46\uffff\uff3c\101",
-            "\1\u01ab",
-            "\1\u01ad\1\uffff\1\u01ac",
+            "\32\102\6\uffff\32\102\46\uffff\uff3c\102",
+            "\32\102\6\uffff\32\102\46\uffff\uff3c\102",
+            "\1\u01ad",
+            "\1\u01af\1\uffff\1\u01ae",
             "",
-            "\1\u01ae",
-            "",
-            "",
-            "\1\u01af",
             "\1\u01b0",
-            "\32\101\6\uffff\32\101\46\uffff\uff3c\101",
             "",
+            "",
+            "\1\u01b1",
             "\1\u01b2",
-            "\1\u01b3",
-            "",
+            "\32\102\6\uffff\32\102\46\uffff\uff3c\102",
             "",
             "\1\u01b4",
             "\1\u01b5",
+            "",
+            "",
             "\1\u01b6",
-            "\32\101\6\uffff\32\101\46\uffff\uff3c\101",
+            "\1\u01b7",
             "\1\u01b8",
-            "\32\101\6\uffff\32\101\46\uffff\uff3c\101",
+            "\32\102\6\uffff\32\102\46\uffff\uff3c\102",
+            "\1\u01ba",
+            "\32\102\6\uffff\32\102\46\uffff\uff3c\102",
             "",
-            "\32\101\6\uffff\32\101\46\uffff\uff3c\101",
-            "\1\u01bb",
-            "\32\101\6\uffff\32\101\46\uffff\uff3c\101",
+            "\32\102\6\uffff\32\102\46\uffff\uff3c\102",
             "\1\u01bd",
-            "\1\u01be",
-            "",
-            "\32\101\6\uffff\32\101\46\uffff\uff3c\101",
-            "",
-            "",
+            "\32\102\6\uffff\32\102\46\uffff\uff3c\102",
+            "\1\u01bf",
             "\1\u01c0",
             "",
-            "\1\u01c1",
+            "\32\102\6\uffff\32\102\46\uffff\uff3c\102",
+            "",
+            "",
             "\1\u01c2",
             "",
             "\1\u01c3",
-            "\32\101\6\uffff\32\101\46\uffff\uff3c\101",
-            "\32\101\6\uffff\32\101\46\uffff\uff3c\101",
-            "\1\u01c6",
+            "\1\u01c4",
+            "",
+            "\1\u01c5",
+            "\32\102\6\uffff\32\102\46\uffff\uff3c\102",
+            "\32\102\6\uffff\32\102\46\uffff\uff3c\102",
+            "\1\u01c8",
             "",
             "",
-            "\1\u01c7",
-            "\32\101\6\uffff\32\101\46\uffff\uff3c\101",
+            "\1\u01c9",
+            "\32\102\6\uffff\32\102\46\uffff\uff3c\102",
             ""
     };
 
-    static final short[] DFA10_eot = DFA.unpackEncodedString(DFA10_eotS);
-    static final short[] DFA10_eof = DFA.unpackEncodedString(DFA10_eofS);
-    static final char[] DFA10_min = DFA.unpackEncodedStringToUnsignedChars(DFA10_minS);
-    static final char[] DFA10_max = DFA.unpackEncodedStringToUnsignedChars(DFA10_maxS);
-    static final short[] DFA10_accept = DFA.unpackEncodedString(DFA10_acceptS);
-    static final short[] DFA10_special = DFA.unpackEncodedString(DFA10_specialS);
-    static final short[][] DFA10_transition;
+    static final short[] DFA13_eot = DFA.unpackEncodedString(DFA13_eotS);
+    static final short[] DFA13_eof = DFA.unpackEncodedString(DFA13_eofS);
+    static final char[] DFA13_min = DFA.unpackEncodedStringToUnsignedChars(DFA13_minS);
+    static final char[] DFA13_max = DFA.unpackEncodedStringToUnsignedChars(DFA13_maxS);
+    static final short[] DFA13_accept = DFA.unpackEncodedString(DFA13_acceptS);
+    static final short[] DFA13_special = DFA.unpackEncodedString(DFA13_specialS);
+    static final short[][] DFA13_transition;
 
     static {
-        int numStates = DFA10_transitionS.length;
-        DFA10_transition = new short[numStates][];
+        int numStates = DFA13_transitionS.length;
+        DFA13_transition = new short[numStates][];
         for (int i=0; i<numStates; i++) {
-            DFA10_transition[i] = DFA.unpackEncodedString(DFA10_transitionS[i]);
+            DFA13_transition[i] = DFA.unpackEncodedString(DFA13_transitionS[i]);
         }
     }
 
-    class DFA10 extends DFA {
+    class DFA13 extends DFA {
 
-        public DFA10(BaseRecognizer recognizer) {
+        public DFA13(BaseRecognizer recognizer) {
             this.recognizer = recognizer;
-            this.decisionNumber = 10;
-            this.eot = DFA10_eot;
-            this.eof = DFA10_eof;
-            this.min = DFA10_min;
-            this.max = DFA10_max;
-            this.accept = DFA10_accept;
-            this.special = DFA10_special;
-            this.transition = DFA10_transition;
+            this.decisionNumber = 13;
+            this.eot = DFA13_eot;
+            this.eof = DFA13_eof;
+            this.min = DFA13_min;
+            this.max = DFA13_max;
+            this.accept = DFA13_accept;
+            this.special = DFA13_special;
+            this.transition = DFA13_transition;
         }
         public String getDescription() {
-            return "1:1: Tokens : ( T__12 | T__13 | T__14 | T__15 | T__16 | T__17 | T__18 | T__19 | T__20 | T__21 | T__22 | T__23 | T__24 | T__25 | T__26 | T__27 | T__28 | T__29 | T__30 | T__31 | T__32 | T__33 | T__34 | T__35 | T__36 | T__37 | T__38 | T__39 | T__40 | T__41 | T__42 | T__43 | T__44 | T__45 | T__46 | T__47 | T__48 | T__49 | T__50 | T__51 | T__52 | T__53 | T__54 | T__55 | T__56 | T__57 | T__58 | T__59 | T__60 | T__61 | T__62 | T__63 | T__64 | T__65 | T__66 | T__67 | T__68 | T__69 | T__70 | T__71 | T__72 | T__73 | T__74 | T__75 | T__76 | T__77 | T__78 | T__79 | T__80 | T__81 | T__82 | T__83 | T__84 | T__85 | T__86 | T__87 | T__88 | T__89 | T__90 | T__91 | T__92 | T__93 | T__94 | T__95 | T__96 | T__97 | T__98 | T__99 | T__100 | T__101 | RULE_STRING | RULE_INT | RULE_ID | RULE_WS | RULE_SL_COMMENT | RULE_ML_COMMENT | RULE_SCHEME_ML_COMMENT | RULE_ANY_OTHER );";
+            return "1:1: Tokens : ( T__13 | T__14 | T__15 | T__16 | T__17 | T__18 | T__19 | T__20 | T__21 | T__22 | T__23 | T__24 | T__25 | T__26 | T__27 | T__28 | T__29 | T__30 | T__31 | T__32 | T__33 | T__34 | T__35 | T__36 | T__37 | T__38 | T__39 | T__40 | T__41 | T__42 | T__43 | T__44 | T__45 | T__46 | T__47 | T__48 | T__49 | T__50 | T__51 | T__52 | T__53 | T__54 | T__55 | T__56 | T__57 | T__58 | T__59 | T__60 | T__61 | T__62 | T__63 | T__64 | T__65 | T__66 | T__67 | T__68 | T__69 | T__70 | T__71 | T__72 | T__73 | T__74 | T__75 | T__76 | T__77 | T__78 | T__79 | T__80 | T__81 | T__82 | T__83 | T__84 | T__85 | T__86 | T__87 | T__88 | T__89 | T__90 | T__91 | T__92 | T__93 | T__94 | T__95 | T__96 | T__97 | T__98 | T__99 | T__100 | T__101 | T__102 | RULE_STRING | RULE_INT | RULE_ID | RULE_WS | RULE_SL_COMMENT | RULE_ML_COMMENT | RULE_SCHEME_SL_COMMENT | RULE_SCHEME_ML_COMMENT | RULE_ANY_OTHER );";
         }
         public int specialStateTransition(int s, IntStream _input) throws NoViableAltException {
             IntStream input = _input;
         	int _s = s;
             switch ( s ) {
                     case 0 : 
-                        int LA10_227 = input.LA(1);
+                        int LA13_175 = input.LA(1);
 
                         s = -1;
-                        if ( (LA10_227=='%') ) {s = 174;}
+                        if ( ((LA13_175>='\u0000' && LA13_175<='\uFFFF')) ) {s = 228;}
 
-                        else if ( (LA10_227=='\r') ) {s = 172;}
-
-                        else if ( (LA10_227=='\n') ) {s = 173;}
-
-                        else if ( ((LA10_227>='\u0000' && LA10_227<='\t')||(LA10_227>='\u000B' && LA10_227<='\f')||(LA10_227>='\u000E' && LA10_227<='$')||(LA10_227>='&' && LA10_227<='\uFFFF')) ) {s = 175;}
-
-                        else s = 122;
+                        else s = 123;
 
                         if ( s>=0 ) return s;
                         break;
                     case 1 : 
-                        int LA10_173 = input.LA(1);
+                        int LA13_122 = input.LA(1);
 
                         s = -1;
-                        if ( ((LA10_173>='\u0000' && LA10_173<='\uFFFF')) ) {s = 226;}
+                        if ( (LA13_122=='\r') ) {s = 174;}
 
-                        else s = 122;
+                        else if ( (LA13_122=='\n') ) {s = 175;}
+
+                        else if ( (LA13_122=='%') ) {s = 176;}
+
+                        else if ( ((LA13_122>='\u0000' && LA13_122<='\t')||(LA13_122>='\u000B' && LA13_122<='\f')||(LA13_122>='\u000E' && LA13_122<='$')||(LA13_122>='&' && LA13_122<='\uFFFF')) ) {s = 177;}
+
+                        else s = 123;
 
                         if ( s>=0 ) return s;
                         break;
                     case 2 : 
-                        int LA10_121 = input.LA(1);
+                        int LA13_176 = input.LA(1);
 
                         s = -1;
-                        if ( (LA10_121=='\r') ) {s = 172;}
+                        if ( (LA13_176=='}') ) {s = 229;}
 
-                        else if ( (LA10_121=='\n') ) {s = 173;}
+                        else if ( (LA13_176=='\r') ) {s = 174;}
 
-                        else if ( (LA10_121=='%') ) {s = 174;}
+                        else if ( (LA13_176=='\n') ) {s = 175;}
 
-                        else if ( ((LA10_121>='\u0000' && LA10_121<='\t')||(LA10_121>='\u000B' && LA10_121<='\f')||(LA10_121>='\u000E' && LA10_121<='$')||(LA10_121>='&' && LA10_121<='\uFFFF')) ) {s = 175;}
+                        else if ( (LA13_176=='%') ) {s = 176;}
 
-                        else s = 122;
+                        else if ( ((LA13_176>='\u0000' && LA13_176<='\t')||(LA13_176>='\u000B' && LA13_176<='\f')||(LA13_176>='\u000E' && LA13_176<='$')||(LA13_176>='&' && LA13_176<='|')||(LA13_176>='~' && LA13_176<='\uFFFF')) ) {s = 177;}
+
+                        else s = 123;
 
                         if ( s>=0 ) return s;
                         break;
                     case 3 : 
-                        int LA10_172 = input.LA(1);
+                        int LA13_177 = input.LA(1);
 
                         s = -1;
-                        if ( ((LA10_172>='\u0000' && LA10_172<='\t')||(LA10_172>='\u000B' && LA10_172<='\uFFFF')) ) {s = 226;}
+                        if ( (LA13_177=='\r') ) {s = 174;}
 
-                        else if ( (LA10_172=='\n') ) {s = 173;}
+                        else if ( (LA13_177=='\n') ) {s = 175;}
+
+                        else if ( (LA13_177=='%') ) {s = 176;}
+
+                        else if ( ((LA13_177>='\u0000' && LA13_177<='\t')||(LA13_177>='\u000B' && LA13_177<='\f')||(LA13_177>='\u000E' && LA13_177<='$')||(LA13_177>='&' && LA13_177<='\uFFFF')) ) {s = 177;}
+
+                        else s = 123;
 
                         if ( s>=0 ) return s;
                         break;
                     case 4 : 
-                        int LA10_174 = input.LA(1);
+                        int LA13_174 = input.LA(1);
 
                         s = -1;
-                        if ( (LA10_174=='}') ) {s = 227;}
+                        if ( (LA13_174=='\n') ) {s = 175;}
 
-                        else if ( (LA10_174=='%') ) {s = 174;}
-
-                        else if ( (LA10_174=='\r') ) {s = 172;}
-
-                        else if ( (LA10_174=='\n') ) {s = 173;}
-
-                        else if ( ((LA10_174>='\u0000' && LA10_174<='\t')||(LA10_174>='\u000B' && LA10_174<='\f')||(LA10_174>='\u000E' && LA10_174<='$')||(LA10_174>='&' && LA10_174<='|')||(LA10_174>='~' && LA10_174<='\uFFFF')) ) {s = 175;}
-
-                        else s = 122;
+                        else if ( ((LA13_174>='\u0000' && LA13_174<='\t')||(LA13_174>='\u000B' && LA13_174<='\uFFFF')) ) {s = 228;}
 
                         if ( s>=0 ) return s;
                         break;
                     case 5 : 
-                        int LA10_175 = input.LA(1);
+                        int LA13_0 = input.LA(1);
 
                         s = -1;
-                        if ( (LA10_175=='%') ) {s = 174;}
+                        if ( (LA13_0=='!') ) {s = 1;}
 
-                        else if ( (LA10_175=='\r') ) {s = 172;}
+                        else if ( (LA13_0=='?') ) {s = 2;}
 
-                        else if ( (LA10_175=='\n') ) {s = 173;}
+                        else if ( (LA13_0=='+') ) {s = 3;}
 
-                        else if ( ((LA10_175>='\u0000' && LA10_175<='\t')||(LA10_175>='\u000B' && LA10_175<='\f')||(LA10_175>='\u000E' && LA10_175<='$')||(LA10_175>='&' && LA10_175<='\uFFFF')) ) {s = 175;}
+                        else if ( (LA13_0=='<') ) {s = 4;}
 
-                        else s = 122;
+                        else if ( (LA13_0=='>') ) {s = 5;}
+
+                        else if ( (LA13_0=='[') ) {s = 6;}
+
+                        else if ( (LA13_0==']') ) {s = 7;}
+
+                        else if ( (LA13_0=='~') ) {s = 8;}
+
+                        else if ( (LA13_0=='(') ) {s = 9;}
+
+                        else if ( (LA13_0==')') ) {s = 10;}
+
+                        else if ( (LA13_0=='\'') ) {s = 11;}
+
+                        else if ( (LA13_0==',') ) {s = 12;}
+
+                        else if ( (LA13_0==':') ) {s = 13;}
+
+                        else if ( (LA13_0=='b') ) {s = 14;}
+
+                        else if ( (LA13_0=='h') ) {s = 15;}
+
+                        else if ( (LA13_0=='s') ) {s = 16;}
+
+                        else if ( (LA13_0=='p') ) {s = 17;}
+
+                        else if ( (LA13_0=='m') ) {s = 18;}
+
+                        else if ( (LA13_0=='l') ) {s = 19;}
+
+                        else if ( (LA13_0=='c') ) {s = 20;}
+
+                        else if ( (LA13_0=='d') ) {s = 21;}
+
+                        else if ( (LA13_0=='f') ) {s = 22;}
+
+                        else if ( (LA13_0=='n') ) {s = 23;}
+
+                        else if ( (LA13_0=='a') ) {s = 24;}
+
+                        else if ( (LA13_0=='g') ) {s = 25;}
+
+                        else if ( (LA13_0=='k') ) {s = 26;}
+
+                        else if ( (LA13_0=='o') ) {s = 27;}
+
+                        else if ( (LA13_0=='r') ) {s = 28;}
+
+                        else if ( (LA13_0=='t') ) {s = 29;}
+
+                        else if ( (LA13_0=='u') ) {s = 30;}
+
+                        else if ( (LA13_0=='w') ) {s = 31;}
+
+                        else if ( (LA13_0=='i') ) {s = 32;}
+
+                        else if ( (LA13_0=='v') ) {s = 33;}
+
+                        else if ( (LA13_0=='#') ) {s = 34;}
+
+                        else if ( (LA13_0=='$') ) {s = 35;}
+
+                        else if ( (LA13_0=='`') ) {s = 36;}
+
+                        else if ( (LA13_0=='@') ) {s = 37;}
+
+                        else if ( (LA13_0=='\\') ) {s = 38;}
+
+                        else if ( (LA13_0=='=') ) {s = 39;}
+
+                        else if ( (LA13_0=='-') ) {s = 40;}
+
+                        else if ( (LA13_0=='{') ) {s = 41;}
+
+                        else if ( (LA13_0=='}') ) {s = 42;}
+
+                        else if ( (LA13_0=='\"') ) {s = 43;}
+
+                        else if ( ((LA13_0>='0' && LA13_0<='9')) ) {s = 44;}
+
+                        else if ( ((LA13_0>='A' && LA13_0<='Z')||LA13_0=='e'||LA13_0=='j'||LA13_0=='q'||(LA13_0>='x' && LA13_0<='z')||(LA13_0>='\u00A1' && LA13_0<='\uFFDC')) ) {s = 45;}
+
+                        else if ( ((LA13_0>='\t' && LA13_0<='\n')||LA13_0=='\r'||LA13_0==' ') ) {s = 46;}
+
+                        else if ( (LA13_0=='%') ) {s = 47;}
+
+                        else if ( (LA13_0==';') ) {s = 48;}
+
+                        else if ( ((LA13_0>='\u0000' && LA13_0<='\b')||(LA13_0>='\u000B' && LA13_0<='\f')||(LA13_0>='\u000E' && LA13_0<='\u001F')||LA13_0=='&'||LA13_0=='*'||(LA13_0>='.' && LA13_0<='/')||(LA13_0>='^' && LA13_0<='_')||LA13_0=='|'||(LA13_0>='\u007F' && LA13_0<='\u00A0')||(LA13_0>='\uFFDD' && LA13_0<='\uFFFF')) ) {s = 49;}
 
                         if ( s>=0 ) return s;
                         break;
                     case 6 : 
-                        int LA10_0 = input.LA(1);
+                        int LA13_43 = input.LA(1);
 
                         s = -1;
-                        if ( (LA10_0=='!') ) {s = 1;}
+                        if ( ((LA13_43>='\u0000' && LA13_43<='\uFFFF')) ) {s = 119;}
 
-                        else if ( (LA10_0=='?') ) {s = 2;}
-
-                        else if ( (LA10_0=='+') ) {s = 3;}
-
-                        else if ( (LA10_0=='<') ) {s = 4;}
-
-                        else if ( (LA10_0=='>') ) {s = 5;}
-
-                        else if ( (LA10_0=='[') ) {s = 6;}
-
-                        else if ( (LA10_0==']') ) {s = 7;}
-
-                        else if ( (LA10_0=='~') ) {s = 8;}
-
-                        else if ( (LA10_0=='(') ) {s = 9;}
-
-                        else if ( (LA10_0==')') ) {s = 10;}
-
-                        else if ( (LA10_0=='\'') ) {s = 11;}
-
-                        else if ( (LA10_0==',') ) {s = 12;}
-
-                        else if ( (LA10_0==':') ) {s = 13;}
-
-                        else if ( (LA10_0=='b') ) {s = 14;}
-
-                        else if ( (LA10_0=='h') ) {s = 15;}
-
-                        else if ( (LA10_0=='s') ) {s = 16;}
-
-                        else if ( (LA10_0=='p') ) {s = 17;}
-
-                        else if ( (LA10_0=='m') ) {s = 18;}
-
-                        else if ( (LA10_0=='l') ) {s = 19;}
-
-                        else if ( (LA10_0=='c') ) {s = 20;}
-
-                        else if ( (LA10_0=='d') ) {s = 21;}
-
-                        else if ( (LA10_0=='f') ) {s = 22;}
-
-                        else if ( (LA10_0=='n') ) {s = 23;}
-
-                        else if ( (LA10_0=='a') ) {s = 24;}
-
-                        else if ( (LA10_0=='g') ) {s = 25;}
-
-                        else if ( (LA10_0=='k') ) {s = 26;}
-
-                        else if ( (LA10_0=='o') ) {s = 27;}
-
-                        else if ( (LA10_0=='r') ) {s = 28;}
-
-                        else if ( (LA10_0=='t') ) {s = 29;}
-
-                        else if ( (LA10_0=='u') ) {s = 30;}
-
-                        else if ( (LA10_0=='w') ) {s = 31;}
-
-                        else if ( (LA10_0=='i') ) {s = 32;}
-
-                        else if ( (LA10_0=='v') ) {s = 33;}
-
-                        else if ( (LA10_0=='#') ) {s = 34;}
-
-                        else if ( (LA10_0=='$') ) {s = 35;}
-
-                        else if ( (LA10_0=='`') ) {s = 36;}
-
-                        else if ( (LA10_0=='@') ) {s = 37;}
-
-                        else if ( (LA10_0=='\\') ) {s = 38;}
-
-                        else if ( (LA10_0=='=') ) {s = 39;}
-
-                        else if ( (LA10_0=='-') ) {s = 40;}
-
-                        else if ( (LA10_0=='{') ) {s = 41;}
-
-                        else if ( (LA10_0=='}') ) {s = 42;}
-
-                        else if ( (LA10_0=='\"') ) {s = 43;}
-
-                        else if ( ((LA10_0>='0' && LA10_0<='9')) ) {s = 44;}
-
-                        else if ( ((LA10_0>='A' && LA10_0<='Z')||LA10_0=='e'||LA10_0=='j'||LA10_0=='q'||(LA10_0>='x' && LA10_0<='z')||(LA10_0>='\u00A1' && LA10_0<='\uFFDC')) ) {s = 45;}
-
-                        else if ( ((LA10_0>='\t' && LA10_0<='\n')||LA10_0=='\r'||LA10_0==' ') ) {s = 46;}
-
-                        else if ( (LA10_0=='%') ) {s = 47;}
-
-                        else if ( ((LA10_0>='\u0000' && LA10_0<='\b')||(LA10_0>='\u000B' && LA10_0<='\f')||(LA10_0>='\u000E' && LA10_0<='\u001F')||LA10_0=='&'||LA10_0=='*'||(LA10_0>='.' && LA10_0<='/')||LA10_0==';'||(LA10_0>='^' && LA10_0<='_')||LA10_0=='|'||(LA10_0>='\u007F' && LA10_0<='\u00A0')||(LA10_0>='\uFFDD' && LA10_0<='\uFFFF')) ) {s = 48;}
+                        else s = 49;
 
                         if ( s>=0 ) return s;
                         break;
                     case 7 : 
-                        int LA10_43 = input.LA(1);
+                        int LA13_229 = input.LA(1);
 
                         s = -1;
-                        if ( ((LA10_43>='\u0000' && LA10_43<='\uFFFF')) ) {s = 118;}
+                        if ( (LA13_229=='\r') ) {s = 174;}
 
-                        else s = 48;
+                        else if ( (LA13_229=='\n') ) {s = 175;}
+
+                        else if ( (LA13_229=='%') ) {s = 176;}
+
+                        else if ( ((LA13_229>='\u0000' && LA13_229<='\t')||(LA13_229>='\u000B' && LA13_229<='\f')||(LA13_229>='\u000E' && LA13_229<='$')||(LA13_229>='&' && LA13_229<='\uFFFF')) ) {s = 177;}
+
+                        else s = 123;
 
                         if ( s>=0 ) return s;
                         break;
             }
             NoViableAltException nvae =
-                new NoViableAltException(getDescription(), 10, _s, input);
+                new NoViableAltException(getDescription(), 13, _s, input);
             error(nvae);
             throw nvae;
         }
