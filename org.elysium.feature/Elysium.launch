@@ -25,7 +25,6 @@
 <stringAttribute key="pde.version" value="3.3"/>
 <stringAttribute key="product" value="org.eclipse.sdk.ide"/>
 <setAttribute key="selected_features">
-<setEntry value="org.eclipse.platform:default"/>
 <setEntry value="org.elysium.feature:default"/>
 </setAttribute>
 <booleanAttribute key="show_selected_only" value="false"/>
