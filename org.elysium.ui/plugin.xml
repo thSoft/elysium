@@ -284,6 +284,16 @@
                   </command>
             </menuContribution>
       </extension>
+      <!-- Compare -->
+      <extension point="org.eclipse.compare.contentViewers">
+            <viewer id="org.elysium.LilyPond.compare.contentViewers" class="org.elysium.ui.LilyPondExecutableExtensionFactory:org.eclipse.xtext.ui.compare.InjectableViewerCreator" extensions="ly,ily"> </viewer>
+      </extension>
+      <extension point="org.eclipse.compare.contentMergeViewers">
+            <viewer id="org.elysium.LilyPond.compare.contentMergeViewers" class="org.elysium.ui.LilyPondExecutableExtensionFactory:org.eclipse.xtext.ui.compare.InjectableViewerCreator" extensions="ly,ily" label="LilyPond Compare"> </viewer>
+      </extension>
+      <extension point="org.eclipse.ui.editors.documentProviders">
+            <provider id="org.elysium.LilyPond.editors.documentProviders" class="org.elysium.ui.LilyPondExecutableExtensionFactory:org.eclipse.xtext.ui.editor.model.XtextDocumentProvider" extensions="ly,ily"> </provider>
+      </extension>
       <!-- Global -->
       <extension point="org.eclipse.ui.views">
             <category id="org.elysium.ui.viewCategories.LilyPond" name="LilyPond"/>

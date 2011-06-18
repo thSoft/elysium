@@ -113,5 +113,10 @@ public abstract class AbstractLilyPondUiModule extends DefaultUiModule {
 		return org.elysium.ui.quickfix.LilyPondQuickfixProvider.class;
 	}
 
+	// contributed by org.eclipse.xtext.ui.generator.compare.CompareFragment
+	public Class<? extends org.eclipse.compare.IViewerCreator> bindIViewerCreator() {
+		return org.eclipse.xtext.ui.compare.DefaultViewerCreator.class;
+	}
+
 
 }

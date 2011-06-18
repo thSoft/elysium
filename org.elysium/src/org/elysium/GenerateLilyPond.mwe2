@@ -77,6 +77,10 @@ Workflow {
 			fragment = quickfix.QuickfixProviderFragment {}
 			
 			fragment = refactoring.RefactorElementNameFragment {}
+			
+			fragment = compare.CompareFragment {
+				fileExtensions = file.extensions
+			}
 		}
 	}
 
