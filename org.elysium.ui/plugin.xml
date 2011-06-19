@@ -222,7 +222,7 @@
             <view category="org.elysium.ui.viewCategories.LilyPond" class="org.eclipse.ui.views.file.FileView" icon="icons/score/View.png" id="org.elysium.ui.views.Score" name="Score" restorable="true"/>
       </extension>
       <extension point="org.eclipse.ui.views.file.bindings">
-            <binding errorMessage="No score found.Enter some music and save the LilyPond source to see the score.Make sure the \layout block exists besides the \midi block." type="org.elysium.ui.score.ScoreViewType" viewId="org.elysium.ui.views.Score">
+            <binding errorMessage="No score found.&#10;Enter some music and save the LilyPond source to see the score.&#10;Make sure the \layout block exists besides the \midi block." type="org.elysium.ui.score.ScoreViewType" viewId="org.elysium.ui.views.Score">
                   <fileExtension extension="pdf"/>
                   <source id="org.elysium.ui.sources.CurrentScore"/>
                   <source id="org.elysium.ui.sources.MainFileScore"/>
@@ -239,7 +239,7 @@
             <view category="org.elysium.ui.viewCategories.LilyPond" class="org.eclipse.ui.views.file.FileView" icon="icons/audio/View.png" id="org.elysium.ui.views.Audio" name="Audio" restorable="true"/>
       </extension>
       <extension point="org.eclipse.ui.views.file.bindings">
-            <binding errorMessage="No audio found.Enter some music and save the LilyPond source to hear the audio.Make sure the \midi block exists besides the \layout block." type="org.elysium.ui.audio.AudioViewType" viewId="org.elysium.ui.views.Audio">
+            <binding errorMessage="No audio found.&#10;Enter some music and save the LilyPond source to hear the audio.&#10;Make sure the \midi block exists besides the \layout block." type="org.elysium.ui.audio.AudioViewType" viewId="org.elysium.ui.views.Audio">
                   <fileExtension extension="midi"/>
                   <source id="org.elysium.ui.sources.CurrentAudio"/>
                   <source id="org.elysium.ui.sources.MainFileAudio"/>
