@@ -1,10 +1,10 @@
 package org.elysium.scoping;
 
-import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.HashSet;
 import java.util.LinkedHashSet;
+import java.util.List;
 import java.util.Set;
 import org.eclipse.emf.common.util.TreeIterator;
 import org.eclipse.emf.common.util.URI;
@@ -73,10 +73,10 @@ public class LilyPondImportUriGlobalScopeProvider extends AbstractGlobalScopePro
 	protected IScope getScope(Resource resource, boolean ignoreCase, EClass type, Predicate<IEObjectDescription> filter) {
 		final LinkedHashSet<URI> uniqueImportUris = getImportedUris(resource);
 		IResourceDescriptions descriptions = getResourceDescriptions(resource, uniqueImportUris);
-		ArrayList<URI> newArrayList = Lists.newArrayList(uniqueImportUris);
-		Collections.reverse(newArrayList);
+		List<URI> urisAsList = Lists.newArrayList(uniqueImportUris);
+		Collections.reverse(urisAsList);
 		IScope scope = IScope.NULLSCOPE;
-		for (URI uri : newArrayList) {
+		for (URI uri : urisAsList) {
 			scope = createLazyResourceScope(scope, uri, descriptions, type, filter, ignoreCase);
 		}
 		return scope;
