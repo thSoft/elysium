@@ -26,6 +26,7 @@ public class LilyPondResourceDescriptionStrategy extends DefaultResourceDescript
 		if (qualifiedName == null) {
 			qualifiedName = QualifiedName.create(EcoreUtil.getURI(eObject).fragment());
 		}
+		// Include attributes
 		Map<String, String> userData = Maps.newHashMap();
 		for (EAttribute attribute : eObject.eClass().getEAllAttributes()) {
 			Object value = eObject.eGet(attribute);
