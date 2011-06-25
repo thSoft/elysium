@@ -3,6 +3,7 @@ package org.elysium.validation;
 import java.util.Iterator;
 import org.eclipse.xtext.nodemodel.ICompositeNode;
 import org.eclipse.xtext.nodemodel.ILeafNode;
+import org.eclipse.xtext.nodemodel.INode;
 import org.eclipse.xtext.nodemodel.util.NodeModelUtils;
 import org.eclipse.xtext.validation.Check;
 import org.elysium.LilyPondConstants;
@@ -24,10 +25,11 @@ public class LilyPondJavaValidator extends AbstractLilyPondJavaValidator {
 		ICompositeNode node = NodeModelUtils.getNode(object);
 		Iterable<ILeafNode> leafNodes = node.getLeafNodes();
 		for (Iterator<ILeafNode> iterator = leafNodes.iterator(); iterator.hasNext();) { // There may be hidden tokens before \
-			if (LilyPondConstants.BACKSLASH.equals(iterator.next().getText())) {
-				Iterator<ILeafNode> previousIterator = iterator;
-				if (iterator.hasNext() && iterator.next().isHidden()) {
-					return previousIterator;
+			ILeafNode leafNode = iterator.next();
+			if (LilyPondConstants.BACKSLASH.equals(leafNode.getText())) {
+				INode nextSibling = leafNode.getNextSibling();
+				if ((nextSibling != null) && (nextSibling instanceof ILeafNode) && ((ILeafNode)nextSibling).isHidden()) {
+					return iterator;
 				}
 			}
 		}
