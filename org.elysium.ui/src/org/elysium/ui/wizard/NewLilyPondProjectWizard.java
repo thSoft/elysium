@@ -25,6 +25,7 @@ import org.eclipse.ui.wizards.newresource.BasicNewProjectResourceWizard;
 import org.eclipse.ui.wizards.newresource.BasicNewResourceWizard;
 import org.eclipse.util.ProjectUtils;
 import org.eclipse.util.UiUtils;
+import org.eclipse.xtext.ui.XtextProjectHelper;
 import org.eclipse.xtext.util.StringInputStream;
 import org.elysium.ui.Activator;
 import org.elysium.ui.project.LilyPondNature;
@@ -70,7 +71,7 @@ public class NewLilyPondProjectWizard extends Wizard implements INewWizard, IExe
 				project.create(description, new NullProgressMonitor());
 			}
 			project.open(new NullProgressMonitor());
-			ProjectUtils.addNatures(project, LilyPondNature.ID);
+			ProjectUtils.addNatures(project, LilyPondNature.ID, XtextProjectHelper.NATURE_ID);
 			BasicNewProjectResourceWizard.updatePerspective(configurationElement);
 			if (project.members().length == 1) { // XXX how to exclude .project from members?
 				final IFile file = project.getFile("score.ly");
