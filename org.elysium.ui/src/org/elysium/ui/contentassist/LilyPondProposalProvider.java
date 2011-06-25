@@ -7,11 +7,14 @@ import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IPath;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.util.ResourceUtils;
+import org.eclipse.jface.text.BadLocationException;
 import org.eclipse.xtext.Assignment;
 import org.eclipse.xtext.nodemodel.ILeafNode;
 import org.eclipse.xtext.nodemodel.INode;
+import org.eclipse.xtext.ui.editor.contentassist.ConfigurableCompletionProposal;
 import org.eclipse.xtext.ui.editor.contentassist.ContentAssistContext;
 import org.eclipse.xtext.ui.editor.contentassist.ICompletionProposalAcceptor;
+import org.eclipse.xtext.ui.editor.contentassist.ReplacementTextApplier;
 import org.elysium.LilyPondConstants;
 import org.elysium.ui.Activator;
 import org.elysium.ui.version.LilyPondVersion;
@@ -23,7 +26,7 @@ public class LilyPondProposalProvider extends AbstractLilyPondProposalProvider {
 
 	private static final String QUOTE = "\""; //$NON-NLS-1$
 
-	private void propose(String proposal, ContentAssistContext context, ICompletionProposalAcceptor acceptor) {
+	private void propose(String proposal, final ContentAssistContext context, ICompletionProposalAcceptor acceptor) {
 		if (proposal.endsWith(QUOTE)) {
 			INode currentNode = context.getCurrentNode();
 			if (currentNode instanceof ILeafNode) {
@@ -33,7 +36,26 @@ public class LilyPondProposalProvider extends AbstractLilyPondProposalProvider {
 				}
 			}
 		}
-		acceptor.accept(createCompletionProposal(proposal, context));
+		ConfigurableCompletionProposal completionProposal = (ConfigurableCompletionProposal)createCompletionProposal(proposal, context);
+		if (completionProposal != null) {
+			completionProposal.setTextApplier(new ReplacementTextApplier() {
+
+				@Override
+				public String getActualReplacementString(ConfigurableCompletionProposal proposal) {
+					String replacementString = proposal.getReplacementString();
+					try {
+						if ((context.getDocument().getChar(context.getOffset()) == QUOTE.charAt(0)) && replacementString.endsWith(QUOTE)) {
+							replacementString = replacementString.substring(0, replacementString.length() - 1);
+						}
+					} catch (BadLocationException e) {
+						Activator.logError("Reached end of document", e);
+					}
+					return replacementString;
+				}
+
+			});
+			acceptor.accept(completionProposal);
+		}
 	}
 
 	private void proposeString(String proposal, ContentAssistContext context, ICompletionProposalAcceptor acceptor) {
@@ -49,15 +71,15 @@ public class LilyPondProposalProvider extends AbstractLilyPondProposalProvider {
 	@Override
 	public void completeInclude_ImportURI(EObject model, Assignment assignment, ContentAssistContext context, ICompletionProposalAcceptor acceptor) {
 		super.completeInclude_ImportURI(model, assignment, context, acceptor);
-		String prefix = context.getPrefix();
-		if (prefix.length() > 0) {
-			prefix = prefix.substring(1); // Omit leading "
+		String pathPrefix = context.getPrefix();
+		if (pathPrefix.length() > 0) {
+			pathPrefix = pathPrefix.substring(1); // Omit leading "
 		}
 		IResource resource = ResourceUtils.convertEResourceToPlatformResource(model.eResource());
 		if (resource != null) {
 			try {
 				IResource[] siblings = null;
-				IPath newPath = resource.getParent().getFullPath().append(prefix);
+				IPath newPath = resource.getParent().getFullPath().append(pathPrefix);
 				IResource newResource = ResourcesPlugin.getWorkspace().getRoot().findMember(newPath); // Folder
 				if (newResource == null) {
 					newResource = ResourcesPlugin.getWorkspace().getRoot().findMember(newPath.removeLastSegments(1)); // Folder + start of file name
