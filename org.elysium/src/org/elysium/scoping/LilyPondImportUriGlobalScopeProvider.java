@@ -93,8 +93,13 @@ public class LilyPondImportUriGlobalScopeProvider extends AbstractGlobalScopePro
 				include.setImportURI("init.ly"); //$NON-NLS-1$
 				String initImportUriString = getImportUriResolver().apply(include);
 				URI initImportUri = URI.createURI(initImportUriString);
-				Resource initResource = new ResourceSetImpl().getResource(initImportUri, true);
-				resources.addAll(getAllImportedResources(initResource));
+				Resource initResource;
+				try {
+					initResource = new ResourceSetImpl().getResource(initImportUri, true);
+					resources.addAll(getAllImportedResources(initResource));
+				} catch (Exception e) {
+					throw new RuntimeException("The LilyPond executable path seems to be invalid. Please fix it.", e);
+				}
 
 				LinkedHashSet<URI> result = new LinkedHashSet<URI>();
 				for (Resource resource : resources) {
