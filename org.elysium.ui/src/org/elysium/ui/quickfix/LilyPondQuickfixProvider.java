@@ -5,23 +5,25 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.xtext.nodemodel.ILeafNode;
 import org.eclipse.xtext.ui.editor.model.edit.IModificationContext;
 import org.eclipse.xtext.ui.editor.model.edit.ISemanticModification;
-import org.eclipse.xtext.ui.editor.quickfix.AbstractDeclarativeQuickfixProvider;
+import org.eclipse.xtext.ui.editor.quickfix.DefaultQuickfixProvider;
 import org.eclipse.xtext.ui.editor.quickfix.Fix;
 import org.eclipse.xtext.ui.editor.quickfix.IssueResolutionAcceptor;
 import org.eclipse.xtext.validation.Issue;
+import org.elysium.lilypond.Assignment;
 import org.elysium.lilypond.Command;
 import org.elysium.lilypond.LilyPond;
 import org.elysium.lilypond.LilypondFactory;
 import org.elysium.lilypond.Version;
 import org.elysium.ui.version.LilyPondVersion;
+import org.elysium.validation.IssueCodes;
 import org.elysium.validation.LilyPondJavaValidator;
 
 /**
  * Provides quick fixes for LilyPond validation problems.
  */
-public class LilyPondQuickfixProvider extends AbstractDeclarativeQuickfixProvider {
+public class LilyPondQuickfixProvider extends DefaultQuickfixProvider {
 
-	@Fix(LilyPondJavaValidator.HIDDEN_TOKEN_AFTER_BACKSLASH)
+	@Fix(IssueCodes.HIDDEN_TOKEN_AFTER_BACKSLASH)
 	public void removeHiddenTokensAfterBackslash(final Issue issue, IssueResolutionAcceptor acceptor) {
 		acceptor.accept(issue, "Remove hidden tokens", null, null, new ISemanticModification() {
 
@@ -50,7 +52,7 @@ public class LilyPondQuickfixProvider extends AbstractDeclarativeQuickfixProvide
 		});
 	}
 
-	@Fix(LilyPondJavaValidator.NO_VERSION)
+	@Fix(IssueCodes.NO_VERSION)
 	public void addVersion(final Issue issue, IssueResolutionAcceptor acceptor) {
 		acceptor.accept(issue, "Add \\version statement", null, null, new ISemanticModification() {
 
@@ -66,6 +68,28 @@ public class LilyPondQuickfixProvider extends AbstractDeclarativeQuickfixProvide
 			}
 
 		});
+	}
+
+	@Fix(IssueCodes.UNKNOWN_VARIABLE)
+	public void fixUnknownVariable(final Issue issue, IssueResolutionAcceptor acceptor) {
+		acceptor.accept(issue, "Create missing variable", null, null, new ISemanticModification() {
+
+			@Override
+			public void apply(EObject element, IModificationContext context) throws Exception {
+				int position = 0;
+				while (!(element instanceof LilyPond)) {
+					position = element.eContainer().eContents().indexOf(element);
+					element = element.eContainer();
+				}
+				LilyPond lilypond = (LilyPond)element;
+				Assignment assignment = LilypondFactory.eINSTANCE.createAssignment();
+				assignment.setName(issue.getData()[0]);
+				assignment.setValue(LilypondFactory.eINSTANCE.createSimpleBlock());
+				lilypond.getExpressions().add(position, assignment);
+			}
+
+		});
+		createLinkingIssueResolutions(issue, acceptor);
 	}
 
 }

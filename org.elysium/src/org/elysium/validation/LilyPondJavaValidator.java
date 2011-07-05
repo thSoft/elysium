@@ -19,8 +19,6 @@ import org.elysium.lilypond.Version;
  */
 public class LilyPondJavaValidator extends AbstractLilyPondJavaValidator {
 
-	public static final String HIDDEN_TOKEN_AFTER_BACKSLASH = "HIDDEN_TOKEN_AFTER_BACKSLASH"; //$NON-NLS-1$
-
 	public static Iterator<ILeafNode> getHiddenTokensAfterBackslash(Command object) {
 		ICompositeNode node = NodeModelUtils.getNode(object);
 		Iterable<ILeafNode> leafNodes = node.getLeafNodes();
@@ -39,11 +37,9 @@ public class LilyPondJavaValidator extends AbstractLilyPondJavaValidator {
 	@Check
 	public void checkNoHiddenTokenAfterBackslash(Command object) {
 		if (getHiddenTokensAfterBackslash(object) != null) {
-			error("Command name must immediately follow backslash", null, HIDDEN_TOKEN_AFTER_BACKSLASH);
+			error("Command name must immediately follow backslash", null, IssueCodes.HIDDEN_TOKEN_AFTER_BACKSLASH);
 		}
 	}
-
-	public static final String NO_VERSION = "NO_VERSION"; //$NON-NLS-1$
 
 	@Check
 	public void checkVersion(LilyPond lilyPond) {
@@ -52,7 +48,7 @@ public class LilyPondJavaValidator extends AbstractLilyPondJavaValidator {
 				return;
 			}
 		}
-		warning("Version should be specified", LilypondPackage.eINSTANCE.getLilyPond_Expressions(), NO_VERSION);
+		warning("Version should be specified", LilypondPackage.eINSTANCE.getLilyPond_Expressions(), IssueCodes.NO_VERSION);
 	}
 
 }

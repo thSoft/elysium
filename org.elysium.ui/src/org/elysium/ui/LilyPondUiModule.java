@@ -1,6 +1,7 @@
 package org.elysium.ui;
 
 import org.eclipse.ui.plugin.AbstractUIPlugin;
+import org.eclipse.xtext.linking.ILinkingDiagnosticMessageProvider;
 import org.eclipse.xtext.resource.containers.IAllContainersState;
 import org.eclipse.xtext.ui.editor.IXtextEditorCallback;
 import org.eclipse.xtext.ui.editor.autoedit.AbstractEditStrategyProvider;
@@ -13,6 +14,7 @@ import org.eclipse.xtext.ui.resource.IResourceSetProvider;
 import org.eclipse.xtext.ui.resource.SimpleResourceSetProvider;
 import org.eclipse.xtext.ui.shared.Access;
 import org.elysium.importuri.ILilyPondPathProvider;
+import org.elysium.linking.LilyPondLinkingDiagnosticMessageProvider;
 import org.elysium.ui.autoedit.LilyPondAutoEditStrategyProvider;
 import org.elysium.ui.hyperlinks.LilyPondHyperlinkHelper;
 import org.elysium.ui.syntaxcoloring.LilyPondHighlightingConfiguration;
@@ -54,6 +56,10 @@ public class LilyPondUiModule extends AbstractLilyPondUiModule {
 	@Override
 	public Class<? extends AbstractEditStrategyProvider> bindAbstractEditStrategyProvider() {
 		return LilyPondAutoEditStrategyProvider.class;
+	}
+
+	public Class<? extends ILinkingDiagnosticMessageProvider> bindILinkingDiagnosticMessageProvider() {
+		return LilyPondLinkingDiagnosticMessageProvider.class;
 	}
 
 	// Avoid dependency on JDT
