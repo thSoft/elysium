@@ -120,7 +120,9 @@ public class LilyPondImportUriGlobalScopeProvider extends AbstractGlobalScopePro
 				Resource importedResource = EcoreUtil2.getResource(resource, importUriString);
 				if (importedResource != null) {
 					result.add(importedResource);
-					result.addAll(getAllImportedResources(importedResource));
+					if (resource != importedResource) {
+						result.addAll(getAllImportedResources(importedResource));
+					}
 				}
 			}
 		}
