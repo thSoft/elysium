@@ -46,6 +46,9 @@ public class LilyPondUiModule extends AbstractLilyPondUiModule {
 		binder.bind(ISemanticHighlightingCalculator.class).to(LilyPondSemanticHighlightingCalculator.class);
 		// Import URI resolution
 		binder.bind(ILilyPondPathProvider.class).to(UiLilyPondPathProvider.class);
+		// Customized linking errors
+		binder.bind(ILinkingDiagnosticMessageProvider.class).to(LilyPondLinkingDiagnosticMessageProvider.class);
+
 	}
 
 	@Override
@@ -56,10 +59,6 @@ public class LilyPondUiModule extends AbstractLilyPondUiModule {
 	@Override
 	public Class<? extends AbstractEditStrategyProvider> bindAbstractEditStrategyProvider() {
 		return LilyPondAutoEditStrategyProvider.class;
-	}
-
-	public Class<? extends ILinkingDiagnosticMessageProvider> bindILinkingDiagnosticMessageProvider() {
-		return LilyPondLinkingDiagnosticMessageProvider.class;
 	}
 
 	// Avoid dependency on JDT
