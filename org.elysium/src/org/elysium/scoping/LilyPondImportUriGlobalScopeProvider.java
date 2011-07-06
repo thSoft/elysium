@@ -1,5 +1,6 @@
 package org.elysium.scoping;
 
+import java.text.MessageFormat;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.HashSet;
@@ -98,7 +99,7 @@ public class LilyPondImportUriGlobalScopeProvider extends AbstractGlobalScopePro
 					initResource = new ResourceSetImpl().getResource(initImportUri, true);
 					resources.addAll(getAllImportedResources(initResource));
 				} catch (Exception e) {
-					throw new RuntimeException("The LilyPond executable path seems to be invalid. Please fix it.", e);
+					throw new RuntimeException(MessageFormat.format("{0} not found! Please make sure your LilyPond installation is valid and its location is specified correctly.", initImportUri.toFileString()), e);
 				}
 
 				LinkedHashSet<URI> result = new LinkedHashSet<URI>();
