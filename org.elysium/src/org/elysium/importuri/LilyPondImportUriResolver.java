@@ -21,7 +21,10 @@ public class LilyPondImportUriResolver extends ImportUriResolver {
 			String path = lilyPondPathProvider.get();
 			URI pathUri = new File(path).toURI();
 			URI resolvedImportUri = pathUri.resolve("../share/lilypond/current/ly/").resolve(importUri); //$NON-NLS-1$ // TODO first existing directory instead of 'current'
-			return resolvedImportUri.toString();
+			File importedFile = new File(resolvedImportUri);
+			if (importedFile.exists()) {
+				return resolvedImportUri.toString();
+			} // else proceed to search in current directory
 		}
 		return importUri;
 	}

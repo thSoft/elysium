@@ -99,9 +99,8 @@ public class LilyPondImportUriGlobalScopeProvider extends AbstractGlobalScopePro
 					initResource = new ResourceSetImpl().getResource(initImportUri, true);
 					resources.addAll(getAllImportedResources(initResource));
 				} catch (Exception e) {
-					throw new RuntimeException(MessageFormat.format("{0} not found! Please make sure your LilyPond installation is valid and its location is specified correctly.", initImportUri.toFileString()), e);
+					throw new RuntimeException(MessageFormat.format("Please make sure your LilyPond installation is valid and its location is specified correctly.", initImportUri.toFileString()), e);
 				}
-
 				LinkedHashSet<URI> result = new LinkedHashSet<URI>();
 				for (Resource resource : resources) {
 					result.add(resource.getURI());
