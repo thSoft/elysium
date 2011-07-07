@@ -11,14 +11,15 @@ public class LilyPondAutoEditStrategyProvider extends DefaultAutoEditStrategyPro
 
 	@Override
 	protected void configure(IEditStrategyAcceptor acceptor) {
-		acceptor.accept(defaultIndentLineAutoEditStrategy.get(), IDocument.DEFAULT_CONTENT_TYPE);
+		configureIndentationEditStrategy(acceptor);
+
 		for (String[] blockKeywordPair : LilyPondFormatter.BLOCK_KEYWORD_PAIRS) {
 			acceptor.accept(singleLineTerminals.newInstance(blockKeywordPair[0], blockKeywordPair[1]), IDocument.DEFAULT_CONTENT_TYPE);
 			acceptor.accept(multiLineTerminals.newInstance(blockKeywordPair[0], null, blockKeywordPair[1]), IDocument.DEFAULT_CONTENT_TYPE);
 		}
 		acceptor.accept(singleLineTerminals.newInstance("[", "]"), IDocument.DEFAULT_CONTENT_TYPE); //$NON-NLS-1$ //$NON-NLS-2$
-		acceptor.accept(singleLineTerminals.newInstance("(", ")"), IDocument.DEFAULT_CONTENT_TYPE); //$NON-NLS-1$ //$NON-NLS-2$
 		acceptor.accept(singleLineTerminals.newInstance("\\(", "\\)"), IDocument.DEFAULT_CONTENT_TYPE); //$NON-NLS-1$ //$NON-NLS-2$
+		acceptor.accept(singleLineTerminals.newInstance("(", ")"), IDocument.DEFAULT_CONTENT_TYPE); //$NON-NLS-1$ //$NON-NLS-2$
 		acceptor.accept(partitionInsert.newInstance("\"", "\""), IDocument.DEFAULT_CONTENT_TYPE);
 	}
 
