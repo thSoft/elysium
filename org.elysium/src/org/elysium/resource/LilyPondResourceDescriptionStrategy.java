@@ -5,6 +5,7 @@ import org.eclipse.emf.ecore.EAttribute;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.xtext.naming.QualifiedName;
+import org.eclipse.xtext.nodemodel.util.NodeModelUtils;
 import org.eclipse.xtext.resource.EObjectDescription;
 import org.eclipse.xtext.resource.IEObjectDescription;
 import org.eclipse.xtext.resource.impl.DefaultResourceDescriptionStrategy;
@@ -32,6 +33,8 @@ public class LilyPondResourceDescriptionStrategy extends DefaultResourceDescript
 			Object value = eObject.eGet(attribute);
 			userData.put(attribute.getName(), value == null ? "" : value.toString());
 		}
+		// Offset for point & click
+		userData.put(".offset", String.valueOf(NodeModelUtils.findActualNodeFor(eObject).getOffset())); //$NON-NLS-1$
 		acceptor.accept(EObjectDescription.create(qualifiedName, eObject, userData));
 		return true;
 	}
