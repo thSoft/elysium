@@ -13,7 +13,8 @@ import org.elysium.services.LilyPondGrammarAccess;
  */
 public class LilyPondFormatter extends AbstractDeclarativeFormatter {
 
-	public static final String[][] BLOCK_KEYWORD_PAIRS = { { "{", "}" }, //$NON-NLS-1$ //$NON-NLS-2$
+	public static final String[][] BLOCK_KEYWORD_PAIRS = { { "%{", "%}" }, //$NON-NLS-1$ //$NON-NLS-2$ 
+		{ "{", "}" }, //$NON-NLS-1$ //$NON-NLS-2$
 		{ "<<", ">>" } }; //$NON-NLS-1$ //$NON-NLS-2$
 
 	@Override

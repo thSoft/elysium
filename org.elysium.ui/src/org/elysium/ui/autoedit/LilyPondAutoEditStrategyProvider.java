@@ -14,7 +14,6 @@ public class LilyPondAutoEditStrategyProvider extends DefaultAutoEditStrategyPro
 	private static void accept(IEditStrategyAcceptor acceptor, IAutoEditStrategy strategy) {
 		acceptor.accept(strategy, IDocument.DEFAULT_CONTENT_TYPE);
 		acceptor.accept(strategy, TerminalsTokenTypeToPartitionMapper.COMMENT_PARTITION);
-		acceptor.accept(strategy, TerminalsTokenTypeToPartitionMapper.SL_COMMENT_PARTITION);
 	}
 
 	@Override
