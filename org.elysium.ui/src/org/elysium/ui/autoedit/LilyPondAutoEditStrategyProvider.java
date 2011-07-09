@@ -11,7 +11,7 @@ import org.elysium.formatting.LilyPondFormatter;
  */
 public class LilyPondAutoEditStrategyProvider extends DefaultAutoEditStrategyProvider {
 
-	private void accept(IEditStrategyAcceptor acceptor, IAutoEditStrategy strategy) {
+	private static void accept(IEditStrategyAcceptor acceptor, IAutoEditStrategy strategy) {
 		acceptor.accept(strategy, IDocument.DEFAULT_CONTENT_TYPE);
 		acceptor.accept(strategy, TerminalsTokenTypeToPartitionMapper.COMMENT_PARTITION);
 		acceptor.accept(strategy, TerminalsTokenTypeToPartitionMapper.SL_COMMENT_PARTITION);
@@ -19,13 +19,12 @@ public class LilyPondAutoEditStrategyProvider extends DefaultAutoEditStrategyPro
 
 	@Override
 	protected void configure(IEditStrategyAcceptor acceptor) {
-		configureIndentationEditStrategy(acceptor);
-
+		accept(acceptor, defaultIndentLineAutoEditStrategy.get());
 		for (String[] blockKeywordPair : LilyPondFormatter.BLOCK_KEYWORD_PAIRS) {
 			accept(acceptor, singleLineTerminals.newInstance(blockKeywordPair[0], blockKeywordPair[1]));
 			accept(acceptor, multiLineTerminals.newInstance(blockKeywordPair[0], null, blockKeywordPair[1]));
 		}
-		String[][] brackets = new String[][] { { "[", "]" }, //$NON-NLS-1$ //$NON-NLS-2$
+		final String[][] brackets = new String[][] { { "[", "]" }, //$NON-NLS-1$ //$NON-NLS-2$
 			{ "\\(", "\\)" }, //$NON-NLS-1$ //$NON-NLS-2$
 			{ "(", ")" } }; //$NON-NLS-1$ //$NON-NLS-2$
 		for (String[] blockKeywordPair : brackets) {
