@@ -5,7 +5,6 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.xtext.nodemodel.ILeafNode;
 import org.eclipse.xtext.ui.editor.model.edit.IModificationContext;
 import org.eclipse.xtext.ui.editor.model.edit.ISemanticModification;
-import org.eclipse.xtext.ui.editor.quickfix.DefaultQuickfixProvider;
 import org.eclipse.xtext.ui.editor.quickfix.Fix;
 import org.eclipse.xtext.ui.editor.quickfix.IssueResolutionAcceptor;
 import org.eclipse.xtext.validation.Issue;
@@ -21,7 +20,7 @@ import org.elysium.validation.LilyPondJavaValidator;
 /**
  * Provides quick fixes for LilyPond validation problems.
  */
-public class LilyPondQuickfixProvider extends DefaultQuickfixProvider {
+public class LilyPondQuickfixProvider extends ChangeToSimilarQuickfixProvider {
 
 	@Fix(IssueCodes.HIDDEN_TOKEN_AFTER_BACKSLASH)
 	public void removeHiddenTokensAfterBackslash(final Issue issue, IssueResolutionAcceptor acceptor) {

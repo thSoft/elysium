@@ -8,6 +8,7 @@ import org.eclipse.xtext.ui.editor.autoedit.AbstractEditStrategyProvider;
 import org.eclipse.xtext.ui.editor.hyperlinking.IHyperlinkHelper;
 import org.eclipse.xtext.ui.editor.model.IResourceForEditorInputFactory;
 import org.eclipse.xtext.ui.editor.model.ResourceForIEditorInputFactory;
+import org.eclipse.xtext.ui.editor.quickfix.ISimilarityMatcher;
 import org.eclipse.xtext.ui.editor.syntaxcoloring.IHighlightingConfiguration;
 import org.eclipse.xtext.ui.editor.syntaxcoloring.ISemanticHighlightingCalculator;
 import org.eclipse.xtext.ui.resource.IResourceSetProvider;
@@ -17,6 +18,7 @@ import org.elysium.importuri.ILilyPondPathProvider;
 import org.elysium.linking.LilyPondLinkingDiagnosticMessageProvider;
 import org.elysium.ui.autoedit.LilyPondAutoEditStrategyProvider;
 import org.elysium.ui.hyperlinks.LilyPondHyperlinkHelper;
+import org.elysium.ui.quickfix.LilyPondSimilarityMatcher;
 import org.elysium.ui.syntaxcoloring.LilyPondHighlightingConfiguration;
 import org.elysium.ui.syntaxcoloring.LilyPondSemanticHighlightingCalculator;
 import com.google.inject.Binder;
@@ -48,7 +50,8 @@ public class LilyPondUiModule extends AbstractLilyPondUiModule {
 		binder.bind(ILilyPondPathProvider.class).to(UiLilyPondPathProvider.class);
 		// Customized linking errors
 		binder.bind(ILinkingDiagnosticMessageProvider.class).to(LilyPondLinkingDiagnosticMessageProvider.class);
-
+		// Quick fixes
+		binder.bind(ISimilarityMatcher.class).to(LilyPondSimilarityMatcher.class);
 	}
 
 	@Override
