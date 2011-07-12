@@ -15,6 +15,7 @@ import org.elysium.lilypond.Reference;
 import org.elysium.lilypond.Scheme;
 import org.elysium.lilypond.SchemeExpression;
 import org.elysium.lilypond.SchemeList;
+import org.elysium.lilypond.StringIndication;
 import org.elysium.lilypond.Text;
 import org.elysium.lilypond.ToplevelExpression;
 import org.elysium.lilypond.UnparsedBlock;
@@ -80,6 +81,9 @@ public class LilyPondOutlineTreeProvider extends DefaultOutlineTreeProvider {
 	}
 
 	protected void _createChildren(IOutlineNode parentNode, Pitch pitch) {
+	}
+
+	protected void _createNode(IOutlineNode parentNode, StringIndication stringIndication) {
 	}
 
 	@Override
