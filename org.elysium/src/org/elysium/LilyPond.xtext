@@ -21,7 +21,7 @@ SimpleBlock: {SimpleBlock} "{" expressions+=Expression* "}";
 
 SimultaneousBlock: {SimultaneousBlock} "<<" expressions+=Expression* ">>";
 
-Command: SpecialCommand | Reference;
+Command: SpecialCommand | Reference | StringIndication;
 
 SpecialCharacter: "!" | "?" | "+" | "<" | ">" | "[" | "]" | "~";
 
@@ -76,6 +76,8 @@ NewContext: "\\" keyword=("new" | "context") context=ID ("=" id=(ID | STRING))? 
 ContextModification: "\\" "with" block=UnparsedBlock;
 
 ContextDef: "\\" keyword="context" block=UnparsedBlock;
+
+StringIndication: "\\" string=INT;
 
 Other: "\\" keyword=(SpecialCharacter | "(" | ")" | OtherName);
 

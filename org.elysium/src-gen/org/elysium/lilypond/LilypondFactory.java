@@ -341,6 +341,15 @@ public interface LilypondFactory extends EFactory
   ContextDef createContextDef();
 
   /**
+   * Returns a new object of class '<em>String Indication</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>String Indication</em>'.
+   * @generated
+   */
+  StringIndication createStringIndication();
+
+  /**
    * Returns a new object of class '<em>Other</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->

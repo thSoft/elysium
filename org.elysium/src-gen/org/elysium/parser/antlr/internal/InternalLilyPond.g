@@ -622,6 +622,19 @@ ruleCommand returns [EObject current=null]
         $current = $this_Reference_1.current; 
         afterParserOrEnumRuleCall();
     }
+
+    |
+	{ 
+	  /* */ 
+	}
+    { 
+        newCompositeNode(grammarAccess.getCommandAccess().getStringIndicationParserRuleCall_2()); 
+    }
+    this_StringIndication_2=ruleStringIndication
+    { 
+        $current = $this_StringIndication_2.current; 
+        afterParserOrEnumRuleCall();
+    }
 )
 ;
 
@@ -2702,6 +2715,49 @@ ruleContextDef returns [EObject current=null]
         		lv_block_2_0, 
         		"UnparsedBlock");
 	        afterParserOrEnumRuleCall();
+	    }
+
+)
+))
+;
+
+
+
+
+
+// Entry rule entryRuleStringIndication
+entryRuleStringIndication returns [EObject current=null] 
+	:
+	{ newCompositeNode(grammarAccess.getStringIndicationRule()); }
+	 iv_ruleStringIndication=ruleStringIndication 
+	 { $current=$iv_ruleStringIndication.current; } 
+	 EOF 
+;
+
+// Rule StringIndication
+ruleStringIndication returns [EObject current=null] 
+    @init { enterRule(); 
+    }
+    @after { leaveRule(); }:
+(	otherlv_0='\\' 
+    {
+    	newLeafNode(otherlv_0, grammarAccess.getStringIndicationAccess().getReverseSolidusKeyword_0());
+    }
+(
+(
+		lv_string_1_0=RULE_INT
+		{
+			newLeafNode(lv_string_1_0, grammarAccess.getStringIndicationAccess().getStringINTTerminalRuleCall_1_0()); 
+		}
+		{
+	        if ($current==null) {
+	            $current = createModelElement(grammarAccess.getStringIndicationRule());
+	        }
+       		setWithLastConsumed(
+       			$current, 
+       			"string",
+        		lv_string_1_0, 
+        		"INT");
 	    }
 
 )

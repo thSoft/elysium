@@ -265,12 +265,13 @@ public class LilyPondGrammarAccess extends AbstractGrammarElementFinder {
 		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
 		private final RuleCall cSpecialCommandParserRuleCall_0 = (RuleCall)cAlternatives.eContents().get(0);
 		private final RuleCall cReferenceParserRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
+		private final RuleCall cStringIndicationParserRuleCall_2 = (RuleCall)cAlternatives.eContents().get(2);
 		
 		//Command:
-		//	SpecialCommand | Reference;
+		//	SpecialCommand | Reference | StringIndication;
 		public ParserRule getRule() { return rule; }
 
-		//SpecialCommand | Reference
+		//SpecialCommand | Reference | StringIndication
 		public Alternatives getAlternatives() { return cAlternatives; }
 
 		//SpecialCommand
@@ -278,6 +279,9 @@ public class LilyPondGrammarAccess extends AbstractGrammarElementFinder {
 
 		//Reference
 		public RuleCall getReferenceParserRuleCall_1() { return cReferenceParserRuleCall_1; }
+
+		//StringIndication
+		public RuleCall getStringIndicationParserRuleCall_2() { return cStringIndicationParserRuleCall_2; }
 	}
 
 	public class SpecialCharacterElements extends AbstractParserRuleElementFinder {
@@ -1316,6 +1320,30 @@ public class LilyPondGrammarAccess extends AbstractGrammarElementFinder {
 		public RuleCall getBlockUnparsedBlockParserRuleCall_2_0() { return cBlockUnparsedBlockParserRuleCall_2_0; }
 	}
 
+	public class StringIndicationElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "StringIndication");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Keyword cReverseSolidusKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final Assignment cStringAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cStringINTTerminalRuleCall_1_0 = (RuleCall)cStringAssignment_1.eContents().get(0);
+		
+		//StringIndication:
+		//	"\\" string=INT;
+		public ParserRule getRule() { return rule; }
+
+		//"\\" string=INT
+		public Group getGroup() { return cGroup; }
+
+		//"\\"
+		public Keyword getReverseSolidusKeyword_0() { return cReverseSolidusKeyword_0; }
+
+		//string=INT
+		public Assignment getStringAssignment_1() { return cStringAssignment_1; }
+
+		//INT
+		public RuleCall getStringINTTerminalRuleCall_1_0() { return cStringINTTerminalRuleCall_1_0; }
+	}
+
 	public class OtherElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "Other");
 		private final Group cGroup = (Group)rule.eContents().get(1);
@@ -2168,6 +2196,7 @@ public class LilyPondGrammarAccess extends AbstractGrammarElementFinder {
 	private NewContextElements pNewContext;
 	private ContextModificationElements pContextModification;
 	private ContextDefElements pContextDef;
+	private StringIndicationElements pStringIndication;
 	private OtherElements pOther;
 	private OtherNameElements pOtherName;
 	private SpecialCommandNameElements pSpecialCommandName;
@@ -2301,7 +2330,7 @@ public class LilyPondGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//Command:
-	//	SpecialCommand | Reference;
+	//	SpecialCommand | Reference | StringIndication;
 	public CommandElements getCommandAccess() {
 		return (pCommand != null) ? pCommand : (pCommand = new CommandElements());
 	}
@@ -2571,6 +2600,16 @@ public class LilyPondGrammarAccess extends AbstractGrammarElementFinder {
 	
 	public ParserRule getContextDefRule() {
 		return getContextDefAccess().getRule();
+	}
+
+	//StringIndication:
+	//	"\\" string=INT;
+	public StringIndicationElements getStringIndicationAccess() {
+		return (pStringIndication != null) ? pStringIndication : (pStringIndication = new StringIndicationElements());
+	}
+	
+	public ParserRule getStringIndicationRule() {
+		return getStringIndicationAccess().getRule();
 	}
 
 	//Other:

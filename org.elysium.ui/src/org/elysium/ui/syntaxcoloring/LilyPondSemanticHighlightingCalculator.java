@@ -10,6 +10,7 @@ import org.eclipse.xtext.ui.editor.syntaxcoloring.ISemanticHighlightingCalculato
 import org.elysium.lilypond.Assignment;
 import org.elysium.lilypond.Reference;
 import org.elysium.lilypond.SpecialCommand;
+import org.elysium.lilypond.StringIndication;
 import org.elysium.lilypond.UnparsedCommand;
 
 /**
@@ -45,6 +46,10 @@ public class LilyPondSemanticHighlightingCalculator implements ISemanticHighligh
 						if (keyword != null) {
 							highlight(acceptor, element, keyword);
 						}
+					} else if (element instanceof StringIndication) {
+						StringIndication stringIndication = (StringIndication)element;
+						int stringNumber = stringIndication.getString();
+						highlight(acceptor, element, String.valueOf(stringNumber));
 					}
 				}
 			}

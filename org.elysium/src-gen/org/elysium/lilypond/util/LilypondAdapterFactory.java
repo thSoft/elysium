@@ -51,6 +51,7 @@ import org.elysium.lilypond.SimultaneousBlock;
 import org.elysium.lilypond.SourceFileLine;
 import org.elysium.lilypond.SourceFileName;
 import org.elysium.lilypond.SpecialCommand;
+import org.elysium.lilypond.StringIndication;
 import org.elysium.lilypond.Text;
 import org.elysium.lilypond.ToplevelExpression;
 import org.elysium.lilypond.TransposedMusic;
@@ -296,6 +297,11 @@ public class LilypondAdapterFactory extends AdapterFactoryImpl
       public Adapter caseContextDef(ContextDef object)
       {
         return createContextDefAdapter();
+      }
+      @Override
+      public Adapter caseStringIndication(StringIndication object)
+      {
+        return createStringIndicationAdapter();
       }
       @Override
       public Adapter caseOther(Other object)
@@ -895,6 +901,21 @@ public class LilypondAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createContextDefAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link org.elysium.lilypond.StringIndication <em>String Indication</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see org.elysium.lilypond.StringIndication
+   * @generated
+   */
+  public Adapter createStringIndicationAdapter()
   {
     return null;
   }

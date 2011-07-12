@@ -90,6 +90,7 @@ public class LilyPondParser extends AbstractContentAssistParser {
 					put(grammarAccess.getNewContextAccess().getGroup_3(), "rule__NewContext__Group_3__0");
 					put(grammarAccess.getContextModificationAccess().getGroup(), "rule__ContextModification__Group__0");
 					put(grammarAccess.getContextDefAccess().getGroup(), "rule__ContextDef__Group__0");
+					put(grammarAccess.getStringIndicationAccess().getGroup(), "rule__StringIndication__Group__0");
 					put(grammarAccess.getOtherAccess().getGroup(), "rule__Other__Group__0");
 					put(grammarAccess.getSchemeAccess().getGroup(), "rule__Scheme__Group__0");
 					put(grammarAccess.getSchemeExpressionAccess().getGroup(), "rule__SchemeExpression__Group__0");
@@ -162,6 +163,7 @@ public class LilyPondParser extends AbstractContentAssistParser {
 					put(grammarAccess.getContextModificationAccess().getBlockAssignment_2(), "rule__ContextModification__BlockAssignment_2");
 					put(grammarAccess.getContextDefAccess().getKeywordAssignment_1(), "rule__ContextDef__KeywordAssignment_1");
 					put(grammarAccess.getContextDefAccess().getBlockAssignment_2(), "rule__ContextDef__BlockAssignment_2");
+					put(grammarAccess.getStringIndicationAccess().getStringAssignment_1(), "rule__StringIndication__StringAssignment_1");
 					put(grammarAccess.getOtherAccess().getKeywordAssignment_1(), "rule__Other__KeywordAssignment_1");
 					put(grammarAccess.getSchemeAccess().getValueAssignment_1(), "rule__Scheme__ValueAssignment_1");
 					put(grammarAccess.getSchemeExpressionAccess().getReferenceAssignment_0(), "rule__SchemeExpression__ReferenceAssignment_0");

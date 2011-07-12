@@ -114,6 +114,9 @@
     <genClasses ecoreClass="platform:/resource/org.elysium/src-gen/org/elysium/LilyPond.ecore#//ContextDef">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference platform:/resource/org.elysium/src-gen/org/elysium/LilyPond.ecore#//ContextDef/block"/>
     </genClasses>
+    <genClasses ecoreClass="platform:/resource/org.elysium/src-gen/org/elysium/LilyPond.ecore#//StringIndication">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute platform:/resource/org.elysium/src-gen/org/elysium/LilyPond.ecore#//StringIndication/string"/>
+    </genClasses>
     <genClasses ecoreClass="platform:/resource/org.elysium/src-gen/org/elysium/LilyPond.ecore#//Other"/>
     <genClasses ecoreClass="platform:/resource/org.elysium/src-gen/org/elysium/LilyPond.ecore#//Scheme">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference platform:/resource/org.elysium/src-gen/org/elysium/LilyPond.ecore#//Scheme/value"/>

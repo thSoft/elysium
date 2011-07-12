@@ -66,17 +66,18 @@ protected class ThisRootNode extends RootToken {
 			case 32: return new NewContext_Group(this, this, 32, inst);
 			case 33: return new ContextModification_Group(this, this, 33, inst);
 			case 34: return new ContextDef_Group(this, this, 34, inst);
-			case 35: return new Other_Group(this, this, 35, inst);
-			case 36: return new Scheme_Group(this, this, 36, inst);
-			case 37: return new SchemeExpression_Group(this, this, 37, inst);
-			case 38: return new SchemeValue_Alternatives(this, this, 38, inst);
-			case 39: return new SchemeBoolean_ValueAssignment(this, this, 39, inst);
-			case 40: return new SchemeList_Group(this, this, 40, inst);
-			case 41: return new SchemeBlock_Group(this, this, 41, inst);
-			case 42: return new SchemeCharacter_Group(this, this, 42, inst);
-			case 43: return new SchemeText_ValueAssignment(this, this, 43, inst);
-			case 44: return new SchemeNumber_Group(this, this, 44, inst);
-			case 45: return new SchemeMarkupCommand_Group(this, this, 45, inst);
+			case 35: return new StringIndication_Group(this, this, 35, inst);
+			case 36: return new Other_Group(this, this, 36, inst);
+			case 37: return new Scheme_Group(this, this, 37, inst);
+			case 38: return new SchemeExpression_Group(this, this, 38, inst);
+			case 39: return new SchemeValue_Alternatives(this, this, 39, inst);
+			case 40: return new SchemeBoolean_ValueAssignment(this, this, 40, inst);
+			case 41: return new SchemeList_Group(this, this, 41, inst);
+			case 42: return new SchemeBlock_Group(this, this, 42, inst);
+			case 43: return new SchemeCharacter_Group(this, this, 43, inst);
+			case 44: return new SchemeText_ValueAssignment(this, this, 44, inst);
+			case 45: return new SchemeNumber_Group(this, this, 45, inst);
+			case 46: return new SchemeMarkupCommand_Group(this, this, 46, inst);
 			default: return null;
 		}	
 	}	
@@ -188,6 +189,7 @@ protected class ToplevelExpression_Alternatives extends AlternativesToken {
 		   getEObject().eClass() != grammarAccess.getSimultaneousBlockAccess().getSimultaneousBlockAction_0().getType().getClassifier() && 
 		   getEObject().eClass() != grammarAccess.getSourceFileLineRule().getType().getClassifier() && 
 		   getEObject().eClass() != grammarAccess.getSourceFileNameRule().getType().getClassifier() && 
+		   getEObject().eClass() != grammarAccess.getStringIndicationRule().getType().getClassifier() && 
 		   getEObject().eClass() != grammarAccess.getTextRule().getType().getClassifier() && 
 		   getEObject().eClass() != grammarAccess.getTransposedMusicRule().getType().getClassifier() && 
 		   getEObject().eClass() != grammarAccess.getVersionRule().getType().getClassifier())
@@ -273,6 +275,7 @@ protected class ToplevelExpression_CommonExpressionParserRuleCall_1 extends Rule
 		   getEObject().eClass() != grammarAccess.getSimultaneousBlockAccess().getSimultaneousBlockAction_0().getType().getClassifier() && 
 		   getEObject().eClass() != grammarAccess.getSourceFileLineRule().getType().getClassifier() && 
 		   getEObject().eClass() != grammarAccess.getSourceFileNameRule().getType().getClassifier() && 
+		   getEObject().eClass() != grammarAccess.getStringIndicationRule().getType().getClassifier() && 
 		   getEObject().eClass() != grammarAccess.getTextRule().getType().getClassifier() && 
 		   getEObject().eClass() != grammarAccess.getTransposedMusicRule().getType().getClassifier() && 
 		   getEObject().eClass() != grammarAccess.getVersionRule().getType().getClassifier())
@@ -342,6 +345,7 @@ protected class Expression_Alternatives extends AlternativesToken {
 		   getEObject().eClass() != grammarAccess.getSimultaneousBlockAccess().getSimultaneousBlockAction_0().getType().getClassifier() && 
 		   getEObject().eClass() != grammarAccess.getSourceFileLineRule().getType().getClassifier() && 
 		   getEObject().eClass() != grammarAccess.getSourceFileNameRule().getType().getClassifier() && 
+		   getEObject().eClass() != grammarAccess.getStringIndicationRule().getType().getClassifier() && 
 		   getEObject().eClass() != grammarAccess.getTextRule().getType().getClassifier() && 
 		   getEObject().eClass() != grammarAccess.getTransposedMusicRule().getType().getClassifier() && 
 		   getEObject().eClass() != grammarAccess.getVersionRule().getType().getClassifier())
@@ -427,6 +431,7 @@ protected class Expression_CommonExpressionParserRuleCall_1 extends RuleCallToke
 		   getEObject().eClass() != grammarAccess.getSimultaneousBlockAccess().getSimultaneousBlockAction_0().getType().getClassifier() && 
 		   getEObject().eClass() != grammarAccess.getSourceFileLineRule().getType().getClassifier() && 
 		   getEObject().eClass() != grammarAccess.getSourceFileNameRule().getType().getClassifier() && 
+		   getEObject().eClass() != grammarAccess.getStringIndicationRule().getType().getClassifier() && 
 		   getEObject().eClass() != grammarAccess.getTextRule().getType().getClassifier() && 
 		   getEObject().eClass() != grammarAccess.getTransposedMusicRule().getType().getClassifier() && 
 		   getEObject().eClass() != grammarAccess.getVersionRule().getType().getClassifier())
@@ -498,6 +503,7 @@ protected class CommonExpression_Alternatives extends AlternativesToken {
 		   getEObject().eClass() != grammarAccess.getSimultaneousBlockAccess().getSimultaneousBlockAction_0().getType().getClassifier() && 
 		   getEObject().eClass() != grammarAccess.getSourceFileLineRule().getType().getClassifier() && 
 		   getEObject().eClass() != grammarAccess.getSourceFileNameRule().getType().getClassifier() && 
+		   getEObject().eClass() != grammarAccess.getStringIndicationRule().getType().getClassifier() && 
 		   getEObject().eClass() != grammarAccess.getTextRule().getType().getClassifier() && 
 		   getEObject().eClass() != grammarAccess.getTransposedMusicRule().getType().getClassifier() && 
 		   getEObject().eClass() != grammarAccess.getVersionRule().getType().getClassifier())
@@ -543,6 +549,7 @@ protected class CommonExpression_CommandParserRuleCall_0 extends RuleCallToken {
 		   getEObject().eClass() != grammarAccess.getRelativeMusicRule().getType().getClassifier() && 
 		   getEObject().eClass() != grammarAccess.getSourceFileLineRule().getType().getClassifier() && 
 		   getEObject().eClass() != grammarAccess.getSourceFileNameRule().getType().getClassifier() && 
+		   getEObject().eClass() != grammarAccess.getStringIndicationRule().getType().getClassifier() && 
 		   getEObject().eClass() != grammarAccess.getTransposedMusicRule().getType().getClassifier() && 
 		   getEObject().eClass() != grammarAccess.getVersionRule().getType().getClassifier())
 			return null;
@@ -1427,11 +1434,11 @@ protected class SimultaneousBlock_GreaterThanSignGreaterThanSignKeyword_3 extend
 /************ begin Rule Command ****************
  *
  * Command:
- * 	SpecialCommand | Reference;
+ * 	SpecialCommand | Reference | StringIndication;
  *
  **/
 
-// SpecialCommand | Reference
+// SpecialCommand | Reference | StringIndication
 protected class Command_Alternatives extends AlternativesToken {
 
 	public Command_Alternatives(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -1448,6 +1455,7 @@ protected class Command_Alternatives extends AlternativesToken {
 		switch(index) {
 			case 0: return new Command_SpecialCommandParserRuleCall_0(lastRuleCallOrigin, this, 0, inst);
 			case 1: return new Command_ReferenceParserRuleCall_1(lastRuleCallOrigin, this, 1, inst);
+			case 2: return new Command_StringIndicationParserRuleCall_2(lastRuleCallOrigin, this, 2, inst);
 			default: return null;
 		}	
 	}
@@ -1468,6 +1476,7 @@ protected class Command_Alternatives extends AlternativesToken {
 		   getEObject().eClass() != grammarAccess.getRelativeMusicRule().getType().getClassifier() && 
 		   getEObject().eClass() != grammarAccess.getSourceFileLineRule().getType().getClassifier() && 
 		   getEObject().eClass() != grammarAccess.getSourceFileNameRule().getType().getClassifier() && 
+		   getEObject().eClass() != grammarAccess.getStringIndicationRule().getType().getClassifier() && 
 		   getEObject().eClass() != grammarAccess.getTransposedMusicRule().getType().getClassifier() && 
 		   getEObject().eClass() != grammarAccess.getVersionRule().getType().getClassifier())
 			return null;
@@ -1551,6 +1560,42 @@ protected class Command_ReferenceParserRuleCall_1 extends RuleCallToken {
 		if(getEObject().eClass() != grammarAccess.getReferenceRule().getType().getClassifier())
 			return null;
 		if(checkForRecursion(Reference_Group.class, eObjectConsumer)) return null;
+		return eObjectConsumer;
+	}
+	
+    @Override
+	public AbstractToken createFollowerAfterReturn(AbstractToken next,	int actIndex, int index, IEObjectConsumer inst) {
+		switch(index) {
+			default: return lastRuleCallOrigin.createFollowerAfterReturn(next, actIndex , index, inst);
+		}	
+	}	
+}
+
+// StringIndication
+protected class Command_StringIndicationParserRuleCall_2 extends RuleCallToken {
+	
+	public Command_StringIndicationParserRuleCall_2(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
+		super(lastRuleCallOrigin, next, transitionIndex, eObjectConsumer);
+	}
+	
+	@Override
+	public RuleCall getGrammarElement() {
+		return grammarAccess.getCommandAccess().getStringIndicationParserRuleCall_2();
+	}
+
+    @Override
+	public AbstractToken createFollower(int index, IEObjectConsumer inst) {
+		switch(index) {
+			case 0: return new StringIndication_Group(this, this, 0, inst);
+			default: return null;
+		}	
+	}
+
+    @Override
+	public IEObjectConsumer tryConsume() {
+		if(getEObject().eClass() != grammarAccess.getStringIndicationRule().getType().getClassifier())
+			return null;
+		if(checkForRecursion(StringIndication_Group.class, eObjectConsumer)) return null;
 		return eObjectConsumer;
 	}
 	
@@ -5876,6 +5921,101 @@ protected class ContextDef_BlockAssignment_2 extends AssignmentToken  {
 
 
 /************ end Rule ContextDef ****************/
+
+
+/************ begin Rule StringIndication ****************
+ *
+ * StringIndication:
+ * 	"\\" string=INT;
+ *
+ **/
+
+// "\\" string=INT
+protected class StringIndication_Group extends GroupToken {
+	
+	public StringIndication_Group(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
+		super(lastRuleCallOrigin, next, transitionIndex, eObjectConsumer);
+	}
+	
+	@Override
+	public Group getGrammarElement() {
+		return grammarAccess.getStringIndicationAccess().getGroup();
+	}
+
+    @Override
+	public AbstractToken createFollower(int index, IEObjectConsumer inst) {
+		switch(index) {
+			case 0: return new StringIndication_StringAssignment_1(lastRuleCallOrigin, this, 0, inst);
+			default: return null;
+		}	
+	}
+
+    @Override
+	public IEObjectConsumer tryConsume() {
+		if(getEObject().eClass() != grammarAccess.getStringIndicationRule().getType().getClassifier())
+			return null;
+		return eObjectConsumer;
+	}
+
+}
+
+// "\\"
+protected class StringIndication_ReverseSolidusKeyword_0 extends KeywordToken  {
+	
+	public StringIndication_ReverseSolidusKeyword_0(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
+		super(lastRuleCallOrigin, next, transitionIndex, eObjectConsumer);
+	}
+	
+	@Override
+	public Keyword getGrammarElement() {
+		return grammarAccess.getStringIndicationAccess().getReverseSolidusKeyword_0();
+	}
+
+    @Override
+	public AbstractToken createFollower(int index, IEObjectConsumer inst) {
+		switch(index) {
+			default: return lastRuleCallOrigin.createFollowerAfterReturn(this, index, index, inst);
+		}	
+	}
+
+}
+
+// string=INT
+protected class StringIndication_StringAssignment_1 extends AssignmentToken  {
+	
+	public StringIndication_StringAssignment_1(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
+		super(lastRuleCallOrigin, next, transitionIndex, eObjectConsumer);
+	}
+	
+	@Override
+	public Assignment getGrammarElement() {
+		return grammarAccess.getStringIndicationAccess().getStringAssignment_1();
+	}
+
+    @Override
+	public AbstractToken createFollower(int index, IEObjectConsumer inst) {
+		switch(index) {
+			case 0: return new StringIndication_ReverseSolidusKeyword_0(lastRuleCallOrigin, this, 0, inst);
+			default: return null;
+		}	
+	}
+
+    @Override	
+	public IEObjectConsumer tryConsume() {
+		if((value = eObjectConsumer.getConsumable("string",true)) == null) return null;
+		IEObjectConsumer obj = eObjectConsumer.cloneAndConsume("string");
+		if(valueSerializer.isValid(obj.getEObject(), grammarAccess.getStringIndicationAccess().getStringINTTerminalRuleCall_1_0(), value, null)) {
+			type = AssignmentType.TERMINAL_RULE_CALL;
+			element = grammarAccess.getStringIndicationAccess().getStringINTTerminalRuleCall_1_0();
+			return obj;
+		}
+		return null;
+	}
+
+}
+
+
+/************ end Rule StringIndication ****************/
 
 
 /************ begin Rule Other ****************

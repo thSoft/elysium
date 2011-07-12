@@ -52,6 +52,7 @@ import org.elysium.lilypond.SimultaneousBlock;
 import org.elysium.lilypond.SourceFileLine;
 import org.elysium.lilypond.SourceFileName;
 import org.elysium.lilypond.SpecialCommand;
+import org.elysium.lilypond.StringIndication;
 import org.elysium.lilypond.Text;
 import org.elysium.lilypond.ToplevelExpression;
 import org.elysium.lilypond.TransposedMusic;
@@ -312,6 +313,13 @@ public class LilypondPackageImpl extends EPackageImpl implements LilypondPackage
    * @generated
    */
   private EClass contextDefEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass stringIndicationEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -1238,6 +1246,26 @@ public class LilypondPackageImpl extends EPackageImpl implements LilypondPackage
    * <!-- end-user-doc -->
    * @generated
    */
+  public EClass getStringIndication()
+  {
+    return stringIndicationEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public EAttribute getStringIndication_String()
+  {
+    return (EAttribute)stringIndicationEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public EClass getOther()
   {
     return otherEClass;
@@ -1616,6 +1644,9 @@ public class LilypondPackageImpl extends EPackageImpl implements LilypondPackage
     contextDefEClass = createEClass(CONTEXT_DEF);
     createEReference(contextDefEClass, CONTEXT_DEF__BLOCK);
 
+    stringIndicationEClass = createEClass(STRING_INDICATION);
+    createEAttribute(stringIndicationEClass, STRING_INDICATION__STRING);
+
     otherEClass = createEClass(OTHER);
 
     schemeEClass = createEClass(SCHEME);
@@ -1712,6 +1743,7 @@ public class LilypondPackageImpl extends EPackageImpl implements LilypondPackage
     musicWithLyricsEClass.getESuperTypes().add(this.getSpecialCommand());
     newContextEClass.getESuperTypes().add(this.getSpecialCommand());
     contextDefEClass.getESuperTypes().add(this.getSpecialCommand());
+    stringIndicationEClass.getESuperTypes().add(this.getCommand());
     otherEClass.getESuperTypes().add(this.getSpecialCommand());
     schemeEClass.getESuperTypes().add(this.getCommonExpression());
     schemeEClass.getESuperTypes().add(this.getUnparsedExpression());
@@ -1836,6 +1868,9 @@ public class LilypondPackageImpl extends EPackageImpl implements LilypondPackage
 
     initEClass(contextDefEClass, ContextDef.class, "ContextDef", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getContextDef_Block(), this.getUnparsedBlock(), null, "block", null, 0, 1, ContextDef.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(stringIndicationEClass, StringIndication.class, "StringIndication", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getStringIndication_String(), ecorePackage.getEInt(), "string", null, 0, 1, StringIndication.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(otherEClass, Other.class, "Other", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 

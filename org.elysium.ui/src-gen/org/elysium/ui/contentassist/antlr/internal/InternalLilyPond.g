@@ -1066,6 +1066,34 @@ finally {
 
 
 
+// Entry rule entryRuleStringIndication
+entryRuleStringIndication 
+:
+{ before(grammarAccess.getStringIndicationRule()); }
+	 ruleStringIndication
+{ after(grammarAccess.getStringIndicationRule()); } 
+	 EOF 
+;
+
+// Rule StringIndication
+ruleStringIndication
+    @init {
+		int stackSize = keepStackSize();
+    }
+	:
+(
+{ before(grammarAccess.getStringIndicationAccess().getGroup()); }
+(rule__StringIndication__Group__0)
+{ after(grammarAccess.getStringIndicationAccess().getGroup()); }
+)
+
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+
+
 // Entry rule entryRuleOther
 entryRuleOther 
 :
@@ -1774,6 +1802,12 @@ rule__Command__Alternatives
 { before(grammarAccess.getCommandAccess().getReferenceParserRuleCall_1()); }
 	ruleReference
 { after(grammarAccess.getCommandAccess().getReferenceParserRuleCall_1()); }
+)
+
+    |(
+{ before(grammarAccess.getCommandAccess().getStringIndicationParserRuleCall_2()); }
+	ruleStringIndication
+{ after(grammarAccess.getCommandAccess().getStringIndicationParserRuleCall_2()); }
 )
 
 ;
@@ -5776,6 +5810,69 @@ finally {
 
 
 
+rule__StringIndication__Group__0
+    @init {
+		int stackSize = keepStackSize();
+    }
+:
+	rule__StringIndication__Group__0__Impl
+	rule__StringIndication__Group__1
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__StringIndication__Group__0__Impl
+    @init {
+		int stackSize = keepStackSize();
+    }
+:
+(
+{ before(grammarAccess.getStringIndicationAccess().getReverseSolidusKeyword_0()); }
+
+	'\\' 
+
+{ after(grammarAccess.getStringIndicationAccess().getReverseSolidusKeyword_0()); }
+)
+
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+
+rule__StringIndication__Group__1
+    @init {
+		int stackSize = keepStackSize();
+    }
+:
+	rule__StringIndication__Group__1__Impl
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__StringIndication__Group__1__Impl
+    @init {
+		int stackSize = keepStackSize();
+    }
+:
+(
+{ before(grammarAccess.getStringIndicationAccess().getStringAssignment_1()); }
+(rule__StringIndication__StringAssignment_1)
+{ after(grammarAccess.getStringIndicationAccess().getStringAssignment_1()); }
+)
+
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+
+
+
+
+
 rule__Other__Group__0
     @init {
 		int stackSize = keepStackSize();
@@ -7895,6 +7992,21 @@ rule__ContextDef__BlockAssignment_2
 (
 { before(grammarAccess.getContextDefAccess().getBlockUnparsedBlockParserRuleCall_2_0()); }
 	ruleUnparsedBlock{ after(grammarAccess.getContextDefAccess().getBlockUnparsedBlockParserRuleCall_2_0()); }
+)
+
+;
+finally {
+	restoreStackSize(stackSize);
+}
+
+rule__StringIndication__StringAssignment_1
+    @init {
+		int stackSize = keepStackSize();
+    }
+:
+(
+{ before(grammarAccess.getStringIndicationAccess().getStringINTTerminalRuleCall_1_0()); }
+	RULE_INT{ after(grammarAccess.getStringIndicationAccess().getStringINTTerminalRuleCall_1_0()); }
 )
 
 ;

@@ -49,6 +49,7 @@ import org.elysium.lilypond.SimultaneousBlock;
 import org.elysium.lilypond.SourceFileLine;
 import org.elysium.lilypond.SourceFileName;
 import org.elysium.lilypond.SpecialCommand;
+import org.elysium.lilypond.StringIndication;
 import org.elysium.lilypond.Text;
 import org.elysium.lilypond.ToplevelExpression;
 import org.elysium.lilypond.TransposedMusic;
@@ -469,6 +470,17 @@ public class LilypondSwitch<T> extends Switch<T>
         if (result == null) result = caseCommonExpression(contextDef);
         if (result == null) result = caseToplevelExpression(contextDef);
         if (result == null) result = caseExpression(contextDef);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case LilypondPackage.STRING_INDICATION:
+      {
+        StringIndication stringIndication = (StringIndication)theEObject;
+        T result = caseStringIndication(stringIndication);
+        if (result == null) result = caseCommand(stringIndication);
+        if (result == null) result = caseCommonExpression(stringIndication);
+        if (result == null) result = caseToplevelExpression(stringIndication);
+        if (result == null) result = caseExpression(stringIndication);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -1125,6 +1137,22 @@ public class LilypondSwitch<T> extends Switch<T>
    * @generated
    */
   public T caseContextDef(ContextDef object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>String Indication</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>String Indication</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseStringIndication(StringIndication object)
   {
     return null;
   }

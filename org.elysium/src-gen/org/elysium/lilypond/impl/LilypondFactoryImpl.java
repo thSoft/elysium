@@ -53,6 +53,7 @@ import org.elysium.lilypond.SimultaneousBlock;
 import org.elysium.lilypond.SourceFileLine;
 import org.elysium.lilypond.SourceFileName;
 import org.elysium.lilypond.SpecialCommand;
+import org.elysium.lilypond.StringIndication;
 import org.elysium.lilypond.Text;
 import org.elysium.lilypond.ToplevelExpression;
 import org.elysium.lilypond.TransposedMusic;
@@ -148,6 +149,7 @@ public class LilypondFactoryImpl extends EFactoryImpl implements LilypondFactory
       case LilypondPackage.NEW_CONTEXT: return createNewContext();
       case LilypondPackage.CONTEXT_MODIFICATION: return createContextModification();
       case LilypondPackage.CONTEXT_DEF: return createContextDef();
+      case LilypondPackage.STRING_INDICATION: return createStringIndication();
       case LilypondPackage.OTHER: return createOther();
       case LilypondPackage.SCHEME: return createScheme();
       case LilypondPackage.SCHEME_EXPRESSION: return createSchemeExpression();
@@ -547,6 +549,17 @@ public class LilypondFactoryImpl extends EFactoryImpl implements LilypondFactory
   {
     ContextDefImpl contextDef = new ContextDefImpl();
     return contextDef;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public StringIndication createStringIndication()
+  {
+    StringIndicationImpl stringIndication = new StringIndicationImpl();
+    return stringIndication;
   }
 
   /**

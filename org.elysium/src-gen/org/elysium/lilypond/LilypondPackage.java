@@ -1256,6 +1256,34 @@ public interface LilypondPackage extends EPackage
   int CONTEXT_DEF_FEATURE_COUNT = SPECIAL_COMMAND_FEATURE_COUNT + 1;
 
   /**
+   * The meta object id for the '{@link org.elysium.lilypond.impl.StringIndicationImpl <em>String Indication</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.elysium.lilypond.impl.StringIndicationImpl
+   * @see org.elysium.lilypond.impl.LilypondPackageImpl#getStringIndication()
+   * @generated
+   */
+  int STRING_INDICATION = 35;
+
+  /**
+   * The feature id for the '<em><b>String</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int STRING_INDICATION__STRING = COMMAND_FEATURE_COUNT + 0;
+
+  /**
+   * The number of structural features of the '<em>String Indication</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int STRING_INDICATION_FEATURE_COUNT = COMMAND_FEATURE_COUNT + 1;
+
+  /**
    * The meta object id for the '{@link org.elysium.lilypond.impl.OtherImpl <em>Other</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -1263,7 +1291,7 @@ public interface LilypondPackage extends EPackage
    * @see org.elysium.lilypond.impl.LilypondPackageImpl#getOther()
    * @generated
    */
-  int OTHER = 35;
+  int OTHER = 36;
 
   /**
    * The feature id for the '<em><b>Keyword</b></em>' attribute.
@@ -1291,7 +1319,7 @@ public interface LilypondPackage extends EPackage
    * @see org.elysium.lilypond.impl.LilypondPackageImpl#getScheme()
    * @generated
    */
-  int SCHEME = 36;
+  int SCHEME = 37;
 
   /**
    * The feature id for the '<em><b>Value</b></em>' containment reference.
@@ -1319,7 +1347,7 @@ public interface LilypondPackage extends EPackage
    * @see org.elysium.lilypond.impl.LilypondPackageImpl#getSchemeExpression()
    * @generated
    */
-  int SCHEME_EXPRESSION = 37;
+  int SCHEME_EXPRESSION = 38;
 
   /**
    * The feature id for the '<em><b>Reference</b></em>' attribute.
@@ -1365,7 +1393,7 @@ public interface LilypondPackage extends EPackage
    * @see org.elysium.lilypond.impl.LilypondPackageImpl#getSchemeValue()
    * @generated
    */
-  int SCHEME_VALUE = 38;
+  int SCHEME_VALUE = 39;
 
   /**
    * The number of structural features of the '<em>Scheme Value</em>' class.
@@ -1384,7 +1412,7 @@ public interface LilypondPackage extends EPackage
    * @see org.elysium.lilypond.impl.LilypondPackageImpl#getSchemeBoolean()
    * @generated
    */
-  int SCHEME_BOOLEAN = 39;
+  int SCHEME_BOOLEAN = 40;
 
   /**
    * The feature id for the '<em><b>Value</b></em>' attribute.
@@ -1412,7 +1440,7 @@ public interface LilypondPackage extends EPackage
    * @see org.elysium.lilypond.impl.LilypondPackageImpl#getSchemeList()
    * @generated
    */
-  int SCHEME_LIST = 40;
+  int SCHEME_LIST = 41;
 
   /**
    * The feature id for the '<em><b>Vector</b></em>' attribute.
@@ -1449,7 +1477,7 @@ public interface LilypondPackage extends EPackage
    * @see org.elysium.lilypond.impl.LilypondPackageImpl#getSchemeBlock()
    * @generated
    */
-  int SCHEME_BLOCK = 41;
+  int SCHEME_BLOCK = 42;
 
   /**
    * The feature id for the '<em><b>Elements</b></em>' containment reference list.
@@ -1477,7 +1505,7 @@ public interface LilypondPackage extends EPackage
    * @see org.elysium.lilypond.impl.LilypondPackageImpl#getSchemeCharacter()
    * @generated
    */
-  int SCHEME_CHARACTER = 42;
+  int SCHEME_CHARACTER = 43;
 
   /**
    * The feature id for the '<em><b>Value</b></em>' attribute.
@@ -1505,7 +1533,7 @@ public interface LilypondPackage extends EPackage
    * @see org.elysium.lilypond.impl.LilypondPackageImpl#getSchemeText()
    * @generated
    */
-  int SCHEME_TEXT = 43;
+  int SCHEME_TEXT = 44;
 
   /**
    * The feature id for the '<em><b>Value</b></em>' attribute.
@@ -1533,7 +1561,7 @@ public interface LilypondPackage extends EPackage
    * @see org.elysium.lilypond.impl.LilypondPackageImpl#getSchemeNumber()
    * @generated
    */
-  int SCHEME_NUMBER = 44;
+  int SCHEME_NUMBER = 45;
 
   /**
    * The feature id for the '<em><b>Radix</b></em>' attribute.
@@ -1570,7 +1598,7 @@ public interface LilypondPackage extends EPackage
    * @see org.elysium.lilypond.impl.LilypondPackageImpl#getSchemeMarkupCommand()
    * @generated
    */
-  int SCHEME_MARKUP_COMMAND = 45;
+  int SCHEME_MARKUP_COMMAND = 46;
 
   /**
    * The feature id for the '<em><b>Command</b></em>' attribute.
@@ -2413,6 +2441,27 @@ public interface LilypondPackage extends EPackage
    * @generated
    */
   EReference getContextDef_Block();
+
+  /**
+   * Returns the meta object for class '{@link org.elysium.lilypond.StringIndication <em>String Indication</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>String Indication</em>'.
+   * @see org.elysium.lilypond.StringIndication
+   * @generated
+   */
+  EClass getStringIndication();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.elysium.lilypond.StringIndication#getString <em>String</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>String</em>'.
+   * @see org.elysium.lilypond.StringIndication#getString()
+   * @see #getStringIndication()
+   * @generated
+   */
+  EAttribute getStringIndication_String();
 
   /**
    * Returns the meta object for class '{@link org.elysium.lilypond.Other <em>Other</em>}'.
@@ -3383,6 +3432,24 @@ public interface LilypondPackage extends EPackage
      * @generated
      */
     EReference CONTEXT_DEF__BLOCK = eINSTANCE.getContextDef_Block();
+
+    /**
+     * The meta object literal for the '{@link org.elysium.lilypond.impl.StringIndicationImpl <em>String Indication</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see org.elysium.lilypond.impl.StringIndicationImpl
+     * @see org.elysium.lilypond.impl.LilypondPackageImpl#getStringIndication()
+     * @generated
+     */
+    EClass STRING_INDICATION = eINSTANCE.getStringIndication();
+
+    /**
+     * The meta object literal for the '<em><b>String</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute STRING_INDICATION__STRING = eINSTANCE.getStringIndication_String();
 
     /**
      * The meta object literal for the '{@link org.elysium.lilypond.impl.OtherImpl <em>Other</em>}' class.

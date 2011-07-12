@@ -138,6 +138,9 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="block" eType="ecore:EClass platform:/resource/org.elysium/src-gen/org/elysium/LilyPond.ecore#//UnparsedBlock"
         containment="true"/>
   </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="StringIndication" eSuperTypes="platform:/resource/org.elysium/src-gen/org/elysium/LilyPond.ecore#//Command">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="string" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+  </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Other" eSuperTypes="platform:/resource/org.elysium/src-gen/org/elysium/LilyPond.ecore#//SpecialCommand"/>
   <eClassifiers xsi:type="ecore:EClass" name="Scheme" eSuperTypes="platform:/resource/org.elysium/src-gen/org/elysium/LilyPond.ecore#//CommonExpression platform:/resource/org.elysium/src-gen/org/elysium/LilyPond.ecore#//UnparsedExpression">
     <eStructuralFeatures xsi:type="ecore:EReference" name="value" eType="ecore:EClass platform:/resource/org.elysium/src-gen/org/elysium/LilyPond.ecore#//SchemeExpression"
