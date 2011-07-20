@@ -19,26 +19,26 @@ public class LilyPondGrammarAccess extends AbstractGrammarElementFinder {
 	public class LilyPondElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "LilyPond");
 		private final Assignment cExpressionsAssignment = (Assignment)rule.eContents().get(1);
-		private final RuleCall cExpressionsToplevelExpressionParserRuleCall_0 = (RuleCall)cExpressionsAssignment.eContents().get(0);
+		private final RuleCall cExpressionsExpressionParserRuleCall_0 = (RuleCall)cExpressionsAssignment.eContents().get(0);
 		
 		//LilyPond:
-		//	expressions+=ToplevelExpression*;
+		//	expressions+=Expression*;
 		public ParserRule getRule() { return rule; }
 
-		//expressions+=ToplevelExpression*
+		//expressions+=Expression*
 		public Assignment getExpressionsAssignment() { return cExpressionsAssignment; }
 
-		//ToplevelExpression
-		public RuleCall getExpressionsToplevelExpressionParserRuleCall_0() { return cExpressionsToplevelExpressionParserRuleCall_0; }
+		//Expression
+		public RuleCall getExpressionsExpressionParserRuleCall_0() { return cExpressionsExpressionParserRuleCall_0; }
 	}
 
-	public class ToplevelExpressionElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "ToplevelExpression");
+	public class ExpressionElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "Expression");
 		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
 		private final RuleCall cAssignmentParserRuleCall_0 = (RuleCall)cAlternatives.eContents().get(0);
 		private final RuleCall cCommonExpressionParserRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
 		
-		//ToplevelExpression:
+		//Expression:
 		//	Assignment | CommonExpression;
 		public ParserRule getRule() { return rule; }
 
@@ -47,26 +47,6 @@ public class LilyPondGrammarAccess extends AbstractGrammarElementFinder {
 
 		//Assignment
 		public RuleCall getAssignmentParserRuleCall_0() { return cAssignmentParserRuleCall_0; }
-
-		//CommonExpression
-		public RuleCall getCommonExpressionParserRuleCall_1() { return cCommonExpressionParserRuleCall_1; }
-	}
-
-	public class ExpressionElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "Expression");
-		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
-		private final RuleCall cPropertyAssignmentParserRuleCall_0 = (RuleCall)cAlternatives.eContents().get(0);
-		private final RuleCall cCommonExpressionParserRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
-		
-		//Expression:
-		//	PropertyAssignment | CommonExpression;
-		public ParserRule getRule() { return rule; }
-
-		//PropertyAssignment | CommonExpression
-		public Alternatives getAlternatives() { return cAlternatives; }
-
-		//PropertyAssignment
-		public RuleCall getPropertyAssignmentParserRuleCall_0() { return cPropertyAssignmentParserRuleCall_0; }
 
 		//CommonExpression
 		public RuleCall getCommonExpressionParserRuleCall_1() { return cCommonExpressionParserRuleCall_1; }
@@ -2161,7 +2141,6 @@ public class LilyPondGrammarAccess extends AbstractGrammarElementFinder {
 	
 	
 	private LilyPondElements pLilyPond;
-	private ToplevelExpressionElements pToplevelExpression;
 	private ExpressionElements pExpression;
 	private CommonExpressionElements pCommonExpression;
 	private AssignmentElements pAssignment;
@@ -2240,7 +2219,7 @@ public class LilyPondGrammarAccess extends AbstractGrammarElementFinder {
 
 	
 	//LilyPond:
-	//	expressions+=ToplevelExpression*;
+	//	expressions+=Expression*;
 	public LilyPondElements getLilyPondAccess() {
 		return (pLilyPond != null) ? pLilyPond : (pLilyPond = new LilyPondElements());
 	}
@@ -2249,18 +2228,8 @@ public class LilyPondGrammarAccess extends AbstractGrammarElementFinder {
 		return getLilyPondAccess().getRule();
 	}
 
-	//ToplevelExpression:
-	//	Assignment | CommonExpression;
-	public ToplevelExpressionElements getToplevelExpressionAccess() {
-		return (pToplevelExpression != null) ? pToplevelExpression : (pToplevelExpression = new ToplevelExpressionElements());
-	}
-	
-	public ParserRule getToplevelExpressionRule() {
-		return getToplevelExpressionAccess().getRule();
-	}
-
 	//Expression:
-	//	PropertyAssignment | CommonExpression;
+	//	Assignment | CommonExpression;
 	public ExpressionElements getExpressionAccess() {
 		return (pExpression != null) ? pExpression : (pExpression = new ExpressionElements());
 	}

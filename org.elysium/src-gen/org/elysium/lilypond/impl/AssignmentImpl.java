@@ -31,7 +31,7 @@ import org.elysium.lilypond.LilypondPackage;
  *
  * @generated
  */
-public class AssignmentImpl extends ToplevelExpressionImpl implements Assignment
+public class AssignmentImpl extends ExpressionImpl implements Assignment
 {
   /**
    * The default value of the '{@link #getName() <em>Name</em>}' attribute.

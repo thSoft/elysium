@@ -19,7 +19,7 @@ import org.elysium.lilypond.LilypondPackage;
  *
  * @generated
  */
-public class CommonExpressionImpl extends ToplevelExpressionImpl implements CommonExpression
+public class CommonExpressionImpl extends ExpressionImpl implements CommonExpression
 {
   /**
    * <!-- begin-user-doc -->

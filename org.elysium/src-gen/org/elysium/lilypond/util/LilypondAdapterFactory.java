@@ -53,7 +53,6 @@ import org.elysium.lilypond.SourceFileName;
 import org.elysium.lilypond.SpecialCommand;
 import org.elysium.lilypond.StringIndication;
 import org.elysium.lilypond.Text;
-import org.elysium.lilypond.ToplevelExpression;
 import org.elysium.lilypond.TransposedMusic;
 import org.elysium.lilypond.UnparsedBlock;
 import org.elysium.lilypond.UnparsedCommand;
@@ -127,11 +126,6 @@ public class LilypondAdapterFactory extends AdapterFactoryImpl
       public Adapter caseLilyPond(LilyPond object)
       {
         return createLilyPondAdapter();
-      }
-      @Override
-      public Adapter caseToplevelExpression(ToplevelExpression object)
-      {
-        return createToplevelExpressionAdapter();
       }
       @Override
       public Adapter caseExpression(Expression object)
@@ -391,21 +385,6 @@ public class LilypondAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createLilyPondAdapter()
-  {
-    return null;
-  }
-
-  /**
-   * Creates a new adapter for an object of class '{@link org.elysium.lilypond.ToplevelExpression <em>Toplevel Expression</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see org.elysium.lilypond.ToplevelExpression
-   * @generated
-   */
-  public Adapter createToplevelExpressionAdapter()
   {
     return null;
   }

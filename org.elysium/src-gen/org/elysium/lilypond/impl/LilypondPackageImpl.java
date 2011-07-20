@@ -54,7 +54,6 @@ import org.elysium.lilypond.SourceFileName;
 import org.elysium.lilypond.SpecialCommand;
 import org.elysium.lilypond.StringIndication;
 import org.elysium.lilypond.Text;
-import org.elysium.lilypond.ToplevelExpression;
 import org.elysium.lilypond.TransposedMusic;
 import org.elysium.lilypond.UnparsedBlock;
 import org.elysium.lilypond.UnparsedCommand;
@@ -75,13 +74,6 @@ public class LilypondPackageImpl extends EPackageImpl implements LilypondPackage
    * @generated
    */
   private EClass lilyPondEClass = null;
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  private EClass toplevelExpressionEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -479,16 +471,6 @@ public class LilypondPackageImpl extends EPackageImpl implements LilypondPackage
   public EReference getLilyPond_Expressions()
   {
     return (EReference)lilyPondEClass.getEStructuralFeatures().get(0);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EClass getToplevelExpression()
-  {
-    return toplevelExpressionEClass;
   }
 
   /**
@@ -1534,8 +1516,6 @@ public class LilypondPackageImpl extends EPackageImpl implements LilypondPackage
     lilyPondEClass = createEClass(LILY_POND);
     createEReference(lilyPondEClass, LILY_POND__EXPRESSIONS);
 
-    toplevelExpressionEClass = createEClass(TOPLEVEL_EXPRESSION);
-
     expressionEClass = createEClass(EXPRESSION);
 
     commonExpressionEClass = createEClass(COMMON_EXPRESSION);
@@ -1712,10 +1692,8 @@ public class LilypondPackageImpl extends EPackageImpl implements LilypondPackage
     // Set bounds for type parameters
 
     // Add supertypes to classes
-    commonExpressionEClass.getESuperTypes().add(this.getToplevelExpression());
     commonExpressionEClass.getESuperTypes().add(this.getExpression());
-    assignmentEClass.getESuperTypes().add(this.getToplevelExpression());
-    propertyAssignmentEClass.getESuperTypes().add(this.getExpression());
+    assignmentEClass.getESuperTypes().add(this.getExpression());
     propertyAssignmentEClass.getESuperTypes().add(this.getUnparsedExpression());
     blockEClass.getESuperTypes().add(this.getCommonExpression());
     simpleBlockEClass.getESuperTypes().add(this.getBlock());
@@ -1757,9 +1735,7 @@ public class LilypondPackageImpl extends EPackageImpl implements LilypondPackage
 
     // Initialize classes and features; add operations and parameters
     initEClass(lilyPondEClass, LilyPond.class, "LilyPond", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getLilyPond_Expressions(), this.getToplevelExpression(), null, "expressions", null, 0, -1, LilyPond.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-    initEClass(toplevelExpressionEClass, ToplevelExpression.class, "ToplevelExpression", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getLilyPond_Expressions(), this.getExpression(), null, "expressions", null, 0, -1, LilyPond.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(expressionEClass, Expression.class, "Expression", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 

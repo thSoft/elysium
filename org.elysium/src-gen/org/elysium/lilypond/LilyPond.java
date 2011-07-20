@@ -29,7 +29,7 @@ public interface LilyPond extends EObject
 {
   /**
    * Returns the value of the '<em><b>Expressions</b></em>' containment reference list.
-   * The list contents are of type {@link org.elysium.lilypond.ToplevelExpression}.
+   * The list contents are of type {@link org.elysium.lilypond.Expression}.
    * <!-- begin-user-doc -->
    * <p>
    * If the meaning of the '<em>Expressions</em>' containment reference list isn't clear,
@@ -41,6 +41,6 @@ public interface LilyPond extends EObject
    * @model containment="true"
    * @generated
    */
-  EList<ToplevelExpression> getExpressions();
+  EList<Expression> getExpressions();
 
 } // LilyPond

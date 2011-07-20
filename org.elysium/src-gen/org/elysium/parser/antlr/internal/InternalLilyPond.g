@@ -86,9 +86,9 @@ ruleLilyPond returns [EObject current=null]
 (
 (
 		{ 
-	        newCompositeNode(grammarAccess.getLilyPondAccess().getExpressionsToplevelExpressionParserRuleCall_0()); 
+	        newCompositeNode(grammarAccess.getLilyPondAccess().getExpressionsExpressionParserRuleCall_0()); 
 	    }
-		lv_expressions_0_0=ruleToplevelExpression		{
+		lv_expressions_0_0=ruleExpression		{
 	        if ($current==null) {
 	            $current = createModelElementForParent(grammarAccess.getLilyPondRule());
 	        }
@@ -96,58 +96,12 @@ ruleLilyPond returns [EObject current=null]
        			$current, 
        			"expressions",
         		lv_expressions_0_0, 
-        		"ToplevelExpression");
+        		"Expression");
 	        afterParserOrEnumRuleCall();
 	    }
 
 )
 )*
-;
-
-
-
-
-
-// Entry rule entryRuleToplevelExpression
-entryRuleToplevelExpression returns [EObject current=null] 
-	:
-	{ newCompositeNode(grammarAccess.getToplevelExpressionRule()); }
-	 iv_ruleToplevelExpression=ruleToplevelExpression 
-	 { $current=$iv_ruleToplevelExpression.current; } 
-	 EOF 
-;
-
-// Rule ToplevelExpression
-ruleToplevelExpression returns [EObject current=null] 
-    @init { enterRule(); 
-    }
-    @after { leaveRule(); }:
-(
-	{ 
-	  /* */ 
-	}
-    { 
-        newCompositeNode(grammarAccess.getToplevelExpressionAccess().getAssignmentParserRuleCall_0()); 
-    }
-    this_Assignment_0=ruleAssignment
-    { 
-        $current = $this_Assignment_0.current; 
-        afterParserOrEnumRuleCall();
-    }
-
-    |
-	{ 
-	  /* */ 
-	}
-    { 
-        newCompositeNode(grammarAccess.getToplevelExpressionAccess().getCommonExpressionParserRuleCall_1()); 
-    }
-    this_CommonExpression_1=ruleCommonExpression
-    { 
-        $current = $this_CommonExpression_1.current; 
-        afterParserOrEnumRuleCall();
-    }
-)
 ;
 
 
@@ -173,11 +127,11 @@ ruleExpression returns [EObject current=null]
 	  /* */ 
 	}
     { 
-        newCompositeNode(grammarAccess.getExpressionAccess().getPropertyAssignmentParserRuleCall_0()); 
+        newCompositeNode(grammarAccess.getExpressionAccess().getAssignmentParserRuleCall_0()); 
     }
-    this_PropertyAssignment_0=rulePropertyAssignment
+    this_Assignment_0=ruleAssignment
     { 
-        $current = $this_PropertyAssignment_0.current; 
+        $current = $this_Assignment_0.current; 
         afterParserOrEnumRuleCall();
     }
 

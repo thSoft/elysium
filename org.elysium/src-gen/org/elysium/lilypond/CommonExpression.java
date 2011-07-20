@@ -16,6 +16,6 @@ package org.elysium.lilypond;
  * @model
  * @generated
  */
-public interface CommonExpression extends ToplevelExpression, Expression
+public interface CommonExpression extends Expression
 {
 } // CommonExpression

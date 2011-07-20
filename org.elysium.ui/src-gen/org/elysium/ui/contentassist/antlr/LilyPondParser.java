@@ -37,7 +37,6 @@ public class LilyPondParser extends AbstractContentAssistParser {
 			nameMappings = new HashMap<AbstractElement, String>() {
 				private static final long serialVersionUID = 1L;
 				{
-					put(grammarAccess.getToplevelExpressionAccess().getAlternatives(), "rule__ToplevelExpression__Alternatives");
 					put(grammarAccess.getExpressionAccess().getAlternatives(), "rule__Expression__Alternatives");
 					put(grammarAccess.getCommonExpressionAccess().getAlternatives(), "rule__CommonExpression__Alternatives");
 					put(grammarAccess.getAssignmentAccess().getNameAlternatives_0_0(), "rule__Assignment__NameAlternatives_0_0");

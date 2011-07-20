@@ -31,7 +31,7 @@ import org.elysium.lilypond.PropertyAssignment;
  *
  * @generated
  */
-public class PropertyAssignmentImpl extends ExpressionImpl implements PropertyAssignment
+public class PropertyAssignmentImpl extends UnparsedExpressionImpl implements PropertyAssignment
 {
   /**
    * The default value of the '{@link #getId() <em>Id</em>}' attribute.

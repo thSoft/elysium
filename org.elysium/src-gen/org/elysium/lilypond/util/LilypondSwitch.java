@@ -51,7 +51,6 @@ import org.elysium.lilypond.SourceFileName;
 import org.elysium.lilypond.SpecialCommand;
 import org.elysium.lilypond.StringIndication;
 import org.elysium.lilypond.Text;
-import org.elysium.lilypond.ToplevelExpression;
 import org.elysium.lilypond.TransposedMusic;
 import org.elysium.lilypond.UnparsedBlock;
 import org.elysium.lilypond.UnparsedCommand;
@@ -128,13 +127,6 @@ public class LilypondSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case LilypondPackage.TOPLEVEL_EXPRESSION:
-      {
-        ToplevelExpression toplevelExpression = (ToplevelExpression)theEObject;
-        T result = caseToplevelExpression(toplevelExpression);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
       case LilypondPackage.EXPRESSION:
       {
         Expression expression = (Expression)theEObject;
@@ -146,7 +138,6 @@ public class LilypondSwitch<T> extends Switch<T>
       {
         CommonExpression commonExpression = (CommonExpression)theEObject;
         T result = caseCommonExpression(commonExpression);
-        if (result == null) result = caseToplevelExpression(commonExpression);
         if (result == null) result = caseExpression(commonExpression);
         if (result == null) result = defaultCase(theEObject);
         return result;
@@ -155,7 +146,7 @@ public class LilypondSwitch<T> extends Switch<T>
       {
         Assignment assignment = (Assignment)theEObject;
         T result = caseAssignment(assignment);
-        if (result == null) result = caseToplevelExpression(assignment);
+        if (result == null) result = caseExpression(assignment);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -163,7 +154,6 @@ public class LilypondSwitch<T> extends Switch<T>
       {
         PropertyAssignment propertyAssignment = (PropertyAssignment)theEObject;
         T result = casePropertyAssignment(propertyAssignment);
-        if (result == null) result = caseExpression(propertyAssignment);
         if (result == null) result = caseUnparsedExpression(propertyAssignment);
         if (result == null) result = defaultCase(theEObject);
         return result;
@@ -173,7 +163,6 @@ public class LilypondSwitch<T> extends Switch<T>
         Block block = (Block)theEObject;
         T result = caseBlock(block);
         if (result == null) result = caseCommonExpression(block);
-        if (result == null) result = caseToplevelExpression(block);
         if (result == null) result = caseExpression(block);
         if (result == null) result = defaultCase(theEObject);
         return result;
@@ -184,7 +173,6 @@ public class LilypondSwitch<T> extends Switch<T>
         T result = caseSimpleBlock(simpleBlock);
         if (result == null) result = caseBlock(simpleBlock);
         if (result == null) result = caseCommonExpression(simpleBlock);
-        if (result == null) result = caseToplevelExpression(simpleBlock);
         if (result == null) result = caseExpression(simpleBlock);
         if (result == null) result = defaultCase(theEObject);
         return result;
@@ -195,7 +183,6 @@ public class LilypondSwitch<T> extends Switch<T>
         T result = caseSimultaneousBlock(simultaneousBlock);
         if (result == null) result = caseBlock(simultaneousBlock);
         if (result == null) result = caseCommonExpression(simultaneousBlock);
-        if (result == null) result = caseToplevelExpression(simultaneousBlock);
         if (result == null) result = caseExpression(simultaneousBlock);
         if (result == null) result = defaultCase(theEObject);
         return result;
@@ -205,7 +192,6 @@ public class LilypondSwitch<T> extends Switch<T>
         Command command = (Command)theEObject;
         T result = caseCommand(command);
         if (result == null) result = caseCommonExpression(command);
-        if (result == null) result = caseToplevelExpression(command);
         if (result == null) result = caseExpression(command);
         if (result == null) result = defaultCase(theEObject);
         return result;
@@ -239,7 +225,6 @@ public class LilypondSwitch<T> extends Switch<T>
         T result = caseReference(reference);
         if (result == null) result = caseCommand(reference);
         if (result == null) result = caseCommonExpression(reference);
-        if (result == null) result = caseToplevelExpression(reference);
         if (result == null) result = caseExpression(reference);
         if (result == null) result = defaultCase(theEObject);
         return result;
@@ -250,7 +235,6 @@ public class LilypondSwitch<T> extends Switch<T>
         T result = caseText(text);
         if (result == null) result = caseCommonExpression(text);
         if (result == null) result = caseUnparsedExpression(text);
-        if (result == null) result = caseToplevelExpression(text);
         if (result == null) result = caseExpression(text);
         if (result == null) result = defaultCase(theEObject);
         return result;
@@ -261,7 +245,6 @@ public class LilypondSwitch<T> extends Switch<T>
         T result = caseNumber(number);
         if (result == null) result = caseCommonExpression(number);
         if (result == null) result = caseUnparsedExpression(number);
-        if (result == null) result = caseToplevelExpression(number);
         if (result == null) result = caseExpression(number);
         if (result == null) result = defaultCase(theEObject);
         return result;
@@ -272,7 +255,6 @@ public class LilypondSwitch<T> extends Switch<T>
         T result = caseSpecialCommand(specialCommand);
         if (result == null) result = caseCommand(specialCommand);
         if (result == null) result = caseCommonExpression(specialCommand);
-        if (result == null) result = caseToplevelExpression(specialCommand);
         if (result == null) result = caseExpression(specialCommand);
         if (result == null) result = defaultCase(theEObject);
         return result;
@@ -284,7 +266,6 @@ public class LilypondSwitch<T> extends Switch<T>
         if (result == null) result = caseSpecialCommand(include);
         if (result == null) result = caseCommand(include);
         if (result == null) result = caseCommonExpression(include);
-        if (result == null) result = caseToplevelExpression(include);
         if (result == null) result = caseExpression(include);
         if (result == null) result = defaultCase(theEObject);
         return result;
@@ -296,7 +277,6 @@ public class LilypondSwitch<T> extends Switch<T>
         if (result == null) result = caseSpecialCommand(version);
         if (result == null) result = caseCommand(version);
         if (result == null) result = caseCommonExpression(version);
-        if (result == null) result = caseToplevelExpression(version);
         if (result == null) result = caseExpression(version);
         if (result == null) result = defaultCase(theEObject);
         return result;
@@ -308,7 +288,6 @@ public class LilypondSwitch<T> extends Switch<T>
         if (result == null) result = caseSpecialCommand(sourceFileName);
         if (result == null) result = caseCommand(sourceFileName);
         if (result == null) result = caseCommonExpression(sourceFileName);
-        if (result == null) result = caseToplevelExpression(sourceFileName);
         if (result == null) result = caseExpression(sourceFileName);
         if (result == null) result = defaultCase(theEObject);
         return result;
@@ -320,7 +299,6 @@ public class LilypondSwitch<T> extends Switch<T>
         if (result == null) result = caseSpecialCommand(sourceFileLine);
         if (result == null) result = caseCommand(sourceFileLine);
         if (result == null) result = caseCommonExpression(sourceFileLine);
-        if (result == null) result = caseToplevelExpression(sourceFileLine);
         if (result == null) result = caseExpression(sourceFileLine);
         if (result == null) result = defaultCase(theEObject);
         return result;
@@ -332,7 +310,6 @@ public class LilypondSwitch<T> extends Switch<T>
         if (result == null) result = caseSpecialCommand(markup);
         if (result == null) result = caseCommand(markup);
         if (result == null) result = caseCommonExpression(markup);
-        if (result == null) result = caseToplevelExpression(markup);
         if (result == null) result = caseExpression(markup);
         if (result == null) result = defaultCase(theEObject);
         return result;
@@ -344,7 +321,6 @@ public class LilypondSwitch<T> extends Switch<T>
         if (result == null) result = caseSpecialCommand(markupLines);
         if (result == null) result = caseCommand(markupLines);
         if (result == null) result = caseCommonExpression(markupLines);
-        if (result == null) result = caseToplevelExpression(markupLines);
         if (result == null) result = caseExpression(markupLines);
         if (result == null) result = defaultCase(theEObject);
         return result;
@@ -363,7 +339,6 @@ public class LilypondSwitch<T> extends Switch<T>
         if (result == null) result = caseSpecialCommand(blockCommand);
         if (result == null) result = caseCommand(blockCommand);
         if (result == null) result = caseCommonExpression(blockCommand);
-        if (result == null) result = caseToplevelExpression(blockCommand);
         if (result == null) result = caseExpression(blockCommand);
         if (result == null) result = defaultCase(theEObject);
         return result;
@@ -375,7 +350,6 @@ public class LilypondSwitch<T> extends Switch<T>
         if (result == null) result = caseSpecialCommand(outputDefinition);
         if (result == null) result = caseCommand(outputDefinition);
         if (result == null) result = caseCommonExpression(outputDefinition);
-        if (result == null) result = caseToplevelExpression(outputDefinition);
         if (result == null) result = caseExpression(outputDefinition);
         if (result == null) result = defaultCase(theEObject);
         return result;
@@ -387,7 +361,6 @@ public class LilypondSwitch<T> extends Switch<T>
         if (result == null) result = caseSpecialCommand(relativeMusic);
         if (result == null) result = caseCommand(relativeMusic);
         if (result == null) result = caseCommonExpression(relativeMusic);
-        if (result == null) result = caseToplevelExpression(relativeMusic);
         if (result == null) result = caseExpression(relativeMusic);
         if (result == null) result = defaultCase(theEObject);
         return result;
@@ -413,7 +386,6 @@ public class LilypondSwitch<T> extends Switch<T>
         if (result == null) result = caseSpecialCommand(transposedMusic);
         if (result == null) result = caseCommand(transposedMusic);
         if (result == null) result = caseCommonExpression(transposedMusic);
-        if (result == null) result = caseToplevelExpression(transposedMusic);
         if (result == null) result = caseExpression(transposedMusic);
         if (result == null) result = defaultCase(theEObject);
         return result;
@@ -425,7 +397,6 @@ public class LilypondSwitch<T> extends Switch<T>
         if (result == null) result = caseSpecialCommand(modeChange);
         if (result == null) result = caseCommand(modeChange);
         if (result == null) result = caseCommonExpression(modeChange);
-        if (result == null) result = caseToplevelExpression(modeChange);
         if (result == null) result = caseExpression(modeChange);
         if (result == null) result = defaultCase(theEObject);
         return result;
@@ -437,7 +408,6 @@ public class LilypondSwitch<T> extends Switch<T>
         if (result == null) result = caseSpecialCommand(musicWithLyrics);
         if (result == null) result = caseCommand(musicWithLyrics);
         if (result == null) result = caseCommonExpression(musicWithLyrics);
-        if (result == null) result = caseToplevelExpression(musicWithLyrics);
         if (result == null) result = caseExpression(musicWithLyrics);
         if (result == null) result = defaultCase(theEObject);
         return result;
@@ -449,7 +419,6 @@ public class LilypondSwitch<T> extends Switch<T>
         if (result == null) result = caseSpecialCommand(newContext);
         if (result == null) result = caseCommand(newContext);
         if (result == null) result = caseCommonExpression(newContext);
-        if (result == null) result = caseToplevelExpression(newContext);
         if (result == null) result = caseExpression(newContext);
         if (result == null) result = defaultCase(theEObject);
         return result;
@@ -468,7 +437,6 @@ public class LilypondSwitch<T> extends Switch<T>
         if (result == null) result = caseSpecialCommand(contextDef);
         if (result == null) result = caseCommand(contextDef);
         if (result == null) result = caseCommonExpression(contextDef);
-        if (result == null) result = caseToplevelExpression(contextDef);
         if (result == null) result = caseExpression(contextDef);
         if (result == null) result = defaultCase(theEObject);
         return result;
@@ -479,7 +447,6 @@ public class LilypondSwitch<T> extends Switch<T>
         T result = caseStringIndication(stringIndication);
         if (result == null) result = caseCommand(stringIndication);
         if (result == null) result = caseCommonExpression(stringIndication);
-        if (result == null) result = caseToplevelExpression(stringIndication);
         if (result == null) result = caseExpression(stringIndication);
         if (result == null) result = defaultCase(theEObject);
         return result;
@@ -491,7 +458,6 @@ public class LilypondSwitch<T> extends Switch<T>
         if (result == null) result = caseSpecialCommand(other);
         if (result == null) result = caseCommand(other);
         if (result == null) result = caseCommonExpression(other);
-        if (result == null) result = caseToplevelExpression(other);
         if (result == null) result = caseExpression(other);
         if (result == null) result = defaultCase(theEObject);
         return result;
@@ -502,7 +468,6 @@ public class LilypondSwitch<T> extends Switch<T>
         T result = caseScheme(scheme);
         if (result == null) result = caseCommonExpression(scheme);
         if (result == null) result = caseUnparsedExpression(scheme);
-        if (result == null) result = caseToplevelExpression(scheme);
         if (result == null) result = caseExpression(scheme);
         if (result == null) result = defaultCase(theEObject);
         return result;
@@ -593,22 +558,6 @@ public class LilypondSwitch<T> extends Switch<T>
    * @generated
    */
   public T caseLilyPond(LilyPond object)
-  {
-    return null;
-  }
-
-  /**
-   * Returns the result of interpreting the object as an instance of '<em>Toplevel Expression</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Toplevel Expression</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseToplevelExpression(ToplevelExpression object)
   {
     return null;
   }

@@ -88,25 +88,6 @@ public interface LilypondPackage extends EPackage
   int LILY_POND_FEATURE_COUNT = 1;
 
   /**
-   * The meta object id for the '{@link org.elysium.lilypond.impl.ToplevelExpressionImpl <em>Toplevel Expression</em>}' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see org.elysium.lilypond.impl.ToplevelExpressionImpl
-   * @see org.elysium.lilypond.impl.LilypondPackageImpl#getToplevelExpression()
-   * @generated
-   */
-  int TOPLEVEL_EXPRESSION = 1;
-
-  /**
-   * The number of structural features of the '<em>Toplevel Expression</em>' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int TOPLEVEL_EXPRESSION_FEATURE_COUNT = 0;
-
-  /**
    * The meta object id for the '{@link org.elysium.lilypond.impl.ExpressionImpl <em>Expression</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -114,7 +95,7 @@ public interface LilypondPackage extends EPackage
    * @see org.elysium.lilypond.impl.LilypondPackageImpl#getExpression()
    * @generated
    */
-  int EXPRESSION = 2;
+  int EXPRESSION = 1;
 
   /**
    * The number of structural features of the '<em>Expression</em>' class.
@@ -133,7 +114,7 @@ public interface LilypondPackage extends EPackage
    * @see org.elysium.lilypond.impl.LilypondPackageImpl#getCommonExpression()
    * @generated
    */
-  int COMMON_EXPRESSION = 3;
+  int COMMON_EXPRESSION = 2;
 
   /**
    * The number of structural features of the '<em>Common Expression</em>' class.
@@ -142,7 +123,7 @@ public interface LilypondPackage extends EPackage
    * @generated
    * @ordered
    */
-  int COMMON_EXPRESSION_FEATURE_COUNT = TOPLEVEL_EXPRESSION_FEATURE_COUNT + 0;
+  int COMMON_EXPRESSION_FEATURE_COUNT = EXPRESSION_FEATURE_COUNT + 0;
 
   /**
    * The meta object id for the '{@link org.elysium.lilypond.impl.AssignmentImpl <em>Assignment</em>}' class.
@@ -152,7 +133,7 @@ public interface LilypondPackage extends EPackage
    * @see org.elysium.lilypond.impl.LilypondPackageImpl#getAssignment()
    * @generated
    */
-  int ASSIGNMENT = 4;
+  int ASSIGNMENT = 3;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -161,7 +142,7 @@ public interface LilypondPackage extends EPackage
    * @generated
    * @ordered
    */
-  int ASSIGNMENT__NAME = TOPLEVEL_EXPRESSION_FEATURE_COUNT + 0;
+  int ASSIGNMENT__NAME = EXPRESSION_FEATURE_COUNT + 0;
 
   /**
    * The feature id for the '<em><b>Value</b></em>' containment reference.
@@ -170,7 +151,7 @@ public interface LilypondPackage extends EPackage
    * @generated
    * @ordered
    */
-  int ASSIGNMENT__VALUE = TOPLEVEL_EXPRESSION_FEATURE_COUNT + 1;
+  int ASSIGNMENT__VALUE = EXPRESSION_FEATURE_COUNT + 1;
 
   /**
    * The number of structural features of the '<em>Assignment</em>' class.
@@ -179,7 +160,26 @@ public interface LilypondPackage extends EPackage
    * @generated
    * @ordered
    */
-  int ASSIGNMENT_FEATURE_COUNT = TOPLEVEL_EXPRESSION_FEATURE_COUNT + 2;
+  int ASSIGNMENT_FEATURE_COUNT = EXPRESSION_FEATURE_COUNT + 2;
+
+  /**
+   * The meta object id for the '{@link org.elysium.lilypond.impl.UnparsedExpressionImpl <em>Unparsed Expression</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.elysium.lilypond.impl.UnparsedExpressionImpl
+   * @see org.elysium.lilypond.impl.LilypondPackageImpl#getUnparsedExpression()
+   * @generated
+   */
+  int UNPARSED_EXPRESSION = 10;
+
+  /**
+   * The number of structural features of the '<em>Unparsed Expression</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int UNPARSED_EXPRESSION_FEATURE_COUNT = 0;
 
   /**
    * The meta object id for the '{@link org.elysium.lilypond.impl.PropertyAssignmentImpl <em>Property Assignment</em>}' class.
@@ -189,7 +189,7 @@ public interface LilypondPackage extends EPackage
    * @see org.elysium.lilypond.impl.LilypondPackageImpl#getPropertyAssignment()
    * @generated
    */
-  int PROPERTY_ASSIGNMENT = 5;
+  int PROPERTY_ASSIGNMENT = 4;
 
   /**
    * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -198,7 +198,7 @@ public interface LilypondPackage extends EPackage
    * @generated
    * @ordered
    */
-  int PROPERTY_ASSIGNMENT__ID = EXPRESSION_FEATURE_COUNT + 0;
+  int PROPERTY_ASSIGNMENT__ID = UNPARSED_EXPRESSION_FEATURE_COUNT + 0;
 
   /**
    * The feature id for the '<em><b>Value</b></em>' containment reference.
@@ -207,7 +207,7 @@ public interface LilypondPackage extends EPackage
    * @generated
    * @ordered
    */
-  int PROPERTY_ASSIGNMENT__VALUE = EXPRESSION_FEATURE_COUNT + 1;
+  int PROPERTY_ASSIGNMENT__VALUE = UNPARSED_EXPRESSION_FEATURE_COUNT + 1;
 
   /**
    * The number of structural features of the '<em>Property Assignment</em>' class.
@@ -216,7 +216,7 @@ public interface LilypondPackage extends EPackage
    * @generated
    * @ordered
    */
-  int PROPERTY_ASSIGNMENT_FEATURE_COUNT = EXPRESSION_FEATURE_COUNT + 2;
+  int PROPERTY_ASSIGNMENT_FEATURE_COUNT = UNPARSED_EXPRESSION_FEATURE_COUNT + 2;
 
   /**
    * The meta object id for the '{@link org.elysium.lilypond.impl.BlockImpl <em>Block</em>}' class.
@@ -226,7 +226,7 @@ public interface LilypondPackage extends EPackage
    * @see org.elysium.lilypond.impl.LilypondPackageImpl#getBlock()
    * @generated
    */
-  int BLOCK = 6;
+  int BLOCK = 5;
 
   /**
    * The feature id for the '<em><b>Expressions</b></em>' containment reference list.
@@ -254,7 +254,7 @@ public interface LilypondPackage extends EPackage
    * @see org.elysium.lilypond.impl.LilypondPackageImpl#getSimpleBlock()
    * @generated
    */
-  int SIMPLE_BLOCK = 7;
+  int SIMPLE_BLOCK = 6;
 
   /**
    * The feature id for the '<em><b>Expressions</b></em>' containment reference list.
@@ -282,7 +282,7 @@ public interface LilypondPackage extends EPackage
    * @see org.elysium.lilypond.impl.LilypondPackageImpl#getSimultaneousBlock()
    * @generated
    */
-  int SIMULTANEOUS_BLOCK = 8;
+  int SIMULTANEOUS_BLOCK = 7;
 
   /**
    * The feature id for the '<em><b>Expressions</b></em>' containment reference list.
@@ -310,7 +310,7 @@ public interface LilypondPackage extends EPackage
    * @see org.elysium.lilypond.impl.LilypondPackageImpl#getCommand()
    * @generated
    */
-  int COMMAND = 9;
+  int COMMAND = 8;
 
   /**
    * The number of structural features of the '<em>Command</em>' class.
@@ -322,25 +322,6 @@ public interface LilypondPackage extends EPackage
   int COMMAND_FEATURE_COUNT = COMMON_EXPRESSION_FEATURE_COUNT + 0;
 
   /**
-   * The meta object id for the '{@link org.elysium.lilypond.impl.UnparsedExpressionImpl <em>Unparsed Expression</em>}' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see org.elysium.lilypond.impl.UnparsedExpressionImpl
-   * @see org.elysium.lilypond.impl.LilypondPackageImpl#getUnparsedExpression()
-   * @generated
-   */
-  int UNPARSED_EXPRESSION = 11;
-
-  /**
-   * The number of structural features of the '<em>Unparsed Expression</em>' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int UNPARSED_EXPRESSION_FEATURE_COUNT = 0;
-
-  /**
    * The meta object id for the '{@link org.elysium.lilypond.impl.UnparsedBlockImpl <em>Unparsed Block</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -348,7 +329,7 @@ public interface LilypondPackage extends EPackage
    * @see org.elysium.lilypond.impl.LilypondPackageImpl#getUnparsedBlock()
    * @generated
    */
-  int UNPARSED_BLOCK = 10;
+  int UNPARSED_BLOCK = 9;
 
   /**
    * The feature id for the '<em><b>Expressions</b></em>' containment reference list.
@@ -376,7 +357,7 @@ public interface LilypondPackage extends EPackage
    * @see org.elysium.lilypond.impl.LilypondPackageImpl#getUnparsedCommand()
    * @generated
    */
-  int UNPARSED_COMMAND = 12;
+  int UNPARSED_COMMAND = 11;
 
   /**
    * The feature id for the '<em><b>Command</b></em>' attribute.
@@ -404,7 +385,7 @@ public interface LilypondPackage extends EPackage
    * @see org.elysium.lilypond.impl.LilypondPackageImpl#getReference()
    * @generated
    */
-  int REFERENCE = 13;
+  int REFERENCE = 12;
 
   /**
    * The feature id for the '<em><b>Assignment</b></em>' reference.
@@ -432,7 +413,7 @@ public interface LilypondPackage extends EPackage
    * @see org.elysium.lilypond.impl.LilypondPackageImpl#getText()
    * @generated
    */
-  int TEXT = 14;
+  int TEXT = 13;
 
   /**
    * The feature id for the '<em><b>Value</b></em>' attribute.
@@ -460,7 +441,7 @@ public interface LilypondPackage extends EPackage
    * @see org.elysium.lilypond.impl.LilypondPackageImpl#getNumber()
    * @generated
    */
-  int NUMBER = 15;
+  int NUMBER = 14;
 
   /**
    * The feature id for the '<em><b>Value</b></em>' attribute.
@@ -488,7 +469,7 @@ public interface LilypondPackage extends EPackage
    * @see org.elysium.lilypond.impl.LilypondPackageImpl#getSpecialCommand()
    * @generated
    */
-  int SPECIAL_COMMAND = 16;
+  int SPECIAL_COMMAND = 15;
 
   /**
    * The feature id for the '<em><b>Keyword</b></em>' attribute.
@@ -516,7 +497,7 @@ public interface LilypondPackage extends EPackage
    * @see org.elysium.lilypond.impl.LilypondPackageImpl#getInclude()
    * @generated
    */
-  int INCLUDE = 17;
+  int INCLUDE = 16;
 
   /**
    * The feature id for the '<em><b>Keyword</b></em>' attribute.
@@ -553,7 +534,7 @@ public interface LilypondPackage extends EPackage
    * @see org.elysium.lilypond.impl.LilypondPackageImpl#getVersion()
    * @generated
    */
-  int VERSION = 18;
+  int VERSION = 17;
 
   /**
    * The feature id for the '<em><b>Keyword</b></em>' attribute.
@@ -590,7 +571,7 @@ public interface LilypondPackage extends EPackage
    * @see org.elysium.lilypond.impl.LilypondPackageImpl#getSourceFileName()
    * @generated
    */
-  int SOURCE_FILE_NAME = 19;
+  int SOURCE_FILE_NAME = 18;
 
   /**
    * The feature id for the '<em><b>Keyword</b></em>' attribute.
@@ -627,7 +608,7 @@ public interface LilypondPackage extends EPackage
    * @see org.elysium.lilypond.impl.LilypondPackageImpl#getSourceFileLine()
    * @generated
    */
-  int SOURCE_FILE_LINE = 20;
+  int SOURCE_FILE_LINE = 19;
 
   /**
    * The feature id for the '<em><b>Keyword</b></em>' attribute.
@@ -664,7 +645,7 @@ public interface LilypondPackage extends EPackage
    * @see org.elysium.lilypond.impl.LilypondPackageImpl#getMarkup()
    * @generated
    */
-  int MARKUP = 21;
+  int MARKUP = 20;
 
   /**
    * The feature id for the '<em><b>Keyword</b></em>' attribute.
@@ -701,7 +682,7 @@ public interface LilypondPackage extends EPackage
    * @see org.elysium.lilypond.impl.LilypondPackageImpl#getMarkupLines()
    * @generated
    */
-  int MARKUP_LINES = 22;
+  int MARKUP_LINES = 21;
 
   /**
    * The feature id for the '<em><b>Keyword</b></em>' attribute.
@@ -738,7 +719,7 @@ public interface LilypondPackage extends EPackage
    * @see org.elysium.lilypond.impl.LilypondPackageImpl#getMarkupBody()
    * @generated
    */
-  int MARKUP_BODY = 23;
+  int MARKUP_BODY = 22;
 
   /**
    * The feature id for the '<em><b>Command</b></em>' containment reference list.
@@ -775,7 +756,7 @@ public interface LilypondPackage extends EPackage
    * @see org.elysium.lilypond.impl.LilypondPackageImpl#getBlockCommand()
    * @generated
    */
-  int BLOCK_COMMAND = 24;
+  int BLOCK_COMMAND = 23;
 
   /**
    * The feature id for the '<em><b>Keyword</b></em>' attribute.
@@ -812,7 +793,7 @@ public interface LilypondPackage extends EPackage
    * @see org.elysium.lilypond.impl.LilypondPackageImpl#getOutputDefinition()
    * @generated
    */
-  int OUTPUT_DEFINITION = 25;
+  int OUTPUT_DEFINITION = 24;
 
   /**
    * The feature id for the '<em><b>Keyword</b></em>' attribute.
@@ -849,7 +830,7 @@ public interface LilypondPackage extends EPackage
    * @see org.elysium.lilypond.impl.LilypondPackageImpl#getRelativeMusic()
    * @generated
    */
-  int RELATIVE_MUSIC = 26;
+  int RELATIVE_MUSIC = 25;
 
   /**
    * The feature id for the '<em><b>Keyword</b></em>' attribute.
@@ -895,7 +876,7 @@ public interface LilypondPackage extends EPackage
    * @see org.elysium.lilypond.impl.LilypondPackageImpl#getPitch()
    * @generated
    */
-  int PITCH = 27;
+  int PITCH = 26;
 
   /**
    * The feature id for the '<em><b>Base</b></em>' attribute.
@@ -959,7 +940,7 @@ public interface LilypondPackage extends EPackage
    * @see org.elysium.lilypond.impl.LilypondPackageImpl#getOctave()
    * @generated
    */
-  int OCTAVE = 28;
+  int OCTAVE = 27;
 
   /**
    * The feature id for the '<em><b>Up</b></em>' attribute list.
@@ -996,7 +977,7 @@ public interface LilypondPackage extends EPackage
    * @see org.elysium.lilypond.impl.LilypondPackageImpl#getTransposedMusic()
    * @generated
    */
-  int TRANSPOSED_MUSIC = 29;
+  int TRANSPOSED_MUSIC = 28;
 
   /**
    * The feature id for the '<em><b>Keyword</b></em>' attribute.
@@ -1051,7 +1032,7 @@ public interface LilypondPackage extends EPackage
    * @see org.elysium.lilypond.impl.LilypondPackageImpl#getModeChange()
    * @generated
    */
-  int MODE_CHANGE = 30;
+  int MODE_CHANGE = 29;
 
   /**
    * The feature id for the '<em><b>Keyword</b></em>' attribute.
@@ -1088,7 +1069,7 @@ public interface LilypondPackage extends EPackage
    * @see org.elysium.lilypond.impl.LilypondPackageImpl#getMusicWithLyrics()
    * @generated
    */
-  int MUSIC_WITH_LYRICS = 31;
+  int MUSIC_WITH_LYRICS = 30;
 
   /**
    * The feature id for the '<em><b>Keyword</b></em>' attribute.
@@ -1134,7 +1115,7 @@ public interface LilypondPackage extends EPackage
    * @see org.elysium.lilypond.impl.LilypondPackageImpl#getNewContext()
    * @generated
    */
-  int NEW_CONTEXT = 32;
+  int NEW_CONTEXT = 31;
 
   /**
    * The feature id for the '<em><b>Keyword</b></em>' attribute.
@@ -1198,7 +1179,7 @@ public interface LilypondPackage extends EPackage
    * @see org.elysium.lilypond.impl.LilypondPackageImpl#getContextModification()
    * @generated
    */
-  int CONTEXT_MODIFICATION = 33;
+  int CONTEXT_MODIFICATION = 32;
 
   /**
    * The feature id for the '<em><b>Block</b></em>' containment reference.
@@ -1226,7 +1207,7 @@ public interface LilypondPackage extends EPackage
    * @see org.elysium.lilypond.impl.LilypondPackageImpl#getContextDef()
    * @generated
    */
-  int CONTEXT_DEF = 34;
+  int CONTEXT_DEF = 33;
 
   /**
    * The feature id for the '<em><b>Keyword</b></em>' attribute.
@@ -1263,7 +1244,7 @@ public interface LilypondPackage extends EPackage
    * @see org.elysium.lilypond.impl.LilypondPackageImpl#getStringIndication()
    * @generated
    */
-  int STRING_INDICATION = 35;
+  int STRING_INDICATION = 34;
 
   /**
    * The feature id for the '<em><b>String</b></em>' attribute.
@@ -1291,7 +1272,7 @@ public interface LilypondPackage extends EPackage
    * @see org.elysium.lilypond.impl.LilypondPackageImpl#getOther()
    * @generated
    */
-  int OTHER = 36;
+  int OTHER = 35;
 
   /**
    * The feature id for the '<em><b>Keyword</b></em>' attribute.
@@ -1319,7 +1300,7 @@ public interface LilypondPackage extends EPackage
    * @see org.elysium.lilypond.impl.LilypondPackageImpl#getScheme()
    * @generated
    */
-  int SCHEME = 37;
+  int SCHEME = 36;
 
   /**
    * The feature id for the '<em><b>Value</b></em>' containment reference.
@@ -1347,7 +1328,7 @@ public interface LilypondPackage extends EPackage
    * @see org.elysium.lilypond.impl.LilypondPackageImpl#getSchemeExpression()
    * @generated
    */
-  int SCHEME_EXPRESSION = 38;
+  int SCHEME_EXPRESSION = 37;
 
   /**
    * The feature id for the '<em><b>Reference</b></em>' attribute.
@@ -1393,7 +1374,7 @@ public interface LilypondPackage extends EPackage
    * @see org.elysium.lilypond.impl.LilypondPackageImpl#getSchemeValue()
    * @generated
    */
-  int SCHEME_VALUE = 39;
+  int SCHEME_VALUE = 38;
 
   /**
    * The number of structural features of the '<em>Scheme Value</em>' class.
@@ -1412,7 +1393,7 @@ public interface LilypondPackage extends EPackage
    * @see org.elysium.lilypond.impl.LilypondPackageImpl#getSchemeBoolean()
    * @generated
    */
-  int SCHEME_BOOLEAN = 40;
+  int SCHEME_BOOLEAN = 39;
 
   /**
    * The feature id for the '<em><b>Value</b></em>' attribute.
@@ -1440,7 +1421,7 @@ public interface LilypondPackage extends EPackage
    * @see org.elysium.lilypond.impl.LilypondPackageImpl#getSchemeList()
    * @generated
    */
-  int SCHEME_LIST = 41;
+  int SCHEME_LIST = 40;
 
   /**
    * The feature id for the '<em><b>Vector</b></em>' attribute.
@@ -1477,7 +1458,7 @@ public interface LilypondPackage extends EPackage
    * @see org.elysium.lilypond.impl.LilypondPackageImpl#getSchemeBlock()
    * @generated
    */
-  int SCHEME_BLOCK = 42;
+  int SCHEME_BLOCK = 41;
 
   /**
    * The feature id for the '<em><b>Elements</b></em>' containment reference list.
@@ -1505,7 +1486,7 @@ public interface LilypondPackage extends EPackage
    * @see org.elysium.lilypond.impl.LilypondPackageImpl#getSchemeCharacter()
    * @generated
    */
-  int SCHEME_CHARACTER = 43;
+  int SCHEME_CHARACTER = 42;
 
   /**
    * The feature id for the '<em><b>Value</b></em>' attribute.
@@ -1533,7 +1514,7 @@ public interface LilypondPackage extends EPackage
    * @see org.elysium.lilypond.impl.LilypondPackageImpl#getSchemeText()
    * @generated
    */
-  int SCHEME_TEXT = 44;
+  int SCHEME_TEXT = 43;
 
   /**
    * The feature id for the '<em><b>Value</b></em>' attribute.
@@ -1561,7 +1542,7 @@ public interface LilypondPackage extends EPackage
    * @see org.elysium.lilypond.impl.LilypondPackageImpl#getSchemeNumber()
    * @generated
    */
-  int SCHEME_NUMBER = 45;
+  int SCHEME_NUMBER = 44;
 
   /**
    * The feature id for the '<em><b>Radix</b></em>' attribute.
@@ -1598,7 +1579,7 @@ public interface LilypondPackage extends EPackage
    * @see org.elysium.lilypond.impl.LilypondPackageImpl#getSchemeMarkupCommand()
    * @generated
    */
-  int SCHEME_MARKUP_COMMAND = 46;
+  int SCHEME_MARKUP_COMMAND = 45;
 
   /**
    * The feature id for the '<em><b>Command</b></em>' attribute.
@@ -1639,16 +1620,6 @@ public interface LilypondPackage extends EPackage
    * @generated
    */
   EReference getLilyPond_Expressions();
-
-  /**
-   * Returns the meta object for class '{@link org.elysium.lilypond.ToplevelExpression <em>Toplevel Expression</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Toplevel Expression</em>'.
-   * @see org.elysium.lilypond.ToplevelExpression
-   * @generated
-   */
-  EClass getToplevelExpression();
 
   /**
    * Returns the meta object for class '{@link org.elysium.lilypond.Expression <em>Expression</em>}'.
@@ -2756,16 +2727,6 @@ public interface LilypondPackage extends EPackage
      * @generated
      */
     EReference LILY_POND__EXPRESSIONS = eINSTANCE.getLilyPond_Expressions();
-
-    /**
-     * The meta object literal for the '{@link org.elysium.lilypond.impl.ToplevelExpressionImpl <em>Toplevel Expression</em>}' class.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see org.elysium.lilypond.impl.ToplevelExpressionImpl
-     * @see org.elysium.lilypond.impl.LilypondPackageImpl#getToplevelExpression()
-     * @generated
-     */
-    EClass TOPLEVEL_EXPRESSION = eINSTANCE.getToplevelExpression();
 
     /**
      * The meta object literal for the '{@link org.elysium.lilypond.impl.ExpressionImpl <em>Expression</em>}' class.

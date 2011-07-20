@@ -35,15 +35,6 @@ public interface LilypondFactory extends EFactory
   LilyPond createLilyPond();
 
   /**
-   * Returns a new object of class '<em>Toplevel Expression</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Toplevel Expression</em>'.
-   * @generated
-   */
-  ToplevelExpression createToplevelExpression();
-
-  /**
    * Returns a new object of class '<em>Expression</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->

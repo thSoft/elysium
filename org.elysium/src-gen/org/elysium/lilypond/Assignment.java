@@ -23,7 +23,7 @@ package org.elysium.lilypond;
  * @model
  * @generated
  */
-public interface Assignment extends ToplevelExpression
+public interface Assignment extends Expression
 {
   /**
    * Returns the value of the '<em><b>Name</b></em>' attribute.

@@ -23,7 +23,7 @@ package org.elysium.lilypond;
  * @model
  * @generated
  */
-public interface PropertyAssignment extends Expression, UnparsedExpression
+public interface PropertyAssignment extends UnparsedExpression
 {
   /**
    * Returns the value of the '<em><b>Id</b></em>' attribute.

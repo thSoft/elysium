@@ -5,18 +5,17 @@
     nsURI="http://www.elysium.org/LilyPond" nsPrefix="lilypond">
   <eClassifiers xsi:type="ecore:EClass" name="LilyPond">
     <eStructuralFeatures xsi:type="ecore:EReference" name="expressions" upperBound="-1"
-        eType="ecore:EClass platform:/resource/org.elysium/src-gen/org/elysium/LilyPond.ecore#//ToplevelExpression"
+        eType="ecore:EClass platform:/resource/org.elysium/src-gen/org/elysium/LilyPond.ecore#//Expression"
         containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="ToplevelExpression"/>
   <eClassifiers xsi:type="ecore:EClass" name="Expression"/>
-  <eClassifiers xsi:type="ecore:EClass" name="CommonExpression" eSuperTypes="platform:/resource/org.elysium/src-gen/org/elysium/LilyPond.ecore#//ToplevelExpression platform:/resource/org.elysium/src-gen/org/elysium/LilyPond.ecore#//Expression"/>
-  <eClassifiers xsi:type="ecore:EClass" name="Assignment" eSuperTypes="platform:/resource/org.elysium/src-gen/org/elysium/LilyPond.ecore#//ToplevelExpression">
+  <eClassifiers xsi:type="ecore:EClass" name="CommonExpression" eSuperTypes="platform:/resource/org.elysium/src-gen/org/elysium/LilyPond.ecore#//Expression"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Assignment" eSuperTypes="platform:/resource/org.elysium/src-gen/org/elysium/LilyPond.ecore#//Expression">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="value" eType="ecore:EClass platform:/resource/org.elysium/src-gen/org/elysium/LilyPond.ecore#//Expression"
         containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="PropertyAssignment" eSuperTypes="platform:/resource/org.elysium/src-gen/org/elysium/LilyPond.ecore#//Expression platform:/resource/org.elysium/src-gen/org/elysium/LilyPond.ecore#//UnparsedExpression">
+  <eClassifiers xsi:type="ecore:EClass" name="PropertyAssignment" eSuperTypes="platform:/resource/org.elysium/src-gen/org/elysium/LilyPond.ecore#//UnparsedExpression">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="id" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="value" eType="ecore:EClass platform:/resource/org.elysium/src-gen/org/elysium/LilyPond.ecore#//Expression"
         containment="true"/>

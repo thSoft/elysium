@@ -55,7 +55,6 @@ import org.elysium.lilypond.SourceFileName;
 import org.elysium.lilypond.SpecialCommand;
 import org.elysium.lilypond.StringIndication;
 import org.elysium.lilypond.Text;
-import org.elysium.lilypond.ToplevelExpression;
 import org.elysium.lilypond.TransposedMusic;
 import org.elysium.lilypond.UnparsedBlock;
 import org.elysium.lilypond.UnparsedCommand;
@@ -115,7 +114,6 @@ public class LilypondFactoryImpl extends EFactoryImpl implements LilypondFactory
     switch (eClass.getClassifierID())
     {
       case LilypondPackage.LILY_POND: return createLilyPond();
-      case LilypondPackage.TOPLEVEL_EXPRESSION: return createToplevelExpression();
       case LilypondPackage.EXPRESSION: return createExpression();
       case LilypondPackage.COMMON_EXPRESSION: return createCommonExpression();
       case LilypondPackage.ASSIGNMENT: return createAssignment();
@@ -175,17 +173,6 @@ public class LilypondFactoryImpl extends EFactoryImpl implements LilypondFactory
   {
     LilyPondImpl lilyPond = new LilyPondImpl();
     return lilyPond;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public ToplevelExpression createToplevelExpression()
-  {
-    ToplevelExpressionImpl toplevelExpression = new ToplevelExpressionImpl();
-    return toplevelExpression;
   }
 
   /**

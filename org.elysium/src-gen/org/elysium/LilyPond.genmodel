@@ -11,7 +11,6 @@
     <genClasses ecoreClass="platform:/resource/org.elysium/src-gen/org/elysium/LilyPond.ecore#//LilyPond">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference platform:/resource/org.elysium/src-gen/org/elysium/LilyPond.ecore#//LilyPond/expressions"/>
     </genClasses>
-    <genClasses ecoreClass="platform:/resource/org.elysium/src-gen/org/elysium/LilyPond.ecore#//ToplevelExpression"/>
     <genClasses ecoreClass="platform:/resource/org.elysium/src-gen/org/elysium/LilyPond.ecore#//Expression"/>
     <genClasses ecoreClass="platform:/resource/org.elysium/src-gen/org/elysium/LilyPond.ecore#//CommonExpression"/>
     <genClasses ecoreClass="platform:/resource/org.elysium/src-gen/org/elysium/LilyPond.ecore#//Assignment">

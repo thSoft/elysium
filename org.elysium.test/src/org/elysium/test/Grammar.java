@@ -15,10 +15,6 @@ public class Grammar extends LilyPondTest {
 
 	private static final String BOOK_PART_ELEMENTS = HEADER + SCORE;
 
-	private void assertValid(String model) throws Exception {
-		getResourceFromString(model);
-	}
-
 	public void testInclude() throws Exception {
 		assertValid("\\include \"gregorian.ly\"");
 	}
@@ -37,6 +33,10 @@ public class Grammar extends LilyPondTest {
 
 	public void testSingleLineComment() throws Exception {
 		assertValid("% comment");
+	}
+
+	public void testCommentAfterSchemeLiteral() throws Exception {
+		assertValid("#'a%");
 	}
 
 	public void testMultiLineComment() throws Exception {

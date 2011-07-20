@@ -19,9 +19,9 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
+import org.elysium.lilypond.Expression;
 import org.elysium.lilypond.LilyPond;
 import org.elysium.lilypond.LilypondPackage;
-import org.elysium.lilypond.ToplevelExpression;
 
 /**
  * <!-- begin-user-doc -->
@@ -46,7 +46,7 @@ public class LilyPondImpl extends MinimalEObjectImpl.Container implements LilyPo
    * @generated
    * @ordered
    */
-  protected EList<ToplevelExpression> expressions;
+  protected EList<Expression> expressions;
 
   /**
    * <!-- begin-user-doc -->
@@ -74,11 +74,11 @@ public class LilyPondImpl extends MinimalEObjectImpl.Container implements LilyPo
    * <!-- end-user-doc -->
    * @generated
    */
-  public EList<ToplevelExpression> getExpressions()
+  public EList<Expression> getExpressions()
   {
     if (expressions == null)
     {
-      expressions = new EObjectContainmentEList<ToplevelExpression>(ToplevelExpression.class, this, LilypondPackage.LILY_POND__EXPRESSIONS);
+      expressions = new EObjectContainmentEList<Expression>(Expression.class, this, LilypondPackage.LILY_POND__EXPRESSIONS);
     }
     return expressions;
   }
@@ -128,7 +128,7 @@ public class LilyPondImpl extends MinimalEObjectImpl.Container implements LilyPo
     {
       case LilypondPackage.LILY_POND__EXPRESSIONS:
         getExpressions().clear();
-        getExpressions().addAll((Collection<? extends ToplevelExpression>)newValue);
+        getExpressions().addAll((Collection<? extends Expression>)newValue);
         return;
     }
     super.eSet(featureID, newValue);

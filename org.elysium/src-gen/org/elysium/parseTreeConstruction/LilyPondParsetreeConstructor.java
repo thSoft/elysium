@@ -32,52 +32,51 @@ protected class ThisRootNode extends RootToken {
 	public AbstractToken createFollower(int index, IEObjectConsumer inst) {
 		switch(index) {
 			case 0: return new LilyPond_ExpressionsAssignment(this, this, 0, inst);
-			case 1: return new ToplevelExpression_Alternatives(this, this, 1, inst);
-			case 2: return new Expression_Alternatives(this, this, 2, inst);
-			case 3: return new CommonExpression_Alternatives(this, this, 3, inst);
-			case 4: return new Assignment_Group(this, this, 4, inst);
-			case 5: return new PropertyAssignment_Group(this, this, 5, inst);
-			case 6: return new Block_Alternatives(this, this, 6, inst);
-			case 7: return new SimpleBlock_Group(this, this, 7, inst);
-			case 8: return new SimultaneousBlock_Group(this, this, 8, inst);
-			case 9: return new Command_Alternatives(this, this, 9, inst);
-			case 10: return new UnparsedBlock_Group(this, this, 10, inst);
-			case 11: return new UnparsedExpression_Alternatives(this, this, 11, inst);
-			case 12: return new UnparsedCommand_Group(this, this, 12, inst);
-			case 13: return new Reference_Group(this, this, 13, inst);
-			case 14: return new Text_ValueAssignment(this, this, 14, inst);
-			case 15: return new Number_ValueAssignment(this, this, 15, inst);
-			case 16: return new SpecialCommand_Alternatives(this, this, 16, inst);
-			case 17: return new Include_Group(this, this, 17, inst);
-			case 18: return new Version_Group(this, this, 18, inst);
-			case 19: return new SourceFileName_Group(this, this, 19, inst);
-			case 20: return new SourceFileLine_Group(this, this, 20, inst);
-			case 21: return new Markup_Group(this, this, 21, inst);
-			case 22: return new MarkupLines_Group(this, this, 22, inst);
-			case 23: return new MarkupBody_Group(this, this, 23, inst);
-			case 24: return new BlockCommand_Group(this, this, 24, inst);
-			case 25: return new OutputDefinition_Group(this, this, 25, inst);
-			case 26: return new RelativeMusic_Group(this, this, 26, inst);
-			case 27: return new Pitch_Group(this, this, 27, inst);
-			case 28: return new Octave_Alternatives(this, this, 28, inst);
-			case 29: return new TransposedMusic_Group(this, this, 29, inst);
-			case 30: return new ModeChange_Group(this, this, 30, inst);
-			case 31: return new MusicWithLyrics_Group(this, this, 31, inst);
-			case 32: return new NewContext_Group(this, this, 32, inst);
-			case 33: return new ContextModification_Group(this, this, 33, inst);
-			case 34: return new ContextDef_Group(this, this, 34, inst);
-			case 35: return new StringIndication_Group(this, this, 35, inst);
-			case 36: return new Other_Group(this, this, 36, inst);
-			case 37: return new Scheme_Group(this, this, 37, inst);
-			case 38: return new SchemeExpression_Group(this, this, 38, inst);
-			case 39: return new SchemeValue_Alternatives(this, this, 39, inst);
-			case 40: return new SchemeBoolean_ValueAssignment(this, this, 40, inst);
-			case 41: return new SchemeList_Group(this, this, 41, inst);
-			case 42: return new SchemeBlock_Group(this, this, 42, inst);
-			case 43: return new SchemeCharacter_Group(this, this, 43, inst);
-			case 44: return new SchemeText_ValueAssignment(this, this, 44, inst);
-			case 45: return new SchemeNumber_Group(this, this, 45, inst);
-			case 46: return new SchemeMarkupCommand_Group(this, this, 46, inst);
+			case 1: return new Expression_Alternatives(this, this, 1, inst);
+			case 2: return new CommonExpression_Alternatives(this, this, 2, inst);
+			case 3: return new Assignment_Group(this, this, 3, inst);
+			case 4: return new PropertyAssignment_Group(this, this, 4, inst);
+			case 5: return new Block_Alternatives(this, this, 5, inst);
+			case 6: return new SimpleBlock_Group(this, this, 6, inst);
+			case 7: return new SimultaneousBlock_Group(this, this, 7, inst);
+			case 8: return new Command_Alternatives(this, this, 8, inst);
+			case 9: return new UnparsedBlock_Group(this, this, 9, inst);
+			case 10: return new UnparsedExpression_Alternatives(this, this, 10, inst);
+			case 11: return new UnparsedCommand_Group(this, this, 11, inst);
+			case 12: return new Reference_Group(this, this, 12, inst);
+			case 13: return new Text_ValueAssignment(this, this, 13, inst);
+			case 14: return new Number_ValueAssignment(this, this, 14, inst);
+			case 15: return new SpecialCommand_Alternatives(this, this, 15, inst);
+			case 16: return new Include_Group(this, this, 16, inst);
+			case 17: return new Version_Group(this, this, 17, inst);
+			case 18: return new SourceFileName_Group(this, this, 18, inst);
+			case 19: return new SourceFileLine_Group(this, this, 19, inst);
+			case 20: return new Markup_Group(this, this, 20, inst);
+			case 21: return new MarkupLines_Group(this, this, 21, inst);
+			case 22: return new MarkupBody_Group(this, this, 22, inst);
+			case 23: return new BlockCommand_Group(this, this, 23, inst);
+			case 24: return new OutputDefinition_Group(this, this, 24, inst);
+			case 25: return new RelativeMusic_Group(this, this, 25, inst);
+			case 26: return new Pitch_Group(this, this, 26, inst);
+			case 27: return new Octave_Alternatives(this, this, 27, inst);
+			case 28: return new TransposedMusic_Group(this, this, 28, inst);
+			case 29: return new ModeChange_Group(this, this, 29, inst);
+			case 30: return new MusicWithLyrics_Group(this, this, 30, inst);
+			case 31: return new NewContext_Group(this, this, 31, inst);
+			case 32: return new ContextModification_Group(this, this, 32, inst);
+			case 33: return new ContextDef_Group(this, this, 33, inst);
+			case 34: return new StringIndication_Group(this, this, 34, inst);
+			case 35: return new Other_Group(this, this, 35, inst);
+			case 36: return new Scheme_Group(this, this, 36, inst);
+			case 37: return new SchemeExpression_Group(this, this, 37, inst);
+			case 38: return new SchemeValue_Alternatives(this, this, 38, inst);
+			case 39: return new SchemeBoolean_ValueAssignment(this, this, 39, inst);
+			case 40: return new SchemeList_Group(this, this, 40, inst);
+			case 41: return new SchemeBlock_Group(this, this, 41, inst);
+			case 42: return new SchemeCharacter_Group(this, this, 42, inst);
+			case 43: return new SchemeText_ValueAssignment(this, this, 43, inst);
+			case 44: return new SchemeNumber_Group(this, this, 44, inst);
+			case 45: return new SchemeMarkupCommand_Group(this, this, 45, inst);
 			default: return null;
 		}	
 	}	
@@ -87,11 +86,11 @@ protected class ThisRootNode extends RootToken {
 /************ begin Rule LilyPond ****************
  *
  * LilyPond:
- * 	expressions+=ToplevelExpression*;
+ * 	expressions+=Expression*;
  *
  **/
 
-// expressions+=ToplevelExpression*
+// expressions+=Expression*
 protected class LilyPond_ExpressionsAssignment extends AssignmentToken  {
 	
 	public LilyPond_ExpressionsAssignment(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -106,7 +105,7 @@ protected class LilyPond_ExpressionsAssignment extends AssignmentToken  {
     @Override
 	public AbstractToken createFollower(int index, IEObjectConsumer inst) {
 		switch(index) {
-			case 0: return new ToplevelExpression_Alternatives(this, this, 0, inst);
+			case 0: return new Expression_Alternatives(this, this, 0, inst);
 			default: return null;
 		}	
 	}
@@ -117,9 +116,9 @@ protected class LilyPond_ExpressionsAssignment extends AssignmentToken  {
 		IEObjectConsumer obj = eObjectConsumer.cloneAndConsume("expressions");
 		if(value instanceof EObject) { // org::eclipse::xtext::impl::RuleCallImpl
 			IEObjectConsumer param = createEObjectConsumer((EObject)value);
-			if(param.isInstanceOf(grammarAccess.getToplevelExpressionRule().getType().getClassifier())) {
+			if(param.isInstanceOf(grammarAccess.getExpressionRule().getType().getClassifier())) {
 				type = AssignmentType.PARSER_RULE_CALL;
-				element = grammarAccess.getLilyPondAccess().getExpressionsToplevelExpressionParserRuleCall_0(); 
+				element = grammarAccess.getLilyPondAccess().getExpressionsExpressionParserRuleCall_0(); 
 				consumed = obj;
 				return param;
 			}
@@ -140,30 +139,30 @@ protected class LilyPond_ExpressionsAssignment extends AssignmentToken  {
 /************ end Rule LilyPond ****************/
 
 
-/************ begin Rule ToplevelExpression ****************
+/************ begin Rule Expression ****************
  *
- * ToplevelExpression:
+ * Expression:
  * 	Assignment | CommonExpression;
  *
  **/
 
 // Assignment | CommonExpression
-protected class ToplevelExpression_Alternatives extends AlternativesToken {
+protected class Expression_Alternatives extends AlternativesToken {
 
-	public ToplevelExpression_Alternatives(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
+	public Expression_Alternatives(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
 		super(lastRuleCallOrigin, next, transitionIndex, eObjectConsumer);
 	}
 	
 	@Override
 	public Alternatives getGrammarElement() {
-		return grammarAccess.getToplevelExpressionAccess().getAlternatives();
+		return grammarAccess.getExpressionAccess().getAlternatives();
 	}
 
     @Override
 	public AbstractToken createFollower(int index, IEObjectConsumer inst) {
 		switch(index) {
-			case 0: return new ToplevelExpression_AssignmentParserRuleCall_0(lastRuleCallOrigin, this, 0, inst);
-			case 1: return new ToplevelExpression_CommonExpressionParserRuleCall_1(lastRuleCallOrigin, this, 1, inst);
+			case 0: return new Expression_AssignmentParserRuleCall_0(lastRuleCallOrigin, this, 0, inst);
+			case 1: return new Expression_CommonExpressionParserRuleCall_1(lastRuleCallOrigin, this, 1, inst);
 			default: return null;
 		}	
 	}
@@ -200,15 +199,15 @@ protected class ToplevelExpression_Alternatives extends AlternativesToken {
 }
 
 // Assignment
-protected class ToplevelExpression_AssignmentParserRuleCall_0 extends RuleCallToken {
+protected class Expression_AssignmentParserRuleCall_0 extends RuleCallToken {
 	
-	public ToplevelExpression_AssignmentParserRuleCall_0(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
+	public Expression_AssignmentParserRuleCall_0(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
 		super(lastRuleCallOrigin, next, transitionIndex, eObjectConsumer);
 	}
 	
 	@Override
 	public RuleCall getGrammarElement() {
-		return grammarAccess.getToplevelExpressionAccess().getAssignmentParserRuleCall_0();
+		return grammarAccess.getExpressionAccess().getAssignmentParserRuleCall_0();
 	}
 
     @Override
@@ -224,162 +223,6 @@ protected class ToplevelExpression_AssignmentParserRuleCall_0 extends RuleCallTo
 		if(getEObject().eClass() != grammarAccess.getAssignmentRule().getType().getClassifier())
 			return null;
 		if(checkForRecursion(Assignment_Group.class, eObjectConsumer)) return null;
-		return eObjectConsumer;
-	}
-	
-    @Override
-	public AbstractToken createFollowerAfterReturn(AbstractToken next,	int actIndex, int index, IEObjectConsumer inst) {
-		switch(index) {
-			default: return lastRuleCallOrigin.createFollowerAfterReturn(next, actIndex , index, inst);
-		}	
-	}	
-}
-
-// CommonExpression
-protected class ToplevelExpression_CommonExpressionParserRuleCall_1 extends RuleCallToken {
-	
-	public ToplevelExpression_CommonExpressionParserRuleCall_1(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
-		super(lastRuleCallOrigin, next, transitionIndex, eObjectConsumer);
-	}
-	
-	@Override
-	public RuleCall getGrammarElement() {
-		return grammarAccess.getToplevelExpressionAccess().getCommonExpressionParserRuleCall_1();
-	}
-
-    @Override
-	public AbstractToken createFollower(int index, IEObjectConsumer inst) {
-		switch(index) {
-			case 0: return new CommonExpression_Alternatives(this, this, 0, inst);
-			default: return null;
-		}	
-	}
-
-    @Override
-	public IEObjectConsumer tryConsume() {
-		if(getEObject().eClass() != grammarAccess.getBlockCommandRule().getType().getClassifier() && 
-		   getEObject().eClass() != grammarAccess.getContextDefRule().getType().getClassifier() && 
-		   getEObject().eClass() != grammarAccess.getIncludeRule().getType().getClassifier() && 
-		   getEObject().eClass() != grammarAccess.getMarkupRule().getType().getClassifier() && 
-		   getEObject().eClass() != grammarAccess.getMarkupLinesRule().getType().getClassifier() && 
-		   getEObject().eClass() != grammarAccess.getModeChangeRule().getType().getClassifier() && 
-		   getEObject().eClass() != grammarAccess.getMusicWithLyricsRule().getType().getClassifier() && 
-		   getEObject().eClass() != grammarAccess.getNewContextRule().getType().getClassifier() && 
-		   getEObject().eClass() != grammarAccess.getNumberRule().getType().getClassifier() && 
-		   getEObject().eClass() != grammarAccess.getOtherRule().getType().getClassifier() && 
-		   getEObject().eClass() != grammarAccess.getOutputDefinitionRule().getType().getClassifier() && 
-		   getEObject().eClass() != grammarAccess.getReferenceRule().getType().getClassifier() && 
-		   getEObject().eClass() != grammarAccess.getRelativeMusicRule().getType().getClassifier() && 
-		   getEObject().eClass() != grammarAccess.getSchemeRule().getType().getClassifier() && 
-		   getEObject().eClass() != grammarAccess.getSimpleBlockAccess().getSimpleBlockAction_0().getType().getClassifier() && 
-		   getEObject().eClass() != grammarAccess.getSimultaneousBlockAccess().getSimultaneousBlockAction_0().getType().getClassifier() && 
-		   getEObject().eClass() != grammarAccess.getSourceFileLineRule().getType().getClassifier() && 
-		   getEObject().eClass() != grammarAccess.getSourceFileNameRule().getType().getClassifier() && 
-		   getEObject().eClass() != grammarAccess.getStringIndicationRule().getType().getClassifier() && 
-		   getEObject().eClass() != grammarAccess.getTextRule().getType().getClassifier() && 
-		   getEObject().eClass() != grammarAccess.getTransposedMusicRule().getType().getClassifier() && 
-		   getEObject().eClass() != grammarAccess.getVersionRule().getType().getClassifier())
-			return null;
-		if(checkForRecursion(CommonExpression_Alternatives.class, eObjectConsumer)) return null;
-		return eObjectConsumer;
-	}
-	
-    @Override
-	public AbstractToken createFollowerAfterReturn(AbstractToken next,	int actIndex, int index, IEObjectConsumer inst) {
-		switch(index) {
-			default: return lastRuleCallOrigin.createFollowerAfterReturn(next, actIndex , index, inst);
-		}	
-	}	
-}
-
-
-/************ end Rule ToplevelExpression ****************/
-
-
-/************ begin Rule Expression ****************
- *
- * Expression:
- * 	PropertyAssignment | CommonExpression;
- *
- **/
-
-// PropertyAssignment | CommonExpression
-protected class Expression_Alternatives extends AlternativesToken {
-
-	public Expression_Alternatives(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
-		super(lastRuleCallOrigin, next, transitionIndex, eObjectConsumer);
-	}
-	
-	@Override
-	public Alternatives getGrammarElement() {
-		return grammarAccess.getExpressionAccess().getAlternatives();
-	}
-
-    @Override
-	public AbstractToken createFollower(int index, IEObjectConsumer inst) {
-		switch(index) {
-			case 0: return new Expression_PropertyAssignmentParserRuleCall_0(lastRuleCallOrigin, this, 0, inst);
-			case 1: return new Expression_CommonExpressionParserRuleCall_1(lastRuleCallOrigin, this, 1, inst);
-			default: return null;
-		}	
-	}
-
-    @Override
-	public IEObjectConsumer tryConsume() {
-		if(getEObject().eClass() != grammarAccess.getBlockCommandRule().getType().getClassifier() && 
-		   getEObject().eClass() != grammarAccess.getContextDefRule().getType().getClassifier() && 
-		   getEObject().eClass() != grammarAccess.getIncludeRule().getType().getClassifier() && 
-		   getEObject().eClass() != grammarAccess.getMarkupRule().getType().getClassifier() && 
-		   getEObject().eClass() != grammarAccess.getMarkupLinesRule().getType().getClassifier() && 
-		   getEObject().eClass() != grammarAccess.getModeChangeRule().getType().getClassifier() && 
-		   getEObject().eClass() != grammarAccess.getMusicWithLyricsRule().getType().getClassifier() && 
-		   getEObject().eClass() != grammarAccess.getNewContextRule().getType().getClassifier() && 
-		   getEObject().eClass() != grammarAccess.getNumberRule().getType().getClassifier() && 
-		   getEObject().eClass() != grammarAccess.getOtherRule().getType().getClassifier() && 
-		   getEObject().eClass() != grammarAccess.getOutputDefinitionRule().getType().getClassifier() && 
-		   getEObject().eClass() != grammarAccess.getPropertyAssignmentRule().getType().getClassifier() && 
-		   getEObject().eClass() != grammarAccess.getReferenceRule().getType().getClassifier() && 
-		   getEObject().eClass() != grammarAccess.getRelativeMusicRule().getType().getClassifier() && 
-		   getEObject().eClass() != grammarAccess.getSchemeRule().getType().getClassifier() && 
-		   getEObject().eClass() != grammarAccess.getSimpleBlockAccess().getSimpleBlockAction_0().getType().getClassifier() && 
-		   getEObject().eClass() != grammarAccess.getSimultaneousBlockAccess().getSimultaneousBlockAction_0().getType().getClassifier() && 
-		   getEObject().eClass() != grammarAccess.getSourceFileLineRule().getType().getClassifier() && 
-		   getEObject().eClass() != grammarAccess.getSourceFileNameRule().getType().getClassifier() && 
-		   getEObject().eClass() != grammarAccess.getStringIndicationRule().getType().getClassifier() && 
-		   getEObject().eClass() != grammarAccess.getTextRule().getType().getClassifier() && 
-		   getEObject().eClass() != grammarAccess.getTransposedMusicRule().getType().getClassifier() && 
-		   getEObject().eClass() != grammarAccess.getVersionRule().getType().getClassifier())
-			return null;
-		return eObjectConsumer;
-	}
-
-}
-
-// PropertyAssignment
-protected class Expression_PropertyAssignmentParserRuleCall_0 extends RuleCallToken {
-	
-	public Expression_PropertyAssignmentParserRuleCall_0(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
-		super(lastRuleCallOrigin, next, transitionIndex, eObjectConsumer);
-	}
-	
-	@Override
-	public RuleCall getGrammarElement() {
-		return grammarAccess.getExpressionAccess().getPropertyAssignmentParserRuleCall_0();
-	}
-
-    @Override
-	public AbstractToken createFollower(int index, IEObjectConsumer inst) {
-		switch(index) {
-			case 0: return new PropertyAssignment_Group(this, this, 0, inst);
-			default: return null;
-		}	
-	}
-
-    @Override
-	public IEObjectConsumer tryConsume() {
-		if(getEObject().eClass() != grammarAccess.getPropertyAssignmentRule().getType().getClassifier())
-			return null;
-		if(checkForRecursion(PropertyAssignment_Group.class, eObjectConsumer)) return null;
 		return eObjectConsumer;
 	}
 	

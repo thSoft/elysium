@@ -86,34 +86,6 @@ finally {
 
 
 
-// Entry rule entryRuleToplevelExpression
-entryRuleToplevelExpression 
-:
-{ before(grammarAccess.getToplevelExpressionRule()); }
-	 ruleToplevelExpression
-{ after(grammarAccess.getToplevelExpressionRule()); } 
-	 EOF 
-;
-
-// Rule ToplevelExpression
-ruleToplevelExpression
-    @init {
-		int stackSize = keepStackSize();
-    }
-	:
-(
-{ before(grammarAccess.getToplevelExpressionAccess().getAlternatives()); }
-(rule__ToplevelExpression__Alternatives)
-{ after(grammarAccess.getToplevelExpressionAccess().getAlternatives()); }
-)
-
-;
-finally {
-	restoreStackSize(stackSize);
-}
-
-
-
 // Entry rule entryRuleExpression
 entryRuleExpression 
 :
@@ -1659,37 +1631,15 @@ finally {
 
 
 
-rule__ToplevelExpression__Alternatives
-    @init {
-		int stackSize = keepStackSize();
-    }
-:
-(
-{ before(grammarAccess.getToplevelExpressionAccess().getAssignmentParserRuleCall_0()); }
-	ruleAssignment
-{ after(grammarAccess.getToplevelExpressionAccess().getAssignmentParserRuleCall_0()); }
-)
-
-    |(
-{ before(grammarAccess.getToplevelExpressionAccess().getCommonExpressionParserRuleCall_1()); }
-	ruleCommonExpression
-{ after(grammarAccess.getToplevelExpressionAccess().getCommonExpressionParserRuleCall_1()); }
-)
-
-;
-finally {
-	restoreStackSize(stackSize);
-}
-
 rule__Expression__Alternatives
     @init {
 		int stackSize = keepStackSize();
     }
 :
 (
-{ before(grammarAccess.getExpressionAccess().getPropertyAssignmentParserRuleCall_0()); }
-	rulePropertyAssignment
-{ after(grammarAccess.getExpressionAccess().getPropertyAssignmentParserRuleCall_0()); }
+{ before(grammarAccess.getExpressionAccess().getAssignmentParserRuleCall_0()); }
+	ruleAssignment
+{ after(grammarAccess.getExpressionAccess().getAssignmentParserRuleCall_0()); }
 )
 
     |(
@@ -7016,8 +6966,8 @@ rule__LilyPond__ExpressionsAssignment
     }
 :
 (
-{ before(grammarAccess.getLilyPondAccess().getExpressionsToplevelExpressionParserRuleCall_0()); }
-	ruleToplevelExpression{ after(grammarAccess.getLilyPondAccess().getExpressionsToplevelExpressionParserRuleCall_0()); }
+{ before(grammarAccess.getLilyPondAccess().getExpressionsExpressionParserRuleCall_0()); }
+	ruleExpression{ after(grammarAccess.getLilyPondAccess().getExpressionsExpressionParserRuleCall_0()); }
 )
 
 ;
