@@ -655,7 +655,7 @@
       <elements xsi:type="xtext:RuleCall" rule="//@rules.37"/>
     </alternatives>
   </rules>
-  <rules xsi:type="xtext:ParserRule" name="Scheme" definesHiddenTokens="true" hiddenTokens="//@rules.58 //@rules.61 //@rules.62">
+  <rules xsi:type="xtext:ParserRule" name="Scheme" definesHiddenTokens="true" hiddenTokens="//@rules.58 //@rules.59 //@rules.60 //@rules.61 //@rules.62">
     <type metamodel="//@metamodelDeclarations.0">
       <classifier xsi:type="ecore:EClass" href="http://www.elysium.org/LilyPond#//Scheme"/>
     </type>

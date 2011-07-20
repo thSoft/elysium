@@ -3296,7 +3296,7 @@ ruleSpecialCommandName returns [AntlrDatatypeRuleToken current=new AntlrDatatype
 // Entry rule entryRuleScheme
 entryRuleScheme returns [EObject current=null] 
 	@init { 
-		HiddenTokens myHiddenTokenState = ((XtextTokenStream)input).setHiddenTokens("RULE_WS", "RULE_SCHEME_SL_COMMENT", "RULE_SCHEME_ML_COMMENT");
+		HiddenTokens myHiddenTokenState = ((XtextTokenStream)input).setHiddenTokens("RULE_WS", "RULE_SL_COMMENT", "RULE_ML_COMMENT", "RULE_SCHEME_SL_COMMENT", "RULE_SCHEME_ML_COMMENT");
 	}
 	:
 	{ newCompositeNode(grammarAccess.getSchemeRule()); }
@@ -3311,7 +3311,7 @@ finally {
 // Rule Scheme
 ruleScheme returns [EObject current=null] 
     @init { enterRule(); 
-		HiddenTokens myHiddenTokenState = ((XtextTokenStream)input).setHiddenTokens("RULE_WS", "RULE_SCHEME_SL_COMMENT", "RULE_SCHEME_ML_COMMENT");
+		HiddenTokens myHiddenTokenState = ((XtextTokenStream)input).setHiddenTokens("RULE_WS", "RULE_SL_COMMENT", "RULE_ML_COMMENT", "RULE_SCHEME_SL_COMMENT", "RULE_SCHEME_ML_COMMENT");
     }
     @after { leaveRule(); }:
 ((	otherlv_0='#' 

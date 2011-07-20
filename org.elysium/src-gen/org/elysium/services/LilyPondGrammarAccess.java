@@ -1660,7 +1660,7 @@ public class LilyPondGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cValueSchemeExpressionParserRuleCall_1_0 = (RuleCall)cValueAssignment_1.eContents().get(0);
 		
 		//// Scheme
-		//Scheme hidden(WS, SCHEME_SL_COMMENT, SCHEME_ML_COMMENT):
+		//Scheme hidden(WS, SL_COMMENT, ML_COMMENT, SCHEME_SL_COMMENT, SCHEME_ML_COMMENT):
 		//	("#" | "$") value=SchemeExpression;
 		public ParserRule getRule() { return rule; }
 
@@ -2617,7 +2617,7 @@ public class LilyPondGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//// Scheme
-	//Scheme hidden(WS, SCHEME_SL_COMMENT, SCHEME_ML_COMMENT):
+	//Scheme hidden(WS, SL_COMMENT, ML_COMMENT, SCHEME_SL_COMMENT, SCHEME_ML_COMMENT):
 	//	("#" | "$") value=SchemeExpression;
 	public SchemeElements getSchemeAccess() {
 		return (pScheme != null) ? pScheme : (pScheme = new SchemeElements());
