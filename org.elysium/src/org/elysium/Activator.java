@@ -26,4 +26,5 @@ public class Activator extends Plugin {
 	public static String getId() {
 		return getInstance().getBundle().getSymbolicName();
 	}
+
 }

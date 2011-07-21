@@ -15,7 +15,7 @@ import org.elysium.validation.LilyPondNamesAreUniqueValidationHelper;
 import com.google.inject.Binder;
 
 /**
- * Registers runtime components to be used within the LilyPond IDE.
+ * Registers runtime components for the LilyPond DSL.
  */
 public class LilyPondRuntimeModule extends AbstractLilyPondRuntimeModule {
 
