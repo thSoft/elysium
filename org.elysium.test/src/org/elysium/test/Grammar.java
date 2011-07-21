@@ -5,6 +5,10 @@ import org.eclipse.xtext.util.Files;
 
 public class Grammar extends LilyPondTest {
 
+	private void assertValid(String model) throws Exception {
+		getResourceFromString(model);
+	}
+
 	private static final String REFERENCE = " \\árvíztűrőTükörfúrógép";
 
 	private static final String ASSIGNMENT = "árvíztűrőTükörfúrógép = #1";

@@ -78,8 +78,7 @@ public class LilyPondNamesAreUniqueValidationHelper implements INamesAreUniqueVa
 	 * error code to the created errors.
 	 */
 	protected String getErrorCode() {
-		// TODO use built-in codes to allow generic quickfixes
-		return null;
+		return IssueCodes.DUPLICATE_VARIABLE;
 	}
 
 	/**

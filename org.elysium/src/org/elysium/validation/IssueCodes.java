@@ -8,4 +8,6 @@ public interface IssueCodes {
 
 	String UNKNOWN_VARIABLE = "UNRESOLVED"; //$NON-NLS-1$
 
+	String DUPLICATE_VARIABLE = "DUPLICATE_VARIABLE"; //$NON-NLS-1$
+
 }

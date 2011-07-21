@@ -4,21 +4,21 @@ import org.eclipse.xtext.nodemodel.ICompositeNode;
 
 public class Formatter extends LilyPondTest {
 
-	private void checkFormatting(String unformatted, String formatted) throws Exception {
+	private void assertFormatting(String unformatted, String formatted) throws Exception {
 		ICompositeNode rootNode = getRootNode(unformatted);
 		assertEquals(formatted, getNodeModelFormatter().format(rootNode, 0, rootNode.getLength()).getFormattedText());
 	}
 
-	private void checkFormattingSame(String model) throws Exception {
-		checkFormatting(model, model);
+	private void assertFormattingSame(String model) throws Exception {
+		assertFormatting(model, model);
 	}
 
 	public void testSimple() throws Exception {
-		checkFormatting("{ c' }", "{\n\tc'\n}");
+		assertFormatting("{ c' }", "{\n\tc'\n}");
 	}
 
 	public void testSchemeNegativeNumber() throws Exception {
-		checkFormattingSame("i = #-42");
+		assertFormattingSame("i = #-42");
 	}
 
 }
