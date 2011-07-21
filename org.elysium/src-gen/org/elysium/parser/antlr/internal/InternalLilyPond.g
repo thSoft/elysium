@@ -3980,50 +3980,38 @@ ruleSchemeTextValueSegment returns [AntlrDatatypeRuleToken current=new AntlrData
 
     |
     { 
-        newCompositeNode(grammarAccess.getSchemeTextValueSegmentAccess().getSpecialCommandNameParserRuleCall_4()); 
+        newCompositeNode(grammarAccess.getSchemeTextValueSegmentAccess().getSchemeIdentifierParserRuleCall_4()); 
     }
-    this_SpecialCommandName_4=ruleSpecialCommandName    {
-		$current.merge(this_SpecialCommandName_4);
-    }
-
-    { 
-        afterParserOrEnumRuleCall();
-    }
-
-    |
-    { 
-        newCompositeNode(grammarAccess.getSchemeTextValueSegmentAccess().getSchemeIdentifierParserRuleCall_5()); 
-    }
-    this_SchemeIdentifier_5=ruleSchemeIdentifier    {
-		$current.merge(this_SchemeIdentifier_5);
+    this_SchemeIdentifier_4=ruleSchemeIdentifier    {
+		$current.merge(this_SchemeIdentifier_4);
     }
 
     { 
         afterParserOrEnumRuleCall();
     }
 
-    |    this_STRING_6=RULE_STRING    {
-		$current.merge(this_STRING_6);
+    |    this_STRING_5=RULE_STRING    {
+		$current.merge(this_STRING_5);
     }
 
     { 
-    newLeafNode(this_STRING_6, grammarAccess.getSchemeTextValueSegmentAccess().getSTRINGTerminalRuleCall_6()); 
+    newLeafNode(this_STRING_5, grammarAccess.getSchemeTextValueSegmentAccess().getSTRINGTerminalRuleCall_5()); 
     }
 
-    |    this_INT_7=RULE_INT    {
-		$current.merge(this_INT_7);
-    }
-
-    { 
-    newLeafNode(this_INT_7, grammarAccess.getSchemeTextValueSegmentAccess().getINTTerminalRuleCall_7()); 
-    }
-
-    |    this_ANY_OTHER_8=RULE_ANY_OTHER    {
-		$current.merge(this_ANY_OTHER_8);
+    |    this_INT_6=RULE_INT    {
+		$current.merge(this_INT_6);
     }
 
     { 
-    newLeafNode(this_ANY_OTHER_8, grammarAccess.getSchemeTextValueSegmentAccess().getANY_OTHERTerminalRuleCall_8()); 
+    newLeafNode(this_INT_6, grammarAccess.getSchemeTextValueSegmentAccess().getINTTerminalRuleCall_6()); 
+    }
+
+    |    this_ANY_OTHER_7=RULE_ANY_OTHER    {
+		$current.merge(this_ANY_OTHER_7);
+    }
+
+    { 
+    newLeafNode(this_ANY_OTHER_7, grammarAccess.getSchemeTextValueSegmentAccess().getANY_OTHERTerminalRuleCall_7()); 
     }
 )
     ;
@@ -4034,31 +4022,28 @@ ruleSchemeTextValueSegment returns [AntlrDatatypeRuleToken current=new AntlrData
 
 // Entry rule entryRuleSchemeIdentifier
 entryRuleSchemeIdentifier returns [String current=null] 
-	@init { 
-		HiddenTokens myHiddenTokenState = ((XtextTokenStream)input).setHiddenTokens();
-	}
 	:
 	{ newCompositeNode(grammarAccess.getSchemeIdentifierRule()); } 
 	 iv_ruleSchemeIdentifier=ruleSchemeIdentifier 
 	 { $current=$iv_ruleSchemeIdentifier.current.getText(); }  
 	 EOF 
 ;
-finally {
-	myHiddenTokenState.restore();
-}
 
 // Rule SchemeIdentifier
 ruleSchemeIdentifier returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()] 
     @init { enterRule(); 
-		HiddenTokens myHiddenTokenState = ((XtextTokenStream)input).setHiddenTokens();
     }
     @after { leaveRule(); }:
-(    this_ID_0=RULE_ID    {
-		$current.merge(this_ID_0);
+(
+    { 
+        newCompositeNode(grammarAccess.getSchemeIdentifierAccess().getIdentifierParserRuleCall_0()); 
+    }
+    this_Identifier_0=ruleIdentifier    {
+		$current.merge(this_Identifier_0);
     }
 
     { 
-    newLeafNode(this_ID_0, grammarAccess.getSchemeIdentifierAccess().getIDTerminalRuleCall_0()); 
+        afterParserOrEnumRuleCall();
     }
 (
 	kw='-' 
@@ -4066,18 +4051,59 @@ ruleSchemeIdentifier returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRu
         $current.merge(kw);
         newLeafNode(kw, grammarAccess.getSchemeIdentifierAccess().getHyphenMinusKeyword_1_0()); 
     }
-    this_ID_2=RULE_ID    {
-		$current.merge(this_ID_2);
+
+    { 
+        newCompositeNode(grammarAccess.getSchemeIdentifierAccess().getIdentifierParserRuleCall_1_1()); 
+    }
+    this_Identifier_2=ruleIdentifier    {
+		$current.merge(this_Identifier_2);
     }
 
     { 
-    newLeafNode(this_ID_2, grammarAccess.getSchemeIdentifierAccess().getIDTerminalRuleCall_1_1()); 
+        afterParserOrEnumRuleCall();
     }
 )*)
     ;
-finally {
-	myHiddenTokenState.restore();
-}
+
+
+
+
+
+// Entry rule entryRuleIdentifier
+entryRuleIdentifier returns [String current=null] 
+	:
+	{ newCompositeNode(grammarAccess.getIdentifierRule()); } 
+	 iv_ruleIdentifier=ruleIdentifier 
+	 { $current=$iv_ruleIdentifier.current.getText(); }  
+	 EOF 
+;
+
+// Rule Identifier
+ruleIdentifier returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleToken()] 
+    @init { enterRule(); 
+    }
+    @after { leaveRule(); }:
+(    this_ID_0=RULE_ID    {
+		$current.merge(this_ID_0);
+    }
+
+    { 
+    newLeafNode(this_ID_0, grammarAccess.getIdentifierAccess().getIDTerminalRuleCall_0()); 
+    }
+
+    |
+    { 
+        newCompositeNode(grammarAccess.getIdentifierAccess().getSpecialCommandNameParserRuleCall_1()); 
+    }
+    this_SpecialCommandName_1=ruleSpecialCommandName    {
+		$current.merge(this_SpecialCommandName_1);
+    }
+
+    { 
+        afterParserOrEnumRuleCall();
+    }
+)
+    ;
 
 
 
@@ -4085,23 +4111,16 @@ finally {
 
 // Entry rule entryRuleSchemeNumber
 entryRuleSchemeNumber returns [EObject current=null] 
-	@init { 
-		HiddenTokens myHiddenTokenState = ((XtextTokenStream)input).setHiddenTokens();
-	}
 	:
 	{ newCompositeNode(grammarAccess.getSchemeNumberRule()); }
 	 iv_ruleSchemeNumber=ruleSchemeNumber 
 	 { $current=$iv_ruleSchemeNumber.current; } 
 	 EOF 
 ;
-finally {
-	myHiddenTokenState.restore();
-}
 
 // Rule SchemeNumber
 ruleSchemeNumber returns [EObject current=null] 
     @init { enterRule(); 
-		HiddenTokens myHiddenTokenState = ((XtextTokenStream)input).setHiddenTokens();
     }
     @after { leaveRule(); }:
 ((
@@ -4142,9 +4161,6 @@ ruleSchemeNumber returns [EObject current=null]
 )
 ))
 ;
-finally {
-	myHiddenTokenState.restore();
-}
 
 
 
@@ -4220,23 +4236,16 @@ ruleSignedInteger returns [AntlrDatatypeRuleToken current=new AntlrDatatypeRuleT
 
 // Entry rule entryRuleSchemeMarkupCommand
 entryRuleSchemeMarkupCommand returns [EObject current=null] 
-	@init { 
-		HiddenTokens myHiddenTokenState = ((XtextTokenStream)input).setHiddenTokens();
-	}
 	:
 	{ newCompositeNode(grammarAccess.getSchemeMarkupCommandRule()); }
 	 iv_ruleSchemeMarkupCommand=ruleSchemeMarkupCommand 
 	 { $current=$iv_ruleSchemeMarkupCommand.current; } 
 	 EOF 
 ;
-finally {
-	myHiddenTokenState.restore();
-}
 
 // Rule SchemeMarkupCommand
 ruleSchemeMarkupCommand returns [EObject current=null] 
     @init { enterRule(); 
-		HiddenTokens myHiddenTokenState = ((XtextTokenStream)input).setHiddenTokens();
     }
     @after { leaveRule(); }:
 (	otherlv_0='#:' 
@@ -4245,45 +4254,24 @@ ruleSchemeMarkupCommand returns [EObject current=null]
     }
 (
 (
-(
-		lv_command_1_1=RULE_ID
-		{
-			newLeafNode(lv_command_1_1, grammarAccess.getSchemeMarkupCommandAccess().getCommandIDTerminalRuleCall_1_0_0()); 
-		}
-		{
-	        if ($current==null) {
-	            $current = createModelElement(grammarAccess.getSchemeMarkupCommandRule());
-	        }
-       		setWithLastConsumed(
-       			$current, 
-       			"command",
-        		lv_command_1_1, 
-        		"ID");
+		{ 
+	        newCompositeNode(grammarAccess.getSchemeMarkupCommandAccess().getCommandSchemeIdentifierParserRuleCall_1_0()); 
 	    }
-
-    |		{ 
-	        newCompositeNode(grammarAccess.getSchemeMarkupCommandAccess().getCommandSpecialCommandNameParserRuleCall_1_0_1()); 
-	    }
-		lv_command_1_2=ruleSpecialCommandName		{
+		lv_command_1_0=ruleSchemeIdentifier		{
 	        if ($current==null) {
 	            $current = createModelElementForParent(grammarAccess.getSchemeMarkupCommandRule());
 	        }
        		set(
        			$current, 
        			"command",
-        		lv_command_1_2, 
-        		"SpecialCommandName");
+        		lv_command_1_0, 
+        		"SchemeIdentifier");
 	        afterParserOrEnumRuleCall();
 	    }
 
 )
-
-)
 ))
 ;
-finally {
-	myHiddenTokenState.restore();
-}
 
 
 

@@ -87,6 +87,10 @@ public class Grammar extends LilyPondTest {
 		assertValid("#ly:key-signature-interface::print");
 	}
 
+	public void testSchemeHyphen() throws Exception {
+		assertValid("#(define (ac:abs->mom m) (ly:moment-mul m ac:currentTempo))");
+	}
+
 	public void testSchemeChord() throws Exception {
 		assertValid("#(chord-shape 'f:7 guitar-tuning)");
 	}

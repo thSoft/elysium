@@ -1999,11 +1999,11 @@ public class InternalLilyPondLexer extends Lexer {
         try {
             int _type = RULE_STRING;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:8198:13: ( '\"' ( '\\\\' ( 'a' .. 'z' | 'A' .. 'Z' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\"' ) ) )* '\"' )
-            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:8198:15: '\"' ( '\\\\' ( 'a' .. 'z' | 'A' .. 'Z' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\"' ) ) )* '\"'
+            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:8195:13: ( '\"' ( '\\\\' ( 'a' .. 'z' | 'A' .. 'Z' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\"' ) ) )* '\"' )
+            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:8195:15: '\"' ( '\\\\' ( 'a' .. 'z' | 'A' .. 'Z' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\"' ) ) )* '\"'
             {
             match('\"'); 
-            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:8198:19: ( '\\\\' ( 'a' .. 'z' | 'A' .. 'Z' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\"' ) ) )*
+            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:8195:19: ( '\\\\' ( 'a' .. 'z' | 'A' .. 'Z' | '\"' | '\\'' | '\\\\' ) | ~ ( ( '\\\\' | '\"' ) ) )*
             loop1:
             do {
                 int alt1=3;
@@ -2019,7 +2019,7 @@ public class InternalLilyPondLexer extends Lexer {
 
                 switch (alt1) {
             	case 1 :
-            	    // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:8198:20: '\\\\' ( 'a' .. 'z' | 'A' .. 'Z' | '\"' | '\\'' | '\\\\' )
+            	    // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:8195:20: '\\\\' ( 'a' .. 'z' | 'A' .. 'Z' | '\"' | '\\'' | '\\\\' )
             	    {
             	    match('\\'); 
             	    if ( input.LA(1)=='\"'||input.LA(1)=='\''||(input.LA(1)>='A' && input.LA(1)<='Z')||input.LA(1)=='\\'||(input.LA(1)>='a' && input.LA(1)<='z') ) {
@@ -2035,7 +2035,7 @@ public class InternalLilyPondLexer extends Lexer {
             	    }
             	    break;
             	case 2 :
-            	    // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:8198:59: ~ ( ( '\\\\' | '\"' ) )
+            	    // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:8195:59: ~ ( ( '\\\\' | '\"' ) )
             	    {
             	    if ( (input.LA(1)>='\u0000' && input.LA(1)<='!')||(input.LA(1)>='#' && input.LA(1)<='[')||(input.LA(1)>=']' && input.LA(1)<='\uFFFF') ) {
             	        input.consume();
@@ -2072,10 +2072,10 @@ public class InternalLilyPondLexer extends Lexer {
         try {
             int _type = RULE_INT;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:8200:10: ( ( '0' .. '9' )+ )
-            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:8200:12: ( '0' .. '9' )+
+            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:8197:10: ( ( '0' .. '9' )+ )
+            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:8197:12: ( '0' .. '9' )+
             {
-            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:8200:12: ( '0' .. '9' )+
+            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:8197:12: ( '0' .. '9' )+
             int cnt2=0;
             loop2:
             do {
@@ -2089,7 +2089,7 @@ public class InternalLilyPondLexer extends Lexer {
 
                 switch (alt2) {
             	case 1 :
-            	    // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:8200:13: '0' .. '9'
+            	    // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:8197:13: '0' .. '9'
             	    {
             	    matchRange('0','9'); 
 
@@ -2121,10 +2121,10 @@ public class InternalLilyPondLexer extends Lexer {
         try {
             int _type = RULE_ID;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:8202:9: ( ( 'a' .. 'z' | 'A' .. 'Z' | '\\u00A1' .. '\\uFFDC' )+ )
-            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:8202:11: ( 'a' .. 'z' | 'A' .. 'Z' | '\\u00A1' .. '\\uFFDC' )+
+            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:8199:9: ( ( 'a' .. 'z' | 'A' .. 'Z' | '\\u00A1' .. '\\uFFDC' )+ )
+            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:8199:11: ( 'a' .. 'z' | 'A' .. 'Z' | '\\u00A1' .. '\\uFFDC' )+
             {
-            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:8202:11: ( 'a' .. 'z' | 'A' .. 'Z' | '\\u00A1' .. '\\uFFDC' )+
+            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:8199:11: ( 'a' .. 'z' | 'A' .. 'Z' | '\\u00A1' .. '\\uFFDC' )+
             int cnt3=0;
             loop3:
             do {
@@ -2178,10 +2178,10 @@ public class InternalLilyPondLexer extends Lexer {
         try {
             int _type = RULE_WS;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:8204:9: ( ( ' ' | '\\t' | '\\r' | '\\n' )+ )
-            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:8204:11: ( ' ' | '\\t' | '\\r' | '\\n' )+
+            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:8201:9: ( ( ' ' | '\\t' | '\\r' | '\\n' )+ )
+            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:8201:11: ( ' ' | '\\t' | '\\r' | '\\n' )+
             {
-            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:8204:11: ( ' ' | '\\t' | '\\r' | '\\n' )+
+            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:8201:11: ( ' ' | '\\t' | '\\r' | '\\n' )+
             int cnt4=0;
             loop4:
             do {
@@ -2235,11 +2235,11 @@ public class InternalLilyPondLexer extends Lexer {
         try {
             int _type = RULE_SL_COMMENT;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:8206:17: ( '%' (~ ( ( '\\n' | '\\r' ) ) )* ( ( '\\r' )? '\\n' )? )
-            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:8206:19: '%' (~ ( ( '\\n' | '\\r' ) ) )* ( ( '\\r' )? '\\n' )?
+            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:8203:17: ( '%' (~ ( ( '\\n' | '\\r' ) ) )* ( ( '\\r' )? '\\n' )? )
+            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:8203:19: '%' (~ ( ( '\\n' | '\\r' ) ) )* ( ( '\\r' )? '\\n' )?
             {
             match('%'); 
-            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:8206:23: (~ ( ( '\\n' | '\\r' ) ) )*
+            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:8203:23: (~ ( ( '\\n' | '\\r' ) ) )*
             loop5:
             do {
                 int alt5=2;
@@ -2252,7 +2252,7 @@ public class InternalLilyPondLexer extends Lexer {
 
                 switch (alt5) {
             	case 1 :
-            	    // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:8206:23: ~ ( ( '\\n' | '\\r' ) )
+            	    // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:8203:23: ~ ( ( '\\n' | '\\r' ) )
             	    {
             	    if ( (input.LA(1)>='\u0000' && input.LA(1)<='\t')||(input.LA(1)>='\u000B' && input.LA(1)<='\f')||(input.LA(1)>='\u000E' && input.LA(1)<='\uFFFF') ) {
             	        input.consume();
@@ -2272,7 +2272,7 @@ public class InternalLilyPondLexer extends Lexer {
                 }
             } while (true);
 
-            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:8206:39: ( ( '\\r' )? '\\n' )?
+            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:8203:39: ( ( '\\r' )? '\\n' )?
             int alt7=2;
             int LA7_0 = input.LA(1);
 
@@ -2281,9 +2281,9 @@ public class InternalLilyPondLexer extends Lexer {
             }
             switch (alt7) {
                 case 1 :
-                    // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:8206:40: ( '\\r' )? '\\n'
+                    // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:8203:40: ( '\\r' )? '\\n'
                     {
-                    // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:8206:40: ( '\\r' )?
+                    // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:8203:40: ( '\\r' )?
                     int alt6=2;
                     int LA6_0 = input.LA(1);
 
@@ -2292,7 +2292,7 @@ public class InternalLilyPondLexer extends Lexer {
                     }
                     switch (alt6) {
                         case 1 :
-                            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:8206:40: '\\r'
+                            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:8203:40: '\\r'
                             {
                             match('\r'); 
 
@@ -2324,12 +2324,12 @@ public class InternalLilyPondLexer extends Lexer {
         try {
             int _type = RULE_ML_COMMENT;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:8208:17: ( '%{' ( options {greedy=false; } : . )* '%}' )
-            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:8208:19: '%{' ( options {greedy=false; } : . )* '%}'
+            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:8205:17: ( '%{' ( options {greedy=false; } : . )* '%}' )
+            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:8205:19: '%{' ( options {greedy=false; } : . )* '%}'
             {
             match("%{"); 
 
-            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:8208:24: ( options {greedy=false; } : . )*
+            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:8205:24: ( options {greedy=false; } : . )*
             loop8:
             do {
                 int alt8=2;
@@ -2354,7 +2354,7 @@ public class InternalLilyPondLexer extends Lexer {
 
                 switch (alt8) {
             	case 1 :
-            	    // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:8208:52: .
+            	    // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:8205:52: .
             	    {
             	    matchAny(); 
 
@@ -2384,12 +2384,12 @@ public class InternalLilyPondLexer extends Lexer {
         try {
             int _type = RULE_SCHEME_SL_COMMENT;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:8210:24: ( ';;' (~ ( ( '\\n' | '\\r' ) ) )* ( ( '\\r' )? '\\n' )? )
-            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:8210:26: ';;' (~ ( ( '\\n' | '\\r' ) ) )* ( ( '\\r' )? '\\n' )?
+            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:8207:24: ( ';;' (~ ( ( '\\n' | '\\r' ) ) )* ( ( '\\r' )? '\\n' )? )
+            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:8207:26: ';;' (~ ( ( '\\n' | '\\r' ) ) )* ( ( '\\r' )? '\\n' )?
             {
             match(";;"); 
 
-            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:8210:31: (~ ( ( '\\n' | '\\r' ) ) )*
+            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:8207:31: (~ ( ( '\\n' | '\\r' ) ) )*
             loop9:
             do {
                 int alt9=2;
@@ -2402,7 +2402,7 @@ public class InternalLilyPondLexer extends Lexer {
 
                 switch (alt9) {
             	case 1 :
-            	    // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:8210:31: ~ ( ( '\\n' | '\\r' ) )
+            	    // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:8207:31: ~ ( ( '\\n' | '\\r' ) )
             	    {
             	    if ( (input.LA(1)>='\u0000' && input.LA(1)<='\t')||(input.LA(1)>='\u000B' && input.LA(1)<='\f')||(input.LA(1)>='\u000E' && input.LA(1)<='\uFFFF') ) {
             	        input.consume();
@@ -2422,7 +2422,7 @@ public class InternalLilyPondLexer extends Lexer {
                 }
             } while (true);
 
-            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:8210:47: ( ( '\\r' )? '\\n' )?
+            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:8207:47: ( ( '\\r' )? '\\n' )?
             int alt11=2;
             int LA11_0 = input.LA(1);
 
@@ -2431,9 +2431,9 @@ public class InternalLilyPondLexer extends Lexer {
             }
             switch (alt11) {
                 case 1 :
-                    // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:8210:48: ( '\\r' )? '\\n'
+                    // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:8207:48: ( '\\r' )? '\\n'
                     {
-                    // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:8210:48: ( '\\r' )?
+                    // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:8207:48: ( '\\r' )?
                     int alt10=2;
                     int LA10_0 = input.LA(1);
 
@@ -2442,7 +2442,7 @@ public class InternalLilyPondLexer extends Lexer {
                     }
                     switch (alt10) {
                         case 1 :
-                            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:8210:48: '\\r'
+                            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:8207:48: '\\r'
                             {
                             match('\r'); 
 
@@ -2474,12 +2474,12 @@ public class InternalLilyPondLexer extends Lexer {
         try {
             int _type = RULE_SCHEME_ML_COMMENT;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:8212:24: ( '#!' ( options {greedy=false; } : . )* '!#' )
-            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:8212:26: '#!' ( options {greedy=false; } : . )* '!#'
+            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:8209:24: ( '#!' ( options {greedy=false; } : . )* '!#' )
+            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:8209:26: '#!' ( options {greedy=false; } : . )* '!#'
             {
             match("#!"); 
 
-            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:8212:31: ( options {greedy=false; } : . )*
+            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:8209:31: ( options {greedy=false; } : . )*
             loop12:
             do {
                 int alt12=2;
@@ -2504,7 +2504,7 @@ public class InternalLilyPondLexer extends Lexer {
 
                 switch (alt12) {
             	case 1 :
-            	    // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:8212:59: .
+            	    // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:8209:59: .
             	    {
             	    matchAny(); 
 
@@ -2534,8 +2534,8 @@ public class InternalLilyPondLexer extends Lexer {
         try {
             int _type = RULE_ANY_OTHER;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:8214:16: ( . )
-            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:8214:18: .
+            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:8211:16: ( . )
+            // ../org.elysium.ui/src-gen/org/elysium/ui/contentassist/antlr/internal/InternalLilyPond.g:8211:18: .
             {
             matchAny(); 
 

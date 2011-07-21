@@ -105,17 +105,19 @@ SchemeText: value=SchemeTextValue;
 
 SchemeTextValue: SchemeTextValueSegment (":" ":"? SchemeTextValueSegment)*;
 
-SchemeTextValueSegment: "\\\\" | "=" | "-" | SpecialCharacter | SpecialCommandName | SchemeIdentifier | STRING | INT | ANY_OTHER;
+SchemeTextValueSegment: "\\\\" | "=" | "-" | SpecialCharacter | SchemeIdentifier | STRING | INT | ANY_OTHER;
 
-SchemeIdentifier hidden(): ID ("-" ID)*;
+SchemeIdentifier: Identifier ("-" Identifier)*;
 
-SchemeNumber hidden(): radix=SchemeNumberRadix? value=SignedInteger;
+Identifier: ID | SpecialCommandName;
+
+SchemeNumber: radix=SchemeNumberRadix? value=SignedInteger;
 
 SchemeNumberRadix: "#" ID;
 
 SignedInteger: "-"? INT;
 
-SchemeMarkupCommand hidden(): "#:" command=(ID | SpecialCommandName);
+SchemeMarkupCommand: "#:" command=SchemeIdentifier;
 
 // Terminals
 

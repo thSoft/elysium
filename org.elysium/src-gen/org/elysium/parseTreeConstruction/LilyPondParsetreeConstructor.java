@@ -7100,9 +7100,10 @@ protected class SchemeText_ValueAssignment extends AssignmentToken  {
 
 
 
+
 /************ begin Rule SchemeNumber ****************
  *
- * SchemeNumber hidden():
+ * SchemeNumber:
  * 	radix=SchemeNumberRadix? value=SignedInteger;
  *
  **/
@@ -7211,12 +7212,12 @@ protected class SchemeNumber_ValueAssignment_1 extends AssignmentToken  {
 
 /************ begin Rule SchemeMarkupCommand ****************
  *
- * SchemeMarkupCommand hidden():
- * 	"#:" command=(ID | SpecialCommandName);
+ * SchemeMarkupCommand:
+ * 	"#:" command=SchemeIdentifier;
  *
  **/
 
-// "#:" command=(ID | SpecialCommandName)
+// "#:" command=SchemeIdentifier
 protected class SchemeMarkupCommand_Group extends GroupToken {
 	
 	public SchemeMarkupCommand_Group(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -7266,7 +7267,7 @@ protected class SchemeMarkupCommand_NumberSignColonKeyword_0 extends KeywordToke
 
 }
 
-// command=(ID | SpecialCommandName)
+// command=SchemeIdentifier
 protected class SchemeMarkupCommand_CommandAssignment_1 extends AssignmentToken  {
 	
 	public SchemeMarkupCommand_CommandAssignment_1(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -7290,14 +7291,9 @@ protected class SchemeMarkupCommand_CommandAssignment_1 extends AssignmentToken 
 	public IEObjectConsumer tryConsume() {
 		if((value = eObjectConsumer.getConsumable("command",true)) == null) return null;
 		IEObjectConsumer obj = eObjectConsumer.cloneAndConsume("command");
-		if(valueSerializer.isValid(obj.getEObject(), grammarAccess.getSchemeMarkupCommandAccess().getCommandIDTerminalRuleCall_1_0_0(), value, null)) {
-			type = AssignmentType.TERMINAL_RULE_CALL;
-			element = grammarAccess.getSchemeMarkupCommandAccess().getCommandIDTerminalRuleCall_1_0_0();
-			return obj;
-		}
-		if(valueSerializer.isValid(obj.getEObject(), grammarAccess.getSchemeMarkupCommandAccess().getCommandSpecialCommandNameParserRuleCall_1_0_1(), value, null)) {
+		if(valueSerializer.isValid(obj.getEObject(), grammarAccess.getSchemeMarkupCommandAccess().getCommandSchemeIdentifierParserRuleCall_1_0(), value, null)) {
 			type = AssignmentType.DATATYPE_RULE_CALL;
-			element = grammarAccess.getSchemeMarkupCommandAccess().getCommandSpecialCommandNameParserRuleCall_1_0_1();
+			element = grammarAccess.getSchemeMarkupCommandAccess().getCommandSchemeIdentifierParserRuleCall_1_0();
 			return obj;
 		}
 		return null;

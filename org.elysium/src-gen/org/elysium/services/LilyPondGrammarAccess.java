@@ -1971,17 +1971,16 @@ public class LilyPondGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cEqualsSignKeyword_1 = (Keyword)cAlternatives.eContents().get(1);
 		private final Keyword cHyphenMinusKeyword_2 = (Keyword)cAlternatives.eContents().get(2);
 		private final RuleCall cSpecialCharacterParserRuleCall_3 = (RuleCall)cAlternatives.eContents().get(3);
-		private final RuleCall cSpecialCommandNameParserRuleCall_4 = (RuleCall)cAlternatives.eContents().get(4);
-		private final RuleCall cSchemeIdentifierParserRuleCall_5 = (RuleCall)cAlternatives.eContents().get(5);
-		private final RuleCall cSTRINGTerminalRuleCall_6 = (RuleCall)cAlternatives.eContents().get(6);
-		private final RuleCall cINTTerminalRuleCall_7 = (RuleCall)cAlternatives.eContents().get(7);
-		private final RuleCall cANY_OTHERTerminalRuleCall_8 = (RuleCall)cAlternatives.eContents().get(8);
+		private final RuleCall cSchemeIdentifierParserRuleCall_4 = (RuleCall)cAlternatives.eContents().get(4);
+		private final RuleCall cSTRINGTerminalRuleCall_5 = (RuleCall)cAlternatives.eContents().get(5);
+		private final RuleCall cINTTerminalRuleCall_6 = (RuleCall)cAlternatives.eContents().get(6);
+		private final RuleCall cANY_OTHERTerminalRuleCall_7 = (RuleCall)cAlternatives.eContents().get(7);
 		
 		//SchemeTextValueSegment:
-		//	"\\\\" | "=" | "-" | SpecialCharacter | SpecialCommandName | SchemeIdentifier | STRING | INT | ANY_OTHER;
+		//	"\\\\" | "=" | "-" | SpecialCharacter | SchemeIdentifier | STRING | INT | ANY_OTHER;
 		public ParserRule getRule() { return rule; }
 
-		//"\\\\" | "=" | "-" | SpecialCharacter | SpecialCommandName | SchemeIdentifier | STRING | INT | ANY_OTHER
+		//"\\\\" | "=" | "-" | SpecialCharacter | SchemeIdentifier | STRING | INT | ANY_OTHER
 		public Alternatives getAlternatives() { return cAlternatives; }
 
 		//"\\\\"
@@ -1996,48 +1995,65 @@ public class LilyPondGrammarAccess extends AbstractGrammarElementFinder {
 		//SpecialCharacter
 		public RuleCall getSpecialCharacterParserRuleCall_3() { return cSpecialCharacterParserRuleCall_3; }
 
-		//SpecialCommandName
-		public RuleCall getSpecialCommandNameParserRuleCall_4() { return cSpecialCommandNameParserRuleCall_4; }
-
 		//SchemeIdentifier
-		public RuleCall getSchemeIdentifierParserRuleCall_5() { return cSchemeIdentifierParserRuleCall_5; }
+		public RuleCall getSchemeIdentifierParserRuleCall_4() { return cSchemeIdentifierParserRuleCall_4; }
 
 		//STRING
-		public RuleCall getSTRINGTerminalRuleCall_6() { return cSTRINGTerminalRuleCall_6; }
+		public RuleCall getSTRINGTerminalRuleCall_5() { return cSTRINGTerminalRuleCall_5; }
 
 		//INT
-		public RuleCall getINTTerminalRuleCall_7() { return cINTTerminalRuleCall_7; }
+		public RuleCall getINTTerminalRuleCall_6() { return cINTTerminalRuleCall_6; }
 
 		//ANY_OTHER
-		public RuleCall getANY_OTHERTerminalRuleCall_8() { return cANY_OTHERTerminalRuleCall_8; }
+		public RuleCall getANY_OTHERTerminalRuleCall_7() { return cANY_OTHERTerminalRuleCall_7; }
 	}
 
 	public class SchemeIdentifierElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "SchemeIdentifier");
 		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final RuleCall cIDTerminalRuleCall_0 = (RuleCall)cGroup.eContents().get(0);
+		private final RuleCall cIdentifierParserRuleCall_0 = (RuleCall)cGroup.eContents().get(0);
 		private final Group cGroup_1 = (Group)cGroup.eContents().get(1);
 		private final Keyword cHyphenMinusKeyword_1_0 = (Keyword)cGroup_1.eContents().get(0);
-		private final RuleCall cIDTerminalRuleCall_1_1 = (RuleCall)cGroup_1.eContents().get(1);
+		private final RuleCall cIdentifierParserRuleCall_1_1 = (RuleCall)cGroup_1.eContents().get(1);
 		
-		//SchemeIdentifier hidden():
-		//	ID ("-" ID)*;
+		//SchemeIdentifier:
+		//	Identifier ("-" Identifier)*;
 		public ParserRule getRule() { return rule; }
 
-		//ID ("-" ID)*
+		//Identifier ("-" Identifier)*
 		public Group getGroup() { return cGroup; }
 
-		//ID
-		public RuleCall getIDTerminalRuleCall_0() { return cIDTerminalRuleCall_0; }
+		//Identifier
+		public RuleCall getIdentifierParserRuleCall_0() { return cIdentifierParserRuleCall_0; }
 
-		//("-" ID)*
+		//("-" Identifier)*
 		public Group getGroup_1() { return cGroup_1; }
 
 		//"-"
 		public Keyword getHyphenMinusKeyword_1_0() { return cHyphenMinusKeyword_1_0; }
 
+		//Identifier
+		public RuleCall getIdentifierParserRuleCall_1_1() { return cIdentifierParserRuleCall_1_1; }
+	}
+
+	public class IdentifierElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "Identifier");
+		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
+		private final RuleCall cIDTerminalRuleCall_0 = (RuleCall)cAlternatives.eContents().get(0);
+		private final RuleCall cSpecialCommandNameParserRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
+		
+		//Identifier:
+		//	ID | SpecialCommandName;
+		public ParserRule getRule() { return rule; }
+
+		//ID | SpecialCommandName
+		public Alternatives getAlternatives() { return cAlternatives; }
+
 		//ID
-		public RuleCall getIDTerminalRuleCall_1_1() { return cIDTerminalRuleCall_1_1; }
+		public RuleCall getIDTerminalRuleCall_0() { return cIDTerminalRuleCall_0; }
+
+		//SpecialCommandName
+		public RuleCall getSpecialCommandNameParserRuleCall_1() { return cSpecialCommandNameParserRuleCall_1; }
 	}
 
 	public class SchemeNumberElements extends AbstractParserRuleElementFinder {
@@ -2048,7 +2064,7 @@ public class LilyPondGrammarAccess extends AbstractGrammarElementFinder {
 		private final Assignment cValueAssignment_1 = (Assignment)cGroup.eContents().get(1);
 		private final RuleCall cValueSignedIntegerParserRuleCall_1_0 = (RuleCall)cValueAssignment_1.eContents().get(0);
 		
-		//SchemeNumber hidden():
+		//SchemeNumber:
 		//	radix=SchemeNumberRadix? value=SignedInteger;
 		public ParserRule getRule() { return rule; }
 
@@ -2113,31 +2129,23 @@ public class LilyPondGrammarAccess extends AbstractGrammarElementFinder {
 		private final Group cGroup = (Group)rule.eContents().get(1);
 		private final Keyword cNumberSignColonKeyword_0 = (Keyword)cGroup.eContents().get(0);
 		private final Assignment cCommandAssignment_1 = (Assignment)cGroup.eContents().get(1);
-		private final Alternatives cCommandAlternatives_1_0 = (Alternatives)cCommandAssignment_1.eContents().get(0);
-		private final RuleCall cCommandIDTerminalRuleCall_1_0_0 = (RuleCall)cCommandAlternatives_1_0.eContents().get(0);
-		private final RuleCall cCommandSpecialCommandNameParserRuleCall_1_0_1 = (RuleCall)cCommandAlternatives_1_0.eContents().get(1);
+		private final RuleCall cCommandSchemeIdentifierParserRuleCall_1_0 = (RuleCall)cCommandAssignment_1.eContents().get(0);
 		
-		//SchemeMarkupCommand hidden():
-		//	"#:" command=(ID | SpecialCommandName);
+		//SchemeMarkupCommand:
+		//	"#:" command=SchemeIdentifier;
 		public ParserRule getRule() { return rule; }
 
-		//"#:" command=(ID | SpecialCommandName)
+		//"#:" command=SchemeIdentifier
 		public Group getGroup() { return cGroup; }
 
 		//"#:"
 		public Keyword getNumberSignColonKeyword_0() { return cNumberSignColonKeyword_0; }
 
-		//command=(ID | SpecialCommandName)
+		//command=SchemeIdentifier
 		public Assignment getCommandAssignment_1() { return cCommandAssignment_1; }
 
-		//ID | SpecialCommandName
-		public Alternatives getCommandAlternatives_1_0() { return cCommandAlternatives_1_0; }
-
-		//ID
-		public RuleCall getCommandIDTerminalRuleCall_1_0_0() { return cCommandIDTerminalRuleCall_1_0_0; }
-
-		//SpecialCommandName
-		public RuleCall getCommandSpecialCommandNameParserRuleCall_1_0_1() { return cCommandSpecialCommandNameParserRuleCall_1_0_1; }
+		//SchemeIdentifier
+		public RuleCall getCommandSchemeIdentifierParserRuleCall_1_0() { return cCommandSchemeIdentifierParserRuleCall_1_0; }
 	}
 	
 	
@@ -2192,6 +2200,7 @@ public class LilyPondGrammarAccess extends AbstractGrammarElementFinder {
 	private SchemeTextValueElements pSchemeTextValue;
 	private SchemeTextValueSegmentElements pSchemeTextValueSegment;
 	private SchemeIdentifierElements pSchemeIdentifier;
+	private IdentifierElements pIdentifier;
 	private SchemeNumberElements pSchemeNumber;
 	private SchemeNumberRadixElements pSchemeNumberRadix;
 	private SignedIntegerElements pSignedInteger;
@@ -2720,7 +2729,7 @@ public class LilyPondGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//SchemeTextValueSegment:
-	//	"\\\\" | "=" | "-" | SpecialCharacter | SpecialCommandName | SchemeIdentifier | STRING | INT | ANY_OTHER;
+	//	"\\\\" | "=" | "-" | SpecialCharacter | SchemeIdentifier | STRING | INT | ANY_OTHER;
 	public SchemeTextValueSegmentElements getSchemeTextValueSegmentAccess() {
 		return (pSchemeTextValueSegment != null) ? pSchemeTextValueSegment : (pSchemeTextValueSegment = new SchemeTextValueSegmentElements());
 	}
@@ -2729,8 +2738,8 @@ public class LilyPondGrammarAccess extends AbstractGrammarElementFinder {
 		return getSchemeTextValueSegmentAccess().getRule();
 	}
 
-	//SchemeIdentifier hidden():
-	//	ID ("-" ID)*;
+	//SchemeIdentifier:
+	//	Identifier ("-" Identifier)*;
 	public SchemeIdentifierElements getSchemeIdentifierAccess() {
 		return (pSchemeIdentifier != null) ? pSchemeIdentifier : (pSchemeIdentifier = new SchemeIdentifierElements());
 	}
@@ -2739,7 +2748,17 @@ public class LilyPondGrammarAccess extends AbstractGrammarElementFinder {
 		return getSchemeIdentifierAccess().getRule();
 	}
 
-	//SchemeNumber hidden():
+	//Identifier:
+	//	ID | SpecialCommandName;
+	public IdentifierElements getIdentifierAccess() {
+		return (pIdentifier != null) ? pIdentifier : (pIdentifier = new IdentifierElements());
+	}
+	
+	public ParserRule getIdentifierRule() {
+		return getIdentifierAccess().getRule();
+	}
+
+	//SchemeNumber:
 	//	radix=SchemeNumberRadix? value=SignedInteger;
 	public SchemeNumberElements getSchemeNumberAccess() {
 		return (pSchemeNumber != null) ? pSchemeNumber : (pSchemeNumber = new SchemeNumberElements());
@@ -2769,8 +2788,8 @@ public class LilyPondGrammarAccess extends AbstractGrammarElementFinder {
 		return getSignedIntegerAccess().getRule();
 	}
 
-	//SchemeMarkupCommand hidden():
-	//	"#:" command=(ID | SpecialCommandName);
+	//SchemeMarkupCommand:
+	//	"#:" command=SchemeIdentifier;
 	public SchemeMarkupCommandElements getSchemeMarkupCommandAccess() {
 		return (pSchemeMarkupCommand != null) ? pSchemeMarkupCommand : (pSchemeMarkupCommand = new SchemeMarkupCommandElements());
 	}
