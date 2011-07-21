@@ -15,6 +15,10 @@ public class Grammar extends LilyPondTest {
 
 	private static final String BOOK_PART_ELEMENTS = HEADER + SCORE;
 
+	public void testString() throws Exception {
+		assertValid("i = \"\\\"\\x\"");
+	}
+
 	public void testInclude() throws Exception {
 		assertValid("\\include \"gregorian.ly\"");
 	}

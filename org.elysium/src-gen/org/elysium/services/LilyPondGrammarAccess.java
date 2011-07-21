@@ -1563,6 +1563,7 @@ public class LilyPondGrammarAccess extends AbstractGrammarElementFinder {
 		private final Keyword cWithKeyword_23 = (Keyword)cAlternatives.eContents().get(23);
 		private final RuleCall cOtherNameParserRuleCall_24 = (RuleCall)cAlternatives.eContents().get(24);
 		
+		//// XXX this must duplicate all known commands 
 		//SpecialCommandName:
 		//	"include" | "version" | "sourcefilename" | "sourcefileline" | "markup" | "markuplines" | "book" | "bookpart" |
 		//	"context" | "header" | "score" | "paper" | "midi" | "layout" | "relative" | "transpose" | "chordmode" | "drummode" |
@@ -2604,6 +2605,7 @@ public class LilyPondGrammarAccess extends AbstractGrammarElementFinder {
 		return getOtherNameAccess().getRule();
 	}
 
+	//// XXX this must duplicate all known commands 
 	//SpecialCommandName:
 	//	"include" | "version" | "sourcefilename" | "sourcefileline" | "markup" | "markuplines" | "book" | "bookpart" |
 	//	"context" | "header" | "score" | "paper" | "midi" | "layout" | "relative" | "transpose" | "chordmode" | "drummode" |
@@ -2779,7 +2781,7 @@ public class LilyPondGrammarAccess extends AbstractGrammarElementFinder {
 
 	//// Terminals
 	//terminal STRING:
-	//	"\"" ("\\" ("b" | "t" | "n" | "f" | "r" | "\"" | "\'" | "\\") | !("\\" | "\""))* "\"";
+	//	"\"" ("\\" ("a".."z" | "A".."Z" | "\"" | "\'" | "\\") | !("\\" | "\""))* "\"";
 	public TerminalRule getSTRINGRule() {
 		return (tSTRING != null) ? tSTRING : (tSTRING = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "STRING"));
 	} 
