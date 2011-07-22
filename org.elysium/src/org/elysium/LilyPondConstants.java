@@ -6,19 +6,14 @@ import java.util.List;
 public interface LilyPondConstants {
 
 	/**
-	 * The official extension of LilyPond files.
+	 * The official extension of standalone LilyPond files.
 	 */
 	String EXTENSION = "ly"; //$NON-NLS-1$
 
 	/**
-	 * The official extension of included (not standalone) LilyPond files.
-	 */
-	String INCLUDED_EXTENSION = "ily"; //$NON-NLS-1$
-
-	/**
 	 * The official extensions of LilyPond files.
 	 */
-	List<String> EXTENSIONS = Arrays.asList(EXTENSION, INCLUDED_EXTENSION);
+	List<String> EXTENSIONS = Arrays.asList(EXTENSION, "ily", "lyi");
 
 	/**
 	 * LilyPond counts column numbers based on this tab width value.

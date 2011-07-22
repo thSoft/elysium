@@ -5,10 +5,12 @@
       <extension point="org.eclipse.emf.ecore.extension_parser">
             <parser class="org.elysium.ui.LilyPondExecutableExtensionFactory:org.eclipse.xtext.resource.IResourceFactory" type="ly"/>
             <parser class="org.elysium.ui.LilyPondExecutableExtensionFactory:org.eclipse.xtext.resource.IResourceFactory" type="ily"/>
+            <parser class="org.elysium.ui.LilyPondExecutableExtensionFactory:org.eclipse.xtext.resource.IResourceFactory" type="lyi"/>
       </extension>
       <extension point="org.eclipse.xtext.extension_resourceServiceProvider">
             <resourceServiceProvider class="org.elysium.ui.LilyPondExecutableExtensionFactory:org.eclipse.xtext.ui.resource.IResourceUIServiceProvider" uriExtension="ly"/>
             <resourceServiceProvider class="org.elysium.ui.LilyPondExecutableExtensionFactory:org.eclipse.xtext.ui.resource.IResourceUIServiceProvider" uriExtension="ily"/>
+            <resourceServiceProvider class="org.elysium.ui.LilyPondExecutableExtensionFactory:org.eclipse.xtext.ui.resource.IResourceUIServiceProvider" uriExtension="lyi"/>
       </extension>
       <!-- Compiler -->
       <extension point="org.eclipse.xtext.builder.participant">
@@ -74,7 +76,7 @@
       </extension>
       <!-- Editor -->
       <extension point="org.eclipse.ui.editors">
-            <editor class="org.elysium.ui.LilyPondExecutableExtensionFactory:org.eclipse.xtext.ui.editor.XtextEditor" contributorClass="org.eclipse.ui.editors.text.TextEditorActionContributor" default="true" extensions="ly,ily" icon="icons/Editor.png" name="LilyPond Editor" id="org.elysium.LilyPond">
+            <editor class="org.elysium.ui.LilyPondExecutableExtensionFactory:org.eclipse.xtext.ui.editor.XtextEditor" contributorClass="org.eclipse.ui.editors.text.TextEditorActionContributor" default="true" extensions="ly,ily,lyi" icon="icons/Editor.png" name="LilyPond Editor" id="org.elysium.LilyPond">
                   <!-- TODO rename to org.elysium.ui.editors.LilyPond as soon as the editor ID can differ from the language name (bug 309437) -->
                   </editor>
       </extension>
@@ -286,13 +288,13 @@
       </extension>
       <!-- Compare -->
       <extension point="org.eclipse.compare.contentViewers">
-            <viewer id="org.elysium.LilyPond.compare.contentViewers" class="org.elysium.ui.LilyPondExecutableExtensionFactory:org.eclipse.xtext.ui.compare.InjectableViewerCreator" extensions="ly,ily"> </viewer>
+            <viewer id="org.elysium.LilyPond.compare.contentViewers" class="org.elysium.ui.LilyPondExecutableExtensionFactory:org.eclipse.xtext.ui.compare.InjectableViewerCreator" extensions="ly,ily,lyi"> </viewer>
       </extension>
       <extension point="org.eclipse.compare.contentMergeViewers">
-            <viewer id="org.elysium.LilyPond.compare.contentMergeViewers" class="org.elysium.ui.LilyPondExecutableExtensionFactory:org.eclipse.xtext.ui.compare.InjectableViewerCreator" extensions="ly,ily" label="LilyPond Compare"> </viewer>
+            <viewer id="org.elysium.LilyPond.compare.contentMergeViewers" class="org.elysium.ui.LilyPondExecutableExtensionFactory:org.eclipse.xtext.ui.compare.InjectableViewerCreator" extensions="ly,ily,lyi" label="LilyPond Compare"> </viewer>
       </extension>
       <extension point="org.eclipse.ui.editors.documentProviders">
-            <provider id="org.elysium.LilyPond.editors.documentProviders" class="org.elysium.ui.LilyPondExecutableExtensionFactory:org.eclipse.xtext.ui.editor.model.XtextDocumentProvider" extensions="ly,ily"> </provider>
+            <provider id="org.elysium.LilyPond.editors.documentProviders" class="org.elysium.ui.LilyPondExecutableExtensionFactory:org.eclipse.xtext.ui.editor.model.XtextDocumentProvider" extensions="ly,ily,lyi"> </provider>
       </extension>
       <!-- Global -->
       <extension point="org.eclipse.ui.views">

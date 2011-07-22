@@ -5,7 +5,7 @@ import org.eclipse.xtext.generator.*
 import org.eclipse.xtext.ui.generator.*
 
 var grammarURI = "classpath:/org/elysium/LilyPond.xtext"
-var file.extensions = "ly,ily"
+var file.extensions = "ly,ily,lyi"
 var projectName = "org.elysium"
 var runtimeProject = "../${projectName}"
 
