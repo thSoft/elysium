@@ -6,6 +6,7 @@ import org.eclipse.core.resources.IFile;
 import org.eclipse.jface.preference.IPreferenceStore;
 import org.elysium.ui.Activator;
 import org.elysium.ui.compiler.preferences.CompilerPreferenceConstants;
+import com.google.common.collect.Lists;
 
 /**
  * Creates a process builder to compile the given file.
@@ -31,7 +32,9 @@ public class CompilerProcessBuilderFactory {
 				command.add("--verbose"); //$NON-NLS-1$
 			}
 
-			command.add(OptionBuilder.build("midi-extension", "midi")); //$NON-NLS-1$ //$NON-NLS-2$ // On Windows, the default extension is "mid" 
+			command.add(OptionBuilder.build("midi-extension", "midi")); //$NON-NLS-1$ //$NON-NLS-2$ // On Windows, the default extension is "mid"
+
+			command.addAll(Lists.newArrayList(preferenceStore.getString(CompilerPreferenceConstants.COMMAND_LINE.name()).split("\\n")));
 		}
 		processBuilder.command(command);
 		return processBuilder;

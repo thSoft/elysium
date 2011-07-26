@@ -4,5 +4,6 @@ public enum CompilerPreferenceConstants {
 	LILYPOND_PATH,
 	DELETE_INTERMEDIATE_FILES,
 	POINT_AND_CLICK,
-	VERBOSE
+	VERBOSE,
+	COMMAND_LINE
 }
