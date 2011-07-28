@@ -90,7 +90,7 @@ public class LilyPondOutlineTreeProvider extends DefaultOutlineTreeProvider {
 	protected Image _image(Object modelElement) {
 		Image image = super._image(modelElement);
 		if (image == null) {
-			return Activator.getImageDescriptor(LilyPondUiModule.ICON_PATH + "Node.png").createImage();
+			return Activator.getImageDescriptor(LilyPondUiModule.NODES + "Node.png").createImage();
 		} else {
 			return image;
 		}

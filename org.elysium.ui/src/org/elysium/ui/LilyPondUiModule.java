@@ -8,6 +8,7 @@ import org.eclipse.xtext.ui.editor.autoedit.AbstractEditStrategyProvider;
 import org.eclipse.xtext.ui.editor.hyperlinking.IHyperlinkHelper;
 import org.eclipse.xtext.ui.editor.model.IResourceForEditorInputFactory;
 import org.eclipse.xtext.ui.editor.model.ResourceForIEditorInputFactory;
+import org.eclipse.xtext.ui.editor.outline.actions.IOutlineContribution;
 import org.eclipse.xtext.ui.editor.quickfix.ISimilarityMatcher;
 import org.eclipse.xtext.ui.editor.syntaxcoloring.IHighlightingConfiguration;
 import org.eclipse.xtext.ui.editor.syntaxcoloring.ISemanticHighlightingCalculator;
@@ -18,6 +19,7 @@ import org.elysium.importuri.ILilyPondPathProvider;
 import org.elysium.linking.LilyPondLinkingDiagnosticMessageProvider;
 import org.elysium.ui.autoedit.LilyPondAutoEditStrategyProvider;
 import org.elysium.ui.hyperlinks.LilyPondHyperlinkHelper;
+import org.elysium.ui.outline.FilterIncludesContribution;
 import org.elysium.ui.quickfix.LilyPondSimilarityMatcher;
 import org.elysium.ui.syntaxcoloring.LilyPondHighlightingConfiguration;
 import org.elysium.ui.syntaxcoloring.LilyPondSemanticHighlightingCalculator;
@@ -30,7 +32,9 @@ import com.google.inject.name.Names;
  */
 public class LilyPondUiModule extends AbstractLilyPondUiModule {
 
-	public static final String ICON_PATH = "icons/nodes/"; //$NON-NLS-1$
+	public static final String ICONS = "icons/"; //$NON-NLS-1$
+
+	public static final String NODES = ICONS + "nodes/"; //$NON-NLS-1$
 
 	public LilyPondUiModule(AbstractUIPlugin plugin) {
 		super(plugin);
@@ -40,7 +44,7 @@ public class LilyPondUiModule extends AbstractLilyPondUiModule {
 	public void configure(Binder binder) {
 		super.configure(binder);
 		// Icon path
-		binder.bind(String.class).annotatedWith(Names.named("org.eclipse.xtext.ui.PluginImageHelper.pathSuffix")).toInstance(ICON_PATH); //$NON-NLS-1$
+		binder.bind(String.class).annotatedWith(Names.named("org.eclipse.xtext.ui.PluginImageHelper.pathSuffix")).toInstance(NODES); //$NON-NLS-1$
 		// Hyperlinks
 		binder.bind(IHyperlinkHelper.class).to(LilyPondHyperlinkHelper.class);
 		// Syntax coloring
@@ -62,6 +66,10 @@ public class LilyPondUiModule extends AbstractLilyPondUiModule {
 	@Override
 	public Class<? extends AbstractEditStrategyProvider> bindAbstractEditStrategyProvider() {
 		return LilyPondAutoEditStrategyProvider.class;
+	}
+
+	public void configureFilterIncludesContribution(Binder binder) {
+		binder.bind(IOutlineContribution.class).annotatedWith(FilterIncludesContribution.Annotation.class).to(FilterIncludesContribution.class);
 	}
 
 	// Avoid dependency on JDT
