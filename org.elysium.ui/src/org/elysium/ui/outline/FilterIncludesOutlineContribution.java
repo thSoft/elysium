@@ -8,12 +8,13 @@ import org.eclipse.jface.action.Action;
 import org.eclipse.xtext.ui.editor.outline.IOutlineNode;
 import org.eclipse.xtext.ui.editor.outline.actions.AbstractFilterOutlineContribution;
 import org.eclipse.xtext.ui.editor.outline.impl.EObjectNode;
+import org.eclipse.xtext.ui.editor.outline.impl.OutlinePage;
 import org.elysium.lilypond.LilypondPackage;
 import org.elysium.ui.Activator;
 import org.elysium.ui.LilyPondUiModule;
 import com.google.inject.BindingAnnotation;
 
-public class FilterIncludesContribution extends AbstractFilterOutlineContribution {
+public class FilterIncludesOutlineContribution extends AbstractFilterOutlineContribution {
 
 	@Retention(RetentionPolicy.RUNTIME)
 	@Target({ ElementType.FIELD, ElementType.PARAMETER, ElementType.METHOD })
@@ -37,6 +38,12 @@ public class FilterIncludesContribution extends AbstractFilterOutlineContributio
 	protected void configureAction(Action action) {
 		action.setText("Show/hide \\include statements");
 		action.setImageDescriptor(Activator.getImageDescriptor(LilyPondUiModule.ICONS + "filter/Include.png")); //$NON-NLS-1$
+	}
+
+	@Override
+	public void register(OutlinePage outlinePage) {
+		super.register(outlinePage);
+		stateChanged(isPropertySet());
 	}
 
 }

@@ -19,7 +19,7 @@ import org.elysium.importuri.ILilyPondPathProvider;
 import org.elysium.linking.LilyPondLinkingDiagnosticMessageProvider;
 import org.elysium.ui.autoedit.LilyPondAutoEditStrategyProvider;
 import org.elysium.ui.hyperlinks.LilyPondHyperlinkHelper;
-import org.elysium.ui.outline.FilterIncludesContribution;
+import org.elysium.ui.outline.FilterIncludesOutlineContribution;
 import org.elysium.ui.quickfix.LilyPondSimilarityMatcher;
 import org.elysium.ui.syntaxcoloring.LilyPondHighlightingConfiguration;
 import org.elysium.ui.syntaxcoloring.LilyPondSemanticHighlightingCalculator;
@@ -68,8 +68,8 @@ public class LilyPondUiModule extends AbstractLilyPondUiModule {
 		return LilyPondAutoEditStrategyProvider.class;
 	}
 
-	public void configureFilterIncludesContribution(Binder binder) {
-		binder.bind(IOutlineContribution.class).annotatedWith(FilterIncludesContribution.Annotation.class).to(FilterIncludesContribution.class);
+	public void configureFilterIncludesOutlineContribution(Binder binder) {
+		binder.bind(IOutlineContribution.class).annotatedWith(FilterIncludesOutlineContribution.Annotation.class).to(FilterIncludesOutlineContribution.class);
 	}
 
 	// Avoid dependency on JDT
