@@ -1,6 +1,7 @@
 package org.elysium.test;
 
 import org.eclipse.xtext.nodemodel.ICompositeNode;
+import org.junit.Test;
 
 public class Formatter extends LilyPondTest {
 
@@ -13,11 +14,13 @@ public class Formatter extends LilyPondTest {
 		assertFormatting(model, model);
 	}
 
-	public void testSimple() throws Exception {
+	@Test
+	public void simple() throws Exception {
 		assertFormatting("{ c' }", "{\n\tc'\n}");
 	}
 
-	public void testSchemeNegativeNumber() throws Exception {
+	@Test
+	public void schemeNegativeNumber() throws Exception {
 		assertFormattingSame("i = #-42");
 	}
 

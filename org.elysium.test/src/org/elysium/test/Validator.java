@@ -1,24 +1,14 @@
 package org.elysium.test;
 
+import static com.google.common.base.Predicates.not;
+import static com.google.common.collect.Iterables.all;
 import org.eclipse.xtext.junit.validation.AssertableDiagnostics;
 import org.eclipse.xtext.junit.validation.AssertableDiagnostics.DiagnosticPredicate;
-import org.eclipse.xtext.junit.validation.ValidatorTester;
 import org.eclipse.xtext.resource.XtextResource;
 import org.elysium.validation.IssueCodes;
-import org.elysium.validation.LilyPondJavaValidator;
-import com.google.common.base.Predicates;
-import com.google.common.collect.Iterables;
+import org.junit.Test;
 
-public class Validator extends LilyPondTest {
-
-	private ValidatorTester<LilyPondJavaValidator> tester;
-
-	@Override
-	protected void setUp() throws Exception {
-		super.setUp();
-		LilyPondJavaValidator validator = get(LilyPondJavaValidator.class);
-		tester = new ValidatorTester<LilyPondJavaValidator>(validator, getInjector());
-	}
+public class Validator extends LilyPondTestWithValidator {
 
 	private AssertableDiagnostics validate(String model) throws Exception {
 		XtextResource resource = getResourceFromString(model);
@@ -38,22 +28,26 @@ public class Validator extends LilyPondTest {
 	private void assertNoProblem(String model, String issueCode, boolean error) throws Exception {
 		AssertableDiagnostics diagnostics = validate(model);
 		DiagnosticPredicate predicate = getPredicate(issueCode, error);
-		assertTrue(Iterables.all(diagnostics.getAllDiagnostics(), Predicates.not(predicate)));
+		assertTrue(all(diagnostics.getAllDiagnostics(), not(predicate)));
 	}
 
-	public void testAdjacentNamesNotUnique() throws Exception {
+	@Test
+	public void adjacentNamesNotUnique() throws Exception {
 		assertProblem("i = #1 i = #2", IssueCodes.DUPLICATE_VARIABLE, false);
 	}
 
-	public void testNotAdjacentNamesNotUnique() throws Exception {
+	@Test
+	public void notAdjacentNamesNotUnique() throws Exception {
 		assertNoProblem("traLaLa = { c'4 d'4 } \\layout { traLaLa = 1.0 }", IssueCodes.DUPLICATE_VARIABLE, false);
 	}
 
-	public void testHiddenTokenAfterBackslash() throws Exception {
+	@Test
+	public void hiddenTokenAfterBackslash() throws Exception {
 		assertProblem("\\ score {}", IssueCodes.HIDDEN_TOKEN_AFTER_BACKSLASH, true);
 	}
 
-	public void testNoVersion() throws Exception {
+	@Test
+	public void noVersion() throws Exception {
 		assertProblem("{}", IssueCodes.NO_VERSION, false);
 	}
 

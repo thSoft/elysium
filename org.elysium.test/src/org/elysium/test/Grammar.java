@@ -2,6 +2,7 @@ package org.elysium.test;
 
 import java.io.File;
 import org.eclipse.xtext.util.Files;
+import org.junit.Test;
 
 public class Grammar extends LilyPondTest {
 
@@ -19,186 +20,231 @@ public class Grammar extends LilyPondTest {
 
 	private static final String BOOK_PART_ELEMENTS = HEADER + SCORE;
 
-	public void testString() throws Exception {
+	@Test
+	public void string() throws Exception {
 		assertValid("i = \"\\\"\\x\"");
 	}
 
-	public void testInclude() throws Exception {
+	@Test
+	public void include() throws Exception {
 		assertValid("\\include \"gregorian.ly\"");
 	}
 
-	public void testVersion() throws Exception {
+	@Test
+	public void version() throws Exception {
 		assertValid("\\version \"2.12.0\"");
 	}
 
-	public void testSourceFileName() throws Exception {
+	@Test
+	public void sourceFileName() throws Exception {
 		assertValid("\\sourcefilename \"foo.ly\"");
 	}
 
-	public void testSourceFileLine() throws Exception {
+	@Test
+	public void sourceFileLine() throws Exception {
 		assertValid("\\sourcefileline 42");
 	}
 
-	public void testSingleLineComment() throws Exception {
+	@Test
+	public void singleLineComment() throws Exception {
 		assertValid("% comment");
 	}
 
-	public void testCommentAfterSchemeLiteral() throws Exception {
+	@Test
+	public void commentAfterSchemeLiteral() throws Exception {
 		assertValid("#'a%");
 	}
 
-	public void testMultiLineComment() throws Exception {
+	@Test
+	public void multiLineComment() throws Exception {
 		assertValid("%{ comment }%");
 	}
 
-	public void testPaper() throws Exception {
+	@Test
+	public void paper() throws Exception {
 		assertValid("\\paper { ragged-last-bottom = ##t }");
 	}
 
-	public void testMidi() throws Exception {
+	@Test
+	public void midi() throws Exception {
 		assertValid("\\midi {}");
 	}
 
-	public void testLayout() throws Exception {
+	@Test
+	public void layout() throws Exception {
 		assertValid("\\layout { ragged-right = ##t }");
 	}
 
-	public void testLayoutVariable() throws Exception {
+	@Test
+	public void layoutVariable() throws Exception {
 		assertValid("\\layout { indent = 0\\cm }");
 	}
 
-	public void testScheme() throws Exception {
+	@Test
+	public void scheme() throws Exception {
 		assertValid("#(set-default-paper-size \"a4\")");
 	}
 
-	public void testSchemeQuotations() throws Exception {
+	@Test
+	public void schemeQuotations() throws Exception {
 		assertValid("#`(a ,(+ 1 2) ,@(map abs '(4 -5 6)) b)");
 	}
 
-	public void testSchemeQuestionMark() throws Exception {
+	@Test
+	public void schemeQuestionMark() throws Exception {
 		assertValid("#(eq? 1 2)");
 	}
 
-	public void testSchemeSingleLineComment() throws Exception {
+	@Test
+	public void schemeSingleLineComment() throws Exception {
 		assertValid("#(begin ; comment \n)");
 	}
 
-	public void testSchemeMultiLineComment() throws Exception {
+	@Test
+	public void schemeMultiLineComment() throws Exception {
 		assertValid("#(begin #! comment !# )");
 	}
 
-	public void testSchemeDoubleColon() throws Exception {
+	@Test
+	public void schemeDoubleColon() throws Exception {
 		assertValid("#ly:key-signature-interface::print");
 	}
 
-	public void testSchemeHyphen() throws Exception {
+	@Test
+	public void schemeHyphen() throws Exception {
 		assertValid("#(define (ac:abs->mom m) (ly:moment-mul m ac:currentTempo))");
 	}
 
-	public void testSchemeChord() throws Exception {
+	@Test
+	public void schemeChord() throws Exception {
 		assertValid("#(chord-shape 'f:7 guitar-tuning)");
 	}
 
-	public void testSchemeHexa() throws Exception {
+	@Test
+	public void schemeHexa() throws Exception {
 		assertValid("##xf");
 	}
 
-	public void testSchemeMarkup() throws Exception {
+	@Test
+	public void schemeMarkup() throws Exception {
 		assertValid("#(markup #:bold \"a\")");
 	}
 
-	public void testSchemeBlock() throws Exception {
+	@Test
+	public void schemeBlock() throws Exception {
 		assertValid("##{ c #}");
 	}
 
-	public void testSchemeReference() throws Exception {
+	@Test
+	public void schemeReference() throws Exception {
 		assertValid("#(define $i 1)");
 	}
 
-	public void testSchemeReferenceInBlock() throws Exception {
+	@Test
+	public void schemeReferenceInBlock() throws Exception {
 		assertValid(ASSIGNMENT + " ##{ $i #}");
 	}
 
-	public void testSchemeReferenceListInBlock() throws Exception {
+	@Test
+	public void schemeReferenceListInBlock() throws Exception {
 		assertValid("##{ #$(list 1) #}");
 	}
 
-	public void testSchemeBareReferenceListInBlock() throws Exception {
+	@Test
+	public void schemeBareReferenceListInBlock() throws Exception {
 		assertValid("##{ $(list 1) #}");
 	}
 
-	public void testHeader() throws Exception {
+	@Test
+	public void header() throws Exception {
 		assertValid(BOOK_PART_ELEMENTS);
 	}
 
-	public void testScore() throws Exception {
+	@Test
+	public void score() throws Exception {
 		assertValid(SCORE);
 	}
 
-	public void testBook() throws Exception {
+	@Test
+	public void book() throws Exception {
 		assertValid("\\book { \\bookpart {} " + BOOK_PART_ELEMENTS + " }");
 	}
 
-	public void testBookPart() throws Exception {
+	@Test
+	public void bookPart() throws Exception {
 		assertValid("\\bookpart { " + BOOK_PART_ELEMENTS + " }");
 	}
 
-	public void testSequentialMusic() throws Exception {
+	@Test
+	public void sequentialMusic() throws Exception {
 		assertValid("{ c' }");
 	}
 
-	public void testMarkup() throws Exception {
+	@Test
+	public void markup() throws Exception {
 		assertValid("\\markup { árvíztűrő tükörfúrógép }");
 	}
 
-	public void testMarkupCommandWithHyphen() throws Exception {
+	@Test
+	public void markupCommandWithHyphen() throws Exception {
 		assertValid("\\markup \\fill-line { \\on-the-fly #not-first-page \\fromproperty #'header:instrument }");
 	}
 
-	public void testAssignment() throws Exception {
+	@Test
+	public void assignment() throws Exception {
 		assertValid(ASSIGNMENT + REFERENCE);
 	}
 
-	public void testAssignmentIncluded() throws Exception {
+	@Test
+	public void assignmentIncluded() throws Exception {
 		String filename = "foo.ly";
 		Files.writeStringIntoFile(filename, ASSIGNMENT);
 		assertValid("\\include \"" + filename + "\"" + REFERENCE);
 		new File(filename).delete();
 	}
 
-	public void testHyphenAfterCommand() throws Exception {
+	@Test
+	public void hyphenAfterCommand() throws Exception {
 		assertValid("{ c-\\f-1 }");
 	}
 
-	public void testRelativeMusic() throws Exception {
+	@Test
+	public void relativeMusic() throws Exception {
 		assertValid("\\relative c' { c }");
 	}
 
-	public void testTransposedMusic() throws Exception {
+	@Test
+	public void transposedMusic() throws Exception {
 		assertValid("\\transpose c d { c }");
 	}
 
-	public void testNewContext() throws Exception {
+	@Test
+	public void newContext() throws Exception {
 		assertValid("\\new Staff { c }");
 	}
 
-	public void testNewContextWithId() throws Exception {
+	@Test
+	public void newContextWithId() throws Exception {
 		assertValid("\\context Staff = \"a\" { c }");
 	}
 
-	public void testContextDef() throws Exception {
+	@Test
+	public void contextDef() throws Exception {
 		assertValid("\\context { \\Staff }");
 	}
 
-	public void testLyricSemicolon() throws Exception {
+	@Test
+	public void lyricSemicolon() throws Exception {
 		assertValid("i = \\lyricmode { a; }");
 	}
 
-	public void testStringIndication() throws Exception {
+	@Test
+	public void stringIndication() throws Exception {
 		assertValid("{ <c\\1> }");
 	}
 
-	public void testClef() throws Exception {
+	@Test
+	public void clef() throws Exception {
 		assertValid("{ \\clef treble }");
 	}
 
