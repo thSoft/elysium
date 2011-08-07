@@ -76,7 +76,7 @@ public class Integration extends LilyPondTestWithValidator {
 					org.eclipse.xtext.diagnostics.Diagnostic diagnostic = (org.eclipse.xtext.diagnostics.Diagnostic)error;
 					int line = diagnostic.getLine() - 1;
 					int column = getColumn(lines, line, diagnostic.getOffset());
-					System.out.println(MessageFormat.format("{0}:{1}:{2}", filePath.substring(filePath.lastIndexOf('/') + 1), line, column));
+					System.out.println(MessageFormat.format("{0}:{1}:{2}", filePath.substring(filePath.lastIndexOf('/') + 1), line + 1, column));
 					System.out.println(lines[line]);
 					System.out.println(String.format("%1$#" + column + "s", "") + "^");
 					System.out.println(diagnostic.getMessage());
