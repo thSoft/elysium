@@ -24,6 +24,8 @@ public class CompilerPreferenceInitializer extends AbstractPreferenceInitializer
 		preferenceStore.setDefault(CompilerPreferenceConstants.POINT_AND_CLICK.name(), true);
 
 		preferenceStore.setDefault(CompilerPreferenceConstants.VERBOSE.name(), false);
+
+		preferenceStore.setDefault(CompilerPreferenceConstants.SEARCH_PATHS.name(), ""); //$NON-NLS-1$
 	}
 
 }

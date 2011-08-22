@@ -1,10 +1,10 @@
 package org.elysium.ui.contentassist;
 
-import org.eclipse.core.resources.IContainer;
+import static com.google.common.collect.Iterables.any;
+import java.io.File;
+import java.io.FilenameFilter;
+import java.util.List;
 import org.eclipse.core.resources.IResource;
-import org.eclipse.core.resources.ResourcesPlugin;
-import org.eclipse.core.runtime.CoreException;
-import org.eclipse.core.runtime.IPath;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.util.ResourceUtils;
 import org.eclipse.jface.text.BadLocationException;
@@ -16,13 +16,21 @@ import org.eclipse.xtext.ui.editor.contentassist.ContentAssistContext;
 import org.eclipse.xtext.ui.editor.contentassist.ICompletionProposalAcceptor;
 import org.eclipse.xtext.ui.editor.contentassist.ReplacementTextApplier;
 import org.elysium.LilyPondConstants;
+import org.elysium.importuri.ILilyPondPathProvider;
+import org.elysium.importuri.LilyPondImportUriResolver;
 import org.elysium.ui.Activator;
 import org.elysium.ui.version.LilyPondVersion;
+import com.google.common.base.Predicate;
+import com.google.common.collect.Lists;
+import com.google.inject.Inject;
 
 /**
  * Provides content assist proposals for the LilyPond language.
  */
 public class LilyPondProposalProvider extends AbstractLilyPondProposalProvider {
+
+	@Inject
+	private ILilyPondPathProvider lilyPondPathProvider;
 
 	private static final String QUOTE = "\""; //$NON-NLS-1$
 
@@ -71,33 +79,35 @@ public class LilyPondProposalProvider extends AbstractLilyPondProposalProvider {
 	@Override
 	public void completeInclude_ImportURI(EObject model, Assignment assignment, ContentAssistContext context, ICompletionProposalAcceptor acceptor) {
 		super.completeInclude_ImportURI(model, assignment, context, acceptor);
-		String pathPrefix = context.getPrefix();
-		if (pathPrefix.length() > 0) {
-			pathPrefix = pathPrefix.substring(1); // Omit leading "
-		}
+		String prefix = context.getPrefix();
+		final String pathPrefix = prefix.length() > 0 ? prefix.substring(1) : prefix;
 		IResource resource = ResourceUtils.convertEResourceToPlatformResource(model.eResource());
 		if (resource != null) {
-			try {
-				IResource[] siblings = null;
-				IPath newPath = resource.getParent().getFullPath().append(pathPrefix);
-				IResource newResource = ResourcesPlugin.getWorkspace().getRoot().findMember(newPath); // Folder
-				if (newResource == null) {
-					newResource = ResourcesPlugin.getWorkspace().getRoot().findMember(newPath.removeLastSegments(1)); // Folder + start of file name
-				}
-				if ((newResource != null) && (newResource instanceof IContainer)) {
-					siblings = ((IContainer)newResource).members();
-				} else {
-					siblings = resource.getParent().members(); // Start of file name
-				}
-				for (IResource sibling : siblings) {
-					if (LilyPondConstants.EXTENSIONS.contains(sibling.getFileExtension()) && !sibling.equals(resource)) {
-						proposeString(sibling.getFullPath().makeRelativeTo(resource.getParent().getFullPath()).toString(), context, acceptor);
+			List<String> paths = Lists.newArrayList();
+			paths.add(resource.getParent().getLocation().toOSString());
+			paths.add(LilyPondImportUriResolver.getDefaultSearchUri(lilyPondPathProvider.getLilyPondPath()).getPath());
+			paths.addAll(Lists.newArrayList(lilyPondPathProvider.getSearchPaths()));
+
+			for (String path : paths) {
+				String[] children = new File(path).list(new FilenameFilter() {
+
+					@Override
+					public boolean accept(File file, final String filename) {
+						return filename.startsWith(pathPrefix) && any(LilyPondConstants.EXTENSIONS, new Predicate<String>() {
+
+							@Override
+							public boolean apply(String extension) {
+								return filename.endsWith("." + extension);
+							}
+
+						});
 					}
+
+				});
+				for (String child : children) {
+					proposeString(child, context, acceptor);
 				}
-			} catch (CoreException e) {
-				Activator.logError("Couldn't query includable resources", e);
 			}
 		}
 	}
-
 }

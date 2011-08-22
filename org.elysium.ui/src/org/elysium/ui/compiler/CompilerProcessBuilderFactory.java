@@ -1,10 +1,12 @@
 package org.elysium.ui.compiler;
 
+import java.text.MessageFormat;
 import java.util.ArrayList;
 import java.util.List;
 import org.eclipse.core.resources.IFile;
 import org.eclipse.jface.preference.IPreferenceStore;
 import org.elysium.ui.Activator;
+import org.elysium.ui.UiLilyPondPathProvider;
 import org.elysium.ui.compiler.preferences.CompilerPreferenceConstants;
 import com.google.common.collect.Lists;
 
@@ -33,6 +35,10 @@ public class CompilerProcessBuilderFactory {
 			}
 
 			command.add(OptionBuilder.build("midi-extension", "midi")); //$NON-NLS-1$ //$NON-NLS-2$ // On Windows, the default extension is "mid"
+
+			for (String searchPath : UiLilyPondPathProvider.getTheSearchPaths()) {
+				command.add(MessageFormat.format("--include={0}", searchPath)); //$NON-NLS-1$
+			}
 
 			command.addAll(Lists.newArrayList(preferenceStore.getString(CompilerPreferenceConstants.COMMAND_LINE.name()).split("\\n")));
 		}

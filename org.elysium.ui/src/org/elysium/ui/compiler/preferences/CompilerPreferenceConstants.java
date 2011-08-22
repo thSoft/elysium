@@ -5,5 +5,6 @@ public enum CompilerPreferenceConstants {
 	DELETE_INTERMEDIATE_FILES,
 	POINT_AND_CLICK,
 	VERBOSE,
-	COMMAND_LINE
+	COMMAND_LINE,
+	SEARCH_PATHS
 }
