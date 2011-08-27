@@ -51,4 +51,11 @@ public class LilyPondJavaValidator extends AbstractLilyPondJavaValidator {
 		warning("Version should be specified", LilypondPackage.eINSTANCE.getLilyPond_Expressions(), IssueCodes.NO_VERSION);
 	}
 
+	@Check
+	public void checkSelfInclude(Include include) {
+		if (include.getImportURI().equals(include.eResource().getURI().lastSegment())) {
+			warning("The file may include itself", LilypondPackage.eINSTANCE.getInclude_ImportURI());
+		}
+	}
+
 }
