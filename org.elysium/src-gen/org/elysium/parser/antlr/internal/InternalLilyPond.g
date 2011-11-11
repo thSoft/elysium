@@ -3376,7 +3376,7 @@ ruleSchemeExpression returns [EObject current=null]
 	        if ($current==null) {
 	            $current = createModelElement(grammarAccess.getSchemeExpressionRule());
 	        }
-       		setWithLastConsumed($current, "reference", true, "$");
+       		setWithLastConsumed($current, "reference", true, "\$");
 	    }
 
 )
