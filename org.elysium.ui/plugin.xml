@@ -253,6 +253,18 @@
             <source class="org.elysium.ui.audio.CurrentAudioViewSource" icon="icons/sources/Current.png" id="org.elysium.ui.sources.CurrentAudio"/>
             <source class="org.elysium.ui.audio.MainFileAudioViewSource" icon="icons/sources/MainFile.png" id="org.elysium.ui.sources.MainFileAudio"/>
       </extension>
+      <extension point="org.eclipse.ui.menus">
+            <menuContribution allPopups="false" locationURI="toolbar:org.elysium.ui.views.Audio"> <!-- TODO move before menu -->
+                  <command commandId="org.eclipse.ui.views.midi.commands.PlayPause" style="push" icon="platform:/plugin/org.eclipse.ui.views.midi/icons/Play.png">
+                        <parameter name="org.eclipse.ui.views.midi.commands.PlayPause.view" value="org.elysium.ui.views.Audio"/>
+                  </command>
+            </menuContribution>
+      </extension>
+      <extension point="org.eclipse.ui.bindings">
+            <key commandId="org.eclipse.ui.views.midi.commands.PlayPause" contextId="org.eclipse.ui.contexts.window" schemeId="org.eclipse.ui.defaultAcceleratorConfiguration" sequence="SHIFT+CTRL+P">
+                  <parameter id="org.eclipse.ui.views.midi.commands.PlayPause.view" value="org.elysium.ui.views.Audio"/>
+            </key>
+      </extension>
       <!-- Project -->
       <extension id="natures.LilyPond" name="LilyPond Nature" point="org.eclipse.core.resources.natures">
             <runtime>
