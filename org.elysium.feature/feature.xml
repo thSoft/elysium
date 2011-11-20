@@ -5,8 +5,8 @@
       version="0.2.0.qualifier"
       provider-name="Open Source Community"
       plugin="org.elysium.branding"
-      license-feature="org.eclipse.platform"
-      license-feature-version="3.7.0.v20110530-9gF7UHNFFt4cwE-pkZDJ7oz-mj4OSEIlu9SEv0f">
+      license-feature="org.eclipse.platform.source"
+      license-feature-version="3.7.1.r37x_v20110729-9gF7UHOxFtniV7mI3T556iZN9AU8bEZ1lHMcVK">
 
    <description url="http://elysium.thsoft.hu">
       LilyPond IDE for Eclipse
