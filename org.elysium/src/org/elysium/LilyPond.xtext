@@ -137,4 +137,4 @@ terminal SCHEME_SL_COMMENT: ";;" !("\n" | "\r")* ("\r"? "\n")?;
 
 terminal SCHEME_ML_COMMENT: "#!" -> "!#";
 
-terminal ANY_OTHER:	.;
+terminal ANY_OTHER: .;
