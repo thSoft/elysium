@@ -1,10 +1,16 @@
 package org.elysium.test;
 
 import java.io.File;
+import org.eclipse.xtext.resource.XtextResource;
 import org.eclipse.xtext.util.Files;
 import org.junit.Test;
 
 public class Grammar extends LilyPondTest {
+
+	@Override
+	protected boolean shouldTestSerializer(XtextResource resource) {
+		return false;
+	}
 
 	private void assertValid(String model) throws Exception {
 		getResourceFromString(model);
