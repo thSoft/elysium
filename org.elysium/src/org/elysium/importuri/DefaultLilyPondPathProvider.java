@@ -15,7 +15,7 @@ public class DefaultLilyPondPathProvider implements ILilyPondPathProvider {
 
 	@Override
 	public Iterable<String> getSearchPaths() {
-		return parse(System.getProperty("lilypond.search")); //$NON-NLS-1$ 
+		return parse(System.getProperty("lilypond.search", "")); //$NON-NLS-1$ 
 	}
 
 	public static Iterable<String> parse(String joinedPaths) {
