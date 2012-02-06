@@ -1680,15 +1680,15 @@ rule__CommonExpression__Alternatives
 )
 
     |(
-{ before(grammarAccess.getCommonExpressionAccess().getTextParserRuleCall_3()); }
-	ruleText
-{ after(grammarAccess.getCommonExpressionAccess().getTextParserRuleCall_3()); }
+{ before(grammarAccess.getCommonExpressionAccess().getNumberParserRuleCall_3()); }
+	ruleNumber
+{ after(grammarAccess.getCommonExpressionAccess().getNumberParserRuleCall_3()); }
 )
 
     |(
-{ before(grammarAccess.getCommonExpressionAccess().getNumberParserRuleCall_4()); }
-	ruleNumber
-{ after(grammarAccess.getCommonExpressionAccess().getNumberParserRuleCall_4()); }
+{ before(grammarAccess.getCommonExpressionAccess().getTextParserRuleCall_4()); }
+	ruleText
+{ after(grammarAccess.getCommonExpressionAccess().getTextParserRuleCall_4()); }
 )
 
 ;

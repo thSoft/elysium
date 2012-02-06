@@ -34,11 +34,19 @@ public class LilyPondOutlineTreeProvider extends DefaultOutlineTreeProvider {
 		}
 	}
 
-	protected void _createNode(IOutlineNode parentNode, Scheme scheme) {
+	private void createSchemeNode(IOutlineNode parentNode, Scheme scheme) {
 		SchemeExpression value = scheme.getValue();
 		if ((value != null) && (value.getValue() instanceof SchemeList)) {
 			createEObjectNode(parentNode, scheme);
 		}
+	}
+	
+	protected void _createNode(IOutlineNode parentNode, Scheme scheme) {
+		createSchemeNode(parentNode, scheme);
+	}
+
+	protected void _createNode(DocumentRootNode parentNode, Scheme scheme) {
+		createSchemeNode(parentNode, scheme);
 	}
 
 	protected void _createChildren(IOutlineNode parentNode, Scheme scheme) {
@@ -46,8 +54,14 @@ public class LilyPondOutlineTreeProvider extends DefaultOutlineTreeProvider {
 
 	protected void _createNode(IOutlineNode parentNode, Text text) {
 	}
+	
+	protected void _createNode(DocumentRootNode parentNode, Text text) {
+	}
 
 	protected void _createNode(IOutlineNode parentNode, Number number) {
+	}
+
+	protected void _createNode(DocumentRootNode parentNode, Number number) {
 	}
 
 	protected void _createNode(IOutlineNode parentNode, Reference reference) {

@@ -14,6 +14,7 @@ import org.elysium.lilypond.Scheme;
 import org.elysium.lilypond.SchemeExpression;
 import org.elysium.lilypond.SchemeList;
 import org.elysium.lilypond.SchemeText;
+import org.elysium.lilypond.SchemeValue;
 import org.elysium.lilypond.SimpleBlock;
 import org.elysium.lilypond.SimultaneousBlock;
 import org.elysium.lilypond.SpecialCommand;
@@ -34,12 +35,15 @@ public class LilyPondLabelProvider extends DefaultEObjectLabelProvider {
 
 	public String text(Scheme scheme) {
 		String commandName = " "; //$NON-NLS-1$
-		EList<SchemeExpression> expressions = ((SchemeList)scheme.getValue().getValue()).getExpressions();
-		if (!expressions.isEmpty()) {
-			SchemeExpression expression = expressions.get(0);
-			if (expression.getValue() instanceof SchemeText) {
-				SchemeText text = (SchemeText)expression.getValue();
-				commandName = text.getValue();
+		SchemeValue value = scheme.getValue().getValue();
+		if (value instanceof SchemeList) {
+			EList<SchemeExpression> expressions = ((SchemeList)value).getExpressions();
+			if (!expressions.isEmpty()) {
+				SchemeExpression expression = expressions.get(0);
+				if (expression.getValue() instanceof SchemeText) {
+					SchemeText text = (SchemeText)expression.getValue();
+					commandName = text.getValue();
+				}
 			}
 		}
 		return MessageFormat.format("#({0})", commandName); //$NON-NLS-1$

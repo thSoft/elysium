@@ -298,11 +298,11 @@ protected class Expression_CommonExpressionParserRuleCall_1 extends RuleCallToke
 /************ begin Rule CommonExpression ****************
  *
  * CommonExpression:
- * 	Command | Block | Scheme | Text | Number;
+ * 	Command | Block | Scheme | Number | Text;
  *
  **/
 
-// Command | Block | Scheme | Text | Number
+// Command | Block | Scheme | Number | Text
 protected class CommonExpression_Alternatives extends AlternativesToken {
 
 	public CommonExpression_Alternatives(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
@@ -320,8 +320,8 @@ protected class CommonExpression_Alternatives extends AlternativesToken {
 			case 0: return new CommonExpression_CommandParserRuleCall_0(lastRuleCallOrigin, this, 0, inst);
 			case 1: return new CommonExpression_BlockParserRuleCall_1(lastRuleCallOrigin, this, 1, inst);
 			case 2: return new CommonExpression_SchemeParserRuleCall_2(lastRuleCallOrigin, this, 2, inst);
-			case 3: return new CommonExpression_TextParserRuleCall_3(lastRuleCallOrigin, this, 3, inst);
-			case 4: return new CommonExpression_NumberParserRuleCall_4(lastRuleCallOrigin, this, 4, inst);
+			case 3: return new CommonExpression_NumberParserRuleCall_3(lastRuleCallOrigin, this, 3, inst);
+			case 4: return new CommonExpression_TextParserRuleCall_4(lastRuleCallOrigin, this, 4, inst);
 			default: return null;
 		}	
 	}
@@ -481,52 +481,16 @@ protected class CommonExpression_SchemeParserRuleCall_2 extends RuleCallToken {
 	}	
 }
 
-// Text
-protected class CommonExpression_TextParserRuleCall_3 extends RuleCallToken {
-	
-	public CommonExpression_TextParserRuleCall_3(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
-		super(lastRuleCallOrigin, next, transitionIndex, eObjectConsumer);
-	}
-	
-	@Override
-	public RuleCall getGrammarElement() {
-		return grammarAccess.getCommonExpressionAccess().getTextParserRuleCall_3();
-	}
-
-    @Override
-	public AbstractToken createFollower(int index, IEObjectConsumer inst) {
-		switch(index) {
-			case 0: return new Text_ValueAssignment(this, this, 0, inst);
-			default: return null;
-		}	
-	}
-
-    @Override
-	public IEObjectConsumer tryConsume() {
-		if(getEObject().eClass() != grammarAccess.getTextRule().getType().getClassifier())
-			return null;
-		if(checkForRecursion(Text_ValueAssignment.class, eObjectConsumer)) return null;
-		return eObjectConsumer;
-	}
-	
-    @Override
-	public AbstractToken createFollowerAfterReturn(AbstractToken next,	int actIndex, int index, IEObjectConsumer inst) {
-		switch(index) {
-			default: return lastRuleCallOrigin.createFollowerAfterReturn(next, actIndex , index, inst);
-		}	
-	}	
-}
-
 // Number
-protected class CommonExpression_NumberParserRuleCall_4 extends RuleCallToken {
+protected class CommonExpression_NumberParserRuleCall_3 extends RuleCallToken {
 	
-	public CommonExpression_NumberParserRuleCall_4(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
+	public CommonExpression_NumberParserRuleCall_3(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
 		super(lastRuleCallOrigin, next, transitionIndex, eObjectConsumer);
 	}
 	
 	@Override
 	public RuleCall getGrammarElement() {
-		return grammarAccess.getCommonExpressionAccess().getNumberParserRuleCall_4();
+		return grammarAccess.getCommonExpressionAccess().getNumberParserRuleCall_3();
 	}
 
     @Override
@@ -542,6 +506,42 @@ protected class CommonExpression_NumberParserRuleCall_4 extends RuleCallToken {
 		if(getEObject().eClass() != grammarAccess.getNumberRule().getType().getClassifier())
 			return null;
 		if(checkForRecursion(Number_ValueAssignment.class, eObjectConsumer)) return null;
+		return eObjectConsumer;
+	}
+	
+    @Override
+	public AbstractToken createFollowerAfterReturn(AbstractToken next,	int actIndex, int index, IEObjectConsumer inst) {
+		switch(index) {
+			default: return lastRuleCallOrigin.createFollowerAfterReturn(next, actIndex , index, inst);
+		}	
+	}	
+}
+
+// Text
+protected class CommonExpression_TextParserRuleCall_4 extends RuleCallToken {
+	
+	public CommonExpression_TextParserRuleCall_4(AbstractToken lastRuleCallOrigin, AbstractToken next, int transitionIndex, IEObjectConsumer eObjectConsumer) {
+		super(lastRuleCallOrigin, next, transitionIndex, eObjectConsumer);
+	}
+	
+	@Override
+	public RuleCall getGrammarElement() {
+		return grammarAccess.getCommonExpressionAccess().getTextParserRuleCall_4();
+	}
+
+    @Override
+	public AbstractToken createFollower(int index, IEObjectConsumer inst) {
+		switch(index) {
+			case 0: return new Text_ValueAssignment(this, this, 0, inst);
+			default: return null;
+		}	
+	}
+
+    @Override
+	public IEObjectConsumer tryConsume() {
+		if(getEObject().eClass() != grammarAccess.getTextRule().getType().getClassifier())
+			return null;
+		if(checkForRecursion(Text_ValueAssignment.class, eObjectConsumer)) return null;
 		return eObjectConsumer;
 	}
 	

@@ -7,7 +7,7 @@ LilyPond: expressions+=Expression*;
 
 Expression: Assignment | CommonExpression;
 
-CommonExpression: Command | Block | Scheme | Text | Number;
+CommonExpression: Command | Block | Scheme | Number | Text;
 
 Assignment: name=(ID | STRING) "=" value=Expression;
 

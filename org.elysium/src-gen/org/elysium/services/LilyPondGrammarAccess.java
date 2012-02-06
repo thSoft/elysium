@@ -58,14 +58,14 @@ public class LilyPondGrammarAccess extends AbstractGrammarElementFinder {
 		private final RuleCall cCommandParserRuleCall_0 = (RuleCall)cAlternatives.eContents().get(0);
 		private final RuleCall cBlockParserRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
 		private final RuleCall cSchemeParserRuleCall_2 = (RuleCall)cAlternatives.eContents().get(2);
-		private final RuleCall cTextParserRuleCall_3 = (RuleCall)cAlternatives.eContents().get(3);
-		private final RuleCall cNumberParserRuleCall_4 = (RuleCall)cAlternatives.eContents().get(4);
+		private final RuleCall cNumberParserRuleCall_3 = (RuleCall)cAlternatives.eContents().get(3);
+		private final RuleCall cTextParserRuleCall_4 = (RuleCall)cAlternatives.eContents().get(4);
 		
 		//CommonExpression:
-		//	Command | Block | Scheme | Text | Number;
+		//	Command | Block | Scheme | Number | Text;
 		public ParserRule getRule() { return rule; }
 
-		//Command | Block | Scheme | Text | Number
+		//Command | Block | Scheme | Number | Text
 		public Alternatives getAlternatives() { return cAlternatives; }
 
 		//Command
@@ -77,11 +77,11 @@ public class LilyPondGrammarAccess extends AbstractGrammarElementFinder {
 		//Scheme
 		public RuleCall getSchemeParserRuleCall_2() { return cSchemeParserRuleCall_2; }
 
-		//Text
-		public RuleCall getTextParserRuleCall_3() { return cTextParserRuleCall_3; }
-
 		//Number
-		public RuleCall getNumberParserRuleCall_4() { return cNumberParserRuleCall_4; }
+		public RuleCall getNumberParserRuleCall_3() { return cNumberParserRuleCall_3; }
+
+		//Text
+		public RuleCall getTextParserRuleCall_4() { return cTextParserRuleCall_4; }
 	}
 
 	public class AssignmentElements extends AbstractParserRuleElementFinder {
@@ -2249,7 +2249,7 @@ public class LilyPondGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//CommonExpression:
-	//	Command | Block | Scheme | Text | Number;
+	//	Command | Block | Scheme | Number | Text;
 	public CommonExpressionElements getCommonExpressionAccess() {
 		return (pCommonExpression != null) ? pCommonExpression : (pCommonExpression = new CommonExpressionElements());
 	}

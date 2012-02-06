@@ -212,11 +212,11 @@ ruleCommonExpression returns [EObject current=null]
 	  /* */ 
 	}
     { 
-        newCompositeNode(grammarAccess.getCommonExpressionAccess().getTextParserRuleCall_3()); 
+        newCompositeNode(grammarAccess.getCommonExpressionAccess().getNumberParserRuleCall_3()); 
     }
-    this_Text_3=ruleText
+    this_Number_3=ruleNumber
     { 
-        $current = $this_Text_3.current; 
+        $current = $this_Number_3.current; 
         afterParserOrEnumRuleCall();
     }
 
@@ -225,11 +225,11 @@ ruleCommonExpression returns [EObject current=null]
 	  /* */ 
 	}
     { 
-        newCompositeNode(grammarAccess.getCommonExpressionAccess().getNumberParserRuleCall_4()); 
+        newCompositeNode(grammarAccess.getCommonExpressionAccess().getTextParserRuleCall_4()); 
     }
-    this_Number_4=ruleNumber
+    this_Text_4=ruleText
     { 
-        $current = $this_Number_4.current; 
+        $current = $this_Text_4.current; 
         afterParserOrEnumRuleCall();
     }
 )

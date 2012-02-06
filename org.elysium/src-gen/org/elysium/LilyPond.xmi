@@ -31,8 +31,8 @@
       <elements xsi:type="xtext:RuleCall" rule="//@rules.8"/>
       <elements xsi:type="xtext:RuleCall" rule="//@rules.5"/>
       <elements xsi:type="xtext:RuleCall" rule="//@rules.39"/>
-      <elements xsi:type="xtext:RuleCall" rule="//@rules.14"/>
       <elements xsi:type="xtext:RuleCall" rule="//@rules.15"/>
+      <elements xsi:type="xtext:RuleCall" rule="//@rules.14"/>
     </alternatives>
   </rules>
   <rules xsi:type="xtext:ParserRule" name="Assignment">

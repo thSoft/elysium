@@ -25,6 +25,7 @@ Require-Bundle: org.elysium;visibility:=reexport,
  org.apache.commons.lang;bundle-version="2.4.0"
 Import-Package: org.apache.log4j
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
-Export-Package: org.elysium.ui.contentassist.antlr
+Export-Package: org.elysium.ui.contentassist.antlr,
+ org.elysium.ui.contentassist
 Bundle-Activator: org.elysium.ui.Activator
 Bundle-ActivationPolicy: lazy
