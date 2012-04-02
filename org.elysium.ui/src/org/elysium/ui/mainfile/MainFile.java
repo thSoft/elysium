@@ -14,7 +14,7 @@ import org.elysium.ui.Activator;
  */
 public class MainFile {
 
-	private static IFile mainFile;
+	private static IFile mainFile; // TODO eliminate global state!
 
 	/**
 	 * Preference constant for storing the path of the main file.
