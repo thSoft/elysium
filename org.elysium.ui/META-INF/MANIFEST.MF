@@ -1,7 +1,7 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: LilyPond IDE
-Bundle-Version: 0.2.0.qualifier
+Bundle-Version: 0.3.0.qualifier
 Bundle-SymbolicName: org.elysium.ui;singleton:=true
 Require-Bundle: org.elysium;visibility:=reexport,
  org.eclipse.xtext.ui;bundle-version="2.1.0",
