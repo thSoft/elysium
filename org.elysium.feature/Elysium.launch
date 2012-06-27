@@ -23,9 +23,9 @@
 <stringAttribute key="org.eclipse.jdt.launching.SOURCE_PATH_PROVIDER" value="org.eclipse.pde.ui.workbenchClasspathProvider"/>
 <stringAttribute key="org.eclipse.jdt.launching.VM_ARGUMENTS" value="-Xms40m -Xmx1024m -XX:PermSize=64M -XX:MaxPermSize=128M -Dorg.eclipse.swt.internal.carbon.smallFonts"/>
 <stringAttribute key="pde.version" value="3.3"/>
-<stringAttribute key="product" value="org.eclipse.sdk.ide"/>
+<stringAttribute key="product" value="org.eclipse.platform.ide"/>
 <setAttribute key="selected_features">
-<setEntry value="org.eclipse.jdt:default"/>
+<setEntry value="org.eclipse.platform:default"/>
 <setEntry value="org.eclipse.xtext.ui:default"/>
 <setEntry value="org.elysium.feature:default"/>
 </setAttribute>
