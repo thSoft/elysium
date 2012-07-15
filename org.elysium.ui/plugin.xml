@@ -135,36 +135,31 @@
             <view category="org.elysium.ui.viewCategories.LilyPond" class="org.eclipse.ui.navigator.CommonNavigator" icon="icons/library/View.png" id="org.elysium.ui.views.ScoreLibrary" name="Score Library" restorable="true"/>
       </extension>
       <extension point="org.eclipse.ui.navigator.viewer">
-            <viewer viewerId="org.elysium.ui.views.ScoreLibrary" inheritBindingsFromViewer="org.eclipse.ui.navigator.ProjectExplorer"/>
+            <viewer viewerId="org.elysium.ui.views.ScoreLibrary"/>
             <viewerContentBinding viewerId="org.elysium.ui.views.ScoreLibrary">
                   <includes>
-                        <contentExtension pattern="org.elysium.ui.filters.NonLilyPondProjects"/>
-                        <contentExtension pattern="org.elysium.ui.sorters.ByExtension"/>
+       	                <contentExtension pattern="org.eclipse.ui.navigator.resourceContent"/>
+       	                <contentExtension pattern="org.eclipse.ui.navigator.resources.filters.startsWithDot"/>
+       	                <contentExtension pattern="org.eclipse.ui.navigator.resources.linkHelper"/>
+       	                <contentExtension pattern="org.eclipse.ui.navigator.resources.workingSets"/>
+       	                <contentExtension pattern="org.elysium.ui.filters.NonLilyPondProjects"/>
+       	                <contentExtension pattern="org.elysium.ui.sorters.ByExtension"/>
                   </includes>
-                  <excludes>
-                        <contentExtension pattern="org.eclipse.ui.navigator.resources.filters.endsWithClass"/>
-                        <contentExtension pattern="org.eclipse.jdt.java.ui.javaContent"/>
-                        <contentExtension pattern="org.eclipse.jdt.java.ui.filters.*"/>
-                        <contentExtension pattern="org.eclipse.jdt.java.ui.javaLinkHelper"/>
-                  </excludes>
             </viewerContentBinding>
-      </extension>
-      <extension point="org.eclipse.ui.navigator.viewer">
-            <viewerContentBinding viewerId="org.eclipse.ui.navigator.ProjectExplorer">
+            <viewerActionBinding viewerId="org.elysium.ui.views.ScoreLibrary">
                   <includes>
-                        <contentExtension pattern="org.elysium.ui.filters.LilyPondProjects"/>
+                        <actionExtension pattern="org.eclipse.ui.navigator.resources.*"/>
                   </includes>
-            </viewerContentBinding>
+            </viewerActionBinding>
       </extension>
       <extension point="org.eclipse.ui.navigator.navigatorContent">
-            <commonFilter activeByDefault="true" id="org.elysium.ui.filters.NonLilyPondProjects" name="Non-LilyPond projects" visibleInUI="false">
+            <commonFilter activeByDefault="true" id="org.elysium.ui.filters.NonLilyPondProjects" name="Non-LilyPond projects">
                   <filterExpression>
                         <not>
                               <test property="org.eclipse.core.resources.projectNature" value="org.elysium.ui.natures.LilyPond"/>
                         </not>
                   </filterExpression>
             </commonFilter>
-            <commonFilter id="org.elysium.ui.filters.LilyPondProjects" name="LilyPond projects" class="org.elysium.ui.library.LilyPondProjectViewerFilter"/>
             <navigatorContent icon="icons/library/Sorter.png" id="org.elysium.ui.sorters.ByExtension" name="Sort By Extension" sortOnly="true">
                   <commonSorter class="org.elysium.ui.library.ByExtensionSorter"/>
             </navigatorContent>
