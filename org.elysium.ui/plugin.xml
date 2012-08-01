@@ -185,6 +185,11 @@
                   <fileExtension extension="midi"/>
             </binding>
       </extension>
+      <extension point="org.eclipse.ui.bindings">
+            <key commandId="org.eclipse.ui.views.midi.commands.PlayPause" contextId="org.eclipse.ui.contexts.window" schemeId="org.eclipse.ui.defaultAcceleratorConfiguration" sequence="SHIFT+CTRL+P">
+                  <parameter id="org.eclipse.ui.views.midi.commands.PlayPause.view" value="org.elysium.ui.views.Audio"/>
+            </key>
+      </extension>
       <!-- Project -->
       <extension id="natures.LilyPond" name="LilyPond Nature" point="org.eclipse.core.resources.natures">
             <runtime>
