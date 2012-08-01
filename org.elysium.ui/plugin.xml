@@ -78,7 +78,7 @@
       <extension point="org.eclipse.ui.editors">
             <editor class="org.elysium.ui.LilyPondExecutableExtensionFactory:org.eclipse.xtext.ui.editor.XtextEditor" contributorClass="org.eclipse.ui.editors.text.TextEditorActionContributor" default="true" extensions="ly,ily,lyi" icon="icons/Editor.png" name="LilyPond Editor" id="org.elysium.LilyPond">
                   <!-- TODO rename to org.elysium.ui.editors.LilyPond as soon as the editor ID can differ from the language name (bug 309437) -->
-                  </editor>
+            </editor>
       </extension>
       <extension point="org.eclipse.core.expressions.definitions">
             <definition id="org.elysium.ui.definitions.EditorOpen">
@@ -167,53 +167,6 @@
       <extension point="org.eclipse.jdt.ui.javaElementFilters">
             <filter id="org.elysium.ui.javaElementFilters.LilyPondProjects" name="LilyPond projects" enabled="true" class="org.elysium.ui.library.LilyPondProjectViewerFilter"/>
       </extension>
-      <!-- Main File -->
-      <extension point="org.eclipse.ui.commands">
-            <command id="org.elysium.ui.commands.SetMainFileToCurrent" name="Set Main File To Current"/>
-            <command defaultHandler="org.elysium.ui.mainfile.handlers.UnsetMainFileHandler" id="org.elysium.ui.commands.UnsetMainFile" name="Unset Main File"/>
-            <command defaultHandler="org.elysium.ui.mainfile.handlers.BrowseMainFileHandler" id="org.elysium.ui.commands.BrowseMainFile" name="Browse Main File"/>
-            <command defaultHandler="org.elysium.ui.mainfile.handlers.OpenMainFileHandler" id="org.elysium.ui.commands.OpenMainFile" name="Open Main File"/>
-            <command id="org.elysium.ui.commands.SetAsMainFile" name="Set As Main File"/>
-      </extension>
-      <extension point="org.eclipse.ui.handlers">
-            <handler class="org.elysium.ui.mainfile.handlers.SetMainFileToCurrentHandler" commandId="org.elysium.ui.commands.SetMainFileToCurrent">
-                  <enabledWhen>
-                        <with variable="activeEditorInput">
-                              <adapt type="org.eclipse.core.resources.IFile">
-                                    <test property="org.eclipse.core.resources.extension" value="ly"/>
-                              </adapt>
-                        </with>
-                  </enabledWhen>
-            </handler>
-            <handler class="org.elysium.ui.mainfile.handlers.SetAsMainFileHandler" commandId="org.elysium.ui.commands.SetAsMainFile">
-                  <activeWhen>
-                        <with variable="selection">
-                              <and>
-                                    <count value="1"/>
-                                    <iterate>
-                                          <instanceof value="org.eclipse.core.resources.IFile"/>
-                                          <test property="org.eclipse.core.resources.extension" value="ly"/>
-                                    </iterate>
-                              </and>
-                        </with>
-                  </activeWhen>
-            </handler>
-      </extension>
-      <extension point="org.eclipse.ui.commandImages">
-            <image commandId="org.elysium.ui.commands.SetMainFileToCurrent" icon="icons/mainfile/SetToCurrent.png"/>
-            <image commandId="org.elysium.ui.commands.UnsetMainFile" icon="icons/mainfile/Unset.png"/>
-            <image commandId="org.elysium.ui.commands.BrowseMainFile" icon="icons/mainfile/Browse.png"/>
-            <image commandId="org.elysium.ui.commands.OpenMainFile" icon="icons/mainfile/Open.png"/>
-            <image commandId="org.elysium.ui.commands.SetAsMainFile" icon="icons/mainfile/MainFile.png"/>
-      </extension>
-      <extension point="org.eclipse.ui.bindings">
-            <key commandId="org.elysium.ui.commands.SetMainFileToCurrent" contextId="org.eclipse.ui.contexts.window" schemeId="org.eclipse.ui.defaultAcceleratorConfiguration" sequence="M1+M2+M"/>
-      </extension>
-      <extension point="org.eclipse.ui.decorators">
-            <decorator class="org.elysium.ui.mainfile.MainFileDecorator" id="org.elysium.ui.decorators.MainFile" label="LilyPond Main File" lightweight="true" state="true">
-                  <description>Marks the main LilyPond file.</description>
-            </decorator>
-      </extension>
       <!-- Score View -->
       <extension point="org.eclipse.ui.views">
             <view category="org.elysium.ui.viewCategories.LilyPond" class="org.eclipse.ui.views.file.FileView" icon="icons/score/View.png" id="org.elysium.ui.views.Score" name="Score" restorable="true"/>
@@ -221,15 +174,7 @@
       <extension point="org.eclipse.ui.views.file.bindings">
             <binding errorMessage="No score found.&#10;Enter some music and save the LilyPond source to see the score.&#10;Make sure the \layout block exists besides the \midi block." type="org.elysium.ui.score.ScoreViewType" viewId="org.elysium.ui.views.Score">
                   <fileExtension extension="pdf"/>
-                  <source id="org.elysium.ui.sources.CurrentScore"/>
-                  <source id="org.elysium.ui.sources.MainFileScore"/>
-                  <source id="org.eclipse.ui.views.file.sources.Direct"/>
-                  <source id="org.eclipse.ui.views.file.sources.Selected"/>
             </binding>
-      </extension>
-      <extension point="org.eclipse.ui.views.file.sources">
-            <source class="org.elysium.ui.score.CurrentScoreViewSource" icon="icons/sources/Current.png" id="org.elysium.ui.sources.CurrentScore"/>
-            <source class="org.elysium.ui.score.MainFileScoreViewSource" icon="icons/sources/MainFile.png" id="org.elysium.ui.sources.MainFileScore"/>
       </extension>
       <!-- Audio View -->
       <extension point="org.eclipse.ui.views">
@@ -238,27 +183,7 @@
       <extension point="org.eclipse.ui.views.file.bindings">
             <binding errorMessage="No audio found.&#10;Enter some music and save the LilyPond source to hear the audio.&#10;Make sure the \midi block exists besides the \layout block." type="org.elysium.ui.audio.AudioViewType" viewId="org.elysium.ui.views.Audio">
                   <fileExtension extension="midi"/>
-                  <source id="org.elysium.ui.sources.CurrentAudio"/>
-                  <source id="org.elysium.ui.sources.MainFileAudio"/>
-                  <source id="org.eclipse.ui.views.file.sources.Direct"/>
-                  <source id="org.eclipse.ui.views.file.sources.Selected"/>
             </binding>
-      </extension>
-      <extension point="org.eclipse.ui.views.file.sources">
-            <source class="org.elysium.ui.audio.CurrentAudioViewSource" icon="icons/sources/Current.png" id="org.elysium.ui.sources.CurrentAudio"/>
-            <source class="org.elysium.ui.audio.MainFileAudioViewSource" icon="icons/sources/MainFile.png" id="org.elysium.ui.sources.MainFileAudio"/>
-      </extension>
-      <extension point="org.eclipse.ui.menus">
-            <menuContribution allPopups="false" locationURI="toolbar:org.elysium.ui.views.Audio"> <!-- TODO move before menu -->
-                  <command commandId="org.eclipse.ui.views.midi.commands.PlayPause" style="push" icon="platform:/plugin/org.eclipse.ui.views.midi/icons/Play.png">
-                        <parameter name="org.eclipse.ui.views.midi.commands.PlayPause.view" value="org.elysium.ui.views.Audio"/>
-                  </command>
-            </menuContribution>
-      </extension>
-      <extension point="org.eclipse.ui.bindings">
-            <key commandId="org.eclipse.ui.views.midi.commands.PlayPause" contextId="org.eclipse.ui.contexts.window" schemeId="org.eclipse.ui.defaultAcceleratorConfiguration" sequence="SHIFT+CTRL+P">
-                  <parameter id="org.eclipse.ui.views.midi.commands.PlayPause.view" value="org.elysium.ui.views.Audio"/>
-            </key>
       </extension>
       <!-- Project -->
       <extension id="natures.LilyPond" name="LilyPond Nature" point="org.eclipse.core.resources.natures">
@@ -338,12 +263,6 @@
                               </with>
                         </visibleWhen>
                         <command commandId="org.elysium.ui.commands.RecompileCurrent" style="push"/>
-                        <menu icon="icons/mainfile/MainFile.png" label="Main File">
-                              <command commandId="org.elysium.ui.commands.SetMainFileToCurrent" label="Set To Current" style="push"/>
-                              <command commandId="org.elysium.ui.commands.UnsetMainFile" label="Unset" style="push"/>
-                              <command commandId="org.elysium.ui.commands.BrowseMainFile" label="Browse..." style="push"/>
-                              <command commandId="org.elysium.ui.commands.OpenMainFile" label="Open" style="push"/>
-                        </menu>
                   </menu>
             </menuContribution>
             <menuContribution locationURI="popup:org.elysium.ui.views.ScoreLibrary">
@@ -354,7 +273,6 @@
                               </with>
                         </visibleWhen>
                         <command commandId="org.elysium.ui.commands.RecompileSelected"/>
-                        <command commandId="org.elysium.ui.commands.SetAsMainFile"/>
                   </menu>
             </menuContribution>
             <menuContribution locationURI="popup:#TextEditorContext?after=group.open">
@@ -375,17 +293,6 @@
                               <reference definitionId="org.elysium.ui.definitions.EditorOpen"/>
                         </visibleWhen>
                   </command>
-            </menuContribution>
-            <menuContribution locationURI="toolbar:org.eclipse.ui.trim.status">
-                  <toolbar id="org.elysium.ui.toolbars.MainFile">
-                        <control class="org.elysium.ui.mainfile.MainFileControlContribution">
-                              <visibleWhen checkEnabled="false">
-                                    <with variable="activeWorkbenchWindow.activePerspective">
-                                          <equals value="org.elysium.ui.perspectives.LilyPond"/>
-                                    </with>
-                              </visibleWhen>
-                        </control>
-                  </toolbar>
             </menuContribution>
       </extension>
       <extension point="org.eclipse.ui.keywords">

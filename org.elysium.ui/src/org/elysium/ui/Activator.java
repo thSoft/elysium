@@ -1,7 +1,5 @@
 package org.elysium.ui;
 
-import org.eclipse.core.resources.IFile;
-import org.eclipse.core.resources.IResource;
 import org.eclipse.core.resources.IResourceChangeEvent;
 import org.eclipse.core.resources.ResourcesPlugin;
 import org.eclipse.core.runtime.IStatus;
@@ -9,8 +7,6 @@ import org.eclipse.core.runtime.Status;
 import org.eclipse.jface.resource.ImageDescriptor;
 import org.elysium.ui.compiler.outdated.OutdatedMarkerAdder;
 import org.elysium.ui.internal.LilyPondActivator;
-import org.elysium.ui.mainfile.MainFile;
-import org.elysium.ui.mainfile.MainFileUpdater;
 import org.osgi.framework.BundleContext;
 
 /**
@@ -26,12 +22,6 @@ public class Activator extends LilyPondActivator {
 		instance = this;
 		// Register resource change listeners
 		ResourcesPlugin.getWorkspace().addResourceChangeListener(new OutdatedMarkerAdder(), IResourceChangeEvent.POST_BUILD);
-		ResourcesPlugin.getWorkspace().addResourceChangeListener(new MainFileUpdater(), IResourceChangeEvent.POST_CHANGE);
-		// Restore main file
-		IResource mainFile = ResourcesPlugin.getWorkspace().getRoot().findMember(Activator.getInstance().getPreferenceStore().getString(MainFile.PREFERENCE));
-		if (mainFile instanceof IFile) {
-			MainFile.set((IFile)mainFile);
-		}
 	}
 
 	/**

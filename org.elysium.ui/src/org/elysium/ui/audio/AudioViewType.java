@@ -15,7 +15,8 @@ public class AudioViewType extends MidiViewType {
 	/**
 	 * Returns the score file compiled from the given source file.
 	 */
-	public static IFile getAudioFile(IFile sourceFile) {
+	@Override
+	public IFile getFile(IFile sourceFile) {
 		return ResourceUtils.replaceExtension(sourceFile, EXTENSION);
 	}
 
