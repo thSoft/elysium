@@ -72,7 +72,7 @@
             <image commandId="org.elysium.ui.commands.RecompileSelected" icon="icons/compiler/Command.png"/>
       </extension>
       <extension point="org.eclipse.ui.bindings">
-            <key commandId="org.elysium.ui.commands.RecompileCurrent" contextId="org.eclipse.ui.contexts.window" schemeId="org.eclipse.ui.defaultAcceleratorConfiguration" sequence="M1+T"/>
+            <key commandId="org.elysium.ui.commands.RecompileCurrent" contextId="org.eclipse.ui.contexts.window" schemeId="org.eclipse.ui.defaultAcceleratorConfiguration" sequence="M1+R"/>
       </extension>
       <!-- Editor -->
       <extension point="org.eclipse.ui.editors">
