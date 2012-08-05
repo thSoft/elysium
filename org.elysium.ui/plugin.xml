@@ -48,8 +48,8 @@
             <imageprovider icon="icons/outdated/Marker.png" id="org.elysium.ui.markerImageProviders.Outdated" markertype="org.elysium.ui.markers.Outdated"/>
       </extension>
       <extension point="org.eclipse.ui.commands">
-            <command id="org.elysium.ui.commands.RecompileCurrent" name="Recompile Current"/>
-            <command id="org.elysium.ui.commands.RecompileSelected" name="Recompile"/>
+            <command id="org.elysium.ui.commands.RecompileCurrent" name="Recompile Current" categoryId="org.elysium.ui.commandCategories.LilyPond"/>
+            <command id="org.elysium.ui.commands.RecompileSelected" name="Recompile" categoryId="org.elysium.ui.commandCategories.LilyPond"/>
       </extension>
       <extension point="org.eclipse.ui.handlers">
             <handler class="org.elysium.ui.compiler.handlers.RecompileCurrentHandler" commandId="org.elysium.ui.commands.RecompileCurrent">
@@ -302,5 +302,8 @@
       </extension>
       <extension point="org.eclipse.ui.keywords">
             <keyword id="org.elysium.ui.keywords.LilyPond" label="LilyPond"/>
+      </extension>
+      <extension point="org.eclipse.ui.commands">
+            <category id="org.elysium.ui.commandCategories.LilyPond" name="LilyPond"/>
       </extension>
 </plugin>
