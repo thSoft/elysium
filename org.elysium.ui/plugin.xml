@@ -76,9 +76,7 @@
   </extension>
   <!-- Editor -->
   <extension point="org.eclipse.ui.editors">
-    <editor class="org.elysium.ui.LilyPondExecutableExtensionFactory:org.eclipse.xtext.ui.editor.XtextEditor" contributorClass="org.eclipse.ui.editors.text.TextEditorActionContributor" default="true" extensions="ly,ily,lyi" icon="icons/Editor.png" name="LilyPond Editor" id="org.elysium.LilyPond">
-      <!-- TODO rename to org.elysium.ui.editors.LilyPond as soon as the editor ID can differ from the language name (bug 309437) -->
-    </editor>
+    <editor class="org.elysium.ui.LilyPondExecutableExtensionFactory:org.eclipse.xtext.ui.editor.XtextEditor" contributorClass="org.eclipse.ui.editors.text.TextEditorActionContributor" default="true" extensions="ly,ily,lyi" icon="icons/Editor.png" name="LilyPond Editor" id="org.elysium.LilyPond"/>
   </extension>
   <extension point="org.eclipse.core.expressions.definitions">
     <definition id="org.elysium.ui.definitions.EditorOpen">
