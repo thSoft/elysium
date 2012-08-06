@@ -117,4 +117,5 @@ public class LilyPondHyperlinkHelper extends HyperlinkHelper {
 			return Iterables.toArray(hyperlinks, IHyperlink.class);
 		}
 	}
+
 }
