@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?eclipse version="3.0"?>
 <plugin>
-      <extension point="org.eclipse.emf.ecore.generated_package">
-            <package uri="http://www.elysium.org/LilyPond" class="org.elysium.lilypond.LilypondPackage" genModel="org/elysium/LilyPond.genmodel"/>
-      </extension>
+  <extension point="org.eclipse.emf.ecore.generated_package">
+    <package uri="http://www.elysium.org/LilyPond" class="org.elysium.lilypond.LilypondPackage" genModel="org/elysium/LilyPond.genmodel"/>
+  </extension>
 </plugin>
