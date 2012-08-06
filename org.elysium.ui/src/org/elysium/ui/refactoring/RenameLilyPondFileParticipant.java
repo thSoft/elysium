@@ -1,5 +1,10 @@
 package org.elysium.ui.refactoring;
 
+import static java.text.MessageFormat.format;
+import static org.eclipse.core.runtime.URIUtil.fromString;
+import static org.eclipse.core.runtime.URIUtil.lastSegment;
+import static org.eclipse.core.runtime.URIUtil.removeFileExtension;
+import java.net.URISyntaxException;
 import java.util.List;
 import javax.util.collections.IterableIterator;
 import org.eclipse.core.resources.IFile;
@@ -9,7 +14,6 @@ import org.eclipse.core.resources.ResourcesPlugin;
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.core.runtime.OperationCanceledException;
-import org.eclipse.core.runtime.URIUtil;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.Resource;
@@ -21,8 +25,10 @@ import org.eclipse.ltk.core.refactoring.RefactoringStatus;
 import org.eclipse.ltk.core.refactoring.TextFileChange;
 import org.eclipse.ltk.core.refactoring.participants.CheckConditionsContext;
 import org.eclipse.ltk.core.refactoring.participants.RenameParticipant;
+import org.eclipse.ltk.core.refactoring.resource.RenameResourceChange;
 import org.eclipse.text.edits.ReplaceEdit;
 import org.eclipse.text.edits.TextEdit;
+import org.eclipse.ui.views.file.Activator;
 import org.eclipse.xtext.nodemodel.INode;
 import org.eclipse.xtext.nodemodel.util.NodeModelUtils;
 import org.elysium.LilyPondConstants;
@@ -38,11 +44,9 @@ public class RenameLilyPondFileParticipant extends RenameParticipant {
 
 	@Override
 	protected boolean initialize(Object element) {
-		if (element instanceof IFile) {
-			IFile file = (IFile)element;
-			oldLocationUri = file.getRawLocationURI();
-		}
-		return true;
+		IFile file = (IFile)element;
+		oldLocationUri = file.getRawLocationURI();
+		return LilyPondConstants.EXTENSIONS.contains(file.getFileExtension());
 	}
 
 	@Override
@@ -59,7 +63,7 @@ public class RenameLilyPondFileParticipant extends RenameParticipant {
 	public Change createChange(IProgressMonitor pm) throws CoreException, OperationCanceledException {
 		final CompositeChange result = new CompositeChange("Update LilyPond references");
 		final String newName = getArguments().getNewName();
-		final String oldName = URIUtil.lastSegment(oldLocationUri);
+		final String oldName = lastSegment(oldLocationUri);
 		final ResourceSet resourceSet = new ResourceSetImpl();
 		ResourcesPlugin.getWorkspace().getRoot().accept(new IResourceVisitor() {
 
@@ -86,6 +90,16 @@ public class RenameLilyPondFileParticipant extends RenameParticipant {
 										}
 									}
 								}
+							}
+						}
+					} else if (LilyPondConstants.COMPILED_EXTENSIONS.contains(file.getFileExtension())) {
+						if (removeFileExtension(resource.getLocationURI()).equals(removeFileExtension(oldLocationUri))) {
+							try {
+								String newDerivedName = format("{0}.{1}", lastSegment(removeFileExtension(fromString(newName))).toString(), file.getFileExtension());
+								RenameResourceChange change = new RenameResourceChange(file.getFullPath(), newDerivedName);
+								result.add(change);
+							} catch (URISyntaxException e) {
+								Activator.logError("Programming error", e);
 							}
 						}
 					}

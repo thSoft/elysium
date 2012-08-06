@@ -25,4 +25,10 @@ public interface LilyPondConstants {
 	 */
 	String BACKSLASH = "\\"; //$NON-NLS-1$
 
+	String SCORE_EXTENSION = "pdf"; //$NON-NLS-1$
+
+	String AUDIO_EXTENSION = "midi"; //$NON-NLS-1$
+
+	List<String> COMPILED_EXTENSIONS = Arrays.asList(SCORE_EXTENSION, AUDIO_EXTENSION);
+
 }

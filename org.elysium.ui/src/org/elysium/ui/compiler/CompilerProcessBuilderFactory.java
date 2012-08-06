@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import java.util.List;
 import org.eclipse.core.resources.IFile;
 import org.eclipse.jface.preference.IPreferenceStore;
+import org.elysium.LilyPondConstants;
 import org.elysium.ui.Activator;
 import org.elysium.ui.UiLilyPondPathProvider;
 import org.elysium.ui.compiler.preferences.CompilerPreferenceConstants;
@@ -34,7 +35,7 @@ public class CompilerProcessBuilderFactory {
 				command.add("--verbose"); //$NON-NLS-1$
 			}
 
-			command.add(OptionBuilder.build("midi-extension", "midi")); //$NON-NLS-1$ //$NON-NLS-2$ // On Windows, the default extension is "mid"
+			command.add(OptionBuilder.build("midi-extension", LilyPondConstants.AUDIO_EXTENSION)); //$NON-NLS-1$ // On Windows, the default extension is "mid"
 
 			for (String searchPath : UiLilyPondPathProvider.getTheSearchPaths()) {
 				command.add(MessageFormat.format("--include={0}", searchPath)); //$NON-NLS-1$
