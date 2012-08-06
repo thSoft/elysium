@@ -204,7 +204,7 @@
     <category id="org.elysium.ui.newWizardCategories.LilyPond" name="LilyPond"/>
     <wizard category="org.elysium.ui.newWizardCategories.LilyPond" class="org.elysium.ui.wizard.NewLilyPondProjectWizard" finalPerspective="org.elysium.ui.perspectives.LilyPond" icon="icons/wizard/Icon.png" id="org.elysium.ui.newWizards.LilyPondProject" name="LilyPond Project" project="true"/>
   </extension>
-  <!-- Rename Refactoring -->
+  <!-- Refactorings -->
   <extension point="org.eclipse.ui.handlers">
     <handler class="org.elysium.ui.LilyPondExecutableExtensionFactory:org.eclipse.xtext.ui.refactoring.ui.IRenameElementHandler" commandId="org.eclipse.xtext.ui.refactoring.RenameElement">
       <activeWhen>
@@ -226,6 +226,15 @@
     <page category="org.elysium.ui.preferencePages.LilyPond" class="org.elysium.ui.LilyPondExecutableExtensionFactory:org.eclipse.xtext.ui.refactoring.ui.RefactoringPreferencePage" id="org.elysium.LilyPond.refactoring" name="Refactoring">
       <keywordReference id="org.elysium.ui.keywords.LilyPond"/>
     </page>
+  </extension>
+  <extension point="org.eclipse.ltk.core.refactoring.renameParticipants">
+    <renameParticipant class="org.elysium.ui.refactoring.RenameLilyPondFileParticipant" id="org.elysium.ui.renameParticipants.SourceFile" name="Rename LilyPond Source File">
+      <enablement>
+        <with variable="element">
+          <instanceof value="org.eclipse.core.resources.IFile"/>
+        </with>
+      </enablement>
+    </renameParticipant>
   </extension>
   <!-- Compare -->
   <extension point="org.eclipse.compare.contentViewers">
