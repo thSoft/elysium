@@ -236,6 +236,15 @@
       </enablement>
     </renameParticipant>
   </extension>
+  <extension point="org.eclipse.ltk.core.refactoring.moveParticipants">
+    <moveParticipant class="org.elysium.ui.refactoring.MoveLilyPondFileParticipant" id="org.elysium.ui.moveParticipants.SourceFile" name="Move LilyPond Source File">
+      <enablement>
+        <with variable="element">
+          <instanceof value="org.eclipse.core.resources.IFile"/>
+        </with>
+      </enablement>
+    </moveParticipant>
+  </extension>
   <!-- Compare -->
   <extension point="org.eclipse.compare.contentViewers">
     <viewer id="org.elysium.LilyPond.compare.contentViewers" class="org.elysium.ui.LilyPondExecutableExtensionFactory:org.eclipse.xtext.ui.compare.InjectableViewerCreator" extensions="ly,ily,lyi">
