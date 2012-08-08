@@ -13,7 +13,7 @@ import org.elysium.LilyPondConstants;
 /**
  * Updates references to a LilyPond source file when it is renamed.
  */
-public class RenameLilyPondFileParticipant extends RenameParticipant {
+public class RenameFileParticipant extends RenameParticipant {
 
 	private IFile sourceFile;
 
@@ -25,7 +25,7 @@ public class RenameLilyPondFileParticipant extends RenameParticipant {
 
 	@Override
 	public String getName() {
-		return "Rename LilyPond Source File";
+		return RefactoringSupport.NAME;
 	}
 
 	@Override
@@ -36,7 +36,7 @@ public class RenameLilyPondFileParticipant extends RenameParticipant {
 	@Override
 	public Change createChange(IProgressMonitor pm) throws CoreException, OperationCanceledException {
 		String newName = getArguments().getNewName();
-		return RefactoringSupport.createChange(sourceFile, newName, sourceFile.getParent());
+		return RefactoringSupport.createChange(sourceFile, newName, sourceFile.getParent(), false);
 	}
 
 }

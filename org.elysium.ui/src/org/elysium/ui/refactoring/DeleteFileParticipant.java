@@ -1,7 +1,5 @@
 package org.elysium.ui.refactoring;
 
-import static java.text.MessageFormat.format;
-import static org.elysium.ui.refactoring.RefactoringSupport.getIncludes;
 import static org.elysium.ui.refactoring.RefactoringSupport.isCompiledFrom;
 import org.eclipse.core.resources.IFile;
 import org.eclipse.core.resources.IResource;
@@ -17,9 +15,8 @@ import org.eclipse.ltk.core.refactoring.participants.CheckConditionsContext;
 import org.eclipse.ltk.core.refactoring.participants.DeleteParticipant;
 import org.eclipse.ltk.core.refactoring.resource.DeleteResourceChange;
 import org.elysium.LilyPondConstants;
-import org.elysium.ui.Activator;
 
-public class DeleteLilyPondFileParticipant extends DeleteParticipant {
+public class DeleteFileParticipant extends DeleteParticipant {
 
 	private IFile sourceFile;
 
@@ -31,31 +28,12 @@ public class DeleteLilyPondFileParticipant extends DeleteParticipant {
 
 	@Override
 	public String getName() {
-		return "Delete LilyPond Source File";
+		return RefactoringSupport.NAME;
 	}
 
 	@Override
 	public RefactoringStatus checkConditions(IProgressMonitor pm, CheckConditionsContext context) throws OperationCanceledException {
-		final RefactoringStatus result = new RefactoringStatus();
-		try {
-			ResourcesPlugin.getWorkspace().getRoot().accept(new IResourceVisitor() {
-
-				@Override
-				public boolean visit(IResource resource) throws CoreException {
-					if (resource instanceof IFile) {
-						IFile file = (IFile)resource;
-						if (getIncludes(file, sourceFile).iterator().hasNext()) {
-							result.addWarning(format("{0} includes {1}", file.getFullPath(), sourceFile.getFullPath()));
-						}
-					}
-					return true;
-				}
-
-			});
-		} catch (CoreException e) {
-			Activator.logError("Can't find \\include statements", e);
-		}
-		return result;
+		return RefactoringSupport.checkConditions(sourceFile);
 	}
 
 	@Override
