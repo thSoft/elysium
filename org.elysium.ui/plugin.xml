@@ -245,6 +245,15 @@
       </enablement>
     </moveParticipant>
   </extension>
+  <extension point="org.eclipse.ltk.core.refactoring.deleteParticipants">
+    <deleteParticipant class="org.elysium.ui.refactoring.DeleteLilyPondFileParticipant" id="org.elysium.ui.deleteParticipants.SourceFile" name="Delete LilyPond Source File">
+      <enablement>
+        <with variable="element">
+          <instanceof value="org.eclipse.core.resources.IFile"/>
+        </with>
+      </enablement>
+    </deleteParticipant>
+  </extension>
   <!-- Compare -->
   <extension point="org.eclipse.compare.contentViewers">
     <viewer id="org.elysium.LilyPond.compare.contentViewers" class="org.elysium.ui.LilyPondExecutableExtensionFactory:org.eclipse.xtext.ui.compare.InjectableViewerCreator" extensions="ly,ily,lyi">
