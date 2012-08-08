@@ -36,6 +36,10 @@ import org.elysium.ui.version.LilyPondVersion;
  */
 public class NewLilyPondProjectWizard extends Wizard implements INewWizard, IExecutableExtension {
 
+	public NewLilyPondProjectWizard() {
+		setWindowTitle("New LilyPond Project");
+	}
+
 	@Override
 	public void init(IWorkbench workbench, IStructuredSelection selection) {
 	}
@@ -45,8 +49,8 @@ public class NewLilyPondProjectWizard extends Wizard implements INewWizard, IExe
 	@Override
 	public void addPages() {
 		projectCreationPage = new WizardNewProjectCreationPage("project"); //$NON-NLS-1$
-		projectCreationPage.setTitle("New LilyPond project");
-		projectCreationPage.setMessage("Create a new LilyPond project.");
+		projectCreationPage.setTitle("Project Settings");
+		projectCreationPage.setDescription("Create a LilyPond project by generating a new template or using existing sources.");
 		projectCreationPage.setImageDescriptor(Activator.getImageDescriptor("icons/wizard/Header.png")); //$NON-NLS-1$
 		addPage(projectCreationPage);
 	}
