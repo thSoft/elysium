@@ -15,12 +15,12 @@ import org.elysium.LilyPondConstants;
  */
 public class RenameLilyPondFileParticipant extends RenameParticipant {
 
-	private IFile file;
+	private IFile sourceFile;
 
 	@Override
 	protected boolean initialize(Object element) {
-		file = (IFile)element;
-		return LilyPondConstants.EXTENSIONS.contains(file.getFileExtension());
+		sourceFile = (IFile)element;
+		return LilyPondConstants.EXTENSIONS.contains(sourceFile.getFileExtension());
 	}
 
 	@Override
@@ -36,7 +36,7 @@ public class RenameLilyPondFileParticipant extends RenameParticipant {
 	@Override
 	public Change createChange(IProgressMonitor pm) throws CoreException, OperationCanceledException {
 		String newName = getArguments().getNewName();
-		return ReferenceUpdater.createChange(file, newName, file.getParent());
+		return RefactoringSupport.createChange(sourceFile, newName, sourceFile.getParent());
 	}
 
 }
