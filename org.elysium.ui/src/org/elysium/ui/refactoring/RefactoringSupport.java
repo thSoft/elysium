@@ -142,7 +142,7 @@ public class RefactoringSupport {
 					IFile sourceFile = (IFile)resource;
 					if (LilyPondConstants.EXTENSIONS.contains(resource.getFileExtension())) {
 						CompositeChange change = createChange(sourceFile, sourceFile.getName(), targetFolder, true);
-						result.add(change);
+						result.add(ifNotEmpty(change));
 					}
 				}
 				return true;
@@ -199,7 +199,7 @@ public class RefactoringSupport {
 					IFile sourceFile = (IFile)resource;
 					if (LilyPondConstants.EXTENSIONS.contains(resource.getFileExtension())) {
 						CompositeChange change = createPreChange(sourceFile, targetFolder, true);
-						result.add(change);
+						result.add(ifNotEmpty(change));
 					}
 				}
 				return true;
