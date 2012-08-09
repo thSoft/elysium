@@ -49,8 +49,12 @@ public class MoveFileParticipant extends MoveParticipant {
 						IPath movedFromPath = delta.getMovedFromPath();
 						if (movedFromPath != null) {
 							IFile file = ResourcesPlugin.getWorkspace().getRoot().getFile(movedFromPath);
-							if (!file.equals(sourceFile) && (RefactoringSupport.isSource(file) || RefactoringSupport.isCompiled(file))) {
-								result.addFatalError("Moving multiple LilyPond files is not supported");
+							if (!file.equals(sourceFile)) {
+								if (RefactoringSupport.isSource(file)) {
+									result.addFatalError("Moving multiple LilyPond source files is not supported");
+								} else if (RefactoringSupport.isCompiledFrom(file, sourceFile)) {
+									result.addFatalError("Moving a LilyPond source file and a file compiled from it is not supported");
+								}
 							}
 						}
 						return true;
