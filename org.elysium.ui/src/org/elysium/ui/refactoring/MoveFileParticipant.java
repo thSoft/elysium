@@ -1,5 +1,6 @@
 package org.elysium.ui.refactoring;
 
+import static org.elysium.ui.refactoring.RefactoringSupport.ifNotEmpty;
 import org.eclipse.core.resources.IContainer;
 import org.eclipse.core.resources.IFile;
 import org.eclipse.core.runtime.CoreException;
@@ -37,7 +38,13 @@ public class MoveFileParticipant extends MoveParticipant {
 	@Override
 	public Change createChange(IProgressMonitor pm) throws CoreException, OperationCanceledException {
 		IContainer destination = (IContainer)getArguments().getDestination();
-		return RefactoringSupport.createChange(sourceFile, sourceFile.getName(), destination, false);
+		return ifNotEmpty(RefactoringSupport.createChange(sourceFile, sourceFile.getName(), destination, false));
+	}
+
+	@Override
+	public Change createPreChange(IProgressMonitor pm) throws CoreException, OperationCanceledException {
+		IContainer destination = (IContainer)getArguments().getDestination();
+		return ifNotEmpty(RefactoringSupport.createPreChange(sourceFile, destination, false));
 	}
 
 }

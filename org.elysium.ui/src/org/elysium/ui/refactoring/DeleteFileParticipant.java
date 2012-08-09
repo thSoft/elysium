@@ -1,5 +1,6 @@
 package org.elysium.ui.refactoring;
 
+import static org.elysium.ui.refactoring.RefactoringSupport.ifNotEmpty;
 import static org.elysium.ui.refactoring.RefactoringSupport.isCompiledFrom;
 import org.eclipse.core.resources.IFile;
 import org.eclipse.core.resources.IResource;
@@ -53,7 +54,7 @@ public class DeleteFileParticipant extends DeleteParticipant {
 			}
 
 		});
-		return result;
+		return ifNotEmpty(result);
 	}
 
 }
