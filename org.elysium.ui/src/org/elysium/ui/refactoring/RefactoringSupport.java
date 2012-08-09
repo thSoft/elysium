@@ -148,7 +148,9 @@ public class RefactoringSupport {
 				if (resource instanceof IFile) {
 					IFile sourceFile = (IFile)resource;
 					if (LilyPondConstants.EXTENSIONS.contains(resource.getFileExtension())) {
-						Change change = createChange(sourceFile, sourceFile.getName(), targetFolder, true);
+						IPath relativePath = sourceFile.getParent().getFullPath().makeRelativeTo(sourceFolder.getFullPath());
+						IFolder destination = targetFolder.getFolder(relativePath); // Can be the target's child
+						Change change = createChange(sourceFile, sourceFile.getName(), destination, true);
 						result.add(change);
 					}
 				}
