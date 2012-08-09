@@ -8,7 +8,6 @@ import org.eclipse.ltk.core.refactoring.Change;
 import org.eclipse.ltk.core.refactoring.RefactoringStatus;
 import org.eclipse.ltk.core.refactoring.participants.CheckConditionsContext;
 import org.eclipse.ltk.core.refactoring.participants.RenameParticipant;
-import org.elysium.LilyPondConstants;
 
 /**
  * Updates references to a LilyPond source file when it is renamed.
@@ -20,7 +19,7 @@ public class RenameFileParticipant extends RenameParticipant {
 	@Override
 	protected boolean initialize(Object element) {
 		sourceFile = (IFile)element;
-		return LilyPondConstants.EXTENSIONS.contains(sourceFile.getFileExtension());
+		return RefactoringSupport.isSource(sourceFile);
 	}
 
 	@Override

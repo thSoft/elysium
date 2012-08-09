@@ -43,15 +43,21 @@ public class RefactoringSupport {
 	private RefactoringSupport() {
 	}
 
+	public static boolean isSource(IFile file) {
+		return LilyPondConstants.EXTENSIONS.contains(file.getFileExtension());
+	}
+
+	public static boolean isCompiled(IFile file) {
+		return LilyPondConstants.COMPILED_EXTENSIONS.contains(file.getFileExtension());
+	}
+
 	public static boolean isCompiledFrom(IFile compiled, IFile source) {
-		String extension = compiled.getFileExtension();
-		return LilyPondConstants.COMPILED_EXTENSIONS.contains(extension) && compiled.getFullPath().removeFileExtension().equals(source.getFullPath().removeFileExtension());
+		return isCompiled(compiled) && compiled.getFullPath().removeFileExtension().equals(source.getFullPath().removeFileExtension());
 	}
 
 	public static Iterable<Include> getIncludes(final IFile includer, final IFile included) {
-		String extension = includer.getFileExtension();
 		final ResourceSet resourceSet = new ResourceSetImpl();
-		if (LilyPondConstants.EXTENSIONS.contains(extension)) {
+		if (isSource(includer)) {
 			Resource eResource = resourceSet.getResource(createPlatformResourceURI(includer.getFullPath().toString(), true), true);
 			Iterable<Include> allIncludes = filter(new IterableIterator<EObject>(eResource.getAllContents()), Include.class);
 			return filter(allIncludes, new Predicate<Include>() {
@@ -94,7 +100,6 @@ public class RefactoringSupport {
 		final CompositeChange compiledChangesParent = new CompositeChange("Compiled files");
 
 		ResourcesPlugin.getWorkspace().getRoot().accept(new IResourceVisitor() {
-
 			@Override
 			public boolean visit(IResource resource) throws CoreException {
 				if (resource instanceof IFile) {
@@ -128,8 +133,8 @@ public class RefactoringSupport {
 				}
 				return true;
 			}
-
 		});
+
 		if (includeChangesParent.getChildren().length > 0) {
 			result.add(includeChangesParent);
 		}
@@ -142,12 +147,11 @@ public class RefactoringSupport {
 	public static Change createChange(final IFolder sourceFolder, final IFolder targetFolder) throws CoreException {
 		final CompositeChange result = new CompositeChange(NAME);
 		sourceFolder.accept(new IResourceVisitor() {
-
 			@Override
 			public boolean visit(IResource resource) throws CoreException {
 				if (resource instanceof IFile) {
 					IFile sourceFile = (IFile)resource;
-					if (LilyPondConstants.EXTENSIONS.contains(resource.getFileExtension())) {
+					if (isSource(sourceFile)) {
 						IPath relativePath = sourceFile.getParent().getFullPath().makeRelativeTo(sourceFolder.getFullPath());
 						IFolder destination = targetFolder.getFolder(relativePath); // Can be the target's child
 						Change change = createChange(sourceFile, sourceFile.getName(), destination, true);
@@ -156,7 +160,6 @@ public class RefactoringSupport {
 				}
 				return true;
 			}
-
 		});
 		return ifNotEmpty(result);
 	}
@@ -167,7 +170,6 @@ public class RefactoringSupport {
 		final RefactoringStatus result = new RefactoringStatus();
 		try {
 			ResourcesPlugin.getWorkspace().getRoot().accept(new IResourceVisitor() {
-
 				@Override
 				public boolean visit(IResource resource) throws CoreException {
 					if (resource instanceof IFile) {
@@ -178,7 +180,6 @@ public class RefactoringSupport {
 					}
 					return true;
 				}
-
 			});
 		} catch (CoreException e) {
 			Activator.logError(ERROR_MESSAGE, e);
@@ -202,19 +203,17 @@ public class RefactoringSupport {
 	public static Change createPreChange(final IFolder sourceFolder, final IContainer targetFolder) throws CoreException {
 		final CompositeChange result = new CompositeChange(PRE_CHANGE_NAME);
 		sourceFolder.accept(new IResourceVisitor() {
-
 			@Override
 			public boolean visit(IResource resource) throws CoreException {
 				if (resource instanceof IFile) {
 					IFile sourceFile = (IFile)resource;
-					if (LilyPondConstants.EXTENSIONS.contains(resource.getFileExtension())) {
+					if (isSource(sourceFile)) {
 						Change change = createPreChange(sourceFile, targetFolder.getFullPath().append(sourceFolder.getName()), true);
 						result.add(change);
 					}
 				}
 				return true;
 			}
-
 		});
 		return ifNotEmpty(result);
 	}

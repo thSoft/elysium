@@ -2,14 +2,20 @@ package org.elysium.ui.refactoring;
 
 import org.eclipse.core.resources.IContainer;
 import org.eclipse.core.resources.IFile;
+import org.eclipse.core.resources.IResourceDelta;
+import org.eclipse.core.resources.IResourceDeltaVisitor;
+import org.eclipse.core.resources.ResourcesPlugin;
 import org.eclipse.core.runtime.CoreException;
+import org.eclipse.core.runtime.IPath;
 import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.core.runtime.OperationCanceledException;
 import org.eclipse.ltk.core.refactoring.Change;
 import org.eclipse.ltk.core.refactoring.RefactoringStatus;
 import org.eclipse.ltk.core.refactoring.participants.CheckConditionsContext;
+import org.eclipse.ltk.core.refactoring.participants.IConditionChecker;
 import org.eclipse.ltk.core.refactoring.participants.MoveParticipant;
-import org.elysium.LilyPondConstants;
+import org.eclipse.ltk.core.refactoring.participants.ResourceChangeChecker;
+import org.elysium.ui.Activator;
 
 /**
  * Updates references to a LilyPond source file when it is moved.
@@ -21,7 +27,7 @@ public class MoveFileParticipant extends MoveParticipant {
 	@Override
 	protected boolean initialize(Object element) {
 		sourceFile = (IFile)element;
-		return LilyPondConstants.EXTENSIONS.contains(sourceFile.getFileExtension());
+		return RefactoringSupport.isSource(sourceFile);
 	}
 
 	@Override
@@ -31,7 +37,30 @@ public class MoveFileParticipant extends MoveParticipant {
 
 	@Override
 	public RefactoringStatus checkConditions(IProgressMonitor pm, CheckConditionsContext context) throws OperationCanceledException {
-		return null;
+		final RefactoringStatus result = new RefactoringStatus();
+		IConditionChecker checker = context.getChecker(ResourceChangeChecker.class);
+		if (checker instanceof ResourceChangeChecker) {
+			ResourceChangeChecker resourceChangeChecker = (ResourceChangeChecker)checker;
+			IResourceDelta delta = resourceChangeChecker.getDeltaFactory().getDelta();
+			try {
+				delta.accept(new IResourceDeltaVisitor() {
+					@Override
+					public boolean visit(IResourceDelta delta) throws CoreException {
+						IPath movedFromPath = delta.getMovedFromPath();
+						if (movedFromPath != null) {
+							IFile file = ResourcesPlugin.getWorkspace().getRoot().getFile(movedFromPath);
+							if (!file.equals(sourceFile) && (RefactoringSupport.isSource(file) || RefactoringSupport.isCompiled(file))) {
+								result.addFatalError("Moving multiple LilyPond files is not supported");
+							}
+						}
+						return true;
+					}
+				});
+			} catch (CoreException e) {
+				Activator.logError("Can't check whether multiple LilyPond files are being moved", e);
+			}
+		}
+		return result;
 	}
 
 	@Override

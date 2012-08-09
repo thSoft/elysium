@@ -33,7 +33,6 @@ public class DeleteFolderParticipant extends DeleteParticipant {
 		final RefactoringStatus result = new RefactoringStatus();
 		try {
 			folder.accept(new IResourceVisitor() {
-
 				@Override
 				public boolean visit(IResource resource) throws CoreException {
 					if (resource instanceof IFile) {
@@ -42,7 +41,6 @@ public class DeleteFolderParticipant extends DeleteParticipant {
 					}
 					return true;
 				}
-
 			});
 		} catch (CoreException e) {
 			Activator.logError(RefactoringSupport.ERROR_MESSAGE, e);

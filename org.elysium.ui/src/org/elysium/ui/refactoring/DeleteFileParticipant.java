@@ -15,7 +15,6 @@ import org.eclipse.ltk.core.refactoring.RefactoringStatus;
 import org.eclipse.ltk.core.refactoring.participants.CheckConditionsContext;
 import org.eclipse.ltk.core.refactoring.participants.DeleteParticipant;
 import org.eclipse.ltk.core.refactoring.resource.DeleteResourceChange;
-import org.elysium.LilyPondConstants;
 
 public class DeleteFileParticipant extends DeleteParticipant {
 
@@ -24,7 +23,7 @@ public class DeleteFileParticipant extends DeleteParticipant {
 	@Override
 	protected boolean initialize(Object element) {
 		sourceFile = (IFile)element;
-		return LilyPondConstants.EXTENSIONS.contains(sourceFile.getFileExtension());
+		return RefactoringSupport.isSource(sourceFile);
 	}
 
 	@Override
@@ -41,7 +40,6 @@ public class DeleteFileParticipant extends DeleteParticipant {
 	public Change createChange(IProgressMonitor pm) throws CoreException, OperationCanceledException {
 		final CompositeChange result = new CompositeChange("Delete compiled files");
 		ResourcesPlugin.getWorkspace().getRoot().accept(new IResourceVisitor() {
-
 			@Override
 			public boolean visit(IResource resource) throws CoreException {
 				if (resource instanceof IFile) {
@@ -52,7 +50,6 @@ public class DeleteFileParticipant extends DeleteParticipant {
 				}
 				return true;
 			}
-
 		});
 		return ifNotEmpty(result);
 	}
