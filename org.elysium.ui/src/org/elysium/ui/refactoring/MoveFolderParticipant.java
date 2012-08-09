@@ -1,6 +1,5 @@
 package org.elysium.ui.refactoring;
 
-import static org.elysium.ui.refactoring.RefactoringSupport.ifNotEmpty;
 import org.eclipse.core.resources.IContainer;
 import org.eclipse.core.resources.IFolder;
 import org.eclipse.core.runtime.CoreException;
@@ -35,13 +34,13 @@ public class MoveFolderParticipant extends MoveParticipant {
 	@Override
 	public Change createChange(IProgressMonitor pm) throws CoreException, OperationCanceledException {
 		IContainer destination = (IContainer)getArguments().getDestination();
-		return ifNotEmpty(RefactoringSupport.createChange(folder, destination.getFolder(new Path(folder.getName()))));
+		return RefactoringSupport.createChange(folder, destination.getFolder(new Path(folder.getName())));
 	}
 
 	@Override
 	public Change createPreChange(IProgressMonitor pm) throws CoreException, OperationCanceledException {
 		IContainer destination = (IContainer)getArguments().getDestination();
-		return ifNotEmpty(RefactoringSupport.createPreChange(folder, destination));
+		return RefactoringSupport.createPreChange(folder, destination);
 	}
 
 }

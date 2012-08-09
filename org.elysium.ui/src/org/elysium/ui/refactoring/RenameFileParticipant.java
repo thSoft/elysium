@@ -1,6 +1,5 @@
 package org.elysium.ui.refactoring;
 
-import static org.elysium.ui.refactoring.RefactoringSupport.ifNotEmpty;
 import org.eclipse.core.resources.IFile;
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IProgressMonitor;
@@ -37,7 +36,7 @@ public class RenameFileParticipant extends RenameParticipant {
 	@Override
 	public Change createChange(IProgressMonitor pm) throws CoreException, OperationCanceledException {
 		String newName = getArguments().getNewName();
-		return ifNotEmpty(RefactoringSupport.createChange(sourceFile, newName, sourceFile.getParent(), false));
+		return RefactoringSupport.createChange(sourceFile, newName, sourceFile.getParent(), false);
 	}
 
 }

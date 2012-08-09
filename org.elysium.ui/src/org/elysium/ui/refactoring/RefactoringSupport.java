@@ -129,7 +129,7 @@ public class RefactoringSupport {
 		if (compiledChangesParent.getChildren().length > 0) {
 			result.add(compiledChangesParent);
 		}
-		return result;
+		return ifNotEmpty(result);
 	}
 
 	public static CompositeChange createChange(final IFolder sourceFolder, final IFolder targetFolder) throws CoreException {
@@ -142,14 +142,14 @@ public class RefactoringSupport {
 					IFile sourceFile = (IFile)resource;
 					if (LilyPondConstants.EXTENSIONS.contains(resource.getFileExtension())) {
 						CompositeChange change = createChange(sourceFile, sourceFile.getName(), targetFolder, true);
-						result.add(ifNotEmpty(change));
+						result.add(change);
 					}
 				}
 				return true;
 			}
 
 		});
-		return result;
+		return ifNotEmpty(result);
 	}
 
 	public static final String ERROR_MESSAGE = "Can't find \\include statements";
@@ -186,7 +186,7 @@ public class RefactoringSupport {
 			IPath newBasePath = destination.getFullPath();
 			addIncludeChange(result, sourceFile, include, includedPath, newBasePath);
 		}
-		return result;
+		return ifNotEmpty(result);
 	}
 
 	public static CompositeChange createPreChange(IFolder sourceFolder, final IContainer targetFolder) throws CoreException {
@@ -199,18 +199,18 @@ public class RefactoringSupport {
 					IFile sourceFile = (IFile)resource;
 					if (LilyPondConstants.EXTENSIONS.contains(resource.getFileExtension())) {
 						CompositeChange change = createPreChange(sourceFile, targetFolder, true);
-						result.add(ifNotEmpty(change));
+						result.add(change);
 					}
 				}
 				return true;
 			}
 
 		});
-		return result;
+		return ifNotEmpty(result);
 	}
 
 	public static CompositeChange ifNotEmpty(CompositeChange change) {
-		return change.getChildren().length == 0 ? null : change;
+		return (change == null) || (change.getChildren().length == 0) ? null : change;
 	}
 
 }
