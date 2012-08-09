@@ -43,7 +43,7 @@ public class MoveFileParticipant extends MoveParticipant {
 	@Override
 	public Change createPreChange(IProgressMonitor pm) throws CoreException, OperationCanceledException {
 		IContainer destination = (IContainer)getArguments().getDestination();
-		return RefactoringSupport.createPreChange(sourceFile, destination, false);
+		return RefactoringSupport.createPreChange(sourceFile, destination.getFullPath(), false);
 	}
 
 }

@@ -186,19 +186,18 @@ public class RefactoringSupport {
 
 	private static final String PRE_CHANGE_NAME = "Update \\include statements";
 
-	public static Change createPreChange(IFile sourceFile, IContainer destination, boolean inFolder) {
+	public static Change createPreChange(IFile sourceFile, IPath destinationPath, boolean inFolder) {
 		final TextChange result = new TextFileChange(inFolder ? sourceFile.getFullPath().toString() : PRE_CHANGE_NAME, sourceFile);
 		MultiTextEdit editParent = new MultiTextEdit();
 		result.setEdit(editParent);
 		for (Include include : getIncludes(sourceFile, null)) {
 			IPath includedPath = sourceFile.getParent().getFullPath().append(include.getImportURI());
-			IPath newBasePath = destination.getFullPath();
-			addIncludeChange(editParent, sourceFile, include, includedPath, newBasePath);
+			addIncludeChange(editParent, sourceFile, include, includedPath, destinationPath);
 		}
 		return ifNotEmpty(result);
 	}
 
-	public static Change createPreChange(IFolder sourceFolder, final IContainer targetFolder) throws CoreException {
+	public static Change createPreChange(final IFolder sourceFolder, final IContainer targetFolder) throws CoreException {
 		final CompositeChange result = new CompositeChange(PRE_CHANGE_NAME);
 		sourceFolder.accept(new IResourceVisitor() {
 
@@ -207,7 +206,7 @@ public class RefactoringSupport {
 				if (resource instanceof IFile) {
 					IFile sourceFile = (IFile)resource;
 					if (LilyPondConstants.EXTENSIONS.contains(resource.getFileExtension())) {
-						Change change = createPreChange(sourceFile, targetFolder, true);
+						Change change = createPreChange(sourceFile, targetFolder.getFullPath().append(sourceFolder.getName()), true);
 						result.add(change);
 					}
 				}
