@@ -220,7 +220,9 @@ public class RefactoringSupport {
 	}
 
 	public static Change ifNotEmpty(Change change) {
-		return (change == null) || ((change instanceof CompositeChange) && (((CompositeChange)change).getChildren().length == 0)) ? null : change;
+		boolean emptyCompositeChange = (change instanceof CompositeChange) && ((CompositeChange)change).getChildren().length == 0;
+		boolean emptyTextChange = (change instanceof TextChange) && !((TextChange)change).getEdit().hasChildren();
+		return (change == null) || emptyCompositeChange || emptyTextChange ? null : change;
 	}
 
 }
