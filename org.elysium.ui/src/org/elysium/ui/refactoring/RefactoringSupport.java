@@ -21,11 +21,14 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
+import org.eclipse.ltk.core.refactoring.Change;
 import org.eclipse.ltk.core.refactoring.CompositeChange;
 import org.eclipse.ltk.core.refactoring.RefactoringStatus;
+import org.eclipse.ltk.core.refactoring.TextChange;
 import org.eclipse.ltk.core.refactoring.TextFileChange;
 import org.eclipse.ltk.core.refactoring.resource.MoveResourceChange;
 import org.eclipse.ltk.core.refactoring.resource.RenameResourceChange;
+import org.eclipse.text.edits.MultiTextEdit;
 import org.eclipse.text.edits.ReplaceEdit;
 import org.eclipse.text.edits.TextEdit;
 import org.eclipse.xtext.nodemodel.INode;
@@ -70,7 +73,7 @@ public class RefactoringSupport {
 
 	public static final String NAME = "Update LilyPond references";
 
-	public static void addIncludeChange(CompositeChange parent, IFile file, Include include, IPath includedPath, IPath basePath) {
+	public static void addIncludeChange(MultiTextEdit editParent, IFile file, Include include, IPath includedPath, IPath basePath) {
 		String importUri = include.getImportURI();
 		List<INode> nodes = findNodesForFeature(include, LilypondPackage.Literals.INCLUDE__IMPORT_URI);
 		for (INode node : nodes) {
@@ -79,15 +82,13 @@ public class RefactoringSupport {
 				int length = importUri.length();
 				String newImportUri = includedPath.makeRelativeTo(basePath).toString();
 				TextEdit edit = new ReplaceEdit(offset, length, newImportUri);
-				TextFileChange change = new TextFileChange("Update \\include statement", file);
-				change.setEdit(edit);
-				parent.add(change);
+				editParent.addChild(edit);
 				break;
 			}
 		}
 	}
 
-	public static CompositeChange createChange(final IFile sourceFile, final String newName, final IContainer destination, final boolean inFolder) throws CoreException {
+	public static Change createChange(final IFile sourceFile, final String newName, final IContainer destination, final boolean inFolder) throws CoreException {
 		final CompositeChange result = new CompositeChange(inFolder ? sourceFile.getFullPath().toString() : NAME);
 		final CompositeChange includeChangesParent = new CompositeChange("\\include statements");
 		final CompositeChange compiledChangesParent = new CompositeChange("Compiled files");
@@ -98,11 +99,17 @@ public class RefactoringSupport {
 			public boolean visit(IResource resource) throws CoreException {
 				if (resource instanceof IFile) {
 					IFile file = (IFile)resource;
+					MultiTextEdit editParent = new MultiTextEdit();
 					// Update \include statements referring to the renamed file
 					for (Include include : getIncludes(file, sourceFile)) {
 						IPath newIncludedPath = destination.getFullPath().append(newName);
 						IPath basePath = file.getParent().getFullPath();
-						addIncludeChange(includeChangesParent, file, include, newIncludedPath, basePath);
+						addIncludeChange(editParent, file, include, newIncludedPath, basePath);
+					}
+					if (editParent.hasChildren()) {
+						final TextChange change = new TextFileChange(inFolder ? file.getFullPath().toString() : PRE_CHANGE_NAME, file);
+						change.setEdit(editParent);
+						includeChangesParent.add(change);
 					}
 					// Rename/move compiled files
 					if (!inFolder && isCompiledFrom(file, sourceFile)) {
@@ -132,7 +139,7 @@ public class RefactoringSupport {
 		return ifNotEmpty(result);
 	}
 
-	public static CompositeChange createChange(final IFolder sourceFolder, final IFolder targetFolder) throws CoreException {
+	public static Change createChange(final IFolder sourceFolder, final IFolder targetFolder) throws CoreException {
 		final CompositeChange result = new CompositeChange(NAME);
 		sourceFolder.accept(new IResourceVisitor() {
 
@@ -141,7 +148,7 @@ public class RefactoringSupport {
 				if (resource instanceof IFile) {
 					IFile sourceFile = (IFile)resource;
 					if (LilyPondConstants.EXTENSIONS.contains(resource.getFileExtension())) {
-						CompositeChange change = createChange(sourceFile, sourceFile.getName(), targetFolder, true);
+						Change change = createChange(sourceFile, sourceFile.getName(), targetFolder, true);
 						result.add(change);
 					}
 				}
@@ -179,17 +186,19 @@ public class RefactoringSupport {
 
 	private static final String PRE_CHANGE_NAME = "Update \\include statements";
 
-	public static CompositeChange createPreChange(IFile sourceFile, IContainer destination, boolean inFolder) {
-		final CompositeChange result = new CompositeChange(inFolder ? sourceFile.getFullPath().toString() : PRE_CHANGE_NAME);
+	public static Change createPreChange(IFile sourceFile, IContainer destination, boolean inFolder) {
+		final TextChange result = new TextFileChange(inFolder ? sourceFile.getFullPath().toString() : PRE_CHANGE_NAME, sourceFile);
+		MultiTextEdit editParent = new MultiTextEdit();
+		result.setEdit(editParent);
 		for (Include include : getIncludes(sourceFile, null)) {
 			IPath includedPath = sourceFile.getParent().getFullPath().append(include.getImportURI());
 			IPath newBasePath = destination.getFullPath();
-			addIncludeChange(result, sourceFile, include, includedPath, newBasePath);
+			addIncludeChange(editParent, sourceFile, include, includedPath, newBasePath);
 		}
 		return ifNotEmpty(result);
 	}
 
-	public static CompositeChange createPreChange(IFolder sourceFolder, final IContainer targetFolder) throws CoreException {
+	public static Change createPreChange(IFolder sourceFolder, final IContainer targetFolder) throws CoreException {
 		final CompositeChange result = new CompositeChange(PRE_CHANGE_NAME);
 		sourceFolder.accept(new IResourceVisitor() {
 
@@ -198,7 +207,7 @@ public class RefactoringSupport {
 				if (resource instanceof IFile) {
 					IFile sourceFile = (IFile)resource;
 					if (LilyPondConstants.EXTENSIONS.contains(resource.getFileExtension())) {
-						CompositeChange change = createPreChange(sourceFile, targetFolder, true);
+						Change change = createPreChange(sourceFile, targetFolder, true);
 						result.add(change);
 					}
 				}
@@ -209,8 +218,8 @@ public class RefactoringSupport {
 		return ifNotEmpty(result);
 	}
 
-	public static CompositeChange ifNotEmpty(CompositeChange change) {
-		return (change == null) || (change.getChildren().length == 0) ? null : change;
+	public static Change ifNotEmpty(Change change) {
+		return (change == null) || ((change instanceof CompositeChange) && (((CompositeChange)change).getChildren().length == 0)) ? null : change;
 	}
 
 }
