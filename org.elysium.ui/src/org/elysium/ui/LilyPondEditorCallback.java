@@ -21,7 +21,7 @@ public class LilyPondEditorCallback extends AbstractDirtyStateAwareEditorCallbac
 			try {
 				ProjectUtils.addNatures(resource.getProject(), XtextProjectHelper.NATURE_ID, LilyPondNature.ID);
 			} catch (CoreException e) {
-				Activator.logError("Error while adding Xtext nature", e);
+				Activator.logError("Error while adding project natures", e);
 			}
 		}
 	}
