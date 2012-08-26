@@ -1,6 +1,6 @@
 %%%% This file is part of LilyPond, the GNU music typesetter.
 %%%%
-%%%% Copyright (C) 2009--2011 Matt Corks <mvcorks@alumni.uwaterloo.ca>
+%%%% Copyright (C) 2009--2012 Matt Corks <mvcorks@alumni.uwaterloo.ca>
 %%%%
 %%%% LilyPond is free software: you can redistribute it and/or modify
 %%%% it under the terms of the GNU General Public License as published by
@@ -15,7 +15,7 @@
 %%%% You should have received a copy of the GNU General Public License
 %%%% along with LilyPond.  If not, see <http://www.gnu.org/licenses/>.
 
-\version "2.14.0"
+\version "2.16.0"
 
 %%%% sources:
 %%%%   ukulele hall of fame museum website (http://www.ukulele.org/),

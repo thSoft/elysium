@@ -1,4 +1,4 @@
-\version "2.14.0"
+\version "2.16.0"
 
 #(use-modules (scm graphviz))
 
@@ -19,8 +19,8 @@
 #(define (whitelist-symbol sym)
   (set! sym-whitelist (cons sym sym-whitelist)))
 
-#(define (whitelist-grob str)
-  (set! grob-whitelist (cons str grob-whitelist)))
+#(define (whitelist-grob sym)
+  (set! grob-whitelist (cons sym grob-whitelist)))
 
 #(define graph (make-empty-graph (ly:parser-output-name parser)))
 
@@ -57,23 +57,23 @@
    (set! last-grob-action (assv-set! last-grob-action grob node-id))))
 
 #(define (truncate-value val)
-  (let ((val-str (format "~a" val)))
+  (let ((val-str (format #f "~a" val)))
    (string-take val-str (min 50 (string-length val-str)))))
 
 #(define (grob-mod grob file line func prop val)
   (let* ((val-str (truncate-value val))
-	 (label (format "~a\\n~a:~a\\n~a <- ~a" (grob-name grob) file line prop val-str)))
+	 (label (format #f "~a\\n~a:~a\\n~a <- ~a" (grob-name grob) file line prop val-str)))
    (if (relevant? grob file line prop)
        (grob-event-node grob label file))))
 
 #(define (grob-cache grob prop callback value)
   (let* ((val-str (truncate-value value))
-	 (label (format "caching ~a.~a\\n~a -> ~a" (grob-name grob) prop callback value)))
+	 (label (format #f "caching ~a.~a\\n~a -> ~a" (grob-name grob) prop callback value)))
    (if (relevant? grob #f #f prop)
        (grob-event-node grob label #f))))
 
 #(define (grob-create grob file line func)
-  (let ((label (format "~a\\n~a:~a" (grob-name grob) file line)))
+  (let ((label (format #f "~a\\n~a:~a" (grob-name grob) file line)))
    (grob-event-node grob label file)))
 
 #(ly:set-grob-modification-callback grob-mod)

@@ -1,4 +1,4 @@
-\version "2.14.0"
+\version "2.16.0"
 \language "italiano"
 
 %%%%%%%
@@ -25,7 +25,7 @@ dwn = {
   (ly:stencil-combine-at-edge
     (ly:accidental-interface::print grob) Y UP
     (grob-interpret-markup grob (markup #:line
-          (#:fontsize -1 (#:musicglyph "flags.ugrace")))) -1.3 0))
+          (#:fontsize -1 (#:musicglyph "flags.ugrace")))) -1.3))
 }
 
 %

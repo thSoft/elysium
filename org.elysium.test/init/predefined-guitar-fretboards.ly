@@ -1,6 +1,6 @@
 %%%% This file is part of LilyPond, the GNU music typesetter.
 %%%%
-%%%% Copyright (C) 2008--2011 Carl D. Sorensen <c_sorensen@byu.edu>
+%%%% Copyright (C) 2008--2012 Carl D. Sorensen <c_sorensen@byu.edu>
 %%%%
 %%%% LilyPond is free software: you can redistribute it and/or modify
 %%%% it under the terms of the GNU General Public License as published by
@@ -22,7 +22,7 @@
 
 %%%  Add basic chordshapes
 
-\version "2.14.0"
+\version "2.16.0"
 
 \addChordShape #'f #guitar-tuning #"1-1-(;3-3;3-4;2-2;1-1;1-1-);"
 \addChordShape #'f:m #guitar-tuning #"1-1-(;3-3;3-4;1-1;1-1;1-1-);"

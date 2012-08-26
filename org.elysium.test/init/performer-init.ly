@@ -1,6 +1,6 @@
 %%%% This file is part of LilyPond, the GNU music typesetter.
 %%%%
-%%%% Copyright (C) 1996--2011 Han-Wen Nienhuys <hanwen@xs4all.nl>
+%%%% Copyright (C) 1996--2012 Han-Wen Nienhuys <hanwen@xs4all.nl>
 %%%%                          Jan Nieuwenhuizen <janneke@gnu.org>
 %%%%
 %%%% LilyPond is free software: you can redistribute it and/or modify
@@ -16,7 +16,7 @@
 %%%% You should have received a copy of the GNU General Public License
 %%%% along with LilyPond.  If not, see <http://www.gnu.org/licenses/>.
 
-\version "2.14.0"
+\version "2.16.0"
 
 %%
 %% setup for Request->Element conversion.
@@ -31,10 +31,45 @@
   \consists "Staff_performer"
   \consists "Key_performer"
 }
+
 \context {
   \name Global
   \accepts Score
   \description "Hard coded entry point for LilyPond.  Cannot be tuned."
+  EventClasses = #all-event-classes
+}
+
+\context {
+  \type "Performer_group"
+  \name KievanStaff
+  \denies Voice
+  \accepts KievanVoice
+  \defaultchild KievanVoice
+  \alias Staff
+  \consists "Staff_performer"
+  \consists "Key_performer"
+}
+
+\context {
+  \type "Performer_group"
+  \name VaticanaStaff
+  \alias Staff
+  \denies Voice
+  \accepts VaticanaVoice
+  \defaultchild VaticanaVoice
+  \consists "Staff_performer"
+  \consists "Key_performer"
+}
+
+\context {
+  \type "Performer_group"
+  \name MensuralStaff
+  \denies Voice
+  \accepts MensuralVoice
+  \defaultchild MensuralVoice
+  \alias Staff
+  \consists "Staff_performer"
+  \consists "Key_performer"
 }
 
 \context {
@@ -63,9 +98,39 @@
 }
 
 \context {
-  \Voice
+  \type "Performer_group"
   \name VaticanaVoice
   \alias Voice
+  \consists "Dynamic_performer"
+  \consists "Tie_performer"
+  \consists "Note_performer"
+  \consists "Beam_performer"
+  autoBeaming = ##f  % needed for consistent melismata with engravers
+  \consists "Slur_performer"
+}
+
+\context {
+  \type "Performer_group"
+  \name KievanVoice
+  \alias Voice
+  \consists "Dynamic_performer"
+  \consists "Tie_performer"
+  \consists "Note_performer"
+  \consists "Beam_performer"
+  autoBeaming = ##f  % needed for consistent melismata with engravers
+  \consists "Slur_performer"
+}
+
+\context {
+  \type "Performer_group"
+  \name MensuralVoice
+  \alias Voice
+  \consists "Dynamic_performer"
+  \consists "Tie_performer"
+  \consists "Note_performer"
+  \consists "Beam_performer"
+  autoBeaming = ##f  % needed for consistent melismata with engravers
+  \consists "Slur_performer"
 }
 
 \context {
@@ -105,6 +170,7 @@
 \context {
   \Voice
   \name TabVoice
+  autoBeaming = ##f  % needed for consistent melismata with engravers
 }
 
 \context {
@@ -122,20 +188,12 @@
 }
 
 \context {
-  \type "Performer_group"
-  \name "VaticanaStaff"
-  \alias "Staff"
-  \denies "Voice"
-  \accepts "VaticanaVoice"
-  \defaultchild "VaticanaVoice"
-}
-
-\context {
   \type "Score_performer"
 
   \name Score
 
   melismaBusyProperties = #default-melisma-properties
+  autoBeaming = ##t  % needed for consistent melismata with engravers
   instrumentName = #"bright acoustic"
   midiChannelMapping = #'staff
 
@@ -156,10 +214,29 @@
   \accepts FretBoards
   \accepts Lyrics
   \accepts VaticanaStaff
+  \accepts KievanStaff
+  \accepts MensuralStaff
 
   \consists "Time_signature_performer"
   \consists "Control_track_performer"
   \consists "Tempo_performer"
+
+  \alias "Timing"
+
+  %% An alias for Timing is established by the Timing_translator in
+  %% whatever context it is initialized, and the timing variables are
+  %% then copied from wherever Timing had been previously established.
+  %% The alias at Score level provides a target for initializing
+  %% Timing variables in layout definitions before any
+  %% Timing_translator has been run.
+
+  timeSignatureFraction = 4/4
+
+%% These defaults should be the same as the rules established in
+%%   scm/time-signature-settings.scm for 4/4 time
+  measureLength = #(ly:make-moment 4 4)
+  baseMoment = #(ly:make-moment 1  4)
+
   \consists "Timing_translator"
 
   \defaultchild "Staff"

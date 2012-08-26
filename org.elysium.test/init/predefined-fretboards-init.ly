@@ -1,6 +1,6 @@
 %%%% This file is part of LilyPond, the GNU music typesetter.
 %%%%
-%%%% Copyright (C) 2008--2011 Carl D. Sorensen <c_sorensen@byu.edu>
+%%%% Copyright (C) 2008--2012 Carl D. Sorensen <c_sorensen@byu.edu>
 %%%%
 %%%% LilyPond is free software: you can redistribute it and/or modify
 %%%% it under the terms of the GNU General Public License as published by
@@ -15,7 +15,7 @@
 %%%% You should have received a copy of the GNU General Public License
 %%%% along with LilyPond.  If not, see <http://www.gnu.org/licenses/>.
 
-\version "2.14.0"
+\version "2.16.0"
 
 % chord-shape-table is a hash-table of chord shapes
 % in the form of diagram-descriptions that can be
@@ -33,7 +33,7 @@ addChordShape =
 #(define-music-function (parser location key-symbol tuning shape-definition)
    (symbol? pair? string-or-pair?)
    (_i "Add chord shape @var{shape-definition} to the @var{chord-shape-table}
-hash with the key @var{(cons key-symbol tuning)}.")
+hash with the key @code{(cons @var{key-symbol} @var{tuning})}.")
    (hash-set! chord-shape-table
                (cons key-symbol tuning)
                shape-definition)

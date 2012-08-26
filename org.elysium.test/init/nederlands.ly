@@ -1,7 +1,7 @@
 %%%% common Dutch names for notes
 %%%% This file is part of LilyPond, the GNU music typesetter.
 %%%%
-%%%% Copyright (C) 1996--2011 Han-Wen Nienhuys <hanwen@xs4all.nl>
+%%%% Copyright (C) 1996--2012 Han-Wen Nienhuys <hanwen@xs4all.nl>
 %%%%
 %%%% LilyPond is free software: you can redistribute it and/or modify
 %%%% it under the terms of the GNU General Public License as published by
@@ -18,6 +18,6 @@
 
 %%%% Legacy file. (see scm/define-note-names.scm)
 
-\version "2.14.0"
+\version "2.16.0"
 
 \language "nederlands"

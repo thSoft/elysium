@@ -2,7 +2,7 @@
 
 %%%% This file is part of LilyPond, the GNU music typesetter.
 %%%%
-%%%% Copyright (C) 2003--2011 Han-Wen Nienhuys <hanwen@xs4all.nl>
+%%%% Copyright (C) 2003--2012 Han-Wen Nienhuys <hanwen@xs4all.nl>
 %%%%                          Jan Nieuwenhuizen <janneke@gnu.org>
 %%%%
 %%%% LilyPond is free software: you can redistribute it and/or modify
@@ -18,7 +18,7 @@
 %%%% You should have received a copy of the GNU General Public License
 %%%% along with LilyPond.  If not, see <http://www.gnu.org/licenses/>.
 
-\version "2.14.0"
+\version "2.16.0"
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -36,20 +36,18 @@ acciaccatura =
    (_i "Create an acciaccatura from the following music expression"))
 
 %% keep these two together
-"instrument-definitions" = #'()
+instrument-definitions = #'()
 addInstrumentDefinition =
-#(define-music-function
+#(define-void-function
    (parser location name lst) (string? list?)
    (_i "Create instrument @var{name} with properties @var{list}.")
-   (set! instrument-definitions (acons name lst instrument-definitions))
-   (make-music 'SequentialMusic 'void #t))
+   (set! instrument-definitions (acons name lst instrument-definitions)))
 
 addQuote =
-#(define-music-function (parser location name music) (string? ly:music?)
+#(define-void-function (parser location name music) (string? ly:music?)
    (_i "Define @var{music} as a quotable music expression named
 @var{name}")
-   (add-quotable parser name music)
-   (make-music 'SequentialMusic 'void #t))
+   (add-quotable parser name music))
 
 %% keep these two together
 afterGraceFraction = #(cons 6 8)
@@ -87,6 +85,50 @@ markups), or inside a score.")
 	       'elements (list (make-music 'PageTurnEvent
 					   'break-permission 'allow))))
 
+alterBroken =
+#(define-music-function (parser location name property arg)
+  (string? scheme? list?)
+  (_i "Override @var{property} for pieces of broken spanner @var{name} with
+values @var{arg}.")
+  (let* ((name (string-delete name char-set:blank)) ; remove any spaces
+         (name-components (string-split name #\.))
+         (context-name "Bottom")
+         (grob-name #f))
+
+    (if (> 2 (length name-components))
+        (set! grob-name (car name-components))
+        (begin
+          (set! grob-name (cadr name-components))
+          (set! context-name (car name-components))))
+
+    ;; only apply override if grob is a spanner
+    (let ((description
+            (assoc-get (string->symbol grob-name) all-grob-descriptions)))
+      (if (and description
+               (member 'spanner-interface
+                       (assoc-get 'interfaces
+                                  (assoc-get 'meta description))))
+          #{
+            \override $context-name . $grob-name $property =
+              #(value-for-spanner-piece arg)
+          #}
+          (begin
+            (ly:input-warning location (_ "not a spanner name, `~a'") grob-name)
+            (make-music 'SequentialMusic 'void #t))))))
+
+appendToTag =
+#(define-music-function (parser location tag more music)
+   (symbol? ly:music? ly:music?)
+   (_i "Append @var{more} to the @code{elements} of all music
+expressions in @var{music} that are tagged with @var{tag}.")
+   (music-map (lambda (m)
+		(if (memq tag (ly:music-property m 'tags))
+		    (set! (ly:music-property m 'elements)
+			  (append (ly:music-property m 'elements)
+				  (list more))))
+		m)
+	      music))
+
 applyContext =
 #(define-music-function (parser location proc) (procedure?)
    (_i "Modify context properties with Scheme procedure @var{proc}.")
@@ -113,23 +155,13 @@ appoggiatura =
 assertBeamQuant =
 #(define-music-function (parser location l r) (pair? pair?)
    (_i "Testing function: check whether the beam quants @var{l} and @var{r} are correct")
-   (make-grob-property-override 'Beam 'positions
-				(ly:make-simple-closure
-				 (ly:make-simple-closure
-				  (append
-				   (list chain-grob-member-functions `(,cons 0 0))
-				   (check-quant-callbacks l r))))))
+   (make-grob-property-override 'Beam 'positions (check-quant-callbacks l r)))
 
 % for regression testing purposes.
 assertBeamSlope =
 #(define-music-function (parser location comp) (procedure?)
    (_i "Testing function: check whether the slope of the beam is the same as @code{comp}")
-   (make-grob-property-override 'Beam 'positions
-				(ly:make-simple-closure
-				 (ly:make-simple-closure
-				  (append
-				   (list chain-grob-member-functions `(,cons 0 0))
-				   (check-slope-callbacks comp))))))
+   (make-grob-property-override 'Beam 'positions (check-slope-callbacks comp)))
 
 autochange =
 #(define-music-function (parser location music) (ly:music?)
@@ -172,28 +204,26 @@ barNumberCheck =
 	       (lambda (c)
 		 (let ((cbn (ly:context-property c 'currentBarNumber)))
 		   (if (and  (number? cbn) (not (= cbn n)))
-		       (ly:input-message location
+		       (ly:input-warning location
 					 "Barcheck failed got ~a expect ~a"
 					 cbn n))))))
 
 bendAfter =
-#(define-music-function (parser location delta) (real?)
+#(define-event-function (parser location delta) (real?)
    (_i "Create a fall or doit of pitch interval @var{delta}.")
    (make-music 'BendAfterEvent
 	       'delta-step delta))
 
 bookOutputName =
-#(define-music-function (parser location newfilename) (string?)
+#(define-void-function (parser location newfilename) (string?)
    (_i "Direct output for the current book block to @var{newfilename}.")
-   (set! book-filename newfilename)
-   (make-music 'SequentialMusic 'void #t))
+   (set! (paper-variable parser #f 'output-filename) newfilename))
 
 bookOutputSuffix =
-#(define-music-function (parser location newsuffix) (string?)
+#(define-void-function (parser location newsuffix) (string?)
    (_i "Set the output filename suffix for the current book block to
 @var{newsuffix}.")
-   (set! book-output-suffix newsuffix)
-   (make-music 'SequentialMusic 'void #t))
+   (set! (paper-variable parser #f 'output-suffix) newsuffix))
 
 %% \breathe is defined as a music function rather than an event identifier to
 %% ensure it gets useful input location information: as an event identifier,
@@ -228,7 +258,7 @@ as @code{\\compoundMeter #'((3 2 8))} or shorter
                         (ly:moment-main-denominator mlen))))
   #{
     \once \override Staff.TimeSignature #'stencil = #(lambda (grob)
-		(grob-interpret-markup grob (format-compound-time $args)))
+      (grob-interpret-markup grob (format-compound-time args)))
     \set Timing.timeSignatureFraction = $timesig
     \set Timing.baseMoment = $beat
     \set Timing.beatStructure = $beatGrouping
@@ -236,11 +266,22 @@ as @code{\\compoundMeter #'((3 2 8))} or shorter
     \set Timing.measureLength = $mlen
   #} ))
 
+crossStaff =
+#(define-music-function (parser location notes) (ly:music?)
+  (_i "Create cross-staff stems")
+  #{
+  \override Stem #'cross-staff = #cross-staff-connect
+  \override Flag #'style = #'no-flag
+  $notes
+  \revert Stem #'cross-staff
+  \revert Flag #'style
+#})
 
 cueClef =
 #(define-music-function (parser location type) (string?)
   (_i "Set the current cue clef to @var{type}.")
   (make-cue-clef-set type))
+
 cueClefUnset =
 #(define-music-function (parser location) ()
   (_i "Unset the current cue clef.")
@@ -294,29 +335,29 @@ endSpanners =
 #(define-music-function (parser location music) (ly:music?)
    (_i "Terminate the next spanner prematurely after exactly one note
 without the need of a specific end spanner.")
-   (if (eq? (ly:music-property music 'name) 'EventChord)
-       (let* ((elts (ly:music-property music 'elements))
-	      (start-span-evs (filter (lambda (ev)
-					(and (music-has-type ev 'span-event)
-					     (equal? (ly:music-property ev 'span-direction)
-						     START)))
-				      elts))
-	      (stop-span-evs
-	       (map (lambda (m)
-		      (let ((c (music-clone m)))
-			(set! (ly:music-property c 'span-direction) STOP)
-			c))
-		    start-span-evs))
-	      (end-ev-chord (make-music 'EventChord
-					'elements stop-span-evs))
-	      (total (make-music 'SequentialMusic
-				 'elements (list music
-						 end-ev-chord))))
-	 total)
+   (let* ((start-span-evs (filter (lambda (ev)
+				    (equal? (ly:music-property ev 'span-direction)
+					    START))
+				  (extract-typed-music music 'span-event)))
+	  (stop-span-evs
+	   (map (lambda (m)
+		  (let ((c (music-clone m)))
+		    (set! (ly:music-property c 'span-direction) STOP)
+		    c))
+		start-span-evs))
+	  (end-ev-chord (make-music 'EventChord
+				    'elements stop-span-evs))
+	  (total (make-music 'SequentialMusic
+			     'elements (list music
+					     end-ev-chord))))
+     total))
 
-       (ly:input-message location (_ "argument endSpanners is not an EventChord: ~a" music))))
-
-
+eventChords =
+#(define-music-function (parser location music) (ly:music?)
+   (_i "Compatibility function wrapping @code{EventChord} around
+isolated rhythmic events occuring since version 2.15.28, after
+expanding repeat chords @samp{q}.")
+   (event-chord-wrap! music parser))
 
 featherDurations=
 #(define-music-function (parser location factor argument) (ly:moment? ly:music?)
@@ -324,76 +365,128 @@ featherDurations=
    (let ((orig-duration (ly:music-length argument))
 	 (multiplier (ly:make-moment 1 1)))
 
-     (music-map
+     (for-each
       (lambda (mus)
-	(if (and (eq? (ly:music-property mus 'name) 'EventChord)
-		 (< 0 (ly:moment-main-denominator (ly:music-length mus))))
+	(if (< 0 (ly:moment-main-denominator (ly:music-length mus)))
 	    (begin
 	      (ly:music-compress mus multiplier)
-	      (set! multiplier (ly:moment-mul factor multiplier))))
-	mus)
-      argument)
-
+	      (set! multiplier (ly:moment-mul factor multiplier)))))
+      (extract-named-music argument '(EventChord NoteEvent RestEvent SkipEvent)))
      (ly:music-compress
       argument
       (ly:moment-div orig-duration (ly:music-length argument)))
 
      argument))
 
-footnoteGrob =
-#(define-music-function (parser location grob-name offset text footnote)
-   (symbol? number-pair? markup? markup?)
-   (_i "Attach @var{text} to @var{grob-name} at offset @var{offset},
- with @var{text} referring to @var{footnote} (use like @code{\\once})")
-   (make-music 'FootnoteEvent
-	       'symbol grob-name
-	       'X-offset (car offset)
-	       'Y-offset (cdr offset)
-	       'text text
-	       'footnote-text footnote))
-
 footnote =
-#(define-music-function (parser location offset text footnote)
-   (number-pair? markup? markup?)
-   (_i "Attach @var{text} at @var{offset} with @var{text} referring
- to @var{footnote} (use like @code{\\tweak})")
-   (make-music 'FootnoteEvent
+#(define-music-function (parser location mark offset grob-name footnote music)
+   ((markup?) number-pair? (symbol?) markup? (ly:music?))
+   (_i "Make the markup @var{footnote} a footnote on @var{music}.  The
+footnote is marked with a markup @var{mark} moved by @var{offset} with
+respect to the marked music.
+
+If @var{mark} is not given or specified as @var{\\default}, it is
+replaced by an automatically generated sequence number.  If a symbol
+@var{grob-name} is specified, then grobs of that type will be marked
+if they have @var{music} as their ultimate cause; by default all grobs
+having @var{music} as their @emph{direct} cause will be marked,
+similar to the way @code{\\tweak} works.
+
+If @var{music} is given as @code{\\default}, a footnote event
+affecting @emph{all} grobs matching @var{grob-name} at a given time
+step is generated.  This may be required for creating footnotes on
+time signatures, clefs, and other items not cooperating with
+@code{\\tweak}.
+
+Like with @code{\\tweak}, if you use a footnote on a following
+post-event, the @code{\\footnote} command itself needs to be attached
+to the preceding note or rest as a post-event with @code{-}.")
+   (let ((mus (make-music
+	       'FootnoteEvent
 	       'X-offset (car offset)
 	       'Y-offset (cdr offset)
-	       'text text
-	       'footnote-text footnote))
+	       'automatically-numbered (not mark)
+	       'text (or mark (make-null-markup))
+	       'footnote-text footnote
+	       'symbol (or grob-name '()))))
+     (cond (music
+	    (set! (ly:music-property music 'tweaks)
+		  (acons (if grob-name
+			     (cons grob-name 'footnote-music)
+			     'footnote-music)
+			 mus
+			 (ly:music-property music 'tweaks)))
+	    music)
+	   (grob-name mus)
+	   (else
+	    (ly:input-warning location
+			      (_ "\\footnote requires music or grob-name"))
+	    (make-music 'Music)))))
 
 grace =
 #(def-grace-function startGraceMusic stopGraceMusic
    (_i "Insert @var{music} as grace notes."))
 
+grobdescriptions =
+#(define-scheme-function (parser location descriptions) (list?)
+   (_i "Create a context modification from @var{descriptions}, a list
+in the format of @code{all-grob-descriptions}.")
+   (ly:make-context-mod
+    (map (lambda (p)
+	   (list 'assign (car p) (list (cdr p))))
+	 descriptions)))
+
 harmonicByFret = #(define-music-function (parser location fret music) (number? ly:music?)
-  (let* ((fret (number->string fret))
-         (pitch (fret->pitch fret)))
-        (make-sequential-music
-         (list
-          #{
-            \override TabNoteHead #'stencil = #(tab-note-head::print-custom-fret-label $fret)
-          #}
-          (make-harmonic
-            (calc-harmonic-pitch pitch music))
-          #{
-            \revert TabNoteHead #'stencil
-          #}))))
+  (_i "Convert @var{music} into mixed harmonics; the resulting notes resemble
+harmonics played on a fretted instrument by touching the strings at @var{fret}.")
+  #{
+    \set harmonicDots = ##t
+    \override TabNoteHead #'stencil = #(tab-note-head::print-custom-fret-label (number->string fret))
+    \override NoteHead #'Y-extent = #(ly:make-unpure-pure-container ly:grob::stencil-height
+                                       (lambda (grob start end)
+                                               (ly:grob::stencil-height grob)))
+    \override NoteHead #'stencil = #(lambda (grob) (ly:grob-set-property! grob 'style 'harmonic-mixed)
+                                            (ly:note-head::print grob))
+    $(make-harmonic
+       (calc-harmonic-pitch (fret->pitch (number->string fret)) music))
+    \unset harmonicDots
+    \revert TabNoteHead #'stencil
+    \revert NoteHead #'Y-extent
+    \revert NoteHead #'stencil
+  #})
 
 harmonicByRatio = #(define-music-function (parser location ratio music) (number? ly:music?)
-  (let ((pitch (ratio->pitch ratio))
-        (fret (ratio->fret ratio)))
-       (make-sequential-music
-        (list
-         #{
-           \override TabNoteHead #'stencil = #(tab-note-head::print-custom-fret-label $fret)
-         #}
-         (make-harmonic
-           (calc-harmonic-pitch pitch music))
-         #{
-            \revert TabNoteHead #'stencil
-         #}))))
+    (_i "Convert @var{music} into mixed harmonics; the resulting notes resemble
+harmonics played on a fretted instrument by touching the strings at the point
+given through @var{ratio}.")
+  #{
+    \set harmonicDots = ##t
+    \override TabNoteHead #'stencil = #(tab-note-head::print-custom-fret-label (ratio->fret ratio))
+    \override NoteHead #'Y-extent = #(ly:make-unpure-pure-container ly:grob::stencil-height
+                                       (lambda (grob start end)
+                                               (ly:grob::stencil-height grob)))
+    \override NoteHead #'stencil = #(lambda (grob) (ly:grob-set-property! grob 'style 'harmonic-mixed)
+                                            (ly:note-head::print grob))
+    $(make-harmonic
+      (calc-harmonic-pitch (ratio->pitch ratio) music))
+    \unset harmonicDots
+    \revert TabNoteHead #'stencil
+    \revert NoteHead #'Y-extent
+    \revert NoteHead #'stencil
+  #})
+
+inStaffSegno =
+#(define-music-function (parser location) ()
+   (_i "Put the segno variant 'varsegno' at this position into the staff,
+compatible with the repeat command.")
+   (make-music 'ApplyContext
+               'procedure
+               (lambda (ctx)
+                 (let ((score-ctx (ly:context-find ctx 'Score)))
+                   (if (ly:context? score-ctx)
+                     (let ((old-rc (ly:context-property score-ctx 'repeatCommands '())))
+                       (if (eq? (memq 'segno-display old-rc) #f)
+                         (ly:context-set-property! score-ctx 'repeatCommands (cons 'segno-display old-rc)))))))))
 
 instrumentSwitch =
 #(define-music-function
@@ -404,7 +497,7 @@ instrumentSwitch =
 	  (instrument-def (if handle (cdr handle) '())))
 
      (if (not handle)
-	 (ly:input-message location "No such instrument: ~a" name))
+	 (ly:input-warning location "No such instrument: ~a" name))
      (context-spec-music
       (make-music 'SimultaneousMusic
 		  'elements
@@ -428,6 +521,23 @@ keepWithTag =
 	 (eq? tags '())
 	 res)))
     music))
+
+key =
+#(define-music-function (parser location tonic pitch-alist)
+   ((ly:pitch? '()) (list? '()))
+   (_i "Set key to @var{tonic} and scale @var{pitch-alist}.
+If both are null, just generate @code{KeyChangeEvent}.")
+   (cond ((null? tonic) (make-music 'KeyChangeEvent))
+	 ((null? pitch-alist)
+	  (ly:parser-error parser (_ "second argument must be pitch list")
+			   location)
+	  (make-music 'SequentialMusic 'void #t))
+	 (else
+	  (ly:music-transpose
+	   (make-music 'KeyChangeEvent
+		'tonic (ly:make-pitch 0 0 0)
+		'pitch-alist pitch-alist)
+	   tonic))))
 
 killCues =
 #(define-music-function (parser location music) (ly:music?)
@@ -453,27 +563,24 @@ label =
 
 
 language =
-#(define-music-function (parser location language) (string?)
+#(define-void-function (parser location language) (string?)
    (_i "Set note names for language @var{language}.")
-   (note-names-language parser language)
-   (make-music 'Music 'void #t))
+   (note-names-language parser language))
 
 languageSaveAndChange =
-#(define-music-function (parser location language) (string?)
+#(define-void-function (parser location language) (string?)
   (_i "Store the previous pitchnames alist, and set a new one.")
   (set! previous-pitchnames pitchnames)
-  (note-names-language parser language)
-  (make-music 'Music 'void #t))
+  (note-names-language parser language))
 
 languageRestore =
-#(define-music-function (parser location) ()
+#(define-void-function (parser location) ()
    (_i "Restore a previously-saved pitchnames alist.")
    (if previous-pitchnames
        (begin
         (set! pitchnames previous-pitchnames)
         (ly:parser-set-note-names parser pitchnames))
-      (ly:warning (_ "No other language was defined previously. Ignoring.")))
-   (make-music 'Music 'void #t))
+      (ly:input-warning location (_ "No other language was defined previously. Ignoring."))))
 
 
 makeClusters =
@@ -483,7 +590,7 @@ makeClusters =
 
 modalInversion =
 #(define-music-function (parser location around to scale music)
-    (ly:music? ly:music? ly:music? ly:music?)
+    (ly:pitch? ly:pitch? ly:music? ly:music?)
     (_i "Invert @var{music} about @var{around} using @var{scale} and
 transpose from @var{around} to @var{to}.")
     (let ((inverter (make-modal-inverter around to scale)))
@@ -492,7 +599,7 @@ transpose from @var{around} to @var{to}.")
 
 modalTranspose =
 #(define-music-function (parser location from to scale music)
-    (ly:music? ly:music? ly:music? ly:music?)
+    (ly:pitch? ly:pitch? ly:music? ly:music?)
     (_i "Transpose @var{music} from pitch @var{from} to pitch @var{to}
 using @var{scale}.")
     (let ((transposer (make-modal-transposer from to scale)))
@@ -501,10 +608,26 @@ using @var{scale}.")
 
 inversion =
 #(define-music-function
-   (parser location around to music) (ly:music? ly:music? ly:music?)
+   (parser location around to music) (ly:pitch? ly:pitch? ly:music?)
    (_i "Invert @var{music} about @var{around} and
 transpose from @var{around} to @var{to}.")
    (music-invert around to music))
+
+mark =
+#(define-music-function
+   (parser location label) ((scheme? '()))
+  "Make the music for the \\mark command."
+  (let* ((set (and (integer? label)
+		   (context-spec-music (make-property-set 'rehearsalMark label)
+				      'Score)))
+	 (ev (make-music 'MarkEvent
+			 'origin location)))
+
+    (if set
+	(make-sequential-music (list set ev))
+	(begin
+	  (set! (ly:music-property ev 'label) label)
+	  ev))))
 
 musicMap =
 #(define-music-function (parser location proc mus) (procedure? ly:music?)
@@ -536,10 +659,22 @@ markups), or inside a score.")
 
 
 octaveCheck =
-#(define-music-function (parser location pitch-note) (ly:music?)
+#(define-music-function (parser location pitch) (ly:pitch?)
    (_i "Octave check.")
    (make-music 'RelativeOctaveCheck
-	       'pitch (pitch-of-note pitch-note)))
+               'pitch pitch))
+
+once =
+#(define-music-function (parser location music) (ly:music?)
+   (_i "Set @code{once} to @code{#t} on all layout instruction events in @var{music}.")
+   (music-map
+    (lambda (m)
+      (cond ((music-is-of-type? m 'layout-instruction-event)
+	     (set! (ly:music-property m 'once) #t))
+	    ((ly:duration? (ly:music-property m 'duration))
+	     (ly:music-warning m (_ "Cannot apply \\once to timed music"))))
+      m)
+    music))
 
 ottava =
 #(define-music-function (parser location octave) (integer?)
@@ -621,7 +756,7 @@ pageTurn =
 					   'break-permission 'force))))
 
 parallelMusic =
-#(define-music-function (parser location voice-ids music) (list? ly:music?)
+#(define-void-function (parser location voice-ids music) (list? ly:music?)
    (_i "Define parallel music sequences, separated by '|' (bar check signs),
 and assign them to the identifiers provided in @var{voice-ids}.
 
@@ -644,7 +779,9 @@ Example:
 ")
    (let* ((voices (apply circular-list (make-list (length voice-ids) (list))))
 	  (current-voices voices)
-	  (current-sequence (list)))
+	  (current-sequence (list))
+	  (original music)
+	  (wrapper #f))
      ;;
      ;; utilities
      (define (push-music m)
@@ -670,12 +807,28 @@ Example:
 		       (let ((origins (remove not (map music-origin
 						       (ly:music-property music 'elements)))))
 			 (and (not (null? origins)) (car origins)))))))
+     (while (music-is-of-type? music 'music-wrapper-music)
+	    (set! wrapper music)
+	    (set! music (ly:music-property wrapper 'element)))
+     (if wrapper
+	 (set! (ly:music-property wrapper 'element)
+				  (make-music 'SequentialMusic
+					      'origin location))
+	 (set! original
+	       (make-music 'SequentialMusic
+			   'origin location)))
      ;;
      ;; first, split the music and fill in voices
-     (map-in-order (lambda (m)
-		     (push-music m)
-		     (if (bar-check? m) (change-voice)))
-		   (ly:music-property music 'elements))
+     ;; We flatten direct layers of SequentialMusic since they are
+     ;; pretty much impossible to avoid when writing music functions.
+     (let rec ((music music))
+       (for-each (lambda (m)
+		   (if (eq? (ly:music-property m 'name) 'SequentialMusic)
+		       (rec m)
+		       (begin
+			 (push-music m)
+			 (if (bar-check? m) (change-voice)))))
+		 (ly:music-property music 'elements)))
      (if (not (null? current-sequence)) (change-voice))
      ;; un-circularize `voices' and reorder the voices
      (set! voices (map-in-order (lambda (dummy seqs)
@@ -696,20 +849,21 @@ Example:
 			      (let ((moment-reference (ly:music-length (car seqs))))
 				(for-each (lambda (seq moment)
 					    (if (not (equal? moment moment-reference))
-						(ly:music-message seq
+						(ly:music-warning seq
 								  "Bars in parallel music don't have the same length")))
 					  seqs (map-in-order ly:music-length seqs))))
 	    voices)
      ;;
      ;; bind voice identifiers to the voices
-     (map (lambda (voice-id voice)
+     (for-each (lambda (voice-id voice)
 	    (ly:parser-define! parser voice-id
-			       (make-music 'SequentialMusic
-					   'origin location
-					   'elements voice)))
-	  voice-ids voices))
-   ;; Return an empty sequence.  This function is actually a "void" function.
-   (make-music 'SequentialMusic 'void #t))
+			       (let ((v (ly:music-deep-copy original)))
+				 (set! (ly:music-property
+					(car (extract-named-music
+					      v 'SequentialMusic))
+					'elements) voice)
+				 v)))
+	  voice-ids voices)))
 
 parenthesize =
 #(define-music-function (parser loc arg) (ly:music?)
@@ -718,7 +872,7 @@ parenthesize =
    (if (memq 'event-chord (ly:music-property arg 'types))
        ;; arg is an EventChord -> set the parenthesize property
        ;; on all child notes and rests
-       (map
+       (for-each
 	(lambda (ev)
 	  (if (or (memq 'note-event (ly:music-property ev 'types))
 		  (memq 'rest-event (ly:music-property ev 'types)))
@@ -733,7 +887,21 @@ partcombine =
    (_i "Take the music in @var{part1} and @var{part2} and typeset so
 that they share a staff.")
    (make-part-combine-music parser
-                            (list part1 part2)))
+                            (list part1 part2) #f))
+
+partcombineUp =
+#(define-music-function (parser location part1 part2) (ly:music? ly:music?)
+   (_i "Take the music in @var{part1} and @var{part2} and typeset so
+that they share a staff with stems directed upward.")
+   (make-part-combine-music parser
+                            (list part1 part2) UP))
+
+partcombineDown =
+#(define-music-function (parser location part1 part2) (ly:music? ly:music?)
+   (_i "Take the music in @var{part1} and @var{part2} and typeset so
+that they share a staff with stems directed downward.")
+   (make-part-combine-music parser
+                            (list part1 part2) DOWN))
 
 partcombineForce =
 #(define-music-function (location parser type once) (symbol-or-boolean? boolean?)
@@ -755,6 +923,18 @@ partcombineSoloIIOnce = \partcombineForce #'solo2 ##t
 partcombineAutomatic = \partcombineForce ##f ##f
 partcombineAutomaticOnce = \partcombineForce ##f ##t
 
+partial =
+#(define-music-function (parser location dur) (ly:duration?)
+  (_i "Make a partial measure.")
+
+  ;; We use `descend-to-context' here instead of `context-spec-music' to
+  ;; ensure \partial still works if the Timing_translator is moved
+    (descend-to-context
+     (context-spec-music (make-music 'PartialSet
+				     'origin location
+				     'partial-duration dur)
+			 'Timing)
+     'Score))
 
 pitchedTrill =
 #(define-music-function
@@ -763,13 +943,9 @@ pitchedTrill =
    (_i "Print a trill with @var{main-note} as the main note of the trill and
 print @var{secondary-note} as a stemless note head in parentheses.")
    (let* ((get-notes (lambda (ev-chord)
-                       (filter
-                        (lambda (m) (eq? 'NoteEvent (ly:music-property m 'name)))
-                        (ly:music-property ev-chord 'elements))))
+		       (extract-named-music ev-chord 'NoteEvent)))
           (sec-note-events (get-notes secondary-note))
-          (trill-events (filter (lambda (m) (music-has-type m 'trill-span-event))
-                                (ly:music-property main-note 'elements))))
-
+          (trill-events (extract-named-music main-note 'TrillSpanEvent)))
      (if (pair? sec-note-events)
          (begin
            (let* ((trill-pitch (ly:music-property (car sec-note-events) 'pitch))
@@ -779,7 +955,7 @@ print @var{secondary-note} as a stemless note head in parentheses.")
                  (for-each (lambda (m)
                              (ly:music-set-property! m 'pitch trill-pitch)) trill-events)
                  (begin
-                   (ly:warning (_ "Second argument of \\pitchedTrill should be single note: "))
+                   (ly:input-warning location (_ "Second argument of \\pitchedTrill should be single note: "))
                    (display sec-note-events)))
 
              (if (eq? forced #t)
@@ -787,6 +963,18 @@ print @var{secondary-note} as a stemless note head in parentheses.")
                              (ly:music-set-property! m 'force-accidental forced))
                            trill-events)))))
      main-note))
+
+pushToTag =
+#(define-music-function (parser location tag more music)
+   (symbol? ly:music? ly:music?)
+   (_i "Add @var{more} to the front of @code{elements} of all music
+expressions in @var{music} that are tagged with @var{tag}.")
+   (music-map (lambda (m)
+		(if (memq tag (ly:music-property m 'tags))
+		    (set! (ly:music-property m 'elements)
+			  (cons more (ly:music-property m 'elements))))
+		m)
+	      music))
 
 quoteDuring =
 #(define-music-function (parser location what main-music) (string? ly:music?)
@@ -797,6 +985,14 @@ usually contains spacers or multi-measure rests.")
    (make-music 'QuoteMusic
                'element main-music
                'quoted-music-name what))
+
+relative =
+#(define-music-function (parser location pitch music)
+   ((ly:pitch? (ly:make-pitch 0 0 0)) ly:music?)
+   (_i "Make @var{music} relative to @var{pitch} (default @code{c'}).")
+   (ly:make-music-relative! music pitch)
+   (make-music 'RelativeOctaveMusic
+	       'element music))
 
 removeWithTag =
 #(define-music-function (parser location tag music) (symbol? ly:music?)
@@ -809,18 +1005,12 @@ removeWithTag =
     music))
 
 resetRelativeOctave =
-#(define-music-function (parser location reference-note) (ly:music?)
+#(define-music-function (parser location pitch) (ly:pitch?)
    (_i "Set the octave inside a \\relative section.")
 
-   (let* ((notes (ly:music-property reference-note 'elements))
-	  (pitch (ly:music-property (car notes) 'pitch)))
-
-     (set! (ly:music-property reference-note 'elements) '())
-     (set! (ly:music-property reference-note 'to-relative-callback)
-	   (lambda (music last-pitch)
-	     pitch))
-
-     reference-note))
+   (make-music 'SequentialMusic
+               'to-relative-callback
+               (lambda (music last-pitch) pitch)))
 
 retrograde =
 #(define-music-function (parser location music)
@@ -838,35 +1028,129 @@ for time signatures of @var{time-signature}.")
    (revert-time-signature-setting time-signature))
 
 rightHandFinger =
-#(define-music-function (parser location finger) (number-or-string?)
+#(define-event-function (parser location finger) (number-or-string?)
    (_i "Apply @var{finger} as a fingering indication.")
 
-   (apply make-music
-	  (append
-	   (list
-	    'StrokeFingerEvent
-	    'origin location)
-	   (if	(string? finger)
-		(list 'text finger)
-		(list 'digit finger)))))
-
-
+   (make-music
+            'StrokeFingerEvent
+            'origin location
+            (if (string? finger) 'text 'digit)
+            finger))
 
 scaleDurations =
 #(define-music-function (parser location fraction music)
-   (number-pair? ly:music?)
+   (fraction? ly:music?)
    (_i "Multiply the duration of events in @var{music} by @var{fraction}.")
    (ly:music-compress music
 		      (ly:make-moment (car fraction) (cdr fraction))))
 
+settingsFrom =
+#(define-scheme-function (parser location ctx music)
+   ((symbol?) ly:music?)
+   (_i "Take the layout instruction events from @var{music}, optionally
+restricted to those applying to context type @var{ctx}, and return
+a context modification duplicating their effect.")
+   (let ((mods (ly:make-context-mod)))
+     (define (musicop m)
+       (if (music-is-of-type? m 'layout-instruction-event)
+	   (ly:add-context-mod
+	    mods
+	    (case (ly:music-property m 'name)
+	      ((PropertySet)
+	       (list 'assign
+		     (ly:music-property m 'symbol)
+		     (ly:music-property m 'value)))
+	      ((PropertyUnset)
+	       (list 'unset
+		     (ly:music-property m 'symbol)))
+	      ((OverrideProperty)
+	       (cons* 'push
+		      (ly:music-property m 'symbol)
+		      (ly:music-property m 'grob-value)
+		      (ly:music-property m 'grob-property-path)))
+	      ((RevertProperty)
+	       (cons* 'pop
+		      (ly:music-property m 'symbol)
+		      (ly:music-property m 'grob-property-path)))))
+	   (case (ly:music-property m 'name)
+	     ((ApplyContext)
+	      (ly:add-context-mod mods
+				  (list 'apply
+					(ly:music-property m 'procedure))))
+	     ((ContextSpeccedMusic)
+	      (if (or (not ctx)
+		      (eq? ctx (ly:music-property m 'context-type)))
+		  (musicop (ly:music-property m 'element))))
+	     (else
+	      (let ((callback (ly:music-property m 'elements-callback)))
+		(if (procedure? callback)
+		    (for-each musicop (callback m))))))))
+     (musicop music)
+     mods))
+
+shape =
+#(define-music-function (parser location grob offsets)
+   (string? list?)
+   (_i "Offset control-points of @var{grob} by @var{offsets}.  The argument
+is a list of number pairs or list of such lists.  Each element of a pair
+represents an offset to one of the coordinates of a control-point.")
+   (define ((shape-curve offsets) grob)
+     (let* ((orig (ly:grob-original grob))
+            (siblings (if (ly:spanner? grob)
+                          (ly:spanner-broken-into orig) '()))
+            (total-found (length siblings))
+            (function (assoc-get 'control-points
+                                 (reverse (ly:grob-basic-properties grob))))
+            (coords (function grob)))
+
+       (define (offset-control-points offsets)
+         (if (null? offsets)
+             coords
+             (map
+               (lambda (x y) (coord-translate x y))
+               coords offsets)))
+
+       (define (helper sibs offs)
+         (if (pair? offs)
+             (if (eq? (car sibs) grob)
+                 (offset-control-points (car offs))
+                 (helper (cdr sibs) (cdr offs)))
+             coords))
+
+       ;; we work with lists of lists
+       (if (or (null? offsets)
+               (not (list? (car offsets))))
+           (set! offsets (list offsets)))
+
+       (if (>= total-found 2)
+           (helper siblings offsets)
+           (offset-control-points (car offsets)))))
+
+   #{
+     \once \override $grob #'control-points = #(shape-curve offsets)
+   #})
+
 shiftDurations =
 #(define-music-function (parser location dur dots arg)
    (integer? integer? ly:music?)
-   (_i "Scale @var{arg} up by a factor of @var{2^dur*(2-(1/2)^dots)}.")
+   (_i "Change the duration of @var{arg} by adding @var{dur} to the
+@code{durlog} of @var{arg} and @var{dots} to the @code{dots} of @var{arg}.")
 
    (music-map
     (lambda (x)
       (shift-one-duration-log x dur dots)) arg))
+
+skip =
+#(define-music-function (parser location dur) (ly:duration?)
+  (_i "Skip forward by @var{dur}.")
+  (make-music 'SkipMusic
+	      'duration dur))
+
+
+slashedGrace =
+#(def-grace-function startSlashedGraceMusic stopSlashedGraceMusic
+   (_i "Create slashed graces (slashes through stems, but no slur) from
+the following music expression"))
 
 spacingTweaks =
 #(define-music-function (parser location parameters) (list?)
@@ -875,7 +1159,7 @@ the `parameters' assoc list.")
    #{
      \overrideProperty #"Score.NonMusicalPaperColumn"
      #'line-break-system-details
-     #$(list (cons 'alignment-extra-space (cdr (assoc 'system-stretch parameters)))
+     #(list (cons 'alignment-extra-space (cdr (assoc 'system-stretch parameters)))
 	     (cons 'system-Y-extent (cdr (assoc 'system-Y-extent parameters))))
    #})
 
@@ -884,14 +1168,6 @@ styledNoteHeads =
    (symbol? list-or-symbol? ly:music?)
    (_i "Set @var{heads} in @var{music} to @var{style}.")
    (style-note-heads heads style music))
-
-
-
-tabChordRepetition =
-#(define-music-function (parser location) ()
-   (_i "Include the string information in a chord repetition.")
-   (ly:parser-set-repetition-function parser tab-repeat-chord)
-   (make-music 'SequentialMusic 'void #t))
 
 tag =
 #(define-music-function (parser location tag arg) (symbol? ly:music?)
@@ -904,13 +1180,41 @@ tag =
 	  (ly:music-property arg 'tags)))
    arg)
 
+time =
+#(define-music-function (parser location beat-structure fraction)
+   ((number-list? '()) fraction?)
+   (_i "Set @var{fraction} as time signature, with optional
+number list @var{beat-structure} before it.")
+  (make-music 'TimeSignatureMusic
+              'numerator (car fraction)
+              'denominator (cdr fraction)
+              'beat-structure beat-structure))
+
+times =
+#(define-music-function (parser location fraction music)
+   (fraction? ly:music?)
+   (_i "Scale @var{music} in time by @var{fraction}.")
+  (make-music 'TimeScaledMusic
+  	      'element (ly:music-compress music (ly:make-moment (car fraction) (cdr fraction)))
+  	      'numerator (car fraction)
+  	      'denominator (cdr fraction)))
+
+transpose =
+#(define-music-function
+   (parser location from to music)
+   (ly:pitch? ly:pitch? ly:music?)
+
+   (_i "Transpose @var{music} from pitch @var{from} to pitch @var{to}.")
+   (make-music 'TransposedMusic
+               'element (ly:music-transpose music (ly:pitch-diff to from))))
+
 transposedCueDuring =
 #(define-music-function
-   (parser location what dir pitch-note main-music)
-   (string? ly:dir? ly:music? ly:music?)
+   (parser location what dir pitch main-music)
+   (string? ly:dir? ly:pitch? ly:music?)
 
    (_i "Insert notes from the part @var{what} into a voice called @code{cue},
-using the transposition defined by @var{pitch-note}.  This happens
+using the transposition defined by @var{pitch}.  This happens
 simultaneously with @var{main-music}, which is usually a rest.	The
 argument @var{dir} determines whether the cue notes should be notated
 as a first or second voice.")
@@ -921,33 +1225,39 @@ as a first or second voice.")
 	       'quoted-context-id "cue"
 	       'quoted-music-name what
 	       'quoted-voice-direction dir
-	       'quoted-transposition (pitch-of-note pitch-note)))
+	       'quoted-transposition pitch))
 
 transposition =
-#(define-music-function (parser location pitch-note) (ly:music?)
+#(define-music-function (parser location pitch) (ly:pitch?)
    (_i "Set instrument transposition")
 
    (context-spec-music
     (make-property-set 'instrumentTransposition
-		       (ly:pitch-negate (pitch-of-note pitch-note)))
+                       (ly:pitch-negate pitch))
     'Staff))
 
 tweak =
-#(define-music-function (parser location sym val arg)
-   (symbol? scheme? ly:music?)
-   (_i "Add @code{sym . val} to the @code{tweaks} property of @var{arg}.")
-
-   (if (equal? (object-property sym 'backend-type?) #f)
+#(define-music-function (parser location grob prop value music)
+   ((string?) symbol? scheme? ly:music?)
+   (_i "Add a tweak to the following @var{music}.
+Layout objects created by @var{music} get their property @var{prop}
+set to @var{value}.  If @var{grob} is specified, like with
+@example
+\\tweak Accidental #'color #red cis'
+@end example
+an indirectly created grob (@samp{Accidental} is caused by
+@samp{NoteHead}) can be tweaked; otherwise only directly created grobs
+are affected.")
+   (if (not (object-property prop 'backend-type?))
        (begin
-	 (ly:warning (_ "cannot find property type-check for ~a") sym)
+	 (ly:input-warning location (_ "cannot find property type-check for ~a") prop)
 	 (ly:warning (_ "doing assignment anyway"))))
    (set!
-    (ly:music-property arg 'tweaks)
-    (acons sym val
-	   (ly:music-property arg 'tweaks)))
-   arg)
-
-
+    (ly:music-property music 'tweaks)
+    (acons (if grob (cons (string->symbol grob) prop) prop)
+	   value
+	   (ly:music-property music 'tweaks)))
+   music)
 
 unfoldRepeats =
 #(define-music-function (parser location music) (ly:music?)
@@ -956,7 +1266,11 @@ unfoldRepeats =
 as @code{\\repeat unfold}.")
    (unfold-repeats music))
 
-
+void =
+#(define-void-function (parser location arg) (scheme?)
+   (_i "Accept a scheme argument, return a void expression.
+Use this if you want to have a scheme expression evaluated
+because of its side-effects, but its value ignored."))
 
 withMusicProperty =
 #(define-music-function (parser location sym val music)

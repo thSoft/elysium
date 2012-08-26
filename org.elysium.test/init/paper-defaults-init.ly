@@ -1,6 +1,6 @@
 %%%% This file is part of LilyPond, the GNU music typesetter.
 %%%%
-%%%% Copyright (C) 2004--2011 Han-Wen Nienhuys <hanwen@xs4all.nl>
+%%%% Copyright (C) 2004--2012 Han-Wen Nienhuys <hanwen@xs4all.nl>
 %%%%                          Jan Nieuwenhuizen <janneke@gnu.org>
 %%%%                          Neil Puttock <n.puttock@gmail.com>
 %%%%
@@ -17,7 +17,7 @@
 %%%% You should have received a copy of the GNU General Public License
 %%%% along with LilyPond.  If not, see <http://www.gnu.org/licenses/>.
 
-\version "2.14.0"
+\version "2.16.0"
 
 \paper {
   #(set-paper-dimension-variables (current-module))
@@ -106,9 +106,12 @@
   %%
   %% Footnotes
   %%
-  footnote-separator-markup = \markup { \fill-line \override #`(span-factor . 1/2) { \draw-hline } }
+  footnote-separator-markup = \markup \fill-line { \override #'(span-factor . 1/2) \draw-hline }
   footnote-padding = 0.5\mm
   footnote-footer-padding = 0.5\mm
+  footnote-number-raise = 0.5\mm
+  footnote-numbering-function = #numbered-footnotes
+  reset-footnotes-on-new-page = ##t
 
   %%
   %% Page numbering
@@ -145,6 +148,9 @@
   #(define text-font-defaults
      `((font-encoding . latin1)
        (baseline-skip . 3)
+       (replacement-alist . ,default-string-replacement-alist)
        (word-space . 0.6)))
+
+  \include "text-replacements.ly"
 
 }

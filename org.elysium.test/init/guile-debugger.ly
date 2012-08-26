@@ -1,6 +1,6 @@
 %%%% This file is part of LilyPond, the GNU music typesetter.
 %%%%
-%%%% Copyright (C) 2009--2011 by Ian Hulin <ian@hulin.org.uk>
+%%%% Copyright (C) 2009--2012 by Ian Hulin <ian@hulin.org.uk>
 %%%%
 %%%% LilyPond is free software: you can redistribute it and/or modify
 %%%% it under the terms of the GNU General Public License as published by
@@ -24,7 +24,7 @@
 %%  For more information, see the Contributor's Guide.
 
 
-\version "2.14.0"
+\version "2.16.0"
 
 % define lilypond-module as a variable in the guile-user module and set
 % to the current Scheme module (which will be the lilypond top-level

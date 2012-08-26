@@ -1,4 +1,4 @@
-\version "2.14.0"
+\version "2.16.0"
 
 slashSeparator = \markup {
   \center-align
@@ -15,11 +15,10 @@ tagline = \markup {
 
     %% 2014 = em dash.
 
-    #(ly:export
-      (format "Music engraving by LilyPond ~a~awww.lilypond.org"
+    #(format #f "Music engraving by LilyPond ~a~awww.lilypond.org"
        (lilypond-version)
        (ly:wide-char->utf-8 #x2014)
-       ))
+       )
   }
 }
 
@@ -34,13 +33,13 @@ bookTitleMarkup = \markup {
     \fill-line { \fromproperty #'header:dedication }
     \override #'(baseline-skip . 3.5)
     \column {
-      \huge \larger \bold
       \fill-line {
-        \larger \fromproperty #'header:title
+        \huge \larger \larger \bold
+        \fromproperty #'header:title
       }
       \fill-line {
-        \large \smaller \bold
-        \larger \fromproperty #'header:subtitle
+        \large \bold
+        \fromproperty #'header:subtitle
       }
       \fill-line {
         \smaller \bold
@@ -101,6 +100,11 @@ book last one."
   (if (not (book-first-page? layout props))
       (interpret-markup layout props arg)
       empty-stencil))
+
+#(define ((on-page nmbr) layout props arg)
+ (if (= (chain-assoc-get 'page:page-number props -1) nmbr)
+   (interpret-markup layout props arg)
+   empty-stencil))
 
 %% Bookpart first page and last page predicates
 #(define (part-first-page layout props arg)

@@ -1,5 +1,5 @@
 
-\version "2.14.0"
+\version "2.16.0"
 
 drumPitchNames =
 #'((acousticbassdrum . acousticbassdrum)
@@ -230,7 +230,7 @@ midiDrumPitches = #`(
 )
 
 
-#(map
+#(for-each
   (lambda (k-v)
     (module-define! (current-module)
 		    (car k-v)

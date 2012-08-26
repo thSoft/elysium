@@ -1,6 +1,6 @@
 %%%% This file is part of LilyPond, the GNU music typesetter.
 %%%%
-%%%% Copyright (C) 1996--2011 Han-Wen Nienhuys <hanwen@xs4all.nl>
+%%%% Copyright (C) 1996--2012 Han-Wen Nienhuys <hanwen@xs4all.nl>
 %%%%                          Jan Nieuwenhuizen <janneke@gnu.org>
 %%%%
 %%%% LilyPond is free software: you can redistribute it and/or modify
@@ -16,7 +16,7 @@
 %%%% You should have received a copy of the GNU General Public License
 %%%% along with LilyPond.  If not, see <http://www.gnu.org/licenses/>.
 
-\version "2.14.0"
+\version "2.16.0"
 
 %% < 1.8 compatibility switch
 #(ly:set-option 'old-relative)
@@ -60,13 +60,13 @@ center = #0
 %% try \once \override Score.Beam #'breakable = ##t
 
 %% rather name \newline, \pageBreak ?
-break = #(make-event-chord (list (make-music 'LineBreakEvent 'break-permission 'force)))
-noBreak = #(make-event-chord (list (make-music 'LineBreakEvent 'break-permission '())))
+break = #(make-music 'LineBreakEvent 'break-permission 'force)
+noBreak = #(make-music 'LineBreakEvent 'break-permission '())
 %% \pageBreak, \noPageBreak, \pageTurn, \noPageTurn, \allowPageTurn are defined
 %% as music functions
 
-stopStaff = #(make-event-chord (list (make-span-event 'StaffSpanEvent STOP)))
-startStaff = #(make-event-chord (list (make-span-event 'StaffSpanEvent START)))
+stopStaff = #(make-span-event 'StaffSpanEvent STOP)
+startStaff = #(make-span-event 'StaffSpanEvent START)
 
 
 %
@@ -114,6 +114,8 @@ repeatTie = #(make-music 'RepeatTieEvent)
 #(define bookpart-score-handler ly:book-add-score!)
 #(define bookpart-text-handler ly:book-add-score!)
 #(define bookpart-music-handler collect-book-music-for-book)
+#(define output-def-music-handler context-defs-from-music)
+#(define context-mod-music-handler context-mod-from-music)
 
 \include "predefined-fretboards-init.ly"
 \include "string-tunings-init.ly"
@@ -122,31 +124,29 @@ repeatTie = #(make-music 'RepeatTieEvent)
 \include "grace-init.ly"
 \include "midi-init.ly"
 \include "paper-defaults-init.ly"
+\include "context-mods-init.ly"
 
 \layout {
-    mm = #(ly:output-def-lookup $defaultpaper 'mm)
-    unit = #(ly:output-def-lookup $defaultpaper 'unit)
+  mm = #(ly:output-def-lookup $defaultpaper 'mm)
+  unit = #(ly:output-def-lookup $defaultpaper 'unit)
 
-    in = #(* 25.4 mm)
-    pt = #(/  in 72.27)
-    cm = #(* 10 mm)
+  in = #(* 25.4 mm)
+  pt = #(/ in 72.27)
+  cm = #(* 10 mm)
 
-    \include "engraver-init.ly"
+  \include "engraver-init.ly"
 
-    #(set-paper-dimension-variables (current-module))
+  #(set-paper-dimension-variables (current-module))
 }
 
 #(set-default-paper-size (ly:get-option 'paper-size))
 partCombineListener = \layout {
-    \context {
-	\Score
-	skipTypesetting = ##t
-	ignoreBarChecks = ##t
-	\alias "Timing"
-    }
+  \context {
+    \Score
+    skipTypesetting = ##t
+    ignoreBarChecks = ##t
+    \alias "Timing"
+  }
 }
 
 setDefaultDurationToQuarter = { c4 }
-
-
-

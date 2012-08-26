@@ -1,6 +1,6 @@
 % property-init.ly
 
-\version "2.14.0"
+\version "2.16.0"
 
 %% for dashed slurs, phrasing slurs, and ties
 #(define (make-simple-dash-definition dash-fraction dash-period)
@@ -14,6 +14,17 @@ defaultNoteHeads =
    (revert-head-style '(NoteHead TabNoteHead)))
 
 
+accidentalStyle =
+#(define-music-function
+   (parser location context style) ((symbol?) string?)
+   (_i "Set accidental style to @var{style}, a string.  If an optional
+@var{context} symbol is given, e.g. @code{#'Staff} or @code{#'Voice},
+the settings are applied to that context.  Otherwise, the context
+defaults to @samp{Staff}, except for piano styles, which use
+@samp{GrandStaff} as a context." )
+   (if context
+       (set-accidental-style (string->symbol style) context)
+       (set-accidental-style (string->symbol style))))
 
 %% arpeggios
 
@@ -233,16 +244,22 @@ hideNotes = {
   \override NoteHead #'transparent = ##t
   \override NoteHead #'no-ledgers = ##t
   \override Stem #'transparent = ##t
+  \override Flag #'transparent = ##t
   \override Beam #'transparent = ##t
   \override Accidental #'transparent = ##t
+  \override Rest #'transparent = ##t
+  \override TabNoteHead #'transparent = ##t
 }
 unHideNotes = {
   \revert Accidental #'transparent
   \revert Beam #'transparent
   \revert Stem #'transparent
+  \revert Flag #'transparent
   \revert NoteHead #'transparent
   \revert NoteHead #'no-ledgers
   \revert Dots #'transparent
+  \revert Rest #'transparent
+  \revert TabNoteHead #'transparent
 }
 
 
@@ -305,7 +322,7 @@ phrasingSlurDashPattern =
 #(define-music-function (parser location dash-fraction dash-period)
    (number? number?)
    (_i "Set up a custom style of dash pattern for @var{dash-fraction} ratio of
-line to space repeated at @var{dash-period} interval.")
+line to space repeated at @var{dash-period} interval for phrasing slurs.")
   #{
      \override PhrasingSlur #'dash-definition =
        $(make-simple-dash-definition dash-fraction dash-period)
@@ -341,6 +358,10 @@ back to the lilypond source statement.")
    (ly:set-option 'point-and-click #f)
    (make-music 'SequentialMusic 'void #t))
 
+pointAndClickTypes =
+#(define-void-function (parser location types) (list-or-symbol?)
+  (_i "Set a type or list of types (such as @code{#'note-event}) for which point-and-click info is generated.")
+  (ly:set-option 'point-and-click types))
 
 %% predefined fretboards
 
@@ -389,6 +410,8 @@ slurNeutral    = \revert Slur #'direction
 slurDashPattern =
 #(define-music-function (parser location dash-fraction dash-period)
   (number? number?)
+  (_i "Set up a custom style of dash pattern for @var{dash-fraction}
+ratio of line to space repeated at @var{dash-period} interval for slurs.")
   #{
      \override Slur #'dash-definition =
        $(make-simple-dash-definition dash-fraction dash-period)
@@ -424,12 +447,14 @@ tabFullNotation = {
   % stems (the half note gets a double stem)
   \revert TabVoice.Stem #'length
   \revert TabVoice.Stem #'no-stem-extend
-  \revert TabVoice.Stem #'flag-style
+  \revert TabVoice.Flag #'style
   \revert TabVoice.Stem #'details
-  \revert TabVoice.Stem #'transparent
+  \revert TabVoice.Stem #'stencil
+  \revert TabVoice.Flag #'stencil
   \override TabVoice.Stem #'stencil = #tabvoice::draw-double-stem-for-half-notes
-  \set autoBeaming = ##t
-  \revert NoteColumn #'ignore-collision
+  \override TabVoice.Stem #'X-extent = #tabvoice::make-double-stem-width-for-half-notes
+  \set TabVoice.autoBeaming = ##t
+  \revert TabVoice.NoteColumn #'ignore-collision
   % beams, dots
   \revert TabVoice.Beam #'stencil
   \revert TabVoice.StemTremolo #'stencil
@@ -445,15 +470,15 @@ tabFullNotation = {
   \revert TabVoice.TupletBracket #'stencil
   \revert TabVoice.TupletNumber #'stencil
   % dynamic signs
-  \revert TabVoice.DynamicText #'transparent
+  \revert TabVoice.DynamicText #'stencil
   \revert TabVoice.DynamicTextSpanner #'stencil
   \revert TabVoice.DynamicTextSpanner #'stencil
-  \revert TabVoice.Hairpin #'transparent
+  \revert TabVoice.Hairpin #'stencil
   % rests
   \revert TabVoice.Rest #'stencil
   \revert TabVoice.MultiMeasureRest #'stencil
-  \revert TabVoice.MultiMeasureRestNumber #'transparent
-  \revert TabVoice.MultiMeasureRestText #'transparent
+  \revert TabVoice.MultiMeasureRestNumber #'stencil
+  \revert TabVoice.MultiMeasureRestText #'stencil
   % markups etc.
   \revert TabVoice.Glissando #'stencil
   \revert TabVoice.Script #'stencil
@@ -508,6 +533,8 @@ tieNeutral = \revert Tie #'direction
 tieDashPattern =
 #(define-music-function (parser location dash-fraction dash-period)
   (number? number?)
+  (_i "Set up a custom style of dash pattern for @var{dash-fraction}
+ratio of line to space repeated at @var{dash-period} interval for ties.")
   #{
      \override Tie #'dash-definition =
        $(make-simple-dash-definition dash-fraction dash-period)
@@ -544,30 +571,35 @@ voiceOneStyle = {
   \override NoteHead #'style = #'diamond
   \override NoteHead #'color = #red
   \override Stem #'color = #red
+  \override Flag #'color = #red
   \override Beam #'color = #red
 }
 voiceTwoStyle = {
   \override NoteHead #'style = #'triangle
   \override NoteHead #'color = #blue
   \override Stem #'color = #blue
+  \override Flag #'color = #blue
   \override Beam #'color = #blue
 }
 voiceThreeStyle = {
   \override NoteHead #'style = #'xcircle
   \override NoteHead #'color = #green
   \override Stem #'color = #green
+  \override Flag #'color = #green
   \override Beam #'color = #green
 }
 voiceFourStyle = {
   \override NoteHead #'style = #'cross
   \override NoteHead #'color = #magenta
   \override Stem #'color = #magenta
+  \override Flag #'color = #magenta
   \override Beam #'color = #magenta
 }
 voiceNeutralStyle = {
   \revert NoteHead #'style
   \revert NoteHead #'color
   \revert Stem #'color
+  \revert Flag #'color
   \revert Beam #'color
 }
 
