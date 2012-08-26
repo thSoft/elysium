@@ -89,9 +89,18 @@ public class LilyPondImportUriGlobalScopeProvider extends AbstractGlobalScopePro
 			@Override
 			public LinkedHashSet<URI> get() {
 				Set<Resource> resources = getAllImportedResources(resource);
+				include(resources, "init.ly"); //$NON-NLS-1$
+				include(resources, "declarations-init.ly"); //$NON-NLS-1$
+				LinkedHashSet<URI> result = new LinkedHashSet<URI>();
+				for (Resource resource : resources) {
+					result.add(resource.getURI());
+				}
+				return result;
+			}
 
+			private void include(Set<Resource> resources, String importUri) {
 				Include include = LilypondFactory.eINSTANCE.createInclude();
-				include.setImportURI("init.ly"); //$NON-NLS-1$
+				include.setImportURI(importUri);
 				String initImportUriString = getImportUriResolver().apply(include);
 				URI initImportUri = URI.createURI(initImportUriString);
 				Resource initResource;
@@ -101,11 +110,6 @@ public class LilyPondImportUriGlobalScopeProvider extends AbstractGlobalScopePro
 				} catch (Exception e) {
 					throw new RuntimeException(MessageFormat.format("Please make sure your LilyPond installation is valid and its location is specified correctly.", initImportUri.toFileString()), e);
 				}
-				LinkedHashSet<URI> result = new LinkedHashSet<URI>();
-				for (Resource resource : resources) {
-					result.add(resource.getURI());
-				}
-				return result;
 			}
 
 		});
