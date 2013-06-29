@@ -106,6 +106,7 @@ public class LilyPondImportUriGlobalScopeProvider extends AbstractGlobalScopePro
 				Resource initResource;
 				try {
 					initResource = new ResourceSetImpl().getResource(initImportUri, true);
+					resources.add(initResource);
 					resources.addAll(getAllImportedResources(initResource));
 				} catch (Exception e) {
 					throw new RuntimeException(MessageFormat.format("Please make sure your LilyPond installation is valid and its location is specified correctly.", initImportUri.toFileString()), e);
