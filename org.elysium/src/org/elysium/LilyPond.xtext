@@ -87,7 +87,7 @@ SpecialCommandName: "include" | "version" | "sourcefilename" | "sourcefileline" 
 
 Scheme hidden(WS, SL_COMMENT, ML_COMMENT, SCHEME_SL_COMMENT, SCHEME_ML_COMMENT): ("#" | "$") value=SchemeExpression;
 
-SchemeExpression: reference?="$"? quotations+=("'" | "`" | "," | "@")* value=SchemeValue;
+SchemeExpression: quotations+=("'" | "`" | "," | "@")* reference?="$"? value=SchemeValue;
 
 SchemeValue: SchemeBoolean | SchemeList | SchemeBlock | SchemeCharacter | SchemeNumber | SchemeText | SchemeMarkupCommand;
 

@@ -160,6 +160,11 @@ public class Grammar extends LilyPondTest {
 	public void schemeBareReferenceListInBlock() throws Exception {
 		assertValid("##{ $(list 1) #}");
 	}
+	
+	@Test
+	public void schemeQuotedReference() throws Exception {
+		assertValid("#'at");
+	}
 
 	@Test
 	public void header() throws Exception {

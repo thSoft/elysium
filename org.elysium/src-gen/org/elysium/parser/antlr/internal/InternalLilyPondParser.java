@@ -9176,45 +9176,190 @@ public class InternalLilyPondParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleSchemeExpression"
-    // ../org.elysium/src-gen/org/elysium/parser/antlr/internal/InternalLilyPond.g:3364:1: ruleSchemeExpression returns [EObject current=null] : ( ( (lv_reference_0_0= '$' ) )? ( ( (lv_quotations_1_1= '\\'' | lv_quotations_1_2= '`' | lv_quotations_1_3= ',' | lv_quotations_1_4= '@' ) ) )* ( (lv_value_2_0= ruleSchemeValue ) ) ) ;
+    // ../org.elysium/src-gen/org/elysium/parser/antlr/internal/InternalLilyPond.g:3364:1: ruleSchemeExpression returns [EObject current=null] : ( ( ( (lv_quotations_0_1= '\\'' | lv_quotations_0_2= '`' | lv_quotations_0_3= ',' | lv_quotations_0_4= '@' ) ) )* ( (lv_reference_1_0= '$' ) )? ( (lv_value_2_0= ruleSchemeValue ) ) ) ;
     public final EObject ruleSchemeExpression() throws RecognitionException {
         EObject current = null;
 
-        Token lv_reference_0_0=null;
-        Token lv_quotations_1_1=null;
-        Token lv_quotations_1_2=null;
-        Token lv_quotations_1_3=null;
-        Token lv_quotations_1_4=null;
+        Token lv_quotations_0_1=null;
+        Token lv_quotations_0_2=null;
+        Token lv_quotations_0_3=null;
+        Token lv_quotations_0_4=null;
+        Token lv_reference_1_0=null;
         EObject lv_value_2_0 = null;
 
 
          enterRule(); 
             
         try {
-            // ../org.elysium/src-gen/org/elysium/parser/antlr/internal/InternalLilyPond.g:3367:28: ( ( ( (lv_reference_0_0= '$' ) )? ( ( (lv_quotations_1_1= '\\'' | lv_quotations_1_2= '`' | lv_quotations_1_3= ',' | lv_quotations_1_4= '@' ) ) )* ( (lv_value_2_0= ruleSchemeValue ) ) ) )
-            // ../org.elysium/src-gen/org/elysium/parser/antlr/internal/InternalLilyPond.g:3368:1: ( ( (lv_reference_0_0= '$' ) )? ( ( (lv_quotations_1_1= '\\'' | lv_quotations_1_2= '`' | lv_quotations_1_3= ',' | lv_quotations_1_4= '@' ) ) )* ( (lv_value_2_0= ruleSchemeValue ) ) )
+            // ../org.elysium/src-gen/org/elysium/parser/antlr/internal/InternalLilyPond.g:3367:28: ( ( ( ( (lv_quotations_0_1= '\\'' | lv_quotations_0_2= '`' | lv_quotations_0_3= ',' | lv_quotations_0_4= '@' ) ) )* ( (lv_reference_1_0= '$' ) )? ( (lv_value_2_0= ruleSchemeValue ) ) ) )
+            // ../org.elysium/src-gen/org/elysium/parser/antlr/internal/InternalLilyPond.g:3368:1: ( ( ( (lv_quotations_0_1= '\\'' | lv_quotations_0_2= '`' | lv_quotations_0_3= ',' | lv_quotations_0_4= '@' ) ) )* ( (lv_reference_1_0= '$' ) )? ( (lv_value_2_0= ruleSchemeValue ) ) )
             {
-            // ../org.elysium/src-gen/org/elysium/parser/antlr/internal/InternalLilyPond.g:3368:1: ( ( (lv_reference_0_0= '$' ) )? ( ( (lv_quotations_1_1= '\\'' | lv_quotations_1_2= '`' | lv_quotations_1_3= ',' | lv_quotations_1_4= '@' ) ) )* ( (lv_value_2_0= ruleSchemeValue ) ) )
-            // ../org.elysium/src-gen/org/elysium/parser/antlr/internal/InternalLilyPond.g:3368:2: ( (lv_reference_0_0= '$' ) )? ( ( (lv_quotations_1_1= '\\'' | lv_quotations_1_2= '`' | lv_quotations_1_3= ',' | lv_quotations_1_4= '@' ) ) )* ( (lv_value_2_0= ruleSchemeValue ) )
+            // ../org.elysium/src-gen/org/elysium/parser/antlr/internal/InternalLilyPond.g:3368:1: ( ( ( (lv_quotations_0_1= '\\'' | lv_quotations_0_2= '`' | lv_quotations_0_3= ',' | lv_quotations_0_4= '@' ) ) )* ( (lv_reference_1_0= '$' ) )? ( (lv_value_2_0= ruleSchemeValue ) ) )
+            // ../org.elysium/src-gen/org/elysium/parser/antlr/internal/InternalLilyPond.g:3368:2: ( ( (lv_quotations_0_1= '\\'' | lv_quotations_0_2= '`' | lv_quotations_0_3= ',' | lv_quotations_0_4= '@' ) ) )* ( (lv_reference_1_0= '$' ) )? ( (lv_value_2_0= ruleSchemeValue ) )
             {
-            // ../org.elysium/src-gen/org/elysium/parser/antlr/internal/InternalLilyPond.g:3368:2: ( (lv_reference_0_0= '$' ) )?
-            int alt38=2;
-            int LA38_0 = input.LA(1);
+            // ../org.elysium/src-gen/org/elysium/parser/antlr/internal/InternalLilyPond.g:3368:2: ( ( (lv_quotations_0_1= '\\'' | lv_quotations_0_2= '`' | lv_quotations_0_3= ',' | lv_quotations_0_4= '@' ) ) )*
+            loop39:
+            do {
+                int alt39=2;
+                int LA39_0 = input.LA(1);
 
-            if ( (LA38_0==94) ) {
-                alt38=1;
+                if ( ((LA39_0>=29 && LA39_0<=30)||(LA39_0>=95 && LA39_0<=96)) ) {
+                    alt39=1;
+                }
+
+
+                switch (alt39) {
+            	case 1 :
+            	    // ../org.elysium/src-gen/org/elysium/parser/antlr/internal/InternalLilyPond.g:3369:1: ( (lv_quotations_0_1= '\\'' | lv_quotations_0_2= '`' | lv_quotations_0_3= ',' | lv_quotations_0_4= '@' ) )
+            	    {
+            	    // ../org.elysium/src-gen/org/elysium/parser/antlr/internal/InternalLilyPond.g:3369:1: ( (lv_quotations_0_1= '\\'' | lv_quotations_0_2= '`' | lv_quotations_0_3= ',' | lv_quotations_0_4= '@' ) )
+            	    // ../org.elysium/src-gen/org/elysium/parser/antlr/internal/InternalLilyPond.g:3370:1: (lv_quotations_0_1= '\\'' | lv_quotations_0_2= '`' | lv_quotations_0_3= ',' | lv_quotations_0_4= '@' )
+            	    {
+            	    // ../org.elysium/src-gen/org/elysium/parser/antlr/internal/InternalLilyPond.g:3370:1: (lv_quotations_0_1= '\\'' | lv_quotations_0_2= '`' | lv_quotations_0_3= ',' | lv_quotations_0_4= '@' )
+            	    int alt38=4;
+            	    switch ( input.LA(1) ) {
+            	    case 29:
+            	        {
+            	        alt38=1;
+            	        }
+            	        break;
+            	    case 95:
+            	        {
+            	        alt38=2;
+            	        }
+            	        break;
+            	    case 30:
+            	        {
+            	        alt38=3;
+            	        }
+            	        break;
+            	    case 96:
+            	        {
+            	        alt38=4;
+            	        }
+            	        break;
+            	    default:
+            	        if (state.backtracking>0) {state.failed=true; return current;}
+            	        NoViableAltException nvae =
+            	            new NoViableAltException("", 38, 0, input);
+
+            	        throw nvae;
+            	    }
+
+            	    switch (alt38) {
+            	        case 1 :
+            	            // ../org.elysium/src-gen/org/elysium/parser/antlr/internal/InternalLilyPond.g:3371:3: lv_quotations_0_1= '\\''
+            	            {
+            	            lv_quotations_0_1=(Token)match(input,29,FOLLOW_29_in_ruleSchemeExpression7881); if (state.failed) return current;
+            	            if ( state.backtracking==0 ) {
+
+            	                      newLeafNode(lv_quotations_0_1, grammarAccess.getSchemeExpressionAccess().getQuotationsApostropheKeyword_0_0_0());
+            	                  
+            	            }
+            	            if ( state.backtracking==0 ) {
+
+            	              	        if (current==null) {
+            	              	            current = createModelElement(grammarAccess.getSchemeExpressionRule());
+            	              	        }
+            	                     		addWithLastConsumed(current, "quotations", lv_quotations_0_1, null);
+            	              	    
+            	            }
+
+            	            }
+            	            break;
+            	        case 2 :
+            	            // ../org.elysium/src-gen/org/elysium/parser/antlr/internal/InternalLilyPond.g:3383:8: lv_quotations_0_2= '`'
+            	            {
+            	            lv_quotations_0_2=(Token)match(input,95,FOLLOW_95_in_ruleSchemeExpression7910); if (state.failed) return current;
+            	            if ( state.backtracking==0 ) {
+
+            	                      newLeafNode(lv_quotations_0_2, grammarAccess.getSchemeExpressionAccess().getQuotationsGraveAccentKeyword_0_0_1());
+            	                  
+            	            }
+            	            if ( state.backtracking==0 ) {
+
+            	              	        if (current==null) {
+            	              	            current = createModelElement(grammarAccess.getSchemeExpressionRule());
+            	              	        }
+            	                     		addWithLastConsumed(current, "quotations", lv_quotations_0_2, null);
+            	              	    
+            	            }
+
+            	            }
+            	            break;
+            	        case 3 :
+            	            // ../org.elysium/src-gen/org/elysium/parser/antlr/internal/InternalLilyPond.g:3395:8: lv_quotations_0_3= ','
+            	            {
+            	            lv_quotations_0_3=(Token)match(input,30,FOLLOW_30_in_ruleSchemeExpression7939); if (state.failed) return current;
+            	            if ( state.backtracking==0 ) {
+
+            	                      newLeafNode(lv_quotations_0_3, grammarAccess.getSchemeExpressionAccess().getQuotationsCommaKeyword_0_0_2());
+            	                  
+            	            }
+            	            if ( state.backtracking==0 ) {
+
+            	              	        if (current==null) {
+            	              	            current = createModelElement(grammarAccess.getSchemeExpressionRule());
+            	              	        }
+            	                     		addWithLastConsumed(current, "quotations", lv_quotations_0_3, null);
+            	              	    
+            	            }
+
+            	            }
+            	            break;
+            	        case 4 :
+            	            // ../org.elysium/src-gen/org/elysium/parser/antlr/internal/InternalLilyPond.g:3407:8: lv_quotations_0_4= '@'
+            	            {
+            	            lv_quotations_0_4=(Token)match(input,96,FOLLOW_96_in_ruleSchemeExpression7968); if (state.failed) return current;
+            	            if ( state.backtracking==0 ) {
+
+            	                      newLeafNode(lv_quotations_0_4, grammarAccess.getSchemeExpressionAccess().getQuotationsCommercialAtKeyword_0_0_3());
+            	                  
+            	            }
+            	            if ( state.backtracking==0 ) {
+
+            	              	        if (current==null) {
+            	              	            current = createModelElement(grammarAccess.getSchemeExpressionRule());
+            	              	        }
+            	                     		addWithLastConsumed(current, "quotations", lv_quotations_0_4, null);
+            	              	    
+            	            }
+
+            	            }
+            	            break;
+
+            	    }
+
+
+            	    }
+
+
+            	    }
+            	    break;
+
+            	default :
+            	    break loop39;
+                }
+            } while (true);
+
+            // ../org.elysium/src-gen/org/elysium/parser/antlr/internal/InternalLilyPond.g:3422:3: ( (lv_reference_1_0= '$' ) )?
+            int alt40=2;
+            int LA40_0 = input.LA(1);
+
+            if ( (LA40_0==94) ) {
+                alt40=1;
             }
-            switch (alt38) {
+            switch (alt40) {
                 case 1 :
-                    // ../org.elysium/src-gen/org/elysium/parser/antlr/internal/InternalLilyPond.g:3369:1: (lv_reference_0_0= '$' )
+                    // ../org.elysium/src-gen/org/elysium/parser/antlr/internal/InternalLilyPond.g:3423:1: (lv_reference_1_0= '$' )
                     {
-                    // ../org.elysium/src-gen/org/elysium/parser/antlr/internal/InternalLilyPond.g:3369:1: (lv_reference_0_0= '$' )
-                    // ../org.elysium/src-gen/org/elysium/parser/antlr/internal/InternalLilyPond.g:3370:3: lv_reference_0_0= '$'
+                    // ../org.elysium/src-gen/org/elysium/parser/antlr/internal/InternalLilyPond.g:3423:1: (lv_reference_1_0= '$' )
+                    // ../org.elysium/src-gen/org/elysium/parser/antlr/internal/InternalLilyPond.g:3424:3: lv_reference_1_0= '$'
                     {
-                    lv_reference_0_0=(Token)match(input,94,FOLLOW_94_in_ruleSchemeExpression7879); if (state.failed) return current;
+                    lv_reference_1_0=(Token)match(input,94,FOLLOW_94_in_ruleSchemeExpression8003); if (state.failed) return current;
                     if ( state.backtracking==0 ) {
 
-                              newLeafNode(lv_reference_0_0, grammarAccess.getSchemeExpressionAccess().getReferenceDollarSignKeyword_0_0());
+                              newLeafNode(lv_reference_1_0, grammarAccess.getSchemeExpressionAccess().getReferenceDollarSignKeyword_1_0());
                           
                     }
                     if ( state.backtracking==0 ) {
@@ -9233,151 +9378,6 @@ public class InternalLilyPondParser extends AbstractInternalAntlrParser {
                     break;
 
             }
-
-            // ../org.elysium/src-gen/org/elysium/parser/antlr/internal/InternalLilyPond.g:3383:3: ( ( (lv_quotations_1_1= '\\'' | lv_quotations_1_2= '`' | lv_quotations_1_3= ',' | lv_quotations_1_4= '@' ) ) )*
-            loop40:
-            do {
-                int alt40=2;
-                int LA40_0 = input.LA(1);
-
-                if ( ((LA40_0>=29 && LA40_0<=30)||(LA40_0>=95 && LA40_0<=96)) ) {
-                    alt40=1;
-                }
-
-
-                switch (alt40) {
-            	case 1 :
-            	    // ../org.elysium/src-gen/org/elysium/parser/antlr/internal/InternalLilyPond.g:3384:1: ( (lv_quotations_1_1= '\\'' | lv_quotations_1_2= '`' | lv_quotations_1_3= ',' | lv_quotations_1_4= '@' ) )
-            	    {
-            	    // ../org.elysium/src-gen/org/elysium/parser/antlr/internal/InternalLilyPond.g:3384:1: ( (lv_quotations_1_1= '\\'' | lv_quotations_1_2= '`' | lv_quotations_1_3= ',' | lv_quotations_1_4= '@' ) )
-            	    // ../org.elysium/src-gen/org/elysium/parser/antlr/internal/InternalLilyPond.g:3385:1: (lv_quotations_1_1= '\\'' | lv_quotations_1_2= '`' | lv_quotations_1_3= ',' | lv_quotations_1_4= '@' )
-            	    {
-            	    // ../org.elysium/src-gen/org/elysium/parser/antlr/internal/InternalLilyPond.g:3385:1: (lv_quotations_1_1= '\\'' | lv_quotations_1_2= '`' | lv_quotations_1_3= ',' | lv_quotations_1_4= '@' )
-            	    int alt39=4;
-            	    switch ( input.LA(1) ) {
-            	    case 29:
-            	        {
-            	        alt39=1;
-            	        }
-            	        break;
-            	    case 95:
-            	        {
-            	        alt39=2;
-            	        }
-            	        break;
-            	    case 30:
-            	        {
-            	        alt39=3;
-            	        }
-            	        break;
-            	    case 96:
-            	        {
-            	        alt39=4;
-            	        }
-            	        break;
-            	    default:
-            	        if (state.backtracking>0) {state.failed=true; return current;}
-            	        NoViableAltException nvae =
-            	            new NoViableAltException("", 39, 0, input);
-
-            	        throw nvae;
-            	    }
-
-            	    switch (alt39) {
-            	        case 1 :
-            	            // ../org.elysium/src-gen/org/elysium/parser/antlr/internal/InternalLilyPond.g:3386:3: lv_quotations_1_1= '\\''
-            	            {
-            	            lv_quotations_1_1=(Token)match(input,29,FOLLOW_29_in_ruleSchemeExpression7913); if (state.failed) return current;
-            	            if ( state.backtracking==0 ) {
-
-            	                      newLeafNode(lv_quotations_1_1, grammarAccess.getSchemeExpressionAccess().getQuotationsApostropheKeyword_1_0_0());
-            	                  
-            	            }
-            	            if ( state.backtracking==0 ) {
-
-            	              	        if (current==null) {
-            	              	            current = createModelElement(grammarAccess.getSchemeExpressionRule());
-            	              	        }
-            	                     		addWithLastConsumed(current, "quotations", lv_quotations_1_1, null);
-            	              	    
-            	            }
-
-            	            }
-            	            break;
-            	        case 2 :
-            	            // ../org.elysium/src-gen/org/elysium/parser/antlr/internal/InternalLilyPond.g:3398:8: lv_quotations_1_2= '`'
-            	            {
-            	            lv_quotations_1_2=(Token)match(input,95,FOLLOW_95_in_ruleSchemeExpression7942); if (state.failed) return current;
-            	            if ( state.backtracking==0 ) {
-
-            	                      newLeafNode(lv_quotations_1_2, grammarAccess.getSchemeExpressionAccess().getQuotationsGraveAccentKeyword_1_0_1());
-            	                  
-            	            }
-            	            if ( state.backtracking==0 ) {
-
-            	              	        if (current==null) {
-            	              	            current = createModelElement(grammarAccess.getSchemeExpressionRule());
-            	              	        }
-            	                     		addWithLastConsumed(current, "quotations", lv_quotations_1_2, null);
-            	              	    
-            	            }
-
-            	            }
-            	            break;
-            	        case 3 :
-            	            // ../org.elysium/src-gen/org/elysium/parser/antlr/internal/InternalLilyPond.g:3410:8: lv_quotations_1_3= ','
-            	            {
-            	            lv_quotations_1_3=(Token)match(input,30,FOLLOW_30_in_ruleSchemeExpression7971); if (state.failed) return current;
-            	            if ( state.backtracking==0 ) {
-
-            	                      newLeafNode(lv_quotations_1_3, grammarAccess.getSchemeExpressionAccess().getQuotationsCommaKeyword_1_0_2());
-            	                  
-            	            }
-            	            if ( state.backtracking==0 ) {
-
-            	              	        if (current==null) {
-            	              	            current = createModelElement(grammarAccess.getSchemeExpressionRule());
-            	              	        }
-            	                     		addWithLastConsumed(current, "quotations", lv_quotations_1_3, null);
-            	              	    
-            	            }
-
-            	            }
-            	            break;
-            	        case 4 :
-            	            // ../org.elysium/src-gen/org/elysium/parser/antlr/internal/InternalLilyPond.g:3422:8: lv_quotations_1_4= '@'
-            	            {
-            	            lv_quotations_1_4=(Token)match(input,96,FOLLOW_96_in_ruleSchemeExpression8000); if (state.failed) return current;
-            	            if ( state.backtracking==0 ) {
-
-            	                      newLeafNode(lv_quotations_1_4, grammarAccess.getSchemeExpressionAccess().getQuotationsCommercialAtKeyword_1_0_3());
-            	                  
-            	            }
-            	            if ( state.backtracking==0 ) {
-
-            	              	        if (current==null) {
-            	              	            current = createModelElement(grammarAccess.getSchemeExpressionRule());
-            	              	        }
-            	                     		addWithLastConsumed(current, "quotations", lv_quotations_1_4, null);
-            	              	    
-            	            }
-
-            	            }
-            	            break;
-
-            	    }
-
-
-            	    }
-
-
-            	    }
-            	    break;
-
-            	default :
-            	    break loop40;
-                }
-            } while (true);
 
             // ../org.elysium/src-gen/org/elysium/parser/antlr/internal/InternalLilyPond.g:3437:3: ( (lv_value_2_0= ruleSchemeValue ) )
             // ../org.elysium/src-gen/org/elysium/parser/antlr/internal/InternalLilyPond.g:3438:1: (lv_value_2_0= ruleSchemeValue )
@@ -17176,7 +17176,7 @@ public class InternalLilyPondParser extends AbstractInternalAntlrParser {
     static final String DFA41_acceptS =
         "\2\uffff\1\2\1\3\1\4\2\uffff\1\6\1\7\1\uffff\1\5\1\1";
     static final String DFA41_specialS =
-        "\5\uffff\1\0\1\1\2\uffff\1\2\2\uffff}>";
+        "\5\uffff\1\1\1\2\2\uffff\1\0\2\uffff}>";
     static final String[] DFA41_transitionS = {
             "\2\7\1\6\1\7\5\uffff\1\7\4\uffff\10\7\1\uffff\1\2\4\uffff\75"+
             "\7\1\1\3\uffff\1\3\1\uffff\1\4\1\7\1\5\1\10",
@@ -17230,6 +17230,21 @@ public class InternalLilyPondParser extends AbstractInternalAntlrParser {
         	int _s = s;
             switch ( s ) {
                     case 0 : 
+                        int LA41_9 = input.LA(1);
+
+                         
+                        int index41_9 = input.index();
+                        input.rewind();
+                        s = -1;
+                        if ( (synpred141_InternalLilyPond()) ) {s = 11;}
+
+                        else if ( (synpred145_InternalLilyPond()) ) {s = 10;}
+
+                         
+                        input.seek(index41_9);
+                        if ( s>=0 ) return s;
+                        break;
+                    case 1 : 
                         int LA41_5 = input.LA(1);
 
                          
@@ -17244,7 +17259,7 @@ public class InternalLilyPondParser extends AbstractInternalAntlrParser {
                         input.seek(index41_5);
                         if ( s>=0 ) return s;
                         break;
-                    case 1 : 
+                    case 2 : 
                         int LA41_6 = input.LA(1);
 
                          
@@ -17257,21 +17272,6 @@ public class InternalLilyPondParser extends AbstractInternalAntlrParser {
 
                          
                         input.seek(index41_6);
-                        if ( s>=0 ) return s;
-                        break;
-                    case 2 : 
-                        int LA41_9 = input.LA(1);
-
-                         
-                        int index41_9 = input.index();
-                        input.rewind();
-                        s = -1;
-                        if ( (synpred141_InternalLilyPond()) ) {s = 11;}
-
-                        else if ( (synpred145_InternalLilyPond()) ) {s = 10;}
-
-                         
-                        input.seek(index41_9);
                         if ( s>=0 ) return s;
                         break;
             }
@@ -17293,13 +17293,13 @@ public class InternalLilyPondParser extends AbstractInternalAntlrParser {
     static final String DFA47_acceptS =
         "\1\uffff\1\2\116\uffff\1\1";
     static final String DFA47_specialS =
-        "\4\uffff\1\46\1\64\1\2\1\32\1\14\1\72\1\100\1\40\1\73\1\13\1\113"+
-        "\1\3\1\101\1\60\1\112\1\16\1\67\1\107\1\52\1\102\1\66\1\10\1\77"+
-        "\1\57\1\17\1\103\1\51\1\24\1\111\1\41\1\22\1\54\1\15\1\36\1\105"+
-        "\1\0\1\74\1\43\1\6\1\61\1\50\1\26\1\47\1\55\1\23\1\42\1\75\1\11"+
-        "\1\4\1\104\1\44\1\12\1\53\1\31\1\21\1\63\1\45\1\1\1\65\1\27\1\110"+
-        "\1\76\1\25\1\56\1\106\1\7\1\71\1\20\1\62\1\35\1\5\1\70\1\37\1\30"+
-        "\1\34\1\33\1\uffff}>";
+        "\4\uffff\1\67\1\42\1\7\1\104\1\23\1\76\1\33\1\105\1\30\1\111\1\27"+
+        "\1\36\1\72\1\12\1\53\1\113\1\3\1\63\1\57\1\45\1\70\1\51\1\10\1\101"+
+        "\1\50\1\16\1\66\1\56\1\0\1\106\1\24\1\37\1\55\1\13\1\40\1\34\1\1"+
+        "\1\73\1\43\1\20\1\52\1\31\1\77\1\46\1\54\1\107\1\21\1\61\1\35\1"+
+        "\11\1\64\1\22\1\17\1\103\1\26\1\6\1\47\1\32\1\5\1\60\1\15\1\44\1"+
+        "\75\1\2\1\62\1\110\1\112\1\25\1\14\1\71\1\41\1\4\1\65\1\102\1\74"+
+        "\1\100\1\uffff}>";
     static final String[] DFA47_transitionS = {
             "\4\1\5\uffff\22\1\1\2\107\1",
             "",
@@ -17435,1101 +17435,6 @@ public class InternalLilyPondParser extends AbstractInternalAntlrParser {
         	int _s = s;
             switch ( s ) {
                     case 0 : 
-                        int LA47_39 = input.LA(1);
-
-                         
-                        int index47_39 = input.index();
-                        input.rewind();
-                        s = -1;
-                        if ( (synpred153_InternalLilyPond()) ) {s = 80;}
-
-                        else if ( (true) ) {s = 1;}
-
-                         
-                        input.seek(index47_39);
-                        if ( s>=0 ) return s;
-                        break;
-                    case 1 : 
-                        int LA47_61 = input.LA(1);
-
-                         
-                        int index47_61 = input.index();
-                        input.rewind();
-                        s = -1;
-                        if ( (synpred153_InternalLilyPond()) ) {s = 80;}
-
-                        else if ( (true) ) {s = 1;}
-
-                         
-                        input.seek(index47_61);
-                        if ( s>=0 ) return s;
-                        break;
-                    case 2 : 
-                        int LA47_6 = input.LA(1);
-
-                         
-                        int index47_6 = input.index();
-                        input.rewind();
-                        s = -1;
-                        if ( (synpred153_InternalLilyPond()) ) {s = 80;}
-
-                        else if ( (true) ) {s = 1;}
-
-                         
-                        input.seek(index47_6);
-                        if ( s>=0 ) return s;
-                        break;
-                    case 3 : 
-                        int LA47_15 = input.LA(1);
-
-                         
-                        int index47_15 = input.index();
-                        input.rewind();
-                        s = -1;
-                        if ( (synpred153_InternalLilyPond()) ) {s = 80;}
-
-                        else if ( (true) ) {s = 1;}
-
-                         
-                        input.seek(index47_15);
-                        if ( s>=0 ) return s;
-                        break;
-                    case 4 : 
-                        int LA47_52 = input.LA(1);
-
-                         
-                        int index47_52 = input.index();
-                        input.rewind();
-                        s = -1;
-                        if ( (synpred153_InternalLilyPond()) ) {s = 80;}
-
-                        else if ( (true) ) {s = 1;}
-
-                         
-                        input.seek(index47_52);
-                        if ( s>=0 ) return s;
-                        break;
-                    case 5 : 
-                        int LA47_74 = input.LA(1);
-
-                         
-                        int index47_74 = input.index();
-                        input.rewind();
-                        s = -1;
-                        if ( (synpred153_InternalLilyPond()) ) {s = 80;}
-
-                        else if ( (true) ) {s = 1;}
-
-                         
-                        input.seek(index47_74);
-                        if ( s>=0 ) return s;
-                        break;
-                    case 6 : 
-                        int LA47_42 = input.LA(1);
-
-                         
-                        int index47_42 = input.index();
-                        input.rewind();
-                        s = -1;
-                        if ( (synpred153_InternalLilyPond()) ) {s = 80;}
-
-                        else if ( (true) ) {s = 1;}
-
-                         
-                        input.seek(index47_42);
-                        if ( s>=0 ) return s;
-                        break;
-                    case 7 : 
-                        int LA47_69 = input.LA(1);
-
-                         
-                        int index47_69 = input.index();
-                        input.rewind();
-                        s = -1;
-                        if ( (synpred153_InternalLilyPond()) ) {s = 80;}
-
-                        else if ( (true) ) {s = 1;}
-
-                         
-                        input.seek(index47_69);
-                        if ( s>=0 ) return s;
-                        break;
-                    case 8 : 
-                        int LA47_25 = input.LA(1);
-
-                         
-                        int index47_25 = input.index();
-                        input.rewind();
-                        s = -1;
-                        if ( (synpred153_InternalLilyPond()) ) {s = 80;}
-
-                        else if ( (true) ) {s = 1;}
-
-                         
-                        input.seek(index47_25);
-                        if ( s>=0 ) return s;
-                        break;
-                    case 9 : 
-                        int LA47_51 = input.LA(1);
-
-                         
-                        int index47_51 = input.index();
-                        input.rewind();
-                        s = -1;
-                        if ( (synpred153_InternalLilyPond()) ) {s = 80;}
-
-                        else if ( (true) ) {s = 1;}
-
-                         
-                        input.seek(index47_51);
-                        if ( s>=0 ) return s;
-                        break;
-                    case 10 : 
-                        int LA47_55 = input.LA(1);
-
-                         
-                        int index47_55 = input.index();
-                        input.rewind();
-                        s = -1;
-                        if ( (synpred153_InternalLilyPond()) ) {s = 80;}
-
-                        else if ( (true) ) {s = 1;}
-
-                         
-                        input.seek(index47_55);
-                        if ( s>=0 ) return s;
-                        break;
-                    case 11 : 
-                        int LA47_13 = input.LA(1);
-
-                         
-                        int index47_13 = input.index();
-                        input.rewind();
-                        s = -1;
-                        if ( (synpred153_InternalLilyPond()) ) {s = 80;}
-
-                        else if ( (true) ) {s = 1;}
-
-                         
-                        input.seek(index47_13);
-                        if ( s>=0 ) return s;
-                        break;
-                    case 12 : 
-                        int LA47_8 = input.LA(1);
-
-                         
-                        int index47_8 = input.index();
-                        input.rewind();
-                        s = -1;
-                        if ( (synpred153_InternalLilyPond()) ) {s = 80;}
-
-                        else if ( (true) ) {s = 1;}
-
-                         
-                        input.seek(index47_8);
-                        if ( s>=0 ) return s;
-                        break;
-                    case 13 : 
-                        int LA47_36 = input.LA(1);
-
-                         
-                        int index47_36 = input.index();
-                        input.rewind();
-                        s = -1;
-                        if ( (synpred153_InternalLilyPond()) ) {s = 80;}
-
-                        else if ( (true) ) {s = 1;}
-
-                         
-                        input.seek(index47_36);
-                        if ( s>=0 ) return s;
-                        break;
-                    case 14 : 
-                        int LA47_19 = input.LA(1);
-
-                         
-                        int index47_19 = input.index();
-                        input.rewind();
-                        s = -1;
-                        if ( (synpred153_InternalLilyPond()) ) {s = 80;}
-
-                        else if ( (true) ) {s = 1;}
-
-                         
-                        input.seek(index47_19);
-                        if ( s>=0 ) return s;
-                        break;
-                    case 15 : 
-                        int LA47_28 = input.LA(1);
-
-                         
-                        int index47_28 = input.index();
-                        input.rewind();
-                        s = -1;
-                        if ( (synpred153_InternalLilyPond()) ) {s = 80;}
-
-                        else if ( (true) ) {s = 1;}
-
-                         
-                        input.seek(index47_28);
-                        if ( s>=0 ) return s;
-                        break;
-                    case 16 : 
-                        int LA47_71 = input.LA(1);
-
-                         
-                        int index47_71 = input.index();
-                        input.rewind();
-                        s = -1;
-                        if ( (synpred153_InternalLilyPond()) ) {s = 80;}
-
-                        else if ( (true) ) {s = 1;}
-
-                         
-                        input.seek(index47_71);
-                        if ( s>=0 ) return s;
-                        break;
-                    case 17 : 
-                        int LA47_58 = input.LA(1);
-
-                         
-                        int index47_58 = input.index();
-                        input.rewind();
-                        s = -1;
-                        if ( (synpred153_InternalLilyPond()) ) {s = 80;}
-
-                        else if ( (true) ) {s = 1;}
-
-                         
-                        input.seek(index47_58);
-                        if ( s>=0 ) return s;
-                        break;
-                    case 18 : 
-                        int LA47_34 = input.LA(1);
-
-                         
-                        int index47_34 = input.index();
-                        input.rewind();
-                        s = -1;
-                        if ( (synpred153_InternalLilyPond()) ) {s = 80;}
-
-                        else if ( (true) ) {s = 1;}
-
-                         
-                        input.seek(index47_34);
-                        if ( s>=0 ) return s;
-                        break;
-                    case 19 : 
-                        int LA47_48 = input.LA(1);
-
-                         
-                        int index47_48 = input.index();
-                        input.rewind();
-                        s = -1;
-                        if ( (synpred153_InternalLilyPond()) ) {s = 80;}
-
-                        else if ( (true) ) {s = 1;}
-
-                         
-                        input.seek(index47_48);
-                        if ( s>=0 ) return s;
-                        break;
-                    case 20 : 
-                        int LA47_31 = input.LA(1);
-
-                         
-                        int index47_31 = input.index();
-                        input.rewind();
-                        s = -1;
-                        if ( (synpred153_InternalLilyPond()) ) {s = 80;}
-
-                        else if ( (true) ) {s = 1;}
-
-                         
-                        input.seek(index47_31);
-                        if ( s>=0 ) return s;
-                        break;
-                    case 21 : 
-                        int LA47_66 = input.LA(1);
-
-                         
-                        int index47_66 = input.index();
-                        input.rewind();
-                        s = -1;
-                        if ( (synpred153_InternalLilyPond()) ) {s = 80;}
-
-                        else if ( (true) ) {s = 1;}
-
-                         
-                        input.seek(index47_66);
-                        if ( s>=0 ) return s;
-                        break;
-                    case 22 : 
-                        int LA47_45 = input.LA(1);
-
-                         
-                        int index47_45 = input.index();
-                        input.rewind();
-                        s = -1;
-                        if ( (synpred153_InternalLilyPond()) ) {s = 80;}
-
-                        else if ( (true) ) {s = 1;}
-
-                         
-                        input.seek(index47_45);
-                        if ( s>=0 ) return s;
-                        break;
-                    case 23 : 
-                        int LA47_63 = input.LA(1);
-
-                         
-                        int index47_63 = input.index();
-                        input.rewind();
-                        s = -1;
-                        if ( (synpred153_InternalLilyPond()) ) {s = 80;}
-
-                        else if ( (true) ) {s = 1;}
-
-                         
-                        input.seek(index47_63);
-                        if ( s>=0 ) return s;
-                        break;
-                    case 24 : 
-                        int LA47_77 = input.LA(1);
-
-                         
-                        int index47_77 = input.index();
-                        input.rewind();
-                        s = -1;
-                        if ( (synpred153_InternalLilyPond()) ) {s = 80;}
-
-                        else if ( (true) ) {s = 1;}
-
-                         
-                        input.seek(index47_77);
-                        if ( s>=0 ) return s;
-                        break;
-                    case 25 : 
-                        int LA47_57 = input.LA(1);
-
-                         
-                        int index47_57 = input.index();
-                        input.rewind();
-                        s = -1;
-                        if ( (synpred153_InternalLilyPond()) ) {s = 80;}
-
-                        else if ( (true) ) {s = 1;}
-
-                         
-                        input.seek(index47_57);
-                        if ( s>=0 ) return s;
-                        break;
-                    case 26 : 
-                        int LA47_7 = input.LA(1);
-
-                         
-                        int index47_7 = input.index();
-                        input.rewind();
-                        s = -1;
-                        if ( (synpred153_InternalLilyPond()) ) {s = 80;}
-
-                        else if ( (true) ) {s = 1;}
-
-                         
-                        input.seek(index47_7);
-                        if ( s>=0 ) return s;
-                        break;
-                    case 27 : 
-                        int LA47_79 = input.LA(1);
-
-                         
-                        int index47_79 = input.index();
-                        input.rewind();
-                        s = -1;
-                        if ( (synpred153_InternalLilyPond()) ) {s = 80;}
-
-                        else if ( (true) ) {s = 1;}
-
-                         
-                        input.seek(index47_79);
-                        if ( s>=0 ) return s;
-                        break;
-                    case 28 : 
-                        int LA47_78 = input.LA(1);
-
-                         
-                        int index47_78 = input.index();
-                        input.rewind();
-                        s = -1;
-                        if ( (synpred153_InternalLilyPond()) ) {s = 80;}
-
-                        else if ( (true) ) {s = 1;}
-
-                         
-                        input.seek(index47_78);
-                        if ( s>=0 ) return s;
-                        break;
-                    case 29 : 
-                        int LA47_73 = input.LA(1);
-
-                         
-                        int index47_73 = input.index();
-                        input.rewind();
-                        s = -1;
-                        if ( (synpred153_InternalLilyPond()) ) {s = 80;}
-
-                        else if ( (true) ) {s = 1;}
-
-                         
-                        input.seek(index47_73);
-                        if ( s>=0 ) return s;
-                        break;
-                    case 30 : 
-                        int LA47_37 = input.LA(1);
-
-                         
-                        int index47_37 = input.index();
-                        input.rewind();
-                        s = -1;
-                        if ( (synpred153_InternalLilyPond()) ) {s = 80;}
-
-                        else if ( (true) ) {s = 1;}
-
-                         
-                        input.seek(index47_37);
-                        if ( s>=0 ) return s;
-                        break;
-                    case 31 : 
-                        int LA47_76 = input.LA(1);
-
-                         
-                        int index47_76 = input.index();
-                        input.rewind();
-                        s = -1;
-                        if ( (synpred153_InternalLilyPond()) ) {s = 80;}
-
-                        else if ( (true) ) {s = 1;}
-
-                         
-                        input.seek(index47_76);
-                        if ( s>=0 ) return s;
-                        break;
-                    case 32 : 
-                        int LA47_11 = input.LA(1);
-
-                         
-                        int index47_11 = input.index();
-                        input.rewind();
-                        s = -1;
-                        if ( (synpred153_InternalLilyPond()) ) {s = 80;}
-
-                        else if ( (true) ) {s = 1;}
-
-                         
-                        input.seek(index47_11);
-                        if ( s>=0 ) return s;
-                        break;
-                    case 33 : 
-                        int LA47_33 = input.LA(1);
-
-                         
-                        int index47_33 = input.index();
-                        input.rewind();
-                        s = -1;
-                        if ( (synpred153_InternalLilyPond()) ) {s = 80;}
-
-                        else if ( (true) ) {s = 1;}
-
-                         
-                        input.seek(index47_33);
-                        if ( s>=0 ) return s;
-                        break;
-                    case 34 : 
-                        int LA47_49 = input.LA(1);
-
-                         
-                        int index47_49 = input.index();
-                        input.rewind();
-                        s = -1;
-                        if ( (synpred153_InternalLilyPond()) ) {s = 80;}
-
-                        else if ( (true) ) {s = 1;}
-
-                         
-                        input.seek(index47_49);
-                        if ( s>=0 ) return s;
-                        break;
-                    case 35 : 
-                        int LA47_41 = input.LA(1);
-
-                         
-                        int index47_41 = input.index();
-                        input.rewind();
-                        s = -1;
-                        if ( (synpred153_InternalLilyPond()) ) {s = 80;}
-
-                        else if ( (true) ) {s = 1;}
-
-                         
-                        input.seek(index47_41);
-                        if ( s>=0 ) return s;
-                        break;
-                    case 36 : 
-                        int LA47_54 = input.LA(1);
-
-                         
-                        int index47_54 = input.index();
-                        input.rewind();
-                        s = -1;
-                        if ( (synpred153_InternalLilyPond()) ) {s = 80;}
-
-                        else if ( (true) ) {s = 1;}
-
-                         
-                        input.seek(index47_54);
-                        if ( s>=0 ) return s;
-                        break;
-                    case 37 : 
-                        int LA47_60 = input.LA(1);
-
-                         
-                        int index47_60 = input.index();
-                        input.rewind();
-                        s = -1;
-                        if ( (synpred153_InternalLilyPond()) ) {s = 80;}
-
-                        else if ( (true) ) {s = 1;}
-
-                         
-                        input.seek(index47_60);
-                        if ( s>=0 ) return s;
-                        break;
-                    case 38 : 
-                        int LA47_4 = input.LA(1);
-
-                         
-                        int index47_4 = input.index();
-                        input.rewind();
-                        s = -1;
-                        if ( (synpred153_InternalLilyPond()) ) {s = 80;}
-
-                        else if ( (true) ) {s = 1;}
-
-                         
-                        input.seek(index47_4);
-                        if ( s>=0 ) return s;
-                        break;
-                    case 39 : 
-                        int LA47_46 = input.LA(1);
-
-                         
-                        int index47_46 = input.index();
-                        input.rewind();
-                        s = -1;
-                        if ( (synpred153_InternalLilyPond()) ) {s = 80;}
-
-                        else if ( (true) ) {s = 1;}
-
-                         
-                        input.seek(index47_46);
-                        if ( s>=0 ) return s;
-                        break;
-                    case 40 : 
-                        int LA47_44 = input.LA(1);
-
-                         
-                        int index47_44 = input.index();
-                        input.rewind();
-                        s = -1;
-                        if ( (synpred153_InternalLilyPond()) ) {s = 80;}
-
-                        else if ( (true) ) {s = 1;}
-
-                         
-                        input.seek(index47_44);
-                        if ( s>=0 ) return s;
-                        break;
-                    case 41 : 
-                        int LA47_30 = input.LA(1);
-
-                         
-                        int index47_30 = input.index();
-                        input.rewind();
-                        s = -1;
-                        if ( (synpred153_InternalLilyPond()) ) {s = 80;}
-
-                        else if ( (true) ) {s = 1;}
-
-                         
-                        input.seek(index47_30);
-                        if ( s>=0 ) return s;
-                        break;
-                    case 42 : 
-                        int LA47_22 = input.LA(1);
-
-                         
-                        int index47_22 = input.index();
-                        input.rewind();
-                        s = -1;
-                        if ( (synpred153_InternalLilyPond()) ) {s = 80;}
-
-                        else if ( (true) ) {s = 1;}
-
-                         
-                        input.seek(index47_22);
-                        if ( s>=0 ) return s;
-                        break;
-                    case 43 : 
-                        int LA47_56 = input.LA(1);
-
-                         
-                        int index47_56 = input.index();
-                        input.rewind();
-                        s = -1;
-                        if ( (synpred153_InternalLilyPond()) ) {s = 80;}
-
-                        else if ( (true) ) {s = 1;}
-
-                         
-                        input.seek(index47_56);
-                        if ( s>=0 ) return s;
-                        break;
-                    case 44 : 
-                        int LA47_35 = input.LA(1);
-
-                         
-                        int index47_35 = input.index();
-                        input.rewind();
-                        s = -1;
-                        if ( (synpred153_InternalLilyPond()) ) {s = 80;}
-
-                        else if ( (true) ) {s = 1;}
-
-                         
-                        input.seek(index47_35);
-                        if ( s>=0 ) return s;
-                        break;
-                    case 45 : 
-                        int LA47_47 = input.LA(1);
-
-                         
-                        int index47_47 = input.index();
-                        input.rewind();
-                        s = -1;
-                        if ( (synpred153_InternalLilyPond()) ) {s = 80;}
-
-                        else if ( (true) ) {s = 1;}
-
-                         
-                        input.seek(index47_47);
-                        if ( s>=0 ) return s;
-                        break;
-                    case 46 : 
-                        int LA47_67 = input.LA(1);
-
-                         
-                        int index47_67 = input.index();
-                        input.rewind();
-                        s = -1;
-                        if ( (synpred153_InternalLilyPond()) ) {s = 80;}
-
-                        else if ( (true) ) {s = 1;}
-
-                         
-                        input.seek(index47_67);
-                        if ( s>=0 ) return s;
-                        break;
-                    case 47 : 
-                        int LA47_27 = input.LA(1);
-
-                         
-                        int index47_27 = input.index();
-                        input.rewind();
-                        s = -1;
-                        if ( (synpred153_InternalLilyPond()) ) {s = 80;}
-
-                        else if ( (true) ) {s = 1;}
-
-                         
-                        input.seek(index47_27);
-                        if ( s>=0 ) return s;
-                        break;
-                    case 48 : 
-                        int LA47_17 = input.LA(1);
-
-                         
-                        int index47_17 = input.index();
-                        input.rewind();
-                        s = -1;
-                        if ( (synpred153_InternalLilyPond()) ) {s = 80;}
-
-                        else if ( (true) ) {s = 1;}
-
-                         
-                        input.seek(index47_17);
-                        if ( s>=0 ) return s;
-                        break;
-                    case 49 : 
-                        int LA47_43 = input.LA(1);
-
-                         
-                        int index47_43 = input.index();
-                        input.rewind();
-                        s = -1;
-                        if ( (synpred153_InternalLilyPond()) ) {s = 80;}
-
-                        else if ( (true) ) {s = 1;}
-
-                         
-                        input.seek(index47_43);
-                        if ( s>=0 ) return s;
-                        break;
-                    case 50 : 
-                        int LA47_72 = input.LA(1);
-
-                         
-                        int index47_72 = input.index();
-                        input.rewind();
-                        s = -1;
-                        if ( (synpred153_InternalLilyPond()) ) {s = 80;}
-
-                        else if ( (true) ) {s = 1;}
-
-                         
-                        input.seek(index47_72);
-                        if ( s>=0 ) return s;
-                        break;
-                    case 51 : 
-                        int LA47_59 = input.LA(1);
-
-                         
-                        int index47_59 = input.index();
-                        input.rewind();
-                        s = -1;
-                        if ( (synpred153_InternalLilyPond()) ) {s = 80;}
-
-                        else if ( (true) ) {s = 1;}
-
-                         
-                        input.seek(index47_59);
-                        if ( s>=0 ) return s;
-                        break;
-                    case 52 : 
-                        int LA47_5 = input.LA(1);
-
-                         
-                        int index47_5 = input.index();
-                        input.rewind();
-                        s = -1;
-                        if ( (synpred153_InternalLilyPond()) ) {s = 80;}
-
-                        else if ( (true) ) {s = 1;}
-
-                         
-                        input.seek(index47_5);
-                        if ( s>=0 ) return s;
-                        break;
-                    case 53 : 
-                        int LA47_62 = input.LA(1);
-
-                         
-                        int index47_62 = input.index();
-                        input.rewind();
-                        s = -1;
-                        if ( (synpred153_InternalLilyPond()) ) {s = 80;}
-
-                        else if ( (true) ) {s = 1;}
-
-                         
-                        input.seek(index47_62);
-                        if ( s>=0 ) return s;
-                        break;
-                    case 54 : 
-                        int LA47_24 = input.LA(1);
-
-                         
-                        int index47_24 = input.index();
-                        input.rewind();
-                        s = -1;
-                        if ( (synpred153_InternalLilyPond()) ) {s = 80;}
-
-                        else if ( (true) ) {s = 1;}
-
-                         
-                        input.seek(index47_24);
-                        if ( s>=0 ) return s;
-                        break;
-                    case 55 : 
-                        int LA47_20 = input.LA(1);
-
-                         
-                        int index47_20 = input.index();
-                        input.rewind();
-                        s = -1;
-                        if ( (synpred153_InternalLilyPond()) ) {s = 80;}
-
-                        else if ( (true) ) {s = 1;}
-
-                         
-                        input.seek(index47_20);
-                        if ( s>=0 ) return s;
-                        break;
-                    case 56 : 
-                        int LA47_75 = input.LA(1);
-
-                         
-                        int index47_75 = input.index();
-                        input.rewind();
-                        s = -1;
-                        if ( (synpred153_InternalLilyPond()) ) {s = 80;}
-
-                        else if ( (true) ) {s = 1;}
-
-                         
-                        input.seek(index47_75);
-                        if ( s>=0 ) return s;
-                        break;
-                    case 57 : 
-                        int LA47_70 = input.LA(1);
-
-                         
-                        int index47_70 = input.index();
-                        input.rewind();
-                        s = -1;
-                        if ( (synpred153_InternalLilyPond()) ) {s = 80;}
-
-                        else if ( (true) ) {s = 1;}
-
-                         
-                        input.seek(index47_70);
-                        if ( s>=0 ) return s;
-                        break;
-                    case 58 : 
-                        int LA47_9 = input.LA(1);
-
-                         
-                        int index47_9 = input.index();
-                        input.rewind();
-                        s = -1;
-                        if ( (synpred153_InternalLilyPond()) ) {s = 80;}
-
-                        else if ( (true) ) {s = 1;}
-
-                         
-                        input.seek(index47_9);
-                        if ( s>=0 ) return s;
-                        break;
-                    case 59 : 
-                        int LA47_12 = input.LA(1);
-
-                         
-                        int index47_12 = input.index();
-                        input.rewind();
-                        s = -1;
-                        if ( (synpred153_InternalLilyPond()) ) {s = 80;}
-
-                        else if ( (true) ) {s = 1;}
-
-                         
-                        input.seek(index47_12);
-                        if ( s>=0 ) return s;
-                        break;
-                    case 60 : 
-                        int LA47_40 = input.LA(1);
-
-                         
-                        int index47_40 = input.index();
-                        input.rewind();
-                        s = -1;
-                        if ( (synpred153_InternalLilyPond()) ) {s = 80;}
-
-                        else if ( (true) ) {s = 1;}
-
-                         
-                        input.seek(index47_40);
-                        if ( s>=0 ) return s;
-                        break;
-                    case 61 : 
-                        int LA47_50 = input.LA(1);
-
-                         
-                        int index47_50 = input.index();
-                        input.rewind();
-                        s = -1;
-                        if ( (synpred153_InternalLilyPond()) ) {s = 80;}
-
-                        else if ( (true) ) {s = 1;}
-
-                         
-                        input.seek(index47_50);
-                        if ( s>=0 ) return s;
-                        break;
-                    case 62 : 
-                        int LA47_65 = input.LA(1);
-
-                         
-                        int index47_65 = input.index();
-                        input.rewind();
-                        s = -1;
-                        if ( (synpred153_InternalLilyPond()) ) {s = 80;}
-
-                        else if ( (true) ) {s = 1;}
-
-                         
-                        input.seek(index47_65);
-                        if ( s>=0 ) return s;
-                        break;
-                    case 63 : 
-                        int LA47_26 = input.LA(1);
-
-                         
-                        int index47_26 = input.index();
-                        input.rewind();
-                        s = -1;
-                        if ( (synpred153_InternalLilyPond()) ) {s = 80;}
-
-                        else if ( (true) ) {s = 1;}
-
-                         
-                        input.seek(index47_26);
-                        if ( s>=0 ) return s;
-                        break;
-                    case 64 : 
-                        int LA47_10 = input.LA(1);
-
-                         
-                        int index47_10 = input.index();
-                        input.rewind();
-                        s = -1;
-                        if ( (synpred153_InternalLilyPond()) ) {s = 80;}
-
-                        else if ( (true) ) {s = 1;}
-
-                         
-                        input.seek(index47_10);
-                        if ( s>=0 ) return s;
-                        break;
-                    case 65 : 
-                        int LA47_16 = input.LA(1);
-
-                         
-                        int index47_16 = input.index();
-                        input.rewind();
-                        s = -1;
-                        if ( (synpred153_InternalLilyPond()) ) {s = 80;}
-
-                        else if ( (true) ) {s = 1;}
-
-                         
-                        input.seek(index47_16);
-                        if ( s>=0 ) return s;
-                        break;
-                    case 66 : 
-                        int LA47_23 = input.LA(1);
-
-                         
-                        int index47_23 = input.index();
-                        input.rewind();
-                        s = -1;
-                        if ( (synpred153_InternalLilyPond()) ) {s = 80;}
-
-                        else if ( (true) ) {s = 1;}
-
-                         
-                        input.seek(index47_23);
-                        if ( s>=0 ) return s;
-                        break;
-                    case 67 : 
-                        int LA47_29 = input.LA(1);
-
-                         
-                        int index47_29 = input.index();
-                        input.rewind();
-                        s = -1;
-                        if ( (synpred153_InternalLilyPond()) ) {s = 80;}
-
-                        else if ( (true) ) {s = 1;}
-
-                         
-                        input.seek(index47_29);
-                        if ( s>=0 ) return s;
-                        break;
-                    case 68 : 
-                        int LA47_53 = input.LA(1);
-
-                         
-                        int index47_53 = input.index();
-                        input.rewind();
-                        s = -1;
-                        if ( (synpred153_InternalLilyPond()) ) {s = 80;}
-
-                        else if ( (true) ) {s = 1;}
-
-                         
-                        input.seek(index47_53);
-                        if ( s>=0 ) return s;
-                        break;
-                    case 69 : 
-                        int LA47_38 = input.LA(1);
-
-                         
-                        int index47_38 = input.index();
-                        input.rewind();
-                        s = -1;
-                        if ( (synpred153_InternalLilyPond()) ) {s = 80;}
-
-                        else if ( (true) ) {s = 1;}
-
-                         
-                        input.seek(index47_38);
-                        if ( s>=0 ) return s;
-                        break;
-                    case 70 : 
-                        int LA47_68 = input.LA(1);
-
-                         
-                        int index47_68 = input.index();
-                        input.rewind();
-                        s = -1;
-                        if ( (synpred153_InternalLilyPond()) ) {s = 80;}
-
-                        else if ( (true) ) {s = 1;}
-
-                         
-                        input.seek(index47_68);
-                        if ( s>=0 ) return s;
-                        break;
-                    case 71 : 
-                        int LA47_21 = input.LA(1);
-
-                         
-                        int index47_21 = input.index();
-                        input.rewind();
-                        s = -1;
-                        if ( (synpred153_InternalLilyPond()) ) {s = 80;}
-
-                        else if ( (true) ) {s = 1;}
-
-                         
-                        input.seek(index47_21);
-                        if ( s>=0 ) return s;
-                        break;
-                    case 72 : 
-                        int LA47_64 = input.LA(1);
-
-                         
-                        int index47_64 = input.index();
-                        input.rewind();
-                        s = -1;
-                        if ( (synpred153_InternalLilyPond()) ) {s = 80;}
-
-                        else if ( (true) ) {s = 1;}
-
-                         
-                        input.seek(index47_64);
-                        if ( s>=0 ) return s;
-                        break;
-                    case 73 : 
                         int LA47_32 = input.LA(1);
 
                          
@@ -18544,7 +17449,637 @@ public class InternalLilyPondParser extends AbstractInternalAntlrParser {
                         input.seek(index47_32);
                         if ( s>=0 ) return s;
                         break;
-                    case 74 : 
+                    case 1 : 
+                        int LA47_40 = input.LA(1);
+
+                         
+                        int index47_40 = input.index();
+                        input.rewind();
+                        s = -1;
+                        if ( (synpred153_InternalLilyPond()) ) {s = 80;}
+
+                        else if ( (true) ) {s = 1;}
+
+                         
+                        input.seek(index47_40);
+                        if ( s>=0 ) return s;
+                        break;
+                    case 2 : 
+                        int LA47_67 = input.LA(1);
+
+                         
+                        int index47_67 = input.index();
+                        input.rewind();
+                        s = -1;
+                        if ( (synpred153_InternalLilyPond()) ) {s = 80;}
+
+                        else if ( (true) ) {s = 1;}
+
+                         
+                        input.seek(index47_67);
+                        if ( s>=0 ) return s;
+                        break;
+                    case 3 : 
+                        int LA47_20 = input.LA(1);
+
+                         
+                        int index47_20 = input.index();
+                        input.rewind();
+                        s = -1;
+                        if ( (synpred153_InternalLilyPond()) ) {s = 80;}
+
+                        else if ( (true) ) {s = 1;}
+
+                         
+                        input.seek(index47_20);
+                        if ( s>=0 ) return s;
+                        break;
+                    case 4 : 
+                        int LA47_75 = input.LA(1);
+
+                         
+                        int index47_75 = input.index();
+                        input.rewind();
+                        s = -1;
+                        if ( (synpred153_InternalLilyPond()) ) {s = 80;}
+
+                        else if ( (true) ) {s = 1;}
+
+                         
+                        input.seek(index47_75);
+                        if ( s>=0 ) return s;
+                        break;
+                    case 5 : 
+                        int LA47_62 = input.LA(1);
+
+                         
+                        int index47_62 = input.index();
+                        input.rewind();
+                        s = -1;
+                        if ( (synpred153_InternalLilyPond()) ) {s = 80;}
+
+                        else if ( (true) ) {s = 1;}
+
+                         
+                        input.seek(index47_62);
+                        if ( s>=0 ) return s;
+                        break;
+                    case 6 : 
+                        int LA47_59 = input.LA(1);
+
+                         
+                        int index47_59 = input.index();
+                        input.rewind();
+                        s = -1;
+                        if ( (synpred153_InternalLilyPond()) ) {s = 80;}
+
+                        else if ( (true) ) {s = 1;}
+
+                         
+                        input.seek(index47_59);
+                        if ( s>=0 ) return s;
+                        break;
+                    case 7 : 
+                        int LA47_6 = input.LA(1);
+
+                         
+                        int index47_6 = input.index();
+                        input.rewind();
+                        s = -1;
+                        if ( (synpred153_InternalLilyPond()) ) {s = 80;}
+
+                        else if ( (true) ) {s = 1;}
+
+                         
+                        input.seek(index47_6);
+                        if ( s>=0 ) return s;
+                        break;
+                    case 8 : 
+                        int LA47_26 = input.LA(1);
+
+                         
+                        int index47_26 = input.index();
+                        input.rewind();
+                        s = -1;
+                        if ( (synpred153_InternalLilyPond()) ) {s = 80;}
+
+                        else if ( (true) ) {s = 1;}
+
+                         
+                        input.seek(index47_26);
+                        if ( s>=0 ) return s;
+                        break;
+                    case 9 : 
+                        int LA47_53 = input.LA(1);
+
+                         
+                        int index47_53 = input.index();
+                        input.rewind();
+                        s = -1;
+                        if ( (synpred153_InternalLilyPond()) ) {s = 80;}
+
+                        else if ( (true) ) {s = 1;}
+
+                         
+                        input.seek(index47_53);
+                        if ( s>=0 ) return s;
+                        break;
+                    case 10 : 
+                        int LA47_17 = input.LA(1);
+
+                         
+                        int index47_17 = input.index();
+                        input.rewind();
+                        s = -1;
+                        if ( (synpred153_InternalLilyPond()) ) {s = 80;}
+
+                        else if ( (true) ) {s = 1;}
+
+                         
+                        input.seek(index47_17);
+                        if ( s>=0 ) return s;
+                        break;
+                    case 11 : 
+                        int LA47_37 = input.LA(1);
+
+                         
+                        int index47_37 = input.index();
+                        input.rewind();
+                        s = -1;
+                        if ( (synpred153_InternalLilyPond()) ) {s = 80;}
+
+                        else if ( (true) ) {s = 1;}
+
+                         
+                        input.seek(index47_37);
+                        if ( s>=0 ) return s;
+                        break;
+                    case 12 : 
+                        int LA47_72 = input.LA(1);
+
+                         
+                        int index47_72 = input.index();
+                        input.rewind();
+                        s = -1;
+                        if ( (synpred153_InternalLilyPond()) ) {s = 80;}
+
+                        else if ( (true) ) {s = 1;}
+
+                         
+                        input.seek(index47_72);
+                        if ( s>=0 ) return s;
+                        break;
+                    case 13 : 
+                        int LA47_64 = input.LA(1);
+
+                         
+                        int index47_64 = input.index();
+                        input.rewind();
+                        s = -1;
+                        if ( (synpred153_InternalLilyPond()) ) {s = 80;}
+
+                        else if ( (true) ) {s = 1;}
+
+                         
+                        input.seek(index47_64);
+                        if ( s>=0 ) return s;
+                        break;
+                    case 14 : 
+                        int LA47_29 = input.LA(1);
+
+                         
+                        int index47_29 = input.index();
+                        input.rewind();
+                        s = -1;
+                        if ( (synpred153_InternalLilyPond()) ) {s = 80;}
+
+                        else if ( (true) ) {s = 1;}
+
+                         
+                        input.seek(index47_29);
+                        if ( s>=0 ) return s;
+                        break;
+                    case 15 : 
+                        int LA47_56 = input.LA(1);
+
+                         
+                        int index47_56 = input.index();
+                        input.rewind();
+                        s = -1;
+                        if ( (synpred153_InternalLilyPond()) ) {s = 80;}
+
+                        else if ( (true) ) {s = 1;}
+
+                         
+                        input.seek(index47_56);
+                        if ( s>=0 ) return s;
+                        break;
+                    case 16 : 
+                        int LA47_43 = input.LA(1);
+
+                         
+                        int index47_43 = input.index();
+                        input.rewind();
+                        s = -1;
+                        if ( (synpred153_InternalLilyPond()) ) {s = 80;}
+
+                        else if ( (true) ) {s = 1;}
+
+                         
+                        input.seek(index47_43);
+                        if ( s>=0 ) return s;
+                        break;
+                    case 17 : 
+                        int LA47_50 = input.LA(1);
+
+                         
+                        int index47_50 = input.index();
+                        input.rewind();
+                        s = -1;
+                        if ( (synpred153_InternalLilyPond()) ) {s = 80;}
+
+                        else if ( (true) ) {s = 1;}
+
+                         
+                        input.seek(index47_50);
+                        if ( s>=0 ) return s;
+                        break;
+                    case 18 : 
+                        int LA47_55 = input.LA(1);
+
+                         
+                        int index47_55 = input.index();
+                        input.rewind();
+                        s = -1;
+                        if ( (synpred153_InternalLilyPond()) ) {s = 80;}
+
+                        else if ( (true) ) {s = 1;}
+
+                         
+                        input.seek(index47_55);
+                        if ( s>=0 ) return s;
+                        break;
+                    case 19 : 
+                        int LA47_8 = input.LA(1);
+
+                         
+                        int index47_8 = input.index();
+                        input.rewind();
+                        s = -1;
+                        if ( (synpred153_InternalLilyPond()) ) {s = 80;}
+
+                        else if ( (true) ) {s = 1;}
+
+                         
+                        input.seek(index47_8);
+                        if ( s>=0 ) return s;
+                        break;
+                    case 20 : 
+                        int LA47_34 = input.LA(1);
+
+                         
+                        int index47_34 = input.index();
+                        input.rewind();
+                        s = -1;
+                        if ( (synpred153_InternalLilyPond()) ) {s = 80;}
+
+                        else if ( (true) ) {s = 1;}
+
+                         
+                        input.seek(index47_34);
+                        if ( s>=0 ) return s;
+                        break;
+                    case 21 : 
+                        int LA47_71 = input.LA(1);
+
+                         
+                        int index47_71 = input.index();
+                        input.rewind();
+                        s = -1;
+                        if ( (synpred153_InternalLilyPond()) ) {s = 80;}
+
+                        else if ( (true) ) {s = 1;}
+
+                         
+                        input.seek(index47_71);
+                        if ( s>=0 ) return s;
+                        break;
+                    case 22 : 
+                        int LA47_58 = input.LA(1);
+
+                         
+                        int index47_58 = input.index();
+                        input.rewind();
+                        s = -1;
+                        if ( (synpred153_InternalLilyPond()) ) {s = 80;}
+
+                        else if ( (true) ) {s = 1;}
+
+                         
+                        input.seek(index47_58);
+                        if ( s>=0 ) return s;
+                        break;
+                    case 23 : 
+                        int LA47_14 = input.LA(1);
+
+                         
+                        int index47_14 = input.index();
+                        input.rewind();
+                        s = -1;
+                        if ( (synpred153_InternalLilyPond()) ) {s = 80;}
+
+                        else if ( (true) ) {s = 1;}
+
+                         
+                        input.seek(index47_14);
+                        if ( s>=0 ) return s;
+                        break;
+                    case 24 : 
+                        int LA47_12 = input.LA(1);
+
+                         
+                        int index47_12 = input.index();
+                        input.rewind();
+                        s = -1;
+                        if ( (synpred153_InternalLilyPond()) ) {s = 80;}
+
+                        else if ( (true) ) {s = 1;}
+
+                         
+                        input.seek(index47_12);
+                        if ( s>=0 ) return s;
+                        break;
+                    case 25 : 
+                        int LA47_45 = input.LA(1);
+
+                         
+                        int index47_45 = input.index();
+                        input.rewind();
+                        s = -1;
+                        if ( (synpred153_InternalLilyPond()) ) {s = 80;}
+
+                        else if ( (true) ) {s = 1;}
+
+                         
+                        input.seek(index47_45);
+                        if ( s>=0 ) return s;
+                        break;
+                    case 26 : 
+                        int LA47_61 = input.LA(1);
+
+                         
+                        int index47_61 = input.index();
+                        input.rewind();
+                        s = -1;
+                        if ( (synpred153_InternalLilyPond()) ) {s = 80;}
+
+                        else if ( (true) ) {s = 1;}
+
+                         
+                        input.seek(index47_61);
+                        if ( s>=0 ) return s;
+                        break;
+                    case 27 : 
+                        int LA47_10 = input.LA(1);
+
+                         
+                        int index47_10 = input.index();
+                        input.rewind();
+                        s = -1;
+                        if ( (synpred153_InternalLilyPond()) ) {s = 80;}
+
+                        else if ( (true) ) {s = 1;}
+
+                         
+                        input.seek(index47_10);
+                        if ( s>=0 ) return s;
+                        break;
+                    case 28 : 
+                        int LA47_39 = input.LA(1);
+
+                         
+                        int index47_39 = input.index();
+                        input.rewind();
+                        s = -1;
+                        if ( (synpred153_InternalLilyPond()) ) {s = 80;}
+
+                        else if ( (true) ) {s = 1;}
+
+                         
+                        input.seek(index47_39);
+                        if ( s>=0 ) return s;
+                        break;
+                    case 29 : 
+                        int LA47_52 = input.LA(1);
+
+                         
+                        int index47_52 = input.index();
+                        input.rewind();
+                        s = -1;
+                        if ( (synpred153_InternalLilyPond()) ) {s = 80;}
+
+                        else if ( (true) ) {s = 1;}
+
+                         
+                        input.seek(index47_52);
+                        if ( s>=0 ) return s;
+                        break;
+                    case 30 : 
+                        int LA47_15 = input.LA(1);
+
+                         
+                        int index47_15 = input.index();
+                        input.rewind();
+                        s = -1;
+                        if ( (synpred153_InternalLilyPond()) ) {s = 80;}
+
+                        else if ( (true) ) {s = 1;}
+
+                         
+                        input.seek(index47_15);
+                        if ( s>=0 ) return s;
+                        break;
+                    case 31 : 
+                        int LA47_35 = input.LA(1);
+
+                         
+                        int index47_35 = input.index();
+                        input.rewind();
+                        s = -1;
+                        if ( (synpred153_InternalLilyPond()) ) {s = 80;}
+
+                        else if ( (true) ) {s = 1;}
+
+                         
+                        input.seek(index47_35);
+                        if ( s>=0 ) return s;
+                        break;
+                    case 32 : 
+                        int LA47_38 = input.LA(1);
+
+                         
+                        int index47_38 = input.index();
+                        input.rewind();
+                        s = -1;
+                        if ( (synpred153_InternalLilyPond()) ) {s = 80;}
+
+                        else if ( (true) ) {s = 1;}
+
+                         
+                        input.seek(index47_38);
+                        if ( s>=0 ) return s;
+                        break;
+                    case 33 : 
+                        int LA47_74 = input.LA(1);
+
+                         
+                        int index47_74 = input.index();
+                        input.rewind();
+                        s = -1;
+                        if ( (synpred153_InternalLilyPond()) ) {s = 80;}
+
+                        else if ( (true) ) {s = 1;}
+
+                         
+                        input.seek(index47_74);
+                        if ( s>=0 ) return s;
+                        break;
+                    case 34 : 
+                        int LA47_5 = input.LA(1);
+
+                         
+                        int index47_5 = input.index();
+                        input.rewind();
+                        s = -1;
+                        if ( (synpred153_InternalLilyPond()) ) {s = 80;}
+
+                        else if ( (true) ) {s = 1;}
+
+                         
+                        input.seek(index47_5);
+                        if ( s>=0 ) return s;
+                        break;
+                    case 35 : 
+                        int LA47_42 = input.LA(1);
+
+                         
+                        int index47_42 = input.index();
+                        input.rewind();
+                        s = -1;
+                        if ( (synpred153_InternalLilyPond()) ) {s = 80;}
+
+                        else if ( (true) ) {s = 1;}
+
+                         
+                        input.seek(index47_42);
+                        if ( s>=0 ) return s;
+                        break;
+                    case 36 : 
+                        int LA47_65 = input.LA(1);
+
+                         
+                        int index47_65 = input.index();
+                        input.rewind();
+                        s = -1;
+                        if ( (synpred153_InternalLilyPond()) ) {s = 80;}
+
+                        else if ( (true) ) {s = 1;}
+
+                         
+                        input.seek(index47_65);
+                        if ( s>=0 ) return s;
+                        break;
+                    case 37 : 
+                        int LA47_23 = input.LA(1);
+
+                         
+                        int index47_23 = input.index();
+                        input.rewind();
+                        s = -1;
+                        if ( (synpred153_InternalLilyPond()) ) {s = 80;}
+
+                        else if ( (true) ) {s = 1;}
+
+                         
+                        input.seek(index47_23);
+                        if ( s>=0 ) return s;
+                        break;
+                    case 38 : 
+                        int LA47_47 = input.LA(1);
+
+                         
+                        int index47_47 = input.index();
+                        input.rewind();
+                        s = -1;
+                        if ( (synpred153_InternalLilyPond()) ) {s = 80;}
+
+                        else if ( (true) ) {s = 1;}
+
+                         
+                        input.seek(index47_47);
+                        if ( s>=0 ) return s;
+                        break;
+                    case 39 : 
+                        int LA47_60 = input.LA(1);
+
+                         
+                        int index47_60 = input.index();
+                        input.rewind();
+                        s = -1;
+                        if ( (synpred153_InternalLilyPond()) ) {s = 80;}
+
+                        else if ( (true) ) {s = 1;}
+
+                         
+                        input.seek(index47_60);
+                        if ( s>=0 ) return s;
+                        break;
+                    case 40 : 
+                        int LA47_28 = input.LA(1);
+
+                         
+                        int index47_28 = input.index();
+                        input.rewind();
+                        s = -1;
+                        if ( (synpred153_InternalLilyPond()) ) {s = 80;}
+
+                        else if ( (true) ) {s = 1;}
+
+                         
+                        input.seek(index47_28);
+                        if ( s>=0 ) return s;
+                        break;
+                    case 41 : 
+                        int LA47_25 = input.LA(1);
+
+                         
+                        int index47_25 = input.index();
+                        input.rewind();
+                        s = -1;
+                        if ( (synpred153_InternalLilyPond()) ) {s = 80;}
+
+                        else if ( (true) ) {s = 1;}
+
+                         
+                        input.seek(index47_25);
+                        if ( s>=0 ) return s;
+                        break;
+                    case 42 : 
+                        int LA47_44 = input.LA(1);
+
+                         
+                        int index47_44 = input.index();
+                        input.rewind();
+                        s = -1;
+                        if ( (synpred153_InternalLilyPond()) ) {s = 80;}
+
+                        else if ( (true) ) {s = 1;}
+
+                         
+                        input.seek(index47_44);
+                        if ( s>=0 ) return s;
+                        break;
+                    case 43 : 
                         int LA47_18 = input.LA(1);
 
                          
@@ -18559,11 +18094,11 @@ public class InternalLilyPondParser extends AbstractInternalAntlrParser {
                         input.seek(index47_18);
                         if ( s>=0 ) return s;
                         break;
-                    case 75 : 
-                        int LA47_14 = input.LA(1);
+                    case 44 : 
+                        int LA47_48 = input.LA(1);
 
                          
-                        int index47_14 = input.index();
+                        int index47_48 = input.index();
                         input.rewind();
                         s = -1;
                         if ( (synpred153_InternalLilyPond()) ) {s = 80;}
@@ -18571,7 +18106,472 @@ public class InternalLilyPondParser extends AbstractInternalAntlrParser {
                         else if ( (true) ) {s = 1;}
 
                          
-                        input.seek(index47_14);
+                        input.seek(index47_48);
+                        if ( s>=0 ) return s;
+                        break;
+                    case 45 : 
+                        int LA47_36 = input.LA(1);
+
+                         
+                        int index47_36 = input.index();
+                        input.rewind();
+                        s = -1;
+                        if ( (synpred153_InternalLilyPond()) ) {s = 80;}
+
+                        else if ( (true) ) {s = 1;}
+
+                         
+                        input.seek(index47_36);
+                        if ( s>=0 ) return s;
+                        break;
+                    case 46 : 
+                        int LA47_31 = input.LA(1);
+
+                         
+                        int index47_31 = input.index();
+                        input.rewind();
+                        s = -1;
+                        if ( (synpred153_InternalLilyPond()) ) {s = 80;}
+
+                        else if ( (true) ) {s = 1;}
+
+                         
+                        input.seek(index47_31);
+                        if ( s>=0 ) return s;
+                        break;
+                    case 47 : 
+                        int LA47_22 = input.LA(1);
+
+                         
+                        int index47_22 = input.index();
+                        input.rewind();
+                        s = -1;
+                        if ( (synpred153_InternalLilyPond()) ) {s = 80;}
+
+                        else if ( (true) ) {s = 1;}
+
+                         
+                        input.seek(index47_22);
+                        if ( s>=0 ) return s;
+                        break;
+                    case 48 : 
+                        int LA47_63 = input.LA(1);
+
+                         
+                        int index47_63 = input.index();
+                        input.rewind();
+                        s = -1;
+                        if ( (synpred153_InternalLilyPond()) ) {s = 80;}
+
+                        else if ( (true) ) {s = 1;}
+
+                         
+                        input.seek(index47_63);
+                        if ( s>=0 ) return s;
+                        break;
+                    case 49 : 
+                        int LA47_51 = input.LA(1);
+
+                         
+                        int index47_51 = input.index();
+                        input.rewind();
+                        s = -1;
+                        if ( (synpred153_InternalLilyPond()) ) {s = 80;}
+
+                        else if ( (true) ) {s = 1;}
+
+                         
+                        input.seek(index47_51);
+                        if ( s>=0 ) return s;
+                        break;
+                    case 50 : 
+                        int LA47_68 = input.LA(1);
+
+                         
+                        int index47_68 = input.index();
+                        input.rewind();
+                        s = -1;
+                        if ( (synpred153_InternalLilyPond()) ) {s = 80;}
+
+                        else if ( (true) ) {s = 1;}
+
+                         
+                        input.seek(index47_68);
+                        if ( s>=0 ) return s;
+                        break;
+                    case 51 : 
+                        int LA47_21 = input.LA(1);
+
+                         
+                        int index47_21 = input.index();
+                        input.rewind();
+                        s = -1;
+                        if ( (synpred153_InternalLilyPond()) ) {s = 80;}
+
+                        else if ( (true) ) {s = 1;}
+
+                         
+                        input.seek(index47_21);
+                        if ( s>=0 ) return s;
+                        break;
+                    case 52 : 
+                        int LA47_54 = input.LA(1);
+
+                         
+                        int index47_54 = input.index();
+                        input.rewind();
+                        s = -1;
+                        if ( (synpred153_InternalLilyPond()) ) {s = 80;}
+
+                        else if ( (true) ) {s = 1;}
+
+                         
+                        input.seek(index47_54);
+                        if ( s>=0 ) return s;
+                        break;
+                    case 53 : 
+                        int LA47_76 = input.LA(1);
+
+                         
+                        int index47_76 = input.index();
+                        input.rewind();
+                        s = -1;
+                        if ( (synpred153_InternalLilyPond()) ) {s = 80;}
+
+                        else if ( (true) ) {s = 1;}
+
+                         
+                        input.seek(index47_76);
+                        if ( s>=0 ) return s;
+                        break;
+                    case 54 : 
+                        int LA47_30 = input.LA(1);
+
+                         
+                        int index47_30 = input.index();
+                        input.rewind();
+                        s = -1;
+                        if ( (synpred153_InternalLilyPond()) ) {s = 80;}
+
+                        else if ( (true) ) {s = 1;}
+
+                         
+                        input.seek(index47_30);
+                        if ( s>=0 ) return s;
+                        break;
+                    case 55 : 
+                        int LA47_4 = input.LA(1);
+
+                         
+                        int index47_4 = input.index();
+                        input.rewind();
+                        s = -1;
+                        if ( (synpred153_InternalLilyPond()) ) {s = 80;}
+
+                        else if ( (true) ) {s = 1;}
+
+                         
+                        input.seek(index47_4);
+                        if ( s>=0 ) return s;
+                        break;
+                    case 56 : 
+                        int LA47_24 = input.LA(1);
+
+                         
+                        int index47_24 = input.index();
+                        input.rewind();
+                        s = -1;
+                        if ( (synpred153_InternalLilyPond()) ) {s = 80;}
+
+                        else if ( (true) ) {s = 1;}
+
+                         
+                        input.seek(index47_24);
+                        if ( s>=0 ) return s;
+                        break;
+                    case 57 : 
+                        int LA47_73 = input.LA(1);
+
+                         
+                        int index47_73 = input.index();
+                        input.rewind();
+                        s = -1;
+                        if ( (synpred153_InternalLilyPond()) ) {s = 80;}
+
+                        else if ( (true) ) {s = 1;}
+
+                         
+                        input.seek(index47_73);
+                        if ( s>=0 ) return s;
+                        break;
+                    case 58 : 
+                        int LA47_16 = input.LA(1);
+
+                         
+                        int index47_16 = input.index();
+                        input.rewind();
+                        s = -1;
+                        if ( (synpred153_InternalLilyPond()) ) {s = 80;}
+
+                        else if ( (true) ) {s = 1;}
+
+                         
+                        input.seek(index47_16);
+                        if ( s>=0 ) return s;
+                        break;
+                    case 59 : 
+                        int LA47_41 = input.LA(1);
+
+                         
+                        int index47_41 = input.index();
+                        input.rewind();
+                        s = -1;
+                        if ( (synpred153_InternalLilyPond()) ) {s = 80;}
+
+                        else if ( (true) ) {s = 1;}
+
+                         
+                        input.seek(index47_41);
+                        if ( s>=0 ) return s;
+                        break;
+                    case 60 : 
+                        int LA47_78 = input.LA(1);
+
+                         
+                        int index47_78 = input.index();
+                        input.rewind();
+                        s = -1;
+                        if ( (synpred153_InternalLilyPond()) ) {s = 80;}
+
+                        else if ( (true) ) {s = 1;}
+
+                         
+                        input.seek(index47_78);
+                        if ( s>=0 ) return s;
+                        break;
+                    case 61 : 
+                        int LA47_66 = input.LA(1);
+
+                         
+                        int index47_66 = input.index();
+                        input.rewind();
+                        s = -1;
+                        if ( (synpred153_InternalLilyPond()) ) {s = 80;}
+
+                        else if ( (true) ) {s = 1;}
+
+                         
+                        input.seek(index47_66);
+                        if ( s>=0 ) return s;
+                        break;
+                    case 62 : 
+                        int LA47_9 = input.LA(1);
+
+                         
+                        int index47_9 = input.index();
+                        input.rewind();
+                        s = -1;
+                        if ( (synpred153_InternalLilyPond()) ) {s = 80;}
+
+                        else if ( (true) ) {s = 1;}
+
+                         
+                        input.seek(index47_9);
+                        if ( s>=0 ) return s;
+                        break;
+                    case 63 : 
+                        int LA47_46 = input.LA(1);
+
+                         
+                        int index47_46 = input.index();
+                        input.rewind();
+                        s = -1;
+                        if ( (synpred153_InternalLilyPond()) ) {s = 80;}
+
+                        else if ( (true) ) {s = 1;}
+
+                         
+                        input.seek(index47_46);
+                        if ( s>=0 ) return s;
+                        break;
+                    case 64 : 
+                        int LA47_79 = input.LA(1);
+
+                         
+                        int index47_79 = input.index();
+                        input.rewind();
+                        s = -1;
+                        if ( (synpred153_InternalLilyPond()) ) {s = 80;}
+
+                        else if ( (true) ) {s = 1;}
+
+                         
+                        input.seek(index47_79);
+                        if ( s>=0 ) return s;
+                        break;
+                    case 65 : 
+                        int LA47_27 = input.LA(1);
+
+                         
+                        int index47_27 = input.index();
+                        input.rewind();
+                        s = -1;
+                        if ( (synpred153_InternalLilyPond()) ) {s = 80;}
+
+                        else if ( (true) ) {s = 1;}
+
+                         
+                        input.seek(index47_27);
+                        if ( s>=0 ) return s;
+                        break;
+                    case 66 : 
+                        int LA47_77 = input.LA(1);
+
+                         
+                        int index47_77 = input.index();
+                        input.rewind();
+                        s = -1;
+                        if ( (synpred153_InternalLilyPond()) ) {s = 80;}
+
+                        else if ( (true) ) {s = 1;}
+
+                         
+                        input.seek(index47_77);
+                        if ( s>=0 ) return s;
+                        break;
+                    case 67 : 
+                        int LA47_57 = input.LA(1);
+
+                         
+                        int index47_57 = input.index();
+                        input.rewind();
+                        s = -1;
+                        if ( (synpred153_InternalLilyPond()) ) {s = 80;}
+
+                        else if ( (true) ) {s = 1;}
+
+                         
+                        input.seek(index47_57);
+                        if ( s>=0 ) return s;
+                        break;
+                    case 68 : 
+                        int LA47_7 = input.LA(1);
+
+                         
+                        int index47_7 = input.index();
+                        input.rewind();
+                        s = -1;
+                        if ( (synpred153_InternalLilyPond()) ) {s = 80;}
+
+                        else if ( (true) ) {s = 1;}
+
+                         
+                        input.seek(index47_7);
+                        if ( s>=0 ) return s;
+                        break;
+                    case 69 : 
+                        int LA47_11 = input.LA(1);
+
+                         
+                        int index47_11 = input.index();
+                        input.rewind();
+                        s = -1;
+                        if ( (synpred153_InternalLilyPond()) ) {s = 80;}
+
+                        else if ( (true) ) {s = 1;}
+
+                         
+                        input.seek(index47_11);
+                        if ( s>=0 ) return s;
+                        break;
+                    case 70 : 
+                        int LA47_33 = input.LA(1);
+
+                         
+                        int index47_33 = input.index();
+                        input.rewind();
+                        s = -1;
+                        if ( (synpred153_InternalLilyPond()) ) {s = 80;}
+
+                        else if ( (true) ) {s = 1;}
+
+                         
+                        input.seek(index47_33);
+                        if ( s>=0 ) return s;
+                        break;
+                    case 71 : 
+                        int LA47_49 = input.LA(1);
+
+                         
+                        int index47_49 = input.index();
+                        input.rewind();
+                        s = -1;
+                        if ( (synpred153_InternalLilyPond()) ) {s = 80;}
+
+                        else if ( (true) ) {s = 1;}
+
+                         
+                        input.seek(index47_49);
+                        if ( s>=0 ) return s;
+                        break;
+                    case 72 : 
+                        int LA47_69 = input.LA(1);
+
+                         
+                        int index47_69 = input.index();
+                        input.rewind();
+                        s = -1;
+                        if ( (synpred153_InternalLilyPond()) ) {s = 80;}
+
+                        else if ( (true) ) {s = 1;}
+
+                         
+                        input.seek(index47_69);
+                        if ( s>=0 ) return s;
+                        break;
+                    case 73 : 
+                        int LA47_13 = input.LA(1);
+
+                         
+                        int index47_13 = input.index();
+                        input.rewind();
+                        s = -1;
+                        if ( (synpred153_InternalLilyPond()) ) {s = 80;}
+
+                        else if ( (true) ) {s = 1;}
+
+                         
+                        input.seek(index47_13);
+                        if ( s>=0 ) return s;
+                        break;
+                    case 74 : 
+                        int LA47_70 = input.LA(1);
+
+                         
+                        int index47_70 = input.index();
+                        input.rewind();
+                        s = -1;
+                        if ( (synpred153_InternalLilyPond()) ) {s = 80;}
+
+                        else if ( (true) ) {s = 1;}
+
+                         
+                        input.seek(index47_70);
+                        if ( s>=0 ) return s;
+                        break;
+                    case 75 : 
+                        int LA47_19 = input.LA(1);
+
+                         
+                        int index47_19 = input.index();
+                        input.rewind();
+                        s = -1;
+                        if ( (synpred153_InternalLilyPond()) ) {s = 80;}
+
+                        else if ( (true) ) {s = 1;}
+
+                         
+                        input.seek(index47_19);
                         if ( s>=0 ) return s;
                         break;
             }
@@ -18593,11 +18593,11 @@ public class InternalLilyPondParser extends AbstractInternalAntlrParser {
     static final String DFA49_acceptS =
         "\1\uffff\1\2\77\uffff\1\1";
     static final String DFA49_specialS =
-        "\3\uffff\1\14\1\30\1\21\1\63\1\45\1\25\1\10\1\60\1\54\1\36\1\15"+
-        "\1\46\1\62\1\2\1\35\1\51\1\1\1\64\1\44\1\31\1\17\1\74\1\57\1\12"+
-        "\1\41\1\55\1\72\1\27\1\4\1\61\1\53\1\34\1\71\1\16\1\37\1\40\1\66"+
-        "\1\11\1\13\1\75\1\42\1\24\1\7\1\20\1\32\1\52\1\70\1\0\1\22\1\73"+
-        "\1\47\1\26\1\5\1\56\1\3\1\65\1\50\1\33\1\23\1\43\1\67\1\6\1\uffff}>";
+        "\3\uffff\1\71\1\20\1\62\1\44\1\24\1\10\1\56\1\53\1\36\1\14\1\45"+
+        "\1\61\1\2\1\35\1\50\1\1\1\63\1\43\1\27\1\16\1\74\1\55\1\12\1\34"+
+        "\1\57\1\72\1\26\1\4\1\60\1\52\1\33\1\70\1\15\1\37\1\40\1\65\1\11"+
+        "\1\13\1\75\1\41\1\23\1\7\1\17\1\30\1\51\1\67\1\0\1\21\1\73\1\46"+
+        "\1\25\1\5\1\54\1\3\1\64\1\47\1\32\1\22\1\42\1\66\1\6\1\31\1\uffff}>";
     static final String[] DFA49_transitionS = {
             "\4\1\5\uffff\130\1\1\2\1\1",
             "",
@@ -18709,846 +18709,6 @@ public class InternalLilyPondParser extends AbstractInternalAntlrParser {
         	int _s = s;
             switch ( s ) {
                     case 0 : 
-                        int LA49_50 = input.LA(1);
-
-                         
-                        int index49_50 = input.index();
-                        input.rewind();
-                        s = -1;
-                        if ( (synpred161_InternalLilyPond()) ) {s = 65;}
-
-                        else if ( (true) ) {s = 1;}
-
-                         
-                        input.seek(index49_50);
-                        if ( s>=0 ) return s;
-                        break;
-                    case 1 : 
-                        int LA49_19 = input.LA(1);
-
-                         
-                        int index49_19 = input.index();
-                        input.rewind();
-                        s = -1;
-                        if ( (synpred161_InternalLilyPond()) ) {s = 65;}
-
-                        else if ( (true) ) {s = 1;}
-
-                         
-                        input.seek(index49_19);
-                        if ( s>=0 ) return s;
-                        break;
-                    case 2 : 
-                        int LA49_16 = input.LA(1);
-
-                         
-                        int index49_16 = input.index();
-                        input.rewind();
-                        s = -1;
-                        if ( (synpred161_InternalLilyPond()) ) {s = 65;}
-
-                        else if ( (true) ) {s = 1;}
-
-                         
-                        input.seek(index49_16);
-                        if ( s>=0 ) return s;
-                        break;
-                    case 3 : 
-                        int LA49_57 = input.LA(1);
-
-                         
-                        int index49_57 = input.index();
-                        input.rewind();
-                        s = -1;
-                        if ( (synpred161_InternalLilyPond()) ) {s = 65;}
-
-                        else if ( (true) ) {s = 1;}
-
-                         
-                        input.seek(index49_57);
-                        if ( s>=0 ) return s;
-                        break;
-                    case 4 : 
-                        int LA49_31 = input.LA(1);
-
-                         
-                        int index49_31 = input.index();
-                        input.rewind();
-                        s = -1;
-                        if ( (synpred161_InternalLilyPond()) ) {s = 65;}
-
-                        else if ( (true) ) {s = 1;}
-
-                         
-                        input.seek(index49_31);
-                        if ( s>=0 ) return s;
-                        break;
-                    case 5 : 
-                        int LA49_55 = input.LA(1);
-
-                         
-                        int index49_55 = input.index();
-                        input.rewind();
-                        s = -1;
-                        if ( (synpred161_InternalLilyPond()) ) {s = 65;}
-
-                        else if ( (true) ) {s = 1;}
-
-                         
-                        input.seek(index49_55);
-                        if ( s>=0 ) return s;
-                        break;
-                    case 6 : 
-                        int LA49_64 = input.LA(1);
-
-                         
-                        int index49_64 = input.index();
-                        input.rewind();
-                        s = -1;
-                        if ( (synpred161_InternalLilyPond()) ) {s = 65;}
-
-                        else if ( (true) ) {s = 1;}
-
-                         
-                        input.seek(index49_64);
-                        if ( s>=0 ) return s;
-                        break;
-                    case 7 : 
-                        int LA49_45 = input.LA(1);
-
-                         
-                        int index49_45 = input.index();
-                        input.rewind();
-                        s = -1;
-                        if ( (synpred161_InternalLilyPond()) ) {s = 65;}
-
-                        else if ( (true) ) {s = 1;}
-
-                         
-                        input.seek(index49_45);
-                        if ( s>=0 ) return s;
-                        break;
-                    case 8 : 
-                        int LA49_9 = input.LA(1);
-
-                         
-                        int index49_9 = input.index();
-                        input.rewind();
-                        s = -1;
-                        if ( (synpred161_InternalLilyPond()) ) {s = 65;}
-
-                        else if ( (true) ) {s = 1;}
-
-                         
-                        input.seek(index49_9);
-                        if ( s>=0 ) return s;
-                        break;
-                    case 9 : 
-                        int LA49_40 = input.LA(1);
-
-                         
-                        int index49_40 = input.index();
-                        input.rewind();
-                        s = -1;
-                        if ( (synpred161_InternalLilyPond()) ) {s = 65;}
-
-                        else if ( (true) ) {s = 1;}
-
-                         
-                        input.seek(index49_40);
-                        if ( s>=0 ) return s;
-                        break;
-                    case 10 : 
-                        int LA49_26 = input.LA(1);
-
-                         
-                        int index49_26 = input.index();
-                        input.rewind();
-                        s = -1;
-                        if ( (synpred161_InternalLilyPond()) ) {s = 65;}
-
-                        else if ( (true) ) {s = 1;}
-
-                         
-                        input.seek(index49_26);
-                        if ( s>=0 ) return s;
-                        break;
-                    case 11 : 
-                        int LA49_41 = input.LA(1);
-
-                         
-                        int index49_41 = input.index();
-                        input.rewind();
-                        s = -1;
-                        if ( (synpred161_InternalLilyPond()) ) {s = 65;}
-
-                        else if ( (true) ) {s = 1;}
-
-                         
-                        input.seek(index49_41);
-                        if ( s>=0 ) return s;
-                        break;
-                    case 12 : 
-                        int LA49_3 = input.LA(1);
-
-                         
-                        int index49_3 = input.index();
-                        input.rewind();
-                        s = -1;
-                        if ( (synpred161_InternalLilyPond()) ) {s = 65;}
-
-                        else if ( (true) ) {s = 1;}
-
-                         
-                        input.seek(index49_3);
-                        if ( s>=0 ) return s;
-                        break;
-                    case 13 : 
-                        int LA49_13 = input.LA(1);
-
-                         
-                        int index49_13 = input.index();
-                        input.rewind();
-                        s = -1;
-                        if ( (synpred161_InternalLilyPond()) ) {s = 65;}
-
-                        else if ( (true) ) {s = 1;}
-
-                         
-                        input.seek(index49_13);
-                        if ( s>=0 ) return s;
-                        break;
-                    case 14 : 
-                        int LA49_36 = input.LA(1);
-
-                         
-                        int index49_36 = input.index();
-                        input.rewind();
-                        s = -1;
-                        if ( (synpred161_InternalLilyPond()) ) {s = 65;}
-
-                        else if ( (true) ) {s = 1;}
-
-                         
-                        input.seek(index49_36);
-                        if ( s>=0 ) return s;
-                        break;
-                    case 15 : 
-                        int LA49_23 = input.LA(1);
-
-                         
-                        int index49_23 = input.index();
-                        input.rewind();
-                        s = -1;
-                        if ( (synpred161_InternalLilyPond()) ) {s = 65;}
-
-                        else if ( (true) ) {s = 1;}
-
-                         
-                        input.seek(index49_23);
-                        if ( s>=0 ) return s;
-                        break;
-                    case 16 : 
-                        int LA49_46 = input.LA(1);
-
-                         
-                        int index49_46 = input.index();
-                        input.rewind();
-                        s = -1;
-                        if ( (synpred161_InternalLilyPond()) ) {s = 65;}
-
-                        else if ( (true) ) {s = 1;}
-
-                         
-                        input.seek(index49_46);
-                        if ( s>=0 ) return s;
-                        break;
-                    case 17 : 
-                        int LA49_5 = input.LA(1);
-
-                         
-                        int index49_5 = input.index();
-                        input.rewind();
-                        s = -1;
-                        if ( (synpred161_InternalLilyPond()) ) {s = 65;}
-
-                        else if ( (true) ) {s = 1;}
-
-                         
-                        input.seek(index49_5);
-                        if ( s>=0 ) return s;
-                        break;
-                    case 18 : 
-                        int LA49_51 = input.LA(1);
-
-                         
-                        int index49_51 = input.index();
-                        input.rewind();
-                        s = -1;
-                        if ( (synpred161_InternalLilyPond()) ) {s = 65;}
-
-                        else if ( (true) ) {s = 1;}
-
-                         
-                        input.seek(index49_51);
-                        if ( s>=0 ) return s;
-                        break;
-                    case 19 : 
-                        int LA49_61 = input.LA(1);
-
-                         
-                        int index49_61 = input.index();
-                        input.rewind();
-                        s = -1;
-                        if ( (synpred161_InternalLilyPond()) ) {s = 65;}
-
-                        else if ( (true) ) {s = 1;}
-
-                         
-                        input.seek(index49_61);
-                        if ( s>=0 ) return s;
-                        break;
-                    case 20 : 
-                        int LA49_44 = input.LA(1);
-
-                         
-                        int index49_44 = input.index();
-                        input.rewind();
-                        s = -1;
-                        if ( (synpred161_InternalLilyPond()) ) {s = 65;}
-
-                        else if ( (true) ) {s = 1;}
-
-                         
-                        input.seek(index49_44);
-                        if ( s>=0 ) return s;
-                        break;
-                    case 21 : 
-                        int LA49_8 = input.LA(1);
-
-                         
-                        int index49_8 = input.index();
-                        input.rewind();
-                        s = -1;
-                        if ( (synpred161_InternalLilyPond()) ) {s = 65;}
-
-                        else if ( (true) ) {s = 1;}
-
-                         
-                        input.seek(index49_8);
-                        if ( s>=0 ) return s;
-                        break;
-                    case 22 : 
-                        int LA49_54 = input.LA(1);
-
-                         
-                        int index49_54 = input.index();
-                        input.rewind();
-                        s = -1;
-                        if ( (synpred161_InternalLilyPond()) ) {s = 65;}
-
-                        else if ( (true) ) {s = 1;}
-
-                         
-                        input.seek(index49_54);
-                        if ( s>=0 ) return s;
-                        break;
-                    case 23 : 
-                        int LA49_30 = input.LA(1);
-
-                         
-                        int index49_30 = input.index();
-                        input.rewind();
-                        s = -1;
-                        if ( (synpred161_InternalLilyPond()) ) {s = 65;}
-
-                        else if ( (true) ) {s = 1;}
-
-                         
-                        input.seek(index49_30);
-                        if ( s>=0 ) return s;
-                        break;
-                    case 24 : 
-                        int LA49_4 = input.LA(1);
-
-                         
-                        int index49_4 = input.index();
-                        input.rewind();
-                        s = -1;
-                        if ( (synpred161_InternalLilyPond()) ) {s = 65;}
-
-                        else if ( (true) ) {s = 1;}
-
-                         
-                        input.seek(index49_4);
-                        if ( s>=0 ) return s;
-                        break;
-                    case 25 : 
-                        int LA49_22 = input.LA(1);
-
-                         
-                        int index49_22 = input.index();
-                        input.rewind();
-                        s = -1;
-                        if ( (synpred161_InternalLilyPond()) ) {s = 65;}
-
-                        else if ( (true) ) {s = 1;}
-
-                         
-                        input.seek(index49_22);
-                        if ( s>=0 ) return s;
-                        break;
-                    case 26 : 
-                        int LA49_47 = input.LA(1);
-
-                         
-                        int index49_47 = input.index();
-                        input.rewind();
-                        s = -1;
-                        if ( (synpred161_InternalLilyPond()) ) {s = 65;}
-
-                        else if ( (true) ) {s = 1;}
-
-                         
-                        input.seek(index49_47);
-                        if ( s>=0 ) return s;
-                        break;
-                    case 27 : 
-                        int LA49_60 = input.LA(1);
-
-                         
-                        int index49_60 = input.index();
-                        input.rewind();
-                        s = -1;
-                        if ( (synpred161_InternalLilyPond()) ) {s = 65;}
-
-                        else if ( (true) ) {s = 1;}
-
-                         
-                        input.seek(index49_60);
-                        if ( s>=0 ) return s;
-                        break;
-                    case 28 : 
-                        int LA49_34 = input.LA(1);
-
-                         
-                        int index49_34 = input.index();
-                        input.rewind();
-                        s = -1;
-                        if ( (synpred161_InternalLilyPond()) ) {s = 65;}
-
-                        else if ( (true) ) {s = 1;}
-
-                         
-                        input.seek(index49_34);
-                        if ( s>=0 ) return s;
-                        break;
-                    case 29 : 
-                        int LA49_17 = input.LA(1);
-
-                         
-                        int index49_17 = input.index();
-                        input.rewind();
-                        s = -1;
-                        if ( (synpred161_InternalLilyPond()) ) {s = 65;}
-
-                        else if ( (true) ) {s = 1;}
-
-                         
-                        input.seek(index49_17);
-                        if ( s>=0 ) return s;
-                        break;
-                    case 30 : 
-                        int LA49_12 = input.LA(1);
-
-                         
-                        int index49_12 = input.index();
-                        input.rewind();
-                        s = -1;
-                        if ( (synpred161_InternalLilyPond()) ) {s = 65;}
-
-                        else if ( (true) ) {s = 1;}
-
-                         
-                        input.seek(index49_12);
-                        if ( s>=0 ) return s;
-                        break;
-                    case 31 : 
-                        int LA49_37 = input.LA(1);
-
-                         
-                        int index49_37 = input.index();
-                        input.rewind();
-                        s = -1;
-                        if ( (synpred161_InternalLilyPond()) ) {s = 65;}
-
-                        else if ( (true) ) {s = 1;}
-
-                         
-                        input.seek(index49_37);
-                        if ( s>=0 ) return s;
-                        break;
-                    case 32 : 
-                        int LA49_38 = input.LA(1);
-
-                         
-                        int index49_38 = input.index();
-                        input.rewind();
-                        s = -1;
-                        if ( (synpred161_InternalLilyPond()) ) {s = 65;}
-
-                        else if ( (true) ) {s = 1;}
-
-                         
-                        input.seek(index49_38);
-                        if ( s>=0 ) return s;
-                        break;
-                    case 33 : 
-                        int LA49_27 = input.LA(1);
-
-                         
-                        int index49_27 = input.index();
-                        input.rewind();
-                        s = -1;
-                        if ( (synpred161_InternalLilyPond()) ) {s = 65;}
-
-                        else if ( (true) ) {s = 1;}
-
-                         
-                        input.seek(index49_27);
-                        if ( s>=0 ) return s;
-                        break;
-                    case 34 : 
-                        int LA49_43 = input.LA(1);
-
-                         
-                        int index49_43 = input.index();
-                        input.rewind();
-                        s = -1;
-                        if ( (synpred161_InternalLilyPond()) ) {s = 65;}
-
-                        else if ( (true) ) {s = 1;}
-
-                         
-                        input.seek(index49_43);
-                        if ( s>=0 ) return s;
-                        break;
-                    case 35 : 
-                        int LA49_62 = input.LA(1);
-
-                         
-                        int index49_62 = input.index();
-                        input.rewind();
-                        s = -1;
-                        if ( (synpred161_InternalLilyPond()) ) {s = 65;}
-
-                        else if ( (true) ) {s = 1;}
-
-                         
-                        input.seek(index49_62);
-                        if ( s>=0 ) return s;
-                        break;
-                    case 36 : 
-                        int LA49_21 = input.LA(1);
-
-                         
-                        int index49_21 = input.index();
-                        input.rewind();
-                        s = -1;
-                        if ( (synpred161_InternalLilyPond()) ) {s = 65;}
-
-                        else if ( (true) ) {s = 1;}
-
-                         
-                        input.seek(index49_21);
-                        if ( s>=0 ) return s;
-                        break;
-                    case 37 : 
-                        int LA49_7 = input.LA(1);
-
-                         
-                        int index49_7 = input.index();
-                        input.rewind();
-                        s = -1;
-                        if ( (synpred161_InternalLilyPond()) ) {s = 65;}
-
-                        else if ( (true) ) {s = 1;}
-
-                         
-                        input.seek(index49_7);
-                        if ( s>=0 ) return s;
-                        break;
-                    case 38 : 
-                        int LA49_14 = input.LA(1);
-
-                         
-                        int index49_14 = input.index();
-                        input.rewind();
-                        s = -1;
-                        if ( (synpred161_InternalLilyPond()) ) {s = 65;}
-
-                        else if ( (true) ) {s = 1;}
-
-                         
-                        input.seek(index49_14);
-                        if ( s>=0 ) return s;
-                        break;
-                    case 39 : 
-                        int LA49_53 = input.LA(1);
-
-                         
-                        int index49_53 = input.index();
-                        input.rewind();
-                        s = -1;
-                        if ( (synpred161_InternalLilyPond()) ) {s = 65;}
-
-                        else if ( (true) ) {s = 1;}
-
-                         
-                        input.seek(index49_53);
-                        if ( s>=0 ) return s;
-                        break;
-                    case 40 : 
-                        int LA49_59 = input.LA(1);
-
-                         
-                        int index49_59 = input.index();
-                        input.rewind();
-                        s = -1;
-                        if ( (synpred161_InternalLilyPond()) ) {s = 65;}
-
-                        else if ( (true) ) {s = 1;}
-
-                         
-                        input.seek(index49_59);
-                        if ( s>=0 ) return s;
-                        break;
-                    case 41 : 
-                        int LA49_18 = input.LA(1);
-
-                         
-                        int index49_18 = input.index();
-                        input.rewind();
-                        s = -1;
-                        if ( (synpred161_InternalLilyPond()) ) {s = 65;}
-
-                        else if ( (true) ) {s = 1;}
-
-                         
-                        input.seek(index49_18);
-                        if ( s>=0 ) return s;
-                        break;
-                    case 42 : 
-                        int LA49_48 = input.LA(1);
-
-                         
-                        int index49_48 = input.index();
-                        input.rewind();
-                        s = -1;
-                        if ( (synpred161_InternalLilyPond()) ) {s = 65;}
-
-                        else if ( (true) ) {s = 1;}
-
-                         
-                        input.seek(index49_48);
-                        if ( s>=0 ) return s;
-                        break;
-                    case 43 : 
-                        int LA49_33 = input.LA(1);
-
-                         
-                        int index49_33 = input.index();
-                        input.rewind();
-                        s = -1;
-                        if ( (synpred161_InternalLilyPond()) ) {s = 65;}
-
-                        else if ( (true) ) {s = 1;}
-
-                         
-                        input.seek(index49_33);
-                        if ( s>=0 ) return s;
-                        break;
-                    case 44 : 
-                        int LA49_11 = input.LA(1);
-
-                         
-                        int index49_11 = input.index();
-                        input.rewind();
-                        s = -1;
-                        if ( (synpred161_InternalLilyPond()) ) {s = 65;}
-
-                        else if ( (true) ) {s = 1;}
-
-                         
-                        input.seek(index49_11);
-                        if ( s>=0 ) return s;
-                        break;
-                    case 45 : 
-                        int LA49_28 = input.LA(1);
-
-                         
-                        int index49_28 = input.index();
-                        input.rewind();
-                        s = -1;
-                        if ( (synpred161_InternalLilyPond()) ) {s = 65;}
-
-                        else if ( (true) ) {s = 1;}
-
-                         
-                        input.seek(index49_28);
-                        if ( s>=0 ) return s;
-                        break;
-                    case 46 : 
-                        int LA49_56 = input.LA(1);
-
-                         
-                        int index49_56 = input.index();
-                        input.rewind();
-                        s = -1;
-                        if ( (synpred161_InternalLilyPond()) ) {s = 65;}
-
-                        else if ( (true) ) {s = 1;}
-
-                         
-                        input.seek(index49_56);
-                        if ( s>=0 ) return s;
-                        break;
-                    case 47 : 
-                        int LA49_25 = input.LA(1);
-
-                         
-                        int index49_25 = input.index();
-                        input.rewind();
-                        s = -1;
-                        if ( (synpred161_InternalLilyPond()) ) {s = 65;}
-
-                        else if ( (true) ) {s = 1;}
-
-                         
-                        input.seek(index49_25);
-                        if ( s>=0 ) return s;
-                        break;
-                    case 48 : 
-                        int LA49_10 = input.LA(1);
-
-                         
-                        int index49_10 = input.index();
-                        input.rewind();
-                        s = -1;
-                        if ( (synpred161_InternalLilyPond()) ) {s = 65;}
-
-                        else if ( (true) ) {s = 1;}
-
-                         
-                        input.seek(index49_10);
-                        if ( s>=0 ) return s;
-                        break;
-                    case 49 : 
-                        int LA49_32 = input.LA(1);
-
-                         
-                        int index49_32 = input.index();
-                        input.rewind();
-                        s = -1;
-                        if ( (synpred161_InternalLilyPond()) ) {s = 65;}
-
-                        else if ( (true) ) {s = 1;}
-
-                         
-                        input.seek(index49_32);
-                        if ( s>=0 ) return s;
-                        break;
-                    case 50 : 
-                        int LA49_15 = input.LA(1);
-
-                         
-                        int index49_15 = input.index();
-                        input.rewind();
-                        s = -1;
-                        if ( (synpred161_InternalLilyPond()) ) {s = 65;}
-
-                        else if ( (true) ) {s = 1;}
-
-                         
-                        input.seek(index49_15);
-                        if ( s>=0 ) return s;
-                        break;
-                    case 51 : 
-                        int LA49_6 = input.LA(1);
-
-                         
-                        int index49_6 = input.index();
-                        input.rewind();
-                        s = -1;
-                        if ( (synpred161_InternalLilyPond()) ) {s = 65;}
-
-                        else if ( (true) ) {s = 1;}
-
-                         
-                        input.seek(index49_6);
-                        if ( s>=0 ) return s;
-                        break;
-                    case 52 : 
-                        int LA49_20 = input.LA(1);
-
-                         
-                        int index49_20 = input.index();
-                        input.rewind();
-                        s = -1;
-                        if ( (synpred161_InternalLilyPond()) ) {s = 65;}
-
-                        else if ( (true) ) {s = 1;}
-
-                         
-                        input.seek(index49_20);
-                        if ( s>=0 ) return s;
-                        break;
-                    case 53 : 
-                        int LA49_58 = input.LA(1);
-
-                         
-                        int index49_58 = input.index();
-                        input.rewind();
-                        s = -1;
-                        if ( (synpred161_InternalLilyPond()) ) {s = 65;}
-
-                        else if ( (true) ) {s = 1;}
-
-                         
-                        input.seek(index49_58);
-                        if ( s>=0 ) return s;
-                        break;
-                    case 54 : 
-                        int LA49_39 = input.LA(1);
-
-                         
-                        int index49_39 = input.index();
-                        input.rewind();
-                        s = -1;
-                        if ( (synpred161_InternalLilyPond()) ) {s = 65;}
-
-                        else if ( (true) ) {s = 1;}
-
-                         
-                        input.seek(index49_39);
-                        if ( s>=0 ) return s;
-                        break;
-                    case 55 : 
-                        int LA49_63 = input.LA(1);
-
-                         
-                        int index49_63 = input.index();
-                        input.rewind();
-                        s = -1;
-                        if ( (synpred161_InternalLilyPond()) ) {s = 65;}
-
-                        else if ( (true) ) {s = 1;}
-
-                         
-                        input.seek(index49_63);
-                        if ( s>=0 ) return s;
-                        break;
-                    case 56 : 
                         int LA49_49 = input.LA(1);
 
                          
@@ -19563,7 +18723,187 @@ public class InternalLilyPondParser extends AbstractInternalAntlrParser {
                         input.seek(index49_49);
                         if ( s>=0 ) return s;
                         break;
-                    case 57 : 
+                    case 1 : 
+                        int LA49_18 = input.LA(1);
+
+                         
+                        int index49_18 = input.index();
+                        input.rewind();
+                        s = -1;
+                        if ( (synpred161_InternalLilyPond()) ) {s = 65;}
+
+                        else if ( (true) ) {s = 1;}
+
+                         
+                        input.seek(index49_18);
+                        if ( s>=0 ) return s;
+                        break;
+                    case 2 : 
+                        int LA49_15 = input.LA(1);
+
+                         
+                        int index49_15 = input.index();
+                        input.rewind();
+                        s = -1;
+                        if ( (synpred161_InternalLilyPond()) ) {s = 65;}
+
+                        else if ( (true) ) {s = 1;}
+
+                         
+                        input.seek(index49_15);
+                        if ( s>=0 ) return s;
+                        break;
+                    case 3 : 
+                        int LA49_56 = input.LA(1);
+
+                         
+                        int index49_56 = input.index();
+                        input.rewind();
+                        s = -1;
+                        if ( (synpred161_InternalLilyPond()) ) {s = 65;}
+
+                        else if ( (true) ) {s = 1;}
+
+                         
+                        input.seek(index49_56);
+                        if ( s>=0 ) return s;
+                        break;
+                    case 4 : 
+                        int LA49_30 = input.LA(1);
+
+                         
+                        int index49_30 = input.index();
+                        input.rewind();
+                        s = -1;
+                        if ( (synpred161_InternalLilyPond()) ) {s = 65;}
+
+                        else if ( (true) ) {s = 1;}
+
+                         
+                        input.seek(index49_30);
+                        if ( s>=0 ) return s;
+                        break;
+                    case 5 : 
+                        int LA49_54 = input.LA(1);
+
+                         
+                        int index49_54 = input.index();
+                        input.rewind();
+                        s = -1;
+                        if ( (synpred161_InternalLilyPond()) ) {s = 65;}
+
+                        else if ( (true) ) {s = 1;}
+
+                         
+                        input.seek(index49_54);
+                        if ( s>=0 ) return s;
+                        break;
+                    case 6 : 
+                        int LA49_63 = input.LA(1);
+
+                         
+                        int index49_63 = input.index();
+                        input.rewind();
+                        s = -1;
+                        if ( (synpred161_InternalLilyPond()) ) {s = 65;}
+
+                        else if ( (true) ) {s = 1;}
+
+                         
+                        input.seek(index49_63);
+                        if ( s>=0 ) return s;
+                        break;
+                    case 7 : 
+                        int LA49_44 = input.LA(1);
+
+                         
+                        int index49_44 = input.index();
+                        input.rewind();
+                        s = -1;
+                        if ( (synpred161_InternalLilyPond()) ) {s = 65;}
+
+                        else if ( (true) ) {s = 1;}
+
+                         
+                        input.seek(index49_44);
+                        if ( s>=0 ) return s;
+                        break;
+                    case 8 : 
+                        int LA49_8 = input.LA(1);
+
+                         
+                        int index49_8 = input.index();
+                        input.rewind();
+                        s = -1;
+                        if ( (synpred161_InternalLilyPond()) ) {s = 65;}
+
+                        else if ( (true) ) {s = 1;}
+
+                         
+                        input.seek(index49_8);
+                        if ( s>=0 ) return s;
+                        break;
+                    case 9 : 
+                        int LA49_39 = input.LA(1);
+
+                         
+                        int index49_39 = input.index();
+                        input.rewind();
+                        s = -1;
+                        if ( (synpred161_InternalLilyPond()) ) {s = 65;}
+
+                        else if ( (true) ) {s = 1;}
+
+                         
+                        input.seek(index49_39);
+                        if ( s>=0 ) return s;
+                        break;
+                    case 10 : 
+                        int LA49_25 = input.LA(1);
+
+                         
+                        int index49_25 = input.index();
+                        input.rewind();
+                        s = -1;
+                        if ( (synpred161_InternalLilyPond()) ) {s = 65;}
+
+                        else if ( (true) ) {s = 1;}
+
+                         
+                        input.seek(index49_25);
+                        if ( s>=0 ) return s;
+                        break;
+                    case 11 : 
+                        int LA49_40 = input.LA(1);
+
+                         
+                        int index49_40 = input.index();
+                        input.rewind();
+                        s = -1;
+                        if ( (synpred161_InternalLilyPond()) ) {s = 65;}
+
+                        else if ( (true) ) {s = 1;}
+
+                         
+                        input.seek(index49_40);
+                        if ( s>=0 ) return s;
+                        break;
+                    case 12 : 
+                        int LA49_12 = input.LA(1);
+
+                         
+                        int index49_12 = input.index();
+                        input.rewind();
+                        s = -1;
+                        if ( (synpred161_InternalLilyPond()) ) {s = 65;}
+
+                        else if ( (true) ) {s = 1;}
+
+                         
+                        input.seek(index49_12);
+                        if ( s>=0 ) return s;
+                        break;
+                    case 13 : 
                         int LA49_35 = input.LA(1);
 
                          
@@ -19578,7 +18918,127 @@ public class InternalLilyPondParser extends AbstractInternalAntlrParser {
                         input.seek(index49_35);
                         if ( s>=0 ) return s;
                         break;
-                    case 58 : 
+                    case 14 : 
+                        int LA49_22 = input.LA(1);
+
+                         
+                        int index49_22 = input.index();
+                        input.rewind();
+                        s = -1;
+                        if ( (synpred161_InternalLilyPond()) ) {s = 65;}
+
+                        else if ( (true) ) {s = 1;}
+
+                         
+                        input.seek(index49_22);
+                        if ( s>=0 ) return s;
+                        break;
+                    case 15 : 
+                        int LA49_45 = input.LA(1);
+
+                         
+                        int index49_45 = input.index();
+                        input.rewind();
+                        s = -1;
+                        if ( (synpred161_InternalLilyPond()) ) {s = 65;}
+
+                        else if ( (true) ) {s = 1;}
+
+                         
+                        input.seek(index49_45);
+                        if ( s>=0 ) return s;
+                        break;
+                    case 16 : 
+                        int LA49_4 = input.LA(1);
+
+                         
+                        int index49_4 = input.index();
+                        input.rewind();
+                        s = -1;
+                        if ( (synpred161_InternalLilyPond()) ) {s = 65;}
+
+                        else if ( (true) ) {s = 1;}
+
+                         
+                        input.seek(index49_4);
+                        if ( s>=0 ) return s;
+                        break;
+                    case 17 : 
+                        int LA49_50 = input.LA(1);
+
+                         
+                        int index49_50 = input.index();
+                        input.rewind();
+                        s = -1;
+                        if ( (synpred161_InternalLilyPond()) ) {s = 65;}
+
+                        else if ( (true) ) {s = 1;}
+
+                         
+                        input.seek(index49_50);
+                        if ( s>=0 ) return s;
+                        break;
+                    case 18 : 
+                        int LA49_60 = input.LA(1);
+
+                         
+                        int index49_60 = input.index();
+                        input.rewind();
+                        s = -1;
+                        if ( (synpred161_InternalLilyPond()) ) {s = 65;}
+
+                        else if ( (true) ) {s = 1;}
+
+                         
+                        input.seek(index49_60);
+                        if ( s>=0 ) return s;
+                        break;
+                    case 19 : 
+                        int LA49_43 = input.LA(1);
+
+                         
+                        int index49_43 = input.index();
+                        input.rewind();
+                        s = -1;
+                        if ( (synpred161_InternalLilyPond()) ) {s = 65;}
+
+                        else if ( (true) ) {s = 1;}
+
+                         
+                        input.seek(index49_43);
+                        if ( s>=0 ) return s;
+                        break;
+                    case 20 : 
+                        int LA49_7 = input.LA(1);
+
+                         
+                        int index49_7 = input.index();
+                        input.rewind();
+                        s = -1;
+                        if ( (synpred161_InternalLilyPond()) ) {s = 65;}
+
+                        else if ( (true) ) {s = 1;}
+
+                         
+                        input.seek(index49_7);
+                        if ( s>=0 ) return s;
+                        break;
+                    case 21 : 
+                        int LA49_53 = input.LA(1);
+
+                         
+                        int index49_53 = input.index();
+                        input.rewind();
+                        s = -1;
+                        if ( (synpred161_InternalLilyPond()) ) {s = 65;}
+
+                        else if ( (true) ) {s = 1;}
+
+                         
+                        input.seek(index49_53);
+                        if ( s>=0 ) return s;
+                        break;
+                    case 22 : 
                         int LA49_29 = input.LA(1);
 
                          
@@ -19593,7 +19053,232 @@ public class InternalLilyPondParser extends AbstractInternalAntlrParser {
                         input.seek(index49_29);
                         if ( s>=0 ) return s;
                         break;
-                    case 59 : 
+                    case 23 : 
+                        int LA49_21 = input.LA(1);
+
+                         
+                        int index49_21 = input.index();
+                        input.rewind();
+                        s = -1;
+                        if ( (synpred161_InternalLilyPond()) ) {s = 65;}
+
+                        else if ( (true) ) {s = 1;}
+
+                         
+                        input.seek(index49_21);
+                        if ( s>=0 ) return s;
+                        break;
+                    case 24 : 
+                        int LA49_46 = input.LA(1);
+
+                         
+                        int index49_46 = input.index();
+                        input.rewind();
+                        s = -1;
+                        if ( (synpred161_InternalLilyPond()) ) {s = 65;}
+
+                        else if ( (true) ) {s = 1;}
+
+                         
+                        input.seek(index49_46);
+                        if ( s>=0 ) return s;
+                        break;
+                    case 25 : 
+                        int LA49_64 = input.LA(1);
+
+                         
+                        int index49_64 = input.index();
+                        input.rewind();
+                        s = -1;
+                        if ( (synpred161_InternalLilyPond()) ) {s = 65;}
+
+                        else if ( (true) ) {s = 1;}
+
+                         
+                        input.seek(index49_64);
+                        if ( s>=0 ) return s;
+                        break;
+                    case 26 : 
+                        int LA49_59 = input.LA(1);
+
+                         
+                        int index49_59 = input.index();
+                        input.rewind();
+                        s = -1;
+                        if ( (synpred161_InternalLilyPond()) ) {s = 65;}
+
+                        else if ( (true) ) {s = 1;}
+
+                         
+                        input.seek(index49_59);
+                        if ( s>=0 ) return s;
+                        break;
+                    case 27 : 
+                        int LA49_33 = input.LA(1);
+
+                         
+                        int index49_33 = input.index();
+                        input.rewind();
+                        s = -1;
+                        if ( (synpred161_InternalLilyPond()) ) {s = 65;}
+
+                        else if ( (true) ) {s = 1;}
+
+                         
+                        input.seek(index49_33);
+                        if ( s>=0 ) return s;
+                        break;
+                    case 28 : 
+                        int LA49_26 = input.LA(1);
+
+                         
+                        int index49_26 = input.index();
+                        input.rewind();
+                        s = -1;
+                        if ( (synpred161_InternalLilyPond()) ) {s = 65;}
+
+                        else if ( (true) ) {s = 1;}
+
+                         
+                        input.seek(index49_26);
+                        if ( s>=0 ) return s;
+                        break;
+                    case 29 : 
+                        int LA49_16 = input.LA(1);
+
+                         
+                        int index49_16 = input.index();
+                        input.rewind();
+                        s = -1;
+                        if ( (synpred161_InternalLilyPond()) ) {s = 65;}
+
+                        else if ( (true) ) {s = 1;}
+
+                         
+                        input.seek(index49_16);
+                        if ( s>=0 ) return s;
+                        break;
+                    case 30 : 
+                        int LA49_11 = input.LA(1);
+
+                         
+                        int index49_11 = input.index();
+                        input.rewind();
+                        s = -1;
+                        if ( (synpred161_InternalLilyPond()) ) {s = 65;}
+
+                        else if ( (true) ) {s = 1;}
+
+                         
+                        input.seek(index49_11);
+                        if ( s>=0 ) return s;
+                        break;
+                    case 31 : 
+                        int LA49_36 = input.LA(1);
+
+                         
+                        int index49_36 = input.index();
+                        input.rewind();
+                        s = -1;
+                        if ( (synpred161_InternalLilyPond()) ) {s = 65;}
+
+                        else if ( (true) ) {s = 1;}
+
+                         
+                        input.seek(index49_36);
+                        if ( s>=0 ) return s;
+                        break;
+                    case 32 : 
+                        int LA49_37 = input.LA(1);
+
+                         
+                        int index49_37 = input.index();
+                        input.rewind();
+                        s = -1;
+                        if ( (synpred161_InternalLilyPond()) ) {s = 65;}
+
+                        else if ( (true) ) {s = 1;}
+
+                         
+                        input.seek(index49_37);
+                        if ( s>=0 ) return s;
+                        break;
+                    case 33 : 
+                        int LA49_42 = input.LA(1);
+
+                         
+                        int index49_42 = input.index();
+                        input.rewind();
+                        s = -1;
+                        if ( (synpred161_InternalLilyPond()) ) {s = 65;}
+
+                        else if ( (true) ) {s = 1;}
+
+                         
+                        input.seek(index49_42);
+                        if ( s>=0 ) return s;
+                        break;
+                    case 34 : 
+                        int LA49_61 = input.LA(1);
+
+                         
+                        int index49_61 = input.index();
+                        input.rewind();
+                        s = -1;
+                        if ( (synpred161_InternalLilyPond()) ) {s = 65;}
+
+                        else if ( (true) ) {s = 1;}
+
+                         
+                        input.seek(index49_61);
+                        if ( s>=0 ) return s;
+                        break;
+                    case 35 : 
+                        int LA49_20 = input.LA(1);
+
+                         
+                        int index49_20 = input.index();
+                        input.rewind();
+                        s = -1;
+                        if ( (synpred161_InternalLilyPond()) ) {s = 65;}
+
+                        else if ( (true) ) {s = 1;}
+
+                         
+                        input.seek(index49_20);
+                        if ( s>=0 ) return s;
+                        break;
+                    case 36 : 
+                        int LA49_6 = input.LA(1);
+
+                         
+                        int index49_6 = input.index();
+                        input.rewind();
+                        s = -1;
+                        if ( (synpred161_InternalLilyPond()) ) {s = 65;}
+
+                        else if ( (true) ) {s = 1;}
+
+                         
+                        input.seek(index49_6);
+                        if ( s>=0 ) return s;
+                        break;
+                    case 37 : 
+                        int LA49_13 = input.LA(1);
+
+                         
+                        int index49_13 = input.index();
+                        input.rewind();
+                        s = -1;
+                        if ( (synpred161_InternalLilyPond()) ) {s = 65;}
+
+                        else if ( (true) ) {s = 1;}
+
+                         
+                        input.seek(index49_13);
+                        if ( s>=0 ) return s;
+                        break;
+                    case 38 : 
                         int LA49_52 = input.LA(1);
 
                          
@@ -19608,7 +19293,97 @@ public class InternalLilyPondParser extends AbstractInternalAntlrParser {
                         input.seek(index49_52);
                         if ( s>=0 ) return s;
                         break;
-                    case 60 : 
+                    case 39 : 
+                        int LA49_58 = input.LA(1);
+
+                         
+                        int index49_58 = input.index();
+                        input.rewind();
+                        s = -1;
+                        if ( (synpred161_InternalLilyPond()) ) {s = 65;}
+
+                        else if ( (true) ) {s = 1;}
+
+                         
+                        input.seek(index49_58);
+                        if ( s>=0 ) return s;
+                        break;
+                    case 40 : 
+                        int LA49_17 = input.LA(1);
+
+                         
+                        int index49_17 = input.index();
+                        input.rewind();
+                        s = -1;
+                        if ( (synpred161_InternalLilyPond()) ) {s = 65;}
+
+                        else if ( (true) ) {s = 1;}
+
+                         
+                        input.seek(index49_17);
+                        if ( s>=0 ) return s;
+                        break;
+                    case 41 : 
+                        int LA49_47 = input.LA(1);
+
+                         
+                        int index49_47 = input.index();
+                        input.rewind();
+                        s = -1;
+                        if ( (synpred161_InternalLilyPond()) ) {s = 65;}
+
+                        else if ( (true) ) {s = 1;}
+
+                         
+                        input.seek(index49_47);
+                        if ( s>=0 ) return s;
+                        break;
+                    case 42 : 
+                        int LA49_32 = input.LA(1);
+
+                         
+                        int index49_32 = input.index();
+                        input.rewind();
+                        s = -1;
+                        if ( (synpred161_InternalLilyPond()) ) {s = 65;}
+
+                        else if ( (true) ) {s = 1;}
+
+                         
+                        input.seek(index49_32);
+                        if ( s>=0 ) return s;
+                        break;
+                    case 43 : 
+                        int LA49_10 = input.LA(1);
+
+                         
+                        int index49_10 = input.index();
+                        input.rewind();
+                        s = -1;
+                        if ( (synpred161_InternalLilyPond()) ) {s = 65;}
+
+                        else if ( (true) ) {s = 1;}
+
+                         
+                        input.seek(index49_10);
+                        if ( s>=0 ) return s;
+                        break;
+                    case 44 : 
+                        int LA49_55 = input.LA(1);
+
+                         
+                        int index49_55 = input.index();
+                        input.rewind();
+                        s = -1;
+                        if ( (synpred161_InternalLilyPond()) ) {s = 65;}
+
+                        else if ( (true) ) {s = 1;}
+
+                         
+                        input.seek(index49_55);
+                        if ( s>=0 ) return s;
+                        break;
+                    case 45 : 
                         int LA49_24 = input.LA(1);
 
                          
@@ -19623,11 +19398,11 @@ public class InternalLilyPondParser extends AbstractInternalAntlrParser {
                         input.seek(index49_24);
                         if ( s>=0 ) return s;
                         break;
-                    case 61 : 
-                        int LA49_42 = input.LA(1);
+                    case 46 : 
+                        int LA49_9 = input.LA(1);
 
                          
-                        int index49_42 = input.index();
+                        int index49_9 = input.index();
                         input.rewind();
                         s = -1;
                         if ( (synpred161_InternalLilyPond()) ) {s = 65;}
@@ -19635,7 +19410,232 @@ public class InternalLilyPondParser extends AbstractInternalAntlrParser {
                         else if ( (true) ) {s = 1;}
 
                          
-                        input.seek(index49_42);
+                        input.seek(index49_9);
+                        if ( s>=0 ) return s;
+                        break;
+                    case 47 : 
+                        int LA49_27 = input.LA(1);
+
+                         
+                        int index49_27 = input.index();
+                        input.rewind();
+                        s = -1;
+                        if ( (synpred161_InternalLilyPond()) ) {s = 65;}
+
+                        else if ( (true) ) {s = 1;}
+
+                         
+                        input.seek(index49_27);
+                        if ( s>=0 ) return s;
+                        break;
+                    case 48 : 
+                        int LA49_31 = input.LA(1);
+
+                         
+                        int index49_31 = input.index();
+                        input.rewind();
+                        s = -1;
+                        if ( (synpred161_InternalLilyPond()) ) {s = 65;}
+
+                        else if ( (true) ) {s = 1;}
+
+                         
+                        input.seek(index49_31);
+                        if ( s>=0 ) return s;
+                        break;
+                    case 49 : 
+                        int LA49_14 = input.LA(1);
+
+                         
+                        int index49_14 = input.index();
+                        input.rewind();
+                        s = -1;
+                        if ( (synpred161_InternalLilyPond()) ) {s = 65;}
+
+                        else if ( (true) ) {s = 1;}
+
+                         
+                        input.seek(index49_14);
+                        if ( s>=0 ) return s;
+                        break;
+                    case 50 : 
+                        int LA49_5 = input.LA(1);
+
+                         
+                        int index49_5 = input.index();
+                        input.rewind();
+                        s = -1;
+                        if ( (synpred161_InternalLilyPond()) ) {s = 65;}
+
+                        else if ( (true) ) {s = 1;}
+
+                         
+                        input.seek(index49_5);
+                        if ( s>=0 ) return s;
+                        break;
+                    case 51 : 
+                        int LA49_19 = input.LA(1);
+
+                         
+                        int index49_19 = input.index();
+                        input.rewind();
+                        s = -1;
+                        if ( (synpred161_InternalLilyPond()) ) {s = 65;}
+
+                        else if ( (true) ) {s = 1;}
+
+                         
+                        input.seek(index49_19);
+                        if ( s>=0 ) return s;
+                        break;
+                    case 52 : 
+                        int LA49_57 = input.LA(1);
+
+                         
+                        int index49_57 = input.index();
+                        input.rewind();
+                        s = -1;
+                        if ( (synpred161_InternalLilyPond()) ) {s = 65;}
+
+                        else if ( (true) ) {s = 1;}
+
+                         
+                        input.seek(index49_57);
+                        if ( s>=0 ) return s;
+                        break;
+                    case 53 : 
+                        int LA49_38 = input.LA(1);
+
+                         
+                        int index49_38 = input.index();
+                        input.rewind();
+                        s = -1;
+                        if ( (synpred161_InternalLilyPond()) ) {s = 65;}
+
+                        else if ( (true) ) {s = 1;}
+
+                         
+                        input.seek(index49_38);
+                        if ( s>=0 ) return s;
+                        break;
+                    case 54 : 
+                        int LA49_62 = input.LA(1);
+
+                         
+                        int index49_62 = input.index();
+                        input.rewind();
+                        s = -1;
+                        if ( (synpred161_InternalLilyPond()) ) {s = 65;}
+
+                        else if ( (true) ) {s = 1;}
+
+                         
+                        input.seek(index49_62);
+                        if ( s>=0 ) return s;
+                        break;
+                    case 55 : 
+                        int LA49_48 = input.LA(1);
+
+                         
+                        int index49_48 = input.index();
+                        input.rewind();
+                        s = -1;
+                        if ( (synpred161_InternalLilyPond()) ) {s = 65;}
+
+                        else if ( (true) ) {s = 1;}
+
+                         
+                        input.seek(index49_48);
+                        if ( s>=0 ) return s;
+                        break;
+                    case 56 : 
+                        int LA49_34 = input.LA(1);
+
+                         
+                        int index49_34 = input.index();
+                        input.rewind();
+                        s = -1;
+                        if ( (synpred161_InternalLilyPond()) ) {s = 65;}
+
+                        else if ( (true) ) {s = 1;}
+
+                         
+                        input.seek(index49_34);
+                        if ( s>=0 ) return s;
+                        break;
+                    case 57 : 
+                        int LA49_3 = input.LA(1);
+
+                         
+                        int index49_3 = input.index();
+                        input.rewind();
+                        s = -1;
+                        if ( (synpred161_InternalLilyPond()) ) {s = 65;}
+
+                        else if ( (true) ) {s = 1;}
+
+                         
+                        input.seek(index49_3);
+                        if ( s>=0 ) return s;
+                        break;
+                    case 58 : 
+                        int LA49_28 = input.LA(1);
+
+                         
+                        int index49_28 = input.index();
+                        input.rewind();
+                        s = -1;
+                        if ( (synpred161_InternalLilyPond()) ) {s = 65;}
+
+                        else if ( (true) ) {s = 1;}
+
+                         
+                        input.seek(index49_28);
+                        if ( s>=0 ) return s;
+                        break;
+                    case 59 : 
+                        int LA49_51 = input.LA(1);
+
+                         
+                        int index49_51 = input.index();
+                        input.rewind();
+                        s = -1;
+                        if ( (synpred161_InternalLilyPond()) ) {s = 65;}
+
+                        else if ( (true) ) {s = 1;}
+
+                         
+                        input.seek(index49_51);
+                        if ( s>=0 ) return s;
+                        break;
+                    case 60 : 
+                        int LA49_23 = input.LA(1);
+
+                         
+                        int index49_23 = input.index();
+                        input.rewind();
+                        s = -1;
+                        if ( (synpred161_InternalLilyPond()) ) {s = 65;}
+
+                        else if ( (true) ) {s = 1;}
+
+                         
+                        input.seek(index49_23);
+                        if ( s>=0 ) return s;
+                        break;
+                    case 61 : 
+                        int LA49_41 = input.LA(1);
+
+                         
+                        int index49_41 = input.index();
+                        input.rewind();
+                        s = -1;
+                        if ( (synpred161_InternalLilyPond()) ) {s = 65;}
+
+                        else if ( (true) ) {s = 1;}
+
+                         
+                        input.seek(index49_41);
                         if ( s>=0 ) return s;
                         break;
             }
@@ -19948,11 +19948,11 @@ public class InternalLilyPondParser extends AbstractInternalAntlrParser {
     public static final BitSet FOLLOW_ruleSchemeExpression_in_ruleScheme7786 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_ruleSchemeExpression_in_entryRuleSchemeExpression7826 = new BitSet(new long[]{0x0000000000000000L});
     public static final BitSet FOLLOW_EOF_in_entryRuleSchemeExpression7836 = new BitSet(new long[]{0x0000000000000002L});
-    public static final BitSet FOLLOW_94_in_ruleSchemeExpression7879 = new BitSet(new long[]{0xFFFFFFFF6BFC20F0L,0x0000007BFFFFFFFFL});
-    public static final BitSet FOLLOW_29_in_ruleSchemeExpression7913 = new BitSet(new long[]{0xFFFFFFFF6BFC20F0L,0x0000007BFFFFFFFFL});
-    public static final BitSet FOLLOW_95_in_ruleSchemeExpression7942 = new BitSet(new long[]{0xFFFFFFFF6BFC20F0L,0x0000007BFFFFFFFFL});
-    public static final BitSet FOLLOW_30_in_ruleSchemeExpression7971 = new BitSet(new long[]{0xFFFFFFFF6BFC20F0L,0x0000007BFFFFFFFFL});
-    public static final BitSet FOLLOW_96_in_ruleSchemeExpression8000 = new BitSet(new long[]{0xFFFFFFFF6BFC20F0L,0x0000007BFFFFFFFFL});
+    public static final BitSet FOLLOW_29_in_ruleSchemeExpression7881 = new BitSet(new long[]{0xFFFFFFFF6BFC20F0L,0x0000007BFFFFFFFFL});
+    public static final BitSet FOLLOW_95_in_ruleSchemeExpression7910 = new BitSet(new long[]{0xFFFFFFFF6BFC20F0L,0x0000007BFFFFFFFFL});
+    public static final BitSet FOLLOW_30_in_ruleSchemeExpression7939 = new BitSet(new long[]{0xFFFFFFFF6BFC20F0L,0x0000007BFFFFFFFFL});
+    public static final BitSet FOLLOW_96_in_ruleSchemeExpression7968 = new BitSet(new long[]{0xFFFFFFFF6BFC20F0L,0x0000007BFFFFFFFFL});
+    public static final BitSet FOLLOW_94_in_ruleSchemeExpression8003 = new BitSet(new long[]{0xFFFFFFFF6BFC20F0L,0x0000007BFFFFFFFFL});
     public static final BitSet FOLLOW_ruleSchemeValue_in_ruleSchemeExpression8038 = new BitSet(new long[]{0x0000000000000002L});
     public static final BitSet FOLLOW_ruleSchemeValue_in_entryRuleSchemeValue8074 = new BitSet(new long[]{0x0000000000000000L});
     public static final BitSet FOLLOW_EOF_in_entryRuleSchemeValue8084 = new BitSet(new long[]{0x0000000000000002L});

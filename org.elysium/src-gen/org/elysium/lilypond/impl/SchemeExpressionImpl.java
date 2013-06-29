@@ -1,7 +1,4 @@
 /**
- * <copyright>
- * </copyright>
- *
  */
 package org.elysium.lilypond.impl;
 
@@ -31,8 +28,8 @@ import org.elysium.lilypond.SchemeValue;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link org.elysium.lilypond.impl.SchemeExpressionImpl#isReference <em>Reference</em>}</li>
  *   <li>{@link org.elysium.lilypond.impl.SchemeExpressionImpl#getQuotations <em>Quotations</em>}</li>
+ *   <li>{@link org.elysium.lilypond.impl.SchemeExpressionImpl#isReference <em>Reference</em>}</li>
  *   <li>{@link org.elysium.lilypond.impl.SchemeExpressionImpl#getValue <em>Value</em>}</li>
  * </ul>
  * </p>
@@ -41,6 +38,16 @@ import org.elysium.lilypond.SchemeValue;
  */
 public class SchemeExpressionImpl extends MinimalEObjectImpl.Container implements SchemeExpression
 {
+  /**
+   * The cached value of the '{@link #getQuotations() <em>Quotations</em>}' attribute list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getQuotations()
+   * @generated
+   * @ordered
+   */
+  protected EList<String> quotations;
+
   /**
    * The default value of the '{@link #isReference() <em>Reference</em>}' attribute.
    * <!-- begin-user-doc -->
@@ -60,16 +67,6 @@ public class SchemeExpressionImpl extends MinimalEObjectImpl.Container implement
    * @ordered
    */
   protected boolean reference = REFERENCE_EDEFAULT;
-
-  /**
-   * The cached value of the '{@link #getQuotations() <em>Quotations</em>}' attribute list.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getQuotations()
-   * @generated
-   * @ordered
-   */
-  protected EList<String> quotations;
 
   /**
    * The cached value of the '{@link #getValue() <em>Value</em>}' containment reference.
@@ -107,6 +104,20 @@ public class SchemeExpressionImpl extends MinimalEObjectImpl.Container implement
    * <!-- end-user-doc -->
    * @generated
    */
+  public EList<String> getQuotations()
+  {
+    if (quotations == null)
+    {
+      quotations = new EDataTypeEList<String>(String.class, this, LilypondPackage.SCHEME_EXPRESSION__QUOTATIONS);
+    }
+    return quotations;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public boolean isReference()
   {
     return reference;
@@ -123,20 +134,6 @@ public class SchemeExpressionImpl extends MinimalEObjectImpl.Container implement
     reference = newReference;
     if (eNotificationRequired())
       eNotify(new ENotificationImpl(this, Notification.SET, LilypondPackage.SCHEME_EXPRESSION__REFERENCE, oldReference, reference));
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public EList<String> getQuotations()
-  {
-    if (quotations == null)
-    {
-      quotations = new EDataTypeEList<String>(String.class, this, LilypondPackage.SCHEME_EXPRESSION__QUOTATIONS);
-    }
-    return quotations;
   }
 
   /**
@@ -213,10 +210,10 @@ public class SchemeExpressionImpl extends MinimalEObjectImpl.Container implement
   {
     switch (featureID)
     {
-      case LilypondPackage.SCHEME_EXPRESSION__REFERENCE:
-        return isReference();
       case LilypondPackage.SCHEME_EXPRESSION__QUOTATIONS:
         return getQuotations();
+      case LilypondPackage.SCHEME_EXPRESSION__REFERENCE:
+        return isReference();
       case LilypondPackage.SCHEME_EXPRESSION__VALUE:
         return getValue();
     }
@@ -234,12 +231,12 @@ public class SchemeExpressionImpl extends MinimalEObjectImpl.Container implement
   {
     switch (featureID)
     {
-      case LilypondPackage.SCHEME_EXPRESSION__REFERENCE:
-        setReference((Boolean)newValue);
-        return;
       case LilypondPackage.SCHEME_EXPRESSION__QUOTATIONS:
         getQuotations().clear();
         getQuotations().addAll((Collection<? extends String>)newValue);
+        return;
+      case LilypondPackage.SCHEME_EXPRESSION__REFERENCE:
+        setReference((Boolean)newValue);
         return;
       case LilypondPackage.SCHEME_EXPRESSION__VALUE:
         setValue((SchemeValue)newValue);
@@ -258,11 +255,11 @@ public class SchemeExpressionImpl extends MinimalEObjectImpl.Container implement
   {
     switch (featureID)
     {
-      case LilypondPackage.SCHEME_EXPRESSION__REFERENCE:
-        setReference(REFERENCE_EDEFAULT);
-        return;
       case LilypondPackage.SCHEME_EXPRESSION__QUOTATIONS:
         getQuotations().clear();
+        return;
+      case LilypondPackage.SCHEME_EXPRESSION__REFERENCE:
+        setReference(REFERENCE_EDEFAULT);
         return;
       case LilypondPackage.SCHEME_EXPRESSION__VALUE:
         setValue((SchemeValue)null);
@@ -281,10 +278,10 @@ public class SchemeExpressionImpl extends MinimalEObjectImpl.Container implement
   {
     switch (featureID)
     {
-      case LilypondPackage.SCHEME_EXPRESSION__REFERENCE:
-        return reference != REFERENCE_EDEFAULT;
       case LilypondPackage.SCHEME_EXPRESSION__QUOTATIONS:
         return quotations != null && !quotations.isEmpty();
+      case LilypondPackage.SCHEME_EXPRESSION__REFERENCE:
+        return reference != REFERENCE_EDEFAULT;
       case LilypondPackage.SCHEME_EXPRESSION__VALUE:
         return value != null;
     }
@@ -302,10 +299,10 @@ public class SchemeExpressionImpl extends MinimalEObjectImpl.Container implement
     if (eIsProxy()) return super.toString();
 
     StringBuffer result = new StringBuffer(super.toString());
-    result.append(" (reference: ");
-    result.append(reference);
-    result.append(", quotations: ");
+    result.append(" (quotations: ");
     result.append(quotations);
+    result.append(", reference: ");
+    result.append(reference);
     result.append(')');
     return result.toString();
   }

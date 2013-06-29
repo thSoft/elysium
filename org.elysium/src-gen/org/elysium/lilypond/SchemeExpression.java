@@ -1,7 +1,4 @@
 /**
- * <copyright>
- * </copyright>
- *
  */
 package org.elysium.lilypond;
 
@@ -17,8 +14,8 @@ import org.eclipse.emf.ecore.EObject;
  * <p>
  * The following features are supported:
  * <ul>
- *   <li>{@link org.elysium.lilypond.SchemeExpression#isReference <em>Reference</em>}</li>
  *   <li>{@link org.elysium.lilypond.SchemeExpression#getQuotations <em>Quotations</em>}</li>
+ *   <li>{@link org.elysium.lilypond.SchemeExpression#isReference <em>Reference</em>}</li>
  *   <li>{@link org.elysium.lilypond.SchemeExpression#getValue <em>Value</em>}</li>
  * </ul>
  * </p>
@@ -29,6 +26,22 @@ import org.eclipse.emf.ecore.EObject;
  */
 public interface SchemeExpression extends EObject
 {
+  /**
+   * Returns the value of the '<em><b>Quotations</b></em>' attribute list.
+   * The list contents are of type {@link java.lang.String}.
+   * <!-- begin-user-doc -->
+   * <p>
+   * If the meaning of the '<em>Quotations</em>' attribute list isn't clear,
+   * there really should be more of a description here...
+   * </p>
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Quotations</em>' attribute list.
+   * @see org.elysium.lilypond.LilypondPackage#getSchemeExpression_Quotations()
+   * @model unique="false"
+   * @generated
+   */
+  EList<String> getQuotations();
+
   /**
    * Returns the value of the '<em><b>Reference</b></em>' attribute.
    * <!-- begin-user-doc -->
@@ -54,22 +67,6 @@ public interface SchemeExpression extends EObject
    * @generated
    */
   void setReference(boolean value);
-
-  /**
-   * Returns the value of the '<em><b>Quotations</b></em>' attribute list.
-   * The list contents are of type {@link java.lang.String}.
-   * <!-- begin-user-doc -->
-   * <p>
-   * If the meaning of the '<em>Quotations</em>' attribute list isn't clear,
-   * there really should be more of a description here...
-   * </p>
-   * <!-- end-user-doc -->
-   * @return the value of the '<em>Quotations</em>' attribute list.
-   * @see org.elysium.lilypond.LilypondPackage#getSchemeExpression_Quotations()
-   * @model unique="false"
-   * @generated
-   */
-  EList<String> getQuotations();
 
   /**
    * Returns the value of the '<em><b>Value</b></em>' containment reference.

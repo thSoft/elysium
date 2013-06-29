@@ -1,7 +1,4 @@
 /**
- * <copyright>
- * </copyright>
- *
  */
 package org.elysium.lilypond.impl;
 
@@ -1288,7 +1285,7 @@ public class LilypondPackageImpl extends EPackageImpl implements LilypondPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getSchemeExpression_Reference()
+  public EAttribute getSchemeExpression_Quotations()
   {
     return (EAttribute)schemeExpressionEClass.getEStructuralFeatures().get(0);
   }
@@ -1298,7 +1295,7 @@ public class LilypondPackageImpl extends EPackageImpl implements LilypondPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  public EAttribute getSchemeExpression_Quotations()
+  public EAttribute getSchemeExpression_Reference()
   {
     return (EAttribute)schemeExpressionEClass.getEStructuralFeatures().get(1);
   }
@@ -1633,8 +1630,8 @@ public class LilypondPackageImpl extends EPackageImpl implements LilypondPackage
     createEReference(schemeEClass, SCHEME__VALUE);
 
     schemeExpressionEClass = createEClass(SCHEME_EXPRESSION);
-    createEAttribute(schemeExpressionEClass, SCHEME_EXPRESSION__REFERENCE);
     createEAttribute(schemeExpressionEClass, SCHEME_EXPRESSION__QUOTATIONS);
+    createEAttribute(schemeExpressionEClass, SCHEME_EXPRESSION__REFERENCE);
     createEReference(schemeExpressionEClass, SCHEME_EXPRESSION__VALUE);
 
     schemeValueEClass = createEClass(SCHEME_VALUE);
@@ -1854,8 +1851,8 @@ public class LilypondPackageImpl extends EPackageImpl implements LilypondPackage
     initEReference(getScheme_Value(), this.getSchemeExpression(), null, "value", null, 0, 1, Scheme.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(schemeExpressionEClass, SchemeExpression.class, "SchemeExpression", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getSchemeExpression_Reference(), ecorePackage.getEBoolean(), "reference", null, 0, 1, SchemeExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getSchemeExpression_Quotations(), ecorePackage.getEString(), "quotations", null, 0, -1, SchemeExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getSchemeExpression_Reference(), ecorePackage.getEBoolean(), "reference", null, 0, 1, SchemeExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getSchemeExpression_Value(), this.getSchemeValue(), null, "value", null, 0, 1, SchemeExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(schemeValueEClass, SchemeValue.class, "SchemeValue", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);

@@ -3367,9 +3367,63 @@ ruleSchemeExpression returns [EObject current=null]
     @after { leaveRule(); }:
 ((
 (
-		lv_reference_0_0=	'$' 
+(
+		lv_quotations_0_1=	'\'' 
     {
-        newLeafNode(lv_reference_0_0, grammarAccess.getSchemeExpressionAccess().getReferenceDollarSignKeyword_0_0());
+        newLeafNode(lv_quotations_0_1, grammarAccess.getSchemeExpressionAccess().getQuotationsApostropheKeyword_0_0_0());
+    }
+ 
+	    {
+	        if ($current==null) {
+	            $current = createModelElement(grammarAccess.getSchemeExpressionRule());
+	        }
+       		addWithLastConsumed($current, "quotations", lv_quotations_0_1, null);
+	    }
+
+    |		lv_quotations_0_2=	'`' 
+    {
+        newLeafNode(lv_quotations_0_2, grammarAccess.getSchemeExpressionAccess().getQuotationsGraveAccentKeyword_0_0_1());
+    }
+ 
+	    {
+	        if ($current==null) {
+	            $current = createModelElement(grammarAccess.getSchemeExpressionRule());
+	        }
+       		addWithLastConsumed($current, "quotations", lv_quotations_0_2, null);
+	    }
+
+    |		lv_quotations_0_3=	',' 
+    {
+        newLeafNode(lv_quotations_0_3, grammarAccess.getSchemeExpressionAccess().getQuotationsCommaKeyword_0_0_2());
+    }
+ 
+	    {
+	        if ($current==null) {
+	            $current = createModelElement(grammarAccess.getSchemeExpressionRule());
+	        }
+       		addWithLastConsumed($current, "quotations", lv_quotations_0_3, null);
+	    }
+
+    |		lv_quotations_0_4=	'@' 
+    {
+        newLeafNode(lv_quotations_0_4, grammarAccess.getSchemeExpressionAccess().getQuotationsCommercialAtKeyword_0_0_3());
+    }
+ 
+	    {
+	        if ($current==null) {
+	            $current = createModelElement(grammarAccess.getSchemeExpressionRule());
+	        }
+       		addWithLastConsumed($current, "quotations", lv_quotations_0_4, null);
+	    }
+
+)
+
+)
+)*(
+(
+		lv_reference_1_0=	'$' 
+    {
+        newLeafNode(lv_reference_1_0, grammarAccess.getSchemeExpressionAccess().getReferenceDollarSignKeyword_1_0());
     }
  
 	    {
@@ -3381,60 +3435,6 @@ ruleSchemeExpression returns [EObject current=null]
 
 )
 )?(
-(
-(
-		lv_quotations_1_1=	'\'' 
-    {
-        newLeafNode(lv_quotations_1_1, grammarAccess.getSchemeExpressionAccess().getQuotationsApostropheKeyword_1_0_0());
-    }
- 
-	    {
-	        if ($current==null) {
-	            $current = createModelElement(grammarAccess.getSchemeExpressionRule());
-	        }
-       		addWithLastConsumed($current, "quotations", lv_quotations_1_1, null);
-	    }
-
-    |		lv_quotations_1_2=	'`' 
-    {
-        newLeafNode(lv_quotations_1_2, grammarAccess.getSchemeExpressionAccess().getQuotationsGraveAccentKeyword_1_0_1());
-    }
- 
-	    {
-	        if ($current==null) {
-	            $current = createModelElement(grammarAccess.getSchemeExpressionRule());
-	        }
-       		addWithLastConsumed($current, "quotations", lv_quotations_1_2, null);
-	    }
-
-    |		lv_quotations_1_3=	',' 
-    {
-        newLeafNode(lv_quotations_1_3, grammarAccess.getSchemeExpressionAccess().getQuotationsCommaKeyword_1_0_2());
-    }
- 
-	    {
-	        if ($current==null) {
-	            $current = createModelElement(grammarAccess.getSchemeExpressionRule());
-	        }
-       		addWithLastConsumed($current, "quotations", lv_quotations_1_3, null);
-	    }
-
-    |		lv_quotations_1_4=	'@' 
-    {
-        newLeafNode(lv_quotations_1_4, grammarAccess.getSchemeExpressionAccess().getQuotationsCommercialAtKeyword_1_0_3());
-    }
- 
-	    {
-	        if ($current==null) {
-	            $current = createModelElement(grammarAccess.getSchemeExpressionRule());
-	        }
-       		addWithLastConsumed($current, "quotations", lv_quotations_1_4, null);
-	    }
-
-)
-
-)
-)*(
 (
 		{ 
 	        newCompositeNode(grammarAccess.getSchemeExpressionAccess().getValueSchemeValueParserRuleCall_2_0()); 

@@ -2906,41 +2906,41 @@ finally {
 	restoreStackSize(stackSize);
 }
 
-rule__SchemeExpression__QuotationsAlternatives_1_0
+rule__SchemeExpression__QuotationsAlternatives_0_0
     @init {
 		int stackSize = keepStackSize();
     }
 :
 (
-{ before(grammarAccess.getSchemeExpressionAccess().getQuotationsApostropheKeyword_1_0_0()); }
+{ before(grammarAccess.getSchemeExpressionAccess().getQuotationsApostropheKeyword_0_0_0()); }
 
 	'\'' 
 
-{ after(grammarAccess.getSchemeExpressionAccess().getQuotationsApostropheKeyword_1_0_0()); }
+{ after(grammarAccess.getSchemeExpressionAccess().getQuotationsApostropheKeyword_0_0_0()); }
 )
 
     |(
-{ before(grammarAccess.getSchemeExpressionAccess().getQuotationsGraveAccentKeyword_1_0_1()); }
+{ before(grammarAccess.getSchemeExpressionAccess().getQuotationsGraveAccentKeyword_0_0_1()); }
 
 	'`' 
 
-{ after(grammarAccess.getSchemeExpressionAccess().getQuotationsGraveAccentKeyword_1_0_1()); }
+{ after(grammarAccess.getSchemeExpressionAccess().getQuotationsGraveAccentKeyword_0_0_1()); }
 )
 
     |(
-{ before(grammarAccess.getSchemeExpressionAccess().getQuotationsCommaKeyword_1_0_2()); }
+{ before(grammarAccess.getSchemeExpressionAccess().getQuotationsCommaKeyword_0_0_2()); }
 
 	',' 
 
-{ after(grammarAccess.getSchemeExpressionAccess().getQuotationsCommaKeyword_1_0_2()); }
+{ after(grammarAccess.getSchemeExpressionAccess().getQuotationsCommaKeyword_0_0_2()); }
 )
 
     |(
-{ before(grammarAccess.getSchemeExpressionAccess().getQuotationsCommercialAtKeyword_1_0_3()); }
+{ before(grammarAccess.getSchemeExpressionAccess().getQuotationsCommercialAtKeyword_0_0_3()); }
 
 	'@' 
 
-{ after(grammarAccess.getSchemeExpressionAccess().getQuotationsCommercialAtKeyword_1_0_3()); }
+{ after(grammarAccess.getSchemeExpressionAccess().getQuotationsCommercialAtKeyword_0_0_3()); }
 )
 
 ;
@@ -5962,9 +5962,9 @@ rule__SchemeExpression__Group__0__Impl
     }
 :
 (
-{ before(grammarAccess.getSchemeExpressionAccess().getReferenceAssignment_0()); }
-(rule__SchemeExpression__ReferenceAssignment_0)?
-{ after(grammarAccess.getSchemeExpressionAccess().getReferenceAssignment_0()); }
+{ before(grammarAccess.getSchemeExpressionAccess().getQuotationsAssignment_0()); }
+(rule__SchemeExpression__QuotationsAssignment_0)*
+{ after(grammarAccess.getSchemeExpressionAccess().getQuotationsAssignment_0()); }
 )
 
 ;
@@ -5991,9 +5991,9 @@ rule__SchemeExpression__Group__1__Impl
     }
 :
 (
-{ before(grammarAccess.getSchemeExpressionAccess().getQuotationsAssignment_1()); }
-(rule__SchemeExpression__QuotationsAssignment_1)*
-{ after(grammarAccess.getSchemeExpressionAccess().getQuotationsAssignment_1()); }
+{ before(grammarAccess.getSchemeExpressionAccess().getReferenceAssignment_1()); }
+(rule__SchemeExpression__ReferenceAssignment_1)?
+{ after(grammarAccess.getSchemeExpressionAccess().getReferenceAssignment_1()); }
 )
 
 ;
@@ -7992,22 +7992,15 @@ finally {
 	restoreStackSize(stackSize);
 }
 
-rule__SchemeExpression__ReferenceAssignment_0
+rule__SchemeExpression__QuotationsAssignment_0
     @init {
 		int stackSize = keepStackSize();
     }
 :
 (
-{ before(grammarAccess.getSchemeExpressionAccess().getReferenceDollarSignKeyword_0_0()); }
-(
-{ before(grammarAccess.getSchemeExpressionAccess().getReferenceDollarSignKeyword_0_0()); }
-
-	'$' 
-
-{ after(grammarAccess.getSchemeExpressionAccess().getReferenceDollarSignKeyword_0_0()); }
-)
-
-{ after(grammarAccess.getSchemeExpressionAccess().getReferenceDollarSignKeyword_0_0()); }
+{ before(grammarAccess.getSchemeExpressionAccess().getQuotationsAlternatives_0_0()); }
+(rule__SchemeExpression__QuotationsAlternatives_0_0)
+{ after(grammarAccess.getSchemeExpressionAccess().getQuotationsAlternatives_0_0()); }
 )
 
 ;
@@ -8015,15 +8008,22 @@ finally {
 	restoreStackSize(stackSize);
 }
 
-rule__SchemeExpression__QuotationsAssignment_1
+rule__SchemeExpression__ReferenceAssignment_1
     @init {
 		int stackSize = keepStackSize();
     }
 :
 (
-{ before(grammarAccess.getSchemeExpressionAccess().getQuotationsAlternatives_1_0()); }
-(rule__SchemeExpression__QuotationsAlternatives_1_0)
-{ after(grammarAccess.getSchemeExpressionAccess().getQuotationsAlternatives_1_0()); }
+{ before(grammarAccess.getSchemeExpressionAccess().getReferenceDollarSignKeyword_1_0()); }
+(
+{ before(grammarAccess.getSchemeExpressionAccess().getReferenceDollarSignKeyword_1_0()); }
+
+	'$' 
+
+{ after(grammarAccess.getSchemeExpressionAccess().getReferenceDollarSignKeyword_1_0()); }
+)
+
+{ after(grammarAccess.getSchemeExpressionAccess().getReferenceDollarSignKeyword_1_0()); }
 )
 
 ;

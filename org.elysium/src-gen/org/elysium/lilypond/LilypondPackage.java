@@ -1,7 +1,4 @@
 /**
- * <copyright>
- * </copyright>
- *
  */
 package org.elysium.lilypond;
 
@@ -1331,22 +1328,22 @@ public interface LilypondPackage extends EPackage
   int SCHEME_EXPRESSION = 37;
 
   /**
-   * The feature id for the '<em><b>Reference</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int SCHEME_EXPRESSION__REFERENCE = 0;
-
-  /**
    * The feature id for the '<em><b>Quotations</b></em>' attribute list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int SCHEME_EXPRESSION__QUOTATIONS = 1;
+  int SCHEME_EXPRESSION__QUOTATIONS = 0;
+
+  /**
+   * The feature id for the '<em><b>Reference</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int SCHEME_EXPRESSION__REFERENCE = 1;
 
   /**
    * The feature id for the '<em><b>Value</b></em>' containment reference.
@@ -2476,17 +2473,6 @@ public interface LilypondPackage extends EPackage
   EClass getSchemeExpression();
 
   /**
-   * Returns the meta object for the attribute '{@link org.elysium.lilypond.SchemeExpression#isReference <em>Reference</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Reference</em>'.
-   * @see org.elysium.lilypond.SchemeExpression#isReference()
-   * @see #getSchemeExpression()
-   * @generated
-   */
-  EAttribute getSchemeExpression_Reference();
-
-  /**
    * Returns the meta object for the attribute list '{@link org.elysium.lilypond.SchemeExpression#getQuotations <em>Quotations</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -2496,6 +2482,17 @@ public interface LilypondPackage extends EPackage
    * @generated
    */
   EAttribute getSchemeExpression_Quotations();
+
+  /**
+   * Returns the meta object for the attribute '{@link org.elysium.lilypond.SchemeExpression#isReference <em>Reference</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Reference</em>'.
+   * @see org.elysium.lilypond.SchemeExpression#isReference()
+   * @see #getSchemeExpression()
+   * @generated
+   */
+  EAttribute getSchemeExpression_Reference();
 
   /**
    * Returns the meta object for the containment reference '{@link org.elysium.lilypond.SchemeExpression#getValue <em>Value</em>}'.
@@ -3451,20 +3448,20 @@ public interface LilypondPackage extends EPackage
     EClass SCHEME_EXPRESSION = eINSTANCE.getSchemeExpression();
 
     /**
-     * The meta object literal for the '<em><b>Reference</b></em>' attribute feature.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @generated
-     */
-    EAttribute SCHEME_EXPRESSION__REFERENCE = eINSTANCE.getSchemeExpression_Reference();
-
-    /**
      * The meta object literal for the '<em><b>Quotations</b></em>' attribute list feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
     EAttribute SCHEME_EXPRESSION__QUOTATIONS = eINSTANCE.getSchemeExpression_Quotations();
+
+    /**
+     * The meta object literal for the '<em><b>Reference</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute SCHEME_EXPRESSION__REFERENCE = eINSTANCE.getSchemeExpression_Reference();
 
     /**
      * The meta object literal for the '<em><b>Value</b></em>' containment reference feature.

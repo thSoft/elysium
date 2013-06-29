@@ -59,7 +59,7 @@ public class LilyPondParser extends AbstractContentAssistParser {
 					put(grammarAccess.getOtherNameAccess().getAlternatives(), "rule__OtherName__Alternatives");
 					put(grammarAccess.getSpecialCommandNameAccess().getAlternatives(), "rule__SpecialCommandName__Alternatives");
 					put(grammarAccess.getSchemeAccess().getAlternatives_0(), "rule__Scheme__Alternatives_0");
-					put(grammarAccess.getSchemeExpressionAccess().getQuotationsAlternatives_1_0(), "rule__SchemeExpression__QuotationsAlternatives_1_0");
+					put(grammarAccess.getSchemeExpressionAccess().getQuotationsAlternatives_0_0(), "rule__SchemeExpression__QuotationsAlternatives_0_0");
 					put(grammarAccess.getSchemeValueAccess().getAlternatives(), "rule__SchemeValue__Alternatives");
 					put(grammarAccess.getSchemeCharacterAccess().getValueAlternatives_1_0(), "rule__SchemeCharacter__ValueAlternatives_1_0");
 					put(grammarAccess.getSchemeTextValueSegmentAccess().getAlternatives(), "rule__SchemeTextValueSegment__Alternatives");
@@ -165,8 +165,8 @@ public class LilyPondParser extends AbstractContentAssistParser {
 					put(grammarAccess.getStringIndicationAccess().getStringAssignment_1(), "rule__StringIndication__StringAssignment_1");
 					put(grammarAccess.getOtherAccess().getKeywordAssignment_1(), "rule__Other__KeywordAssignment_1");
 					put(grammarAccess.getSchemeAccess().getValueAssignment_1(), "rule__Scheme__ValueAssignment_1");
-					put(grammarAccess.getSchemeExpressionAccess().getReferenceAssignment_0(), "rule__SchemeExpression__ReferenceAssignment_0");
-					put(grammarAccess.getSchemeExpressionAccess().getQuotationsAssignment_1(), "rule__SchemeExpression__QuotationsAssignment_1");
+					put(grammarAccess.getSchemeExpressionAccess().getQuotationsAssignment_0(), "rule__SchemeExpression__QuotationsAssignment_0");
+					put(grammarAccess.getSchemeExpressionAccess().getReferenceAssignment_1(), "rule__SchemeExpression__ReferenceAssignment_1");
 					put(grammarAccess.getSchemeExpressionAccess().getValueAssignment_2(), "rule__SchemeExpression__ValueAssignment_2");
 					put(grammarAccess.getSchemeBooleanAccess().getValueAssignment(), "rule__SchemeBoolean__ValueAssignment");
 					put(grammarAccess.getSchemeListAccess().getVectorAssignment_1(), "rule__SchemeList__VectorAssignment_1");

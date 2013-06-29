@@ -1,7 +1,4 @@
 /**
- * <copyright>
- * </copyright>
- *
  */
 package org.elysium.lilypond.impl;
 
@@ -79,7 +76,7 @@ public class LilypondFactoryImpl extends EFactoryImpl implements LilypondFactory
   {
     try
     {
-      LilypondFactory theLilypondFactory = (LilypondFactory)EPackage.Registry.INSTANCE.getEFactory("http://www.elysium.org/LilyPond"); 
+      LilypondFactory theLilypondFactory = (LilypondFactory)EPackage.Registry.INSTANCE.getEFactory(LilypondPackage.eNS_URI);
       if (theLilypondFactory != null)
       {
         return theLilypondFactory;

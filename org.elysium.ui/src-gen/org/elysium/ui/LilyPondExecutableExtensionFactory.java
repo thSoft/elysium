@@ -8,6 +8,8 @@ import org.osgi.framework.Bundle;
 
 import com.google.inject.Injector;
 
+import org.elysium.ui.internal.LilyPondActivator;
+
 /**
  * This class was generated. Customizations should only happen in a newly
  * introduced subclass. 
@@ -16,12 +18,12 @@ public class LilyPondExecutableExtensionFactory extends AbstractGuiceAwareExecut
 
 	@Override
 	protected Bundle getBundle() {
-		return org.elysium.ui.internal.LilyPondActivator.getInstance().getBundle();
+		return LilyPondActivator.getInstance().getBundle();
 	}
 	
 	@Override
 	protected Injector getInjector() {
-		return org.elysium.ui.internal.LilyPondActivator.getInstance().getInjector("org.elysium.LilyPond");
+		return LilyPondActivator.getInstance().getInjector(LilyPondActivator.ORG_ELYSIUM_LILYPOND);
 	}
 	
 }
