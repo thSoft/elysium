@@ -767,31 +767,35 @@ public class LilyPondGrammarAccess extends AbstractGrammarElementFinder {
 		private final Assignment cCommandAssignment_1 = (Assignment)cGroup.eContents().get(1);
 		private final Alternatives cCommandAlternatives_1_0 = (Alternatives)cCommandAssignment_1.eContents().get(0);
 		private final RuleCall cCommandSchemeParserRuleCall_1_0_0 = (RuleCall)cCommandAlternatives_1_0.eContents().get(0);
-		private final RuleCall cCommandUnparsedCommandParserRuleCall_1_0_1 = (RuleCall)cCommandAlternatives_1_0.eContents().get(1);
+		private final RuleCall cCommandSchemeTextParserRuleCall_1_0_1 = (RuleCall)cCommandAlternatives_1_0.eContents().get(1);
+		private final RuleCall cCommandUnparsedCommandParserRuleCall_1_0_2 = (RuleCall)cCommandAlternatives_1_0.eContents().get(2);
 		private final Assignment cBlockAssignment_2 = (Assignment)cGroup.eContents().get(2);
 		private final RuleCall cBlockUnparsedBlockParserRuleCall_2_0 = (RuleCall)cBlockAssignment_2.eContents().get(0);
 		
 		//MarkupBody:
-		//	{MarkupBody} command+=(Scheme | UnparsedCommand)* block=UnparsedBlock?;
+		//	{MarkupBody} command+=(Scheme | SchemeText | UnparsedCommand)* block=UnparsedBlock?;
 		public ParserRule getRule() { return rule; }
 
-		//{MarkupBody} command+=(Scheme | UnparsedCommand)* block=UnparsedBlock?
+		//{MarkupBody} command+=(Scheme | SchemeText | UnparsedCommand)* block=UnparsedBlock?
 		public Group getGroup() { return cGroup; }
 
 		//{MarkupBody}
 		public Action getMarkupBodyAction_0() { return cMarkupBodyAction_0; }
 
-		//command+=(Scheme | UnparsedCommand)*
+		//command+=(Scheme | SchemeText | UnparsedCommand)*
 		public Assignment getCommandAssignment_1() { return cCommandAssignment_1; }
 
-		//Scheme | UnparsedCommand
+		//Scheme | SchemeText | UnparsedCommand
 		public Alternatives getCommandAlternatives_1_0() { return cCommandAlternatives_1_0; }
 
 		//Scheme
 		public RuleCall getCommandSchemeParserRuleCall_1_0_0() { return cCommandSchemeParserRuleCall_1_0_0; }
 
+		//SchemeText
+		public RuleCall getCommandSchemeTextParserRuleCall_1_0_1() { return cCommandSchemeTextParserRuleCall_1_0_1; }
+
 		//UnparsedCommand
-		public RuleCall getCommandUnparsedCommandParserRuleCall_1_0_1() { return cCommandUnparsedCommandParserRuleCall_1_0_1; }
+		public RuleCall getCommandUnparsedCommandParserRuleCall_1_0_2() { return cCommandUnparsedCommandParserRuleCall_1_0_2; }
 
 		//block=UnparsedBlock?
 		public Assignment getBlockAssignment_2() { return cBlockAssignment_2; }
@@ -2479,7 +2483,7 @@ public class LilyPondGrammarAccess extends AbstractGrammarElementFinder {
 	}
 
 	//MarkupBody:
-	//	{MarkupBody} command+=(Scheme | UnparsedCommand)* block=UnparsedBlock?;
+	//	{MarkupBody} command+=(Scheme | SchemeText | UnparsedCommand)* block=UnparsedBlock?;
 	public MarkupBodyElements getMarkupBodyAccess() {
 		return (pMarkupBody != null) ? pMarkupBody : (pMarkupBody = new MarkupBodyElements());
 	}

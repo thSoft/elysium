@@ -66,7 +66,7 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="MarkupBody">
     <eStructuralFeatures xsi:type="ecore:EReference" name="command" upperBound="-1"
-        eType="#//UnparsedExpression" containment="true"/>
+        eType="ecore:EClass http://www.eclipse.org/emf/2002/Ecore#//EObject" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="block" eType="#//UnparsedBlock"
         containment="true"/>
   </eClassifiers>

@@ -2078,9 +2078,15 @@ rule__MarkupBody__CommandAlternatives_1_0
 )
 
     |(
-{ before(grammarAccess.getMarkupBodyAccess().getCommandUnparsedCommandParserRuleCall_1_0_1()); }
+{ before(grammarAccess.getMarkupBodyAccess().getCommandSchemeTextParserRuleCall_1_0_1()); }
+	ruleSchemeText
+{ after(grammarAccess.getMarkupBodyAccess().getCommandSchemeTextParserRuleCall_1_0_1()); }
+)
+
+    |(
+{ before(grammarAccess.getMarkupBodyAccess().getCommandUnparsedCommandParserRuleCall_1_0_2()); }
 	ruleUnparsedCommand
-{ after(grammarAccess.getMarkupBodyAccess().getCommandUnparsedCommandParserRuleCall_1_0_1()); }
+{ after(grammarAccess.getMarkupBodyAccess().getCommandUnparsedCommandParserRuleCall_1_0_2()); }
 )
 
 ;

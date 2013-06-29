@@ -1674,9 +1674,9 @@ ruleMarkupBody returns [EObject current=null]
 	    }
 
     |		{ 
-	        newCompositeNode(grammarAccess.getMarkupBodyAccess().getCommandUnparsedCommandParserRuleCall_1_0_1()); 
+	        newCompositeNode(grammarAccess.getMarkupBodyAccess().getCommandSchemeTextParserRuleCall_1_0_1()); 
 	    }
-		lv_command_1_2=ruleUnparsedCommand		{
+		lv_command_1_2=ruleSchemeText		{
 	        if ($current==null) {
 	            $current = createModelElementForParent(grammarAccess.getMarkupBodyRule());
 	        }
@@ -1684,6 +1684,21 @@ ruleMarkupBody returns [EObject current=null]
        			$current, 
        			"command",
         		lv_command_1_2, 
+        		"SchemeText");
+	        afterParserOrEnumRuleCall();
+	    }
+
+    |		{ 
+	        newCompositeNode(grammarAccess.getMarkupBodyAccess().getCommandUnparsedCommandParserRuleCall_1_0_2()); 
+	    }
+		lv_command_1_3=ruleUnparsedCommand		{
+	        if ($current==null) {
+	            $current = createModelElementForParent(grammarAccess.getMarkupBodyRule());
+	        }
+       		add(
+       			$current, 
+       			"command",
+        		lv_command_1_3, 
         		"UnparsedCommand");
 	        afterParserOrEnumRuleCall();
 	    }

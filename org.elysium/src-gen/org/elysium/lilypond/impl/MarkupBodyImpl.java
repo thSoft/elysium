@@ -10,6 +10,7 @@ import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
@@ -21,7 +22,6 @@ import org.eclipse.emf.ecore.util.InternalEList;
 import org.elysium.lilypond.LilypondPackage;
 import org.elysium.lilypond.MarkupBody;
 import org.elysium.lilypond.UnparsedBlock;
-import org.elysium.lilypond.UnparsedExpression;
 
 /**
  * <!-- begin-user-doc -->
@@ -47,7 +47,7 @@ public class MarkupBodyImpl extends MinimalEObjectImpl.Container implements Mark
    * @generated
    * @ordered
    */
-  protected EList<UnparsedExpression> command;
+  protected EList<EObject> command;
 
   /**
    * The cached value of the '{@link #getBlock() <em>Block</em>}' containment reference.
@@ -85,11 +85,11 @@ public class MarkupBodyImpl extends MinimalEObjectImpl.Container implements Mark
    * <!-- end-user-doc -->
    * @generated
    */
-  public EList<UnparsedExpression> getCommand()
+  public EList<EObject> getCommand()
   {
     if (command == null)
     {
-      command = new EObjectContainmentEList<UnparsedExpression>(UnparsedExpression.class, this, LilypondPackage.MARKUP_BODY__COMMAND);
+      command = new EObjectContainmentEList<EObject>(EObject.class, this, LilypondPackage.MARKUP_BODY__COMMAND);
     }
     return command;
   }
@@ -191,7 +191,7 @@ public class MarkupBodyImpl extends MinimalEObjectImpl.Container implements Mark
     {
       case LilypondPackage.MARKUP_BODY__COMMAND:
         getCommand().clear();
-        getCommand().addAll((Collection<? extends UnparsedExpression>)newValue);
+        getCommand().addAll((Collection<? extends EObject>)newValue);
         return;
       case LilypondPackage.MARKUP_BODY__BLOCK:
         setBlock((UnparsedBlock)newValue);

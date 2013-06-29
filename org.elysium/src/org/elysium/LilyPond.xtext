@@ -47,11 +47,11 @@ SourceFileName: "\\" keyword="sourcefilename" filename=STRING;
 
 SourceFileLine: "\\" keyword="sourcefileline" line=INT;
 
-Markup: "\\" keyword="markup" body=MarkupBody;
+Markup: "\\" keyword="markup" body=MarkupBody; // XXX very messy 
 
 MarkupLines: "\\" keyword="markuplines" body=MarkupBody;
 
-MarkupBody: {MarkupBody} command+=(Scheme | UnparsedCommand)* block=UnparsedBlock?;
+MarkupBody: {MarkupBody} command+=(Scheme | SchemeText | UnparsedCommand)* block=UnparsedBlock?; // XXX SchemeText? see tocItemWithDotsMarkup
 
 BlockCommand: "\\" keyword=("book" | "bookpart" | "header" | "score") block=SimpleBlock;
 

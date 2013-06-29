@@ -27,7 +27,7 @@ public interface MarkupBody extends EObject
 {
   /**
    * Returns the value of the '<em><b>Command</b></em>' containment reference list.
-   * The list contents are of type {@link org.elysium.lilypond.UnparsedExpression}.
+   * The list contents are of type {@link org.eclipse.emf.ecore.EObject}.
    * <!-- begin-user-doc -->
    * <p>
    * If the meaning of the '<em>Command</em>' containment reference list isn't clear,
@@ -39,7 +39,7 @@ public interface MarkupBody extends EObject
    * @model containment="true"
    * @generated
    */
-  EList<UnparsedExpression> getCommand();
+  EList<EObject> getCommand();
 
   /**
    * Returns the value of the '<em><b>Block</b></em>' containment reference.

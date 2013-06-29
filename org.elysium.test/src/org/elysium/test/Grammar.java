@@ -200,6 +200,11 @@ public class Grammar extends LilyPondTest {
 	public void markupCommandWithHyphen() throws Exception {
 		assertValid("\\markup \\fill-line { \\on-the-fly #not-first-page \\fromproperty #'header:instrument }");
 	}
+	
+	@Test
+	public void markupCommandWithDot() throws Exception {
+		assertValid("\\markup \\fill-with-pattern #1 #RIGHT . \\fromproperty #'toc:text \\fromproperty #'toc:page");
+	}
 
 	@Test
 	public void assignment() throws Exception {

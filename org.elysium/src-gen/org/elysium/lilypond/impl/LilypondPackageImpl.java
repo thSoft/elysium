@@ -1794,7 +1794,7 @@ public class LilypondPackageImpl extends EPackageImpl implements LilypondPackage
     initEReference(getMarkupLines_Body(), this.getMarkupBody(), null, "body", null, 0, 1, MarkupLines.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(markupBodyEClass, MarkupBody.class, "MarkupBody", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getMarkupBody_Command(), this.getUnparsedExpression(), null, "command", null, 0, -1, MarkupBody.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getMarkupBody_Command(), ecorePackage.getEObject(), null, "command", null, 0, -1, MarkupBody.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getMarkupBody_Block(), this.getUnparsedBlock(), null, "block", null, 0, 1, MarkupBody.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(blockCommandEClass, BlockCommand.class, "BlockCommand", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
