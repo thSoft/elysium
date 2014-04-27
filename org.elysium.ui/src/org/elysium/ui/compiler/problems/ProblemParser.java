@@ -160,17 +160,17 @@ public class ProblemParser {
 				result.setAttribute(IMarker.MESSAGE, message);
 				// Line number
 				if (sections.length >= 2) {
-					int lineNumber = 0;
+					int lineNumber = 0; // 0-based
 					try {
 						lineNumber = Math.max(Integer.parseInt(sections[1]) - 1, 0);
 						result.setAttribute(IMarker.LINE_NUMBER, lineNumber + 1);
 					} catch (NumberFormatException e) {
 					}
 					// Column number
-					int columnNumber = 0;
+					int columnNumber = 0; // 0-based
 					if (sections.length >= 3) {
 						try {
-							columnNumber = Integer.parseInt(sections[2]);
+							columnNumber = Integer.parseInt(sections[2]) - 1;
 							result.setAttribute(MarkerAttributes.COLUMN_NUMBER.name(), columnNumber + 1);
 						} catch (NumberFormatException e) {
 						}
