@@ -1,6 +1,6 @@
 package org.elysium.ui.compiler.problems;
 
-import java.util.HashMap;
+import static com.google.common.base.Objects.firstNonNull;
 import java.util.Locale;
 import java.util.Map;
 import org.eclipse.core.resources.IFile;
@@ -14,6 +14,7 @@ import org.elysium.LilyPondConstants;
 import org.elysium.ui.Activator;
 import org.elysium.ui.markers.MarkerAttributes;
 import org.elysium.ui.markers.MarkerTypes;
+import com.google.common.collect.ImmutableMap;
 
 /**
  * Parses a line of LilyPond output and creates a problem marker from it.
@@ -28,93 +29,70 @@ public class ProblemParser {
 	/**
 	 * Strings denoting error in all locales LilyPond is available in.
 	 */
-	private static final Map<String, String> ERROR_STRINGS = new HashMap<String, String>();
-	static {
-		ERROR_STRINGS.put("cs", "chyba"); //$NON-NLS-1$ //$NON-NLS-2$
-		ERROR_STRINGS.put("da", "fejl"); //$NON-NLS-1$ //$NON-NLS-2$
-		ERROR_STRINGS.put("de", "Fehler"); //$NON-NLS-1$ //$NON-NLS-2$
-		ERROR_STRINGS.put("es", "error"); //$NON-NLS-1$ //$NON-NLS-2$
-		ERROR_STRINGS.put("fi", "virhe"); //$NON-NLS-1$ //$NON-NLS-2$
-		ERROR_STRINGS.put("fr", "Erreur "); //$NON-NLS-1$ //$NON-NLS-2$
-		ERROR_STRINGS.put("it", "errore"); //$NON-NLS-1$ //$NON-NLS-2$
-		ERROR_STRINGS.put("nl", "fout"); //$NON-NLS-1$ //$NON-NLS-2$
-		ERROR_STRINGS.put("ru", "������"); //$NON-NLS-1$ //$NON-NLS-2$
-		ERROR_STRINGS.put("sv", "fel"); //$NON-NLS-1$ //$NON-NLS-2$
-		ERROR_STRINGS.put("tr", "hata"); //$NON-NLS-1$ //$NON-NLS-2$
-		ERROR_STRINGS.put("uk", "помилка"); //$NON-NLS-1$ //$NON-NLS-2$
-		ERROR_STRINGS.put("vi", "lỗi"); //$NON-NLS-1$ //$NON-NLS-2$
-		ERROR_STRINGS.put("zh", "錯誤"); //$NON-NLS-1$ //$NON-NLS-2$
-	}
+	private static final Map<String, String> ERROR_STRINGS = new ImmutableMap.Builder<String, String>()
+		.put("cs", "chyba") //$NON-NLS-1$ //$NON-NLS-2$
+		.put("da", "fejl") //$NON-NLS-1$ //$NON-NLS-2$
+		.put("de", "Fehler") //$NON-NLS-1$ //$NON-NLS-2$
+		.put("es", "error") //$NON-NLS-1$ //$NON-NLS-2$
+		.put("fi", "virhe") //$NON-NLS-1$ //$NON-NLS-2$
+		.put("fr", "Erreur ") //$NON-NLS-1$ //$NON-NLS-2$
+		.put("it", "errore") //$NON-NLS-1$ //$NON-NLS-2$
+		.put("nl", "fout") //$NON-NLS-1$ //$NON-NLS-2$
+		.put("ru", "������") //$NON-NLS-1$ //$NON-NLS-2$
+		.put("sv", "fel") //$NON-NLS-1$ //$NON-NLS-2$
+		.put("tr", "hata") //$NON-NLS-1$ //$NON-NLS-2$
+		.put("uk", "помилка") //$NON-NLS-1$ //$NON-NLS-2$
+		.put("vi", "lỗi") //$NON-NLS-1$ //$NON-NLS-2$
+		.put("zh", "錯誤") //$NON-NLS-1$ //$NON-NLS-2$
+		.build();
 
 	/**
 	 * The string denoting error in the locale used by LilyPond.
 	 */
-	protected static String ERROR_STRING;
-	static {
-		ERROR_STRING = ERROR_STRINGS.get(Locale.getDefault().getLanguage());
-		if (ERROR_STRING == null) {
-			ERROR_STRING = "error"; //$NON-NLS-1$
-		}
-		ERROR_STRING += PROBLEM_POSTFIX;
-	}
+	protected static final String ERROR_STRING = firstNonNull(ERROR_STRINGS.get(Locale.getDefault().getLanguage()), "error") + PROBLEM_POSTFIX; //$NON-NLS-1$
 
 	/**
 	 * Strings with which programming error messages start in the appropriate
 	 * locales LilyPond is available in.
 	 */
-	private static final Map<String, String> PROGRAMMING_ERROR_PREFIXES = new HashMap<String, String>();
-	static {
-		PROGRAMMING_ERROR_PREFIXES.put("da", "programmerings"); //$NON-NLS-1$ //$NON-NLS-2$
-		PROGRAMMING_ERROR_PREFIXES.put("fi", "ohjelmointi"); //$NON-NLS-1$ //$NON-NLS-2$
-		PROGRAMMING_ERROR_PREFIXES.put("nl", "programmeer"); //$NON-NLS-1$ //$NON-NLS-2$
-		PROGRAMMING_ERROR_PREFIXES.put("sv", "programmerings"); //$NON-NLS-1$ //$NON-NLS-2$
-		PROGRAMMING_ERROR_PREFIXES.put("zh", "程式"); //$NON-NLS-1$ //$NON-NLS-2$
-	}
+	private static final Map<String, String> PROGRAMMING_ERROR_PREFIXES = new ImmutableMap.Builder<String, String>()
+		.put("da", "programmerings") //$NON-NLS-1$ //$NON-NLS-2$
+		.put("fi", "ohjelmointi") //$NON-NLS-1$ //$NON-NLS-2$
+		.put("nl", "programmeer") //$NON-NLS-1$ //$NON-NLS-2$
+		.put("sv", "programmerings") //$NON-NLS-1$ //$NON-NLS-2$
+		.put("zh", "程式") //$NON-NLS-1$ //$NON-NLS-2$
+		.build();
 
 	/**
 	 * The string with which programming error messages start in the locale used
 	 * by LilyPond.
 	 */
-	protected static String PROGRAMMING_ERROR_PREFIX;
-	static {
-		PROGRAMMING_ERROR_PREFIX = PROGRAMMING_ERROR_PREFIXES.get(Locale.getDefault().getLanguage());
-		if (PROGRAMMING_ERROR_PREFIX == null) {
-			PROGRAMMING_ERROR_PREFIX = "programming "; //$NON-NLS-1$
-		}
-	}
+	protected static final String PROGRAMMING_ERROR_PREFIX = firstNonNull(PROGRAMMING_ERROR_PREFIXES.get(Locale.getDefault().getLanguage()), "programming"); //$NON-NLS-1$
 
 	/**
 	 * Strings denoting warning in all locales LilyPond is available in.
 	 */
-	private static final Map<String, String> WARNING_STRINGS = new HashMap<String, String>();
-	static {
-		WARNING_STRINGS.put("cs", "varování"); //$NON-NLS-1$ //$NON-NLS-2$
-		WARNING_STRINGS.put("da", "advarsel"); //$NON-NLS-1$ //$NON-NLS-2$
-		WARNING_STRINGS.put("de", "Warnung"); //$NON-NLS-1$ //$NON-NLS-2$
-		WARNING_STRINGS.put("es", "advertencia"); //$NON-NLS-1$ //$NON-NLS-2$
-		WARNING_STRINGS.put("fi", "varoitus"); //$NON-NLS-1$ //$NON-NLS-2$
-		WARNING_STRINGS.put("fr", "Avertissement "); //$NON-NLS-1$ //$NON-NLS-2$
-		WARNING_STRINGS.put("it", "attenzione"); //$NON-NLS-1$ //$NON-NLS-2$
-		WARNING_STRINGS.put("nl", "waarschuwing"); //$NON-NLS-1$ //$NON-NLS-2$
-		WARNING_STRINGS.put("ru", "������������"); //$NON-NLS-1$ //$NON-NLS-2$
-		WARNING_STRINGS.put("sv", "varning"); //$NON-NLS-1$ //$NON-NLS-2$
-		WARNING_STRINGS.put("tr", "uyarı"); //$NON-NLS-1$ //$NON-NLS-2$
-		WARNING_STRINGS.put("uk", "попередження"); //$NON-NLS-1$ //$NON-NLS-2$
-		WARNING_STRINGS.put("vi", "cảnh báo "); //$NON-NLS-1$ //$NON-NLS-2$
-		WARNING_STRINGS.put("zh", "警告"); //$NON-NLS-1$ //$NON-NLS-2$
-	}
+	private static final Map<String, String> WARNING_STRINGS = new ImmutableMap.Builder<String, String>()
+		.put("cs", "varování") //$NON-NLS-1$ //$NON-NLS-2$
+		.put("da", "advarsel") //$NON-NLS-1$ //$NON-NLS-2$
+		.put("de", "Warnung") //$NON-NLS-1$ //$NON-NLS-2$
+		.put("es", "advertencia") //$NON-NLS-1$ //$NON-NLS-2$
+		.put("fi", "varoitus") //$NON-NLS-1$ //$NON-NLS-2$
+		.put("fr", "Avertissement ") //$NON-NLS-1$ //$NON-NLS-2$
+		.put("it", "attenzione") //$NON-NLS-1$ //$NON-NLS-2$
+		.put("nl", "waarschuwing") //$NON-NLS-1$ //$NON-NLS-2$
+		.put("ru", "������������") //$NON-NLS-1$ //$NON-NLS-2$
+		.put("sv", "varning") //$NON-NLS-1$ //$NON-NLS-2$
+		.put("tr", "uyarı") //$NON-NLS-1$ //$NON-NLS-2$
+		.put("uk", "попередження") //$NON-NLS-1$ //$NON-NLS-2$
+		.put("vi", "cảnh báo ") //$NON-NLS-1$ //$NON-NLS-2$
+		.put("zh", "警告") //$NON-NLS-1$ //$NON-NLS-2$
+		.build();
 
 	/**
 	 * The string denoting warning in the locale used by LilyPond.
 	 */
-	protected static String WARNING_STRING;
-	static {
-		WARNING_STRING = WARNING_STRINGS.get(Locale.getDefault().getLanguage());
-		if (WARNING_STRING == null) {
-			WARNING_STRING = "warning"; //$NON-NLS-1$
-		}
-		WARNING_STRING += PROBLEM_POSTFIX;
-	}
+	protected static final String WARNING_STRING = firstNonNull(WARNING_STRINGS.get(Locale.getDefault().getLanguage()), "warning") + PROBLEM_POSTFIX; //$NON-NLS-1$
 
 	/**
 	 * @param file the file being compiled
