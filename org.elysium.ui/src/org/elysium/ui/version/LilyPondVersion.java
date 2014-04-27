@@ -10,7 +10,7 @@ public class LilyPondVersion {
 
 	public static String get() {
 		// TODO query version by running LilyPond
-		return "2.16.0"; //$NON-NLS-1$
+		return "2.18.0"; //$NON-NLS-1$
 	}
 
 }
