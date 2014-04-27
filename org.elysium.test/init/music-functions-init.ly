@@ -18,7 +18,7 @@
 %%%% You should have received a copy of the GNU General Public License
 %%%% along with LilyPond.  If not, see <http://www.gnu.org/licenses/>.
 
-\version "2.16.0"
+\version "2.17.11"
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -30,6 +30,14 @@
 	      (ice-9 optargs))
 
 %% TODO: using define-music-function in a .scm causes crash.
+
+absolute =
+#(define-music-function (parser location music)
+   (ly:music?)
+   (_i "Make @var{music} absolute.  This does not actually change the
+music itself but rather hides it from surrounding @code{\\relative}
+commands.")
+   (make-music 'RelativeOctaveMusic 'element music))
 
 acciaccatura =
 #(def-grace-function startAcciaccaturaMusic stopAcciaccaturaMusic
@@ -86,35 +94,38 @@ markups), or inside a score.")
 					   'break-permission 'allow))))
 
 alterBroken =
-#(define-music-function (parser location name property arg)
-  (string? scheme? list?)
-  (_i "Override @var{property} for pieces of broken spanner @var{name} with
-values @var{arg}.")
-  (let* ((name (string-delete name char-set:blank)) ; remove any spaces
-         (name-components (string-split name #\.))
-         (context-name "Bottom")
-         (grob-name #f))
-
-    (if (> 2 (length name-components))
-        (set! grob-name (car name-components))
-        (begin
-          (set! grob-name (cadr name-components))
-          (set! context-name (car name-components))))
-
-    ;; only apply override if grob is a spanner
-    (let ((description
-            (assoc-get (string->symbol grob-name) all-grob-descriptions)))
-      (if (and description
-               (member 'spanner-interface
-                       (assoc-get 'interfaces
-                                  (assoc-get 'meta description))))
-          #{
-            \override $context-name . $grob-name $property =
-              #(value-for-spanner-piece arg)
-          #}
+#(define-music-function (parser location property arg item)
+  (symbol-list-or-symbol? list? symbol-list-or-music?)
+  (_i "Override @var{property} for pieces of broken spanner @var{item}
+with values @var{arg}.  @var{item} may either be music in the form of
+a starting spanner event, or a symbol list in the form
+@samp{Context.Grob} or just @samp{Grob}.  Iff @var{item} is in the
+form of a spanner event, @var{property} may also have the form
+@samp{Grob.property} for specifying a directed tweak.")
+  (if (ly:music? item)
+      (if (eq? (ly:music-property item 'span-direction) START)
+          #{ \tweak #property #(value-for-spanner-piece arg) #item #}
           (begin
-            (ly:input-warning location (_ "not a spanner name, `~a'") grob-name)
-            (make-music 'SequentialMusic 'void #t))))))
+            (ly:music-warning item (_ "not a spanner"))
+            item))
+      (let* ((p (check-grob-path item parser location
+                                 #:default 'Bottom
+                                 #:min 2
+                                 #:max 2))
+             (name (and p (second p)))
+             (description
+              (and name (assoc-get name all-grob-descriptions))))
+        (if (and description
+                 (member 'spanner-interface
+                         (assoc-get 'interfaces
+                                    (assoc-get 'meta description))))
+            #{
+              \override #item . #property =
+              #(value-for-spanner-piece arg)
+            #}
+            (begin
+              (ly:input-warning location (_ "not a spanner name, `~a'") name)
+              (make-music 'Music))))))
 
 appendToTag =
 #(define-music-function (parser location tag more music)
@@ -175,14 +186,16 @@ balloonGrobText =
    (symbol? number-pair? markup?)
    (_i "Attach @var{text} to @var{grob-name} at offset @var{offset}
  (use like @code{\\once})")
-   (make-music 'AnnotateOutputEvent
-	       'symbol grob-name
-	       'X-offset (car offset)
-	       'Y-offset (cdr offset)
-	       'text text))
+   (make-event-chord
+    (list
+     (make-music 'AnnotateOutputEvent
+                 'symbol grob-name
+                 'X-offset (car offset)
+                 'Y-offset (cdr offset)
+                 'text text))))
 
 balloonText =
-#(define-music-function (parser location offset text) (number-pair? markup?)
+#(define-event-function (parser location offset text) (number-pair? markup?)
    (_i "Attach @var{text} at @var{offset} (use like @code{\\tweak})")
    (make-music 'AnnotateOutputEvent
 	       'X-offset (car offset)
@@ -257,24 +270,24 @@ as @code{\\compoundMeter #'((3 2 8))} or shorter
          (timesig (cons (ly:moment-main-numerator mlen)
                         (ly:moment-main-denominator mlen))))
   #{
-    \once \override Staff.TimeSignature #'stencil = #(lambda (grob)
+    \once \override Staff.TimeSignature.stencil = #(lambda (grob)
       (grob-interpret-markup grob (format-compound-time args)))
-    \set Timing.timeSignatureFraction = $timesig
-    \set Timing.baseMoment = $beat
-    \set Timing.beatStructure = $beatGrouping
+    \set Timing.timeSignatureFraction = #timesig
+    \set Timing.baseMoment = #beat
+    \set Timing.beatStructure = #beatGrouping
     \set Timing.beamExceptions = #'()
-    \set Timing.measureLength = $mlen
+    \set Timing.measureLength = #mlen
   #} ))
 
 crossStaff =
 #(define-music-function (parser location notes) (ly:music?)
   (_i "Create cross-staff stems")
   #{
-  \override Stem #'cross-staff = #cross-staff-connect
-  \override Flag #'style = #'no-flag
-  $notes
-  \revert Stem #'cross-staff
-  \revert Flag #'style
+  \temporary \override Stem.cross-staff = #cross-staff-connect
+  \temporary \override Flag.style = #'no-flag
+  #notes
+  \revert Stem.cross-staff
+  \revert Flag.style
 #})
 
 cueClef =
@@ -294,7 +307,7 @@ cueDuring =
 in a CueVoice oriented by @var{dir}.")
    (make-music 'QuoteMusic
 	       'element main-music
-	       'quoted-context-type 'Voice
+	       'quoted-context-type 'CueVoice
 	       'quoted-context-id "cue"
 	       'quoted-music-name what
 	       'quoted-voice-direction dir))
@@ -306,7 +319,7 @@ cueDuringWithClef =
 in a CueVoice oriented by @var{dir}.")
    (make-music 'QuoteMusic
 	       'element main-music
-	       'quoted-context-type 'Voice
+	       'quoted-context-type 'CueVoice
 	       'quoted-context-id "cue"
 	       'quoted-music-name what
 	       'quoted-music-clef clef
@@ -329,6 +342,13 @@ displayMusic =
    (display-scheme-music music)
    music)
 
+displayScheme =
+#(define-scheme-function (parser location expr) (scheme?)
+   (_i "Display the internal representation of @var{expr} to the console.")
+   (newline)
+   (display-scheme-music expr)
+   expr)
+
 
 
 endSpanners =
@@ -341,10 +361,8 @@ without the need of a specific end spanner.")
 				  (extract-typed-music music 'span-event)))
 	  (stop-span-evs
 	   (map (lambda (m)
-		  (let ((c (music-clone m)))
-		    (set! (ly:music-property c 'span-direction) STOP)
-		    c))
-		start-span-evs))
+		  (music-clone m 'span-direction STOP))
+                start-span-evs))
 	  (end-ev-chord (make-music 'EventChord
 				    'elements stop-span-evs))
 	  (total (make-music 'SequentialMusic
@@ -378,25 +396,33 @@ featherDurations=
 
      argument))
 
+finger =
+#(define-event-function (parser location finger) (number-or-markup?)
+   (_i "Apply @var{finger} as a fingering indication.")
+
+   (make-music
+            'FingeringEvent
+            (if (number? finger) 'digit 'text)
+            finger))
+
 footnote =
-#(define-music-function (parser location mark offset grob-name footnote music)
-   ((markup?) number-pair? (symbol?) markup? (ly:music?))
-   (_i "Make the markup @var{footnote} a footnote on @var{music}.  The
+#(define-music-function (parser location mark offset footnote item)
+   ((markup?) number-pair? markup? symbol-list-or-music?)
+   (_i "Make the markup @var{footnote} a footnote on @var{item}.  The
 footnote is marked with a markup @var{mark} moved by @var{offset} with
 respect to the marked music.
 
 If @var{mark} is not given or specified as @var{\\default}, it is
-replaced by an automatically generated sequence number.  If a symbol
-@var{grob-name} is specified, then grobs of that type will be marked
-if they have @var{music} as their ultimate cause; by default all grobs
-having @var{music} as their @emph{direct} cause will be marked,
-similar to the way @code{\\tweak} works.
+replaced by an automatically generated sequence number.  If @var{item}
+is a symbol list of form @samp{Grob} or @samp{Context.Grob}, then
+grobs of that type will be marked at the current time step in the
+given context (default @code{Bottom}).
 
-If @var{music} is given as @code{\\default}, a footnote event
-affecting @emph{all} grobs matching @var{grob-name} at a given time
-step is generated.  This may be required for creating footnotes on
-time signatures, clefs, and other items not cooperating with
-@code{\\tweak}.
+If @var{item} is music, the music will get a footnote attached to a
+grob immediately attached to the event, like @var{\\tweak} does.  For
+attaching a footnote to an @emph{indirectly} caused grob, write
+@code{\\single\\footnote}, use @var{item} to specify the grob, and
+follow it with the music to annotate.
 
 Like with @code{\\tweak}, if you use a footnote on a following
 post-event, the @code{\\footnote} command itself needs to be attached
@@ -407,21 +433,8 @@ to the preceding note or rest as a post-event with @code{-}.")
 	       'Y-offset (cdr offset)
 	       'automatically-numbered (not mark)
 	       'text (or mark (make-null-markup))
-	       'footnote-text footnote
-	       'symbol (or grob-name '()))))
-     (cond (music
-	    (set! (ly:music-property music 'tweaks)
-		  (acons (if grob-name
-			     (cons grob-name 'footnote-music)
-			     'footnote-music)
-			 mus
-			 (ly:music-property music 'tweaks)))
-	    music)
-	   (grob-name mus)
-	   (else
-	    (ly:input-warning location
-			      (_ "\\footnote requires music or grob-name"))
-	    (make-music 'Music)))))
+	       'footnote-text footnote)))
+     #{ \once \tweak footnote-music #mus #item #}))
 
 grace =
 #(def-grace-function startGraceMusic stopGraceMusic
@@ -441,18 +454,16 @@ harmonicByFret = #(define-music-function (parser location fret music) (number? l
 harmonics played on a fretted instrument by touching the strings at @var{fret}.")
   #{
     \set harmonicDots = ##t
-    \override TabNoteHead #'stencil = #(tab-note-head::print-custom-fret-label (number->string fret))
-    \override NoteHead #'Y-extent = #(ly:make-unpure-pure-container ly:grob::stencil-height
-                                       (lambda (grob start end)
-                                               (ly:grob::stencil-height grob)))
-    \override NoteHead #'stencil = #(lambda (grob) (ly:grob-set-property! grob 'style 'harmonic-mixed)
+    \temporary \override TabNoteHead.stencil = #(tab-note-head::print-custom-fret-label (number->string fret))
+    \temporary \override NoteHead.Y-extent = #grob::always-Y-extent-from-stencil
+    \temporary \override NoteHead.stencil = #(lambda (grob) (ly:grob-set-property! grob 'style 'harmonic-mixed)
                                             (ly:note-head::print grob))
-    $(make-harmonic
+    #(make-harmonic
        (calc-harmonic-pitch (fret->pitch (number->string fret)) music))
     \unset harmonicDots
-    \revert TabNoteHead #'stencil
-    \revert NoteHead #'Y-extent
-    \revert NoteHead #'stencil
+    \revert TabNoteHead.stencil
+    \revert NoteHead.Y-extent
+    \revert NoteHead.stencil
   #})
 
 harmonicByRatio = #(define-music-function (parser location ratio music) (number? ly:music?)
@@ -461,19 +472,30 @@ harmonics played on a fretted instrument by touching the strings at the point
 given through @var{ratio}.")
   #{
     \set harmonicDots = ##t
-    \override TabNoteHead #'stencil = #(tab-note-head::print-custom-fret-label (ratio->fret ratio))
-    \override NoteHead #'Y-extent = #(ly:make-unpure-pure-container ly:grob::stencil-height
+    \temporary \override TabNoteHead.stencil = #(tab-note-head::print-custom-fret-label (ratio->fret ratio))
+    \temporary \override NoteHead.Y-extent = #(ly:make-unpure-pure-container ly:grob::stencil-height
                                        (lambda (grob start end)
                                                (ly:grob::stencil-height grob)))
-    \override NoteHead #'stencil = #(lambda (grob) (ly:grob-set-property! grob 'style 'harmonic-mixed)
+    \temporary \override NoteHead.stencil = #(lambda (grob) (ly:grob-set-property! grob 'style 'harmonic-mixed)
                                             (ly:note-head::print grob))
-    $(make-harmonic
+    #(make-harmonic
       (calc-harmonic-pitch (ratio->pitch ratio) music))
     \unset harmonicDots
-    \revert TabNoteHead #'stencil
-    \revert NoteHead #'Y-extent
-    \revert NoteHead #'stencil
+    \revert TabNoteHead.stencil
+    \revert NoteHead.Y-extent
+    \revert NoteHead.stencil
   #})
+
+hide =
+#(define-music-function (parser location item) (symbol-list-or-music?)
+   (_i "Set @var{item}'s @samp{transparent} property to @code{#t},
+making it invisible while still retaining its dimensions.
+
+If @var{item} is a symbol list of form @code{GrobName} or
+@code{Context.GrobName}, the result is an override for the grob name
+specified by it.  If @var{item} is a music expression, the result is
+the same music expression with an appropriate tweak applied to it.")
+   #{ \tweak transparent ##t #item #})
 
 inStaffSegno =
 #(define-music-function (parser location) ()
@@ -511,15 +533,21 @@ instrumentSwitch =
 
 
 keepWithTag =
-#(define-music-function (parser location tag music) (symbol? ly:music?)
-   (_i "Include only elements of @var{music} that are tagged with @var{tag}.")
+#(define-music-function (parser location tag music)
+   (symbol-list-or-symbol? ly:music?)
+   (_i "Include only elements of @var{music} that are either untagged
+or tagged with one of the tags in @var{tag}.  @var{tag} may be either
+a single symbol or a list of symbols.")
    (music-filter
-    (lambda (m)
-      (let* ((tags (ly:music-property m 'tags))
-	     (res (memq tag tags)))
-	(or
-	 (eq? tags '())
-	 res)))
+    (if (symbol? tag)
+        (lambda (m)
+          (let ((music-tags (ly:music-property m 'tags)))
+            (or (null? music-tags)
+                (memq tag music-tags))))
+        (lambda (m)
+          (let ((music-tags (ly:music-property m 'tags)))
+            (or (null? music-tags)
+                (any (lambda (t) (memq t music-tags)) tag)))))
     music))
 
 key =
@@ -664,17 +692,79 @@ octaveCheck =
    (make-music 'RelativeOctaveCheck
                'pitch pitch))
 
+offset =
+#(define-music-function (parser location property offsets item)
+  (symbol-list-or-symbol? scheme? symbol-list-or-music?)
+   (_i "Offset the default value of @var{property} of @var{item} by
+@var{offsets}.  If @var{item} is a string, the result is
+@code{\\override} for the specified grob type.  If @var{item} is
+a music expression, the result is the same music expression with an
+appropriate tweak applied.")
+  (if (ly:music? item)
+      ; In case of a tweak, grob property path is Grob.property
+      (let ((prop-path (check-grob-path
+                         (if (symbol? property)
+                             (list property)
+                             property)
+                         parser location
+                         #:start 1 #:default #t #:min 2 #:max 2)))
+        (if prop-path
+            ; If the head of the grob property path is a symbol--i.e.,
+            ; a grob name, produce a directed tweak.  Otherwise, create
+            ; an ordinary tweak.
+            (if (symbol? (car prop-path))
+                #{
+                  \tweak #prop-path #(offsetter (second prop-path) offsets) #item
+                #}
+                #{
+                  \tweak #(second prop-path) #(offsetter (second prop-path) offsets) #item
+                #})
+            item))
+      ; In case of an override, grob property path is Context.Grob.property.
+      (let ((prop-path (check-grob-path
+                         (append item
+                                 (if (symbol? property)
+                                     (list property)
+                                     property))
+                         parser location
+                         #:default 'Bottom #:min 3 #:max 3)))
+        (if prop-path
+            #{
+              \override #prop-path = #(offsetter (third prop-path) offsets)
+            #}
+            (make-music 'Music)))))
+ 
+omit =
+#(define-music-function (parser location item) (symbol-list-or-music?)
+   (_i "Set @var{item}'s @samp{stencil} property to @code{#f},
+effectively omitting it without taking up space.
+
+If @var{item} is a symbol list of form @code{GrobName} or
+@code{Context.GrobName}, the result is an override for the grob name
+specified by it.  If @var{item} is a music expression, the result is
+the same music expression with an appropriate tweak applied to it.")
+   #{ \tweak stencil ##f #item #})
+
 once =
 #(define-music-function (parser location music) (ly:music?)
-   (_i "Set @code{once} to @code{#t} on all layout instruction events in @var{music}.")
-   (music-map
-    (lambda (m)
-      (cond ((music-is-of-type? m 'layout-instruction-event)
-	     (set! (ly:music-property m 'once) #t))
-	    ((ly:duration? (ly:music-property m 'duration))
-	     (ly:music-warning m (_ "Cannot apply \\once to timed music"))))
-      m)
-    music))
+   (_i "Set @code{once} to @code{#t} on all layout instruction events
+in @var{music}.  This will complain about music with an actual
+duration.  As a special exception, if @var{music} contains
+@samp{tweaks} it will be silently ignored in order to allow for
+@code{\\once \\tweak} to work as both one-time override and proper
+tweak.")
+   (if (not (pair? (ly:music-property music 'tweaks)))
+       (for-some-music
+        (lambda (m)
+          (cond ((music-is-of-type? m 'layout-instruction-event)
+                 (set! (ly:music-property m 'once) #t)
+                 #t)
+                ((ly:duration? (ly:music-property m 'duration))
+                 (ly:music-warning m (_ "Cannot apply \\once to timed music"))
+                 #t)
+                (else #f)))
+        music))
+   music)
 
 ottava =
 #(define-music-function (parser location octave) (integer?)
@@ -685,7 +775,7 @@ ottava =
 overrideTimeSignatureSettings =
 #(define-music-function
    (parser location time-signature base-moment beat-structure beam-exceptions)
-   (pair? pair? cheap-list? cheap-list?)
+   (fraction? fraction? list? list?)
 
    (_i "Override @code{timeSignatureSettings}
 for time signatures of @var{time-signature} to have settings
@@ -697,31 +787,30 @@ of @var{base-moment}, @var{beat-structure}, and @var{beam-exceptions}.")
     (override-time-signature-setting time-signature setting)))
 
 overrideProperty =
-#(define-music-function (parser location name property value)
-   (string? symbol? scheme?)
+#(define-music-function (parser location grob-property-path value)
+   (symbol-list? scheme?)
 
-   (_i "Set @var{property} to @var{value} in all grobs named @var{name}.
-The @var{name} argument is a string of the form @code{\"Context.GrobName\"}
-or @code{\"GrobName\"}.")
+   (_i "Set the grob property specified by @var{grob-property-path} to
+@var{value}.  @var{grob-property-path} is a symbol list of the form
+@code{Context.GrobName.property} or @code{GrobName.property}, possibly
+with subproperties given as well.")
+   (let ((p (check-grob-path grob-property-path parser location
+                             #:default 'Bottom
+                             #:min 3)))
+     (if p
+         (make-music 'ApplyOutputEvent
+                     'context-type (first p)
+                     'procedure
+                     (lambda (grob orig-context context)
+                       (if (equal?
+                            (cdr (assoc 'name (ly:grob-property grob 'meta)))
+                            (second p))
+                           (ly:grob-set-nested-property!
+                            grob (cddr p) value))))
+         (make-music 'Music))))
 
-   (let ((name-components (string-split name #\.))
-	 (context-name 'Bottom)
-	 (grob-name #f))
 
-     (if (> 2 (length name-components))
-	 (set! grob-name (string->symbol (car name-components)))
-	 (begin
-	   (set! grob-name (string->symbol (list-ref name-components 1)))
-	   (set! context-name (string->symbol (list-ref name-components 0)))))
 
-     (make-music 'ApplyOutputEvent
-		 'context-type context-name
-		 'procedure
-		 (lambda (grob orig-context context)
-		   (if (equal?
-			(cdr (assoc 'name (ly:grob-property grob 'meta)))
-			grob-name)
-		       (set! (ly:grob-property grob property) value))))))
 
 
 
@@ -777,93 +866,102 @@ Example:
   C = { e e | f f | }
 @end verbatim
 ")
-   (let* ((voices (apply circular-list (make-list (length voice-ids) (list))))
-	  (current-voices voices)
-	  (current-sequence (list))
-	  (original music)
-	  (wrapper #f))
-     ;;
-     ;; utilities
-     (define (push-music m)
-       "Push the music expression into the current sequence"
-       (set! current-sequence (cons m current-sequence)))
-     (define (change-voice)
-       "Stores the previously built sequence into the current voice and
+   (define (bar-check? m)
+     "Checks whether m is a bar check."
+     (eq? (ly:music-property m 'name) 'BarCheck))
+   (define (recurse-and-split music)
+     "This returns either a list of music split along barchecks, or
+@code{#f}."
+     (let ((elt (ly:music-property music 'element))
+           (elts (ly:music-property music 'elements)))
+       (cond ((ly:music? elt)
+              (let ((lst (recurse-and-split elt)))
+                (and lst
+                     (map
+                      (lambda (x)
+                        (let ((res (music-clone music 'element x)))
+                          (if (ly:input-location?
+                               (ly:music-property x 'origin))
+                              (set! (ly:music-property res 'origin)
+                                    (ly:music-property x 'origin)))
+                          res))
+                      lst))))
+             ((any bar-check? elts)
+              (let* ((voices (apply circular-list
+                                    (make-list (length voice-ids)
+                                               '())))
+                     (current-voices voices)
+                     (current-sequence '()))
+                ;;
+                ;; utilities
+                (define (push-music m)
+                  "Push the music expression into the current sequence"
+                  (set! current-sequence (cons m current-sequence)))
+                (define (change-voice)
+                  "Stores the previously built sequence into the current voice and
        change to the following voice."
-       (list-set! current-voices 0 (cons (make-music 'SequentialMusic
-						     'elements (reverse! current-sequence))
-					 (car current-voices)))
-       (set! current-sequence (list))
-       (set! current-voices (cdr current-voices)))
-     (define (bar-check? m)
-       "Checks whether m is a bar check."
-       (eq? (ly:music-property m 'name) 'BarCheck))
-     (define (music-origin music)
-       "Recursively search an origin location stored in music."
-       (cond ((null? music) #f)
-	     ((not (null? (ly:music-property music 'origin)))
-	      (ly:music-property music 'origin))
-	     (else (or (music-origin (ly:music-property music 'element))
-		       (let ((origins (remove not (map music-origin
-						       (ly:music-property music 'elements)))))
-			 (and (not (null? origins)) (car origins)))))))
-     (while (music-is-of-type? music 'music-wrapper-music)
-	    (set! wrapper music)
-	    (set! music (ly:music-property wrapper 'element)))
-     (if wrapper
-	 (set! (ly:music-property wrapper 'element)
-				  (make-music 'SequentialMusic
-					      'origin location))
-	 (set! original
-	       (make-music 'SequentialMusic
-			   'origin location)))
-     ;;
-     ;; first, split the music and fill in voices
-     ;; We flatten direct layers of SequentialMusic since they are
-     ;; pretty much impossible to avoid when writing music functions.
-     (let rec ((music music))
-       (for-each (lambda (m)
-		   (if (eq? (ly:music-property m 'name) 'SequentialMusic)
-		       (rec m)
-		       (begin
-			 (push-music m)
-			 (if (bar-check? m) (change-voice)))))
-		 (ly:music-property music 'elements)))
-     (if (not (null? current-sequence)) (change-voice))
-     ;; un-circularize `voices' and reorder the voices
-     (set! voices (map-in-order (lambda (dummy seqs)
-				  (reverse! seqs))
-				voice-ids voices))
-     ;;
-     ;; set origin location of each sequence in each voice
-     ;; for better type error tracking
-     (for-each (lambda (voice)
-		 (for-each (lambda (seq)
-			     (set! (ly:music-property seq 'origin)
-				   (or (music-origin seq) location)))
-			   voice))
-	       voices)
-     ;;
-     ;; check sequence length
-     (apply for-each (lambda* (#:rest seqs)
-			      (let ((moment-reference (ly:music-length (car seqs))))
-				(for-each (lambda (seq moment)
-					    (if (not (equal? moment moment-reference))
-						(ly:music-warning seq
-								  "Bars in parallel music don't have the same length")))
-					  seqs (map-in-order ly:music-length seqs))))
-	    voices)
-     ;;
-     ;; bind voice identifiers to the voices
-     (for-each (lambda (voice-id voice)
-	    (ly:parser-define! parser voice-id
-			       (let ((v (ly:music-deep-copy original)))
-				 (set! (ly:music-property
-					(car (extract-named-music
-					      v 'SequentialMusic))
-					'elements) voice)
-				 v)))
-	  voice-ids voices)))
+                  (set-car! current-voices
+                            (cons (reverse! current-sequence)
+                                  (car current-voices)))
+                  (set! current-sequence '())
+                  (set! current-voices (cdr current-voices)))
+                (for-each (lambda (m)
+                            (let ((split? (recurse-and-split m)))
+                              (if split?
+                                  (for-each
+                                   (lambda (m)
+                                     (push-music m)
+                                     (change-voice))
+                                   split?)
+                                  (begin
+                                    (push-music m)
+                                    (if (bar-check? m) (change-voice))))))
+                          elts)
+                (if (pair? current-sequence) (change-voice))
+                ;; un-circularize `voices' and reorder the voices
+
+                (set! voices (map reverse!
+                                  (list-head voices (length voice-ids))))
+
+                ;; check sequence length
+                (apply for-each (lambda seqs
+                                  (define (seq-len seq)
+                                    (reduce ly:moment-add
+                                            (ly:make-moment 0)
+                                            (map ly:music-length seq)))
+                                  (let ((moment-reference (seq-len (car seqs))))
+                                    (for-each (lambda (seq)
+                                                (if (not (equal? (seq-len seq)
+                                                                 moment-reference))
+                                                    (ly:music-warning
+                                                     (if (pair? seq)
+                                                         (last seq)
+                                                         (caar seqs))
+                                                     (_ "Bars in parallel music don't have the same length"))))
+                                              seqs)))
+                       voices)
+                (map
+                 (lambda (lst)
+                   (set! lst (concatenate! lst))
+                   (let ((res (music-clone music 'elements lst)))
+                     (if (and (pair? lst)
+                              (ly:input-location? (ly:music-property
+                                                   (car lst)
+                                                   'origin)))
+                         (set! (ly:music-property res 'origin)
+                               (ly:music-property (car lst) 'origin)))
+                     res))
+                 voices)))
+             (else #f))))
+   (let ((voices (recurse-and-split music)))
+     (if voices
+         ;;
+         ;; bind voice identifiers to the voices
+         (for-each (lambda (voice-id voice)
+                     (ly:parser-define! parser voice-id voice))
+	  voice-ids voices)
+         (ly:music-warning music
+                           (_ "ignoring parallel music without barchecks")))))
 
 parenthesize =
 #(define-music-function (parser loc arg) (ly:music?)
@@ -932,7 +1030,7 @@ partial =
     (descend-to-context
      (context-spec-music (make-music 'PartialSet
 				     'origin location
-				     'partial-duration dur)
+				     'duration dur)
 			 'Timing)
      'Score))
 
@@ -988,20 +1086,40 @@ usually contains spacers or multi-measure rests.")
 
 relative =
 #(define-music-function (parser location pitch music)
-   ((ly:pitch? (ly:make-pitch 0 0 0)) ly:music?)
-   (_i "Make @var{music} relative to @var{pitch} (default @code{c'}).")
-   (ly:make-music-relative! music pitch)
+   ((ly:pitch?) ly:music?)
+   (_i "Make @var{music} relative to @var{pitch}.  If @var{pitch} is
+omitted, the first note in @var{music} is given in absolute pitch.")
+   ;; When \relative has no clear decision (can only happen with
+   ;; scales with an even number of steps), it goes down (see
+   ;; pitch.cc).  The following formula puts out f for both the normal
+   ;; 7-step scale as well as for a "shortened" scale missing the
+   ;; final b.  In either case, a first note of c will end up as c,
+   ;; namely pitch (-1, 0, 0).
+   (ly:make-music-relative! music
+                            (or pitch
+                                (ly:make-pitch
+                                 -1
+                                 (quotient
+                                  ;; size of current scale:
+                                  (ly:pitch-steps (ly:make-pitch 1 0))
+                                  2))))
    (make-music 'RelativeOctaveMusic
 	       'element music))
 
 removeWithTag =
-#(define-music-function (parser location tag music) (symbol? ly:music?)
-   (_i "Remove elements of @var{music} that are tagged with @var{tag}.")
+#(define-music-function (parser location tag music)
+   (symbol-list-or-symbol? ly:music?)
+   (_i "Remove elements of @var{music} that are tagged with one of the
+tags in @var{tag}.  @var{tag} may be either a single symbol or a list
+of symbols.")
    (music-filter
-    (lambda (m)
-      (let* ((tags (ly:music-property m 'tags))
-	     (res (memq tag tags)))
-	(not res)))
+    (if (symbol? tag)
+        (lambda (m)
+          (not (memq tag (ly:music-property m 'tags))))
+        (lambda (m)
+          (let ((music-tags (ly:music-property m 'tags)))
+            (or (null? music-tags)
+                (not (any (lambda (t) (memq t music-tags)) tag))))))
     music))
 
 resetRelativeOctave =
@@ -1028,13 +1146,12 @@ for time signatures of @var{time-signature}.")
    (revert-time-signature-setting time-signature))
 
 rightHandFinger =
-#(define-event-function (parser location finger) (number-or-string?)
+#(define-event-function (parser location finger) (number-or-markup?)
    (_i "Apply @var{finger} as a fingering indication.")
 
    (make-music
             'StrokeFingerEvent
-            'origin location
-            (if (string? finger) 'text 'digit)
+            (if (number? finger) 'digit 'text)
             finger))
 
 scaleDurations =
@@ -1067,11 +1184,17 @@ a context modification duplicating their effect.")
 	       (cons* 'push
 		      (ly:music-property m 'symbol)
 		      (ly:music-property m 'grob-value)
-		      (ly:music-property m 'grob-property-path)))
+                      (cond
+                       ((ly:music-property m 'grob-property #f) => list)
+                       (else
+                        (ly:music-property m 'grob-property-path)))))
 	      ((RevertProperty)
 	       (cons* 'pop
 		      (ly:music-property m 'symbol)
-		      (ly:music-property m 'grob-property-path)))))
+                      (cond
+                       ((ly:music-property m 'grob-property #f) => list)
+                       (else
+                        (ly:music-property m 'grob-property-path)))))))
 	   (case (ly:music-property m 'name)
 	     ((ApplyContext)
 	      (ly:add-context-mod mods
@@ -1089,12 +1212,16 @@ a context modification duplicating their effect.")
      mods))
 
 shape =
-#(define-music-function (parser location grob offsets)
-   (string? list?)
-   (_i "Offset control-points of @var{grob} by @var{offsets}.  The argument
-is a list of number pairs or list of such lists.  Each element of a pair
-represents an offset to one of the coordinates of a control-point.")
-   (define ((shape-curve offsets) grob)
+#(define-music-function (parser location offsets item)
+   (list? symbol-list-or-music?)
+   (_i "Offset control-points of @var{item} by @var{offsets}.  The
+argument is a list of number pairs or list of such lists.  Each
+element of a pair represents an offset to one of the coordinates of a
+control-point.  If @var{item} is a string, the result is
+@code{\\once\\override} for the specified grob type.  If @var{item} is
+a music expression, the result is the same music expression with an
+appropriate tweak applied.")
+   (define (shape-curve grob)
      (let* ((orig (ly:grob-original grob))
             (siblings (if (ly:spanner? grob)
                           (ly:spanner-broken-into orig) '()))
@@ -1125,10 +1252,7 @@ represents an offset to one of the coordinates of a control-point.")
        (if (>= total-found 2)
            (helper siblings offsets)
            (offset-control-points (car offsets)))))
-
-   #{
-     \once \override $grob #'control-points = #(shape-curve offsets)
-   #})
+   #{ \once \tweak control-points #shape-curve #item #})
 
 shiftDurations =
 #(define-music-function (parser location dur dots arg)
@@ -1139,6 +1263,30 @@ shiftDurations =
    (music-map
     (lambda (x)
       (shift-one-duration-log x dur dots)) arg))
+
+single =
+#(define-music-function (parser location overrides music)
+   (ly:music? ly:music?)
+   (_i "Convert @var{overrides} to tweaks and apply them to @var{music}.
+This does not convert @code{\\revert}, @code{\\set} or @code{\\unset}.")
+   (set! (ly:music-property music 'tweaks)
+         (fold-some-music
+          (lambda (m) (eq? (ly:music-property m 'name)
+                           'OverrideProperty))
+          (lambda (m tweaks)
+            (let ((p (cond
+                      ((ly:music-property m 'grob-property #f) => list)
+                      (else
+                       (ly:music-property m 'grob-property-path)))))
+              (acons (cons (ly:music-property m 'symbol) ;grob name
+                           (if (pair? (cdr p))
+                               p ;grob property path
+                               (car p))) ;grob property
+                     (ly:music-property m 'grob-value)
+                     tweaks)))
+          (ly:music-property music 'tweaks)
+          overrides))
+   music)
 
 skip =
 #(define-music-function (parser location dur) (ly:duration?)
@@ -1157,28 +1305,70 @@ spacingTweaks =
    (_i "Set the system stretch, by reading the 'system-stretch property of
 the `parameters' assoc list.")
    #{
-     \overrideProperty #"Score.NonMusicalPaperColumn"
-     #'line-break-system-details
+     \overrideProperty Score.NonMusicalPaperColumn.line-break-system-details
      #(list (cons 'alignment-extra-space (cdr (assoc 'system-stretch parameters)))
 	     (cons 'system-Y-extent (cdr (assoc 'system-Y-extent parameters))))
    #})
 
 styledNoteHeads =
 #(define-music-function (parser location style heads music)
-   (symbol? list-or-symbol? ly:music?)
+   (symbol? symbol-list-or-symbol? ly:music?)
    (_i "Set @var{heads} in @var{music} to @var{style}.")
    (style-note-heads heads style music))
 
 tag =
-#(define-music-function (parser location tag arg) (symbol? ly:music?)
-
-   (_i "Add @var{tag} to the @code{tags} property of @var{arg}.")
+#(define-music-function (parser location tag music) (symbol-list-or-symbol? ly:music?)
+   (_i "Tag the following @var{music} with @var{tag} and return the
+result, by adding the single symbol or symbol list @var{tag} to the
+@code{tags} property of @var{music}.")
 
    (set!
-    (ly:music-property arg 'tags)
-    (cons tag
-	  (ly:music-property arg 'tags)))
-   arg)
+    (ly:music-property music 'tags)
+    ((if (symbol? tag) cons append)
+     tag
+     (ly:music-property music 'tags)))
+   music)
+
+temporary =
+#(define-music-function (parser location music)
+   (ly:music?)
+   (_i "Make any @code{\\override} in @var{music} replace an existing
+grob property value only temporarily, restoring the old value when a
+corresponding @code{\\revert} is executed.  This is achieved by
+clearing the @samp{pop-first} property normally set on
+@code{\\override}s.
+
+An @code{\\override}/@/@code{\\revert} sequence created by using
+@code{\\temporary} and @code{\\undo} on the same music containing
+overrides will cancel out perfectly or cause a@tie{}warning.
+
+Non-property-related music is ignored, warnings are generated for any
+property-changing music that isn't an @code{\\override}.")
+   (define warned #f)
+   (for-some-music
+    (lambda (m)
+      (and (or (music-is-of-type? m 'layout-instruction-event)
+               (music-is-of-type? m 'context-specification)
+               (music-is-of-type? m 'apply-context)
+               (music-is-of-type? m 'time-signature-music))
+           (case (ly:music-property m 'name)
+             ((OverrideProperty)
+              (if (ly:music-property m 'pop-first #f)
+                  (set! (ly:music-property m 'pop-first) '()))
+              (if (ly:music-property m 'once #f)
+                  (set! (ly:music-property m 'once) '()))
+              #t)
+             ((ContextSpeccedMusic)
+              #f)
+             (else
+              (if (not warned)
+                  (begin
+                    (ly:input-warning location (_ "Cannot make ~a revertible")
+                                      (ly:music-property m 'name))
+                    (set! warned #t)))
+              #t))))
+    music)
+   music)
 
 time =
 #(define-music-function (parser location beat-structure fraction)
@@ -1221,10 +1411,12 @@ as a first or second voice.")
 
    (make-music 'QuoteMusic
 	       'element main-music
-	       'quoted-context-type 'Voice
+	       'quoted-context-type 'CueVoice
 	       'quoted-context-id "cue"
 	       'quoted-music-name what
 	       'quoted-voice-direction dir
+               ;; following is inverse of instrumentTransposition for
+               ;; historical reasons
 	       'quoted-transposition pitch))
 
 transposition =
@@ -1232,32 +1424,149 @@ transposition =
    (_i "Set instrument transposition")
 
    (context-spec-music
-    (make-property-set 'instrumentTransposition
-                       (ly:pitch-negate pitch))
+    (make-property-set 'instrumentTransposition pitch)
     'Staff))
 
-tweak =
-#(define-music-function (parser location grob prop value music)
-   ((string?) symbol? scheme? ly:music?)
-   (_i "Add a tweak to the following @var{music}.
-Layout objects created by @var{music} get their property @var{prop}
-set to @var{value}.  If @var{grob} is specified, like with
+tuplet =
+#(define-music-function (parser location ratio tuplet-span music)
+   (fraction? (ly:duration? '()) ly:music?)
+   (_i "Scale the given @var{music} to tuplets.  @var{ratio} is a
+fraction that specifies how many notes are played in place of the
+nominal value: it will be @samp{3/2} for triplets, namely three notes
+being played in place of two.  If the optional duration
+@var{tuplet-span} is specified, it is used instead of
+@code{tupletSpannerDuration} for grouping the tuplets.
+For example,
 @example
-\\tweak Accidental #'color #red cis'
+\\tuplet 3/2 4 @{ c8 c c c c c @}
+@end example
+will result in two groups of three tuplets, each group lasting for a
+quarter note.")
+   (make-music 'TimeScaledMusic
+               'element (ly:music-compress
+                         music
+                         (ly:make-moment (cdr ratio) (car ratio)))
+               'numerator (cdr ratio)
+               'denominator (car ratio)
+               'duration tuplet-span))
+
+tupletSpan =
+#(define-music-function (parser location tuplet-span)
+   ((ly:duration?))
+   (_i "Set @code{tupletSpannerDuration}, the length into which
+@code{\\tuplet} without an explicit @samp{tuplet-span} argument of its
+own will group its tuplets, to the duration @var{tuplet-span}.  To
+revert to the default of not subdividing the contents of a @code{\\tuplet}
+command without explicit @samp{tuplet-span}, use
+@example
+\\tupletSpan \\default
+@end example
+")
+   (if tuplet-span
+       #{ \set tupletSpannerDuration = #(ly:duration-length tuplet-span) #}
+       #{ \unset tupletSpannerDuration #}))
+
+tweak =
+#(define-music-function (parser location prop value item)
+   (symbol-list-or-symbol? scheme? symbol-list-or-music?)
+   (_i "Add a tweak to the following @var{item}, usually music.
+Layout objects created by @var{item} get their property @var{prop}
+set to @var{value}.  If @var{prop} has the form @samp{Grob.property}, like with
+@example
+\\tweak Accidental.color #red cis'
 @end example
 an indirectly created grob (@samp{Accidental} is caused by
 @samp{NoteHead}) can be tweaked; otherwise only directly created grobs
-are affected.")
-   (if (not (object-property prop 'backend-type?))
-       (begin
-	 (ly:input-warning location (_ "cannot find property type-check for ~a") prop)
-	 (ly:warning (_ "doing assignment anyway"))))
-   (set!
-    (ly:music-property music 'tweaks)
-    (acons (if grob (cons (string->symbol grob) prop) prop)
-	   value
-	   (ly:music-property music 'tweaks)))
-   music)
+are affected.
+
+As a special case, @var{item} may be a symbol list specifying a grob
+path, in which case @code{\\override} is called on it instead of
+creating tweaked music.  This is mainly useful when using
+@code{\\tweak} as as a component for building other functions.
+
+If this use case would call for @code{\\once \\override} rather than a
+plain @code{\\override}, writing @code{\\once \\tweak @dots{}} can be
+convenient.
+
+@var{prop} can contain additional elements in which case a nested
+property (inside of an alist) is tweaked.")
+   (if (ly:music? item)
+       (let ((p (check-grob-path prop parser location
+                                 #:start 1
+                                 #:default #t
+                                 #:min 2)))
+         (if p
+             (set! (ly:music-property item 'tweaks)
+                   (acons (cond ((pair? (cddr p)) p)
+                                ((symbol? (car p))
+                                 (cons (car p) (cadr p)))
+                                (else (cadr p)))
+                          value
+                          (ly:music-property item 'tweaks))))
+         item)
+       ;; We could just throw this at \override and let it sort this
+       ;; out on its own, but this way we should get better error
+       ;; diagnostics.
+       (let ((p (check-grob-path
+                 (append item (if (symbol? prop) (list prop) prop))
+                 parser location
+                 #:default 'Bottom #:min 3)))
+         (if p
+             #{ \override #p = #value #}
+             (make-music 'Music)))))
+
+undo =
+#(define-music-function (parser location music)
+   (ly:music?)
+   (_i "Convert @code{\\override} and @code{\\set} in @var{music} to
+@code{\\revert} and @code{\\unset}, respectively.  Any reverts and
+unsets already in @var{music} cause a warning.  Non-property-related music is ignored.")
+   (define warned #f)
+   (let loop
+       ((music music))
+     (let
+         ((lst
+           (fold-some-music
+            (lambda (m) (or (music-is-of-type? m 'layout-instruction-event)
+                            (music-is-of-type? m 'context-specification)
+                            (music-is-of-type? m 'apply-context)
+                            (music-is-of-type? m 'time-signature-music)))
+            (lambda (m overrides)
+              (case (ly:music-property m 'name)
+                ((OverrideProperty)
+                 (cons
+                  (make-music 'RevertProperty
+                              'symbol (ly:music-property m 'symbol)
+                              'grob-property-path
+                              (cond
+                               ((ly:music-property m 'grob-property #f) => list)
+                               (else
+                                (ly:music-property m 'grob-property-path))))
+                  overrides))
+                ((PropertySet)
+                 (cons
+                  (make-music 'PropertyUnset
+                              'symbol (ly:music-property m 'symbol))
+                  overrides))
+                ((ContextSpeccedMusic)
+                 (cons
+                  (make-music 'ContextSpeccedMusic
+                              'element (loop (ly:music-property m 'element))
+                              'context-type (ly:music-property m 'context-type))
+                  overrides))
+                (else
+                 (if (not warned)
+                     (begin
+                       (ly:input-warning location (_ "Cannot revert ~a")
+                                         (ly:music-property m 'name))
+                       (set! warned #t)))
+                 overrides)))
+            '()
+            music)))
+       (cond
+        ((null? lst) (make-music 'Music))
+        ((null? (cdr lst)) (car lst))
+        (else (make-sequential-music lst))))))
 
 unfoldRepeats =
 #(define-music-function (parser location music) (ly:music?)

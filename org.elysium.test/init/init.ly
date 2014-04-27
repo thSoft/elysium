@@ -6,45 +6,20 @@
 
 \version "2.16.0"
 
-#(if (not (ly:undead? lilypond-declarations))
-     (ly:parser-include-string parser
-			       "\\include \"declarations-init.ly\""))
+#(session-initialize
+  (lambda ()
+   ;; we can't use ly:parser-include-string here since that does not
+   ;; actually do any parsing but merely switches inputs, so the
+   ;; session saved by the session initializer after calling this
+   ;; function has not actually started.  A parser clone, in contrast,
+   ;; can run and complete synchronously and shares the module with
+   ;; the current parser.
+   (ly:parser-parse-string (ly:parser-clone parser)
+    "\\include \"declarations-init.ly\"")))
 
-%% We need to save the variables of the current module along with
-%% their values: functions defined in the module might refer to the
-%% variables
+#(note-names-language parser default-language)
 
-#(if lilypond-declarations
-     (if (ly:undead? lilypond-declarations)
-	 (begin
-	   (for-each
-	    (lambda (p)
-	      (let ((var (cadr p))
-		    (val (cddr p)))
-		(variable-set! var
-			       (if (ly:output-def? val)
-				   (ly:output-def-clone val)
-				   val))
-		(module-add! (current-module) (car p) var)))
-	    (ly:get-undead lilypond-declarations))
-	   (note-names-language parser default-language))
-	 (let ((decl '()))
-	   (module-for-each
-	    (lambda (s v)
-	      (let ((val (variable-ref v)))
-		(if (not (ly:lily-parser? val))
-		    (set! decl
-			  (cons
-			   (cons*
-			    s v
-			    (if (ly:output-def? val)
-				(ly:output-def-clone val)
-				val))
-			   decl)))))
-	    (current-module))
-	   (set! lilypond-declarations (ly:make-undead decl)))))
-
-#(ly:set-option 'old-relative #f)
+#(define location #f)
 #(define toplevel-scores (list))
 #(define toplevel-bookparts (list))
 #(define $defaultheader #f)
@@ -54,9 +29,6 @@
 #(define expect-error #f)
 #(define output-empty-score-list #f)
 #(define output-suffix #f)
-#(hash-clear! default-fret-table)
-#(hash-clear! chord-shape-table)
-#(hash-clear! musicQuotes)
 
 #(use-modules (scm clip-region))
 #(use-modules (srfi srfi-1))
@@ -72,11 +44,6 @@ $(if (ly:get-option 'include-settings)
 %% Above and below comments compensate for the parser's look-ahead.
 %%
 
-#(if (and (ly:get-option 'old-relative)
-      (defined? 'input-file-name)
-      (not (ly:get-option 'old-relative-used)))
-  (old-relative-not-used-message input-file-name))%% there is a problem at the end of the input file
-
 #(if (and (not version-seen)
       (defined? 'input-file-name))
   (version-not-seen-message input-file-name))
@@ -88,15 +55,15 @@ $(if (ly:get-option 'include-settings)
                          toplevel-book-handler)))
    (cond ((pair? toplevel-bookparts)
           (let ((book (ly:make-book $defaultpaper $defaultheader)))
-            (map (lambda (part)
-                   (ly:book-add-bookpart! book part))
-                 (reverse! toplevel-bookparts))
+            (for-each (lambda (part)
+                        (ly:book-add-bookpart! book part))
+                      (reverse! toplevel-bookparts))
             (set! toplevel-bookparts (list))
             ;; if scores have been defined after the last explicit \bookpart:
             (if (pair? toplevel-scores)
-                (map (lambda (score)
-                       (ly:book-add-score! book score))
-                     (reverse! toplevel-scores)))
+                (for-each (lambda (score)
+                            (ly:book-add-score! book score))
+                          (reverse! toplevel-scores)))
             (set! toplevel-scores (list))
             (book-handler parser book)))
          ((or (pair? toplevel-scores) output-empty-score-list)

@@ -16,10 +16,7 @@
 %%%% You should have received a copy of the GNU General Public License
 %%%% along with LilyPond.  If not, see <http://www.gnu.org/licenses/>.
 
-\version "2.16.0"
-
-%% < 1.8 compatibility switch
-#(ly:set-option 'old-relative)
+\version "2.17.25"
 
 %% named durations
 breve = #(ly:make-duration -1 0)
@@ -41,6 +38,10 @@ maxima = #(ly:make-duration -3 0)
 
 #(define default-fret-table (make-hash-table 101))
 #(define chord-shape-table (make-hash-table 29))
+#(call-after-session
+  (lambda ()
+   (hash-clear! default-fret-table)
+   (hash-clear! chord-shape-table)))
 
 % declarations for standard directions
 left = #-1
@@ -54,10 +55,10 @@ bigger = #1
 center = #0
 
 %% FIXME
-%% should also set \override Beam #'breakable, but how to do it "portably"? (ie. also
+%% should also set \override Beam.breakable, but how to do it "portably"? (ie. also
 %% working with lyric sections)
 %%
-%% try \once \override Score.Beam #'breakable = ##t
+%% try \once \override Score.Beam.breakable = ##t
 
 %% rather name \newline, \pageBreak ?
 break = #(make-music 'LineBreakEvent 'break-permission 'force)
@@ -73,17 +74,21 @@ startStaff = #(make-span-event 'StaffSpanEvent START)
 % Code articulation definitions
 %
 noBeam = #(make-music 'BeamForbidEvent)
-pipeSymbol = #(make-music 'BarCheck)
-bracketOpenSymbol = #(make-span-event 'BeamEvent START)
-bracketCloseSymbol = #(make-span-event 'BeamEvent STOP)
-tildeSymbol = #(make-music 'TieEvent)
-parenthesisOpenSymbol =  #(make-span-event 'SlurEvent START)
-parenthesisCloseSymbol = #(make-span-event 'SlurEvent STOP)
-escapedExclamationSymbol = #(make-span-event 'CrescendoEvent STOP)
-escapedParenthesisOpenSymbol = #(make-span-event 'PhrasingSlurEvent START)
-escapedParenthesisCloseSymbol = #(make-span-event 'PhrasingSlurEvent STOP)
-escapedBiggerSymbol = #(make-span-event 'DecrescendoEvent START)
-escapedSmallerSymbol = #(make-span-event 'CrescendoEvent START)
+"|" = #(make-music 'BarCheck)
+"[" = #(make-span-event 'BeamEvent START)
+"]" = #(make-span-event 'BeamEvent STOP)
+"~" = #(make-music 'TieEvent)
+"(" =  #(make-span-event 'SlurEvent START)
+")" = #(make-span-event 'SlurEvent STOP)
+"\\!" = #(make-span-event 'CrescendoEvent STOP)
+"\\(" = #(make-span-event 'PhrasingSlurEvent START)
+"\\)" = #(make-span-event 'PhrasingSlurEvent STOP)
+"\\>" = #(make-span-event 'DecrescendoEvent START)
+"\\<" = #(make-span-event 'CrescendoEvent START)
+"\\[" = #(make-span-event 'LigatureEvent START)
+"\\]" = #(make-span-event 'LigatureEvent STOP)
+"\\~" = #(make-music 'PesOrFlexaEvent)
+"\\\\" = #(make-music 'VoiceSeparator)
 
 
 \include "scale-definitions-init.ly"
@@ -99,6 +104,9 @@ repeatTie = #(make-music 'RepeatTieEvent)
 
 %% MAKE-HASH-TABLE in GUILE 1.6 takes mandatory size parameter.
 #(define musicQuotes (make-hash-table 29))
+#(call-after-session
+  (lambda ()
+   (hash-clear! musicQuotes)))
 
 #(define toplevel-book-handler print-book-with-defaults)
 #(define toplevel-bookpart-handler collect-bookpart-for-book)

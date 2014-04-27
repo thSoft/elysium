@@ -1,12 +1,12 @@
 % script-init.ly
 
-\version "2.16.0"
+\version "2.17.25"
 
 % code char abbreviations
 dashHat = "marcato"
 dashPlus = "stopped"
 dashDash = "tenuto"
-dashBar = "staccatissimo"
+dashBang = "staccatissimo"
 dashLarger = "accent"
 dashDot = "staccato"
 dashUnderscore = "portato"
@@ -46,7 +46,8 @@ staccatissimo = #(make-articulation "staccatissimo")
 staccato = #(make-articulation "staccato")
 stopped = #(make-articulation "stopped")
 tenuto = #(make-articulation "tenuto")
-thumb = #(make-articulation "thumb")
+thumb = \finger \markup \scale #(cons (magstep 5) (magstep 5))
+                        \musicglyph #"scripts.thumb"
 trill = #(make-articulation "trill")
 turn = #(make-articulation "turn")
 upbow = #(make-articulation "upbow")

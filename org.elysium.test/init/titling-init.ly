@@ -8,17 +8,19 @@ slashSeparator = \markup {
 }
 
 tagline = \markup {
-  \with-url
+  \pad-to-box #'(0 . 0) #'(0 . 3)
+  {  \with-url
 
-  #"http://lilypond.org/"
-  \line {
+    #"http://lilypond.org/"
+    \line {
 
-    %% 2014 = em dash.
+      %% 2014 = em dash.
 
-    #(format #f "Music engraving by LilyPond ~a~awww.lilypond.org"
-       (lilypond-version)
-       (ly:wide-char->utf-8 #x2014)
-       )
+      #(format #f "Music engraving by LilyPond ~a~awww.lilypond.org"
+         (lilypond-version)
+         (ly:wide-char->utf-8 #x2014)
+         )
+    }
   }
 }
 
@@ -59,7 +61,7 @@ bookTitleMarkup = \markup {
 }
 
 scoreTitleMarkup = \markup { \column {
-  \on-the-fly #print-all-headers { \bookTitleMarkup \hspace #1 }
+  \on-the-fly \print-all-headers { \bookTitleMarkup \hspace #1 }
   \fill-line {
     \fromproperty #'header:piece
     \fromproperty #'header:opus
@@ -107,14 +109,25 @@ book last one."
    empty-stencil))
 
 %% Bookpart first page and last page predicates
+#(define (part-first-page? layout props)
+  (= (chain-assoc-get 'page:page-number props -1)
+     (ly:output-def-lookup layout 'first-page-number)))
+
+#(define (part-last-page? layout props)
+  (chain-assoc-get 'page:is-bookpart-last-page props #f))
+
 #(define (part-first-page layout props arg)
-  (if (= (chain-assoc-get 'page:page-number props -1)
-         (ly:output-def-lookup layout 'first-page-number))
+  (if (part-first-page? layout props)
+      (interpret-markup layout props arg)
+      empty-stencil))
+
+#(define (not-part-first-page layout props arg)
+  (if (not (part-first-page? layout props))
       (interpret-markup layout props arg)
       empty-stencil))
 
 #(define (part-last-page layout props arg)
-  (if (chain-assoc-get 'page:is-bookpart-last-page props #f)
+  (if (part-last-page? layout props)
       (interpret-markup layout props arg)
       empty-stencil))
 
@@ -142,7 +155,7 @@ oddHeaderMarkup = \markup
   %% force the header to take some space, otherwise the
   %% page layout becomes a complete mess.
   " "
-  \on-the-fly #not-first-page \fromproperty #'header:instrument
+  \on-the-fly #not-part-first-page \fromproperty #'header:instrument
   \on-the-fly #print-page-number-check-first \fromproperty #'page:page-number-string
 }
 
@@ -151,18 +164,18 @@ oddHeaderMarkup = \markup
 evenHeaderMarkup = \markup
 \fill-line {
   \on-the-fly #print-page-number-check-first \fromproperty #'page:page-number-string
-  \on-the-fly #not-first-page \fromproperty #'header:instrument
+  \on-the-fly #not-part-first-page \fromproperty #'header:instrument
   " "
 }
 
 oddFooterMarkup = \markup {
   \column {
     \fill-line {
-      %% Copyright header field only on first page.
-      \on-the-fly #first-page \fromproperty #'header:copyright
+      %% Copyright header field only on first page in each bookpart.
+      \on-the-fly #part-first-page \fromproperty #'header:copyright
     }
     \fill-line {
-      %% Tagline header field only on last page.
+      %% Tagline header field only on last page in the book.
       \on-the-fly #last-page \fromproperty #'header:tagline
     }
   }
