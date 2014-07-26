@@ -77,7 +77,7 @@ public class Integration extends LilyPondTestWithValidator {
 					int column = getColumn(lines, line, diagnostic.getOffset());
 					System.out.println(MessageFormat.format("{0}:{1}:{2}", filePath.substring(filePath.lastIndexOf('/') + 1), line + 1, column));
 					System.out.println(lines[line]);
-					System.out.println(String.format("%1$#" + column + "s", "") + "^");
+					System.out.println(String.format("%1$" + column + "s", "") + "^");
 					System.out.println(diagnostic.getMessage());
 					System.out.println();
 				}
