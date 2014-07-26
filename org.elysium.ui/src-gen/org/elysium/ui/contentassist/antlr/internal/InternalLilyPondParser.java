@@ -30728,7 +30728,7 @@ public class InternalLilyPondParser extends AbstractInternalContentAssistParser 
         "\3\uffff\1\71\1\66\1\10\1\6\1\74\1\45\1\53\1\67\1\0\1\15\1\75\1"+
         "\37\1\42\1\61\1\20\1\65\1\54\1\17\1\4\1\12\1\16\1\44\1\43\1\33\1"+
         "\55\1\14\1\24\1\36\1\57\1\25\1\13\1\7\1\21\1\46\1\40\1\27\1\11\1"+
-        "\34\1\63\1\50\1\1\1\26\1\52\1\70\1\64\1\51\1\22\1\32\1\41\1\60\1"+
+        "\34\1\63\1\51\1\1\1\26\1\52\1\70\1\64\1\50\1\22\1\32\1\41\1\60\1"+
         "\62\1\35\1\31\1\23\1\73\1\5\1\56\1\30\1\3\1\47\1\72\1\2\1\uffff}>";
     static final String[] DFA50_transitionS = {
             "\4\1\5\uffff\120\1\1\2\11\1",
@@ -31441,21 +31441,6 @@ public class InternalLilyPondParser extends AbstractInternalContentAssistParser 
                         if ( s>=0 ) return s;
                         break;
                     case 40 : 
-                        int LA50_42 = input.LA(1);
-
-                         
-                        int index50_42 = input.index();
-                        input.rewind();
-                        s = -1;
-                        if ( (synpred163_InternalLilyPond()) ) {s = 65;}
-
-                        else if ( (true) ) {s = 1;}
-
-                         
-                        input.seek(index50_42);
-                        if ( s>=0 ) return s;
-                        break;
-                    case 41 : 
                         int LA50_48 = input.LA(1);
 
                          
@@ -31468,6 +31453,21 @@ public class InternalLilyPondParser extends AbstractInternalContentAssistParser 
 
                          
                         input.seek(index50_48);
+                        if ( s>=0 ) return s;
+                        break;
+                    case 41 : 
+                        int LA50_42 = input.LA(1);
+
+                         
+                        int index50_42 = input.index();
+                        input.rewind();
+                        s = -1;
+                        if ( (synpred163_InternalLilyPond()) ) {s = 65;}
+
+                        else if ( (true) ) {s = 1;}
+
+                         
+                        input.seek(index50_42);
                         if ( s>=0 ) return s;
                         break;
                     case 42 : 

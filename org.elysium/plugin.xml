@@ -2,6 +2,6 @@
 <?eclipse version="3.0"?>
 <plugin>
   <extension point="org.eclipse.emf.ecore.generated_package">
-    <package uri="http://www.elysium.org/LilyPond" class="org.elysium.lilypond.LilypondPackage" genModel="src-gen/org/elysium/LilyPond.genmodel"/>
+    <package uri="http://www.elysium.org/LilyPond" class="org.elysium.lilypond.LilypondPackage" genModel="model/generated/LilyPond.genmodel"/>
   </extension>
 </plugin>

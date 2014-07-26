@@ -4,7 +4,7 @@
     editorDirectory="/org.elysium.editor/src" modelPluginID="org.elysium" forceOverwrite="true"
     modelName="LilyPond" updateClasspath="false" rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container"
     complianceLevel="5.0" copyrightFields="false" editPluginID="org.elysium.edit"
-    editorPluginID="org.elysium.editor" runtimeVersion="2.9">
+    editorPluginID="org.elysium.editor" runtimeVersion="2.10">
   <genPackages prefix="Lilypond" basePackage="org.elysium" disposableProviderFactory="true"
       ecorePackage="LilyPond.ecore#/">
     <genClasses ecoreClass="LilyPond.ecore#//LilyPond">

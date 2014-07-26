@@ -26,10 +26,10 @@ Export-Package: org.elysium,
  org.elysium.lilypond.impl,
  org.elysium.lilypond.util,
  org.elysium.linking,
- org.elysium.parseTreeConstruction,
  org.elysium.parser.antlr,
  org.elysium.parser.antlr.internal,
  org.elysium.services,
  org.elysium.validation,
- org.elysium.scoping
+ org.elysium.scoping,
+ org.elysium.serializer
 Bundle-Activator: org.elysium.Activator

@@ -18663,7 +18663,7 @@ public class InternalLilyPondParser extends AbstractInternalAntlrParser {
         "\3\uffff\1\14\1\10\1\50\1\4\1\42\1\15\1\6\1\47\1\31\1\66\1\34\1"+
         "\105\1\113\1\53\1\111\1\26\1\52\1\67\1\32\1\41\1\3\1\61\1\25\1\107"+
         "\1\54\1\30\1\75\1\72\1\2\1\60\1\101\1\23\1\37\1\0\1\55\1\21\1\16"+
-        "\1\62\1\44\1\77\1\20\1\104\1\51\1\5\1\110\1\63\1\74\1\11\1\46\1"+
+        "\1\63\1\44\1\77\1\20\1\104\1\51\1\5\1\110\1\62\1\74\1\11\1\46\1"+
         "\112\1\7\1\64\1\57\1\33\1\71\1\36\1\13\1\100\1\27\1\73\1\12\1\22"+
         "\1\103\1\1\1\56\1\43\1\35\1\70\1\45\1\24\1\106\1\40\1\17\1\102\1"+
         "\65\1\76\2\uffff}>";
@@ -19552,21 +19552,6 @@ public class InternalLilyPondParser extends AbstractInternalAntlrParser {
                         if ( s>=0 ) return s;
                         break;
                     case 50 : 
-                        int LA47_40 = input.LA(1);
-
-                         
-                        int index47_40 = input.index();
-                        input.rewind();
-                        s = -1;
-                        if ( (synpred154_InternalLilyPond()) ) {s = 80;}
-
-                        else if ( (true) ) {s = 1;}
-
-                         
-                        input.seek(index47_40);
-                        if ( s>=0 ) return s;
-                        break;
-                    case 51 : 
                         int LA47_48 = input.LA(1);
 
                          
@@ -19579,6 +19564,21 @@ public class InternalLilyPondParser extends AbstractInternalAntlrParser {
 
                          
                         input.seek(index47_48);
+                        if ( s>=0 ) return s;
+                        break;
+                    case 51 : 
+                        int LA47_40 = input.LA(1);
+
+                         
+                        int index47_40 = input.index();
+                        input.rewind();
+                        s = -1;
+                        if ( (synpred154_InternalLilyPond()) ) {s = 80;}
+
+                        else if ( (true) ) {s = 1;}
+
+                         
+                        input.seek(index47_40);
                         if ( s>=0 ) return s;
                         break;
                     case 52 : 
@@ -19962,8 +19962,8 @@ public class InternalLilyPondParser extends AbstractInternalAntlrParser {
     static final String DFA49_specialS =
         "\3\uffff\1\35\1\52\1\21\1\23\1\15\1\1\1\20\1\42\1\22\1\51\1\44\1"+
         "\54\1\40\1\14\1\50\1\34\1\30\1\17\1\61\1\46\1\73\1\10\1\13\1\31"+
-        "\1\66\1\71\1\60\1\5\1\25\1\37\1\74\1\62\1\56\1\24\1\33\1\3\1\70"+
-        "\1\63\1\53\1\75\1\7\1\26\1\27\1\55\1\4\1\6\1\65\1\64\1\43\1\2\1"+
+        "\1\66\1\71\1\60\1\6\1\25\1\37\1\74\1\62\1\56\1\24\1\33\1\3\1\70"+
+        "\1\63\1\53\1\75\1\7\1\26\1\27\1\55\1\4\1\5\1\65\1\64\1\43\1\2\1"+
         "\12\1\36\1\57\1\45\1\16\1\0\1\72\1\47\1\67\1\11\1\41\1\32\1\uffff}>";
     static final String[] DFA49_transitionS = {
             "\4\1\5\uffff\130\1\1\2\1\1",
@@ -20151,21 +20151,6 @@ public class InternalLilyPondParser extends AbstractInternalAntlrParser {
                         if ( s>=0 ) return s;
                         break;
                     case 5 : 
-                        int LA49_30 = input.LA(1);
-
-                         
-                        int index49_30 = input.index();
-                        input.rewind();
-                        s = -1;
-                        if ( (synpred162_InternalLilyPond()) ) {s = 65;}
-
-                        else if ( (true) ) {s = 1;}
-
-                         
-                        input.seek(index49_30);
-                        if ( s>=0 ) return s;
-                        break;
-                    case 6 : 
                         int LA49_48 = input.LA(1);
 
                          
@@ -20178,6 +20163,21 @@ public class InternalLilyPondParser extends AbstractInternalAntlrParser {
 
                          
                         input.seek(index49_48);
+                        if ( s>=0 ) return s;
+                        break;
+                    case 6 : 
+                        int LA49_30 = input.LA(1);
+
+                         
+                        int index49_30 = input.index();
+                        input.rewind();
+                        s = -1;
+                        if ( (synpred162_InternalLilyPond()) ) {s = 65;}
+
+                        else if ( (true) ) {s = 1;}
+
+                         
+                        input.seek(index49_30);
                         if ( s>=0 ) return s;
                         break;
                     case 7 : 

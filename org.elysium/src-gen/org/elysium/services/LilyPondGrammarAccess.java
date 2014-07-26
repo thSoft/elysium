@@ -705,6 +705,7 @@ public class LilyPondGrammarAccess extends AbstractGrammarElementFinder {
 		private final Assignment cBodyAssignment_2 = (Assignment)cGroup.eContents().get(2);
 		private final RuleCall cBodyMarkupBodyParserRuleCall_2_0 = (RuleCall)cBodyAssignment_2.eContents().get(0);
 		
+		//// XXX very messy 
 		//Markup:
 		//	"\\" keyword="markup" body=MarkupBody;
 		public ParserRule getRule() { return rule; }
@@ -772,6 +773,7 @@ public class LilyPondGrammarAccess extends AbstractGrammarElementFinder {
 		private final Assignment cBlockAssignment_2 = (Assignment)cGroup.eContents().get(2);
 		private final RuleCall cBlockUnparsedBlockParserRuleCall_2_0 = (RuleCall)cBlockAssignment_2.eContents().get(0);
 		
+		//// XXX SchemeText? see tocItemWithDotsMarkup
 		//MarkupBody:
 		//	{MarkupBody} command+=(Scheme | SchemeText | UnparsedCommand)* block=UnparsedBlock?;
 		public ParserRule getRule() { return rule; }
@@ -2462,6 +2464,7 @@ public class LilyPondGrammarAccess extends AbstractGrammarElementFinder {
 		return getSourceFileLineAccess().getRule();
 	}
 
+	//// XXX very messy 
 	//Markup:
 	//	"\\" keyword="markup" body=MarkupBody;
 	public MarkupElements getMarkupAccess() {
@@ -2482,6 +2485,7 @@ public class LilyPondGrammarAccess extends AbstractGrammarElementFinder {
 		return getMarkupLinesAccess().getRule();
 	}
 
+	//// XXX SchemeText? see tocItemWithDotsMarkup
 	//MarkupBody:
 	//	{MarkupBody} command+=(Scheme | SchemeText | UnparsedCommand)* block=UnparsedBlock?;
 	public MarkupBodyElements getMarkupBodyAccess() {

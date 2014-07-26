@@ -35,9 +35,9 @@ Workflow {
 
 			fragment = grammarAccess.GrammarAccessFragment {}
 
-			fragment = ecore.EcoreGeneratorFragment {}
+			fragment = ecore.EMFGeneratorFragment {}
 
-			fragment = parseTreeConstructor.ParseTreeConstructorFragment {}
+			fragment = serializer.SerializerFragment {}
 
 			fragment = resourceFactory.ResourceFactoryFragment {
 				fileExtensions = file.extensions

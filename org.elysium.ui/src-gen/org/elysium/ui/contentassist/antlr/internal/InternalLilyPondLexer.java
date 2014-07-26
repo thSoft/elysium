@@ -27,8 +27,8 @@ public class InternalLilyPondLexer extends Lexer {
     public static final int T__20=20;
     public static final int EOF=-1;
     public static final int T__93=93;
-    public static final int T__19=19;
     public static final int T__94=94;
+    public static final int T__19=19;
     public static final int T__91=91;
     public static final int T__92=92;
     public static final int T__16=16;

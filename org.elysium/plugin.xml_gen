@@ -7,7 +7,7 @@
     <package 
        uri = "http://www.elysium.org/LilyPond" 
        class = "org.elysium.lilypond.LilypondPackage"
-       genModel = "org/elysium/LilyPond.genmodel" /> 
+       genModel = "model/generated/LilyPond.genmodel" /> 
 	
   </extension>
 
