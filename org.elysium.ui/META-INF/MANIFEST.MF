@@ -24,7 +24,7 @@ Require-Bundle: org.elysium;visibility:=reexport,
  org.eclipse.compare,
  org.apache.commons.lang;bundle-version="2.4.0"
 Import-Package: org.apache.log4j
-Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Bundle-RequiredExecutionEnvironment: JavaSE-1.7
 Export-Package: org.elysium.ui.contentassist.antlr,
  org.elysium.ui.contentassist,
  org.elysium.ui.quickfix
