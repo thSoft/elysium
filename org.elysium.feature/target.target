@@ -1,10 +1,14 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<?pde version="3.8"?><target name="target" sequenceNumber="1">
+<?pde version="3.8"?><target name="target" sequenceNumber="7">
 <locations>
 <location includeAllPlatforms="false" includeConfigurePhase="true" includeMode="planner" includeSource="true" type="InstallableUnit">
-<unit id="org.eclipse.xtext.sdk.feature.group" version="2.4.3.v201309030823"/>
-<unit id="org.eclipse.platform.feature.group" version="4.3.2.v20140221-1852"/>
-<repository location="http://download.eclipse.org/releases/kepler/"/>
+<unit id="org.eclipse.xtext.sdk.feature.group" version="2.6.0.v201405210727"/>
+<unit id="org.eclipse.rcp.sdk.id" version="4.4.0.I20140606-1215"/>
+<repository location="http://download.eclipse.org/releases/luna/"/>
+</location>
+<location includeAllPlatforms="false" includeConfigurePhase="true" includeMode="planner" includeSource="true" type="InstallableUnit">
+<unit id="com.google.guava.source" version="15.0.0.v201403281430"/>
+<repository location="http://download.eclipse.org/tools/orbit/downloads/drops/R20140525021250/repository/"/>
 </location>
 </locations>
 </target>
