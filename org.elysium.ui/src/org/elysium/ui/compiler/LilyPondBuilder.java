@@ -38,8 +38,9 @@ public class LilyPondBuilder implements IXtextBuilderParticipant {
 				IResource resource = ResourceUtils.findPlatformResource(uri);
 				if ((resource != null) && (resource instanceof IFile)) {
 					IFile file = (IFile)resource;
-					boolean changed = (delta.getNew() != null) && (delta.getOld() != null);
-					if (changed && delta.haveEObjectDescriptionsChanged()) {
+					boolean resourcesChanged = (delta.getNew() != null) && (delta.getOld() != null);
+					boolean descriptionsChanged = delta.haveEObjectDescriptionsChanged() || (context.getBuildType() != BuildType.INCREMENTAL);
+					if (resourcesChanged && descriptionsChanged) {
 						filesToCompile.add(file);
 					} else {
 						filesMarkedAsOutdated.add(file);
