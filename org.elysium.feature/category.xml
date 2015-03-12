@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <site>
-  <feature url="features/org.elysium.feature_0.5.0.qualifier.jar" id="org.elysium.feature" version="0.5.0.qualifier">
-    <category name="org.musicnotation"/>
-  </feature>
-  <category-def name="org.musicnotation" label="Music Notation">
-    <description>
+   <feature url="features/org.elysium.feature_0.5.0.qualifier.jar" id="org.elysium.feature" version="0.5.0.qualifier">
+      <category name="org.musicnotation"/>
+   </feature>
+   <category-def name="org.musicnotation" label="Music Notation">
+      <description>
          Tools for music notation.
       </description>
-  </category-def>
+   </category-def>
 </site>
