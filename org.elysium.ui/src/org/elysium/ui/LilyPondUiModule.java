@@ -1,8 +1,11 @@
 package org.elysium.ui;
 
+import org.eclipse.ui.PlatformUI;
 import org.eclipse.ui.plugin.AbstractUIPlugin;
 import org.eclipse.xtext.linking.ILinkingDiagnosticMessageProvider;
 import org.eclipse.xtext.resource.containers.IAllContainersState;
+import org.eclipse.xtext.ui.LanguageSpecific;
+import org.eclipse.xtext.ui.editor.IURIEditorOpener;
 import org.eclipse.xtext.ui.editor.IXtextEditorCallback;
 import org.eclipse.xtext.ui.editor.autoedit.AbstractEditStrategyProvider;
 import org.eclipse.xtext.ui.editor.hyperlinking.IHyperlinkHelper;
@@ -19,6 +22,7 @@ import org.elysium.importuri.ILilyPondPathProvider;
 import org.elysium.linking.LilyPondLinkingDiagnosticMessageProvider;
 import org.elysium.ui.autoedit.LilyPondAutoEditStrategyProvider;
 import org.elysium.ui.hyperlinks.LilyPondHyperlinkHelper;
+import org.elysium.ui.hyperlinks.LilyPondLanguageSpecificURIEditorOpener;
 import org.elysium.ui.outline.FilterIncludesOutlineContribution;
 import org.elysium.ui.quickfix.LilyPondSimilarityMatcher;
 import org.elysium.ui.syntaxcoloring.LilyPondHighlightingConfiguration;
@@ -56,6 +60,12 @@ public class LilyPondUiModule extends AbstractLilyPondUiModule {
 		binder.bind(ILinkingDiagnosticMessageProvider.class).to(LilyPondLinkingDiagnosticMessageProvider.class);
 		// Quick fixes
 		binder.bind(ISimilarityMatcher.class).to(LilyPondSimilarityMatcher.class);
+	}
+
+	@Override
+	public void configureLanguageSpecificURIEditorOpener(Binder binder) {
+		if (PlatformUI.isWorkbenchRunning())
+			binder.bind(IURIEditorOpener.class).annotatedWith(LanguageSpecific.class).to(LilyPondLanguageSpecificURIEditorOpener.class);
 	}
 
 	@Override
