@@ -15,9 +15,9 @@
       type="RESOURCE"
       name="lilypondlocation"
       defaultValue=""
-      label="Lilypond executable location">
+      label="LilyPond executable location">
     <description>
-      Location of the Lilypond executable.
+      Full path of the LilyPond executable (e.g. /usr/bin/lilypond).
       This value will be used for the test launch configuration.
     </description>
   </setupTask>
@@ -58,7 +58,7 @@
         activeRepositoryList="${eclipse.target.platform}">
       <requirement
           name="org.eclipse.xtext.sdk.feature.group"
-          versionRange="[2.7.3,2.8.0)"/>
+          versionRange="[2.7.0,2.8.0)"/>
       <requirement
           name="org.eclipse.platform.feature.group"/>
       <repositoryList
@@ -146,7 +146,7 @@
       excludedTriggers="BOOTSTRAP"
       successor="//@setupTasks.4"
       content="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; standalone=&quot;no&quot;?>&#xD;&#xA;&lt;launchConfiguration type=&quot;org.eclipse.jdt.junit.launchconfig&quot;>&#xD;&#xA;&lt;listAttribute key=&quot;org.eclipse.debug.core.MAPPED_RESOURCE_PATHS&quot;>&#xD;&#xA;&lt;listEntry value=&quot;/org.elysium.test&quot;/>&#xD;&#xA;&lt;/listAttribute>&#xD;&#xA;&lt;listAttribute key=&quot;org.eclipse.debug.core.MAPPED_RESOURCE_TYPES&quot;>&#xD;&#xA;&lt;listEntry value=&quot;4&quot;/>&#xD;&#xA;&lt;/listAttribute>&#xD;&#xA;&lt;stringAttribute key=&quot;org.eclipse.jdt.junit.CONTAINER&quot; value=&quot;=org.elysium.test&quot;/>&#xD;&#xA;&lt;booleanAttribute key=&quot;org.eclipse.jdt.junit.KEEPRUNNING_ATTR&quot; value=&quot;false&quot;/>&#xD;&#xA;&lt;stringAttribute key=&quot;org.eclipse.jdt.junit.TESTNAME&quot; value=&quot;&quot;/>&#xD;&#xA;&lt;stringAttribute key=&quot;org.eclipse.jdt.junit.TEST_KIND&quot; value=&quot;org.eclipse.jdt.junit.loader.junit4&quot;/>&#xD;&#xA;&lt;stringAttribute key=&quot;org.eclipse.jdt.launching.MAIN_TYPE&quot; value=&quot;&quot;/>&#xD;&#xA;&lt;stringAttribute key=&quot;org.eclipse.jdt.launching.PROJECT_ATTR&quot; value=&quot;org.elysium.test&quot;/>&#xD;&#xA;&lt;stringAttribute key=&quot;org.eclipse.jdt.launching.VM_ARGUMENTS&quot; value=&quot;-Dlilypond.path=${lilypondlocation}&quot;/>&#xD;&#xA;&lt;/launchConfiguration>"
-      targetURL="${git.clone.elysium.location|uri}/org.elysium.test/.launch/all-elysiumtests.launch"
+      targetURL="${git.clone.elysium.location|uri}/org.elysium.test/.launch/Elysium Tests.launch"
       encoding="UTF-8"/>
   <setupTask
       xsi:type="setup:EclipseIniTask"
