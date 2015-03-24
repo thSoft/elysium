@@ -151,7 +151,7 @@
   <setupTask
       xsi:type="setup:EclipseIniTask"
       option="-Doomph.redirection.elysium"
-      value="=https://elysium.eclipselabs.org.codespot.com/git/org.elysium.setup/Elysium.setup->${git.clone.elysium.location|uri}/org.elysium.setup/Elysium.setup"
+      value="=https://elysium.eclipselabs.org.codespot.com/git/Elysium.setup->${git.clone.elysium.location|uri}/Elysium.setup"
       vm="true"/>
   <stream name="master"
       label="master">
