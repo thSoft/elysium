@@ -1,6 +1,7 @@
 package org.elysium.ui.wizard;
 
 import java.text.MessageFormat;
+
 import org.eclipse.core.resources.IFile;
 import org.eclipse.core.resources.IProject;
 import org.eclipse.core.resources.IProjectDescription;
@@ -18,7 +19,6 @@ import org.eclipse.ui.IWorkbench;
 import org.eclipse.ui.IWorkbenchPage;
 import org.eclipse.ui.PartInitException;
 import org.eclipse.ui.PlatformUI;
-import org.eclipse.ui.dialogs.WizardNewProjectCreationPage;
 import org.eclipse.ui.ide.IDE;
 import org.eclipse.ui.texteditor.ITextEditor;
 import org.eclipse.ui.wizards.newresource.BasicNewProjectResourceWizard;
@@ -32,7 +32,7 @@ import org.elysium.ui.project.LilyPondNature;
 import org.elysium.ui.version.LilyPondVersion;
 
 /**
- * New project wizard for creating LilyPond projects.
+ * New project {@link Wizard} for creating LilyPond projects.
  */
 public class NewLilyPondProjectWizard extends Wizard implements INewWizard, IExecutableExtension {
 
@@ -44,14 +44,11 @@ public class NewLilyPondProjectWizard extends Wizard implements INewWizard, IExe
 	public void init(IWorkbench workbench, IStructuredSelection selection) {
 	}
 
-	private WizardNewProjectCreationPage projectCreationPage;
+	private NewLilyPondProjectWizardPage projectCreationPage;
 
 	@Override
 	public void addPages() {
-		projectCreationPage = new WizardNewProjectCreationPage("project"); //$NON-NLS-1$
-		projectCreationPage.setTitle("Project Settings");
-		projectCreationPage.setDescription("Create a LilyPond project by generating a new template or using existing sources.");
-		projectCreationPage.setImageDescriptor(Activator.getImageDescriptor("icons/wizard/Header.png")); //$NON-NLS-1$
+		projectCreationPage = new NewLilyPondProjectWizardPage("project"); //$NON-NLS-1$
 		addPage(projectCreationPage);
 	}
 
