@@ -38,18 +38,45 @@
   <setupTask
       xsi:type="git:GitCloneTask"
       id="git.clone.elysium"
-      location="${installation.location/git/elysium}"
-      remoteURI="https://github.com/thSoft/elysium.git"
-      pushURI="">
-    <description>Elysium repo</description>
+      remoteURI="thSoft/elysium"
+      checkoutBranch="master">
+    <annotation
+        source="http://www.eclipse.org/oomph/setup/InducedChoices">
+      <detail
+          key="inherit">
+        <value>github.remoteURIs</value>
+      </detail>
+      <detail
+          key="label">
+        <value>${scope.project.label} Github repository</value>
+      </detail>
+      <detail
+          key="target">
+        <value>remoteURI</value>
+      </detail>
+    </annotation>
+    <description>${scope.project.label}</description>
   </setupTask>
   <setupTask
       xsi:type="git:GitCloneTask"
-      id="git.clone.eclipsecommons"
-      location="${installation.location/git/eclipsecommons}"
-      remoteURI="https://github.com/thSoft/eclipse-commons.git"
-      checkoutBranch="master">
-    <description>eclipse-commons repo</description>
+      id="git.clone.eclipse-commons"
+      remoteURI="thSoft/eclipse-commons">
+    <annotation
+        source="http://www.eclipse.org/oomph/setup/InducedChoices">
+      <detail
+          key="inherit">
+        <value>github.remoteURIs</value>
+      </detail>
+      <detail
+          key="label">
+        <value>Eclipse Commons Github repository</value>
+      </detail>
+      <detail
+          key="target">
+        <value>remoteURI</value>
+      </detail>
+    </annotation>
+    <description>mondo-utils</description>
   </setupTask>
   <setupTask
       xsi:type="setup.targlets:TargletTask">
