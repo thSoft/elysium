@@ -116,12 +116,12 @@
       excludedTriggers="BOOTSTRAP"
       successor="//@setupTasks.4"
       content="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; standalone=&quot;no&quot;?>&#xD;&#xA;&lt;launchConfiguration type=&quot;org.eclipse.jdt.junit.launchconfig&quot;>&#xD;&#xA;&lt;listAttribute key=&quot;org.eclipse.debug.core.MAPPED_RESOURCE_PATHS&quot;>&#xD;&#xA;&lt;listEntry value=&quot;/org.elysium.test&quot;/>&#xD;&#xA;&lt;/listAttribute>&#xD;&#xA;&lt;listAttribute key=&quot;org.eclipse.debug.core.MAPPED_RESOURCE_TYPES&quot;>&#xD;&#xA;&lt;listEntry value=&quot;4&quot;/>&#xD;&#xA;&lt;/listAttribute>&#xD;&#xA;&lt;stringAttribute key=&quot;org.eclipse.jdt.junit.CONTAINER&quot; value=&quot;=org.elysium.test&quot;/>&#xD;&#xA;&lt;booleanAttribute key=&quot;org.eclipse.jdt.junit.KEEPRUNNING_ATTR&quot; value=&quot;false&quot;/>&#xD;&#xA;&lt;stringAttribute key=&quot;org.eclipse.jdt.junit.TESTNAME&quot; value=&quot;&quot;/>&#xD;&#xA;&lt;stringAttribute key=&quot;org.eclipse.jdt.junit.TEST_KIND&quot; value=&quot;org.eclipse.jdt.junit.loader.junit4&quot;/>&#xD;&#xA;&lt;stringAttribute key=&quot;org.eclipse.jdt.launching.MAIN_TYPE&quot; value=&quot;&quot;/>&#xD;&#xA;&lt;stringAttribute key=&quot;org.eclipse.jdt.launching.PROJECT_ATTR&quot; value=&quot;org.elysium.test&quot;/>&#xD;&#xA;&lt;stringAttribute key=&quot;org.eclipse.jdt.launching.VM_ARGUMENTS&quot; value=&quot;-Dlilypond.path=${lilypondlocation}&quot;/>&#xD;&#xA;&lt;/launchConfiguration>"
-      targetURL="${projectsimport|uri}/org.elysium.test/.launch/Elysium Tests.launch"
+      targetURL="${git.clone.elysium.location|uri}/org.elysium.test/.launch/Elysium Tests.launch"
       encoding="UTF-8"/>
   <setupTask
       xsi:type="setup:EclipseIniTask"
       option="-Doomph.redirection.elysium"
-      value="=https://raw.githubusercontent.com/thSoft/elysium/master/Elysium.setup->${projectsimport|uri}/Elysium.setup"
+      value="=https://raw.githubusercontent.com/thSoft/elysium/master/Elysium.setup->${git.clone.elysium.location|uri}/Elysium.setup"
       vm="true"/>
   <stream name="master"
       label="master">
