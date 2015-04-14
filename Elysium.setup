@@ -48,7 +48,7 @@
       </detail>
       <detail
           key="label">
-        <value>${scope.project.label} Github repository</value>
+        <value>${scope.project.label} GitHub repository protocol</value>
       </detail>
       <detail
           key="target">
@@ -69,7 +69,7 @@
       </detail>
       <detail
           key="label">
-        <value>Eclipse Commons Github repository</value>
+        <value>Eclipse Commons GitHub repository protocol</value>
       </detail>
       <detail
           key="target">
@@ -89,15 +89,6 @@
       <requirement
           name="org.eclipse.platform.feature.group"/>
       <repositoryList
-          name="Mars">
-        <repository
-            url="http://download.eclipse.org/modeling/tmf/xtext/updates/composite/releases/"/>
-        <repository
-            url="http://download.itemis.com/updates/releases/2.1.0/"/>
-        <repository
-            url="http://download.eclipse.org/technology/m2e/releases/1.0/"/>
-      </repositoryList>
-      <repositoryList
           name="Luna">
         <repository
             url="http://download.eclipse.org/modeling/tmf/xtext/updates/composite/releases/"/>
@@ -108,77 +99,28 @@
         <repository
             url="http://download.eclipse.org/releases/luna/"/>
       </repositoryList>
-      <repositoryList
-          name="Kepler">
-        <repository
-            url="http://download.eclipse.org/modeling/tmf/xtext/updates/composite/releases/"/>
-        <repository
-            url="http://download.itemis.com/updates/releases/2.1.0/"/>
-        <repository
-            url="http://download.eclipse.org/technology/m2e/releases/1.0/"/>
-      </repositoryList>
-      <repositoryList
-          name="Juno">
-        <repository
-            url="http://download.eclipse.org/modeling/tmf/xtext/updates/composite/releases/"/>
-        <repository
-            url="http://download.itemis.com/updates/releases/2.1.0/"/>
-        <repository
-            url="http://download.eclipse.org/technology/m2e/releases/1.0/"/>
-      </repositoryList>
-      <repositoryList
-          name="Indigo">
-        <repository
-            url="http://download.eclipse.org/modeling/tmf/xtext/updates/composite/releases/"/>
-        <repository
-            url="http://download.itemis.com/updates/releases/2.1.0/"/>
-        <repository
-            url="http://download.eclipse.org/technology/m2e/releases/1.0/"/>
-      </repositoryList>
-      <repositoryList
-          name="Helios">
-        <repository
-            url="http://download.eclipse.org/modeling/tmf/xtext/updates/composite/releases/"/>
-        <repository
-            url="http://download.itemis.com/updates/releases/2.1.0/"/>
-        <repository
-            url="http://download.eclipse.org/technology/m2e/releases/1.0/"/>
-      </repositoryList>
-      <repositoryList
-          name="Galileo">
-        <repository
-            url="http://download.eclipse.org/modeling/tmf/xtext/updates/composite/releases/"/>
-        <repository
-            url="http://download.itemis.com/updates/releases/2.1.0/"/>
-        <repository
-            url="http://download.eclipse.org/technology/m2e/releases/1.0/"/>
-      </repositoryList>
     </targlet>
-    <targlet
-        name="Elysium-Targlet">
-      <requirement
-          name="org.elysium.feature.feature.group"/>
-      <requirement
-          name="org.elysium.test"/>
-      <sourceLocator
-          rootFolder="${git.clone.elysium.location}"
-          locateNestedProjects="true"/>
-      <sourceLocator
-          rootFolder="${git.clone.eclipsecommons.location}"
-          locateNestedProjects="true"/>
-    </targlet>
+  </setupTask>
+  <setupTask
+      xsi:type="projects:ProjectsImportTask">
+    <sourceLocator
+        rootFolder="${git.clone.elysium.location}"
+        locateNestedProjects="true"/>
+    <sourceLocator
+        rootFolder="${git.clone.eclipse-commons.location}"
+        locateNestedProjects="true"/>
   </setupTask>
   <setupTask
       xsi:type="setup:ResourceCreationTask"
       excludedTriggers="BOOTSTRAP"
       successor="//@setupTasks.4"
       content="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; standalone=&quot;no&quot;?>&#xD;&#xA;&lt;launchConfiguration type=&quot;org.eclipse.jdt.junit.launchconfig&quot;>&#xD;&#xA;&lt;listAttribute key=&quot;org.eclipse.debug.core.MAPPED_RESOURCE_PATHS&quot;>&#xD;&#xA;&lt;listEntry value=&quot;/org.elysium.test&quot;/>&#xD;&#xA;&lt;/listAttribute>&#xD;&#xA;&lt;listAttribute key=&quot;org.eclipse.debug.core.MAPPED_RESOURCE_TYPES&quot;>&#xD;&#xA;&lt;listEntry value=&quot;4&quot;/>&#xD;&#xA;&lt;/listAttribute>&#xD;&#xA;&lt;stringAttribute key=&quot;org.eclipse.jdt.junit.CONTAINER&quot; value=&quot;=org.elysium.test&quot;/>&#xD;&#xA;&lt;booleanAttribute key=&quot;org.eclipse.jdt.junit.KEEPRUNNING_ATTR&quot; value=&quot;false&quot;/>&#xD;&#xA;&lt;stringAttribute key=&quot;org.eclipse.jdt.junit.TESTNAME&quot; value=&quot;&quot;/>&#xD;&#xA;&lt;stringAttribute key=&quot;org.eclipse.jdt.junit.TEST_KIND&quot; value=&quot;org.eclipse.jdt.junit.loader.junit4&quot;/>&#xD;&#xA;&lt;stringAttribute key=&quot;org.eclipse.jdt.launching.MAIN_TYPE&quot; value=&quot;&quot;/>&#xD;&#xA;&lt;stringAttribute key=&quot;org.eclipse.jdt.launching.PROJECT_ATTR&quot; value=&quot;org.elysium.test&quot;/>&#xD;&#xA;&lt;stringAttribute key=&quot;org.eclipse.jdt.launching.VM_ARGUMENTS&quot; value=&quot;-Dlilypond.path=${lilypondlocation}&quot;/>&#xD;&#xA;&lt;/launchConfiguration>"
-      targetURL="${git.clone.elysium.location|uri}/org.elysium.test/.launch/Elysium Tests.launch"
+      targetURL="${projectsimport|uri}/org.elysium.test/.launch/Elysium Tests.launch"
       encoding="UTF-8"/>
   <setupTask
       xsi:type="setup:EclipseIniTask"
       option="-Doomph.redirection.elysium"
-      value="=https://raw.githubusercontent.com/thSoft/elysium/master/Elysium.setup->${git.clone.elysium.location|uri}/Elysium.setup"
+      value="=https://raw.githubusercontent.com/thSoft/elysium/master/Elysium.setup->${projectsimport|uri}/Elysium.setup"
       vm="true"/>
   <stream name="master"
       label="master">
