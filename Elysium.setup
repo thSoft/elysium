@@ -39,7 +39,7 @@
       xsi:type="git:GitCloneTask"
       id="git.clone.elysium"
       location="${installation.location/git/elysium}"
-      remoteURI="https://code.google.com/a/eclipselabs.org/p/elysium"
+      remoteURI="https://github.com/thSoft/elysium.git"
       pushURI="">
     <description>Elysium repo</description>
   </setupTask>
@@ -47,7 +47,7 @@
       xsi:type="git:GitCloneTask"
       id="git.clone.eclipsecommons"
       location="${installation.location/git/eclipsecommons}"
-      remoteURI="https://code.google.com/a/eclipselabs.org/p/eclipse-commons"
+      remoteURI="https://github.com/thSoft/eclipse-commons.git"
       checkoutBranch="master">
     <description>eclipse-commons repo</description>
   </setupTask>
@@ -151,7 +151,7 @@
   <setupTask
       xsi:type="setup:EclipseIniTask"
       option="-Doomph.redirection.elysium"
-      value="=https://elysium.eclipselabs.org.codespot.com/git/Elysium.setup->${git.clone.elysium.location|uri}/Elysium.setup"
+      value="=https://raw.githubusercontent.com/thSoft/elysium/master/Elysium.setup->${git.clone.elysium.location|uri}/Elysium.setup"
       vm="true"/>
   <stream name="master"
       label="master">
