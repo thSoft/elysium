@@ -83,7 +83,7 @@ public class Integration extends LilyPondTestWithValidator {
 				}
 			}
 		}
-		assertFalse(hasErrors);
+		assertFalse(filePath, hasErrors);
 	}
 
 }
