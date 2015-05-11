@@ -57,14 +57,16 @@ public class LilyPondImportUriResolver extends ImportUriResolver {
 		@Override
 		public URI load(String key) throws Exception {
 			URI lilypondUri = stringToUri(key);
-			File f=new File(lilypondUri.resolve("../share/lilypond/"));
+			URI shareBaseUri=lilypondUri.resolve("../share/lilypond/");
+			final String lyDirectoryName="ly";
+			File f=new File(shareBaseUri);
 			if (f.isDirectory()){
 				for (File subDir : f.listFiles()) {
 					if(subDir.isDirectory()){
 						File[] candidates = subDir.listFiles(new FileFilter() {
 							@Override
 							public boolean accept(File pathname) {
-								return pathname.getName().equals("ly");
+								return pathname.getName().equals(lyDirectoryName);
 							}
 						});
 						if(candidates.length>0){
@@ -73,7 +75,7 @@ public class LilyPondImportUriResolver extends ImportUriResolver {
 					}
 				}
 			}
-			URI defaultSearchUri = lilypondUri.resolve("../share/lilypond/current/ly/"); //$NON-NLS-1$
+			URI defaultSearchUri = shareBaseUri.resolve("current/"+lyDirectoryName+"/"); //$NON-NLS-1$ //$NON-NLS-2$
 			return defaultSearchUri;
 		}
 	});
