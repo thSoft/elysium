@@ -6,11 +6,15 @@ import java.io.File;
 import java.net.URI;
 import java.util.List;
 
+import org.eclipse.core.resources.IFile;
+import org.eclipse.core.resources.IWorkspaceRoot;
+import org.eclipse.core.resources.ResourcesPlugin;
 import org.eclipse.core.runtime.Platform;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.xtext.scoping.impl.ImportUriResolver;
 
 import com.google.common.base.Function;
+import com.google.common.base.Optional;
 import com.google.common.collect.Lists;
 import com.google.inject.Inject;
 
@@ -46,22 +50,30 @@ public class LilyPondImportUriResolver extends ImportUriResolver {
 					return resolvedImportUri.toString();
 				}
 			}
-			//#44 check if resolving relative path yields existing file
-			if(importUri.contains("..")){//!URI.create(importUri).isAbsolute()){
-				org.eclipse.emf.common.util.URI resourceUri = object.eResource().getURI();
-				if(resourceUri!=null && resourceUri.isPlatform()){
-					File base = new File(Platform.getLocation()+resourceUri.toPlatformString(false));
-					if (base.exists()) {
-						URI resolvedImportUri = base.toURI().resolve(importUri);
-						File importedFile = new File(base.toURI().resolve(importUri));
+			return getFileUriOutsideWorkspace(object, importUri).or(importUri);
+		}
+		return importUri;
+	}
+
+	private Optional<String> getFileUriOutsideWorkspace(EObject context, String importUri){
+		if(importUri.contains("..")){
+			org.eclipse.emf.common.util.URI currentResourceUri = context.eResource().getURI();
+			if(currentResourceUri!=null && currentResourceUri.isPlatform()){
+				File currentResourceAsFile = new File(Platform.getLocation()+currentResourceUri.toPlatformString(false));
+				if (currentResourceAsFile.exists()) {
+					URI resolvedImportUri = currentResourceAsFile.toURI().resolve(importUri);
+					IWorkspaceRoot workspaceRoot= ResourcesPlugin.getWorkspace().getRoot();
+					IFile[] importedFileFoundInWorkspace = workspaceRoot.findFilesForLocationURI(resolvedImportUri);
+					if(importedFileFoundInWorkspace.length==0){
+						File importedFile = new File(currentResourceAsFile.toURI().resolve(importUri));
 						if (importedFile.exists()) {
-							return resolvedImportUri.toString();
+							return Optional.of(resolvedImportUri.toString());
 						}
 					}
 				}
 			}
 		}
-		return importUri;
+		return Optional.absent();
 	}
 
 	public static URI getDefaultSearchUri(String lilypondPath) {
