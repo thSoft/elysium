@@ -2,14 +2,16 @@ package org.elysium.ui.compiler;
 
 import static org.eclipse.core.resources.IResource.DEPTH_ZERO;
 import static org.elysium.ui.markers.MarkerTypes.OUTDATED;
+
 import java.io.File;
 import java.io.IOException;
 import java.text.MessageFormat;
 import java.util.List;
 import java.util.Locale;
 import java.util.Map;
+
 import javax.util.process.OutputProcessor;
-import javax.util.process.ProcessUtils;
+
 import org.eclipse.core.resources.IFile;
 import org.eclipse.core.resources.IMarker;
 import org.eclipse.core.resources.IResource;
@@ -17,6 +19,7 @@ import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.core.runtime.IStatus;
 import org.eclipse.core.runtime.NullProgressMonitor;
+import org.eclipse.core.runtime.OperationCanceledException;
 import org.eclipse.core.runtime.Status;
 import org.eclipse.core.runtime.jobs.Job;
 import org.eclipse.jface.dialogs.MessageDialog;
@@ -54,11 +57,6 @@ public class CompilerJob extends Job {
 	 */
 	private final CompilerConsole console;
 
-	/**
-	 * The process in which the file is compiled.
-	 */
-	private Process process;
-
 	public CompilerJob(IFile file) {
 		super(MessageFormat.format("Compiling {0}", file.getFullPath().toString()));
 		setProperty(IProgressConstants.ICON_PROPERTY, Activator.getImageDescriptor("icons/compiler/Command.png")); //$NON-NLS-1$
@@ -67,28 +65,34 @@ public class CompilerJob extends Job {
 	}
 
 	@Override
-	protected IStatus run(IProgressMonitor monitor) {
+	protected IStatus run(final IProgressMonitor monitor) {
+		IStatus returnStatus=Status.OK_STATUS;
+		monitor.beginTask("LilyPond Compilation", 4);
 		try {
+			checkCancelled(monitor);
 			console.clearConsole();
 			console.firePropertyChange(this, IConsoleConstants.P_CONSOLE_OUTPUT_COMPLETE, null, false);
 			ConsoleUtils.showConsole(console);
 
 			long start = System.currentTimeMillis();
-			preprocess();
+			preprocess(monitor);
 
+			checkCancelled(monitor);
+			monitor.subTask("prepare LilyPond processing");
 			ProcessBuilder processBuilder = CompilerProcessBuilderFactory.get(file);
 			prepareProcessBuilder(processBuilder);
 
 			OutputProcessor outputProcessor = new CompilerOutputProcessor(file, console);
+			monitor.worked(1);
+			monitor.subTask("LilyPond processing");
 			try {
-				process = ProcessUtils.runProcess(processBuilder, outputProcessor);
+				CancellableProcessUtils.runCancellableProcess(processBuilder, outputProcessor, monitor);
 			} catch (IOException e) {
 				handleInvalidExecutablePath();
-			} catch (InterruptedException e) {
-				Activator.logError("Processing interrupted, try to process again", e);
 			}
+			monitor.worked(1);
 
-			postprocess();
+			postprocess(monitor);
 			long stop = System.currentTimeMillis();
 
 			float executionTimeInSeconds = (stop - start) / 1000f;
@@ -100,11 +104,20 @@ public class CompilerJob extends Job {
 			} catch (CoreException e) {
 				Activator.logError("Couldn't refresh project, please refresh manually", e);
 			}
-
-			return Status.OK_STATUS;
-		} catch (Exception e) {
+			monitor.done();
+		} catch(OperationCanceledException e){
+			console.printMeta("Workspace build stopped by user");
+			returnStatus=Status.CANCEL_STATUS;
+		}catch (Exception e) {
 			Activator.logError("Workspace build interrupted", e);
-			return Status.CANCEL_STATUS;
+			returnStatus=Status.CANCEL_STATUS;
+		}
+		return returnStatus;
+	}
+
+	private void checkCancelled(IProgressMonitor monitor){
+		if(monitor.isCanceled()){
+			throw new OperationCanceledException();
 		}
 	}
 
@@ -121,7 +134,9 @@ public class CompilerJob extends Job {
 		environment.put("LANG", locale.toString()); //$NON-NLS-1$
 	}
 
-	private void preprocess() {
+	private void preprocess(final IProgressMonitor monitor) {
+		checkCancelled(monitor);
+		monitor.subTask("updating syntax");
 		// Update syntax if enabled
 		boolean updateSyntax = Activator.getInstance().getPreferenceStore().getBoolean(SyntaxUpdaterPreferenceConstants.UPDATE_SYNTAX.name());
 		if (updateSyntax) {
@@ -134,7 +149,7 @@ public class CompilerJob extends Job {
 					public void run() {
 						IWorkbenchPage workbenchPage = UiUtils.getWorkbenchPage();
 						workbenchPage.closeEditor(editor, true);
-						updateSyntax();
+						updateSyntax(monitor);
 						try {
 							IDE.openEditor(workbenchPage, file);
 						} catch (PartInitException e) {
@@ -144,7 +159,7 @@ public class CompilerJob extends Job {
 
 				});
 			} else {
-				updateSyntax();
+				updateSyntax(monitor);
 				try {
 					file.refreshLocal(0, new NullProgressMonitor());
 				} catch (CoreException e) {
@@ -158,9 +173,10 @@ public class CompilerJob extends Job {
 		} catch (CoreException e) {
 			Activator.logError("Couldn't delete problem markers", e);
 		}
+		monitor.worked(1);
 	}
 
-	private void updateSyntax() {
+	private void updateSyntax(IProgressMonitor monitor) {
 		try {
 			ProcessBuilder processBuilder = SyntaxUpdaterProcessBuilderFactory.get(file);
 			prepareProcessBuilder(processBuilder);
@@ -169,18 +185,21 @@ public class CompilerJob extends Job {
 
 			OutputProcessor outputProcessor = new SyntaxUpdaterOutputProcessor(console);
 
-			ProcessUtils.runProcess(processBuilder, outputProcessor);
+			CancellableProcessUtils.runCancellableProcess(processBuilder, outputProcessor, monitor);
 		} catch (Exception e) {
 			Activator.logError("Couldn't update syntax before compiling", e);
 		}
 	}
 
-	private void postprocess() {
+	private void postprocess(IProgressMonitor monitor) {
+		checkCancelled(monitor);
+		monitor.subTask("clean up");
 		try {
 			removeOutdatedMarker(file);
 		} catch (CoreException e) {
 			Activator.logError("Couldn't remove outdated markers", e);
 		}
+		monitor.worked(1);
 	}
 
 	public static void removeOutdatedMarker(IFile file) throws CoreException {
@@ -211,14 +230,6 @@ public class CompilerJob extends Job {
 			}
 
 		});
-	}
-
-	@Override
-	protected void canceling() {
-		super.canceling();
-		if (process != null) {
-			process.destroy();
-		}
 	}
 
 	@Override
