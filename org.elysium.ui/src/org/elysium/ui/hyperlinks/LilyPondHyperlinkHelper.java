@@ -3,6 +3,7 @@ package org.elysium.ui.hyperlinks;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+
 import org.eclipse.core.resources.IFile;
 import org.eclipse.core.resources.IResource;
 import org.eclipse.emf.common.util.URI;
@@ -24,11 +25,13 @@ import org.eclipse.xtext.EcoreUtil2;
 import org.eclipse.xtext.nodemodel.ILeafNode;
 import org.eclipse.xtext.nodemodel.util.NodeModelUtils;
 import org.eclipse.xtext.resource.XtextResource;
+import org.eclipse.xtext.scoping.impl.ImportUriResolver;
 import org.eclipse.xtext.ui.editor.hyperlinking.HyperlinkHelper;
 import org.eclipse.xtext.ui.editor.hyperlinking.XtextHyperlink;
 import org.elysium.lilypond.Include;
 import org.elysium.lilypond.LilypondPackage;
 import org.elysium.ui.score.ScoreViewType;
+
 import com.google.common.collect.Iterables;
 import com.google.inject.Inject;
 import com.google.inject.Provider;
@@ -40,6 +43,9 @@ public class LilyPondHyperlinkHelper extends HyperlinkHelper {
 
 	@Inject
 	private Provider<XtextHyperlink> hyperlinkProvider;
+
+	@Inject
+	ImportUriResolver uriResolver;
 
 	@Override
 	public IHyperlink[] createHyperlinksByOffset(XtextResource xtextResource, int offset, boolean createMultipleHyperlinks) {
@@ -61,16 +67,26 @@ public class LilyPondHyperlinkHelper extends HyperlinkHelper {
 			if ((object instanceof Include) && NodeModelUtils.findNodesForFeature(object, LilypondPackage.eINSTANCE.getInclude_ImportURI()).contains(node)) {
 				Include include = (Include)object;
 				Resource includedEResource = EcoreUtil2.getResource(xtextResource, include.getImportURI());
-				IResource includedResource = ResourceUtils.convertEResourceToPlatformResource(includedEResource);
-				if (includedResource != null) {
+				URI uriToOpen=null;
+				if(includedEResource!=null){
+					IResource includedResource = ResourceUtils.convertEResourceToPlatformResource(includedEResource);
+					if (includedResource != null) {
+						uriToOpen = includedEResource.getURI();
+					}
+				}else{
+					uriToOpen=URI.createURI(uriResolver.resolve(include));
+					if(!uriToOpen.isFile() || uriToOpen.isRelative()){
+						uriToOpen=null;
+					}
+				}
+				if(uriToOpen!=null){
 					int linkOffset = nodeOffset + 1; // Ignore the surrounding quotation marks
 					int linkLength = nodeLength - 2;
 					if ((linkOffset <= offset) && (offset < (linkOffset + linkLength))) {
 						XtextHyperlink hyperlink = hyperlinkProvider.get();
 						hyperlink.setHyperlinkRegion(new Region(linkOffset, linkLength));
 						hyperlink.setHyperlinkText("Open included file");
-						URI importUri = includedEResource.getURI();
-						hyperlink.setURI(importUri);
+						hyperlink.setURI(uriToOpen);
 						hyperlinks.add(hyperlink);
 					}
 				}
