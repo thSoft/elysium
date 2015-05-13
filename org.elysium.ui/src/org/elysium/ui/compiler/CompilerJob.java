@@ -33,7 +33,6 @@ import org.eclipse.ui.console.IConsoleConstants;
 import org.eclipse.ui.dialogs.PreferencesUtil;
 import org.eclipse.ui.ide.IDE;
 import org.eclipse.ui.progress.IProgressConstants;
-import org.eclipse.util.ConsoleUtils;
 import org.eclipse.util.EditorUtils;
 import org.eclipse.util.UiUtils;
 import org.elysium.ui.Activator;
@@ -70,9 +69,9 @@ public class CompilerJob extends Job {
 		monitor.beginTask("LilyPond Compilation", 4);
 		try {
 			checkCancelled(monitor);
+			console.setMonitor(monitor);
 			console.clearConsole();
 			console.firePropertyChange(this, IConsoleConstants.P_CONSOLE_OUTPUT_COMPLETE, null, false);
-			ConsoleUtils.showConsole(console);
 
 			long start = System.currentTimeMillis();
 			preprocess(monitor);
@@ -112,6 +111,7 @@ public class CompilerJob extends Job {
 			Activator.logError("Workspace build interrupted", e);
 			returnStatus=Status.CANCEL_STATUS;
 		}
+		console.setMonitor(null);
 		return returnStatus;
 	}
 
