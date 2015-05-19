@@ -68,7 +68,7 @@ public class CompilerConsole extends MessageConsole {
 	}
 
 	private void print(MessageConsoleStream stream, String line){
-		if(!view.isPinned()){
+		if(view==null || !view.isPinned()){
 			ConsoleUtils.showConsole(this);
 		}
 		if(!viewDiscarded){
