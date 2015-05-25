@@ -8,7 +8,7 @@ import org.eclipse.util.EditorUtils;
 import org.elysium.ui.compiler.LilyPondBuilder;
 import com.google.common.collect.Sets;
 
-public class RecompileCurrentHandler extends AbstractHandler {
+public class RecompileEditedHandler extends AbstractHandler {
 
 	@Override
 	public Object execute(ExecutionEvent event) throws ExecutionException {
