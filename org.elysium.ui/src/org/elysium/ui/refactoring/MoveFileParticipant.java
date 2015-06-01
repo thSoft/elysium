@@ -52,8 +52,6 @@ public class MoveFileParticipant extends MoveParticipant {
 							if (!file.equals(sourceFile)) {
 								if (RefactoringSupport.isSource(file)) {
 									result.addFatalError("Moving multiple LilyPond source files is not supported");
-								} else if (RefactoringSupport.isCompiledFrom(file, sourceFile)) {
-									result.addFatalError("Moving a LilyPond source file and a file compiled from it is not supported");
 								}
 							}
 						}
