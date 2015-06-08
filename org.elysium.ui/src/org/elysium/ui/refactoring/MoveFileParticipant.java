@@ -1,5 +1,8 @@
 package org.elysium.ui.refactoring;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.eclipse.core.resources.IContainer;
 import org.eclipse.core.resources.IFile;
 import org.eclipse.core.resources.IResourceDelta;
@@ -23,6 +26,7 @@ import org.elysium.ui.Activator;
 public class MoveFileParticipant extends MoveParticipant {
 
 	private IFile sourceFile;
+	private List<IFile> compiledFilesIncludedInMove=new ArrayList<IFile>();
 
 	@Override
 	protected boolean initialize(Object element) {
@@ -53,6 +57,9 @@ public class MoveFileParticipant extends MoveParticipant {
 								if (RefactoringSupport.isSource(file)) {
 									result.addFatalError("Moving multiple LilyPond source files is not supported");
 								}
+								if(RefactoringSupport.isCompiledFrom(file, sourceFile)){
+									compiledFilesIncludedInMove.add(file);
+								}
 							}
 						}
 						return true;
@@ -68,7 +75,7 @@ public class MoveFileParticipant extends MoveParticipant {
 	@Override
 	public Change createChange(IProgressMonitor pm) throws CoreException, OperationCanceledException {
 		IContainer destination = (IContainer)getArguments().getDestination();
-		return RefactoringSupport.createChange(sourceFile, sourceFile.getName(), destination, false);
+		return RefactoringSupport.createChange(sourceFile, sourceFile.getName(), destination, false, compiledFilesIncludedInMove);
 	}
 
 	@Override

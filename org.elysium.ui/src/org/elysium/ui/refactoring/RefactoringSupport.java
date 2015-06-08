@@ -6,8 +6,12 @@ import static java.text.MessageFormat.format;
 import static org.eclipse.emf.common.util.URI.createPlatformResourceURI;
 import static org.eclipse.util.ResourceUtils.replaceExtension;
 import static org.eclipse.xtext.nodemodel.util.NodeModelUtils.findNodesForFeature;
+
+import java.util.Collections;
 import java.util.List;
+
 import javax.util.collections.IterableIterator;
+
 import org.eclipse.core.resources.IContainer;
 import org.eclipse.core.resources.IFile;
 import org.eclipse.core.resources.IFolder;
@@ -16,6 +20,8 @@ import org.eclipse.core.resources.IResourceVisitor;
 import org.eclipse.core.resources.ResourcesPlugin;
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IPath;
+import org.eclipse.core.runtime.NullProgressMonitor;
+import org.eclipse.core.runtime.OperationCanceledException;
 import org.eclipse.core.runtime.Path;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.Resource;
@@ -26,8 +32,10 @@ import org.eclipse.ltk.core.refactoring.CompositeChange;
 import org.eclipse.ltk.core.refactoring.RefactoringStatus;
 import org.eclipse.ltk.core.refactoring.TextChange;
 import org.eclipse.ltk.core.refactoring.TextFileChange;
+import org.eclipse.ltk.core.refactoring.participants.DeleteRefactoring;
 import org.eclipse.ltk.core.refactoring.resource.MoveResourceChange;
 import org.eclipse.ltk.core.refactoring.resource.RenameResourceChange;
+import org.eclipse.ltk.internal.core.refactoring.resource.DeleteResourcesProcessor;
 import org.eclipse.text.edits.MultiTextEdit;
 import org.eclipse.text.edits.ReplaceEdit;
 import org.eclipse.text.edits.TextEdit;
@@ -36,6 +44,7 @@ import org.elysium.LilyPondConstants;
 import org.elysium.lilypond.Include;
 import org.elysium.lilypond.LilypondPackage;
 import org.elysium.ui.Activator;
+
 import com.google.common.base.Predicate;
 
 public class RefactoringSupport {
@@ -94,7 +103,7 @@ public class RefactoringSupport {
 		}
 	}
 
-	public static Change createChange(final IFile sourceFile, final String newName, final IContainer destination, final boolean inFolder) throws CoreException {
+	public static Change createChange(final IFile sourceFile, final String newName, final IContainer destination, final boolean inFolder, final List<IFile> compiledFilesIncludedInRefactoring) throws CoreException {
 		final CompositeChange result = new CompositeChange(inFolder ? sourceFile.getFullPath().toString() : NAME);
 		final CompositeChange includeChangesParent = new CompositeChange("\\include statements");
 		final CompositeChange compiledChangesParent = new CompositeChange("Compiled files");
@@ -118,6 +127,9 @@ public class RefactoringSupport {
 					}
 					// Rename/move compiled files
 					if (!inFolder && isCompiledFrom(file, sourceFile)) {
+
+						ensureScoreCanBeRefactored(file);
+
 						// Rename
 						if (!sourceFile.getName().equals(newName)) {
 							String newCompiledName = replaceExtension(new Path(newName), file.getFileExtension()).lastSegment();
@@ -126,8 +138,10 @@ public class RefactoringSupport {
 						}
 						// Move
 						if (!sourceFile.getParent().equals(destination)) {
-							MoveResourceChange change = new MoveResourceChange(file, destination);
-							compiledChangesParent.add(change);
+							if(!compiledFilesIncludedInRefactoring.contains(file)){
+								MoveResourceChange change = new MoveResourceChange(file, destination);
+								compiledChangesParent.add(change);
+							}
 						}
 					}
 				}
@@ -144,6 +158,13 @@ public class RefactoringSupport {
 		return ifNotEmpty(result);
 	}
 
+	@SuppressWarnings("restriction")
+	private static void ensureScoreCanBeRefactored(IFile file) throws OperationCanceledException, CoreException{
+		if(file.getFileExtension().equals(LilyPondConstants.SCORE_EXTENSION)){
+			new DeleteRefactoring(new DeleteResourcesProcessor(new IResource[]{file}, true)).checkAllConditions(new NullProgressMonitor());
+		}
+	}
+
 	public static Change createChange(final IFolder sourceFolder, final IFolder targetFolder) throws CoreException {
 		final CompositeChange result = new CompositeChange(NAME);
 		sourceFolder.accept(new IResourceVisitor() {
@@ -154,7 +175,7 @@ public class RefactoringSupport {
 					if (isSource(sourceFile)) {
 						IPath relativePath = sourceFile.getParent().getFullPath().makeRelativeTo(sourceFolder.getFullPath());
 						IFolder destination = targetFolder.getFolder(relativePath); // Can be the target's child
-						Change change = createChange(sourceFile, sourceFile.getName(), destination, true);
+						Change change = createChange(sourceFile, sourceFile.getName(), destination, true, Collections.<IFile>emptyList());
 						result.add(change);
 					}
 				}
