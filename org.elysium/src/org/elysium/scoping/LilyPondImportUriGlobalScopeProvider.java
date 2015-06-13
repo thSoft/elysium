@@ -7,6 +7,7 @@ import java.util.HashSet;
 import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Set;
+
 import org.eclipse.emf.common.util.TreeIterator;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EClass;
@@ -26,6 +27,7 @@ import org.eclipse.xtext.scoping.impl.SelectableBasedScope;
 import org.eclipse.xtext.util.IResourceScopeCache;
 import org.elysium.lilypond.Include;
 import org.elysium.lilypond.LilypondFactory;
+
 import com.google.common.base.Predicate;
 import com.google.common.collect.Lists;
 import com.google.inject.Inject;
@@ -83,14 +85,20 @@ public class LilyPondImportUriGlobalScopeProvider extends AbstractGlobalScopePro
 		return scope;
 	}
 
+	private static final String[] DEFAULT_INCLUDES = {
+		"init.ly", //$NON-NLS-1$
+		"declarations-init.ly" //$NON-NLS-1$
+	};
+
 	protected LinkedHashSet<URI> getImportedUris(final Resource resource) {
 		return getCache().get(ImportUriGlobalScopeProvider.class.getName(), resource, new Provider<LinkedHashSet<URI>>() {
 
 			@Override
 			public LinkedHashSet<URI> get() {
 				Set<Resource> resources = getAllImportedResources(resource);
-				include(resources, "init.ly"); //$NON-NLS-1$
-				include(resources, "declarations-init.ly"); //$NON-NLS-1$
+				for (String defaultInclude : DEFAULT_INCLUDES) {
+					include(resources, defaultInclude);
+				}
 				LinkedHashSet<URI> result = new LinkedHashSet<URI>();
 				for (Resource resource : resources) {
 					result.add(resource.getURI());

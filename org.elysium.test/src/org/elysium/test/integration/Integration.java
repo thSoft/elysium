@@ -6,10 +6,13 @@ import static com.google.common.collect.Lists.newArrayList;
 import static java.lang.Math.min;
 import static javax.util.file.FileUtils.readFileAsString;
 import static org.eclipse.emf.common.util.URI.createURI;
+
 import java.io.File;
 import java.text.MessageFormat;
 import java.util.Collection;
+
 import javax.util.file.FilenameExtensionFilter;
+
 import org.eclipse.emf.common.util.Diagnostic;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.xtext.junit.validation.AssertableDiagnostics;
@@ -20,6 +23,7 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
 import org.junit.runners.Parameterized.Parameters;
+
 import com.google.common.base.Predicate;
 
 @RunWith(value = Parameterized.class)
@@ -45,10 +49,16 @@ public class Integration extends LilyPondTestWithValidator {
 		this.filePath = filePath;
 	}
 
+	private static final String[] DIRECTORY_NAMES = {
+		"init",
+		"snippets"
+	};
+
 	@Parameters
 	public static Collection<Object[]> data() {
 		Collection<Object[]> result = newArrayList();
-		for (File directory : new File[] { new File("init"), new File("snippets") }) {
+		for (String directoryName : DIRECTORY_NAMES) {
+			File directory = new File(directoryName);
 			for (File file : directory.listFiles(new FilenameExtensionFilter(LilyPondConstants.EXTENSION))) {
 				result.add(new Object[] { file.getAbsolutePath() });
 			}
