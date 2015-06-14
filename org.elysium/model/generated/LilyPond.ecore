@@ -70,7 +70,7 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="block" eType="#//UnparsedBlock"
         containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="BlockCommand" eSuperTypes="#//SpecialCommand">
+  <eClassifiers xsi:type="ecore:EClass" name="BlockCommand" eSuperTypes="#//UnparsedExpression #//SpecialCommand">
     <eStructuralFeatures xsi:type="ecore:EReference" name="block" eType="#//SimpleBlock"
         containment="true"/>
   </eClassifiers>

@@ -32,8 +32,7 @@ Command: SpecialCommand | Reference | StringIndication;
 
 SpecialCharacter: "!" | "?" | "+" | "<" | ">" | "[" | "]" | "~";
 
-//TODO check if this hidden definition can be removed again
-UnparsedBlock hidden(WS, SL_COMMENT, ML_COMMENT, NL_NOINDENT): {UnparsedBlock} "{" expressions+=UnparsedExpression* "}";
+UnparsedBlock: {UnparsedBlock} "{" expressions+=UnparsedExpression* "}";
 
 UnparsedExpression: BlockCommand | PropertyAssignment | UnparsedCommand | UnparsedBlock | Scheme | Number | Text;
 
@@ -138,7 +137,7 @@ SchemeMarkupCommand: "#:" command=SchemeIdentifier;
 // Terminals
 
 //why was the STRING definition so restrictive wrt. escaping?
-//if it's essential, do semantic validation
+//if it's essential, semantic validation is a better alternative
 //terminal STRING: '"' ("\\" ("a".."z" | "A".."Z" | '"' | "'" | "\\") | !("\\" | '"'))* '"';
 terminal STRING: '"' ("\\" . | !("\\" | '"'))* '"';
 
