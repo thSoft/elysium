@@ -4,10 +4,10 @@
 %% and then run scripts/auxiliar/makelsr.py
 %%
 %% This file is in the public domain.
-\version "2.14.0"
+\version "2.17.6"
 
 \header {
-  lsrtags = "rhythms, repeats"
+  lsrtags = "repeats, rhythms"
 
   texidoc = "
 If a tremolo's total duration is less than a quarter-note, or exactly a
@@ -25,26 +25,23 @@ the @code{'gap} property.
   doctitle = "Engraving tremolos with floating beams"
 } % begin verbatim
 
+
 \relative c'' {
   \repeat tremolo 8 { a32 f }
-  \override Beam #'gap-count = #1
+  \override Beam.gap-count = #1
   \repeat tremolo 8 { a32 f }
-  \override Beam #'gap-count = #2
+  \override Beam.gap-count = #2
   \repeat tremolo 8 { a32 f }
-  \override Beam #'gap-count = #3
+  \override Beam.gap-count = #3
   \repeat tremolo 8 { a32 f }
 
-  \override Beam #'gap-count = #3
-  \override Beam #'gap = #1.33
+  \override Beam.gap-count = #3
+  \override Beam.gap = #1.33
   \repeat tremolo 8 { a32 f }
-  \override Beam #'gap = #1
+  \override Beam.gap = #1
   \repeat tremolo 8 { a32 f }
-  \override Beam #'gap = #0.67
+  \override Beam.gap = #0.67
   \repeat tremolo 8 { a32 f }
-  \override Beam #'gap = #0.33
+  \override Beam.gap = #0.33
   \repeat tremolo 8 { a32 f }
 }
-
-
-
-

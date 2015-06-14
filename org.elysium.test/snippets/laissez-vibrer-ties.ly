@@ -4,10 +4,10 @@
 %% and then run scripts/auxiliar/makelsr.py
 %%
 %% This file is in the public domain.
-\version "2.14.0"
+\version "2.17.6"
 
 \header {
-  lsrtags = "expressive-marks, keyboards, fretted-strings"
+  lsrtags = "connecting-notes, contemporary-notation, expressive-marks, fretted-strings, keyboards, specific-notation"
 
   texidoc = "
 Laissez vibrer ties have a fixed size. Their formatting can be tuned
@@ -17,16 +17,16 @@ using @code{'tie-configuration}.
   doctitle = "Laissez vibrer ties"
 } % begin verbatim
 
+
 \relative c' {
   <c e g>4\laissezVibrer r <c f g>\laissezVibrer r
   <c d f g>4\laissezVibrer r <c d f g>4.\laissezVibrer r8
 
   <c d e f>4\laissezVibrer r
-  \override LaissezVibrerTieColumn #'tie-configuration
+  \override LaissezVibrerTieColumn.tie-configuration
      = #`((-7 . ,DOWN)
           (-5 . ,DOWN)
           (-3 . ,UP)
           (-1 . ,UP))
   <c d e f>4\laissezVibrer r
 }
-

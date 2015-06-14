@@ -4,10 +4,10 @@
 %% and then run scripts/auxiliar/makelsr.py
 %%
 %% This file is in the public domain.
-\version "2.14.0"
+\version "2.17.11"
 
 \header {
-  lsrtags = "rhythms, percussion"
+  lsrtags = "contemporary-notation, percussion, real-music, really-cool, rhythms"
 
   texidoc = "
 In the following snippet, two parts have a completely different time
@@ -41,9 +41,9 @@ global = { \time 3/4 { s2.*3 } \bar "" \break { s2.*3 } }
     \remove "Timing_translator"
     \remove "Default_bar_line_engraver"
     \remove "Bar_number_engraver"
-    \override SpacingSpanner #'uniform-stretching = ##t
-    \override SpacingSpanner #'strict-note-spacing = ##t
-    proportionalNotationDuration = #(ly:make-moment 1 64)
+    \override SpacingSpanner.uniform-stretching = ##t
+    \override SpacingSpanner.strict-note-spacing = ##t
+    proportionalNotationDuration = #(ly:make-moment 1/64)
   }
   \context {
     \Staff
@@ -60,7 +60,7 @@ global = { \time 3/4 { s2.*3 } \bar "" \break { s2.*3 } }
 Bassklarinette = \new Staff \with {
   \consists "Bar_number_engraver"
   barNumberVisibility = #(every-nth-bar-number-visible 2)
-  \override BarNumber #'break-visibility = #end-of-line-invisible
+  \override BarNumber.break-visibility = #end-of-line-invisible
 } <<
   \global {
     \bar "|"
@@ -79,12 +79,12 @@ Bassklarinette = \new Staff \with {
     \bar "|"
     \time 2/4
     \tupletUp
-    \times 2/3 { ees''4 r4 d''4 ~ }
+    \tuplet 3/2 { ees''4 r4 d''4 ~ }
 
     \bar "|"
     \time 3/8
     \tupletUp
-    \times 3/4 { d''4 r4 }
+    \tuplet 4/3 { d''4 r4 }
 
     \bar "|"
     \time 2/4
@@ -156,4 +156,3 @@ Perkussion = \new StaffGroup <<
     \Perkussion
   >>
 }
-

@@ -4,18 +4,10 @@
 %% and then run scripts/auxiliar/makelsr.py
 %%
 %% This file is in the public domain.
-\version "2.14.0"
+\version "2.16.0"
 
 \header {
-  lsrtags = "expressive-marks, editorial-annotations"
-
-%% Translation of GIT committish: 615cbf212fdaf0b220b3330da417d0c3602494f2
-  texidoces = "
-Se puede cambiar el aspecto de las ligaduras de expresión de
-continuas a punteadas o intermitentes.
-
-"
-  doctitlees = "Modificar el aspecto continuo de una ligadura de expresión a punteado o intermitente"
+  lsrtags = "connecting-notes, editorial-annotations, expressive-marks, really-simple"
 
   texidoc = "
 The appearance of slurs may be changed from solid to dotted or dashed.
@@ -23,6 +15,7 @@ The appearance of slurs may be changed from solid to dotted or dashed.
 "
   doctitle = "Changing the appearance of a slur from solid to dotted or dashed"
 } % begin verbatim
+
 
 \relative c' {
   c4( d e c)
@@ -35,5 +28,3 @@ The appearance of slurs may be changed from solid to dotted or dashed.
   \slurSolid
   c4( d e c)
 }
-
-

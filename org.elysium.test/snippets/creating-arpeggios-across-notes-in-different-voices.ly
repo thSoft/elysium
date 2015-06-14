@@ -4,39 +4,10 @@
 %% and then run scripts/auxiliar/makelsr.py
 %%
 %% This file is in the public domain.
-\version "2.14.0"
+\version "2.16.0"
 
 \header {
   lsrtags = "expressive-marks"
-
-%% Translation of GIT committish: 615cbf212fdaf0b220b3330da417d0c3602494f2
-  texidoces = "
-Se puede trazar un símbolo de arpegio entre notas de distintas
-voces que están sobre el mismo pentagrama si el grabador
-@code{Span_arpeggio_engraver} se traslada al contexto de
-@code{Staff} context:
-
-"
-  doctitlees = "Crear arpegios entre notas de voces distintas"
-
-
-%% Translation of GIT committish: 0a868be38a775ecb1ef935b079000cebbc64de40
-texidocde = "
-Ein Arpeggio kann zwischen Noten aus unterschiedlichen Stimmen auf demselben
-System gezogen werden, wenn der @code{Span_arpeggio_engraver} in den
-@code{Staff}-Kontext verschoben wird:
-
-"
-  doctitlede = "Arpeggios zwischen unterschiedlichen Stimmen erzeugen"
-
-%% Translation of GIT committish: 217cd2b9de6e783f2a5c8a42be9c70a82195ad20
-  texidocfr = "
-Affecter le graveur @code{Span_arpeggio_engraver} au contexte de la
-portée (@code{Staff}) permet de distribuer un arpège sur plusieurs voix :
-
-"
-  doctitlefr = "Arpège distribué sur plusieurs voix"
-
 
   texidoc = "
 An arpeggio can be drawn across notes in different voices on the same
@@ -46,6 +17,7 @@ context:
 "
   doctitle = "Creating arpeggios across notes in different voices"
 } % begin verbatim
+
 
 \new Staff \with {
   \consists "Span_arpeggio_engraver"
@@ -58,4 +30,3 @@ context:
     { <d, f>2\arpeggio <g b>2 }
   >>
 }
-

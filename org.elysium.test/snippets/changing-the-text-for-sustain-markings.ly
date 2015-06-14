@@ -4,23 +4,10 @@
 %% and then run scripts/auxiliar/makelsr.py
 %%
 %% This file is in the public domain.
-\version "2.14.0"
+\version "2.16.0"
 
 \header {
   lsrtags = "keyboards, tweaks-and-overrides"
-
-%% Translation of GIT committish: 615cbf212fdaf0b220b3330da417d0c3602494f2
-  texidoces = "
-Se puede usar @code{Staff.pedalSustainStrings} para fijar el texto de
-las indicaciones de pisar pedal y levantar pedal.  Observe que las
-únicas cadenas válidas son las que están en la lista de glifos de
-pedal: los valores que aparecen en este fragmento de código son una
-relación exhaustiva.
-
-"
-  doctitlees = "Modificar el texto de las indicaciones de pedal"
-
-
 
   texidoc = "
 @code{Staff.pedalSustainStrings} can be used to set the text used for
@@ -31,6 +18,7 @@ exhaustive list.
 "
   doctitle = "Changing the text for sustain markings"
 } % begin verbatim
+
 
 sustainNotes = { c4\sustainOn d e\sustainOff\sustainOn f\sustainOff }
 

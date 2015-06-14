@@ -4,22 +4,10 @@
 %% and then run scripts/auxiliar/makelsr.py
 %%
 %% This file is in the public domain.
-\version "2.14.0"
+\version "2.17.6"
 
 \header {
-  lsrtags = "text, paper-and-layout, titles"
-
-%% Translation of GIT committish: 615cbf212fdaf0b220b3330da417d0c3602494f2
-  texidoces = "
-La alineación horizontal de los nombres de instrumento se puede
-trucar modificando la propiedad @code{Staff.InstrumentName
-#'self-alignment-X}.  Las variables de @code{\\layout}
-@code{indent} y @code{short-indent} definen el espacio en que se
-alinean los nombres de instrumento antes del primer sistema y de
-los siguientes, respectivamente.
-
-"
-  doctitlees = "Alinear y centrar los nombres de instrumento"
+  lsrtags = "paper-and-layout, text, titles"
 
   texidoc = "
 The horizontal alignment of instrument names is tweaked by changing the
@@ -32,6 +20,7 @@ and the following systems, respectively.
   doctitle = "Aligning and centering instrument names"
 } % begin verbatim
 
+
 \paper {
   left-margin = 3\cm
 }
@@ -39,7 +28,7 @@ and the following systems, respectively.
 \score {
   \new StaffGroup <<
     \new Staff {
-      \override Staff.InstrumentName #'self-alignment-X = #LEFT
+      \override Staff.InstrumentName.self-alignment-X = #LEFT
       \set Staff.instrumentName = \markup \left-column {
         "Left aligned"
         "instrument name"
@@ -50,7 +39,7 @@ and the following systems, respectively.
       c''1
     }
     \new Staff {
-      \override Staff.InstrumentName #'self-alignment-X = #CENTER
+      \override Staff.InstrumentName.self-alignment-X = #CENTER
       \set Staff.instrumentName = \markup \center-column {
         Centered
         "instrument name"
@@ -60,7 +49,7 @@ and the following systems, respectively.
       g'1
     }
     \new Staff {
-      \override Staff.InstrumentName #'self-alignment-X = #RIGHT
+      \override Staff.InstrumentName.self-alignment-X = #RIGHT
       \set Staff.instrumentName = \markup \right-column {
         "Right aligned"
         "instrument name"

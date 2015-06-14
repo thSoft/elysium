@@ -4,36 +4,10 @@
 %% and then run scripts/auxiliar/makelsr.py
 %%
 %% This file is in the public domain.
-\version "2.14.0"
+\version "2.16.0"
 
 \header {
   lsrtags = "text"
-
-%% Translation of GIT committish: 615cbf212fdaf0b220b3330da417d0c3602494f2
-  texidoces = "
-Los textos independientes se pueden disponer en varias columnas
-utilizando instrucciones @code{\\markup}:
-
-"
-  doctitlees = "Elemento de marcado de texto independiente en dos columnas"
-
-
-%% Translation of GIT committish: 0a868be38a775ecb1ef935b079000cebbc64de40
-  texidocde = "
-Isolierter Text kann in mehreren Spalten mit @code{\\markup}-Befehlen
-angeordnet werden:
-
-"
-  doctitlede = "Isolierter Text in zwei Spalten"
-
-%% Translation of GIT committish: 548ef200973bd3d46ea75c5498461d9e5f168334
-  texidocfr = "
-L'utilisation de la commande @code{\\markup} permet de distribuer un bloc
-de texte indépendant sur plusieurs colonnes.
-
-"
-  doctitlefr = "Bloc de texte indépendant sur deux colonnes"
-
 
   texidoc = "
 Stand-alone text may be arranged in several columns using
@@ -55,13 +29,13 @@ Stand-alone text may be arranged in several columns using
       \line { Amen. }
     }
     \hspace #2
-    \column {
-      \line { \italic { O sacred feast } }
-      \line { \italic { in which Christ is received, } }
-      \line { \italic { the memory of His Passion is renewed, } }
-      \line { \italic { the mind is filled with grace, } }
-      \line { \italic { and a pledge of future glory is given to us. } }
-      \line { \italic { Amen. } }
+    \column \italic {
+      \line { O sacred feast }
+      \line { in which Christ is received, }
+      \line { the memory of His Passion is renewed, }
+      \line { the mind is filled with grace, }
+      \line { and a pledge of future glory is given to us. }
+      \line { Amen. }
     }
     \hspace #1
   }

@@ -4,28 +4,10 @@
 %% and then run scripts/auxiliar/makelsr.py
 %%
 %% This file is in the public domain.
-\version "2.15.2"
+\version "2.17.6"
 
 \header {
-  lsrtags = "chords"
-
-%% Translation of GIT committish: 615cbf212fdaf0b220b3330da417d0c3602494f2
-  texidoces = "
-Para añadir indicaciones de línea divisoria dentro del contexto de
-los nombres de acorde @code{ChordNames}, incluya el grabador
-@code{Bar_engraver}.
-
-"
-  doctitlees = "Añadir barras de compás al contexto de nombres de acorde (ChordNames)"
-
-
-%% Translation of GIT committish: 0a868be38a775ecb1ef935b079000cebbc64de40
-  texidocde = "
-Um Taktstriche in einem @code{ChordNames}-Kontext anzeigen zu lassen, muss der
-@code{Bar_engraver} hinzugefügt werden.
-
-"
-  doctitlede = "Tatkstriche in einen ChordNames-Kontext hinzufügen"
+  lsrtags = "chords, specific-notation"
 
   texidoc = "
 To add bar line indications in the @code{ChordNames} context, add the
@@ -35,12 +17,11 @@ To add bar line indications in the @code{ChordNames} context, add the
   doctitle = "Adding bar lines to ChordNames context"
 } % begin verbatim
 
+
 \new ChordNames \with {
-  \override BarLine #'bar-extent = #'(-2 . 2)
+  \override BarLine.bar-extent = #'(-2 . 2)
   \consists "Bar_engraver"
 }
 \chordmode {
   f1:maj7 f:7 bes:7
 }
-
-

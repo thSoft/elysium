@@ -4,43 +4,10 @@
 %% and then run scripts/auxiliar/makelsr.py
 %%
 %% This file is in the public domain.
-\version "2.14.0"
+\version "2.16.0"
 
 \header {
-  lsrtags = "vocal-music, template"
-
-%% Translation of GIT committish: 615cbf212fdaf0b220b3330da417d0c3602494f2
-  texidoces = "
-  Este fragmento de código muestra una forma de preparar un himno cuando
-cada línea comienza con un compás parcial.  También muestra cómo
-añadir los versos como texto independiente debajo de la música.
-
-"
-
-  doctitlees = "Plantilla para himnos"
-
-%%    Translation of GIT committish: ab9e3136d78bfaf15cc6d77ed1975d252c3fe506
-
-  texidocde = "
-Dieses Beispiel zeigt eine Möglichkeit, eine Hymnusmelodie zu setzen, in
-der jede Zeiel mit einem Auftakt beginnt und einem unvollständigen
-Takt abschließt.  Es zeigt auch, wie man die Strophen als allein stehenden
-Text unter die Noten hinzufügt.
-
-"
-  doctitlede = "Hymnus-Vorlage"
-
-
-%% Translation of GIT committish: 26375d5016d8d180fc914bfd07cf76f4168f2e37
-
-  texidocfr = "
-Le code ci-dessous illustre la manière d'agencer un cantique liturgique
-dans lequel chaque ligne débute et se termine par une mesure incomplète.
-Vous noterez par ailleurs l'affichage des paroles indépendamment de la
-musique.
-
-"
-  doctitlefr = "Modèle pour cantique"
+  lsrtags = "template, vocal-music"
 
   texidoc = "
 This code shows one way of setting out a hymn tune when each line
@@ -50,6 +17,7 @@ verses as stand-alone text under the music.
 "
   doctitle = "Hymn template"
 } % begin verbatim
+
 
 Timeline = {
   \time 4/4
@@ -139,4 +107,3 @@ global = {
   indent = 0     % don't indent first system
   line-width = 130   % shorten line length to suit music
 }  % End paper block
-

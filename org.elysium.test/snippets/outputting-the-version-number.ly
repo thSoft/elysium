@@ -4,10 +4,10 @@
 %% and then run scripts/auxiliar/makelsr.py
 %%
 %% This file is in the public domain.
-\version "2.14.0"
+\version "2.17.6"
 
 \header {
-  lsrtags = "text, titles"
+  lsrtags = "really-simple, scheme-language, text, titles"
 
   texidoc = "
 By putting the output of
@@ -20,13 +20,11 @@ By putting the output of
   doctitle = "Outputting the version number"
 } % begin verbatim
 
+
 \score {
   \new Lyrics {
-    \override Score.RehearsalMark #'self-alignment-X = #LEFT
+    \override Score.RehearsalMark.self-alignment-X = #LEFT
     \mark #(string-append "Processed with LilyPond version " (lilypond-version))
     s2
   }
 }
-
-
-

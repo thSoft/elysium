@@ -4,22 +4,10 @@
 %% and then run scripts/auxiliar/makelsr.py
 %%
 %% This file is in the public domain.
-\version "2.14.0"
+\version "2.17.6"
 
 \header {
   lsrtags = "vocal-music"
-
-%% Translation of GIT committish: 615cbf212fdaf0b220b3330da417d0c3602494f2
-  texidoces = "
-
-Si LilyPond no cree que haya sitio suficiente para un guión separador
-de sílabas, lo omitirá.  Se puede sobreescribir este comportamiento
-con la propiedad @code{minimum-distance} de @code{LyricHyphen}.
-
-"
-  doctitlees = "Forzar la visibilidad de los guiones separadores de sílabas"
-
-
 
   texidoc = "
 If LilyPond does not think there is space for a hyphen, it will be
@@ -30,6 +18,7 @@ omitted.  The behaviour can be overridden with the
   doctitle = "Forcing hyphens to be shown"
 } % begin verbatim
 
+
 \relative c'' {
   c32 c c c
   c32 c c c
@@ -38,10 +27,10 @@ omitted.  The behaviour can be overridden with the
 }
 \addlyrics {
   syl -- lab word word
-  \override LyricHyphen #'minimum-distance = #1.0
+  \override LyricHyphen.minimum-distance = #1.0
   syl -- lab word word
-  \override LyricHyphen #'minimum-distance = #2.0
+  \override LyricHyphen.minimum-distance = #2.0
   syl -- lab word word
-  \revert LyricHyphen #'minimum-distance
+  \revert LyricHyphen.minimum-distance
   syl -- lab word word
 }

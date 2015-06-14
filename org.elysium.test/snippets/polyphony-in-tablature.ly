@@ -4,37 +4,10 @@
 %% and then run scripts/auxiliar/makelsr.py
 %%
 %% This file is in the public domain.
-\version "2.14.0"
+\version "2.16.0"
 
 \header {
   lsrtags = "fretted-strings"
-
-%% Translation of GIT committish: 615cbf212fdaf0b220b3330da417d0c3602494f2
-  texidoces = "
-La polifonía se crea de la misma forma en un @code{TabStaff} que
-en una pauta normal.
-
-"
-  doctitlees = "Polifonía en tablaturas"
-
-
-%% Translation of GIT committish: 0a868be38a775ecb1ef935b079000cebbc64de40
-  texidocde = "
-Polyphonie kann in einer Tabulatur (@code{TabStaff}) genauso wie in einem
-normalen Notensystem erstellt werden.
-
-"
-  doctitlede = "Polyphonie in einer Tabulatur"
-
-%% Translation of GIT committish: ac6297e4fa174ac5759cc450ad085c2fac9ba00b
-
-  texidocfr = "
-Une section polyphonique s'obtient dans un @code{TabStaff} de la
-même manière que dans une portée normale.
-
-"
-  doctitlefr = "Polyphonie en mode tablature"
-
 
   texidoc = "
 Polyphony is created the same way in a @code{TabStaff} as in a regular
@@ -43,6 +16,7 @@ staff.
 "
   doctitle = "Polyphony in tablature"
 } % begin verbatim
+
 
 upper = \relative c' {
   \time 12/8
@@ -72,4 +46,3 @@ lower = \relative c {
     >>
   >>
 }
-

@@ -4,54 +4,10 @@
 %% and then run scripts/auxiliar/makelsr.py
 %%
 %% This file is in the public domain.
-\version "2.14.0"
+\version "2.17.30"
 
 \header {
-  lsrtags = "ancient-notation, template"
-
-%% Translation of GIT committish: 615cbf212fdaf0b220b3330da417d0c3602494f2
-  texidoces = "
-Al transcribir música mensural, es útil un «incipit» al compienzo
-de la pieza para indicar la tonalidad y el tempo
-originales. Aunque los músicos actuales están acostumbrados a las
-barras de compás para reconocer con más facilidad los patrones
-rítmicos, durante el período de la música mensural aún no se
-habíen inventado las líneas divisorias; de hecho, la medida solía
-cambiar a cada pocas notas. Como compromiso, a menudo las líneas
-divisorias se imprimen entre los pentagramas en vez de hacerlo
-encima de ellos.
-
-"
-  doctitlees = "Plantilla de notación de música antigua (transcripción moderna de música mensural)"
-
-
-%% Translation of GIT committish: 0a868be38a775ecb1ef935b079000cebbc64de40
-  texidocde = "
-Bei der Transkription von Mensuralmusik ist es oft erwünscht, ein
-Incipit an den Anfang des Stückes zu stellen, damit klar ist, wie
-Tempo und Schlüssel in der Originalnotation gesetzt waren. Während
-heutzutage Musiker an Taktlinien gewöhnt sind, um Rhythmen schneller
-zu erkennen, wurden diese in der Mensuralmusik nicht verwendet.
-Tatsächlich ändern sich die Rhythmen auch oft alle paar Noten. Als
-ein Kompromiss werden die Notenlinien nicht auf dem System, sondern
-zwischen den Systemen geschrieben.
-"
-
-doctitlede = "Vorlage für Alte Notation -- moderne Transkription von Mensuralmusik"
-
-
-%% Translation of GIT committish: bdfe3dc8175a2d7e9ea0800b5b04cfb68fe58a7a
-  texidocfr = "
-Lorsque l'on transcrit de la musique mensurale, un @emph{incipit} permet
-d'indiquer la tonalité et le tempo d'origine.  Si les musiciens sont de
-nos jours habitués aux barres de mesures qui présentent la structure
-rythmique d'une œuvre, elles n'étaient pas en vigueur à l'époque où ces
-pièces ont été composées, d'autant plus que la @qq{métrique} pouvait
-changer au fil des notes.  Un compromis consiste à imprimer des barres
-entre les portées plutôt que sur chacune d'elles.
-
-"
-  doctitlefr = "Exemples de notation ancienne -- transcription moderne de musique mensurale"
+  lsrtags = "ancient-notation, real-music, really-cool, template"
 
   texidoc = "
 When transcribing mensural music, an incipit at the beginning of the
@@ -66,37 +22,38 @@ on the staves.
   doctitle = "Ancient notation template -- modern transcription of mensural music"
 } % begin verbatim
 
+
 global = {
   \set Score.skipBars = ##t
 
   % incipit
-  \once \override Score.SystemStartBracket #'transparent = ##t
-  \override Score.SpacingSpanner #'spacing-increment = #1.0 % tight spacing
+  \once \hide Score.SystemStartBracket
+   % Set tight spacing
+  \override Score.SpacingSpanner.spacing-increment = #1.0
   \key f \major
   \time 2/2
-  \once \override Staff.TimeSignature #'style = #'neomensural
-  \override Voice.NoteHead #'style = #'neomensural
-  \override Voice.Rest #'style = #'neomensural
+  \once \override Staff.TimeSignature.style = #'neomensural
+  \override Voice.NoteHead.style = #'neomensural
+  \override Voice.Rest.style = #'neomensural
   \set Staff.printKeyCancellation = ##f
   \cadenzaOn % turn off bar lines
   \skip 1*10
-  \once \override Staff.BarLine #'transparent = ##f
+  \once \override Staff.BarLine.transparent = ##f
   \bar "||"
   \skip 1*1 % need this extra \skip such that clef change comes
             % after bar line
   \bar ""
 
   % main
-  \revert Score.SpacingSpanner #'spacing-increment % CHECK: no effect?
   \cadenzaOff % turn bar lines on again
-  \once \override Staff.Clef #'full-size-change = ##t
+  \once \override Staff.Clef.full-size-change = ##t
   \set Staff.forceClef = ##t
   \key g \major
   \time 4/4
-  \override Voice.NoteHead #'style = #'default
-  \override Voice.Rest #'style = #'default
+  \override Voice.NoteHead.style = #'default
+  \override Voice.Rest.style = #'default
 
-  % FIXME: setting printKeyCancellation back to #t must not
+  % Setting printKeyCancellation back to #t must not
   % occur in the first bar after the incipit.  Dto. for forceClef.
   % Therefore, we need an extra \skip.
   \skip 1*1
@@ -106,7 +63,7 @@ global = {
   \skip 1*7 % the actual music
 
   % let finis bar go through all staves
-  \override Staff.BarLine #'transparent = ##f
+  \override Staff.BarLine.transparent = ##f
 
   % finis bar
   \bar "|."
@@ -129,7 +86,7 @@ discantusNotes = {
     c'4 e'4.( d'8 c' b |
     a4) b a2 |
     b4.( c'8 d'4) c'4 |
-    \once \override NoteHead #'transparent = ##t c'1 |
+    \once \hide NoteHead c'1 |
     b\breve |
   }
 }
@@ -165,7 +122,7 @@ altusNotes = {
     a2 g4 e |
     fis g4.( fis16 e fis4) |
     g1 |
-    \once \override NoteHead #'transparent = ##t g1 |
+    \once \hide NoteHead g1 |
     g\breve |
   }
 }
@@ -201,7 +158,7 @@ tenorNotes = {
     R1 |
     R1 |
     r2 d'2. d'4 b e' | % two bars
-    \once \override NoteHead #'transparent = ##t e'1 |
+    \once \hide NoteHead e'1 |
     d'\breve |
   }
 }
@@ -233,7 +190,7 @@ bassusNotes = {
     R1 |
     R1 |
     g2. e4 |
-    \once \override NoteHead #'transparent = ##t e1 |
+    \once \hide NoteHead e1 |
     g\breve |
   }
 }
@@ -272,7 +229,7 @@ bassusLyrics = \lyricmode {
       \Score
 
       % no bars in staves
-      \override BarLine #'transparent = ##t
+      \hide BarLine
 
       % incipit should not start with a start delimiter
       \remove "System_start_delimiter_engraver"
@@ -281,19 +238,14 @@ bassusLyrics = \lyricmode {
       \Voice
 
       % no slurs
-      \override Slur #'transparent = ##t
+      \hide Slur
 
-      % Comment in the below "\remove" command to allow line
-      % breaking also at those barlines where a note overlaps
-      % into the next bar.  The command is commented out in this
-      % short example score, but especially for large scores, you
-      % will typically yield better line breaking and thus improve
-      % overall spacing if you comment in the following command.
-      %\remove "Forbid_line_break_engraver"
+      % The command below can be commented out in
+      % short scores, but especially for large scores you
+      % will typically yield better line breaking and improve
+      % overall spacing if you do not comment the command out.
+
+      \remove "Forbid_line_break_engraver"
     }
   }
 }
-
-
-
-

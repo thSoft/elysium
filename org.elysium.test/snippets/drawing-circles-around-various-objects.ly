@@ -4,10 +4,10 @@
 %% and then run scripts/auxiliar/makelsr.py
 %%
 %% This file is in the public domain.
-\version "2.14.0"
+\version "2.17.6"
 
 \header {
-  lsrtags = "editorial-annotations, tweaks-and-overrides"
+  lsrtags = "editorial-annotations, scheme-language, tweaks-and-overrides"
 
   texidoc = "
 The @code{\\circle} markup command draws circles around various
@@ -31,7 +31,7 @@ strategies for rehearsal marks and measure numbers.
       \circle \finger 2
     }
   }
-  \override Score.BarNumber #'break-visibility = #all-visible
-  \override Score.BarNumber #'stencil =
+  \override Score.BarNumber.break-visibility = #all-visible
+  \override Score.BarNumber.stencil =
     #(make-stencil-circler 0.1 0.25 ly:text-interface::print)
 }

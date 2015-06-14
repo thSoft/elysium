@@ -4,30 +4,10 @@
 %% and then run scripts/auxiliar/makelsr.py
 %%
 %% This file is in the public domain.
-\version "2.14.0"
+\version "2.16.0"
 
 \header {
-  lsrtags = "repeats, staff-notation, chords"
-
-%% Translation of GIT committish: 615cbf212fdaf0b220b3330da417d0c3602494f2
-  texidoces = "
-Mediante la adición del grabador @code{Volta_engraver} al
-pentagrama pertinente, se pueden poner los corchetes de primera y
-segunda vez debajo de los acordes.
-
-"
-  doctitlees = "Corchetes de primera y segunda vez debajo de los acordes"
-
-
-
-%% Translation of GIT committish: 0a868be38a775ecb1ef935b079000cebbc64de40
-  texidocde = "
-Indem man den @code{Volta_engraver} zu dem entsprechenden Notensystem
-hinzufügt, können Wiederholungsklammern unterhalb der Akkorde gesetzt
-werden.
-
-"
-  doctitlede = "Wiederholungs-(Volta-)Klammern unterhalb der Akkordsymbole"
+  lsrtags = "chords, repeats, staff-notation"
 
   texidoc = "
 By adding the @code{Volta_engraver} to the relevant staff, volte can be
@@ -36,6 +16,7 @@ put under chords.
 "
   doctitle = "Volta below chords"
 } % begin verbatim
+
 
 \score {
   <<

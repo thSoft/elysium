@@ -4,10 +4,10 @@
 %% and then run scripts/auxiliar/makelsr.py
 %%
 %% This file is in the public domain.
-\version "2.14.0"
+\version "2.16.0"
 
 \header {
-  lsrtags = "tweaks-and-overrides"
+  lsrtags = "really-cool, scheme-language, tweaks-and-overrides"
 
   texidoc = "
 The @code{\\applyOutput} command allows the tuning of any layout
@@ -17,6 +17,7 @@ arguments.
 "
   doctitle = "Changing properties for individual grobs"
 } % begin verbatim
+
 
 #(define (mc-squared grob grob-origin context)
   (let ((sp (ly:grob-property grob 'staff-position)))

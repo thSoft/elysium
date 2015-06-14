@@ -4,21 +4,10 @@
 %% and then run scripts/auxiliar/makelsr.py
 %%
 %% This file is in the public domain.
-\version "2.14.0"
+\version "2.17.6"
 
 \header {
   lsrtags = "pitches, tweaks-and-overrides"
-
-%% Translation of GIT committish: 615cbf212fdaf0b220b3330da417d0c3602494f2
-  texidoces = "
-Cuando se produce un cambio de clave, el símbolo de clave se imprime a
-un tamaño menor que la clave inicial.  Esto se puede ajustar con
-@code{full-size-change}.
-
-"
-  doctitlees = "Mantener el tamaño del símbolo en los cambios de clave"
-
-
 
   texidoc = "
 When a clef is changed, the clef sign displayed is smaller than the
@@ -28,6 +17,7 @@ initial clef.  This can be overridden with @code{full-size-change}.
   doctitle = "Keep change clefs full sized"
 } % begin verbatim
 
+
 \relative c' {
   \clef "treble"
   c1
@@ -35,15 +25,14 @@ initial clef.  This can be overridden with @code{full-size-change}.
   c1
   \clef "treble"
   c1
-  \override Staff.Clef #'full-size-change = ##t
+  \override Staff.Clef.full-size-change = ##t
   \clef "bass"
   c1
   \clef "treble"
   c1
-  \revert Staff.Clef #'full-size-change
+  \revert Staff.Clef.full-size-change
   \clef "bass"
   c1
   \clef "treble"
   c1
 }
-

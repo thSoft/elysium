@@ -4,38 +4,10 @@
 %% and then run scripts/auxiliar/makelsr.py
 %%
 %% This file is in the public domain.
-\version "2.14.0"
+\version "2.16.0"
 
 \header {
   lsrtags = "rhythms"
-
-%% Translation of GIT committish: 615cbf212fdaf0b220b3330da417d0c3602494f2
-  texidoces = "
-Se pueden crear indicaciones metronómicas nuevas en modo de
-marcado, pero no cambian el tempo en la salida MIDI.
-
-"
-  doctitlees = "Crear indicaciones metronómicas en modo de marcado"
-
-
-%% Translation of GIT committish: 0a868be38a775ecb1ef935b079000cebbc64de40
-  texidocde = "
-Neue Metronombezeichnungen können als Textbeschriftung erstellt werden,
-aber sie ändern nicht das Tempo für die MIDI-Ausgabe.
-
-"
-
-  doctitlede = "Eine Metronombezeichnung als Textbeschriftung erstellen"
-
-%% Translation of GIT committish: 99dc90bbc369722cf4d3bb9f30b7288762f2167f6
-  texidocfr = "
-Vous pouvez créer des indications de tempo sous la forme d'étiquettes
-textuelles -- des objets @code{markup} -- notamment des équivalences.
-Cependant, elles n'apparaîtront pas dans le fichier MIDI.
-
-"
-  doctitlefr = "Création d'une indication métronomique sous forme d'étiquette"
-
 
   texidoc = "
 New metronome marks can be created in markup mode, but they will not
@@ -44,6 +16,7 @@ change the tempo in MIDI output.
 "
   doctitle = "Creating metronome marks in markup mode"
 } % begin verbatim
+
 
 \relative c' {
   \tempo \markup {

@@ -4,40 +4,10 @@
 %% and then run scripts/auxiliar/makelsr.py
 %%
 %% This file is in the public domain.
-\version "2.14.0"
+\version "2.16.0"
 
 \header {
-  lsrtags = "editorial-annotations, chords, keyboards, fretted-strings"
-
-%% Translation of GIT committish: 615cbf212fdaf0b220b3330da417d0c3602494f2
-  texidoces = "
-Se puede controlar con precisión la colocación de los números de
-digitación.  Para que se tenga en cuenta la orientación de las
-digitaciones, se debe utilizar una construcción de acorde <> aunque
-sea una sola nota.
-
-
-"
-  doctitlees = "Controlar la colocación de las digitaciones de acordes"
-
-
-
-%% Translation of GIT committish: 0a868be38a775ecb1ef935b079000cebbc64de40
-  texidocde = "
-Die Position von Fingersatzzahlen kann exakt kontrolliert werden.
-
-"
-  doctitlede = "Position von Fingersatz in Akkorden kontrollieren"
-
-%% Translation of GIT committish: ac6297e4fa174ac5759cc450ad085c2fac9ba00b
-
-  texidocfr = "
-Le positionnement des doigtés peut être contrôlé de manière très précise.
-Afin que l'orientation soit prise en compte, il est nécessaire d'utiliser
-une syntaxe d'accord @code{< >}, même s'il ne s'agit que d'une seule note.
-"
-  doctitlefr = "Contrôler la position des doigtés dans un accord"
-
+  lsrtags = "chords, editorial-annotations, fretted-strings, keyboards, specific-notation"
 
   texidoc = "
 The placement of fingering numbers can be controlled precisely. For
@@ -47,6 +17,7 @@ if it is a single note.
 "
   doctitle = "Controlling the placement of chord fingerings"
 } % begin verbatim
+
 
 \relative c' {
   \set fingeringOrientations = #'(left)
@@ -62,5 +33,3 @@ if it is a single note.
   \set fingeringOrientations = #'(down)
   <e-3>2
 }
-
-

@@ -4,36 +4,10 @@
 %% and then run scripts/auxiliar/makelsr.py
 %%
 %% This file is in the public domain.
-\version "2.14.0"
+\version "2.17.6"
 
 \header {
   lsrtags = "world-music"
-
-%% Translation of GIT committish: 615cbf212fdaf0b220b3330da417d0c3602494f2
-  texidoces = "
-Para las improvisaciones o @emph{taqasim} que son libres durante unos
-momentos, se puede omitir la indicación de compás y se puede usar
-@code{\\cadenzaOn}.  Podría ser necesario ajustar el estilo de
-alteraciones accidentales, porque la ausencia de líneas divisorias
-hará que la alteración aparezca una sola vez.  He aquí un ejemplo de
-cómo podría ser el comienzo de una improvisación @emph{hijaz}:
-
-"
-doctitlees = "Improvisación de música árabe"
-
-
-%% Translation of GIT committish: 0a868be38a775ecb1ef935b079000cebbc64de40
-  texidocde = "
-Bei Improvisation oder @emph{taqasim}, die zeitlich frei gespielt
-werden, kann die Taktart ausgelassen werden und @code{\\cadenzaOn}
-kann eingesetzt werden.  Es kann nötig sein, den Versetzungszeichenstil
-anzupassen, weil sonst die Versetzungszeichen nur einmal ausgegeben
-werden, da keine Taktlinien gesetzt sind.  Hier ein Beispiel, wie
-der Beginn einer @emph{hijaz}-Improvisation aussehen könnte:
-
-"
-
-  doctitlede = "Arabische Improvisation"
 
   texidoc = "
 For improvisations or taqasim which are temporarily free, the time
@@ -46,11 +20,12 @@ of what could be the start of a hijaz improvisation:
   doctitle = "Arabic improvisation"
 } % begin verbatim
 
+
 \include "arabic.ly"
 
 \relative sol' {
   \key re \kurd
-  #(set-accidental-style 'forget)
+  \accidentalStyle forget
   \cadenzaOn
   sol4 sol sol sol fad mib sol1 fad8 mib re4. r8 mib1 fad sol
 }

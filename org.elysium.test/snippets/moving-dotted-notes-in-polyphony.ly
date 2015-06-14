@@ -4,22 +4,10 @@
 %% and then run scripts/auxiliar/makelsr.py
 %%
 %% This file is in the public domain.
-\version "2.14.0"
+\version "2.17.6"
 
 \header {
   lsrtags = "rhythms, simultaneous-notes, tweaks-and-overrides"
-
-%% Translation of GIT committish: 615cbf212fdaf0b220b3330da417d0c3602494f2
-  texidoces = "
-Cuando se puede una nota en la voz superior para evitar la colisión
-con una nota de otra voz, el comportamiento predeterminado es
-desplazar la nota superior a la derecha.  Se puede cambiar usando la
-propiedad @code{prefer-dotted-right} de @code{NoteCollision}.
-
-"
-  doctitlees = "Desplazar las notas con puntillo en polifonía"
-
-
 
   texidoc = "
 When a dotted note in the upper voice is moved to avoid a collision
@@ -31,14 +19,14 @@ the right.  This behaviour can be over-ridden by using the
   doctitle = "Moving dotted notes in polyphony"
 } % begin verbatim
 
+
 \new Staff \relative c' <<
   { f2. f4
-    \override Staff.NoteCollision #'prefer-dotted-right = ##f
+    \override Staff.NoteCollision.prefer-dotted-right = ##f
     f2. f4
-    \override Staff.NoteCollision #'prefer-dotted-right = ##t
+    \override Staff.NoteCollision.prefer-dotted-right = ##t
     f2. f4
   }
   \\
   { e4 e e e e e e e e e e e}
 >>
-

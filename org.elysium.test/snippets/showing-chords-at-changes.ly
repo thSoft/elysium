@@ -4,27 +4,10 @@
 %% and then run scripts/auxiliar/makelsr.py
 %%
 %% This file is in the public domain.
-\version "2.14.0"
+\version "2.16.0"
 
 \header {
   lsrtags = "chords"
-
-%% Translation of GIT committish: 615cbf212fdaf0b220b3330da417d0c3602494f2
-  texidoces = "
-Se pueden imprimir los acordes exclusivamente al comienzo de las
-líneas y cuando cambia el acorde.
-
-"
-  doctitlees = "Imprimir los acordes cuando se produce un cambio"
-
-
-%% Translation of GIT committish: 0a868be38a775ecb1ef935b079000cebbc64de40
-  texidocde = "
-Akkordsymbole können so eingestellt werden, dass sie nur zu Beginn der Zeile
-und bei Akkordwechseln angezeigt werden.
-
-"
-  doctitlede = "Akkordsymbole bei Wechsel anzeigen"
 
   texidoc = "
 Chord names can be displayed only at the start of lines and when the
@@ -33,6 +16,7 @@ chord changes.
 "
   doctitle = "Showing chords at changes"
 } % begin verbatim
+
 
 harmonies = \chordmode {
   c1:m c:m \break c:m c:m d
@@ -46,4 +30,3 @@ harmonies = \chordmode {
     \relative c' { \harmonies }
   }
 >>
-

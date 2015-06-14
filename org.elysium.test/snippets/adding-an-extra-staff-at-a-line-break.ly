@@ -4,22 +4,10 @@
 %% and then run scripts/auxiliar/makelsr.py
 %%
 %% This file is in the public domain.
-\version "2.14.0"
+\version "2.17.30"
 
 \header {
-  lsrtags = "staff-notation, contexts-and-engravers, breaks"
-
-%% Translation of GIT committish: 615cbf212fdaf0b220b3330da417d0c3602494f2
-  texidoces = "
-Al añadir un pentagrama nuevo en un salto de línea, por desgracia
-se añade un espacio adicional al final de la línea antes del salto
-(reservado para hacer sitio a un cambio de armadura que de todas
-formas no se va a imprimir). La solución alternativa es añadir un
-ajuste para @code{Staff.explicitKeySignatureVisibility} como se
-muestra en el ejemplo.
-
-"
-  doctitlees = "Añadir un pentagrama adicional en un salto de línea"
+  lsrtags = "breaks, contexts-and-engravers, staff-notation, workaround"
 
   texidoc = "
 When adding a new staff at a line break, some extra space is
@@ -33,6 +21,7 @@ workaround is to add a setting of
   doctitle = "Adding an extra staff at a line break"
 } % begin verbatim
 
+
 \score {
   \new StaffGroup \relative c'' {
     \new Staff
@@ -41,7 +30,7 @@ workaround is to add a setting of
     << { c1 | c }
        \new Staff {
          \key f \major
-         \once \override Staff.TimeSignature #'stencil = ##f
+         \once \omit Staff.TimeSignature
          c1 | c
        }
     >>
@@ -50,10 +39,9 @@ workaround is to add a setting of
        \new Staff {
          \once \set Staff.explicitKeySignatureVisibility = #end-of-line-invisible
          \key f \major
-         \once \override Staff.TimeSignature #'stencil = ##f
+         \once \omit Staff.TimeSignature
          c1 | c
        }
     >>
   }
 }
-

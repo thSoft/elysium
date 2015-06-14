@@ -4,10 +4,10 @@
 %% and then run scripts/auxiliar/makelsr.py
 %%
 %% This file is in the public domain.
-\version "2.14.0"
+\version "2.16.0"
 
 \header {
-  lsrtags = "text, paper-and-layout, titles"
+  lsrtags = "paper-and-layout, text, titles"
 
   texidoc = "
 A demonstration of all headers.
@@ -15,6 +15,7 @@ A demonstration of all headers.
 "
   doctitle = "Demonstrating all headers"
 } % begin verbatim
+
 
 \header {
   copyright = "copyright"
@@ -56,4 +57,3 @@ A demonstration of all headers.
      copyright = "localcopyright"
    }
 }
-

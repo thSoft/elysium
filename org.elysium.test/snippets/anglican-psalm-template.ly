@@ -4,33 +4,10 @@
 %% and then run scripts/auxiliar/makelsr.py
 %%
 %% This file is in the public domain.
-\version "2.14.0"
+\version "2.17.11"
 
 \header {
-  lsrtags = "vocal-music, template"
-
-%% Translation of GIT committish: 144cd434d02e6d90b2fb738eeee99119a7c5e1d2
-
-  texidocde = "
-Diese Vorlage zeigt eine Art, anglikanische Psalmengesänge zu setzen.  Hier
-wird auch gezeigt, wie Strophen als einfacher Text unter den Noten hinzugefügt
-werden können.  Zwei Strophen sind in unterschiedlicher Weise notiert um mehr
-Möglichkeiten darzustellen.
-"
-  doctitlede = "Vorlage für anglikanischen Psalm"
-
-
-%% Translation of GIT committish: 092f85605dcea69efff5ef31de4ff100346d6ef8
-
-  texidocfr = "
-Cet exemple illustre la manière de présenter un cantique tel qu'on le
-trouve dans l'église anglicane.  Vous noterez comment sont ajoutés les
-couplets indépendamment de la musique.  Dans le but de vous montrer
-plusieurs styles, comparez le code des deux couplets.
-
-"
-  doctitlefr = "Psalmodie anglicane"
-
+  lsrtags = "template, vocal-music"
 
   texidoc = "
 This template shows one way of setting out an Anglican psalm chant. It
@@ -41,6 +18,7 @@ more possibilities.
 "
   doctitle = "Anglican psalm template"
 } % begin verbatim
+
 
 SopranoMusic = \relative g' {
   g1 | c2 b | a1 | \bar "||"
@@ -109,8 +87,7 @@ tick = \markup {
       \layout {
         \context {
           \Score
-          \override SpacingSpanner
-          #'base-shortest-duration = #(ly:make-moment 1 2)
+          \override SpacingSpanner.base-shortest-duration = #(ly:make-moment 1/2)
         }
         \context {
           \Staff

@@ -4,19 +4,11 @@
 % and then run scripts/auxiliar/makelsr.py
 %
 % This file is in the public domain.
-%% Note: this file works from version 2.14.0
-\version "2.14.0"
+%% Note: this file works from version 2.17.30
+\version "2.17.30"
 
 \header {
-%% Translation of GIT committish: 615cbf212fdaf0b220b3330da417d0c3602494f2
-  texidoces = "
-Los «incipit» se pueden escribir utilizando el grob del nombre del
-instruemento, pero manteniendo independientes las definiciones del
-nombre del instrumento y del incipit."
-
- doctitlees = "Incipit"
-
-  lsrtags = "staff-notation, ancient-notation"
+  lsrtags = "staff-notation, ancient-notation, really-cool"
   texidoc = "
 Incipits can be added using the instrument name grob, but keeping
 separate the instrument name definition and the incipit definition.
@@ -28,43 +20,34 @@ separate the instrument name definition and the incipit definition.
 incipit =
 #(define-music-function (parser location incipit-music) (ly:music?)
   #{
-    \once \override Staff.InstrumentName #'self-alignment-X = #RIGHT
-    \once \override Staff.InstrumentName #'self-alignment-Y = #UP
-    \once \override Staff.InstrumentName #'Y-offset =
+    \once \override Staff.InstrumentName.self-alignment-X = #RIGHT
+    \once \override Staff.InstrumentName.self-alignment-Y = ##f
+    \once \override Staff.InstrumentName.padding = #0.3
+    \once \override Staff.InstrumentName.stencil =
       #(lambda (grob)
-         (+ 4 (system-start-text::calc-y-offset grob)))
-    \once \override Staff.InstrumentName #'padding = #0.3
-    \once \override Staff.InstrumentName #'stencil =
-      #(lambda (grob)
-         (let* ((instrument-name (ly:grob-property grob 'long-text))
-                (layout (ly:output-def-clone (ly:grob-layout grob)))
-                (music (make-sequential-music
-                        (list (context-spec-music
-                               (make-sequential-music
-                                (list (make-property-set
-                                       'instrumentName instrument-name)
-                                      (make-grob-property-set
-                                       'VerticalAxisGroup
-                                       'Y-extent '(-4 . 4))))
-                               'MensuralStaff)
-                              $incipit-music)))
-                (score (ly:make-score music))
-                (mm (ly:output-def-lookup layout 'mm))
-                (indent (ly:output-def-lookup layout 'indent))
-                (width (ly:output-def-lookup layout 'incipit-width))
-                (incipit-width (if (number? width)
-                                   (* width mm)
-                                   (* indent 0.5))))
-
-           (ly:output-def-set-variable! layout 'indent (- indent
-                                                          incipit-width))
-           (ly:output-def-set-variable! layout 'line-width indent)
-           (ly:output-def-set-variable! layout 'ragged-right #f)
-           (ly:output-def-set-variable! layout 'ragged-last #f)
-           (ly:output-def-set-variable! layout 'system-count 1)
-           (ly:score-add-output-def! score layout)
-           (ly:grob-set-property! grob 'long-text
-                                  (markup #:score score))
+	 (let* ((instrument-name (ly:grob-property grob 'long-text)))
+	   (set! (ly:grob-property grob 'long-text)
+		 #{ \markup
+		      \score
+		         {
+			   { \context MensuralStaff \with {
+	                        instrumentName = #instrument-name
+	                     } $incipit-music
+			   }
+	                   \layout { $(ly:grob-layout grob)
+			             line-width = \indent
+		                     indent =
+				% primitive-eval is probably easiest for
+				% escaping lexical closure and evaluating
+				% everything respective to (current-module).
+	                             #(primitive-eval
+                                       '(or (false-if-exception (- indent incipit-width))
+					    (* 0.5 indent)))
+			             ragged-right = ##f
+			             ragged-last = ##f
+			             system-count = #1 }
+			 }
+		  #})
            (system-start-text::print grob)))
   #})
 
@@ -79,7 +62,7 @@ global = {
   \skip 1*8
 
   % let finis bar go through all staves
-  \override Staff.BarLine #'transparent = ##f
+  \override Staff.BarLine.transparent = ##f
 
   % finis bar
   \bar "|."
@@ -106,7 +89,7 @@ discantusNotes = {
     c'4 e'4.( d'8 c' b |
     a4) b a2 |
     b4.( c'8 d'4) c'4 |
-    \once \override NoteHead #'transparent = ##t
+    \once \hide NoteHead
     c'1 |
     b\breve |
   }
@@ -143,7 +126,7 @@ altusNotes = {
     a2 g4 e |
     fis g4.( fis16 e fis4) |
     g1 |
-    \once \override NoteHead #'transparent = ##t
+    \once \hide NoteHead
     g1 |
     g\breve |
   }
@@ -181,7 +164,7 @@ tenorNotes = {
     R1 |
     % two measures
     r2 d'2. d'4 b e' |
-    \once \override NoteHead #'transparent = ##t
+    \once \hide NoteHead
     e'1 |
     d'\breve |
   }
@@ -217,7 +200,7 @@ bassusNotes = {
     R1 |
     R1 |
     g2. e4 |
-    \once \override NoteHead #'transparent = ##t
+    \once \hide NoteHead
     e1 |
     g\breve |
   }
@@ -266,7 +249,7 @@ bassusLyrics = \lyricmode {
     \context {
       \Score
       %% no bar lines in staves or lyrics
-      \override BarLine #'transparent = ##t
+      \hide BarLine
     }
     %% the next two instructions keep the lyrics between the bar lines
     \context {
@@ -277,7 +260,7 @@ bassusLyrics = \lyricmode {
     \context {
       \Voice
       %% no slurs
-      \override Slur #'transparent = ##t
+      \hide Slur
       %% Comment in the below "\remove" command to allow line
       %% breaking also at those bar lines where a note overlaps
       %% into the next measure.  The command is commented out in this

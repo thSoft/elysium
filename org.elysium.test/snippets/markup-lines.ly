@@ -4,18 +4,19 @@
 %% and then run scripts/auxiliar/makelsr.py
 %%
 %% This file is in the public domain.
-\version "2.14.0"
+\version "2.16.0"
 
 \header {
   lsrtags = "text"
 
   texidoc = "
 Text that can spread over pages is entered with the
-@code{\\markuplines} command.
+@code{\\markuplist} command.
 
 "
   doctitle = "Markup lines"
 } % begin verbatim
+
 
 #(set-default-paper-size "a6")
 
@@ -24,7 +25,7 @@ Text that can spread over pages is entered with the
    (make-justified-lines-markup-list (cons (make-hspace-markup 2) args))))
 
 % Candide, Voltaire
-\markuplines {
+\markuplist {
   \override-lines #'(baseline-skip . 2.5) {
     \paragraph {
       Il y avait en Westphalie, dans le château de M. le baron de

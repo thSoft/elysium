@@ -4,7 +4,7 @@
 %% and then run scripts/auxiliar/makelsr.py
 %%
 %% This file is in the public domain.
-\version "2.14.0"
+\version "2.17.11"
 
 \header {
   lsrtags = "rhythms"
@@ -18,30 +18,37 @@ tuplet marking.  This can be overcome by setting @code{TupletBracket
   doctitle = "Preventing final mark from removing final tuplet"
 } % begin verbatim
 
+\markup \vspace #1 %% workaround for LSR-problem
+
 \new Staff {
    \set tupletFullLength = ##t
    \time 1/8
-   \times 2/3 { c'16 c'16 c'16 }
-   \times 2/3 { c'16 c'16 c'16 }
-   \times 2/3 { c'16 c'16 c'16 }
-   \override Score.RehearsalMark #'break-visibility = #'#(#t #t #t)
-   \override Score.RehearsalMark #'direction = #DOWN
-   \override Score.RehearsalMark #'self-alignment-X = #RIGHT
-   \mark "Composed Feb 2007 - Feb 2008"
+   \tuplet 3/2 { c'16 c'16 c'16 }
+   \tuplet 3/2 { c'16 c'16 c'16 }
+   \tuplet 3/2 { c'16 c'16 c'16 }
+   \override Score.RehearsalMark.break-visibility = ##(#t #t #t)
+   \override Score.RehearsalMark.direction = #DOWN
+   \override Score.RehearsalMark.self-alignment-X = #RIGHT
+% due to issue 2362 the following line is commented
+%   \mark "Composed Feb 2007 - Feb 2008"
+% and a shorter mark is used.
+   \mark "1234"
 }
 
 \new Staff {
   \set tupletFullLength = ##t
 
-  \override TupletBracket #'full-length-to-extent = ##f
+  \override TupletBracket.full-length-to-extent = ##f
 
   \time 1/8
-  \times 2/3 { c'16 c'16 c'16 }
-  \times 2/3 { c'16 c'16 c'16 }
-  \times 2/3 { c'16 c'16 c'16 }
-  \override Score.RehearsalMark #'break-visibility = #'#(#t #t #t)
-  \override Score.RehearsalMark #'direction = #DOWN
-  \override Score.RehearsalMark #'self-alignment-X = #RIGHT
-  \mark "Composed Feb 2007 - Feb 2008"
+  \tuplet 3/2 { c'16 c'16 c'16 }
+  \tuplet 3/2 { c'16 c'16 c'16 }
+  \tuplet 3/2 { c'16 c'16 c'16 }
+  \override Score.RehearsalMark.break-visibility = ##(#t #t #t)
+  \override Score.RehearsalMark.direction = #DOWN
+  \override Score.RehearsalMark.self-alignment-X = #RIGHT
+% due to issue 2362 the following line is commented
+%   \mark "Composed Feb 2007 - Feb 2008"
+% and a shorter mark is used.
+   \mark "1234"
 }
-

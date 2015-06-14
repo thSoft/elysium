@@ -4,18 +4,10 @@
 %% and then run scripts/auxiliar/makelsr.py
 %%
 %% This file is in the public domain.
-\version "2.14.0"
+\version "2.17.6"
 
 \header {
   lsrtags = "expressive-marks, tweaks-and-overrides"
-
-%% Translation of GIT committish: 615cbf212fdaf0b220b3330da417d0c3602494f2
-  texidoces = "
-Se pueden aplicar puntas de flecha a los elementos de extensión de
-texto y de línea (como el Glissando).
-
-"
-  doctitlees = "Puntas de flecha para las líneas"
 
   texidoc = "
 Arrows can be applied to text-spanners and line-spanners (such as the
@@ -25,20 +17,21 @@ Glissando).
   doctitle = "Line arrows"
 } % begin verbatim
 
+
 \relative c'' {
-  \override TextSpanner #'bound-padding = #1.0
-  \override TextSpanner #'style = #'line
-  \override TextSpanner #'(bound-details right arrow) = ##t
-  \override TextSpanner #'(bound-details left text) = #"fof"
-  \override TextSpanner #'(bound-details right text) = #"gag"
-  \override TextSpanner #'(bound-details right padding) = #0.6
+  \override TextSpanner.bound-padding = #1.0
+  \override TextSpanner.style = #'line
+  \override TextSpanner.bound-details.right.arrow = ##t
+  \override TextSpanner.bound-details.left.text = #"fof"
+  \override TextSpanner.bound-details.right.text = #"gag"
+  \override TextSpanner.bound-details.right.padding = #0.6
 
-  \override TextSpanner #'(bound-details right stencil-align-dir-y) = #CENTER
-  \override TextSpanner #'(bound-details left stencil-align-dir-y) = #CENTER
+  \override TextSpanner.bound-details.right.stencil-align-dir-y = #CENTER
+  \override TextSpanner.bound-details.left.stencil-align-dir-y = #CENTER
 
-  \override Glissando #'(bound-details right arrow) = ##t
-  \override Glissando #'arrow-length = #0.5
-  \override Glissando #'arrow-width = #0.25
+  \override Glissando.bound-details.right.arrow = ##t
+  \override Glissando.arrow-length = #0.5
+  \override Glissando.arrow-width = #0.25
 
   a8\startTextSpan gis a4 b\glissando b,
   g'4 c\stopTextSpan c2

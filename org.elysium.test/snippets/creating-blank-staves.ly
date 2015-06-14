@@ -4,21 +4,10 @@
 %% and then run scripts/auxiliar/makelsr.py
 %%
 %% This file is in the public domain.
-\version "2.14.0"
+\version "2.16.0"
 
 \header {
-  lsrtags = "staff-notation, editorial-annotations, contexts-and-engravers, paper-and-layout"
-
-%% Translation of GIT committish: 615cbf212fdaf0b220b3330da417d0c3602494f2
-  texidoces = "
-Para crear pentagramas en blanco, genere compases vacíos y después
-elimine el grabador de números de compás @code{Bar_number_engraver}
-del contexto @code{Score}, y los grabadores de la indicación de compás
-@code{Time_signature_engraver}, de la clave @code{Clef_engraver} y de
-los compases @code{Bar_engraver} del contexto de @code{Staff}.
-
-"
-  doctitlees = "Crear pentagramas en blanco"
+  lsrtags = "contexts-and-engravers, editorial-annotations, paper-and-layout, specific-notation, staff-notation"
 
   texidoc = "
 To create blank staves, generate empty measures then remove the
@@ -29,6 +18,7 @@ To create blank staves, generate empty measures then remove the
 "
   doctitle = "Creating blank staves"
 } % begin verbatim
+
 
 #(set-global-staff-size 20)
 
@@ -59,4 +49,3 @@ To create blank staves, generate empty measures then remove the
   bottom-margin = 0.25\in
   top-margin = 0.25\in
 }
-

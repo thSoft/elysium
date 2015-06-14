@@ -4,7 +4,7 @@
 %% and then run scripts/auxiliar/makelsr.py
 %%
 %% This file is in the public domain.
-\version "2.14.0"
+\version "2.16.0"
 
 \header {
   lsrtags = "pitches, vocal-music"
@@ -19,6 +19,7 @@ Accidentals only show up if they are not part of the key signature.
 "
   doctitle = "Ambitus"
 } % begin verbatim
+
 
 \layout {
   \context {
@@ -42,4 +43,3 @@ Accidentals only show up if they are not part of the key signature.
     }
   }
 >>
-

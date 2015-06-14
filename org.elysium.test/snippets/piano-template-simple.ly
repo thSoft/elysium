@@ -4,33 +4,10 @@
 %% and then run scripts/auxiliar/makelsr.py
 %%
 %% This file is in the public domain.
-\version "2.14.0"
+\version "2.16.0"
 
 \header {
-  lsrtags = "keyboards, template"
-
-%% Translation of GIT committish: 615cbf212fdaf0b220b3330da417d0c3602494f2
-  texidoces = "
-Presentamos a continuación una plantilla de piano sencilla con algunas
-notas.
-
-"
-  doctitlees = "Plantilla de piano (sencilla)"
-
-
-%% Translation of GIT committish: 0a868be38a775ecb1ef935b079000cebbc64de40
-  texidocde = "
-Hier ein einfaches Klaviersystem.
-
-"
-  doctitlede = "Vorlage für einfache Klaviernotation"
-
-%% Translation of GIT committish: ceb0afe7d4d0bdb3d17b9d0bff7936bb2a424d16
-  texidocfr = "
-Voici une simple partition pour piano avec quelques notes.
-
-"
-  doctitlefr = "Piano -- cannevas simple"
+  lsrtags = "keyboards, really-simple, template"
 
   texidoc = "
 Here is a simple piano staff with some notes.
@@ -38,6 +15,7 @@ Here is a simple piano staff with some notes.
 "
   doctitle = "Piano template (simple)"
 } % begin verbatim
+
 
 upper = \relative c'' {
   \clef treble
@@ -64,4 +42,3 @@ lower = \relative c {
   \layout { }
   \midi { }
 }
-

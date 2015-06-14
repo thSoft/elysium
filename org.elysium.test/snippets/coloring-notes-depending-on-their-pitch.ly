@@ -4,10 +4,10 @@
 %% and then run scripts/auxiliar/makelsr.py
 %%
 %% This file is in the public domain.
-\version "2.14.0"
+\version "2.17.6"
 
 \header {
-  lsrtags = "pitches, editorial-annotations"
+  lsrtags = "editorial-annotations, pitches, really-cool"
 
   texidoc = "
 It is possible to color note heads depending on their pitch and/or
@@ -55,8 +55,7 @@ to distinguish enharmonics.
 
 \score {
   \new Staff \relative c' {
-    \override NoteHead #'color = #color-notehead
+    \override NoteHead.color = #color-notehead
     c8 b d dis ees f g aes
   }
 }
-

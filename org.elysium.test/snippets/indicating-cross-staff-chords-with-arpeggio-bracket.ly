@@ -4,37 +4,10 @@
 %% and then run scripts/auxiliar/makelsr.py
 %%
 %% This file is in the public domain.
-\version "2.14.0"
+\version "2.17.6"
 
 \header {
-  lsrtags = "keyboards"
-
-%% Translation of GIT committish: 615cbf212fdaf0b220b3330da417d0c3602494f2
-  texidoces = "
-Un corchete de arpegio puede indicar que se tienen que tocar con la
-misma mano notas que están en dos pentagramas distintos. Para hacerlo,
-el @code{PianoStaff} se debe configurar para que acepte símbolos de
-arpegio de pentagrama cruzado y los símbolos de arpegio se deben
-configurar a la forma de corchete en el contexto de @code{PianoStaff}.
-
-(Debussy, Les collines d’Anacapri, m. 65)
-
-"
-  doctitlees = "Indicar acordes de pentagrama cruzado con corchetes de arpegio"
-
-
-%% Translation of GIT committish: 0a868be38a775ecb1ef935b079000cebbc64de40
-  texidocde = "
-Eine Arpeggioklammer kann anzeigen, dass Noten auf zwei unterschiedlichen
-Systemen mit der selben Hand gespielt werden sollen.  Damit das notiert
-werden kann, muss der @code{PianoStaff}-Kontext so eingestellt werden,
-dass er Arpeggios über Systeme hinweg akzeptiert und die Form der Arpeggios
-muss auf eine Klammer eingestellt werden.
-
-(Debussy, Les collines d’Anacapri, T. 65)
-
-"
-  doctitlede = "Akkorde auf zwei Systemen mit Arpeggioklammern anzeigen"
+  lsrtags = "keyboards, real-music"
 
   texidoc = "
 An arpeggio bracket can indicate that notes on two different staves are
@@ -50,9 +23,10 @@ context.
   doctitle = "Indicating cross-staff chords with arpeggio bracket"
 } % begin verbatim
 
+
 \new PianoStaff <<
   \set PianoStaff.connectArpeggios = ##t
-  \override PianoStaff.Arpeggio #'stencil = #ly:arpeggio::brew-chord-bracket
+  \override PianoStaff.Arpeggio.stencil = #ly:arpeggio::brew-chord-bracket
   \new Staff {
     \relative c' {
       \key b \major
@@ -77,4 +51,3 @@ context.
     }
   }
 >>
-

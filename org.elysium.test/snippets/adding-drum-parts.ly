@@ -4,39 +4,10 @@
 %% and then run scripts/auxiliar/makelsr.py
 %%
 %% This file is in the public domain.
-\version "2.15.2"
+\version "2.17.6"
 
 \header {
-  lsrtags = "rhythms, percussion"
-
-%% Translation of GIT committish: 615cbf212fdaf0b220b3330da417d0c3602494f2
-  texidoces = "
-Mediante la utilización de las potentes herramientas preconfiguradas
-como la función @code{\\drummode} y el contexto @code{DrumStaff}, la
-introducción de partes para percusión es muy fácil: las percusiones se
-sitúan en sus propias posiciones de pentagrama (con una clave
-especial) y tienen las cabezas correspondientes al instrumento.  Es
-posible añadir un símbolo adicional a la percusión o reducir el número
-de líneas.
-
-"
-  doctitlees = "Escritura de partes de percusión"
-
-
-%% Translation of GIT committish: 9a65042d49324f2e3dff18c4b0858def81232eea
-  texidocfr = "
-Grâce à la puissance des outils préconfigurés tels que la fonction
-@code{\\drummode} et le contexte @code{DrumStaff}, la saisie de
-parties pour percussions est extrêmement simplifiée : chaque composant
-d'une batterie trouve sa place sur une portée dédiée (avec une clef
-spécifique) et les têtes de note sont spécifiques à chaque élément.
-Il est également possible d'affecter un symbole particulier à chaque
-élément, tout comme de restreindre le nombre de lignes de la portée.
-
-"
-
-  doctitlefr = "Ajout de parties de batterie"
-
+  lsrtags = "percussion, preparing-parts, really-simple, rhythms, specific-notation"
 
   texidoc = "
 Using the powerful pre-configured tools such as the @code{\\drummode}
@@ -50,6 +21,7 @@ lines is possible.
   doctitle = "Adding drum parts"
 } % begin verbatim
 
+
 drh = \drummode { cymc4.^"crash" hhc16^"h.h." hh hhc8 hho hhc8 hh16 hh hhc4 r4 r2 }
 drl = \drummode { bd4 sn8 bd bd4 << bd ss >>  bd8 tommh tommh bd toml toml bd tomfh16 tomfh }
 timb = \drummode { timh4 ssh timl8 ssh r timh r4 ssh8 timl r4 cb8 cb }
@@ -58,8 +30,8 @@ timb = \drummode { timh4 ssh timl8 ssh r timh r4 ssh8 timl r4 cb8 cb }
   <<
     \new DrumStaff \with {
       drumStyleTable = #timbales-style
-      \override StaffSymbol #'line-count = #2
-      \override BarLine #'bar-extent = #'(-1 . 1)
+      \override StaffSymbol.line-count = #2
+      \override BarLine.bar-extent = #'(-1 . 1)
     } <<
       \set Staff.instrumentName = #"timbales"
       \timb
@@ -72,10 +44,6 @@ timb = \drummode { timh4 ssh timl8 ssh r timh r4 ssh8 timl r4 cb8 cb }
   >>
   \layout { }
   \midi {
-    \context {
-      \Score
-      tempoWholesPerMinute = #(ly:make-moment 120 4)
-    }
+    \tempo 4 = 120
   }
 }
-

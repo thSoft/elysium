@@ -4,38 +4,10 @@
 %% and then run scripts/auxiliar/makelsr.py
 %%
 %% This file is in the public domain.
-\version "2.14.0"
+\version "2.16.0"
 
 \header {
-  lsrtags = "rhythms, fretted-strings"
-
-%% Translation of GIT committish: 615cbf212fdaf0b220b3330da417d0c3602494f2
-  texidoces = "
-Para la música de guitarra, es posible mostrar los ritmos de rasgueo,
-además de las notas de la melodía, acordes y diagramas de posiciones.
-
-"
-  doctitlees = "Ritmos rasgueados de guitarra"
-
-
-%% Translation of GIT committish: 0a868be38a775ecb1ef935b079000cebbc64de40
-  texidocde = "
-In Gitarrennotation kann neben Melodie, Akkordbezeichnungen und
-Bunddiagrammen auch der Schlagrhythmus angegeben werden.
-
-"
-  doctitlede = "Schlagrhythmus für Gitarren"
-
-
-
-%% Translation of GIT committish: 015b8e65e5e9a74cea1618b597402b5b74f89b89
-  texidocfr = "
-En matière de notation pour guitare, il arrive que soient indiqués les
-@qq{coups de gratte} en plus de la mélodie, grilles d'accords et
-diagrammes de tablature.
-
-"
-  doctitlefr = "Rythmique et guitare"
+  lsrtags = "fretted-strings, rhythms"
 
   texidoc = "
 For guitar music, it is possible to show strum rhythms, along with
@@ -44,6 +16,7 @@ melody notes, chord names and fret diagrams.
 "
   doctitle = "Guitar strum rhythms"
 } % begin verbatim
+
 
 \include "predefined-guitar-fretboards.ly"
 <<
@@ -83,4 +56,3 @@ melody notes, chord names and fret diagrams.
     }
   }
 >>
-

@@ -4,23 +4,10 @@
 %% and then run scripts/auxiliar/makelsr.py
 %%
 %% This file is in the public domain.
-\version "2.14.0"
+\version "2.17.6"
 
 \header {
-  lsrtags = "simultaneous-notes, editorial-annotations, tweaks-and-overrides"
-
-%% Translation of GIT committish: 615cbf212fdaf0b220b3330da417d0c3602494f2
-  texidoces = "
-Se pueden modificar notas individuales de un acorde con la instrucción
-@code{\\tweak}, alterando la propiedad @code{font-size}.
-
-Dentro de un acorde (entre ángulos simples @code{< >}), antes de la
-nota que queremos alterar, situamos la instrucción @code{\\tweak}
-seguida por @code{#'font-size} y definimos el tamaño adecuado como
-@code{#-2} (una cabeza pequeña).
-
-"
-  doctitlees = "Modificar el tamaño de una nota suelta de un acorde"
+  lsrtags = "editorial-annotations, really-simple, simultaneous-notes, specific-notation, tweaks-and-overrides"
 
   texidoc = "
 Individual note heads in a chord can be modified with the
@@ -39,7 +26,7 @@ note head).
   doctitle = "Changing a single note's size in a chord"
 } % begin verbatim
 
-\relative c' {
-  <\tweak #'font-size #+2 c e g c \tweak #'font-size #-2 e>1^\markup { A tiny e }_\markup { A big c }
-}
 
+\relative c' {
+  <\tweak font-size #+2 c e g c \tweak font-size #-2 e>1^\markup { A tiny e }_\markup { A big c }
+}

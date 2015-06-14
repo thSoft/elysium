@@ -4,88 +4,10 @@
 %% and then run scripts/auxiliar/makelsr.py
 %%
 %% This file is in the public domain.
-\version "2.14.0"
+\version "2.16.0"
 
 \header {
-  lsrtags = "unfretted-strings, template"
-
-%% Translation of GIT committish: 615cbf212fdaf0b220b3330da417d0c3602494f2
-  texidoces = "
-El fragmento de código @qq{Plantilla de cuarteto de cuerda} produce un
-resultado satisfactorio para el cuarteto, pero ¿y si tenemos que
-imprimir las particellas? Esta nueva plantilla muestra cómo usar la
-funcionalidad @code{\\tag} (etiqueta) para dividir fácilmente una
-pieza en particellas indicviduales.
-
-Tenemos que dividir esta plantilla en archivos independientes; los
-nombres de archivo están dentro de los comentarios al principio de
-cada archivo. @file{piece.ly} contiene todas las definiciones de
-música. Los otros archivos (@file{score.ly}, @file{vn1.ly},
-@file{vn2.ly}, @file{vla.ly} y @file{vlc.ly}) producen la particella
-correspondiente.
-
-¡No olvide quitar los comentarios que hemos especificado cuando use
-los archivos independientes!
-
-"
-  doctitlees = "Plantilla de cuarteto de cuerda con particellas independientes"
-
-
-%% Translation of GIT committish: fa1aa6efe68346f465cfdb9565ffe35083797b86
-  texidocja = "
-\"弦楽四重奏テンプレート\" は適切な弦楽四重奏の楽譜を作り出しますが、個々の@c
-パート譜を譜刻する必要がある場合はどうでしょうか？今度の新しいテンプレートは
-@code{@bs{}tag} 機能を用いて容易に楽曲を個々のパートに分ける方法を示しています。
-
-このテンプレートは別々のファイルに分ける必要があります。ファイル名は各ファイル@c
-の開始部分のコメントの中に記述されています。@code{piece.ly} はすべての音楽定義@c
-を保持しています。他のファイル - @code{score.ly}, @code{vn1.ly}, @code{vn2.ly},
-@code{vla.ly} それに @code{vlc.ly} - は対応するパートを作り出します。
-
-
-別々のファイルに分ける場合は、指定されたコメントを外すことを忘れないでください！
-"
-
-%% Translation of GIT committish: 0a868be38a775ecb1ef935b079000cebbc64de40
-  texidocde = "
-Mit diesem Beispiel können Sie ein schönes Streichquartett notieren,
-aber wie gehen Sie vor, wenn Sie Stimmen brauchen? Das Beispiel
-oben hat gezeigt, wie Sie mit Variablen einzelne Abschnitte getrennt
-voneinander notieren können. Im nächsten Beispiel wird nun
-gezeigt, wie Sie mit diesen Variablen einzelne Stimmen erstellen.
-
-Sie müssen das Beispiel in einzelne Dateien aufteilen; die Dateinamen
-sind in den Kommentaren am Anfang jeder Datei enthalten.  @file{piece.ly}
-enthält die Noten. Die anderen Dateien -- @file{score.ly},
-@file{vn1.ly}, @file{vn2.ly}, @file{vla.ly} und
-@file{vlc.ly} -- erstellen daraus die entsprechenden Stimmen bzw. die
-Partitur (@file{score.ly}). Mit @code{\\tag} wird den Stimmen ein Name
-zugewiesen, auf den zurückgegriffen werden kann.
-"
-
-  doctitlede = "Vorlage für Streichquartett mit einzelnen Stimmen"
-
-
-%% Translation of GIT committish: bdfe3dc8175a2d7e9ea0800b5b04cfb68fe58a7a
-  texidocfr = "
-Grâce à ce canevas, vous pouvez obtenir une partition d'excellente
-facture pour quatuor à cordes mais aussi, si le besoin s'en faisait
-sentir, une partie séparée par instrument.  Par ailleurs, cet exemple
-illustre l'utilisation de la fonction @code{\\tag} dans le but
-d'extraire des parties séparées.
-
-Il vous faudra découper ce canevas en plusieurs fichiers séparés ; leur
-nom respectif est indiqué en commentaire : @file{piece.ly} comporte tout
-ce qui a trait à la musique, les autres fichiers -- @file{score.ly},
-@file{vn1.ly}, @file{vn2.ly}, @file{vla.ly}, et @file{vlc.ly} -- vous
-permettront d'obtenir les parties selon le pupitre.
-
-
-N'oubliez pas de supprimer les commentaires superflus des fichiers
-individualisés !
-
-"
-  doctitlefr = "Quatuor à cordes avec parties séparées"
+  lsrtags = "preparing-parts, template, unfretted-strings"
 
   texidoc = "
 The @qq{String quartet template} snippet produces a nice string
@@ -105,6 +27,7 @@ Do not forget to remove specified comments when using separate files!
 "
   doctitle = "String quartet template with separate parts"
 } % begin verbatim
+
 
 %%%%% piece.ly
 %%%%% (This is the global definitions file)
@@ -155,8 +78,8 @@ music = {
 %%%%% score.ly
 %%%%% (This is the main file)
 
-
-%\include "piece.ly"             %%% uncomment this line when using a separate file
+%%% uncomment the line below when using a separate file
+%\include "piece.ly"
 #(set-global-staff-size 14)
 \score {
   \new StaffGroup \keepWithTag #'score \music
@@ -207,4 +130,3 @@ music = {
 }
 
 %}
-

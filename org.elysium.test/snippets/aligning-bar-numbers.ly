@@ -4,49 +4,10 @@
 %% and then run scripts/auxiliar/makelsr.py
 %%
 %% This file is in the public domain.
-\version "2.14.0"
+\version "2.17.6"
 
 \header {
   lsrtags = "rhythms"
-
-%% Translation of GIT committish: 615cbf212fdaf0b220b3330da417d0c3602494f2
-  texidoces = "
-
-Los números de compás se alinean de forma predeterminada por la
-derecha con su objeto padre. Éste es por lo general el borde
-izquierdo de una línea o, si los números se imprimen dentro de la
-línea, el lado izquierdo de una línea divisoria.  Los números
-también se pueden situar directamente sobre la barra de compás o
-alineados por la izquierda con ella.
-
-"
-
-  doctitlees = "Alineación de los números de compás"
-
-
-%% Translation of GIT committish: 0a868be38a775ecb1ef935b079000cebbc64de40
-  texidocde = "
-Taktnummern sind standardmäßig links an ihrem Ursprungsobjekt
-ausgerichtet.  Das ist normalerweise die linke Ecke einer Linie oder,
-wenn die Nummern innerhalb einer Zeile gesetzt werden, auf der
-linken Seite eines Taktstrichs.  Die Nummern können auch
-direkt über dem Taktstrich positioniert werden oder rechts vom
-Taktstrich gesetzt werden.
-
-"
-  doctitlede = "Taktnummern ausrichten"
-
-
-
-%% Translation of GIT committish: 374d57cf9b68ddf32a95409ce08ba75816900f6b
-  texidocfr = "
-Les numéros de mesure s'alignent en principe sur la droite de l'objet
-dont ils dépendent.  C'est normalement le coin gauche de la portée ou,
-en cours de ligne, à gauche de la barre.  Vous pouvez toutefois les
-centrer par rapport à la barre ou les afficher à droite de la barre.
-
-"
-  doctitlefr = "Alignement des numéros de mesure"
 
   texidoc = "
 Bar numbers by default are right-aligned to their parent object. This
@@ -58,19 +19,19 @@ positioned directly over the bar line or left-aligned to the bar line.
   doctitle = "Aligning bar numbers"
 } % begin verbatim
 
+
 \relative c' {
   \set Score.currentBarNumber = #111
-  \override Score.BarNumber #'break-visibility = #all-visible
+  \override Score.BarNumber.break-visibility = #all-visible
   % Increase the size of the bar number by 2
-  \override Score.BarNumber #'font-size = #2
+  \override Score.BarNumber.font-size = #2
   % Print a bar number every second measure
   \set Score.barNumberVisibility = #(every-nth-bar-number-visible 2)
   c1 | c1
   % Center-align bar numbers
-  \override Score.BarNumber #'self-alignment-X = #CENTER
+  \override Score.BarNumber.self-alignment-X = #CENTER
   c1 | c1
   % Left-align bar numbers
-  \override Score.BarNumber #'self-alignment-X = #LEFT
+  \override Score.BarNumber.self-alignment-X = #LEFT
   c1 | c1
 }
-

@@ -4,38 +4,10 @@
 %% and then run scripts/auxiliar/makelsr.py
 %%
 %% This file is in the public domain.
-\version "2.14.0"
+\version "2.16.0"
 
 \header {
   lsrtags = "text"
-
-%% Translation of GIT committish: 615cbf212fdaf0b220b3330da417d0c3602494f2
-  texidoces = "
-Aunque normalmente las marcas de texto sólo se imprimen sobre el
-pentagrama superior, también se pueden imprimir en otro pentagrama
-cualquiera.
-
-"
-  doctitlees = "Imprimir marcas en cualquier pentagrama"
-
-
-%% Translation of GIT committish: 0a868be38a775ecb1ef935b079000cebbc64de40
-  texidocde = "
-Normalerweise werden Textzeichen nur über dem obersten Notensystem gesetzt.  Sie
-können aber auch über jedem System ausgegeben werden.
-
-"
-  doctitlede = "Zeichen über jedem System ausgeben"
-
-%% Translation of GIT committish: 548ef200973bd3d46ea75c5498461d9e5f168334
-  texidocfr = "
-Bien que ces indications textuelles ne soient habituellement imprimées
-qu'au niveau de la portée supérieure, vous pouvez forcer leur
-affectation à chacune des portées.
-
-"
-  doctitlefr = "Impression des indications sur toutes les portées d'un système"
-
 
   texidoc = "
 Although text marks are normally only printed above the topmost staff,
@@ -44,6 +16,7 @@ they may also be printed on every staff.
 "
   doctitle = "Printing marks on every staff"
 } % begin verbatim
+
 
 \score {
   <<
@@ -63,4 +36,3 @@ they may also be printed on every staff.
     }
   }
 }
-

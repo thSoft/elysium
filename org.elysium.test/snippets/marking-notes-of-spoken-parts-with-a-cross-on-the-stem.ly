@@ -4,10 +4,10 @@
 %% and then run scripts/auxiliar/makelsr.py
 %%
 %% This file is in the public domain.
-\version "2.14.0"
+\version "2.17.6"
 
 \header {
-  lsrtags = "editorial-annotations, vocal-music"
+  lsrtags = "contemporary-notation, editorial-annotations, vocal-music, workaround"
 
   texidoc = "
 This example shows how to put crosses on stems.  Mark the beginning of
@@ -18,8 +18,9 @@ a spoken section with the @code{\\speakOn} keyword, and end it with the
   doctitle = "Marking notes of spoken parts with a cross on the stem"
 } % begin verbatim
 
+
 speakOn = {
-  \override Stem #'stencil =
+  \override Stem.stencil =
     #(lambda (grob)
        (let* ((x-parent (ly:grob-parent grob X))
               (is-rest? (ly:grob? (ly:grob-object x-parent 'rest))))
@@ -30,13 +31,14 @@ speakOn = {
               Y
               (- (ly:grob-property grob 'direction))
               (grob-interpret-markup grob
-                                    (markup #:center-align #:fontsize -4
-                                            #:musicglyph "noteheads.s2cross"))
-              -2.3 0))))
+                                     (markup #:center-align #:fontsize -4
+                                             #:musicglyph "noteheads.s2cross"))
+              -2.3))))
 }
 
 speakOff = {
-  \revert Stem #'stencil
+  \revert Stem.stencil
+  \revert Flag.stencil
 }
 
 \score {
@@ -51,4 +53,3 @@ speakOff = {
     }
   }
 }
-

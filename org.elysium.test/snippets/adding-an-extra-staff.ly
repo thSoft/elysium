@@ -4,18 +4,10 @@
 %% and then run scripts/auxiliar/makelsr.py
 %%
 %% This file is in the public domain.
-\version "2.14.0"
+\version "2.17.30"
 
 \header {
-  lsrtags = "staff-notation, contexts-and-engravers"
-
-%% Translation of GIT committish: 615cbf212fdaf0b220b3330da417d0c3602494f2
-  texidoces = "
-Se puede añadir (posiblemente de forma temporal) un pentagrama
-nuevo una vez que la pieza ha comenzado.
-
-"
-  doctitlees = "Añadir un pentagrama nuevo"
+  lsrtags = "contexts-and-engravers, really-simple, staff-notation"
 
   texidoc = "
 An extra staff can be added (possibly temporarily) after the start of a
@@ -24,6 +16,7 @@ piece.
 "
   doctitle = "Adding an extra staff"
 } % begin verbatim
+
 
 \score {
   <<
@@ -38,7 +31,7 @@ piece.
             c1 | d
           }
           \new Staff {
-            \once \override Staff.TimeSignature #'stencil = ##f
+            \once \omit Staff.TimeSignature
             c1 | b
           }
         >>
@@ -47,4 +40,3 @@ piece.
     }
   >>
 }
-

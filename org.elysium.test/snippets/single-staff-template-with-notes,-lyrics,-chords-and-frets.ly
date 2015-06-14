@@ -4,19 +4,10 @@
 %% and then run scripts/auxiliar/makelsr.py
 %%
 %% This file is in the public domain.
-\version "2.14.0"
+\version "2.16.0"
 
 \header {
-  lsrtags = "vocal-music, chords, template"
-
-%% Translation of GIT committish: 615cbf212fdaf0b220b3330da417d0c3602494f2
-  texidoces = "
-Presentamos a continuación un ejemplo de plantilla para una hoja
-guía de acordes con melodía, letra, acordes y diagramas de
-trastes.
-"
-
-  doctitlees = "Plantilla para un pentagrama único con música letra acordes y trastes"
+  lsrtags = "chords, template, vocal-music"
 
   texidoc = "
 Here is a simple lead sheet template with melody, lyrics, chords and
@@ -25,6 +16,7 @@ fret diagrams.
 "
   doctitle = "Single staff template with notes lyrics chords and frets"
 } % begin verbatim
+
 
 verseI = \lyricmode {
   \set stanza = #"1."
@@ -66,4 +58,3 @@ staffMelody = \relative c' {
   \layout { }
   \midi { }
 }
-

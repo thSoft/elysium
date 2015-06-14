@@ -4,7 +4,19 @@
 % and then run scripts/auxiliar/makelsr.py
 %
 % This file is in the public domain.
-%% Note: this file works from version 2.14.0
+%% Note: this file works from version 2.17.30
+\version "2.17.30"
+
+\header {
+  lsrtags = "headword"
+
+  texidoc = "
+Unfretted headword
+
+"
+  doctitle = "Unfretted headword"
+} % begin verbatim
+
 % #!lilypond lcp-extract.ly -*- coding: utf-8; -*-
 
 %%%
@@ -28,19 +40,8 @@
 %% Statement Date: Octber the 9th, 2008
 
 
-\header {
-  lsrtags = "headwords"
-  texidoc = ""
-  doctitle = "headword"
-} % begin verbatim
-
-
-
-\version "2.14.0"
-#(set-global-staff-size 15)
-
 %%%
-%%% Abreviations
+%%% Abbreviations
 %%%
 
 db         = \markup { \musicglyph #"scripts.downbow" }
@@ -51,12 +52,10 @@ ub         = \markup { \musicglyph #"scripts.upbow" }
 udb        = \markup { \line { \musicglyph #"scripts.upbow" " " \musicglyph #"scripts.downbow" } }
 udbetc     = \markup { \line { \musicglyph #"scripts.upbow" " " \musicglyph #"scripts.downbow" "..." } }
 
-fermaTa    = \markup \musicglyph #"scripts.ufermata"
-
 accel   = \markup \tiny \italic \bold "accel..."
 ritar   = \markup \tiny \italic \bold "ritar..."
 
-ignore     = \override NoteColumn #'ignore-collision = ##t
+ignore     = \override NoteColumn.ignore-collision = ##t
 
 
 %%
@@ -76,9 +75,9 @@ quatre         = \markup \teeny "IV"
 %% Shifting Notes
 %%
 
-shift      = \once \override NoteColumn #'force-hshift = #0.9
-shifta     = \once \override NoteColumn #'force-hshift = #1.2
-shiftb     = \once \override NoteColumn #'force-hshift = #1.4
+shift      = \once \override NoteColumn.force-hshift = #0.9
+shifta     = \once \override NoteColumn.force-hshift = #1.2
+shiftb     = \once \override NoteColumn.force-hshift = #1.4
 
 
 %%
@@ -86,21 +85,21 @@ shiftb     = \once \override NoteColumn #'force-hshift = #1.4
 %%
 
 % aniente        = "a niente"
-aniente        = \once \override Hairpin #'circled-tip = ##t
+aniente        = \once \override Hairpin.circled-tip = ##t
 
 
 %%
 %% Tuplets
 %%
 
-tupletbp       = \once \override Staff.TupletBracket #'padding = #2.25
+tupletbp       = \once \override Staff.TupletBracket.padding = #2.25
 
 
 %%
 %% Flag [Note Head - Stem]
 %%
 
-noflag         = \once \override Stem #'flag-style = #'no-flag
+noflag         = \once \override Flag.style = #'no-flag
 
 %%%
 %%% Functions
@@ -126,9 +125,9 @@ ViolinSolo = \relative c' {
   \voiceOne
 
   \set Score.markFormatter     =  #format-mark-box-numbers
-  \override Score.VoltaBracket #'font-name                  = #"sans"
-  \override Score.VoltaBracket #'extra-offset               = #'(0 . 1)
-  \override SpacingSpanner     #'uniform-stretching         = ##t
+  \override Score.VoltaBracket.font-name                  = #"sans"
+  \override Score.VoltaBracket.extra-offset               = #'(0 . 1)
+  \override SpacingSpanner.uniform-stretching         = ##t
 
 
   %% Measure 1
@@ -137,7 +136,7 @@ ViolinSolo = \relative c' {
   r2 ^\markup \colmark { \italic "fatigué" " " \bold "lentement"} r4 r r8
   <<
     { \shift d2 \glissando ^\markup \colmark { \quatre \dubetc \svib } \shifta e1 } \\
-    { d2 \open \mf \< ~ \aniente d1  \! \> r4 r ^\markup \colmark { " " \fermaTa } \! }
+    { d2 \open \mf \< ~ \aniente d1  \! \> r4 r ^\markup \colmark { " " \fermata } \! }
   >>
 
 
@@ -146,7 +145,7 @@ ViolinSolo = \relative c' {
   \set Score.repeatCommands = #'((volta "1) n.      2) s.p."))
   <<
     { \shift d2 \glissando ^\markup \colmark { \quatre \udbetc } \shifta e1 } \\
-    { d2 \open \mf \< ~ d1 \! \> ~ d4 ^\markup \colmark { " " \fermaTa } \! }
+    { d2 \open \mf \< ~ d1 \! \> ~ d4 ^\markup \colmark { " " \fermata } \! }
   >>
   \set Score.repeatCommands = #'((volta #f))
 
@@ -163,22 +162,22 @@ ViolinSolo = \relative c' {
   \time 4/4
   \stemUp
   \tupletDown
-  \times 2/3 { d4 ^\markup \colmark { \quatre \db \accel } d d }
-  \times 2/3 { d4 ^\markup \colmark { " " \db " " \sulp } d d }
+  \tuplet 3/2 { d4 ^\markup \colmark { \quatre \db \accel } d d }
+  \tuplet 3/2 { d4 ^\markup \colmark { " " \db " " \sulp } d d }
 
 
 
   %% Measure 5
   \time 5/4
-  \tupletbp \times 2/3 { d8 \mf \< ^\markup \colmark { \quatre \db \norm } d _\open d }
-  \tupletbp \times 2/3 { d8 ^\markup \colmark { " " \db \sulp } d _\open d }
-  \tupletbp \times 2/3 { d16 ^\markup \colmark { " " \db \norm } d _\open d d d _\open d }
+  \tupletbp \tuplet 3/2 { d8 \mf \< ^\markup \colmark { \quatre \db \norm } d _\open d }
+  \tupletbp \tuplet 3/2 { d8 ^\markup \colmark { " " \db \sulp } d _\open d }
+  \tupletbp \tuplet 3/2 { d16 ^\markup \colmark { " " \db \norm } d _\open d d d _\open d }
   d2 \ff ^\markup \colmark { " " \pvib } \>
 
 
   %% Measure 6
   \time 5/8
-  \once \override Beam #'grow-direction = #RIGHT  % \featherDurations #(ly:make-moment 2 3)
+  \once \override Beam.grow-direction = #RIGHT  % \featherDurations #(ly:make-moment 2/3)
   { d16 \staccato
     [ d \staccato d \staccato d \staccato d \staccato d \staccato d \staccato d \staccato d \staccato d \staccato]
   }
@@ -187,11 +186,11 @@ ViolinSolo = \relative c' {
 
   %% Measure 7
   \time 7/4
-  \tupletbp \times 2/3 { d16 ^\markup \colmark { \quatre } d _\open d d d _\open d }
-  \tupletbp \times 2/3 { d8 ^\markup \colmark { " " \db } d _\open d }
-  \tupletbp \times 2/3 { d8 ^\markup \colmark { " " \db " " \sulp } d _\open d }
-  \times 2/3 { d4 ^\markup \colmark { \quatre \db \ritar \norm } d d }
-  \times 2/3 { d4 ^\markup \colmark { " " \db " " \sulp } d d \ppp ~ }
+  \tupletbp \tuplet 3/2 { d16 ^\markup \colmark { \quatre } d _\open d d d _\open d }
+  \tupletbp \tuplet 3/2 { d8 ^\markup \colmark { " " \db } d _\open d }
+  \tupletbp \tuplet 3/2 { d8 ^\markup \colmark { " " \db " " \sulp } d _\open d }
+  \tuplet 3/2 { d4 ^\markup \colmark { \quatre \db \ritar \norm } d d }
+  \tuplet 3/2 { d4 ^\markup \colmark { " " \db " " \sulp } d d \ppp ~ }
 
 
   %% Measure 8
@@ -216,12 +215,12 @@ ViolinSolo = \relative c' {
 \score {
 
   <<
-    \relative <<
+    \relative c' <<
       \new Staff \ViolinSolo
     >>
 
-    \override Score.Rest #'transparent = ##t
-    \set Score.defaultBarType          = "empty"
+    \hide Score.Rest
+    \set Score.defaultBarType          = "-"
   >>
 
   \layout  {

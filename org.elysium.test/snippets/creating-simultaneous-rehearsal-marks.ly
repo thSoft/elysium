@@ -4,25 +4,10 @@
 %% and then run scripts/auxiliar/makelsr.py
 %%
 %% This file is in the public domain.
-\version "2.14.0"
+\version "2.17.30"
 
 \header {
   lsrtags = "expressive-marks, text, tweaks-and-overrides"
-
-%% Translation of GIT committish: 615cbf212fdaf0b220b3330da417d0c3602494f2
-  texidoces = "
-A diferencia de las inscripciones de texto, las lestras de ensayo
-no se pueden apilar en un punto concreto de la partitura: sólo se
-crea un objeto @code{RehearsalMark}.  Utilizando un compás y línea
-divisoria invisibles se puede crear una nueva marca de ensayo,
-dando la apariencia de dos marcas en la misma columna.
-
-Este método también puede resultar útil para colocar marcas de
-ensayo tanto al final de un sistema como al comienzo del sistema
-siguiente.
-
-"
-  doctitlees = "Creación de marcas de ensayo simultáneas"
 
   texidoc = "
 Unlike text scripts, rehearsal marks cannot be stacked at a particular
@@ -39,21 +24,21 @@ end of one system and the start of the following system.
 {
   \key a \major
   \set Score.markFormatter = #format-mark-box-letters
-  \once \override Score.RehearsalMark #'outside-staff-priority = #5000
-  \once \override Score.RehearsalMark #'self-alignment-X = #LEFT
-  \once \override Score.RehearsalMark #'break-align-symbols = #'(key-signature)
+  \once \override Score.RehearsalMark.outside-staff-priority = #5000
+  \once \override Score.RehearsalMark.self-alignment-X = #LEFT
+  \once \override Score.RehearsalMark.break-align-symbols = #'(key-signature)
   \mark \markup { \bold { Senza denti } }
 
   % the hidden measure and bar line
   % \cadenzaOn turns off automatic calculation of bar numbers
   \cadenzaOn
-  \once \override Score.TimeSignature #'stencil = ##f
+  \once \omit Score.TimeSignature
   \time 1/16
   s16 \bar ""
   \cadenzaOff
 
   \time 4/4
-  \once \override Score.RehearsalMark #'self-alignment-X = #LEFT
+  \once \override Score.RehearsalMark.self-alignment-X = #LEFT
   \mark \markup { \box \bold Intro }
   d'1
   \mark \default

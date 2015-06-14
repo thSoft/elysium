@@ -4,19 +4,10 @@
 %% and then run scripts/auxiliar/makelsr.py
 %%
 %% This file is in the public domain.
-\version "2.14.0"
+\version "2.17.6"
 
 \header {
   lsrtags = "rhythms, tweaks-and-overrides"
-
-%% Translation of GIT committish: 615cbf212fdaf0b220b3330da417d0c3602494f2
-  texidoces = "
-Se puede ajustar la separación entre las notas de adorno utilizando la
-propiedad @code{spacing-increment} de @code{Score.GraceSpacing}.
-
-"
-
-  doctitlees = "Ajuste del espaciado de las notas de adorno"
 
   texidoc = "
 The space given to grace notes can be adjusted using the
@@ -26,6 +17,7 @@ The space given to grace notes can be adjusted using the
   doctitle = "Adjusting grace note spacing"
 } % begin verbatim
 
+
 graceNotes = {
   \grace { c4 c8 c16 c32 }
   c8
@@ -34,9 +26,8 @@ graceNotes = {
 \relative c'' {
   c8
   \graceNotes
-  \override Score.GraceSpacing #'spacing-increment = #2.0
+  \override Score.GraceSpacing.spacing-increment = #2.0
   \graceNotes
-  \revert Score.GraceSpacing #'spacing-increment
+  \revert Score.GraceSpacing.spacing-increment
   \graceNotes
 }
-

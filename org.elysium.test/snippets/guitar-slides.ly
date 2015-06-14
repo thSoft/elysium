@@ -4,23 +4,10 @@
 % and then run scripts/auxiliar/makelsr.py
 %
 % This file is in the public domain.
-%% Note: this file works from version 2.14.0
-\version "2.14.0"
+%% Note: this file works from version 2.17.30
+\version "2.17.30"
 
 \header {
-%% Translation of GIT committish: 615cbf212fdaf0b220b3330da417d0c3602494f2
-
-
-  texidoces = "
-A diferencia de los glissandos, los @q{slides} o ligaduras pueden
-partir de un punto impreciso del mástil hasta un traste específico.
-Una buena forma de hacerlo es añadir una nota de mordente antes de la
-nota real, como se muestra en el ejemplo siguiente.
-
-"
-
-  doctitlees = "Ligaduras de guitarra"
-
   lsrtags = "fretted-strings"
 
   texidoc = "
@@ -36,11 +23,11 @@ in the following example.
 %% Hide fret number: useful to draw slide into/from a casual point of
 %% the fretboard.
 hideFretNumber = {
-  \once \override TabNoteHead #'transparent = ##t
-  \once \override NoteHead #'transparent = ##t
-  \once \override Stem #'transparent = ##t
-  \once \override NoteHead #'no-ledgers = ##t
-  \once \override Glissando #'(bound-details left padding) = #0.3
+  \once \hide TabNoteHead
+  \once \hide NoteHead
+  \once \hide Stem
+  \once \override NoteHead.no-ledgers = ##t
+  \once \override Glissando.bound-details.left.padding = #0.3
 }
 
 music= \relative c' {

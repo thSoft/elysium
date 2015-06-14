@@ -4,21 +4,10 @@
 %% and then run scripts/auxiliar/makelsr.py
 %%
 %% This file is in the public domain.
-\version "2.14.0"
+\version "2.17.6"
 
 \header {
-  lsrtags = "editorial-annotations, text"
-
-%% Translation of GIT committish: 615cbf212fdaf0b220b3330da417d0c3602494f2
-  texidoces = "
-La instrucción @code{\\whiteout} intercala un rectángulo blanco
-debajo de un elemento de marcado.  Este rectángulo blanco no tapa
-a ningún otro objeto gráfico, puesto que las líneas del pentagrama
-están en una capa inferior a la de la mayor parte de los otros
-objetos.
-
-"
-  doctitlees = "Poner en blanco las líneas del pentagrama utilizando la instrucción \\whiteout"
+  lsrtags = "editorial-annotations, really-cool, text"
 
   texidoc = "
 The @code{\\whiteout} command underlays a markup with a white box.
@@ -29,9 +18,9 @@ white box will not overlap any other grob.
   doctitle = "Blanking staff lines using the \\whiteout command"
 } % begin verbatim
 
+
 \layout { ragged-right = ##f }
 \relative c' {
-  \override TextScript #'extra-offset = #'(2 . 4)
+  \override TextScript.extra-offset = #'(2 . 4)
   c2-\markup { \whiteout \pad-markup #0.5 "middle C" } c
 }
-

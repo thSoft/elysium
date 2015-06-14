@@ -4,41 +4,10 @@
 %% and then run scripts/auxiliar/makelsr.py
 %%
 %% This file is in the public domain.
-\version "2.14.0"
+\version "2.16.0"
 
 \header {
-  lsrtags = "vocal-music, chords, template"
-
-%% Translation of GIT committish: 615cbf212fdaf0b220b3330da417d0c3602494f2
-  texidoces = "
-Esta plantilla facilita la preparación de una canción con melodía,
-letra y acordes.
-
-"
-  doctitlees = "Plantilla de pentagrama único con música letra y acordes"
-
-
-%% Translation of GIT committish: fa1aa6efe68346f465cfdb9565ffe35083797b86
-  texidocja = "
-これは旋律、単語、コードを持つ歌曲の楽譜のためのテンプレートです。
-"
-
-%% Translation of GIT committish: 0a868be38a775ecb1ef935b079000cebbc64de40
-  texidocde = "
-Mit diesem Beispiel können Sie einen Song mit Melodie,
-Text und Akkorden schreiben.
-"
-
-  doctitlede = "Vorlage für eine Notenzeile mit Noten Text und Akkorden"
-
-
-%% Translation of GIT committish: ceb0afe7d4d0bdb3d17b9d0bff7936bb2a424d16
-  texidocfr = "
-Ce cannevas comporte tous les éléments d'une chanson : la mélodie,
-les paroles, les accords.
-
-"
-  doctitlefr = "Paroles musique et accords"
+  lsrtags = "chords, really-simple, template, vocal-music"
 
   texidoc = "
 This template allows the preparation of a song with melody, words, and
@@ -47,6 +16,7 @@ chords.
 "
   doctitle = "Single staff template with notes lyrics and chords"
 } % begin verbatim
+
 
 melody = \relative c' {
   \clef treble
@@ -76,4 +46,3 @@ harmonies = \chordmode {
   \layout { }
   \midi { }
 }
-

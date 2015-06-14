@@ -4,23 +4,10 @@
 %% and then run scripts/auxiliar/makelsr.py
 %%
 %% This file is in the public domain.
-\version "2.14.0"
+\version "2.16.0"
 
 \header {
   lsrtags = "chords, tweaks-and-overrides"
-
-%% Translation of GIT committish: 615cbf212fdaf0b220b3330da417d0c3602494f2
-  texidoces = "
-Allí donde se utilicen líneas extensoras para el bajo cifrado mediante
-el establecimiento de @code{useBassFigureExtenders} al valor
-verdadero, las parejas de líneas extensoras congruentes se centran
-verticalmente si el valor de @code{figuredBassCenterContinuations}
-tiene el valor verdadero.
-
-"
-  doctitlees = "Centrado vertical de las líneas de bajo cifrado emparejadas"
-
-
 
   texidoc = "
 Where figured bass extender lines are being used by setting
@@ -31,6 +18,7 @@ extender lines are vertically centered if
 "
   doctitle = "Vertically centering paired figured bass extenders"
 } % begin verbatim
+
 
 <<
   \relative c' {
@@ -50,4 +38,3 @@ extender lines are vertically centered if
     <6+ 4 3>4 <6 4 3>8 <4 3+>8
   }
 >>
-

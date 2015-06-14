@@ -4,29 +4,10 @@
 %% and then run scripts/auxiliar/makelsr.py
 %%
 %% This file is in the public domain.
-\version "2.14.0"
+\version "2.17.30"
 
 \header {
   lsrtags = "winds"
-
-%% Translation of GIT committish: 615cbf212fdaf0b220b3330da417d0c3602494f2
-
-  texidoces = "
-El ejemplo siguiente muestra cómo se pueden realizar diagramas de
-digitación para instrumentos de viento.
-
-"
-
-  doctitlees = "Diagramas de digitación para la flauta dulce"
-
-%% Translation of GIT committish: 496c48f1f2e4d345ae3637b2c38ec748a55cda1d
-  texidocfr = "
-Cet exemple illustre la manière de créer et afficher des indications de
-doigté pour instrument à vent.
-
-"
-  doctitlefr = "Doigtés pour flûte à bec"
-
 
   texidoc = "
 The following example demonstrates how fingering charts for wind
@@ -39,8 +20,8 @@ instruments can be realized.
 % range chart for paetzold contrabass recorder
 
 centermarkup = {
-  \once \override TextScript #'self-alignment-X = #CENTER
-  \once \override TextScript #'X-offset =#(ly:make-simple-closure
+  \once \override TextScript.self-alignment-X = #CENTER
+  \once \override TextScript.X-offset =#(ly:make-simple-closure
   `(,+
   ,(ly:make-simple-closure (list
   ly:self-alignment-interface::centered-on-x-parent))
@@ -51,7 +32,8 @@ centermarkup = {
 \score {
   \new Staff \with {
     \remove "Time_signature_engraver"
-    \override Stem #'stencil = ##f
+    \omit Stem
+    \omit Flag
     \consists "Horizontal_bracket_engraver"
   }
   {
@@ -62,24 +44,22 @@ centermarkup = {
     gis'1*1/4
     \stemDown a'4^\markup{1)}
     \centermarkup
-    \once \override TextScript #'padding = #2
+    \once \override TextScript.padding = #2
     bes'1*1/4_\markup{\override #'(baseline-skip . 1.7) \column
       { \fontsize #-5 \slashed-digit #0 \finger 1 \finger 2 \finger 3 \finger 4
     \finger 5 \finger 6 \finger 7} }
     b'1*1/4
     c''4^\markup{1)}
     \centermarkup
-    \once \override TextScript #'padding = #2
+    \once \override TextScript.padding = #2
     cis''1*1/4
     deh''1*1/4
     \centermarkup
-    \once \override TextScript #'padding = #2
-    \once \override Staff.HorizontalBracket #'direction = #UP
+    \once \override TextScript.padding = #2
+    \once \override Staff.HorizontalBracket.direction = #UP
     e''1*1/4_\markup{\override #'(baseline-skip . 1.7) \column
       { \fontsize #-5 \slashed-digit #0 \finger 1 \finger 2 \finger 4
     \finger 5} }\startGroup
     f''1*1/4^\markup{2)}\stopGroup
   }
 }
-
-

@@ -4,44 +4,10 @@
 %% and then run scripts/auxiliar/makelsr.py
 %%
 %% This file is in the public domain.
-\version "2.14.0"
+\version "2.17.6"
 
 \header {
   lsrtags = "fretted-strings, tweaks-and-overrides"
-
-%% Translation of GIT committish: 615cbf212fdaf0b220b3330da417d0c3602494f2
-  texidoces = "
-Se pueden establecer las propiedades de los diagramas de
-posiciones a través de @code{'fret-diagram-details}.  Para los
-diagramas de posiciones de marcado, se pueden aplicar overrides
-(sobreescrituras) al objeto @code{Voice.TextScript} o directamente al elemento de marcado.
-
-"
- doctitlees = "Personalizar diagramas de posiciones de marcado"
-
-
-%% Translation of GIT committish: 0a868be38a775ecb1ef935b079000cebbc64de40
-  texidocde = "
-Bunddiagramme können mit der Eigenschaft @code{'fret-diagram-details}
-angepasst werden.  Bunddiagramme, die als Textbeschriftung eingefügt werden,
-können Veränderungen im @code{Voice.TextScript}-Objekt oder direkt in der
-Beschriftung vorgenommen werden.
-
-"
-  doctitlede = "Anpassung von Beschriftungs-Bunddiagrammen"
-
-%% Translation of GIT committish: ac6297e4fa174ac5759cc450ad085c2fac9ba00b
-
-  texidocfr = "
-Les propriétés d'un diagramme de fret sont modifiables grâce au
-@code{'fret-diagram-details}.  Lorsqu'ils sont générés sous forme
-de @code{\\markup}, rien n'empêche de les modifier en jouant sur les
-réglages de l'objet @code{Voice.TextScript} ou bien directement sur
-le @qq{markup}.
-
-"
-  doctitlefr = "Personnalisation des diagrammes de fret"
-
 
   texidoc = "
 Fret diagram properties can be set through
@@ -53,17 +19,16 @@ markup.
   doctitle = "Customizing markup fret diagrams"
 } % begin verbatim
 
+
 <<
   \chords { c1 | c | c | d }
 
   \new Voice = "mel" {
     \textLengthOn
     % Set global properties of fret diagram
-    \override TextScript #'size = #'1.2
-    \override TextScript
-      #'(fret-diagram-details finger-code) = #'in-dot
-    \override TextScript
-      #'(fret-diagram-details dot-color) = #'white
+    \override TextScript.size = #'1.2
+    \override TextScript.fret-diagram-details.finger-code = #'in-dot
+    \override TextScript.fret-diagram-details.dot-color = #'white
 
     %% C major for guitar, no barre, using defaults
        % terse style

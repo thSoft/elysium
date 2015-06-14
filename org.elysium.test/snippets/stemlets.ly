@@ -4,10 +4,10 @@
 %% and then run scripts/auxiliar/makelsr.py
 %%
 %% This file is in the public domain.
-\version "2.14.0"
+\version "2.17.30"
 
 \header {
-  lsrtags = "rhythms"
+  lsrtags = "contemporary-notation, rhythms"
 
   texidoc = "
 In some notational conventions beams are allowed to extend over rests.
@@ -30,6 +30,7 @@ the different notations.
   doctitle = "Stemlets"
 } % begin verbatim
 
+
 \paper { ragged-right = ##f }
 
 {
@@ -37,11 +38,10 @@ the different notations.
   g'16[^\markup { beams over rests } f' r d']
 
   % N.B. use Score.Stem to set for the whole score.
-  \override Staff.Stem #'stemlet-length = #0.75
+  \override Staff.Stem.stemlet-length = #0.75
 
   c'16[^\markup { stemlets over rests } d' r f']
   g'16[^\markup { stemlets and no rests } f'
-  \once \override Rest #'transparent = ##t
+  \once \hide Rest
   r16 d']
 }
-

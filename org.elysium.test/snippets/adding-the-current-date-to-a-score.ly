@@ -4,26 +4,10 @@
 %% and then run scripts/auxiliar/makelsr.py
 %%
 %% This file is in the public domain.
-\version "2.14.0"
+\version "2.16.0"
 
 \header {
-  lsrtags = "text, titles"
-
-%% Translation of GIT committish: 615cbf212fdaf0b220b3330da417d0c3602494f2
-  texidoces = "
-Con algo de código de Scheme, se puede añadir fácilmente la fecha
-actual a una partitura.
-"
-  doctitlees = "Añadir la fecha actual a una partitura"
-
-
-%% Translation of GIT committish: 05624d5147843d2fcbd6e4e126f1fd43142ac6e5
-  texidocfr = "
-Avec un peu de code Scheme, voici comment ajouter facilement
-la date du jour à votre partition.
-"
-
-  doctitlefr = "Ajout de la date du jour à une partition"
+  lsrtags = "really-cool, scheme-language, text, titles"
 
   texidoc = "
 With a little Scheme code, the current date can easily be added to a
@@ -32,6 +16,7 @@ score.
 "
   doctitle = "Adding the current date to a score"
 } % begin verbatim
+
 
 % first, define a variable to hold the formatted date:
 date = #(strftime "%d-%m-%Y" (localtime (current-time)))
@@ -51,4 +36,3 @@ date = #(strftime "%d-%m-%Y" (localtime (current-time)))
 \markup {
   \date
 }
-

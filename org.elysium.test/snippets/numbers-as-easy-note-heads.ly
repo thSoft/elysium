@@ -4,26 +4,10 @@
 % and then run scripts/auxiliar/makelsr.py
 %
 % This file is in the public domain.
-%% Note: this file works from version 2.14.0
-\version "2.14.0"
+%% Note: this file works from version 2.16.0
+\version "2.16.0"
 
 \header {
-%% Translation of GIT committish: 615cbf212fdaf0b220b3330da417d0c3602494f2
-  texidoces = "
-
-Las cabezas de nota de notación fácil utilizan la propiedad
-@code{note-names} del objeto @code{NoteHead} para determinar lo que
-aparece dentro de la cabeza.  Mediante la sobreescritura de esta
-propiedad, es posible imprimir números que representen el grado de la
-escala.
-
-Se puede crear un grabador simple que haga esto para la cabeza de cada
-nota que ve.
-
-"
-
-  doctitlees = "Números como notas de notación fácil"
-
   lsrtags = "pitches"
   texidoc = "
 Easy notation note heads use the @code{note-names} property
@@ -39,21 +23,19 @@ object it sees.
 
 
 #(define Ez_numbers_engraver
-   (list
-    (cons 'acknowledgers
-          (list
-           (cons 'note-head-interface
-                 (lambda (engraver grob source-engraver)
-                   (let* ((context (ly:translator-context engraver))
-                          (tonic-pitch (ly:context-property context 'tonic))
-                          (tonic-name (ly:pitch-notename tonic-pitch))
-                          (grob-pitch
-                           (ly:event-property (event-cause grob) 'pitch))
-                          (grob-name (ly:pitch-notename grob-pitch))
-                          (delta (modulo (- grob-name tonic-name) 7))
-                          (note-names
-                           (make-vector 7 (number->string (1+ delta)))))
-                     (ly:grob-set-property! grob 'note-names note-names))))))))
+   (make-engraver
+    (acknowledgers
+     ((note-head-interface engraver grob source-engraver)
+      (let* ((context (ly:translator-context engraver))
+	     (tonic-pitch (ly:context-property context 'tonic))
+	     (tonic-name (ly:pitch-notename tonic-pitch))
+	     (grob-pitch
+	      (ly:event-property (event-cause grob) 'pitch))
+	     (grob-name (ly:pitch-notename grob-pitch))
+	     (delta (modulo (- grob-name tonic-name) 7))
+	     (note-names
+	      (make-vector 7 (number->string (1+ delta)))))
+	(ly:grob-set-property! grob 'note-names note-names))))))
 
 #(set-global-staff-size 26)
 

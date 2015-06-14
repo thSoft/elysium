@@ -4,22 +4,10 @@
 %% and then run scripts/auxiliar/makelsr.py
 %%
 %% This file is in the public domain.
-\version "2.14.0"
+\version "2.16.0"
 
 \header {
-  lsrtags = "staff-notation, tweaks-and-overrides, paper-and-layout"
-
-%% Translation of GIT committish: 615cbf212fdaf0b220b3330da417d0c3602494f2
-  texidoces = "
-Se pueden insertar separadores sistema entre los sistemas de una
-página.  Se puede usar cualquier elemento de marcado, pero
-@code{\\slashSeparator} está disponible como una elección
-predeterminada adecuada.
-
-"
-  doctitlees = "Fijar un separador entre los sistemas"
-
-
+  lsrtags = "paper-and-layout, staff-notation, tweaks-and-overrides"
 
   texidoc = "
 System separators can be inserted between systems.  Any markup can be
@@ -29,6 +17,7 @@ default.
 "
   doctitle = "Setting system separators"
 } % begin verbatim
+
 
 \paper {
   system-separator-markup = \slashSeparator
@@ -48,4 +37,3 @@ notes = \relative c' {
     >>
   }
 }
-

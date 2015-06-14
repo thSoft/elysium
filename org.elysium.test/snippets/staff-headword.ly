@@ -4,19 +4,12 @@
 % and then run scripts/auxiliar/makelsr.py
 %
 % This file is in the public domain.
-%% Note: this file works from version 2.14.0
-\version "2.14.0"
+%% Note: this file works from version 2.17.6
+\version "2.17.6"
 \include "catalan.ly"
-#(set-global-staff-size 15)
-\paper{
-  ragged-right=##t
-  line-width=17\cm
-  indent=0\cm
-}
-
 
 \header {
-  lsrtags = "headwords"
+  lsrtags = "headword"
   texidoc = ""
   doctitle = "headword"
 } % begin verbatim
@@ -43,7 +36,7 @@ trompette = \relative do'' {
   \key mib \major
   \time 2/4
   R2^\markup { \italic Comodo } |
-  r8 \once \override TextScript #'padding = #2.0
+  r8 \once \override TextScript.padding = #2.0
   sib16-.^\markup {\dynamic p \italic grazioso} do-. mib( re)-. do-. sib-. |
   re8-. r8 re4->( |
   re8) do16-. re-. mib( re) do-. re-. |
@@ -125,10 +118,6 @@ lower = \relative do {
     >>
   >>
   \midi {
-    \context {
-      \Score
-      tempoWholesPerMinute = #(ly:make-moment 72 4)
-    }
+    \tempo 4 = 72
   }
 }
-

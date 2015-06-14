@@ -4,10 +4,10 @@
 %% and then run scripts/auxiliar/makelsr.py
 %%
 %% This file is in the public domain.
-\version "2.14.0"
+\version "2.17.28"
 
 \header {
-  lsrtags = "tweaks-and-overrides, spacing"
+  lsrtags = "spacing, tweaks-and-overrides"
 
   texidoc = "
 If @code{strict-note-spacing} is set spacing of notes is not influenced
@@ -18,16 +18,16 @@ the note that occurs at the same time. This may cause collisions.
   doctitle = "Proportional strict notespacing"
 } % begin verbatim
 
+
 \relative c'' <<
-  \override Score.SpacingSpanner #'strict-note-spacing = ##t
-  \set Score.proportionalNotationDuration = #(ly:make-moment 1 16)
+  \override Score.SpacingSpanner.strict-note-spacing = ##t
+  \set Score.proportionalNotationDuration = #(ly:make-moment 1/16)
   \new Staff {
     c8[ c \clef alto c c \grace { d16 } c8 c] c4
-    c2 \grace { c16[ c16] } c2
+    c2 \grace { c16 c16 } c2
   }
   \new Staff {
-    c2 \times 2/3 { c8 \clef bass cis,, c } c4
+    c2 \tuplet 3/2 { c8 \clef bass cis,, c } c4
     c1
   }
 >>
-

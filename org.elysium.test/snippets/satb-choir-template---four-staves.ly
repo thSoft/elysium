@@ -4,29 +4,10 @@
 %% and then run scripts/auxiliar/makelsr.py
 %%
 %% This file is in the public domain.
-\version "2.14.0"
+\version "2.16.0"
 
 \header {
-  lsrtags = "vocal-music, template"
-
-%% Translation of GIT committish:  144cd434d02e6d90b2fb738eeee99119a7c5e1d2
-
-  texidocde = "
-SATB-Chorvorlage auf vier Systemen
-
-"
-  doctitlede = "SATB-Chorvorlage auf vier Systemen"
-
-
-%% Translation of GIT committish: 092f85605dcea69efff5ef31de4ff100346d6ef8
-
-  texidocfr = "
-Modèle pour chœur à quatre voix mixtes, chaque pupitre ayant sa propre
-portée.
-
-"
-  doctitlefr = "Modèle pour chœur SATB sur quatre portées"
-
+  lsrtags = "template, vocal-music"
 
   texidoc = "
 SATB choir template (four staves)
@@ -34,6 +15,7 @@ SATB choir template (four staves)
 "
   doctitle = "SATB Choir template - four staves"
 } % begin verbatim
+
 
 global = {
   \key c \major
@@ -91,4 +73,3 @@ basswords = \lyricmode { mi mi mi mi }
     >>
   >>
 }
-

@@ -4,10 +4,10 @@
 %% and then run scripts/auxiliar/makelsr.py
 %%
 %% This file is in the public domain.
-\version "2.14.0"
+\version "2.17.6"
 
 \header {
-  lsrtags = "winds"
+  lsrtags = "contemporary-notation, winds"
 
   texidoc = "
 It is possible to indicate special articulation techniques such as a
@@ -18,14 +18,15 @@ glyph.
   doctitle = "Flute slap notation"
 } % begin verbatim
 
+
 slap =
 #(define-music-function (parser location music) (ly:music?)
 #{
-  \override NoteHead #'stencil =
+  \override NoteHead.stencil =
   #(lambda (grob)
      (grob-interpret-markup grob
       (markup #:musicglyph "scripts.sforzato")))
-  \override NoteHead #'stem-attachment =
+  \override NoteHead.stem-attachment =
   #(lambda (grob)
      (let* ((thickness (ly:staff-symbol-line-thickness grob))
             (stem (ly:grob-object grob 'stem))
@@ -35,12 +36,11 @@ slap =
                       0)
                   (/ thickness 2)))))
   $music
-  \revert NoteHead #'stencil
-  \revert NoteHead #'stem-attachment
+  \revert NoteHead.stencil
+  \revert NoteHead.stem-attachment
 #})
 
 \relative c' {
   c4 \slap c d r
   \slap { g4 a } b r
 }
-

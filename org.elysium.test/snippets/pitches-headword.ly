@@ -4,29 +4,24 @@
 % and then run scripts/auxiliar/makelsr.py
 %
 % This file is in the public domain.
-%% Note: this file works from version 2.14.0
-\version "2.14.0"
-\include "english.ly"
-#(set-global-staff-size 15)
-\paper {
-  ragged-right = ##t
-  line-width = 17\cm
-  indent = 0\cm
-}
-
-% NR 1.1 Pitches
+%% Note: this file works from version 2.17.27
+\version "2.17.27"
 
 \header {
-  lsrtags = "headwords"
-  texidoc = ""
-  doctitle = "headword"
+  lsrtags = "headword"
+
+  texidoc = "
+Piches headword
+
+"
+  doctitle = "Pitches headword"
 } % begin verbatim
-
-
 
 % L. v. Beethoven
 % Piano sonata 21 - Dem Grafen von Waldstein Gewidmet
 % chorale at measures 34 - 40+
+
+\include "english.ly"
 
 \new PianoStaff <<
 
@@ -73,7 +68,7 @@
     % RH Voice 2
     \new Voice {
       \voiceTwo
-      \override Staff.DynamicLineSpanner #'staff-padding = #2.5
+      \override Staff.DynamicLineSpanner.staff-padding = #3
       <e'' b'>2 \p
       <ds'' a'>4
       <cs'' gs'>4
@@ -81,8 +76,7 @@
       <bs' fs'>2
       e'2
       |
-      \once \override TextScript #'staff-padding = #2.5
-      <b'! a'>2 _ \markup \italic { cresc. }
+      <b'! a'>2 -\tweak #'style #'none \cresc
       b'4
       <e'' cs''>4
       |
@@ -105,7 +99,7 @@
 
   % LH Staff
   \new Staff {
-    \override Staff.SustainPedalLineSpanner #'staff-padding = #5
+    \override Staff.SustainPedalLineSpanner.staff-padding = #6
     <gs' e'>2 ( \sustainOn
     <fs' ds' b>4 \sustainOff
     <e' cs'>4

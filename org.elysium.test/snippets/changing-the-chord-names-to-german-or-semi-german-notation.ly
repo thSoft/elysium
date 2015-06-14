@@ -4,20 +4,10 @@
 %% and then run scripts/auxiliar/makelsr.py
 %%
 %% This file is in the public domain.
-\version "2.14.0"
+\version "2.16.0"
 
 \header {
-  lsrtags = "chords"
-
-%% Translation of GIT committish: 615cbf212fdaf0b220b3330da417d0c3602494f2
-  texidoces = "
-La nomenclatura inglesa (predeterminada) para los acordes del cifrado
-americano se puede cambiar por la alemana (@code{\\germanChords}
-sustituye B y Bes por H y B) o por la semi-alemana
-(@code{\\semiGermanChords} sustituye B y Bes por H y Bb).
-
-"
-  doctitlees = "Cambiar la nomenclatura de los acordes del cifrado americano por la notación alemana o semi-alemana"
+  lsrtags = "chords, really-simple"
 
   texidoc = "
 The english naming of chords (default) can be changed to german
@@ -30,6 +20,7 @@ The english naming of chords (default) can be changed to german
 "
   doctitle = "Changing the chord names to German or semi-German notation"
 } % begin verbatim
+
 
 music = \chordmode {
   c1/c | cis/cis
@@ -60,4 +51,3 @@ music = \chordmode {
     \semiGermanChords \music }
   \context Voice { \music }
 >>
-

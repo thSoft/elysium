@@ -4,10 +4,10 @@
 %% and then run scripts/auxiliar/makelsr.py
 %%
 %% This file is in the public domain.
-\version "2.14.0"
+\version "2.17.6"
 
 \header {
-  lsrtags = "expressive-marks, staff-notation, editorial-annotations, tweaks-and-overrides"
+  lsrtags = "editorial-annotations, expressive-marks, staff-notation, tweaks-and-overrides"
 
   texidoc = "
 This method prints two 'rehearsal marks' - one above the stave and one
@@ -22,6 +22,7 @@ independently of the other.
 "
   doctitle = "How to print two rehearsal marks above and below the same barline (method 2)"
 } % begin verbatim
+
 
 \score {
   \relative c'
@@ -39,7 +40,7 @@ independently of the other.
         \new Voice \with {
           \consists Mark_engraver
           \consists "Staff_collecting_engraver"
-          \override RehearsalMark #'direction = #DOWN
+          \override RehearsalMark.direction = #DOWN
         }
         { s4 s s s
           \mark \markup { \circle 1 }

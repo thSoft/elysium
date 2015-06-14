@@ -4,39 +4,10 @@
 %% and then run scripts/auxiliar/makelsr.py
 %%
 %% This file is in the public domain.
-\version "2.14.0"
+\version "2.16.0"
 
 \header {
-  lsrtags = "rhythms, tweaks-and-overrides, midi"
-
-%% Translation of GIT committish: 615cbf212fdaf0b220b3330da417d0c3602494f2
-  texidoces = "
-Para cambiar el tempo en la salida MIDI sin
-imprimir nada, hacemos invisible la indicación metronómica:
-
-"
-
-  doctitlees = "Cambiar el tempo sin indicación metronómica"
-
-
-%% Translation of GIT committish: 0a868be38a775ecb1ef935b079000cebbc64de40
-  texidocde = "
-Um das Tempo für die MIDI-Ausgabe zu ändern, ohne eine Tempoangabe in den
-Noten auszugeben, kann die Metronombezeichnung unsichtbar gemacht werden:
-
-"
-
-  doctitlede = "Das Tempo ohne Metronom-Angabe verändern"
-
-%% Translation of GIT committish: 4ab2514496ac3d88a9f3121a76f890c97cedcf4e
-  texidocfr = "
-Vous pouvez indiquer un changement de tempo pour le fichier MIDI sans
-pour autant l'imprimer.  Il suffit alors de le rendre invisible aux
-interprètes.
-
-"
-  doctitlefr = "Changement de tempo sans indication sur la partition"
-
+  lsrtags = "midi, rhythms, tweaks-and-overrides"
 
   texidoc = "
 To change the tempo in MIDI output without printing anything, make the
@@ -45,6 +16,7 @@ metronome mark invisible.
 "
   doctitle = "Changing the tempo without a metronome mark"
 } % begin verbatim
+
 
 \score {
   \new Staff \relative c' {

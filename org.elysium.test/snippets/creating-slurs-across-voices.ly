@@ -4,24 +4,10 @@
 %% and then run scripts/auxiliar/makelsr.py
 %%
 %% This file is in the public domain.
-\version "2.14.0"
+\version "2.16.0"
 
 \header {
-  lsrtags = "expressive-marks, keyboards, unfretted-strings"
-
-%% Translation of GIT committish: 615cbf212fdaf0b220b3330da417d0c3602494f2
-  texidoces = "
-En determinadas situaciones es necesario crear ligaduras de
-expresión entre notas que están en voces distintas.
-
-La solución es añadir notas invisibles a una de las voces
-utilizando @code{\\hideNotes}.
-
-Este ejemplo es el compás 235 de la Chacona de la segunda Partita
-para violín solo, BWV 1004, de Bach.
-
-"
-  doctitlees = "Hacer ligaduras entre voces distintas"
+  lsrtags = "connecting-notes, expressive-marks, keyboards, real-music, unfretted-strings"
 
   texidoc = "
 In some situations, it may be necessary to create slurs between notes
@@ -36,6 +22,7 @@ solo violin, BWV 1004.
 "
   doctitle = "Creating slurs across voices"
 } % begin verbatim
+
 
 \relative c' {
   <<
@@ -58,4 +45,3 @@ solo violin, BWV 1004.
     }
   >>
 }
-

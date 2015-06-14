@@ -4,44 +4,10 @@
 %% and then run scripts/auxiliar/makelsr.py
 %%
 %% This file is in the public domain.
-\version "2.14.0"
+\version "2.16.0"
 
 \header {
   lsrtags = "expressive-marks, vocal-music"
-
-%% Translation of GIT committish: 615cbf212fdaf0b220b3330da417d0c3602494f2
-  texidoces = "
-El corchete de arpegios @code{arpeggioBracket} se puede usar para
-indicar la división de voces cuando no hay plicas que puedan ofrecer
-esta información. Se suele encontrar en la música coral.
-
-"
-
-  doctitlees = "Uso de arpeggioBracket para hacer más visible un divisi"
-
-
-%% Translation of GIT committish: 27b1197f3bae8512c14d946752cd3e40e7c76016
-
-  texidocde = "
-Das @code{arpeggioBracket}-Klammerobjekt kann benutzt werden, um geteilte
-Stimmen anzuzeigen, wenn keine Hälse diese Information bieten.  Das sieht
-man oft in Chormusik.
-
-"
-  doctitlede = "Arpeggio-Klammern benutzen um geteilte Stimmen besser sichtbar zu machen"
-
-
-%% Translation of GIT committish: c1d5bb448321d688185e0c6b798575d4c325ae80
-  texidocfr = "
-Les crochets d'arpegio (@code{arpeggioBracket}) permettent de mettre en
-évidence les divisions d'un pupitre en l'absence de hampe, comme on le
-voit régulièrement dans les partitions pour chœur.
-
-"
-
-  doctitlefr = "Utilisation d'un arpeggioBracket pour rendre les
-divisions plus évidentes"
-
 
   texidoc = "
 The @code{arpeggioBracket} can be used to indicate the division of
@@ -51,6 +17,7 @@ often seen in choral music.
 "
   doctitle = "Using arpeggioBracket to make divisi more visible"
 } % begin verbatim
+
 
 \include "english.ly"
 
@@ -80,4 +47,3 @@ often seen in choral music.
   }
   \layout { ragged-right = ##t }
 }
-

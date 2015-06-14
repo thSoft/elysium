@@ -4,24 +4,10 @@
 %% and then run scripts/auxiliar/makelsr.py
 %%
 %% This file is in the public domain.
-\version "2.14.0"
+\version "2.17.6"
 
 \header {
   lsrtags = "rhythms"
-
-%% Translation of GIT committish: 615cbf212fdaf0b220b3330da417d0c3602494f2
-  texidoces = "
-
-Cuando se colocan figuras sobre líneas adicionales, sus barras se
-sitúan generalmente en medio del pentagrama.  La barra de las notas de
-adorno es más corta y las notas de adorno sobre líneas adicionales
-podrían tener la barra fuera del pentagrama.  Podemos corregir este
-barrado para las notas de adorno.
-
-"
-  doctitlees = "Colocar las barras de las notas de adorno a la misma altura que las barras de notas normales"
-
-
 
   texidoc = "
 When notes are placed on ledger lines, their beams are usually centred
@@ -33,14 +19,14 @@ beaming for grace notes.
   doctitle = "Positioning grace note beams at the height of normal note beams"
 } % begin verbatim
 
+
 \relative c {
   f8[ e]
   \grace {
     f8[ e]
-    \override Stem  #'no-stem-extend = ##f
+    \override Stem.no-stem-extend = ##f
     f8[ e]
-    \revert Stem #'no-stem-extend
+    \revert Stem.no-stem-extend
   }
   f8[ e]
 }
-

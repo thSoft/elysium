@@ -4,36 +4,10 @@
 %% and then run scripts/auxiliar/makelsr.py
 %%
 %% This file is in the public domain.
-\version "2.14.0"
+\version "2.17.11"
 
 \header {
   lsrtags = "editorial-annotations"
-
-%% Translation of GIT committish: 615cbf212fdaf0b220b3330da417d0c3602494f2
-  texidoces = "
-Se puede cambiar el aspecto de las líneas de rejilla
-sobreescribiendo algunas de sus propiedades.
-
-"
-  doctitlees = "Líneas de rejilla: modificar su aspecto"
-
-
-%% Translation of GIT committish: 0a868be38a775ecb1ef935b079000cebbc64de40
-  texidocde = "
-Die Erscheinung der Gitternetzlinien kann durch einige Eigenschaften
-geändert werden.
-
-"
-  doctitlede = "Gitternetzlinien: Aussehen verändern"
-
-%% Translation of GIT committish: 9ccf7f0f5e52e074f3b7852416ad5b78718395c8
-  texidocfr = "
-Modifier certaines des propriétés du quadrillage temporel aura pour effet
-d'en changer l'apparence.
-
-"
-  doctitlefr = "Apparence du quadrillage temporel"
-
 
   texidoc = "
 The appearance of grid lines can be changed by overriding some of their
@@ -42,6 +16,7 @@ properties.
 "
   doctitle = "Grid lines: changing their appearance"
 } % begin verbatim
+
 
 \score {
   \new ChoirStaff <<
@@ -54,16 +29,16 @@ properties.
     \new Staff {
       \relative c {
         % this moves them up one staff space from the default position
-        \override Score.GridLine #'extra-offset = #'(0.0 . 1.0)
+        \override Score.GridLine.extra-offset = #'(0.0 . 1.0)
         \stemDown
         \clef bass
-        \once \override Score.GridLine #'thickness = #5.0
+        \once \override Score.GridLine.thickness = #5.0
         c4
-        \once \override Score.GridLine #'thickness = #1.0
+        \once \override Score.GridLine.thickness = #1.0
         g'4
-        \once \override Score.GridLine #'thickness = #3.0
+        \once \override Score.GridLine.thickness = #3.0
         f4
-        \once \override Score.GridLine #'thickness = #5.0
+        \once \override Score.GridLine.thickness = #5.0
         e4
       }
     }
@@ -74,14 +49,13 @@ properties.
       % set up grids
       \consists "Grid_point_engraver"
       % set the grid interval to one quarter note
-      gridInterval = #(ly:make-moment 1 4)
+      gridInterval = #(ly:make-moment 1/4)
     }
     \context {
       \Score
       \consists "Grid_line_span_engraver"
       % this moves them to the right half a staff space
-      \override NoteColumn #'X-offset = #-0.5
+      \override NoteColumn.X-offset = #-0.5
     }
   }
 }
-

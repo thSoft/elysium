@@ -4,19 +4,10 @@
 %% and then run scripts/auxiliar/makelsr.py
 %%
 %% This file is in the public domain.
-\version "2.14.0"
+\version "2.17.30"
 
 \header {
-  lsrtags = "repeats, staff-notation, editorial-annotations"
-
-%% Translation of GIT committish: 615cbf212fdaf0b220b3330da417d0c3602494f2
-  texidoces = "
-Este fragmento de código proporciona una solución alternativa a la
-producción de contadores de compás utilizando repeticiones
-transparentes de tipo porcentaje.
-
-"
-  doctitlees = "Contador de compases"
+  lsrtags = "editorial-annotations, repeats, staff-notation, workaround"
 
   texidoc = "
 This snippet provides a workaround for emitting measure counters using
@@ -36,9 +27,8 @@ transparent percent repeats.
   }
   \context Voice = "foo" {
     \set countPercentRepeats = ##t
-    \override PercentRepeat #'transparent = ##t
-    \override PercentRepeatCounter #'staff-padding = #1
+    \hide PercentRepeat
+    \override PercentRepeatCounter.staff-padding = #1
     \repeat percent 4 { s1 }
   }
 >>
-

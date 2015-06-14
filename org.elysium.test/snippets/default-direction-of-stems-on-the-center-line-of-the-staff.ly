@@ -4,28 +4,10 @@
 %% and then run scripts/auxiliar/makelsr.py
 %%
 %% This file is in the public domain.
-\version "2.14.0"
+\version "2.17.6"
 
 \header {
   lsrtags = "editorial-annotations"
-
-%% Translation of GIT committish: 615cbf212fdaf0b220b3330da417d0c3602494f2
-  texidoces = "
-La dirección predeterminada de las plicas sobre la tercera línea
-del pentagrama está determinada por la propiedad
-@code{neutral-direction} del objeto @code{Stem}.
-
-"
-  doctitlees = "Dirección predeterminada de las plicas sobre la tercera línea del pentagrama"
-
-
-%% Translation of GIT committish: 0a868be38a775ecb1ef935b079000cebbc64de40
-  texidocde = "
-Die Richtung von Hälsen auf der mittleren Linie kann mit der @code{Stem}-Eigenschaft
-@code{neutral-direction} gesetzt werden.
-
-"
-  doctitlede = "Standardrichtung für Hälse auf der Mittellinie"
 
   texidoc = "
 The default direction of stems on the center line of the staff is set
@@ -35,11 +17,11 @@ by the @code{Stem} property @code{neutral-direction}.
   doctitle = "Default direction of stems on the center line of the staff"
 } % begin verbatim
 
+
 \relative c'' {
   a4 b c b
-  \override Stem #'neutral-direction = #up
+  \override Stem.neutral-direction = #up
   a4 b c b
-  \override Stem #'neutral-direction = #down
+  \override Stem.neutral-direction = #down
   a4 b c b
 }
-

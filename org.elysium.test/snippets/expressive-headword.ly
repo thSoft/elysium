@@ -4,24 +4,22 @@
 % and then run scripts/auxiliar/makelsr.py
 %
 % This file is in the public domain.
-%% Note: this file works from version 2.14.0
-\version "2.14.0"
-\include "english.ly"
-#(set-global-staff-size 15)
-\paper {
-  line-width = 16\cm
-  indent = 0\cm
-}
-
-% NR 1.3 Expressive marks
-
+%% Note: this file works from version 2.17.27
+\version "2.17.27"
 
 \header {
-  lsrtags = "headwords"
-  texidoc = ""
-  doctitle = "headword"
+  lsrtags = "headword"
+
+  texidoc = "
+Expressive headword
+
+"
+  doctitle = "Expressive headword"
 } % begin verbatim
 
+\include "english.ly"
+
+% NR 1.3 Expressive marks
 
 % L. v. Beethoven, Op. 49 no. 1
 % Piano sonata 19 - "Leichte Sonate"
@@ -30,8 +28,8 @@
 %\layout {
 %   \context {
 %      \Score
-%      \override SpacingSpanner #'base-shortest-duration =
-%         #(ly:make-moment 1 20)
+%      \override SpacingSpanner.base-shortest-duration =
+%         #(ly:make-moment 1/20)
 %   }
 %}
 
@@ -43,7 +41,7 @@
       \key g \major
       \time 6/8
       \partial 2
-      \once \override TextScript #'staff-padding = #2
+      \once \override TextScript.padding = #2
       d'8 \staccato
       ^ \markup { \column {
          RONDO

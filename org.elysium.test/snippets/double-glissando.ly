@@ -4,10 +4,10 @@
 %% and then run scripts/auxiliar/makelsr.py
 %%
 %% This file is in the public domain.
-\version "2.14.0"
+\version "2.16.0"
 
 \header {
-  lsrtags = "expressive-marks, simultaneous-notes"
+  lsrtags = "contemporary-notation, expressive-marks, simultaneous-notes, workaround"
 
   texidoc = "
 To connect chords with glissando lines, attach a second glissando to a
@@ -16,6 +16,7 @@ hidden voice.
 "
   doctitle = "Double glissando"
 } % begin verbatim
+
 
 \relative c {
   \clef bass
@@ -34,4 +35,3 @@ hidden voice.
     }
   >>
 }
-

@@ -4,102 +4,10 @@
 %% and then run scripts/auxiliar/makelsr.py
 %%
 %% This file is in the public domain.
-\version "2.14.0"
+\version "2.16.0"
 
 \header {
-  lsrtags = "pitches"
-
-%% Translation of GIT committish: 615cbf212fdaf0b220b3330da417d0c3602494f2
-doctitlees = "Transportar música con el menor número de alteraciones"
-texidoces = "
-Este ejemplo utiliza código de Scheme para forzar las
-modificaciones enarmónicas de las notas, y así tener el menor
-número de alteraciones accidentales. En este caso se aplican las
-siguientes reglas:
-
-@itemize
-@item
-Se quitan las dobles alteraciones
-
-@item
-Si sostenido -> Do
-
-@item
-Mi sistenido -> Fa
-
-@item
-Do bemol -> Si
-
-@item
-Fa bemol -> Mi
-
-@end itemize
-
-De esta forma se selecciona el mayor número de notas enarmónicas
-naturales.
-
-"
-
-
-%% Translation of GIT committish: 0a868be38a775ecb1ef935b079000cebbc64de40
-  doctitlede = "Noten mit minimaler Anzahl an Versetzungszeichen transponieren."
-  texidocde = "Dieses Beispiel benutzt Scheme-Code, um enharmonische
-Verwechslungen für Noten zu erzwingen, damit nur eine minimale Anzahl
-an Versetzungszeichen ausgegeben wird.  In diesem Fall gelten die
-folgenden Regeln:
-
-@itemize
-@item
-Doppelte Versetzungszeichen sollen entfernt werden
-
-@item
-His -> C
-
-@item
-Eis -> F
-
-@item
-Ces -> B
-
-@item
-Fes -> E
-
-@end itemize
-
-Auf diese Art werden am meisten natürliche Tonhöhen als enharmonische
-Variante gewählt.
-"
-
-
-%% Translation of GIT committish: 4ab2514496ac3d88a9f3121a76f890c97cedcf4e
-  texidocfr = "
-Cet exemple, grâce à un peu de code Scheme, donne la priorité aux
-enharmoniques  afin de limiter le nombre d'altérations supplémentaires.
-La règle appliquable est :
-
-@itemize
-@item
-Les altérations doubles sont supprimées
-
-@item
-Si dièse -> Do
-
-@item
-Mi dièse -> Fa
-
-@item
-Do bémol -> Si
-
-@item
-Fa bémol -> Mi
-
-@end itemize
-
-Cette façon de procéder aboutit à plus d'enharmoniques naturelles.
-
-"
-
-  doctitlefr = "Transposition et réduction du nombrer d'altérations accidentelles"
+  lsrtags = "pitches, scheme-language, workaround"
 
   texidoc = "
 This example uses some Scheme code to enforce enharmonic modifications
@@ -126,6 +34,7 @@ In this manner, the most natural enharmonic notes are chosen.
 "
   doctitle = "Transposing pitches with minimum accidentals (\"Smart\" transpose)"
 } % begin verbatim
+
 
 #(define (naturalize-pitch p)
    (let ((o (ly:pitch-octave p))
@@ -181,4 +90,3 @@ music = \relative c' { c4 d e g }
   }
   \layout { }
 }
-

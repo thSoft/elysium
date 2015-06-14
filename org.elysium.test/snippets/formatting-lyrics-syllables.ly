@@ -4,18 +4,10 @@
 %% and then run scripts/auxiliar/makelsr.py
 %%
 %% This file is in the public domain.
-\version "2.14.0"
+\version "2.16.0"
 
 \header {
   lsrtags = "text, vocal-music"
-
-%%%    Translation of GIT committish: f86f00c1a8de0f034ba48506de2801c074bd5422
-  texidocde = "
-Textbeschriftungsmodus kann eingesetzt werden, um individuelle Silben im Gesangstext
-zu formatieren.
-
-"
-  doctitlede = "Silben im Gesangstext formatieren"
 
   texidoc = "
 Markup mode may be used to format individual syllables in lyrics.

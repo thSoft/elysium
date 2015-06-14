@@ -4,10 +4,10 @@
 %% and then run scripts/auxiliar/makelsr.py
 %%
 %% This file is in the public domain.
-\version "2.14.0"
+\version "2.16.0"
 
 \header {
-  lsrtags = "rhythms, text"
+  lsrtags = "rhythms, scheme-language, text"
 
   texidoc = "
 This example shows how to add a markup command to get a three sided box
@@ -16,6 +16,7 @@ around some text (or other markup).
 "
   doctitle = "Three-sided box"
 } % begin verbatim
+
 
 % New command to add a three sided box, with sides north, west and south
 % Based on the box-stencil command defined in scm/stencil.scm
@@ -52,4 +53,3 @@ thickness and padding around the markup."
   c1^\markup { \NWS-box ABCD }
   c1^\markup { \NWS-box \note #"4" #1.0 }
 }
-

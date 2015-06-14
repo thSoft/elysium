@@ -4,41 +4,10 @@
 %% and then run scripts/auxiliar/makelsr.py
 %%
 %% This file is in the public domain.
-\version "2.15.2"
+\version "2.16.0"
 
 \header {
-  lsrtags = "vocal-music, keyboards, template"
-
-%% Translation of GIT committish: 615cbf212fdaf0b220b3330da417d0c3602494f2
-  texidoces = "
-He aquí el típico formato dde una canción: un pentagrama con la
-melodía y la letra, y el acompañamiento de piano por debajo.
-
-"
-  doctitlees = "Plantilla de piano con melodía y letra"
-
-
-%% Translation of GIT committish: fa1aa6efe68346f465cfdb9565ffe35083797b86
-  texidocja = "
-これは一般的な歌曲のフォーマットです: 旋律と歌詞を持つ譜表と、その下にピアノ伴奏譜があります。
-"
-
-%% Translation of GIT committish: 0a868be38a775ecb1ef935b079000cebbc64de40
-  texidocde = "
-Das nächste Beispiel ist typisch für ein Lied: Im oberen System die
-Melodie mit Text, darunter Klavierbegleitung.
-"
-
-  doctitlede = "Vorlage für Klavier und Gesangsstimme"
-
-
-%% Translation of GIT committish: ceb0afe7d4d0bdb3d17b9d0bff7936bb2a424d16
-  texidocfr = "
-Il s'agit du format classique pour le chant : une portée pour la mélodie
-et les paroles au-dessus de l'accompagnement au piano.
-
-"
-  doctitlefr = "Piano mélodie et paroles"
+  lsrtags = "keyboards, really-simple, template, vocal-music"
 
   texidoc = "
 Here is a typical song format: one staff with the melody and lyrics,
@@ -47,6 +16,7 @@ with piano accompaniment underneath.
 "
   doctitle = "Piano template with melody and lyrics"
 } % begin verbatim
+
 
 melody = \relative c'' {
   \clef treble
@@ -90,4 +60,3 @@ lower = \relative c {
   }
   \midi { }
 }
-

@@ -4,20 +4,10 @@
 %% and then run scripts/auxiliar/makelsr.py
 %%
 %% This file is in the public domain.
-\version "2.14.0"
+\version "2.17.30"
 
 \header {
   lsrtags = "editorial-annotations"
-
-%% Translation of GIT committish: 615cbf212fdaf0b220b3330da417d0c3602494f2
-  texidoces = "
-Se pueden trazar líneas verticales normales entre pentagramas para
-mostrar la relación entre notas; sin embargo, en caso de música
-monofónica, podemos hacer invisible el segundo pentagrama, y que
-las líneas sean más cortas, como en este fragmento de código.
-
-"
-  doctitlees = "Líneas de rejilla: destacar ritmos y la relación temporal entre notas"
 
   texidoc = "
 Regular vertical lines can be drawn between staves to show note
@@ -28,6 +18,7 @@ this snippet.
 "
   doctitle = "Grid lines: emphasizing rhythms and notes synchronization"
 } % begin verbatim
+
 
 \score {
   \new ChoirStaff {
@@ -40,19 +31,19 @@ this snippet.
       \new Staff {
         % hides staff and notes so that only the grid lines are visible
         \hideNotes
-        \override Staff.BarLine #'transparent = ##t
-        \override Staff.StaffSymbol #'line-count = #0
-        \override Staff.TimeSignature #'transparent = ##t
-        \override Staff.Clef #'transparent = ##t
+        \hide Staff.BarLine
+        \override Staff.StaffSymbol.line-count = #0
+        \hide Staff.TimeSignature
+        \hide Staff.Clef
 
         % dummy notes to force regular note spacing
-        \once  \override Score.GridLine #'thickness = #4.0
+        \once  \override Score.GridLine.thickness = #4.0
         c8 c c
-        \once  \override Score.GridLine #'thickness = #3.0
+        \once  \override Score.GridLine.thickness = #3.0
         c8 c c
-        \once  \override Score.GridLine #'thickness = #4.0
+        \once  \override Score.GridLine.thickness = #4.0
         c8 c c
-        \once  \override Score.GridLine #'thickness = #3.0
+        \once  \override Score.GridLine.thickness = #3.0
         c8 c c
       }
     >>
@@ -62,18 +53,17 @@ this snippet.
       \Score
       \consists "Grid_line_span_engraver"
       % center grid lines horizontally below note heads
-      \override NoteColumn #'X-offset = #-0.5
+      \override NoteColumn.X-offset = #-0.5
     }
     \context {
       \Staff
       \consists "Grid_point_engraver"
-      gridInterval = #(ly:make-moment 1 8)
+      gridInterval = #(ly:make-moment 1/8)
       % set line length and positioning:
       % two staff spaces above center line on hidden staff
       % to four spaces below center line on visible staff
-      \override GridPoint #'Y-extent = #'(2 . -4)
+      \override GridPoint.Y-extent = #'(2 . -4)
     }
     ragged-right = ##t
   }
 }
-

@@ -4,7 +4,7 @@
 %% and then run scripts/auxiliar/makelsr.py
 %%
 %% This file is in the public domain.
-\version "2.14.0"
+\version "2.17.6"
 
 \header {
   lsrtags = "rhythms, tweaks-and-overrides"
@@ -26,22 +26,23 @@ the appropriate duration).
   doctitle = "Rhythmic slashes"
 } % begin verbatim
 
+
 % Macro to print single slash
 rs = {
-  \once \override Rest #'stencil = #ly:percent-repeat-item-interface::beat-slash
-  \once \override Rest #'thickness = #0.48
-  \once \override Rest #'slope = #1.7
+  \once \override Rest.stencil = #ly:percent-repeat-item-interface::beat-slash
+  \once \override Rest.thickness = #0.48
+  \once \override Rest.slope = #1.7
   r4
 }
 
 % Function to print a specified number of slashes
 comp = #(define-music-function (parser location count) (integer?)
   #{
-    \override Rest #'stencil = #ly:percent-repeat-item-interface::beat-slash
-    \override Rest #'thickness = #0.48
-    \override Rest #'slope = #1.7
+    \override Rest.stencil = #ly:percent-repeat-item-interface::beat-slash
+    \override Rest.thickness = #0.48
+    \override Rest.slope = #1.7
     \repeat unfold $count { r4 }
-    \revert Rest #'stencil
+    \revert Rest.stencil
   #}
 )
 
@@ -52,4 +53,3 @@ comp = #(define-music-function (parser location count) (integer?)
     \comp #4 |
   }
 }
-

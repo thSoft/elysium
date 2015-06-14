@@ -4,10 +4,10 @@
 %% and then run scripts/auxiliar/makelsr.py
 %%
 %% This file is in the public domain.
-\version "2.14.0"
+\version "2.16.0"
 
 \header {
-  lsrtags = "repeats, text"
+  lsrtags = "repeats, symbols-and-glyphs, text"
 
   texidoc = "
 Though volte are best specified using @code{\\repeat volta}, the
@@ -24,6 +24,7 @@ separate list elements:
 "
   doctitle = "Volta text markup using repeatCommands"
 } % begin verbatim
+
 
 voltaAdLib = \markup { 1. 2. 3... \text \italic { ad lib. } }
 

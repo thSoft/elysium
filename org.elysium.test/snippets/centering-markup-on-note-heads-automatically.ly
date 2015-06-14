@@ -4,8 +4,8 @@
 % and then run scripts/auxiliar/makelsr.py
 %
 % This file is in the public domain.
-%% Note: this file works from version 2.14.0
-\version "2.14.0"
+%% Note: this file works from version 2.17.6
+\version "2.17.6"
 
 \header {
   lsrtags = "text, tweaks-and-overrides, contexts-and-engravers"
@@ -25,43 +25,37 @@ been shifted via @code{force-hshift}.
 #(define (Text_align_engraver ctx)
   (let ((scripts '())
         (note-column #f))
-
-    `((acknowledgers
-       (note-column-interface
-        . ,(lambda (trans grob source)
-             ;; cache NoteColumn in this Voice context
-             (set! note-column grob)))
-
-       (text-script-interface
-        . ,(lambda (trans grob source)
-             ;; whenever a TextScript is acknowledged,
-             ;; add it to `scripts' list
-             (set! scripts (cons grob scripts)))))
-
-      (stop-translation-timestep
-       . ,(lambda (trans)
-            ;; if any TextScript grobs exist,
-            ;; set NoteColumn as X-parent
-            (and (pair? scripts)
-                 (for-each (lambda (script)
-                             (set! (ly:grob-parent script X) note-column))
-                           scripts))
-            ;; clear scripts ready for next timestep
-            (set! scripts '()))))))
+    (make-engraver
+     (acknowledgers
+      ((note-column-interface trans grob source)
+       ;; cache NoteColumn in this Voice context
+       (set! note-column grob))
+      ((text-script-interface trans grob source)
+       ;; whenever a TextScript is acknowledged,
+       ;; add it to `scripts' list
+       (set! scripts (cons grob scripts))))
+     ((stop-translation-timestep trans)
+      ;; if any TextScript grobs exist,
+      ;; set NoteColumn as X-parent
+      (for-each (lambda (script)
+		  (set! (ly:grob-parent script X) note-column))
+		scripts)
+      ;; clear scripts ready for next timestep
+      (set! scripts '())))))
 
 \layout {
   \context {
     \Voice
     \consists #Text_align_engraver
-    \override TextScript #'X-offset =
+    \override TextScript.X-offset =
       #ly:self-alignment-interface::aligned-on-x-parent
-    \override TextScript #'self-alignment-X = #CENTER
+    \override TextScript.self-alignment-X = #CENTER
   }
 }
 
 \new Staff <<
   \relative c'' {
-    \override NoteColumn #'force-hshift = #3
+    \override NoteColumn.force-hshift = #3
     c1-\markup { \arrow-head #Y #DOWN ##t }
   }
   \\

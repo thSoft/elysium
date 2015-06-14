@@ -4,18 +4,10 @@
 %% and then run scripts/auxiliar/makelsr.py
 %%
 %% This file is in the public domain.
-\version "2.14.0"
+\version "2.16.0"
 
 \header {
-  lsrtags = "editorial-annotations, text"
-
-%% Translation of GIT committish: 615cbf212fdaf0b220b3330da417d0c3602494f2
-  texidoces = "
-Se puede insertar códico PostScript directamente dentro de un
-bloque @code{\\markup}.
-
-"
-  doctitlees = "Empotrar PostScript nativo dentro de un bloque \\markup"
+  lsrtags = "editorial-annotations, really-cool, specific-notation, text"
 
   texidoc = "
 PostScript code can be directly inserted inside a @code{\\markup}
@@ -24,6 +16,7 @@ block.
 "
   doctitle = "Embedding native PostScript in a \\markup block"
 } % begin verbatim
+
 
 % PostScript is a registered trademark of Adobe Systems Inc.
 
@@ -35,4 +28,3 @@ block.
   s2
   a'1
 }
-

@@ -4,51 +4,10 @@
 %% and then run scripts/auxiliar/makelsr.py
 %%
 %% This file is in the public domain.
-\version "2.14.0"
+\version "2.17.6"
 
 \header {
   lsrtags = "expressive-marks, tweaks-and-overrides"
-
-%% Translation of GIT committish: 615cbf212fdaf0b220b3330da417d0c3602494f2
-  texidoces = "
-Se puede modificar el texto empleado para los crescendos y
-decrescendos modificando las propiedades de contexto
-@code{crescendoText} y @code{decrescendoText}.
-
-El estilo de la línea de extensión se puede cambiar modificando la
-propiedad @code{'style} de @code{DynamicTextSpanner}.  El valor
-predeterminado es @code{'dashed-line} (línea discontinua), y entre
-otros valores posibles se encuentran @code{'line} (línea),
-@code{'dotted-line} (línea de puntos) y @code{'none} (nada):
-
-"
-  doctitlees = "Cambiar el texto y los estilos de objeto de extensión para las indicaciones dinámicas textuales"
-
-
-%% Translation of GIT committish: 0a868be38a775ecb1ef935b079000cebbc64de40
-texidocde = "
-Der Text, der für Crescendo und Decrescendo gesetzt wird, kann geändert
-werden, indem man die Eigenschaften @code{crescendoText} und
-@code{decrescendoText} verändert.  Der Stil des Streckers kann auch
-geändert werden, indem die @code{'style}-Eigenschaft des
-@code{DynamicTextSpanner} beeinflusst wird.  Der Standardwert ist
-@code{'hairpin}, andere Möglichkeiten sind @code{'line}, @code{'dashed-line}
-und @code{'dotted-line}.
-"
-  doctitlede = "Text und Strecker-Stile für Dynamik-Texte ändern"
-
-%% Translation of GIT committish: 4ab2514496ac3d88a9f3121a76f890c97cedcf4e
-  texidocfr = "
-Le texte par défaut des crescendos et decrescendos se change en
-modifiant les propriétés de contexte @code{crescendoText} et
-@code{decrescendoText}. L'aspect de la ligne d'extension est fonction
-de la propriété @code{'style} du @code{DynamicTextSpanner}.  Sa valeur
-par défaut est @code{'hairpin}, mais d'autres valeurs sont disponibles,
-comme @code{'line}, @code{'dashed-line} et @code{'dotted-line}.
-
-"
-  doctitlefr = "Modifidation du texte et de l'extension de nuances textuelles"
-
 
   texidoc = "
 The text used for crescendos and decrescendos can be changed by
@@ -64,10 +23,11 @@ is @code{'dashed-line}, and other possible values include @code{'line},
   doctitle = "Changing text and spanner styles for text dynamics"
 } % begin verbatim
 
+
 \relative c'' {
   \set crescendoText = \markup { \italic { cresc. poco } }
   \set crescendoSpanner = #'text
-  \override DynamicTextSpanner #'style = #'dotted-line
+  \override DynamicTextSpanner.style = #'dotted-line
   a2\< a
   a2 a
   a2 a

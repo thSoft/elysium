@@ -4,20 +4,10 @@
 %% and then run scripts/auxiliar/makelsr.py
 %%
 %% This file is in the public domain.
-\version "2.14.0"
+\version "2.17.6"
 
 \header {
-  lsrtags = "editorial-annotations, tweaks-and-overrides"
-
-%% Translation of GIT committish: 5a898cf43a2a78be6c3a58e4359dccd82196fbe7
-  texidocfr = "
-Lorsqu'il est impossible d'obtenir facilement une allure particulière
-pour les têtes de note en recourant à la technique du @code{\\markup}, un
-code Postscript peut vous tirer d'embarras.  Voici comment générer des
-têtes ressemblant à des parallélogrammes.
-
-"
-  doctitlefr = "Utilisation de Postscript pour générer des têtes de note à l'allure particulière"
+  lsrtags = "editorial-annotations, really-cool, scheme-language, tweaks-and-overrides"
 
   texidoc = "
 When a note head with a special shape cannot easily be generated with
@@ -27,6 +17,7 @@ This example shows how a parallelogram-shaped note head is generated.
 "
   doctitle = "Using PostScript to generate special note head shapes"
 } % begin verbatim
+
 
 parallelogram =
   #(ly:make-stencil (list 'embedded-ps
@@ -43,12 +34,12 @@ parallelogram =
     (cons 0 1.3125)
     (cons -.75 .75))
 
-myNoteHeads = \override NoteHead #'stencil = \parallelogram
-normalNoteHeads = \revert NoteHead #'stencil
+myNoteHeads = \override NoteHead.stencil = \parallelogram
+normalNoteHeads = \revert NoteHead.stencil
 
 \relative c'' {
   \myNoteHeads
   g4 d'
   \normalNoteHeads
-  <f, \tweak #'stencil \parallelogram b e>4 d
+  <f, \tweak stencil \parallelogram b e>4 d
 }

@@ -4,23 +4,10 @@
 %% and then run scripts/auxiliar/makelsr.py
 %%
 %% This file is in the public domain.
-\version "2.14.0"
+\version "2.17.6"
 
 \header {
   lsrtags = "fretted-strings"
-
-%% Translation of GIT committish: 615cbf212fdaf0b220b3330da417d0c3602494f2
-
-  texidoces = "
-
-Los diagramas de posiciones de acordes se pueden orientar de tres
-formas.  De manera predeterminada se alinena la cuerda o traste
-superior en las distintas alineaciones.
-
-
-"
-
-  doctitlees = "Modificar la orientación de los trastes"
 
   texidoc = "
 Fret diagrams can be oriented in three ways.  By default the top string
@@ -29,6 +16,7 @@ or fret in the different orientations will be aligned.
 "
   doctitle = "Changing fret orientations"
 } % begin verbatim
+
 
 \include "predefined-guitar-fretboards.ly"
 
@@ -41,10 +29,10 @@ or fret in the different orientations will be aligned.
   \new FretBoards {
     \chordmode {
       c1
-      \override FretBoard #'(fret-diagram-details orientation) =
+      \override FretBoard.fret-diagram-details.orientation =
         #'landscape
       c1
-      \override FretBoard #'(fret-diagram-details orientation) =
+      \override FretBoard.fret-diagram-details.orientation =
         #'opposing-landscape
       c1
     }
@@ -55,4 +43,3 @@ or fret in the different orientations will be aligned.
     c'
   }
 >>
-

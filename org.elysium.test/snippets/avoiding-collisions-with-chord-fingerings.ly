@@ -4,25 +4,10 @@
 %% and then run scripts/auxiliar/makelsr.py
 %%
 %% This file is in the public domain.
-\version "2.14.0"
+\version "2.17.6"
 
 \header {
-  lsrtags = "rhythms, editorial-annotations, chords, tweaks-and-overrides"
-
-%% Translation of GIT committish: 615cbf212fdaf0b220b3330da417d0c3602494f2
-
-  texidoces = "
-
-Las digitaciones y números de cuerda que se aplican a las notas
-individuales evitan automáticamente las barras y las plicas de las
-figuras, pero esto no es cierto de forma predeterminada para las
-digitaciones y números de cuerda que se aplican sobre notas
-individuales de acordes.  El ejemplo siguiente muestra cómo se puede
-sobreescribir este comportamiento predeterminado.
-
-"
-  doctitlees = "Evitar colisiones con digitaciones de acordes"
-
+  lsrtags = "chords, editorial-annotations, rhythms, tweaks-and-overrides"
 
   texidoc = "
 Fingerings and string numbers applied to individual notes will
@@ -34,6 +19,7 @@ overridden.
 "
   doctitle = "Avoiding collisions with chord fingerings"
 } % begin verbatim
+
 
 \relative c' {
   \set fingeringOrientations = #'(up)
@@ -48,11 +34,10 @@ overridden.
 
   % Corrected to avoid collisions
   r8
-  \override Fingering #'add-stem-support = ##t
+  \override Fingering.add-stem-support = ##t
   <f c'-5>8
-  \override StringNumber #'add-stem-support = ##t
+  \override StringNumber.add-stem-support = ##t
   <f c'\5>8
-  \override StrokeFinger #'add-stem-support = ##t
+  \override StrokeFinger.add-stem-support = ##t
   <f c'-\rightHandFinger #2 >8
 }
-

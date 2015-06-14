@@ -4,17 +4,11 @@
 % and then run scripts/auxiliar/makelsr.py
 %
 % This file is in the public domain.
-%% Note: this file works from version 2.14.0
-\version "2.14.0"
-#(set-global-staff-size 15)
-\paper {
-  ragged-right = ##f
-  line-width = 15\cm
-  indent = 0\cm
-}
+%% Note: this file works from version 2.17.6
+\version "2.17.6"
 
 \header {
-  lsrtags = "headwords"
+  lsrtags = "headword"
   texidoc = ""
   doctitle = "headword"
 } % begin verbatim
@@ -85,7 +79,7 @@ Bass = {
     \context Staff = lower {
       \new Voice {
         \clef bass
-        #(set-accidental-style 'modern-cautionary)
+        \accidentalStyle modern-cautionary
         <<
           \Tenor
           \Bass
@@ -102,7 +96,7 @@ Bass = {
     }
     \context {
       \Voice
-      \override StanzaNumber #'padding = #1.8
+      \override StanzaNumber.padding = #1.8
     }
   }
 }

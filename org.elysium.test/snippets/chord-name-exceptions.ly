@@ -4,28 +4,10 @@
 %% and then run scripts/auxiliar/makelsr.py
 %%
 %% This file is in the public domain.
-\version "2.14.0"
+\version "2.16.0"
 
 \header {
-  lsrtags = "chords"
-
-%% Translation of GIT committish: 615cbf212fdaf0b220b3330da417d0c3602494f2
-  texidoces = "
-Se puede usar la propiedad @code{chordNameExceptions} para
-almacenar una lista de notaciones espaciales para acordes
-específicos.
-
-"
-  doctitlees = "Excepciones para los nombres de acorde"
-
-
-%% Translation of GIT committish: 0a868be38a775ecb1ef935b079000cebbc64de40
-  texidocde = "
-Die Eigenschaft @code{chordNameExceptions} kann benutzt werden, um eine
-Liste an besonderen Notationen für bestimmte Akkorde zu speichern.
-
-"
-  doctitlede = "Akkordsymbolausnahmen"
+  lsrtags = "chords, specific-notation"
 
   texidoc = "
 The property @code{chordNameExceptions} can be used to store a list of
@@ -34,6 +16,7 @@ special notations for specific chords.
 "
   doctitle = "Chord name exceptions"
 } % begin verbatim
+
 
 % modify maj9 and 6(add9)
 % Exception music is chords with markups
@@ -60,4 +43,3 @@ theMusic = \chordmode {
 << \context ChordNames \theMusic
    \context Voice \theMusic
 >>
-

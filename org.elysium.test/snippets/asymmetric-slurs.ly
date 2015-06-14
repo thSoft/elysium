@@ -4,20 +4,10 @@
 %% and then run scripts/auxiliar/makelsr.py
 %%
 %% This file is in the public domain.
-\version "2.14.0"
+\version "2.17.6"
 
 \header {
   lsrtags = "expressive-marks, tweaks-and-overrides"
-
-%% Translation of GIT committish: 615cbf212fdaf0b220b3330da417d0c3602494f2
-  texidoces = "
-Se puede hacer que una ligadura de expresión sea asimétrica para
-adaptarse mejor a un patrón asimétrico de notas.
-
-"
-  doctitlees = "Ligaduras asimétricas"
-
-
 
   texidoc = "
 Slurs can be made asymmetric to match an asymmetric pattern of notes
@@ -27,13 +17,13 @@ better.
   doctitle = "Asymmetric slurs"
 } % begin verbatim
 
+
 slurNotes = { d,8( a' d f a f' d, a) }
 
 \relative c' {
   \stemDown
   \slurUp
   \slurNotes
-  \once \override Slur #'eccentricity = #3.0
+  \once \override Slur.eccentricity = #3.0
   \slurNotes
 }
-

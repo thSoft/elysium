@@ -4,36 +4,10 @@
 %% and then run scripts/auxiliar/makelsr.py
 %%
 %% This file is in the public domain.
-\version "2.14.0"
+\version "2.16.0"
 
 \header {
   lsrtags = "repeats"
-
-%% Translation of GIT committish: 615cbf212fdaf0b220b3330da417d0c3602494f2
-  texidoces = "
-También se pueden imprimir símbolos de porcentaje sueltos.
-
-"
-  doctitlees = "Símbolos de porcentaje sueltos"
-
-
-%% Translation of GIT committish: 0a868be38a775ecb1ef935b079000cebbc64de40
-  texidocde = "
-Isolierte Prozentwiederholungen können auch ausgegeben werden.  Das wird
-erreicht, indem man eine Ganztaktpause notiert und ihre Ausgabeform
-ändert:
-
-"
-  doctitlede = "Isolierte Prozentwiederholungen"
-
-%% Translation of GIT committish: a5bde6d51a5c88e952d95ae36c61a5efc22ba441
-  texidocfr = "
-Des symboles de pourcentage isolés peuvent aussi être obtenus, au
-moyen d'un silence multi-mesures dont on modifie l'aspect :
-
-"
-  doctitlefr = "Répétition en pourcent isolée"
-
 
   texidoc = "
 Isolated percents can also be printed.
@@ -41,6 +15,7 @@ Isolated percents can also be printed.
 "
   doctitle = "Isolated percent repeats"
 } % begin verbatim
+
 
 makePercent =
 #(define-music-function (parser location note) (ly:music?)
@@ -51,4 +26,3 @@ makePercent =
 \relative c'' {
   \makePercent s1
 }
-

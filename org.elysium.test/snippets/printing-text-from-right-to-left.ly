@@ -4,10 +4,10 @@
 %% and then run scripts/auxiliar/makelsr.py
 %%
 %% This file is in the public domain.
-\version "2.14.0"
+\version "2.16.0"
 
 \header {
-  lsrtags = "editorial-annotations, text, world-music"
+  lsrtags = "editorial-annotations, text, workaround, world-music"
 
   texidoc = "
 It is possible to print text from right to left in a markup object, as
@@ -16,6 +16,7 @@ demonstrated here.
 "
   doctitle = "Printing text from right to left"
 } % begin verbatim
+
 
 {
   b1^\markup {
@@ -26,4 +27,3 @@ demonstrated here.
     \line { i n g i r u m i m u s n o c t e }
   }
 }
-

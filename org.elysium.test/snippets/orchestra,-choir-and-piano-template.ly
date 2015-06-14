@@ -4,49 +4,10 @@
 %% and then run scripts/auxiliar/makelsr.py
 %%
 %% This file is in the public domain.
-\version "2.14.0"
+\version "2.16.0"
 
 \header {
-  lsrtags = "pitches, staff-notation, vocal-music, template"
-
-%% Translation of GIT committish: 615cbf212fdaf0b220b3330da417d0c3602494f2
-  texidoces = "
-Esta plantilla muestra el uso de contextos @code{StaffGroup} y
-@code{GrandStaff} anidados para sub-agrupar instrumentos del mismo
-tipo, y una forma de usar @code{\\transpose} de manera que unas
-variables contengan la música para instrumentos transpositores en
-afinación de concierto.
-
-"
-  doctitlees = "Plantilla de orquesta con coro y piano"
-
-%% Translation of GIT committish: 64feeff58e5ce3397de87188a08ac99f7ef8e37b
-
-  texidocde = "
-Diese Vorlage zeigt die Benutzung von geschachtelten
-@code{StaffGroup}- und @code{GrandStaff}-Kontexte, um
-Instrumente in Untergruppen zu unterteilen, und die
-Benutzung von @code{\\transpose} für transponierende
-Instrumente.  Alle Noten werden in C geschrieben.  Noten
-können in C eingegeben werden, oder auch in der Tonart
-des Instrumentes: dann müssen sie zuerst nach C transponiert
-werden, bevor sie einer Variable zugewiesen werden.
-
-"
-  doctitlede = "Orchester Chor und Klavier"
-
-%% Translation of GIT committish: bdfe3dc8175a2d7e9ea0800b5b04cfb68fe58a7a
-  texidocfr = "
-Ce canevas illustre l'utilisation de contextes @code{StaffGroup} pour
-regrouper les instruments selon leur famille, imbriqués dans un
-@code{GrandStaff}, ainsi que le recours à la fonction @code{\\transpose}
-pour les instruments transpositeurs.  Dans tous les identificateurs, la
-musique est stockée en ut.  Les notes peuvent tout aussi bien être
-saisies en ut ou dans la tonalité particulière de l'instrument avant
-d'être transposées puis affectées à une variable.
-
-"
-  doctitlefr = "Orchestre chœur et piano"
+  lsrtags = "pitches, staff-notation, template, vocal-music"
 
   texidoc = "
 This template demonstrates the use of nested @code{StaffGroup} and
@@ -57,6 +18,7 @@ music for transposing instruments at concert pitch.
 "
   doctitle = "Orchestra choir and piano template"
 } % begin verbatim
+
 
 #(set-global-staff-size 17)
 \paper {
@@ -186,4 +148,3 @@ bassMusic = \relative c { \clef "bass_8" \key g \major g,1 b }
   >>
   \layout { }
 }
-

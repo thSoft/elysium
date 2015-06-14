@@ -4,17 +4,10 @@
 %% and then run scripts/auxiliar/makelsr.py
 %%
 %% This file is in the public domain.
-\version "2.14.0"
+\version "2.17.6"
 
 \header {
   lsrtags = "ancient-notation"
-
-%% Translation of GIT committish: 615cbf212fdaf0b220b3330da417d0c3602494f2
-  texidoces = "
-Las indicaciones de compás también se pueden grabar en estilo antiguo.
-
-"
-  doctitlees = "Indicaciones de compás antiguas"
 
   texidoc = "
 Time signatures may also be engraved in an old style.
@@ -25,8 +18,8 @@ Time signatures may also be engraved in an old style.
   doctitle = "Ancient time signatures"
 } % begin verbatim
 
+
 {
-  \override Staff.TimeSignature #'style = #'neomensural
+  \override Staff.TimeSignature.style = #'neomensural
   s1
 }
-

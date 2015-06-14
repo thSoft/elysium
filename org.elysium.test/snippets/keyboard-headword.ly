@@ -4,28 +4,22 @@
 % and then run scripts/auxiliar/makelsr.py
 %
 % This file is in the public domain.
-%% Note: this file works from version 2.14.0
-\version "2.14.0"
-\include "english.ly"
-
-#(set-global-staff-size 15)
-\paper {
-  line-width = 16\cm
-  indent = 0\cm
-}
-
-% NR 2.2 Keyboard instruments
-
+%% Note: this file works from version 2.17.24
+\version "2.17.24"
 
 \header {
-  lsrtags = "headwords"
-  texidoc = ""
-  doctitle = "headword"
-} % begin verbatim
+  lsrtags = "headword"
 
+  texidoc = "
+Keyboard headword
+
+"
+  doctitle = "Keyboard headword"
+} % begin verbatim
 
 % M. Ravel, Sonatine (1905)
 % First movement
+\include "english.ly"
 
 \layout {
   \context {
@@ -38,7 +32,7 @@ fermataLong = \markup {
   \override #'(direction . 1)
   \override #'(baseline-skip . 2) {
     \dir-column {
-      \musicglyph #"scripts.ufermata"
+      \fermata
       \text \italic \center-align long
     }
   }
@@ -92,13 +86,13 @@ fermataLong = \markup {
     >>
     \clef bass
     <ds b! es'>4 ( ^ \markup \bold { Rall. }
-    \override Script #'stencil = #(lambda (grob)
+    \override Script.stencil = #(lambda (grob)
       (grob-interpret-markup grob fermataLong))
     <ds' as'>8 ) \fermata
     \noBeam
     \clef treble
     \slurUp
-    \once \override Hairpin #'to-barline = ##f
+    \once \override Hairpin.to-barline = ##f
     <as fs'>8 ( \pp \>
     |
     <gs b cs'>4. \! ) ^\markup \bold { a Tempo }
@@ -139,19 +133,19 @@ fermataLong = \markup {
         |
         s4. \!
         \slurUp
-        \once \override Script #'direction = #UP
+        \once \override Script.direction = #UP
         <a bs e'>8 ( \accent
         |
         <as! cs' gs'>4. )
-        \once \override Hairpin #'to-barline = ##f
+        \once \override Hairpin.to-barline = ##f
         <a' bs'>8 \ppp \>
         |
         s8 \!
         \stemDown
-        \once \override Script #'direction = #UP
+        \once \override Script.direction = #UP
         \ottava #1
         \voiceOne
-        \once \override PianoStaff.Arpeggio #'padding = #0.8
+        \once \override PianoStaff.Arpeggio.padding = #0.8
         <cs''' as''' cs''''>4. \arpeggio \fermata
         \ottava #0
         \bar "|."
@@ -226,8 +220,8 @@ fermataLong = \markup {
       cs'8
       < ds as >8 ] )
       |
-      \once \override Script #'outside-staff-priority = #100
-      \once \override TextScript #'outside-staff-priority = #500
+      \once \override Script.outside-staff-priority = #100
+      \once \override TextScript.outside-staff-priority = #500
       <cs, gs,>4. \fermata _\markup \italic { ped. }
       <fs, cs>8 (
       |

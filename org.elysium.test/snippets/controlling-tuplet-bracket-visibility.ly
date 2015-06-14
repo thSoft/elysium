@@ -4,40 +4,10 @@
 %% and then run scripts/auxiliar/makelsr.py
 %%
 %% This file is in the public domain.
-\version "2.14.0"
+\version "2.17.11"
 
 \header {
   lsrtags = "rhythms, tweaks-and-overrides"
-
-%% Translation of GIT committish: 615cbf212fdaf0b220b3330da417d0c3602494f2
-
-  texidoces = "
-El comportamiento predeterminado de la visibilidad de los corchetes de
-grupo de valoración especial es imprimir el corchete a no ser que haya
-una barra de la misma longitud que el grupo especial.  Para controlar
-la visibilidad de los corchetes de grupo, establezca la propiedad
-@code{'bracket-visibility} a @code{#t} (imprimir el corchete siempre),
-@code{#f} (no imprimirlo nunca) o @code{#'if-no-beam} (imprimir el
-corchete solamente si no hay barra).
-
-"
-
-  doctitlees = "Controlar la visibilidad de los corchetes de grupo especial"
-
-%% Translation of GIT committish: 190a067275167c6dc9dd0afef683d14d392b7033
-
-  texidocfr = "
-Selon la tradition, les crochets indicateurs de nolet sont toujours
-imprimés sauf dans le cas où ils seraient de la même longuer qu'une
-ligature.  LilyPond permet, au travers de la propriété
-@code{'bracket-visibility}, de contôler précisément leur
-affichage@tie{}: déterminée à @code{#t}, ils seront toujours
-imprimés@tie{}; @code{#f} permet de ne jamais les imprimer, et
-@code{#'if-no-beam} les imprimera en l'absence de ligature.
-
-"
-  doctitlefr = "Contrôle de l'impression des crochets de nolet"
-
 
   texidoc = "
 The default behavior of tuplet-bracket visibility is to print a bracket
@@ -51,22 +21,21 @@ bracket), @code{#f} (never print a bracket) or @code{#'if-no-beam}
   doctitle = "Controlling tuplet bracket visibility"
 } % begin verbatim
 
+
 music = \relative c'' {
-  \times 2/3 { c16[ d e } f8]
-  \times 2/3 { c8 d e }
-  \times 2/3 { c4 d e }
+  \tuplet 3/2 { c16[ d e } f8]
+  \tuplet 3/2 { c8 d e }
+  \tuplet 3/2 { c4 d e }
 }
 
 \new Voice {
   \relative c' {
     << \music s4^"default" >>
-    \override TupletBracket #'bracket-visibility = #'if-no-beam
+    \override TupletBracket.bracket-visibility = #'if-no-beam
     << \music s4^"'if-no-beam" >>
-    \override TupletBracket #'bracket-visibility = ##t
+    \override TupletBracket.bracket-visibility = ##t
     << \music s4^"#t" >>
-    \override TupletBracket #'bracket-visibility = ##f
+    \override TupletBracket.bracket-visibility = ##f
     << \music s4^"#f" >>
   }
 }
-
-

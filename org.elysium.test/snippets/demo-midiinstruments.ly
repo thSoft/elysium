@@ -4,10 +4,10 @@
 %% and then run scripts/auxiliar/makelsr.py
 %%
 %% This file is in the public domain.
-\version "2.15.2"
+\version "2.16.0"
 
 \header {
-  lsrtags = "midi"
+  lsrtags = "midi, real-music, specific-notation"
 
   texidoc = "
 Problem: How to know which @code{midiInstrument} would be best for your
@@ -18,6 +18,7 @@ composition? Solution: A LilyPond demo file.
 "
   doctitle = "Demo MidiInstruments"
 } % begin verbatim
+
 
 \header {
   title = "Demo of all midi sounds"
@@ -176,4 +177,3 @@ melody = {
   >>
   \midi { }
 }
-

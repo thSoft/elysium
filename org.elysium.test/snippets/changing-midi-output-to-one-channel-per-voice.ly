@@ -4,45 +4,10 @@
 %% and then run scripts/auxiliar/makelsr.py
 %%
 %% This file is in the public domain.
-\version "2.14.0"
+\version "2.16.0"
 
 \header {
-  lsrtags = "contexts-and-engravers, midi"
-
-%% Translation of GIT committish: 615cbf212fdaf0b220b3330da417d0c3602494f2
-  texidoces = "
-Al producir una salida MIDI, el comportamiento predeterminado es que
-cada pentagrama representa un canal MIDI, con todas las voces de dicho
-pentagrama mezcladas.  Esto reduce al mínimo el riesgo de que se agote
-el número de canales MIDI disponibles, pues existe un máximo de 16
-canales por cada puerto MIDI, y la mayoría de los dispositivos sólo
-tiene un puerto.
-
-Sin embargo, cuando se traslada el interpretador
-@code{Staff_performer} al contexto @code{Voice}, cada voz de un
-pentagrama puede tener su propio canal MIDI, como se muestra en el
-siguiente ejemplo: a pesar de estar sobre el mismo pentagrama, se
-crean dos canales MIDI, cada uno con un @code{midiInstrument}
-distinto.
-
-"
-  doctitlees = "Modificar la salida MIDI para que tenga un canal por cada voz"
-
-%% Translation of GIT committish: d7cf09411ee80eaf0092af0aa532de64c0c6248e
-  texidocfr = "
-Lorsque LilyPond génère un fichier MIDI, chaque portée sera par défaut
-affectée à un canal, quel que soit le nombre de voix qu'elle contient.
-Ceci permet d'éviter de se retrouver à court de canaux, sachant qu'il
-n'y en a que seize de disponibles.
-
-Le fait de déplacer le @code{Staff_performer} dans le contexte
-@code{Voice} permet d'affecter à chaque voix d'une même portée un canal
-MIDI spécifique.  Dans l'exemple suivant, la même portée donnera lieu à
-deux canaux MIDI différents, chacun étant affecté de son propre
-@code{midiInstrument}.
-
-"
-  doctitlefr = "Affectation d'un canal MIDI par voix"
+  lsrtags = "contexts-and-engravers, midi, real-music"
 
   texidoc = "
 When outputting MIDI, the default behavior is for each staff to
@@ -60,6 +25,7 @@ two MIDI channels are created, each with a different
 "
   doctitle = "Changing MIDI output to one channel per voice"
 } % begin verbatim
+
 
 \score {
   \new Staff <<
@@ -92,10 +58,6 @@ two MIDI channels are created, each with a different
       \Voice
       \consists "Staff_performer"
     }
-    \context {
-      \Score
-      tempoWholesPerMinute = #(ly:make-moment 72 2)
-    }
+    \tempo 2 = 72
   }
 }
-

@@ -4,19 +4,10 @@
 %% and then run scripts/auxiliar/makelsr.py
 %%
 %% This file is in the public domain.
-\version "2.14.0"
+\version "2.17.6"
 
 \header {
-  lsrtags = "editorial-annotations, tweaks-and-overrides"
-
-%% Translation of GIT committish: 615cbf212fdaf0b220b3330da417d0c3602494f2
-  texidoces = "
-De forma predeterminada se añaden corchetes de análisis sencillos
-debajo del pentagrama.  El ejemplo siguiente muestra una manera de
-colocarlos por encima.
-
-"
-  doctitlees = "Corchetes de análisis encima del pentagrama"
+  lsrtags = "editorial-annotations, really-simple, tweaks-and-overrides"
 
   texidoc = "
 Simple horizontal analysis brackets are added below the staff by
@@ -27,6 +18,7 @@ staff instead.
   doctitle = "Analysis brackets above the staff"
 } % begin verbatim
 
+
 \layout {
   \context {
     \Voice
@@ -34,8 +26,7 @@ staff instead.
   }
 }
 \relative c'' {
-  \once \override HorizontalBracket #'direction = #UP
+  \once \override HorizontalBracket.direction = #UP
   c2\startGroup
   d2\stopGroup
 }
-
