@@ -19,6 +19,7 @@
   <extension point="org.eclipse.core.runtime.preferences">
     <initializer class="org.elysium.ui.compiler.preferences.CompilerPreferenceInitializer"/>
     <initializer class="org.elysium.ui.compiler.updater.preferences.SyntaxUpdaterPreferenceInitializer"/>
+    <initializer class="org.elysium.ui.wizard.LilyPondNewProjectFilePreferenceInitializer"/>
   </extension>
   <extension point="org.eclipse.ui.preferencePages">
     <page class="org.elysium.ui.preferences.EmptyPreferencePage" id="org.elysium.ui.preferencePages.LilyPond" name="LilyPond">
@@ -28,6 +29,9 @@
       <keywordReference id="org.elysium.ui.keywords.LilyPond"/>
     </page>
     <page category="org.elysium.ui.preferencePages.Compiler" class="org.elysium.ui.compiler.updater.preferences.SyntaxUpdaterPreferencePage" id="org.elysium.ui.preferencePages.SyntaxUpdater" name="Syntax Updater">
+      <keywordReference id="org.elysium.ui.keywords.LilyPond"/>
+    </page>
+    <page category="org.elysium.ui.preferencePages.LilyPond" class="org.elysium.ui.wizard.LilyPondNewProjectFileTemplatePreferencePage" id="org.elysium.ui.preferencePages.NewProjectWizard" name="New Project Template">
       <keywordReference id="org.elysium.ui.keywords.LilyPond"/>
     </page>
   </extension>

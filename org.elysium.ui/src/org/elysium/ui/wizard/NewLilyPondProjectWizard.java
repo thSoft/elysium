@@ -10,6 +10,7 @@ import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IConfigurationElement;
 import org.eclipse.core.runtime.IExecutableExtension;
 import org.eclipse.core.runtime.NullProgressMonitor;
+import org.eclipse.jface.preference.IPreferenceStore;
 import org.eclipse.jface.viewers.IStructuredSelection;
 import org.eclipse.jface.wizard.Wizard;
 import org.eclipse.swt.widgets.Display;
@@ -57,7 +58,12 @@ public class NewLilyPondProjectWizard extends Wizard implements INewWizard, IExe
 	private static final String CURSOR_POSITION_MARKER = "$"; //$NON-NLS-1$
 
 	private static String getTemplate() {
-		return MessageFormat.format(TEMPLATE, LilyPondVersion.get(), CURSOR_POSITION_MARKER);
+		IPreferenceStore preferences = Activator.getInstance().getPreferenceStore();
+		if(preferences.getBoolean(LilyPondNewProjectFilePreferenceInitializer.USE_USER_TEMPLATE)){
+			return preferences.getString(LilyPondNewProjectFilePreferenceInitializer.TEMPLATE);
+		}else{
+			return MessageFormat.format(TEMPLATE, LilyPondVersion.get(), CURSOR_POSITION_MARKER);
+		}
 	}
 
 	@Override
