@@ -1,4 +1,13 @@
-grammar org.elysium.LilyPond hidden(WS, SL_COMMENT, ML_COMMENT)
+/**
+ * there are a few integration tests still failing with the following errors
+ * 
+ * 1) cannot find variable RH because it is not defined as an assignment but rather via
+ *    #(define RH...)
+ * 
+ * 2) cannot find variable slashSeparator; which is defined in titling-init.ly
+ * but that file is neither included explicitly and nor a default import
+ * */
+grammar org.elysium.LilyPond hidden(WS, SL_COMMENT, ML_COMMENT, NL_NOINDENT)
 
 generate lilypond "http://www.elysium.org/LilyPond"
 import "http://www.eclipse.org/emf/2002/Ecore" as ecore
@@ -25,7 +34,7 @@ SpecialCharacter: "!" | "?" | "+" | "<" | ">" | "[" | "]" | "~";
 
 UnparsedBlock: {UnparsedBlock} "{" expressions+=UnparsedExpression* "}";
 
-UnparsedExpression: PropertyAssignment | UnparsedCommand | UnparsedBlock | Scheme | Number | Text;
+UnparsedExpression: BlockCommand | PropertyAssignment | UnparsedCommand | UnparsedBlock | Scheme | Number | Text;
 
 UnparsedCommand: "\\" command=(SchemeIdentifier | SpecialCommandName);
 
@@ -51,7 +60,10 @@ Markup: "\\" keyword="markup" body=MarkupBody; // XXX very messy
 
 MarkupLines: "\\" keyword="markuplines" body=MarkupBody;
 
-MarkupBody: {MarkupBody} command+=(Scheme | SchemeText | UnparsedCommand)* block=UnparsedBlock?; // XXX SchemeText? see tocItemWithDotsMarkup
+//I split up Scheme/SchemeText, using special definitions for the MarkupBody-Command-case
+//so that I can enforce different hidden-Definitions
+//that way I can prevent the eating up of assignments that start on a new line without indentation
+MarkupBody: {MarkupBody} command+=(MarkupCommandScheme | MarkupCommandSchemeText | UnparsedCommand)* block=UnparsedBlock?; // XXX SchemeText? see tocItemWithDotsMarkup
 
 BlockCommand: "\\" keyword=("book" | "bookpart" | "header" | "score") block=SimpleBlock;
 
@@ -85,7 +97,8 @@ SpecialCommandName: "include" | "version" | "sourcefilename" | "sourcefileline" 
 
 // Scheme
 
-Scheme hidden(WS, SL_COMMENT, ML_COMMENT, SCHEME_SL_COMMENT, SCHEME_ML_COMMENT): ("#" | "$") value=SchemeExpression;
+Scheme hidden(WS, SL_COMMENT, ML_COMMENT, SCHEME_SL_COMMENT, SCHEME_ML_COMMENT, NL_NOINDENT): ("#" | "$") value=SchemeExpression;
+MarkupCommandScheme returns Scheme hidden(WS, SL_COMMENT, ML_COMMENT, SCHEME_SL_COMMENT, SCHEME_ML_COMMENT): ("#" | "$") value=SchemeExpression;
 
 SchemeExpression: quotations+=("'" | "`" | "," | "@")* reference?="$"? value=SchemeValue;
 
@@ -99,9 +112,11 @@ SchemeList: {SchemeList} vector?="#"? "(" expressions+=SchemeExpression* ")";
 
 SchemeBlock: "#{" elements+=Expression+ "#}";
 
-SchemeCharacter: "#\\" value=(ID | SpecialCharacter | ANY_OTHER);
+//added "-" to List, there were tests failing because of that
+SchemeCharacter: "#\\" value=(ID | SpecialCharacter | '-' | ANY_OTHER);
 
 SchemeText: value=SchemeTextValue;
+MarkupCommandSchemeText returns SchemeText hidden(WS, SL_COMMENT, ML_COMMENT): value=SchemeTextValue;
 
 SchemeTextValue: SchemeTextValueSegment (":" ":"? SchemeTextValueSegment)*;
 
@@ -121,11 +136,17 @@ SchemeMarkupCommand: "#:" command=SchemeIdentifier;
 
 // Terminals
 
-terminal STRING: '"' ("\\" ("a".."z" | "A".."Z" | '"' | "'" | "\\") | !("\\" | '"'))* '"';
+//why was the STRING definition so restrictive wrt. escaping?
+//if it's essential, semantic validation is a better alternative
+//terminal STRING: '"' ("\\" ("a".."z" | "A".."Z" | '"' | "'" | "\\") | !("\\" | '"'))* '"';
+terminal STRING: '"' ("\\" . | !("\\" | '"'))* '"';
 
 terminal INT returns ecore::EInt: ("0".."9")+;
 
 terminal ID: ("a".."z" | "A".."Z" | "¡".."ￜ")+;
+
+//for distinguishing new line with no indentation -> heuristic is we are not in a markup anymore
+terminal NL_NOINDENT: (("\r" | "\n")*(" " | "\t" ))* ("\r" | "\n")+;
 
 terminal WS: (" " | "\t" | "\r" | "\n")+;
 
