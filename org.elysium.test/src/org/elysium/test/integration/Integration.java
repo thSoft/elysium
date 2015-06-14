@@ -25,6 +25,7 @@ import org.junit.runners.Parameterized;
 import org.junit.runners.Parameterized.Parameters;
 
 import com.google.common.base.Predicate;
+import com.google.common.collect.Iterables;
 
 @RunWith(value = Parameterized.class)
 public class Integration extends LilyPondTestWithValidator {
@@ -54,7 +55,7 @@ public class Integration extends LilyPondTestWithValidator {
 		"snippets"
 	};
 
-	@Parameters
+	@Parameters(name = "{0}")
 	public static Collection<Object[]> data() {
 		Collection<Object[]> result = newArrayList();
 		for (String directoryName : DIRECTORY_NAMES) {
@@ -93,7 +94,7 @@ public class Integration extends LilyPondTestWithValidator {
 				}
 			}
 		}
-		assertFalse(filePath, hasErrors);
+		assertFalse(MessageFormat.format("{0} parse error(s)", Iterables.size(errors)), hasErrors);
 	}
 
 }
