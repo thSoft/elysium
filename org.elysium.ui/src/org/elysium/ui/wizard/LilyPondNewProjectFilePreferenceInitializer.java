@@ -6,8 +6,8 @@ import org.elysium.ui.Activator;
 
 public class LilyPondNewProjectFilePreferenceInitializer extends AbstractPreferenceInitializer {
 
-	static String USE_USER_TEMPLATE="newLilyPondProjectFileUseUserTemplat";
-	static String TEMPLATE="newLilyPondProjectFileUserTemplate";
+	static final String USE_USER_TEMPLATE="newLilyPondProjectFileUseUserTemplate";
+	static final String TEMPLATE="newLilyPondProjectFileUserTemplate";
 	
 	@Override
 	public void initializeDefaultPreferences() {

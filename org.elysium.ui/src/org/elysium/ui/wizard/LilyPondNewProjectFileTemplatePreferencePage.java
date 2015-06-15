@@ -8,7 +8,7 @@ public class LilyPondNewProjectFileTemplatePreferencePage extends AbstractLilyPo
 
 	@Override
 	protected void createFieldEditors() {
-		addField(new BooleanFieldEditor(LilyPondNewProjectFilePreferenceInitializer.USE_USER_TEMPLATE, "use custom template", getFieldEditorParent()));
-		addField(new MultilineStringFieldEditor(LilyPondNewProjectFilePreferenceInitializer.TEMPLATE, "custom template", getFieldEditorParent()));
+		addField(new BooleanFieldEditor(LilyPondNewProjectFilePreferenceInitializer.USE_USER_TEMPLATE, "Use custom template", getFieldEditorParent()));
+		addField(new MultilineStringFieldEditor(LilyPondNewProjectFilePreferenceInitializer.TEMPLATE, "Custom template:", getFieldEditorParent()));
 	}
 }
