@@ -49,13 +49,11 @@ public class LilyPondHyperlinkHelper extends HyperlinkHelper {
 
 	@Override
 	public IHyperlink[] createHyperlinksByOffset(XtextResource xtextResource, int offset, boolean createMultipleHyperlinks) {
+		List<IHyperlink> hyperlinks = new ArrayList<IHyperlink>();
 		// Get default hyperlinks
 		IHyperlink[] defaultHyperlinks = super.createHyperlinksByOffset(xtextResource, offset, createMultipleHyperlinks);
-		List<IHyperlink> hyperlinks;
-		if (defaultHyperlinks == null) {
-			hyperlinks = new ArrayList<IHyperlink>();
-		} else {
-			hyperlinks = Arrays.asList(defaultHyperlinks);
+		if (defaultHyperlinks != null) {
+			hyperlinks.addAll(Arrays.asList(defaultHyperlinks));
 		}
 		// Add hyperlinks
 		ILeafNode node = NodeModelUtils.findLeafNodeAtOffset(xtextResource.getParseResult().getRootNode(), offset);
