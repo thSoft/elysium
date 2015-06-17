@@ -16,7 +16,9 @@ public class CompilerPreferencePage extends AbstractLilyPondPreferencePage {
 		addField(new BooleanFieldEditor(CompilerPreferenceConstants.POINT_AND_CLICK.name(), "Point and click", getFieldEditorParent()));
 		addField(new BooleanFieldEditor(CompilerPreferenceConstants.VERBOSE.name(), "Verbose output", getFieldEditorParent()));
 		addField(new PathEditor(CompilerPreferenceConstants.SEARCH_PATHS.name(), "Search folders", "Browse for a search folder", getFieldEditorParent()));
-		addField(new IntegerFieldEditor(CompilerPreferenceConstants.PARALLEL_COMPILES.name(), "Parallel LilyPond calls", getFieldEditorParent(),2));
+		IntegerFieldEditor parallelCompilesEditor = new IntegerFieldEditor(CompilerPreferenceConstants.PARALLEL_COMPILES.name(), "Parallel LilyPond calls", getFieldEditorParent());
+		parallelCompilesEditor.setValidRange(1, 50);
+		addField(parallelCompilesEditor);
 		addField(new MultilineStringFieldEditor(CompilerPreferenceConstants.COMMAND_LINE.name(), "Additional command line options\n(separated by newline)", getFieldEditorParent()));
 	}
 
