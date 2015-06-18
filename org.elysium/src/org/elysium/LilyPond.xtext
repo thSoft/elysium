@@ -91,7 +91,7 @@ StringIndication: "\\" string=INT;
 
 Other: "\\" keyword=(SpecialCharacter | "(" | ")" | OtherName);
 
-OtherName: "accepts" | "addlyrics" | "alias" | "alternative" | "change" | "chords" | "consists" | "default" | "defaultchild" | "denies" | "description" | "drums" | "figures" | "grobdescriptions" | "key" | "lyrics" | "maininput" | "mark" | "name" | "objectid" | "octave" | "once" | "override" | "partial" | "remove" | "repeat" | "rest" | "revert" | "sequential" | "set" | "simultaneous" | "skip" | "tempo" | "time" | "times" | "type" | "unset" | "with";
+OtherName: "accepts" | "addlyrics" | "alias" | "alternative" | "change" | "chords" | "consists" | "default" | "defaultchild" | "denies" | "description" | "drums" | "figures" | "lyrics" | "maininput" | "name" | "objectid" | "octave" | "override" | "remove" | "repeat" | "rest" | "revert" | "sequential" | "set" | "simultaneous" | "tempo" | "type" | "unset" | "with";
 
 SpecialCommandName: "include" | "version" | "sourcefilename" | "sourcefileline" | "markup" | "markuplines" | "book" | "bookpart" | "context" | "header" | "score" | "paper" | "midi" | "layout" | "relative" | "transpose" | "chordmode" | "drummode" | "figuremode" | "lyricmode" | "notemode" | "lyricsto" | "new" | "with" | OtherName; // XXX this must duplicate all known commands 
 
