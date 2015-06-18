@@ -6,5 +6,6 @@ public enum CompilerPreferenceConstants {
 	POINT_AND_CLICK,
 	VERBOSE,
 	COMMAND_LINE,
-	SEARCH_PATHS
+	SEARCH_PATHS,
+	PARALLEL_COMPILES;
 }

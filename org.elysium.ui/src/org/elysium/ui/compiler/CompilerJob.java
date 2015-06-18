@@ -98,11 +98,7 @@ public class CompilerJob extends Job {
 			console.printMeta(MessageFormat.format("LilyPond terminated in {0} seconds.", executionTimeInSeconds));
 			console.firePropertyChange(this, IConsoleConstants.P_CONSOLE_OUTPUT_COMPLETE, null, true);
 
-			try {
-				file.getProject().refreshLocal(IResource.DEPTH_INFINITE, new NullProgressMonitor());
-			} catch (CoreException e) {
-				Activator.logError("Couldn't refresh project, please refresh manually", e);
-			}
+			scheduleProjectRefresh();
 			monitor.done();
 		} catch(OperationCanceledException e){
 			console.printMeta("Workspace build stopped by user");
@@ -113,6 +109,22 @@ public class CompilerJob extends Job {
 		}
 		console.setMonitor(null);
 		return returnStatus;
+	}
+
+	private void scheduleProjectRefresh(){
+		Job refreshJob = new Job("refresh project") {
+			@Override
+			protected IStatus run(IProgressMonitor monitor) {
+				try {
+					file.getProject().refreshLocal(IResource.DEPTH_INFINITE, monitor);
+				} catch (CoreException e) {
+					Activator.logError("Couldn't refresh project, please refresh manually", e);
+				}
+				return Status.OK_STATUS;
+			}
+		};
+		refreshJob.setRule(null);
+		refreshJob.schedule();
 	}
 
 	private void checkCancelled(IProgressMonitor monitor){
