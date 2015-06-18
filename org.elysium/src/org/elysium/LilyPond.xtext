@@ -18,7 +18,7 @@ Expression: Assignment | CommonExpression;
 
 CommonExpression: Command | Block | Scheme | Number | Text;
 
-Assignment: name=(ID | STRING) "=" value=Expression;
+Assignment: name=(ID | STRING | OtherName| SpecialCommandName) "=" value=Expression;
 
 PropertyAssignment: id=SchemeIdentifier "=" value=Expression;
 
