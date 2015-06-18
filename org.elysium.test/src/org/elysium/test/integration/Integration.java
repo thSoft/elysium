@@ -11,9 +11,11 @@ import java.io.File;
 import java.io.IOException;
 import java.net.URI;
 import java.text.MessageFormat;
-import java.util.ArrayList;
 import java.util.Collection;
+import java.util.HashSet;
+import java.util.LinkedHashSet;
 import java.util.List;
+import java.util.Set;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -33,14 +35,17 @@ import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
 import org.junit.runners.Parameterized.Parameters;
 
+import com.google.common.base.Optional;
 import com.google.common.base.Predicate;
 import com.google.common.collect.Iterables;
+import com.google.common.collect.Sets;
 import com.google.common.io.Files;
 
 @RunWith(value = Parameterized.class)
 public class Integration extends LilyPondTestWithValidator {
 
-	private static final Pattern pattern=Pattern.compile("[\\r\\n]+(\\w+)\\s=");
+	private static final Pattern ASSIGNMENT_RECOGNITION_PATTERN=Pattern.compile("[\\r\\n]+(\\w+)\\s=");
+	private static final int NEW_LINE_LENGTH=Optional.fromNullable(System.getProperty("os.name")).or("unix").contains("Wind")?2:1;
 
 	private Iterable<Object> getErrors(String filePath) throws Exception {
 		String model = readFileAsString(filePath);
@@ -87,27 +92,27 @@ public class Integration extends LilyPondTestWithValidator {
 	private static int getColumn(String[] lines, int line, int offset) {
 		int lineOffset = 0;
 		for (int i = 0; i < min(lines.length, line); i++) {
-			lineOffset += lines[i].length() + 1;
+			lineOffset += lines[i].length() + NEW_LINE_LENGTH;
 		}
 		return offset - lineOffset;
 	}
 
-	private List<String> getAssigmnetsFromModelString() throws IOException{
-		ArrayList<String> result = new ArrayList<String>();
-		Matcher matcher = pattern.matcher(readFileAsString(filePath));
+	private Set<String> getExpectedAssignments() throws IOException{
+		Set<String> expectedAssignments = new LinkedHashSet<String>();
+		Matcher matcher = ASSIGNMENT_RECOGNITION_PATTERN.matcher(readFileAsString(filePath));
 		while(matcher.find()){
-			result.add(matcher.group(1));
+			expectedAssignments.add(matcher.group(1));
 		}
-		return result;
+		return expectedAssignments;
 	}
 
-	private List<String> getAssignmentsFromModel(){
-		ArrayList<String> result = new ArrayList<String>();
+	private Set<String> getActualAssignments(){
+		Set<String> actualAssignments = new HashSet<String>();
 		List<Assignment> assignemts = EcoreUtil2.getAllContentsOfType(lilyPondmodel, Assignment.class);
 		for (Assignment assignment : assignemts) {
-			result.add(assignment.getName());
+			actualAssignments.add(assignment.getName());
 		}
-		return result;
+		return actualAssignments;
 	}
 
 	private void copyCurrentFileToFailingTestsFolder() throws Exception{
@@ -141,8 +146,7 @@ public class Integration extends LilyPondTestWithValidator {
 	}
 
 	private void assertExpectedAssignmentsFoundInModel() throws Exception{
-		List<String> missingAssignments = getAssigmnetsFromModelString();
-		missingAssignments.removeAll(getAssignmentsFromModel());
+		Set<String> missingAssignments = Sets.difference(getExpectedAssignments(), getActualAssignments());
 		if(!missingAssignments.isEmpty()){
 			System.out.println(MessageFormat.format("Expected assignments not found in {0}: {1}", new File(filePath).getName(), missingAssignments));
 			copyCurrentFileToFailingTestsFolder();
