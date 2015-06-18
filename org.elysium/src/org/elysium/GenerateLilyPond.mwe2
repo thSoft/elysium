@@ -23,8 +23,13 @@ Workflow {
 		directory = "${runtimeProject}.ui/src-gen"
 	}
 
+	component = DirectoryCleaner {
+		directory = "${runtimeProject}.test/src-gen"
+	}
+
 	component = Generator {
 		pathRtProject = runtimeProject
+		pathTestProject ="${runtimeProject}.test"
 		pathUiProject = "${runtimeProject}.ui"
 		projectNameRt = projectName
 		projectNameUi = "${projectName}.ui"
@@ -85,6 +90,8 @@ Workflow {
 			fragment = compare.CompareFragment {
 				fileExtensions = file.extensions
 			}
+
+			fragment= junit.Junit4Fragment {}
 		}
 	}
 
