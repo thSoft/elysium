@@ -34,7 +34,7 @@ SpecialCharacter: "!" | "?" | "+" | "<" | ">" | "[" | "]" | "~";
 
 UnparsedBlock: {UnparsedBlock} "{" expressions+=UnparsedExpression* "}";
 
-UnparsedExpression: BlockCommand | PropertyAssignment | UnparsedCommand | UnparsedBlock | Scheme | Number | Text;
+UnparsedExpression: BlockCommand | Include | PropertyAssignment | UnparsedCommand | UnparsedBlock | Scheme | Number | Text;
 
 UnparsedCommand: "\\" command=(SchemeIdentifier | SpecialCommandName);
 
