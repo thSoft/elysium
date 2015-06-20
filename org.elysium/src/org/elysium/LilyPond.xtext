@@ -4,8 +4,8 @@
  * 1) cannot find variable RH because it is not defined as an assignment but rather via
  *    #(define RH...)
  * 
- * 2) cannot find variable slashSeparator; which is defined in titling-init.ly
- * but that file is neither included explicitly and nor a default import
+ * 2) unprocessed scheme module import #(use-modules (scm accreg))
+ *    causes \discant (and others?) not to be resolved
  * */
 grammar org.elysium.LilyPond hidden(WS, SL_COMMENT, ML_COMMENT, NL_NOINDENT)
 
@@ -91,7 +91,7 @@ StringIndication: "\\" string=INT;
 
 Other: "\\" keyword=(SpecialCharacter | "(" | ")" | OtherName);
 
-OtherName: "accepts" | "addlyrics" | "alias" | "alternative" | "change" | "chords" | "consists" | "default" | "defaultchild" | "denies" | "description" | "drums" | "figures" | "grobdescriptions" | "key" | "lyrics" | "maininput" | "mark" | "name" | "objectid" | "octave" | "once" | "override" | "partial" | "remove" | "repeat" | "rest" | "revert" | "sequential" | "set" | "simultaneous" | "skip" | "tempo" | "time" | "times" | "type" | "unset" | "with";
+OtherName: "accepts" | "addlyrics" | "alias" | "alternative" | "change" | "chords" | "consists" | "default" | "defaultchild" | "denies" | "description" | "drums" | "figures" | "lyrics" | "maininput" | "name" | "objectid" | "octave" | "override" | "remove" | "repeat" | "rest" | "revert" | "sequential" | "set" | "simultaneous" | "tempo" | "type" | "unset" | "with";
 
 SpecialCommandName: "include" | "version" | "sourcefilename" | "sourcefileline" | "markup" | "markuplines" | "book" | "bookpart" | "context" | "header" | "score" | "paper" | "midi" | "layout" | "relative" | "transpose" | "chordmode" | "drummode" | "figuremode" | "lyricmode" | "notemode" | "lyricsto" | "new" | "with" | OtherName; // XXX this must duplicate all known commands 
 

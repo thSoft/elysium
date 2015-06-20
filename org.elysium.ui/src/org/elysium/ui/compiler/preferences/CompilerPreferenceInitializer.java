@@ -26,6 +26,8 @@ public class CompilerPreferenceInitializer extends AbstractPreferenceInitializer
 		preferenceStore.setDefault(CompilerPreferenceConstants.VERBOSE.name(), false);
 
 		preferenceStore.setDefault(CompilerPreferenceConstants.SEARCH_PATHS.name(), ""); //$NON-NLS-1$
+
+		preferenceStore.setDefault(CompilerPreferenceConstants.PARALLEL_COMPILES.name(), 5);
 	}
 
 }

@@ -2,14 +2,18 @@ package org.elysium.ui.compiler;
 
 import static org.elysium.ui.compiler.CompilerJob.removeOutdatedMarker;
 import static org.elysium.ui.markers.MarkerTypes.UP_TO_DATE;
+
 import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Set;
+import java.util.concurrent.atomic.AtomicLong;
+
 import org.eclipse.core.resources.IFile;
 import org.eclipse.core.resources.IProject;
 import org.eclipse.core.resources.IResource;
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IProgressMonitor;
+import org.eclipse.core.runtime.jobs.ISchedulingRule;
 import org.eclipse.core.runtime.jobs.Job;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EObject;
@@ -21,11 +25,15 @@ import org.eclipse.xtext.builder.IXtextBuilderParticipant;
 import org.eclipse.xtext.resource.IResourceDescription.Delta;
 import org.elysium.LilyPondConstants;
 import org.elysium.lilypond.Include;
+import org.elysium.ui.Activator;
+import org.elysium.ui.compiler.preferences.CompilerPreferenceConstants;
 
 /**
  * Performs automatic incremental build on LilyPond source files.
  */
 public class LilyPondBuilder implements IXtextBuilderParticipant {
+
+	private static final AtomicLong jobCount=new AtomicLong(0);
 
 	@Override
 	public void build(final IBuildContext context, IProgressMonitor monitor) throws CoreException {
@@ -53,6 +61,7 @@ public class LilyPondBuilder implements IXtextBuilderParticipant {
 	}
 
 	public static void compile(Set<IFile> files) {
+		int maxParallelCalls = Activator.getInstance().getPreferenceStore().getInt(CompilerPreferenceConstants.PARALLEL_COMPILES.name());
 		addAllIncludingFiles(files);
 		for (IFile file : files) {
 			CompilerJob compilerJob = new CompilerJob(file);
@@ -60,6 +69,9 @@ public class LilyPondBuilder implements IXtextBuilderParticipant {
 			for (Job oldCompilerJob : oldCompilerJobs) {
 				oldCompilerJob.cancel();
 			}
+			long ruleIndex=jobCount.incrementAndGet()%maxParallelCalls;
+			ISchedulingRule parallelExecutionRule=new NumberedQueueSchedulingRule(ruleIndex);
+			compilerJob.setRule(parallelExecutionRule);
 			compilerJob.schedule();
 		}
 	}
@@ -136,5 +148,4 @@ public class LilyPondBuilder implements IXtextBuilderParticipant {
 		}
 		return result;
 	}
-
 }
