@@ -98,11 +98,13 @@ SpecialCommandName: "include" | "version" | "sourcefilename" | "sourcefileline" 
 // Scheme
 
 Scheme hidden(WS, SL_COMMENT, ML_COMMENT, SCHEME_SL_COMMENT, SCHEME_ML_COMMENT, NL_NOINDENT): ("#" | "$") value=SchemeExpression;
-MarkupCommandScheme returns Scheme hidden(WS, SL_COMMENT, ML_COMMENT, SCHEME_SL_COMMENT, SCHEME_ML_COMMENT): ("#" | "$") value=SchemeExpression;
+MarkupCommandScheme returns Scheme hidden(WS, SL_COMMENT, ML_COMMENT, SCHEME_SL_COMMENT, SCHEME_ML_COMMENT): ("#" | "$") value=MarkupSchemeExpression;
 
 SchemeExpression: quotations+=("'" | "`" | "," | "@")* reference?="$"? value=SchemeValue;
+MarkupSchemeExpression returns SchemeExpression: quotations+=("'" | "`" | "," | "@")* reference?="$"? value=MarkupSchemeValue;
 
 SchemeValue: SchemeBoolean | SchemeList | SchemeBlock | SchemeCharacter | SchemeNumber | SchemeText | SchemeMarkupCommand;
+MarkupSchemeValue returns SchemeValue: SchemeBoolean | SchemeList | SchemeBlock | SchemeCharacter /*| SchemeNumber*/ | SchemeText | SchemeMarkupCommand;
 
 SchemeBoolean: value=SchemeBooleanValue;
 
