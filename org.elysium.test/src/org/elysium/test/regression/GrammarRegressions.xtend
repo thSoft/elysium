@@ -42,7 +42,7 @@ class GrammarRegressions {
 
 	@Test
 	//regression test for #79
-	def void recognizeIncludeIndPaper() throws Exception {
+	def void recognizeIncludeInPaper() throws Exception {
 		val model='''
 			\paper {
 			  \include "bla.ly"
