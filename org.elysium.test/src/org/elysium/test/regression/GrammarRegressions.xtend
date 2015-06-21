@@ -84,4 +84,13 @@ class GrammarRegressions {
 		Assert.assertTrue(expectedMusicAssignment instanceof Assignment)
 		Assert.assertEquals("music", (expectedMusicAssignment as Assignment).name)
 	}
+
+	@Test
+	def void quoteatEndOfInSchemListOK() throws Exception {
+		val model='''
+			cnine=\markup\keys #'(c e  g bes d')
+		'''.parse
+
+		model.assertNoErrors
+	}
 }
