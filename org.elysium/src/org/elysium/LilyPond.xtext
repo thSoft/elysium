@@ -18,9 +18,7 @@ Expression: Assignment | CommonExpression;
 
 CommonExpression: Command | Block | Scheme | Number | Text;
 
-Assignment: name=(ID | STRING | SpecialCommandName) "=" value=Expression;
-
-PropertyAssignment: id=SchemeIdentifier "=" value=Expression;
+Assignment: name=(SchemeIdentifier | STRING) "=" value=Expression;
 
 Block: SimpleBlock | SimultaneousBlock;
 
@@ -34,11 +32,11 @@ SpecialCharacter: "!" | "?" | "+" | "<" | ">" | "[" | "]" | "~";
 
 UnparsedBlock: {UnparsedBlock} "{" expressions+=UnparsedExpression* "}";
 
-UnparsedExpression: BlockCommand | Include | PropertyAssignment | UnparsedCommand | UnparsedBlock | Scheme | Number | Text;
+UnparsedExpression: BlockCommand | Include | Assignment | UnparsedCommand | UnparsedBlock | Scheme | Number | Text;
 
 UnparsedCommand: "\\" command=(SchemeIdentifier | SpecialCommandName);
 
-Reference: "\\" assignment=[Assignment];
+Reference: "\\" assignment=[Assignment|SchemeIdentifier];
 
 Text: value=(SchemeTextValueSegment | "(" | ")" | "'" | "," | ":");
 
