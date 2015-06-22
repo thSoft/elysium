@@ -68,4 +68,29 @@ class GrammarRegressions {
 		val blaAssignment=(model.expressions.get(0) as Assignment)
 		Assert.assertTrue(blaAssignment.value.class.simpleName, blaAssignment.value instanceof Reference)
 	}
+
+	@Test
+	//adapted from problematic snippet vertically-aligned-dynamics-and-textscripts
+	def void recognizeAssignmentAfterSchemeNumberValue() throws Exception {
+		val model='''
+			\markup \vspace #1 %avoid LSR-bug
+
+			music = "music"
+		'''.parse
+
+		model.assertNoErrors
+
+		val expectedMusicAssignment=model.expressions.last
+		Assert.assertTrue(expectedMusicAssignment instanceof Assignment)
+		Assert.assertEquals("music", (expectedMusicAssignment as Assignment).name)
+	}
+
+	@Test
+	def void quoteAtEndOfSchemeListOK() throws Exception {
+		val model='''
+			cnine=\markup\keys #'(c e  g bes d')
+		'''.parse
+
+		model.assertNoErrors
+	}
 }

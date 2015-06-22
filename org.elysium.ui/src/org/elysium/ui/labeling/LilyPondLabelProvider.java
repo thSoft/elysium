@@ -1,6 +1,7 @@
 package org.elysium.ui.labeling;
 
 import java.text.MessageFormat;
+
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.xtext.ui.label.DefaultEObjectLabelProvider;
@@ -8,7 +9,6 @@ import org.elysium.LilyPondConstants;
 import org.elysium.lilypond.Assignment;
 import org.elysium.lilypond.NewContext;
 import org.elysium.lilypond.Other;
-import org.elysium.lilypond.PropertyAssignment;
 import org.elysium.lilypond.Reference;
 import org.elysium.lilypond.Scheme;
 import org.elysium.lilypond.SchemeExpression;
@@ -53,9 +53,9 @@ public class LilyPondLabelProvider extends DefaultEObjectLabelProvider {
 		return assignment.getName();
 	}
 
-	public String text(PropertyAssignment propertyAssignment) {
-		return propertyAssignment.getId();
-	}
+//	public String text(PropertyAssignment propertyAssignment) {
+//		return propertyAssignment.getId();
+//	}
 
 	public String text(SpecialCommand specialCommand) {
 		return LilyPondConstants.BACKSLASH + specialCommand.getKeyword();

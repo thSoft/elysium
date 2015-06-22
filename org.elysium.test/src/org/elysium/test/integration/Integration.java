@@ -70,6 +70,7 @@ public class Integration extends LilyPondTestWithValidator {
 	}
 
 	private static final String[] DIRECTORY_NAMES = {
+		"failingIntegrationTests",
 		"init",
 		"snippets"
 	};
@@ -116,8 +117,11 @@ public class Integration extends LilyPondTestWithValidator {
 	}
 
 	private void copyCurrentFileToFailingTestsFolder() throws Exception{
-		File currentFile = new File(filePath);
-		Files.copy(currentFile, new File("failingIntegrationTests", currentFile.getName()));
+		File currentFile = new File(filePath).getAbsoluteFile();
+		File target=new File("failingIntegrationTests");
+		if(!target.equals(currentFile.getParentFile())){
+			Files.copy(currentFile, new File(target, currentFile.getName()));
+		}
 	}
 
 	@Test
