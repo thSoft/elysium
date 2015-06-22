@@ -18,8 +18,7 @@ import org.elysium.lilypond.LilyPond;
 public class LilyPondResourceDescriptionStrategy extends DefaultResourceDescriptionStrategy {
 
 	@Override
-	//only root assignmnets are visible to the outside
-	//TODO: please confirm that index is not needed for click and point; for me it worked without the user data!
+	//only root assignments are visible to the outside
 	public boolean createEObjectDescriptions(EObject eObject, IAcceptor<IEObjectDescription> acceptor) {
 		if (getQualifiedNameProvider() == null) {
 			return false;
@@ -38,7 +37,8 @@ public class LilyPondResourceDescriptionStrategy extends DefaultResourceDescript
 		}
 	}
 
-	//this could be more sophisticated; e.g. consider only semantic changes
+	//TODO: more sophisticated recompile indicator
+	//using click and point positions; see pull request #84 
 	private String getRecompileIndicatorHash(LilyPond eObject) {
 		return ""+NodeModelUtils.findActualNodeFor(eObject).getText().hashCode();
 	}

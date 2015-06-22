@@ -86,7 +86,7 @@ class GrammarRegressions {
 	}
 
 	@Test
-	def void quoteatEndOfInSchemListOK() throws Exception {
+	def void quoteAtEndOfSchemeListOK() throws Exception {
 		val model='''
 			cnine=\markup\keys #'(c e  g bes d')
 		'''.parse

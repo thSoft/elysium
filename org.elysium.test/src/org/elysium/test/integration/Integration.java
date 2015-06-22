@@ -70,7 +70,7 @@ public class Integration extends LilyPondTestWithValidator {
 	}
 
 	private static final String[] DIRECTORY_NAMES = {
-//		"failingIntegrationTests"
+		"failingIntegrationTests",
 		"init",
 		"snippets"
 	};
