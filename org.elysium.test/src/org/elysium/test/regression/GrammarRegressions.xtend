@@ -25,6 +25,25 @@ class GrammarRegressions {
 	extension ValidationTestHelper validator
 
 	@Test
+	def void schemeAliasDefine() throws Exception {
+		val model='''
+			#(define anAlias something)
+			refersTo = \anAlias
+		'''.parse
+
+		model.assertNoErrors
+
+		val define=model.expressions.head
+		Assert.assertTrue(define instanceof Assignment)
+
+		val referencingAssignment=model.expressions.last
+		Assert.assertTrue(referencingAssignment instanceof Assignment)
+		val ref=(referencingAssignment as Assignment).value
+		Assert.assertTrue(ref.toString,ref instanceof Reference)
+		Assert.assertEquals("anAlias", (ref as Reference).assignment.name)
+	}
+
+	@Test
 	//regression test for #58
 	def void recognizeTrill() throws Exception {
 		val model='''
