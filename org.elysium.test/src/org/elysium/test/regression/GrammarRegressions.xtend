@@ -2,11 +2,15 @@ package org.elysium.test.regression
 
 import java.io.File
 import javax.inject.Inject
+import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl
+import org.eclipse.xtext.diagnostics.Severity
 import org.eclipse.xtext.junit4.InjectWith
 import org.eclipse.xtext.junit4.XtextRunner
 import org.eclipse.xtext.junit4.util.ParseHelper
-import org.eclipse.xtext.junit4.validation.ValidationTestHelper
+import org.eclipse.xtext.resource.XtextResource
+import org.eclipse.xtext.util.CancelIndicator
 import org.eclipse.xtext.util.Files
+import org.eclipse.xtext.validation.CheckMode
 import org.elysium.LilyPondInjectorProvider
 import org.elysium.lilypond.Assignment
 import org.elysium.lilypond.Include
@@ -17,78 +21,73 @@ import org.junit.Assert
 import org.junit.Test
 import org.junit.runner.RunWith
 
-import java.util.concurrent.atomic.AtomicBoolean
-
 @RunWith(XtextRunner)
 @InjectWith(LilyPondInjectorProvider)
 class GrammarRegressions {
 
 	@Inject
-	extension ParseHelper<LilyPond> parsehelper
-	@Inject
-	extension ValidationTestHelper validator
+	extension ParseHelper<LilyPond> parseHelper
 
 	def private LilyPond parseWithoutErrors(CharSequence modelString){
-		val result=modelString.parse
-		result.assertNoErrors
-		return result
+		val resourceSet = new ResourceSetImpl
+		val result = modelString.parse(resourceSet)
+		val resource = resourceSet.resources.get(0) as XtextResource
+		val resourceValidator = resource.resourceServiceProvider.resourceValidator
+		val issues = resourceValidator.validate(resource, CheckMode.ALL, CancelIndicator.NullImpl)
+		val errors = issues.filter[severity == Severity.ERROR]
+		if (!errors.empty) {
+			Assert.fail('''Expected no errors, but got : «errors»''')
+		}
+		result
 	} 
 
 	@Test
-	def void assignmentAfterSchemeList() throws Exception {
+	def void assignmentAfterSchemeList() {
 		//simplified from 
 		//using-make-connected-path-stencil-to-draw-custom-shapes.ly
 		//flamenco-notation.ly
 		val problemCases=#["#()","#ff"]
-		val bar="bar"
+		val barName="bar"
 		problemCases.forEach[problem|
 			val model='''
 				foo = \markup «problem»
 
-				«bar» = "x"
-			'''.parse
-	
-			model.assertNoErrors
+				«barName» = "x"
+			'''.parseWithoutErrors
 	
 			val foo=model.expressions.head
 			Assert.assertTrue(problem, foo instanceof Assignment)
 	
-			val barModel=model.expressions.last
-			Assert.assertTrue(problem, barModel instanceof Assignment)
-			Assert.assertEquals(problem, bar, (barModel as Assignment).name)
+			val bar=model.expressions.last
+			Assert.assertTrue(problem, bar instanceof Assignment)
+			Assert.assertEquals(problem, barName, (bar as Assignment).name)
 		]
 	}
 
 	@Test
-	def void assignmentInExpression() throws Exception {
-		//from displaying-the-version-number-with-conditionals-if-then-using-scheme
+	def void assignmentInExpression() {
+		//from displaying-the-version-number-with-conditionals-if-then-using-scheme.ly
 		val pieceTagLine="pieceTagLine"
 		val model='''
 			#(if (not (defined? 'pieceTagLine))
 			  (define «pieceTagLine» (string-append "You are running version " (lilypond-version))))
-		'''.parse
-
-		val AtomicBoolean pieceTagLineFound=new AtomicBoolean(false)
-		model.assertNoErrors
-		model.eAllContents.forEach[
-			if(it instanceof Assignment){
-				if((it as Assignment).name==pieceTagLine){
-					pieceTagLineFound.set(true)
-				}
+		'''.parseWithoutErrors
+		val pieceTagLineFound = model.eAllContents.forall[
+			switch it {
+				Assignment: it.name==pieceTagLine
+				default: false
 			}
 		]
-		Assert.assertTrue(pieceTagLineFound.get)
+		Assert.assertTrue(pieceTagLineFound)
 	}
 
 	@Test
-	def void schemeAliasDefine() throws Exception {
+	def void schemeAliasDefine() {
 		val alias = "anAlias"
 		val model='''
 			#(define «alias» something)
 			refersTo = \«alias»
-		'''.parse
-
-		model.assertNoErrors
+		'''.parseWithoutErrors
 
 		val define=model.expressions.head
 		Assert.assertTrue(define instanceof Assignment)
@@ -102,7 +101,7 @@ class GrammarRegressions {
 
 	@Test
 	//regression test for #58
-	def void recognizeTrill() throws Exception {
+	def void recognizeTrill() {
 		val trill="trill"
 		val model='''
 			thumb = \finger \markup \scale #(cons (magstep 5) (magstep 5))
@@ -117,7 +116,7 @@ class GrammarRegressions {
 
 	@Test
 	//regression test for #79
-	def void recognizeIncludeInPaper() throws Exception {
+	def void recognizeIncludeInPaper() {
 		val model='''
 			\paper {
 			  \include "bla.ly"
@@ -131,7 +130,7 @@ class GrammarRegressions {
 	}
 
 	@Test
-	def void recognizeMusicCommand() throws Exception {
+	def void recognizeMusicCommand() {
 		val model='''
 			bla=\grobdescriptions
 		'''.parseWithoutErrors
@@ -142,7 +141,7 @@ class GrammarRegressions {
 
 	@Test
 	//adapted from problematic snippet vertically-aligned-dynamics-and-textscripts
-	def void recognizeAssignmentAfterSchemeNumberValue() throws Exception {
+	def void recognizeAssignmentAfterSchemeNumberValue() {
 		val music="music"
 		val model='''
 			\markup \vspace #1 %avoid LSR-bug
@@ -156,97 +155,97 @@ class GrammarRegressions {
 	}
 
 	@Test
-	def void quoteAtEndOfSchemeListOK() throws Exception {
+	def void quoteAtEndOfSchemeListOK() {
 		'''	cnine=\markup\keys #'(c e  g bes d')'''.parseWithoutErrors
 	}
 
-	static final String REFERENCE = ''' \árvíztűrőTükörfúrógép''';
+	static val REFERENCE = ''' \árvíztűrőTükörfúrógép'''
 
-	static final String ASSIGNMENT = '''árvíztűrőTükörfúrógép = #1''';
+	static val ASSIGNMENT = '''árvíztűrőTükörfúrógép = #1'''
 
-	static final String HEADER = '''\header { title = "a" }''';
+	static val HEADER = '''\header { title = "a" }'''
 
-	static final String SCORE = '''\score { c }''';
+	static val SCORE = '''\score { c }'''
 
-	static final String BOOK_PART_ELEMENTS = HEADER + SCORE;
+	static val BOOK_PART_ELEMENTS = HEADER + SCORE
 
 	@Test
-	def void string() throws Exception {
+	def void string() {
 		'''i = "\"\x"'''.parseWithoutErrors
 	}
 
 	@Test
-	def void include() throws Exception {
+	def void include() {
 		'''\include "gregorian.ly"'''.parseWithoutErrors
 	}
 
 	@Test
-	def void version() throws Exception {
+	def void version() {
 		'''\version "2.12.0"'''.parseWithoutErrors
 	}
 
 	@Test
-	def void sourceFileName() throws Exception {
+	def void sourceFileName() {
 		'''\sourcefilename "foo.ly"'''.parseWithoutErrors
 	}
 
 	@Test
-	def void sourceFileLine() throws Exception {
+	def void sourceFileLine() {
 		'''\sourcefileline 42'''.parseWithoutErrors
 	}
 
 	@Test
-	def void singleLineComment() throws Exception {
+	def void singleLineComment() {
 		'''% comment'''.parseWithoutErrors
 	}
 
 	@Test
-	def void commentAfterSchemeLiteral() throws Exception {
+	def void commentAfterSchemeLiteral() {
 		'''#'a%'''.parseWithoutErrors
 	}
 
 	@Test
-	def void multiLineComment() throws Exception {
+	def void multiLineComment() {
 		'''%{ comment }%'''.parseWithoutErrors
 	}
 
 	@Test
-	def void paper() throws Exception {
+	def void paper() {
 		'''\paper { ragged-last-bottom = ##t }'''.parseWithoutErrors
 	}
 
 	@Test
-	def void midi() throws Exception {
+	def void midi() {
 		'''\midi {}'''.parseWithoutErrors
 	}
 
 	@Test
-	def void layout() throws Exception {
+	def void layout() {
 		'''\layout { ragged-right = ##t }'''.parseWithoutErrors
 	}
 
 	@Test
-	def void layoutVariable() throws Exception {
+	def void layoutVariable() {
 		'''\layout { indent = 0\cm }'''.parseWithoutErrors
 	}
 
 	@Test
-	def void scheme() throws Exception {
+	def void scheme() {
 		'''#(set-default-paper-size "a4")'''.parseWithoutErrors
 	}
 
 	@Test
-	def void schemeQuotations() throws Exception {
+	def void schemeQuotations() {
 		'''#`(a ,(+ 1 2) ,@(map abs '(4 -5 6)) b)'''.parseWithoutErrors
 	}
 
 	@Test
-	def void schemeQuestionMark() throws Exception {
+	def void schemeQuestionMark() {
 		'''#(eq? 1 2)'''.parseWithoutErrors
 	}
 
 	@Test
-	def void schemeSingleLineComment() throws Exception {
+	def void schemeSingleLineComment() {
 		'''
 			#(begin ; comment 
 			)
@@ -254,112 +253,112 @@ class GrammarRegressions {
 	}
 
 	@Test
-	def void schemeMultiLineComment() throws Exception {
+	def void schemeMultiLineComment() {
 		'''#(begin #! comment !# )'''.parseWithoutErrors
 	}
 
 	@Test
-	def void schemeDoubleColon() throws Exception {
+	def void schemeDoubleColon() {
 		'''#ly:key-signature-interface::print'''.parseWithoutErrors
 	}
 
 	@Test
-	def void schemeHyphen() throws Exception {
+	def void schemeHyphen() {
 		'''#(define (ac:abs->mom m) (ly:moment-mul m ac:currentTempo))'''.parseWithoutErrors
 	}
 
 	@Test
-	def void schemeChord() throws Exception {
+	def void schemeChord() {
 		'''#(chord-shape 'f:7 guitar-tuning)'''.parseWithoutErrors
 	}
 
 	@Test
-	def void schemeHexa() throws Exception {
+	def void schemeHexa() {
 		'''##xf'''.parseWithoutErrors
 	}
 
 	@Test
-	def void schemeMarkup() throws Exception {
+	def void schemeMarkup() {
 		'''#(markup #:bold "a")'''.parseWithoutErrors
 	}
 
 	@Test
-	def void schemeBlock() throws Exception {
+	def void schemeBlock() {
 		'''##{ c #}'''.parseWithoutErrors
 	}
 
 	@Test
-	def void schemeReference() throws Exception {
+	def void schemeReference() {
 		'''#(define $i 1)'''.parseWithoutErrors
 	}
 
 	@Test
-	def void schemeReferenceInBlock() throws Exception {
+	def void schemeReferenceInBlock() {
 		'''«ASSIGNMENT» ##{ $i #}'''.parseWithoutErrors
 	}
 
 	@Test
-	def void schemeReferenceListInBlock() throws Exception {
+	def void schemeReferenceListInBlock() {
 		'''##{ #$(list 1) #}'''.parseWithoutErrors
 	}
 
 	@Test
-	def void schemeBareReferenceListInBlock() throws Exception {
+	def void schemeBareReferenceListInBlock() {
 		'''##{ $(list 1) #}'''.parseWithoutErrors
 	}
 	
 	@Test
-	def void schemeQuotedReference() throws Exception {
+	def void schemeQuotedReference() {
 		'''#'at'''.parseWithoutErrors
 	}
 
 	@Test
-	def void header() throws Exception {
+	def void header() {
 		BOOK_PART_ELEMENTS.parseWithoutErrors
 	}
 
 	@Test
-	def void score() throws Exception {
+	def void score() {
 		SCORE.parseWithoutErrors
 	}
 
 	@Test
-	def void book() throws Exception {
+	def void book() {
 		'''\book { \bookpart {} «BOOK_PART_ELEMENTS» }'''.parseWithoutErrors
 	}
 
 	@Test
-	def void bookPart() throws Exception {
+	def void bookPart() {
 		'''\bookpart { «BOOK_PART_ELEMENTS» }'''.parseWithoutErrors
 	}
 
 	@Test
-	def void sequentialMusic() throws Exception {
+	def void sequentialMusic() {
 		'''{ c' }'''.parseWithoutErrors
 	}
 
 	@Test
-	def void markup() throws Exception {
+	def void markup() {
 		'''\markup { árvíztűrő tükörfúrógép }'''.parseWithoutErrors
 	}
 
 	@Test
-	def void markupCommandWithHyphen() throws Exception {
+	def void markupCommandWithHyphen() {
 		'''\markup \fill-line { \on-the-fly #not-first-page \fromproperty #'header:instrument }'''.parseWithoutErrors
 	}
 	
 	@Test
-	def void markupCommandWithDot() throws Exception {
+	def void markupCommandWithDot() {
 		'''\markup \fill-with-pattern #1 #RIGHT . \fromproperty #'toc:text \fromproperty #'toc:page'''.parseWithoutErrors
 	}
 
 	@Test
-	def void assignment() throws Exception {
+	def void assignment() {
 		(ASSIGNMENT + REFERENCE).parseWithoutErrors;
 	}
 
 	@Test
-	def void assignmentIncluded() throws Exception {
+	def void assignmentIncluded() {
 		val filename = "foo.ly";
 		Files.writeStringIntoFile(filename, ASSIGNMENT);
 		'''
@@ -370,49 +369,49 @@ class GrammarRegressions {
 	}
 
 	@Test
-	def void hyphenAfterCommand() throws Exception {
+	def void hyphenAfterCommand() {
 		//TODO is f the command for f-1? 
 		'''{ c-\f-1 }'''.parseWithoutErrors
 	}
 
 	@Test
-	def void relativeMusic() throws Exception {
+	def void relativeMusic() {
 		'''\relative c' { c }'''.parseWithoutErrors
 	}
 
 	@Test
-	def void transposedMusic() throws Exception {
+	def void transposedMusic() {
 		'''\transpose c d { c }'''.parseWithoutErrors
 	}
 
 	@Test
-	def void newContext() throws Exception {
+	def void newContext() {
 		'''\new Staff { c }'''.parseWithoutErrors
 	}
 
 	@Test
-	def void newContextWithId() throws Exception {
+	def void newContextWithId() {
 		'''\context Staff = "a" { c }'''.parseWithoutErrors
 	}
 
 	@Test
-	def void contextDef() throws Exception {
+	def void contextDef() {
 		'''\context { \Staff }'''.parseWithoutErrors
 	}
 
 	@Test
-	def void lyricSemicolon() throws Exception {
+	def void lyricSemicolon() {
 		//TODO this will cause problems with an adapted single-semicolon scheme single line comment definition
 		'''i = \lyricmode { a; }'''.parseWithoutErrors
 	}
 
 	@Test
-	def void stringIndication() throws Exception {
+	def void stringIndication() {
 		'''{ <c\\1> }'''.parseWithoutErrors
 	}
 
 	@Test
-	def void clef() throws Exception {
+	def void clef() {
 		'''{ \clef treble }'''.parseWithoutErrors
 	}
 }
