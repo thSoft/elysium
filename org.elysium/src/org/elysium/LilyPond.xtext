@@ -14,11 +14,12 @@ import "http://www.eclipse.org/emf/2002/Ecore" as ecore
 
 LilyPond: {LilyPond} expressions+=Expression*;
 
-Expression: Assignment | CommonExpression;
+Expression: Assignment | SimpleSchemeAssignment | CommonExpression;
 
 CommonExpression: Command | Block | Scheme | Number | Text;
 
 Assignment: name=(SchemeIdentifier | STRING) "=" value=Expression;
+SimpleSchemeAssignment returns Assignment: "#" "(" "define" name=ID value=Text ")";
 
 Block: SimpleBlock | SimultaneousBlock;
 
@@ -44,7 +45,7 @@ Number: value=INT;
 
 // Commands
 
-SpecialCommand: Include | Version | SourceFileName | SourceFileLine | Markup | MarkupLines | BlockCommand | OutputDefinition | RelativeMusic | TransposedMusic | ModeChange | MusicWithLyrics | NewContext | ContextDef | Other;
+SpecialCommand: Include | Version | SourceFileName | SourceFileLine | Markup | MarkupLines | MarkupList | BlockCommand | OutputDefinition | RelativeMusic | TransposedMusic | ModeChange | MusicWithLyrics | NewContext | ContextDef | Other;
 
 Include: "\\" keyword="include" importURI=STRING;
 
@@ -57,6 +58,8 @@ SourceFileLine: "\\" keyword="sourcefileline" line=INT;
 Markup: "\\" keyword="markup" body=MarkupBody; // XXX very messy 
 
 MarkupLines: "\\" keyword="markuplines" body=MarkupBody;
+
+MarkupList: "\\" keyword=("markuplist") body=MarkupBody;
 
 //I split up Scheme/SchemeText, using special definitions for the MarkupBody-Command-case
 //so that I can enforce different hidden-Definitions
@@ -91,7 +94,7 @@ Other: "\\" keyword=(SpecialCharacter | "(" | ")" | OtherName);
 
 OtherName: "accepts" | "addlyrics" | "alias" | "alternative" | "change" | "chords" | "consists" | "default" | "defaultchild" | "denies" | "description" | "drums" | "figures" | "lyrics" | "maininput" | "name" | "objectid" | "octave" | "override" | "remove" | "repeat" | "rest" | "revert" | "sequential" | "set" | "simultaneous" | "tempo" | "type" | "unset" | "with";
 
-SpecialCommandName: "include" | "version" | "sourcefilename" | "sourcefileline" | "markup" | "markuplines" | "book" | "bookpart" | "context" | "header" | "score" | "paper" | "midi" | "layout" | "relative" | "transpose" | "chordmode" | "drummode" | "figuremode" | "lyricmode" | "notemode" | "lyricsto" | "new" | "with" | OtherName; // XXX this must duplicate all known commands 
+SpecialCommandName: "define" | "include" | "version" | "sourcefilename" | "sourcefileline" | "markup" | "markuplines" | "markuplist" | "book" | "bookpart" | "context" | "header" | "score" | "paper" | "midi" | "layout" | "relative" | "transpose" | "chordmode" | "drummode" | "figuremode" | "lyricmode" | "notemode" | "lyricsto" | "new" | "with" | OtherName; // XXX this must duplicate all known commands 
 
 // Scheme
 
