@@ -4,16 +4,17 @@ import javax.inject.Inject
 import org.eclipse.xtext.junit4.InjectWith
 import org.eclipse.xtext.junit4.XtextRunner
 import org.eclipse.xtext.junit4.util.ParseHelper
+import org.eclipse.xtext.junit4.validation.ValidationTestHelper
 import org.elysium.LilyPondInjectorProvider
 import org.elysium.lilypond.Assignment
 import org.elysium.lilypond.Include
 import org.elysium.lilypond.LilyPond
 import org.elysium.lilypond.OutputDefinition
+import org.elysium.lilypond.Reference
 import org.junit.Assert
 import org.junit.Test
 import org.junit.runner.RunWith
-import org.eclipse.xtext.junit4.validation.ValidationTestHelper
-import org.elysium.lilypond.Reference
+import java.util.concurrent.atomic.AtomicBoolean
 
 @RunWith(XtextRunner)
 @InjectWith(LilyPondInjectorProvider)
@@ -23,6 +24,50 @@ class GrammarRegressions {
 	extension ParseHelper<LilyPond> parsehelper
 	@Inject
 	extension ValidationTestHelper validator
+
+	@Test
+	def void assignmentAfterSchemeList() throws Exception {
+		//simplified from 
+		//using-make-connected-path-stencil-to-draw-custom-shapes.ly
+		//flamenco-notation.ly
+		val problemCases=#["#()","#ff"]
+		problemCases.forEach[problem|
+			val model='''
+				foo = \markup «problem»
+
+				bar = "x"
+			'''.parse
+	
+			model.assertNoErrors
+	
+			val foo=model.expressions.head
+			Assert.assertTrue(problem, foo instanceof Assignment)
+	
+			val bar=model.expressions.last
+			Assert.assertTrue(problem, bar instanceof Assignment)
+			Assert.assertEquals(problem, "bar", (bar as Assignment).name)
+		]
+	}
+
+	@Test
+	def void assignmentInExpression() throws Exception {
+		//from displaying-the-version-number-with-conditionals-if-then-using-scheme
+		val model='''
+			#(if (not (defined? 'pieceTagLine))
+			  (define pieceTagLine (string-append "You are running version " (lilypond-version))))
+		'''.parse
+
+		val AtomicBoolean pieceTagLineFound=new AtomicBoolean(false)
+		model.assertNoErrors
+		model.eAllContents.forEach[
+			if(it instanceof Assignment){
+				if((it as Assignment).name=="pieceTagLine"){
+					pieceTagLineFound.set(true)
+				}
+			}
+		]
+		Assert.assertTrue(pieceTagLineFound.get)
+	}
 
 	@Test
 	def void schemeAliasDefine() throws Exception {
