@@ -133,13 +133,15 @@ public class LilyPondImportUriGlobalScopeProvider extends AbstractGlobalScopePro
 		TreeIterator<EObject> iterator = resource.getAllContents();
 		while (iterator.hasNext()) {
 			EObject object = iterator.next();
-			String importUriString = getImportUriResolver().apply(object);
-			if (importUriString != null) {
-				Resource importedResource = EcoreUtil2.getResource(resource, importUriString);
-				if (importedResource != null) {
-					result.add(importedResource);
-					if (resource != importedResource) {
-						result.addAll(getAllImportedResources(importedResource));
+			if(object instanceof Include){
+				String importUriString = getImportUriResolver().apply(object);
+				if (importUriString != null) {
+					Resource importedResource = EcoreUtil2.getResource(resource, importUriString);
+					if (importedResource != null) {
+						result.add(importedResource);
+						if (resource != importedResource) {
+							result.addAll(getAllImportedResources(importedResource));
+						}
 					}
 				}
 			}

@@ -5,7 +5,6 @@ import static com.google.common.collect.Iterables.filter;
 import static com.google.common.collect.Lists.newArrayList;
 import static java.lang.Math.min;
 import static javax.util.file.FileUtils.readFileAsString;
-import static org.eclipse.emf.common.util.URI.createURI;
 
 import java.io.File;
 import java.io.IOException;
@@ -97,7 +96,7 @@ public class Integration extends LilyPondTestWithValidator {
 	private LilyPond ast; // XXX can only be parsed after @Before initialized dependency injection
 
 	private LilyPond parseFile() throws Exception {
-		XtextResource resource = doGetResource(getAsStream(fileContents), createURI("test"));
+		XtextResource resource = doGetResource(getAsStream(fileContents), org.eclipse.emf.common.util.URI.createFileURI(filePath));
 		LilyPond lilyPondmodel = (LilyPond)resource.getContents().get(0);
 		return lilyPondmodel;
 	}

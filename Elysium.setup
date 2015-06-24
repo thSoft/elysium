@@ -15,6 +15,11 @@
     label="Elysium">
   <setupTask
       xsi:type="setup:VariableTask"
+      name="eclipse.target.platform"
+      defaultValue="Luna"
+      storageURI="scope://Workspace"/>
+  <setupTask
+      xsi:type="setup:VariableTask"
       type="FILE"
       name="lilypondlocation"
       defaultValue=""
@@ -175,7 +180,7 @@
   <setupTask
       xsi:type="setup:ResourceCreationTask"
       excludedTriggers="BOOTSTRAP"
-      successor="//@setupTasks.7"
+      successor="//@setupTasks.8"
       content="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; standalone=&quot;no&quot;?>&#xD;&#xA;&lt;launchConfiguration type=&quot;org.eclipse.jdt.junit.launchconfig&quot;>&#xD;&#xA;&lt;listAttribute key=&quot;org.eclipse.debug.core.MAPPED_RESOURCE_PATHS&quot;>&#xD;&#xA;&lt;listEntry value=&quot;/org.elysium.test&quot;/>&#xD;&#xA;&lt;/listAttribute>&#xD;&#xA;&lt;listAttribute key=&quot;org.eclipse.debug.core.MAPPED_RESOURCE_TYPES&quot;>&#xD;&#xA;&lt;listEntry value=&quot;4&quot;/>&#xD;&#xA;&lt;/listAttribute>&#xD;&#xA;&lt;stringAttribute key=&quot;org.eclipse.jdt.junit.CONTAINER&quot; value=&quot;=org.elysium.test&quot;/>&#xD;&#xA;&lt;booleanAttribute key=&quot;org.eclipse.jdt.junit.KEEPRUNNING_ATTR&quot; value=&quot;false&quot;/>&#xD;&#xA;&lt;stringAttribute key=&quot;org.eclipse.jdt.junit.TESTNAME&quot; value=&quot;&quot;/>&#xD;&#xA;&lt;stringAttribute key=&quot;org.eclipse.jdt.junit.TEST_KIND&quot; value=&quot;org.eclipse.jdt.junit.loader.junit4&quot;/>&#xD;&#xA;&lt;stringAttribute key=&quot;org.eclipse.jdt.launching.MAIN_TYPE&quot; value=&quot;&quot;/>&#xD;&#xA;&lt;stringAttribute key=&quot;org.eclipse.jdt.launching.PROJECT_ATTR&quot; value=&quot;org.elysium.test&quot;/>&#xD;&#xA;&lt;stringAttribute key=&quot;org.eclipse.jdt.launching.VM_ARGUMENTS&quot; value=&quot;-Dlilypond.path=${lilypondlocation}&quot;/>&#xD;&#xA;&lt;/launchConfiguration>"
       targetURL="${git.clone.elysium.location|uri}/org.elysium.test/.launch/Elysium Tests.launch"
       encoding="UTF-8"/>
