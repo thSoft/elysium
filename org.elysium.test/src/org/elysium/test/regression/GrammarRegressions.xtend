@@ -31,11 +31,12 @@ class GrammarRegressions {
 		//using-make-connected-path-stencil-to-draw-custom-shapes.ly
 		//flamenco-notation.ly
 		val problemCases=#["#()","#ff"]
+		val bar="bar"
 		problemCases.forEach[problem|
 			val model='''
 				foo = \markup «problem»
 
-				bar = "x"
+				«bar» = "x"
 			'''.parse
 	
 			model.assertNoErrors
@@ -43,25 +44,26 @@ class GrammarRegressions {
 			val foo=model.expressions.head
 			Assert.assertTrue(problem, foo instanceof Assignment)
 	
-			val bar=model.expressions.last
-			Assert.assertTrue(problem, bar instanceof Assignment)
-			Assert.assertEquals(problem, "bar", (bar as Assignment).name)
+			val barModel=model.expressions.last
+			Assert.assertTrue(problem, barModel instanceof Assignment)
+			Assert.assertEquals(problem, bar, (barModel as Assignment).name)
 		]
 	}
 
 	@Test
 	def void assignmentInExpression() throws Exception {
 		//from displaying-the-version-number-with-conditionals-if-then-using-scheme
+		val pieceTagLine="pieceTagLine"
 		val model='''
 			#(if (not (defined? 'pieceTagLine))
-			  (define pieceTagLine (string-append "You are running version " (lilypond-version))))
+			  (define «pieceTagLine» (string-append "You are running version " (lilypond-version))))
 		'''.parse
 
 		val AtomicBoolean pieceTagLineFound=new AtomicBoolean(false)
 		model.assertNoErrors
 		model.eAllContents.forEach[
 			if(it instanceof Assignment){
-				if((it as Assignment).name=="pieceTagLine"){
+				if((it as Assignment).name==pieceTagLine){
 					pieceTagLineFound.set(true)
 				}
 			}
@@ -71,9 +73,10 @@ class GrammarRegressions {
 
 	@Test
 	def void schemeAliasDefine() throws Exception {
+		val alias = "anAlias"
 		val model='''
-			#(define anAlias something)
-			refersTo = \anAlias
+			#(define «alias» something)
+			refersTo = \«alias»
 		'''.parse
 
 		model.assertNoErrors
@@ -85,23 +88,24 @@ class GrammarRegressions {
 		Assert.assertTrue(referencingAssignment instanceof Assignment)
 		val ref=(referencingAssignment as Assignment).value
 		Assert.assertTrue(ref.toString,ref instanceof Reference)
-		Assert.assertEquals("anAlias", (ref as Reference).assignment.name)
+		Assert.assertEquals(alias, (ref as Reference).assignment.name)
 	}
 
 	@Test
 	//regression test for #58
 	def void recognizeTrill() throws Exception {
+		val trill="trill"
 		val model='''
 			thumb = \finger \markup \scale #(cons (magstep 5) (magstep 5))
 			                        \musicglyph #"scripts.thumb"
-			trill = #(make-articulation "trill")
+			«trill» = #(make-articulation "trill")
 		'''.parse
 
 		model.assertNoErrors
 
 		val expectedTrillAssignment=model.expressions.last
 		Assert.assertTrue(expectedTrillAssignment instanceof Assignment)
-		Assert.assertEquals("trill", (expectedTrillAssignment as Assignment).name)
+		Assert.assertEquals(trill, (expectedTrillAssignment as Assignment).name)
 	}
 
 	@Test
@@ -136,17 +140,18 @@ class GrammarRegressions {
 	@Test
 	//adapted from problematic snippet vertically-aligned-dynamics-and-textscripts
 	def void recognizeAssignmentAfterSchemeNumberValue() throws Exception {
+		val music="music"
 		val model='''
 			\markup \vspace #1 %avoid LSR-bug
 
-			music = "music"
+			music = "«music»"
 		'''.parse
 
 		model.assertNoErrors
 
 		val expectedMusicAssignment=model.expressions.last
 		Assert.assertTrue(expectedMusicAssignment instanceof Assignment)
-		Assert.assertEquals("music", (expectedMusicAssignment as Assignment).name)
+		Assert.assertEquals(music, (expectedMusicAssignment as Assignment).name)
 	}
 
 	@Test
