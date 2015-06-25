@@ -1,12 +1,3 @@
-/**
- * there are a few integration tests still failing with the following errors
- * 
- * 1) cannot find variable RH because it is not defined as an assignment but rather via
- *    #(define RH...)
- * 
- * 2) unprocessed scheme module import #(use-modules (scm accreg))
- *    causes \discant (and others?) not to be resolved
- * */
 grammar org.elysium.LilyPond hidden(WS, SL_COMMENT, ML_COMMENT, NL_NOINDENT)
 
 generate lilypond "http://www.elysium.org/LilyPond"
