@@ -13,7 +13,6 @@ import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.Resource;
-import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
 import org.eclipse.xtext.EcoreUtil2;
 import org.eclipse.xtext.resource.IEObjectDescription;
 import org.eclipse.xtext.resource.IResourceDescription;
@@ -38,6 +37,9 @@ import com.google.inject.Provider;
  * includes.
  */
 public class LilyPondImportUriGlobalScopeProvider extends AbstractGlobalScopeProvider {
+
+	@Inject
+	LilyPondImportUriHelper importUriCollectionHelper;
 
 	@Inject
 	private ImportUriResolver importUriResolver;
@@ -113,7 +115,7 @@ public class LilyPondImportUriGlobalScopeProvider extends AbstractGlobalScopePro
 				URI initImportUri = URI.createURI(initImportUriString);
 				Resource initResource;
 				try {
-					initResource = new ResourceSetImpl().getResource(initImportUri, true);
+					initResource = importUriCollectionHelper.getResourceSetForImportUriCollection().getResource(initImportUri, true);
 					resources.add(initResource);
 					resources.addAll(getAllImportedResources(initResource));
 				} catch (Exception e) {
@@ -157,8 +159,7 @@ public class LilyPondImportUriGlobalScopeProvider extends AbstractGlobalScopePro
 	}
 
 	protected IScope createLazyResourceScope(IScope parent, final URI uri, final IResourceDescriptions descriptions, EClass type, final Predicate<IEObjectDescription> filter, boolean ignoreCase) {
-		IResourceDescription description = descriptions.getResourceDescription(uri);
+		IResourceDescription description=importUriCollectionHelper.getResourceDescriptionForUri(uri, descriptions);
 		return SelectableBasedScope.createScope(parent, description, filter, type, ignoreCase);
 	}
-
 }
