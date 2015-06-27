@@ -2,13 +2,14 @@ package org.elysium.test;
 
 import static com.google.common.base.Predicates.not;
 import static com.google.common.collect.Iterables.all;
+
 import org.eclipse.xtext.junit.validation.AssertableDiagnostics;
 import org.eclipse.xtext.junit.validation.AssertableDiagnostics.DiagnosticPredicate;
 import org.eclipse.xtext.resource.XtextResource;
 import org.elysium.validation.IssueCodes;
 import org.junit.Test;
 
-public class Validator extends LilyPondTestWithValidator {
+public class Validator extends LilyPondTest {
 
 	private AssertableDiagnostics validate(String model) throws Exception {
 		XtextResource resource = getResourceFromString(model);
