@@ -1,7 +1,8 @@
 package org.elysium.test;
 
-import java.util.HashMap;
-import java.util.Map;
+import java.util.concurrent.Callable;
+import java.util.concurrent.ExecutionException;
+import java.util.concurrent.TimeUnit;
 
 import javax.inject.Inject;
 
@@ -20,6 +21,8 @@ import org.junit.Before;
 import org.junit.runner.RunWith;
 import org.junit.runners.BlockJUnit4ClassRunner;
 
+import com.google.common.cache.Cache;
+import com.google.common.cache.CacheBuilder;
 import com.google.inject.Guice;
 import com.google.inject.Injector;
 
@@ -60,7 +63,8 @@ public abstract class LilyPondTest extends AbstractXtextTests {
 
 	private static class LilyPondTestImportUriGlobalScopeProvider extends LilyPondImportUriGlobalScopeProvider{
 		private static ResourceSet resourceSet=new ResourceSetImpl();
-		private static Map<URI,IResourceDescription> resourceDescriptionMap=new HashMap<URI,IResourceDescription>();
+		private static Cache<URI,IResourceDescription> resourceDescriptionCacheMap=CacheBuilder.newBuilder()
+				.maximumSize(50).expireAfterAccess(10, TimeUnit.SECONDS).build();
 
 		@Override
 		public ResourceSet getResourceSetForImportUriCollection() {
@@ -68,14 +72,18 @@ public abstract class LilyPondTest extends AbstractXtextTests {
 		}
 
 		@Override
-		public IResourceDescription getResourceDescriptionForUri(URI uri,
-				IResourceDescriptions index) {
-			IResourceDescription result=resourceDescriptionMap.get(uri);
-			if(result==null){
-				result=index.getResourceDescription(uri);
-				resourceDescriptionMap.put(uri, result);
+		public IResourceDescription getResourceDescriptionForUri(final URI uri, final IResourceDescriptions index) {
+			try {
+				IResourceDescription result = resourceDescriptionCacheMap.get(uri, new Callable<IResourceDescription>(){
+					@Override
+					public IResourceDescription call() throws Exception {
+						return index.getResourceDescription(uri);
+					}
+				});
+				return result;
+			} catch (ExecutionException e) {
+				throw new IllegalStateException(e);
 			}
-			return result;
 		}
 	}
 }
