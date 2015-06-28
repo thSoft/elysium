@@ -13,6 +13,7 @@ import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.Resource;
+import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
 import org.eclipse.xtext.EcoreUtil2;
 import org.eclipse.xtext.resource.IEObjectDescription;
@@ -90,6 +91,10 @@ public class LilyPondImportUriGlobalScopeProvider extends AbstractGlobalScopePro
 		"declarations-init.ly" //$NON-NLS-1$
 	};
 
+	protected ResourceSet getResourceSetForImportUriCollection(){
+		return new ResourceSetImpl();
+	}
+
 	protected LinkedHashSet<URI> getImportedUris(final Resource resource) {
 		return getCache().get(ImportUriGlobalScopeProvider.class.getName(), resource, new Provider<LinkedHashSet<URI>>() {
 
@@ -113,7 +118,7 @@ public class LilyPondImportUriGlobalScopeProvider extends AbstractGlobalScopePro
 				URI initImportUri = URI.createURI(initImportUriString);
 				Resource initResource;
 				try {
-					initResource = new ResourceSetImpl().getResource(initImportUri, true);
+					initResource = getResourceSetForImportUriCollection().getResource(initImportUri, true);
 					resources.add(initResource);
 					resources.addAll(getAllImportedResources(initResource));
 				} catch (Exception e) {
@@ -156,9 +161,12 @@ public class LilyPondImportUriGlobalScopeProvider extends AbstractGlobalScopePro
 		return demandResourceDescriptions;
 	}
 
-	protected IScope createLazyResourceScope(IScope parent, final URI uri, final IResourceDescriptions descriptions, EClass type, final Predicate<IEObjectDescription> filter, boolean ignoreCase) {
-		IResourceDescription description = descriptions.getResourceDescription(uri);
-		return SelectableBasedScope.createScope(parent, description, filter, type, ignoreCase);
+	protected IResourceDescription getResourceDescriptionForUri(URI uri, IResourceDescriptions descriptions){
+		return descriptions.getResourceDescription(uri);
 	}
 
+	protected IScope createLazyResourceScope(IScope parent, final URI uri, final IResourceDescriptions descriptions, EClass type, final Predicate<IEObjectDescription> filter, boolean ignoreCase) {
+		IResourceDescription description=getResourceDescriptionForUri(uri, descriptions);
+		return SelectableBasedScope.createScope(parent, description, filter, type, ignoreCase);
+	}
 }

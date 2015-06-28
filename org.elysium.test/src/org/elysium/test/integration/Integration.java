@@ -31,7 +31,7 @@ import org.eclipse.xtext.validation.AbstractValidationDiagnostic;
 import org.elysium.LilyPondConstants;
 import org.elysium.lilypond.Assignment;
 import org.elysium.lilypond.LilyPond;
-import org.elysium.test.LilyPondTestWithValidator;
+import org.elysium.test.LilyPondTest;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
@@ -45,7 +45,7 @@ import com.google.common.collect.Sets;
 import com.google.common.io.Files;
 
 @RunWith(value = Parameterized.class)
-public class Integration extends LilyPondTestWithValidator {
+public class Integration extends LilyPondTest {
 
 
 	@Parameters(name = "{1}")
