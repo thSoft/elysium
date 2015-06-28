@@ -33,7 +33,7 @@ public abstract class LilyPondTest extends AbstractXtextTests {
 	protected ValidatorTester<LilyPondJavaValidator> tester;
 
 	/**
-	 * By default a caching version of the GlobalScopeProvider is used.
+	 * By default a caching version of the GlobalScopeProvider is used for tests.
 	 * Return false if you want the "production" implementation to be used. 
 	 * */
 	protected boolean useCachingImportUriGlobalScopeProvider(){
@@ -61,6 +61,15 @@ public abstract class LilyPondTest extends AbstractXtextTests {
 		injectMembers(this);
 	}
 
+	/**
+	 * In order to speed up integration tests, a single resource set is used for determining transitive includes.
+	 * This ensures, that the same default include need not be loaded multiple times.
+	 * In a similar fashion linking speed is increased by caching the resource descriptions used for calculating
+	 * global scopes. The expire policy is not strictly required, but it makes explicit that URIs processed more often
+	 * should be kept. That way the caching mechanism prefers default includes over those needed only for a 
+	 * particular integration test case. The 10 seconds are arbitrary but should be sufficient to keep default
+	 * includes in memory between two distinct integration tests.
+	 * */
 	private static class LilyPondTestImportUriGlobalScopeProvider extends LilyPondImportUriGlobalScopeProvider{
 		private static ResourceSet resourceSet=new ResourceSetImpl();
 		private static Cache<URI,IResourceDescription> resourceDescriptionCacheMap=CacheBuilder.newBuilder()
