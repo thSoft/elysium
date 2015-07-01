@@ -71,7 +71,8 @@ public class LilyPondHyperlinkHelper extends HyperlinkHelper {
 					if (includedResource != null) {
 						uriToOpen = includedEResource.getURI();
 					}
-				}else{
+				}
+				if(uriToOpen==null){
 					uriToOpen=URI.createURI(uriResolver.resolve(include));
 					if(!uriToOpen.isFile() || uriToOpen.isRelative()){
 						uriToOpen=null;

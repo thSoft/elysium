@@ -7,7 +7,6 @@ import java.io.FileFilter;
 import java.net.URI;
 import java.util.List;
 
-
 import org.eclipse.core.resources.IFile;
 import org.eclipse.core.resources.IWorkspaceRoot;
 import org.eclipse.core.resources.ResourcesPlugin;
@@ -16,10 +15,10 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.xtext.scoping.impl.ImportUriResolver;
 
 import com.google.common.base.Function;
+import com.google.common.base.Optional;
 import com.google.common.cache.CacheBuilder;
 import com.google.common.cache.CacheLoader;
 import com.google.common.cache.LoadingCache;
-import com.google.common.base.Optional;
 import com.google.common.collect.Lists;
 import com.google.inject.Inject;
 
@@ -27,6 +26,8 @@ import com.google.inject.Inject;
  * Resolves importURIs by first searching in LilyPond's default include path.
  */
 public class LilyPondImportUriResolver extends ImportUriResolver {
+
+	private static final boolean IS_WINDOWS = Optional.fromNullable(System.getProperty("os.name")).or("another").toLowerCase().contains("win");//$NON-NLS-1$//$NON-NLS-2$//$NON-NLS-3$
 
 	@Inject
 	private ILilyPondPathProvider lilyPondPathProvider;
@@ -46,7 +47,7 @@ public class LilyPondImportUriResolver extends ImportUriResolver {
 			searchUris.add(defaultSearchUri);
 
 			for (URI searchUri : searchUris) {
-				URI resolvedImportUri = searchUri.resolve(importUri);
+				URI resolvedImportUri = saferResolve(searchUri, importUri);
 				File importedFile = new File(resolvedImportUri);
 				if (importedFile.exists()) {
 					return resolvedImportUri.toString();
@@ -57,17 +58,27 @@ public class LilyPondImportUriResolver extends ImportUriResolver {
 		return importUri;
 	}
 
+	private URI saferResolve(URI base, String importUri){
+		URI resolvedImportUri = base.resolve(org.eclipse.emf.common.util.URI.encodeOpaquePart(importUri, true));
+		boolean needToHandleAbsoluteWindowsLocation=IS_WINDOWS && resolvedImportUri.getScheme()!=null && !"file".equals(resolvedImportUri.getScheme());//$NON-NLS-1$
+		if(needToHandleAbsoluteWindowsLocation){
+			return URI.create("file:/"+resolvedImportUri.toString());//$NON-NLS-1$
+		}else{
+			return resolvedImportUri;
+		}
+	}
+
 	private Optional<String> getFileUriOutsideWorkspace(EObject context, String importUri){
-		if(importUri.contains("..")){
+		if(importUri.contains("..")){//$NON-NLS-1$
 			org.eclipse.emf.common.util.URI currentResourceUri = context.eResource().getURI();
 			if(currentResourceUri!=null && currentResourceUri.isPlatform()){
 				File currentResourceAsFile = new File(Platform.getLocation()+currentResourceUri.toPlatformString(false));
 				if (currentResourceAsFile.exists()) {
-					URI resolvedImportUri = currentResourceAsFile.toURI().resolve(importUri);
+					URI resolvedImportUri = saferResolve(currentResourceAsFile.toURI(), importUri);
 					IWorkspaceRoot workspaceRoot= ResourcesPlugin.getWorkspace().getRoot();
 					IFile[] importedFileFoundInWorkspace = workspaceRoot.findFilesForLocationURI(resolvedImportUri);
 					if(importedFileFoundInWorkspace.length==0){
-						File importedFile = new File(currentResourceAsFile.toURI().resolve(importUri));
+						File importedFile = new File(resolvedImportUri);
 						if (importedFile.exists()) {
 							return Optional.of(resolvedImportUri.toString());
 						}
@@ -86,8 +97,8 @@ public class LilyPondImportUriResolver extends ImportUriResolver {
 		@Override
 		public URI load(String key) throws Exception {
 			URI lilypondUri = stringToUri(key);
-			URI shareBaseUri=lilypondUri.resolve("../share/lilypond/");
-			final String lyDirectoryName="ly";
+			URI shareBaseUri=lilypondUri.resolve("../share/lilypond/");//$NON-NLS-1$
+			final String lyDirectoryName="ly";//$NON-NLS-1$
 			File f=new File(shareBaseUri);
 			if (f.isDirectory()){
 				for (File subDir : f.listFiles()) {
