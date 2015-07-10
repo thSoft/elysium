@@ -67,7 +67,7 @@ public class CompilerJob extends Job {
 	@Override
 	protected IStatus run(final IProgressMonitor monitor) {
 		IStatus returnStatus=Status.OK_STATUS;
-		monitor.beginTask("LilyPond Compilation", 4);
+		monitor.beginTask("LilyPond Compilation: "+file.getName(), 4);
 		try {
 			boolean fullCompile=LilyPondConstants.EXTENSION.equals(file.getFileExtension());
 			checkCancelled(monitor);
@@ -90,7 +90,7 @@ public class CompilerJob extends Job {
 				monitor.worked(1);
 				monitor.subTask("LilyPond processing");
 				try {
-					CancellableProcessUtils.runCancellableProcess(processBuilder, outputProcessor, monitor);
+					CancellableProcessUtils.runCancellableProcess(processBuilder, outputProcessor, monitor, "compile "+file.getName());
 				} catch (IOException e) {
 					handleInvalidExecutablePath();
 				}
@@ -204,7 +204,7 @@ public class CompilerJob extends Job {
 
 			OutputProcessor outputProcessor = new SyntaxUpdaterOutputProcessor(console);
 
-			CancellableProcessUtils.runCancellableProcess(processBuilder, outputProcessor, monitor);
+			CancellableProcessUtils.runCancellableProcess(processBuilder, outputProcessor, monitor, "update syntax "+file.getName());
 		} catch (Exception e) {
 			Activator.logError("Couldn't update syntax before compiling", e);
 		}
