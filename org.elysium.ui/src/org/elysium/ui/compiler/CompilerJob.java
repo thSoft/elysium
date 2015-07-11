@@ -35,6 +35,7 @@ import org.eclipse.ui.ide.IDE;
 import org.eclipse.ui.progress.IProgressConstants;
 import org.eclipse.util.EditorUtils;
 import org.eclipse.util.UiUtils;
+import org.elysium.LilyPondConstants;
 import org.elysium.ui.Activator;
 import org.elysium.ui.compiler.outdated.OutdatedDecorator;
 import org.elysium.ui.compiler.updater.SyntaxUpdaterOutputProcessor;
@@ -66,38 +67,44 @@ public class CompilerJob extends Job {
 	@Override
 	protected IStatus run(final IProgressMonitor monitor) {
 		IStatus returnStatus=Status.OK_STATUS;
-		monitor.beginTask("LilyPond Compilation", 4);
+		monitor.beginTask("LilyPond Compilation: "+file.getName(), 4);
 		try {
+			boolean fullCompile=LilyPondConstants.EXTENSION.equals(file.getFileExtension());
 			checkCancelled(monitor);
-			console.setMonitor(monitor);
-			console.clearConsole();
-			console.firePropertyChange(this, IConsoleConstants.P_CONSOLE_OUTPUT_COMPLETE, null, false);
+			if(fullCompile){
+				console.setMonitor(monitor);
+				console.clearConsole();
+				console.firePropertyChange(this, IConsoleConstants.P_CONSOLE_OUTPUT_COMPLETE, null, false);
+			}
 
 			long start = System.currentTimeMillis();
 			preprocess(monitor);
 
 			checkCancelled(monitor);
-			monitor.subTask("prepare LilyPond processing");
-			ProcessBuilder processBuilder = CompilerProcessBuilderFactory.get(file);
-			prepareProcessBuilder(processBuilder);
-
-			OutputProcessor outputProcessor = new CompilerOutputProcessor(file, console);
-			monitor.worked(1);
-			monitor.subTask("LilyPond processing");
-			try {
-				CancellableProcessUtils.runCancellableProcess(processBuilder, outputProcessor, monitor);
-			} catch (IOException e) {
-				handleInvalidExecutablePath();
+			if (fullCompile){
+				monitor.subTask("prepare LilyPond processing");
+				ProcessBuilder processBuilder = CompilerProcessBuilderFactory.get(file);
+				prepareProcessBuilder(processBuilder);
+		
+				OutputProcessor outputProcessor = new CompilerOutputProcessor(file, console);
+				monitor.worked(1);
+				monitor.subTask("LilyPond processing");
+				try {
+					CancellableProcessUtils.runCancellableProcess(processBuilder, outputProcessor, monitor, "compile "+file.getName());
+				} catch (IOException e) {
+					handleInvalidExecutablePath();
+				}
 			}
 			monitor.worked(1);
 
 			postprocess(monitor);
-			long stop = System.currentTimeMillis();
-
-			float executionTimeInSeconds = (stop - start) / 1000f;
-			console.printMeta(MessageFormat.format("LilyPond terminated in {0} seconds.", executionTimeInSeconds));
-			console.firePropertyChange(this, IConsoleConstants.P_CONSOLE_OUTPUT_COMPLETE, null, true);
-
+			if(fullCompile){
+				long stop = System.currentTimeMillis();
+	
+				float executionTimeInSeconds = (stop - start) / 1000f;
+				console.printMeta(MessageFormat.format("LilyPond terminated in {0} seconds.", executionTimeInSeconds));
+				console.firePropertyChange(this, IConsoleConstants.P_CONSOLE_OUTPUT_COMPLETE, null, true);
+			}
 			scheduleProjectRefresh();
 			monitor.done();
 		} catch(OperationCanceledException e){
@@ -197,7 +204,7 @@ public class CompilerJob extends Job {
 
 			OutputProcessor outputProcessor = new SyntaxUpdaterOutputProcessor(console);
 
-			CancellableProcessUtils.runCancellableProcess(processBuilder, outputProcessor, monitor);
+			CancellableProcessUtils.runCancellableProcess(processBuilder, outputProcessor, monitor, "update syntax "+file.getName());
 		} catch (Exception e) {
 			Activator.logError("Couldn't update syntax before compiling", e);
 		}

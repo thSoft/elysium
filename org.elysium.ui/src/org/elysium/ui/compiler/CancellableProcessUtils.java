@@ -20,7 +20,7 @@ public class CancellableProcessUtils {
 	 * Runs a process synchronously described by the given process builder and
 	 * processes the lines of its output with the given output processor.
 	 */
-	public static void runCancellableProcess(final ProcessBuilder processBuilder, final OutputProcessor outputProcessor, final IProgressMonitor monitor) throws IOException, InterruptedException {
+	public static void runCancellableProcess(final ProcessBuilder processBuilder, final OutputProcessor outputProcessor, final IProgressMonitor monitor, final String processName) throws IOException, InterruptedException {
 		final AtomicBoolean done=new AtomicBoolean(false);
 
 		final Process process = processBuilder.start();
@@ -39,7 +39,7 @@ public class CancellableProcessUtils {
 					}
 				}
 			}
-		}).start();
+		}, "Canceller for "+processName).start();
 
 		try{
 			new Thread(new Runnable() {
@@ -58,7 +58,7 @@ public class CancellableProcessUtils {
 					}
 				}
 				
-			}).start();
+			}, processName).start();
 			process.waitFor();
 		}catch(RuntimeException e){
 			if(e.getCause() instanceof IOException){
