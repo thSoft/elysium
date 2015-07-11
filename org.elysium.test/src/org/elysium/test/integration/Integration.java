@@ -73,7 +73,8 @@ public class Integration extends LilyPondTest {
 		FAILING_DIRECTORY_NAME,
 		"init",
 		"snippets",
-		"real-world/Mozart-KV250"
+		"real-world/Mozart-KV250",
+		"real-world/Mendelssohn-O42"
 	};
 
 	private static final FilenameExtensionFilter EXTENSION_FILTER = new FilenameExtensionFilter(LilyPondConstants.EXTENSION);
