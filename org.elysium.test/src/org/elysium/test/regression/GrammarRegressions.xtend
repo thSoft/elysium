@@ -359,7 +359,7 @@ class GrammarRegressions {
 
 	@Test
 	def void assignmentIncluded() {
-		val filename = "foo.ly";
+		val filename = "1 foo.ly";
 		Files.writeStringIntoFile(filename, ASSIGNMENT);
 		'''
 			\include "«filename»"
