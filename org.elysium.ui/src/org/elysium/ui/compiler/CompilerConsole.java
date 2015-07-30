@@ -35,10 +35,12 @@ public class CompilerConsole extends MessageConsole {
 
 	private Action cancelAction;
 	private Action closeConsoleAction;
+	private Action closeAllFinishedAction;
 
 	private IProgressMonitor monitor;
 	private IConsoleView view;
 	private boolean viewDiscarded=false;
+	private boolean terminated=false;
 
 	/**
 	 * The color of the meta messages.
@@ -50,6 +52,7 @@ public class CompilerConsole extends MessageConsole {
 		metaStream.setColor(META_COLOR);
 		initCancelAction();
 		initCloseConsoleAction();
+		initCloseAllFinishedAction();
 
 	}
 
@@ -94,7 +97,9 @@ public class CompilerConsole extends MessageConsole {
 		}
 		String path = file.getFullPath().toString();
 		String name = MessageFormat.format("LilyPond Compiler [{0}]", path);
-		return ConsoleUtils.getConsole(name, FACTORY);
+		CompilerConsole result = ConsoleUtils.getConsole(name, FACTORY);
+		result.setTerminated(false);
+		return result;
 	}
 
 	private void initCancelAction(){
@@ -122,8 +127,7 @@ public class CompilerConsole extends MessageConsole {
 		closeConsoleAction = new Action(ConsoleMessages.CloseConsoleAction_0) {
 			@Override
 			public void run() {
-				viewDiscarded=true;
-				ConsolePlugin.getDefault().getConsoleManager().removeConsoles(new IConsole[]{CompilerConsole.this});
+				close();
 			}
 		};
 		ImageDescriptor id = Activator.getImageDescriptor("icons/compiler/remove.png");//$NON-NLS-1$
@@ -132,9 +136,44 @@ public class CompilerConsole extends MessageConsole {
 		}
 	}
 
+	private void close(){
+		viewDiscarded=true;
+		ConsolePlugin.getDefault().getConsoleManager().removeConsoles(new IConsole[]{CompilerConsole.this});
+	}
+
+	private void initCloseAllFinishedAction(){
+		closeAllFinishedAction = new Action("Close all terminated") {//$NON-NLS-1$
+			@Override
+			public void run() {
+				IConsole[] all = ConsolePlugin.getDefault().getConsoleManager().getConsoles();
+				for (IConsole console : all) {
+					if(console instanceof CompilerConsole){
+						CompilerConsole compilerConsole = (CompilerConsole) console;
+						if(compilerConsole.isTerminated()){
+							compilerConsole.close();
+						}
+					}
+				}
+			}
+		};
+		ImageDescriptor id = Activator.getImageDescriptor("icons/compiler/removeall.png");//$NON-NLS-1$
+		if (id != null) {
+			closeAllFinishedAction.setImageDescriptor(id);
+		}
+	}
+
 	void setMonitor(IProgressMonitor monitor) {
 		cancelAction.setEnabled(monitor!=null);
+		setTerminated(monitor==null);
 		this.monitor = monitor;
+	}
+
+	private void setTerminated(boolean isTerminated){
+		this.terminated=isTerminated;
+	}
+
+	private boolean isTerminated(){
+		return terminated;
 	}
 
 	@Override
@@ -145,6 +184,7 @@ public class CompilerConsole extends MessageConsole {
 				super.configureToolBar(mgr);
 				mgr.appendToGroup(IConsoleConstants.LAUNCH_GROUP, cancelAction);
 				mgr.appendToGroup(IConsoleConstants.LAUNCH_GROUP, closeConsoleAction);
+				mgr.appendToGroup(IConsoleConstants.LAUNCH_GROUP, closeAllFinishedAction);
 			}
 		};
 		this.view=view;

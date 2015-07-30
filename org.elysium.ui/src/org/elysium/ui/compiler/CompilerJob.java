@@ -52,40 +52,34 @@ public class CompilerJob extends Job {
 	 */
 	private final IFile file;
 
-	/**
-	 * The console where the compiler's output is printed.
-	 */
-	private final CompilerConsole console;
 
 	public CompilerJob(IFile file) {
 		super(MessageFormat.format("Compiling {0}", file.getFullPath().toString()));
 		setProperty(IProgressConstants.ICON_PROPERTY, Activator.getImageDescriptor("icons/compiler/Command.png")); //$NON-NLS-1$
 		this.file = file;
-		console = CompilerConsole.get(file);
 	}
 
 	@Override
 	protected IStatus run(final IProgressMonitor monitor) {
 		IStatus returnStatus=Status.OK_STATUS;
 		monitor.beginTask("LilyPond Compilation: "+file.getName(), 4);
+		boolean fullCompile=LilyPondConstants.EXTENSION.equals(file.getFileExtension());
+		CompilerConsole console = CompilerConsole.get(file);
 		try {
-			boolean fullCompile=LilyPondConstants.EXTENSION.equals(file.getFileExtension());
 			checkCancelled(monitor);
-			if(fullCompile){
-				console.setMonitor(monitor);
-				console.clearConsole();
-				console.firePropertyChange(this, IConsoleConstants.P_CONSOLE_OUTPUT_COMPLETE, null, false);
-			}
+			console.setMonitor(monitor);
+			console.clearConsole();
+			console.firePropertyChange(this, IConsoleConstants.P_CONSOLE_OUTPUT_COMPLETE, null, false);
 
 			long start = System.currentTimeMillis();
-			preprocess(monitor);
+			preprocess(monitor, console);
 
 			checkCancelled(monitor);
 			if (fullCompile){
 				monitor.subTask("prepare LilyPond processing");
 				ProcessBuilder processBuilder = CompilerProcessBuilderFactory.get(file);
 				prepareProcessBuilder(processBuilder);
-		
+
 				OutputProcessor outputProcessor = new CompilerOutputProcessor(file, console);
 				monitor.worked(1);
 				monitor.subTask("LilyPond processing");
@@ -100,11 +94,11 @@ public class CompilerJob extends Job {
 			postprocess(monitor);
 			if(fullCompile){
 				long stop = System.currentTimeMillis();
-	
+
 				float executionTimeInSeconds = (stop - start) / 1000f;
 				console.printMeta(MessageFormat.format("LilyPond terminated in {0} seconds.", executionTimeInSeconds));
-				console.firePropertyChange(this, IConsoleConstants.P_CONSOLE_OUTPUT_COMPLETE, null, true);
 			}
+			console.firePropertyChange(this, IConsoleConstants.P_CONSOLE_OUTPUT_COMPLETE, null, true);
 			scheduleProjectRefresh();
 			monitor.done();
 		} catch(OperationCanceledException e){
@@ -153,7 +147,7 @@ public class CompilerJob extends Job {
 		environment.put("LANG", locale.toString()); //$NON-NLS-1$
 	}
 
-	private void preprocess(final IProgressMonitor monitor) {
+	private void preprocess(final IProgressMonitor monitor, final CompilerConsole console) {
 		checkCancelled(monitor);
 		monitor.subTask("updating syntax");
 		// Update syntax if enabled
@@ -168,7 +162,7 @@ public class CompilerJob extends Job {
 					public void run() {
 						IWorkbenchPage workbenchPage = UiUtils.getWorkbenchPage();
 						workbenchPage.closeEditor(editor, true);
-						updateSyntax(monitor);
+						updateSyntax(monitor, console);
 						try {
 							IDE.openEditor(workbenchPage, file);
 						} catch (PartInitException e) {
@@ -178,7 +172,7 @@ public class CompilerJob extends Job {
 
 				});
 			} else {
-				updateSyntax(monitor);
+				updateSyntax(monitor, console);
 				try {
 					file.refreshLocal(0, new NullProgressMonitor());
 				} catch (CoreException e) {
@@ -195,7 +189,7 @@ public class CompilerJob extends Job {
 		monitor.worked(1);
 	}
 
-	private void updateSyntax(IProgressMonitor monitor) {
+	private void updateSyntax(IProgressMonitor monitor, CompilerConsole console) {
 		try {
 			ProcessBuilder processBuilder = SyntaxUpdaterProcessBuilderFactory.get(file);
 			prepareProcessBuilder(processBuilder);
@@ -260,5 +254,4 @@ public class CompilerJob extends Job {
 			return false;
 		}
 	}
-
 }
