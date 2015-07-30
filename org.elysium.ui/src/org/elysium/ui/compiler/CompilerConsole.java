@@ -15,13 +15,13 @@ import org.eclipse.ui.console.IConsoleConstants;
 import org.eclipse.ui.console.IConsoleView;
 import org.eclipse.ui.console.MessageConsole;
 import org.eclipse.ui.console.MessageConsoleStream;
-import org.eclipse.ui.internal.WorkbenchImages;
 import org.eclipse.ui.internal.console.ConsoleMessages;
 import org.eclipse.ui.internal.console.IOConsolePage;
 import org.eclipse.ui.internal.progress.ProgressMessages;
 import org.eclipse.ui.part.IPageBookViewPage;
 import org.eclipse.util.ConsoleFactory;
 import org.eclipse.util.ConsoleUtils;
+import org.elysium.ui.Activator;
 
 /**
  * Console for the LilyPond compiler's output.
@@ -107,11 +107,11 @@ public class CompilerConsole extends MessageConsole {
 				}
 			}
 		};
-		ImageDescriptor id = WorkbenchImages.getWorkbenchImageDescriptor("/elcl16/progress_stop.png"); //$NON-NLS-1$
+		ImageDescriptor id = Activator.getImageDescriptor("icons/compiler/stop.png");//$NON-NLS-1$
 		if (id != null) {
 			cancelAction.setImageDescriptor(id);
 		}
-		id = WorkbenchImages.getWorkbenchImageDescriptor("/dlcl16/progress_stop.png"); //$NON-NLS-1$
+		id = Activator.getImageDescriptor("icons/compiler/stop_disabled.png"); //$NON-NLS-1$
 		if (id != null) {
 			cancelAction.setDisabledImageDescriptor(id);
 		}
@@ -126,7 +126,7 @@ public class CompilerConsole extends MessageConsole {
 				ConsolePlugin.getDefault().getConsoleManager().removeConsoles(new IConsole[]{CompilerConsole.this});
 			}
 		};
-		ImageDescriptor id = WorkbenchImages.getWorkbenchImageDescriptor("/elcl16/progress_rem.png"); //$NON-NLS-1$
+		ImageDescriptor id = Activator.getImageDescriptor("icons/compiler/remove.png");//$NON-NLS-1$
 		if (id != null) {
 			closeConsoleAction.setImageDescriptor(id);
 		}
