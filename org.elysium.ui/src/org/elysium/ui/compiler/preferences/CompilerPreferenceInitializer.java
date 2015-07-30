@@ -11,12 +11,9 @@ public class CompilerPreferenceInitializer extends AbstractPreferenceInitializer
 	public void initializeDefaultPreferences() {
 		IPreferenceStore preferenceStore = Activator.getInstance().getPreferenceStore();
 
-		if (Util.isLinux()) {
-			preferenceStore.setDefault(CompilerPreferenceConstants.LILYPOND_PATH.name(), "/usr/bin/lilypond"); //$NON-NLS-1$
-		} else if (Util.isMac()) {
-			preferenceStore.setDefault(CompilerPreferenceConstants.LILYPOND_PATH.name(), "/Applications/LilyPond.app/Contents/Resources/bin/lilypond"); //$NON-NLS-1$
-		} else if (Util.isWindows()) {
-			preferenceStore.setDefault(CompilerPreferenceConstants.LILYPOND_PATH.name(), "C:\\Program Files\\LilyPond\\usr\\bin\\lilypond.exe"); //$NON-NLS-1$
+		String lilypondPath=getDefaultLilypondPath();
+		if(lilypondPath != null){
+			preferenceStore.setDefault(CompilerPreferenceConstants.LILYPOND_PATH.name(), lilypondPath);
 		}
 
 		preferenceStore.setDefault(CompilerPreferenceConstants.DELETE_INTERMEDIATE_FILES.name(), true);
@@ -30,4 +27,21 @@ public class CompilerPreferenceInitializer extends AbstractPreferenceInitializer
 		preferenceStore.setDefault(CompilerPreferenceConstants.PARALLEL_COMPILES.name(), 5);
 	}
 
+
+	private String getDefaultLilypondPath() {
+		String startParameterPath = System.getProperty("lilypond.path"); //$NON-NLS-1$
+		if (startParameterPath != null) {
+			return startParameterPath;
+		}
+
+		if (Util.isLinux()) {
+			return "/usr/bin/lilypond"; //$NON-NLS-1$
+		} else if (Util.isMac()) {
+			return "/Applications/LilyPond.app/Contents/Resources/bin/lilypond"; //$NON-NLS-1$
+		} else if (Util.isWindows()) {
+			return "C:\\Program Files\\LilyPond\\usr\\bin\\lilypond.exe"; //$NON-NLS-1$
+		}else{
+			return null;
+		}
+	}
 }
