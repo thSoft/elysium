@@ -12,6 +12,8 @@ import java.util.List;
 import java.util.Set;
 import java.util.concurrent.atomic.AtomicLong;
 
+import javax.inject.Inject;
+
 import org.eclipse.core.resources.IFile;
 import org.eclipse.core.resources.IProject;
 import org.eclipse.core.resources.IResource;
@@ -25,6 +27,7 @@ import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
 import org.eclipse.emf.util.ResourceUtils;
+import org.eclipse.jface.preference.IPreferenceStore;
 import org.eclipse.xtext.EcoreUtil2;
 import org.eclipse.xtext.builder.IXtextBuilderParticipant;
 import org.eclipse.xtext.resource.IResourceDescription.Delta;
@@ -39,6 +42,8 @@ import org.elysium.ui.compiler.preferences.CompilerPreferenceConstants;
 public class LilyPondBuilder implements IXtextBuilderParticipant {
 
 	private static final AtomicLong jobCount=new AtomicLong(0);
+	@Inject
+	private IPreferenceStore preferences;
 
 	@Override
 	public void build(final IBuildContext context, IProgressMonitor monitor) throws CoreException {
@@ -62,15 +67,16 @@ public class LilyPondBuilder implements IXtextBuilderParticipant {
 			}
 		}
 		ResourceSet rs=new ResourceSetImpl();
-		compile(filesToCompile, rs);
+		boolean doLilyPondCompile=preferences.getBoolean(CompilerPreferenceConstants.COMPILE_DURING_BUILD.name());
+		compile(filesToCompile, rs, doLilyPondCompile);
 		removeOutdatedMarkers(filesMarkedAsOutdated, rs);
 	}
 
 	public static void compile(Set<IFile> files) {
-		compile(files, new ResourceSetImpl());
+		compile(files, new ResourceSetImpl(), true);
 	}
 
-	private  static void compile(Set<IFile> files, ResourceSet resourceSetToUse) {
+	private static void compile(Set<IFile> files, ResourceSet resourceSetToUse, boolean executeLilyPondCompilation) {
 		int maxParallelCalls = Activator.getInstance().getPreferenceStore().getInt(CompilerPreferenceConstants.PARALLEL_COMPILES.name());
 		addAllIncludingFiles(files,resourceSetToUse);
 		List<IFile> sortedFiles=new ArrayList<IFile>(files);
@@ -81,7 +87,7 @@ public class LilyPondBuilder implements IXtextBuilderParticipant {
 			}
 		});
 		for (IFile file : sortedFiles) {
-			CompilerJob compilerJob = new CompilerJob(file);
+			CompilerJob compilerJob = new CompilerJob(file, executeLilyPondCompilation);
 			Job[] oldCompilerJobs = Job.getJobManager().find(compilerJob);
 			for (Job oldCompilerJob : oldCompilerJobs) {
 				oldCompilerJob.cancel();
