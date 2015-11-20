@@ -51,19 +51,21 @@ public class CompilerJob extends Job {
 	 * The file being compiled.
 	 */
 	private final IFile file;
+	private final boolean executeLilyPondCompile;
 
 
-	public CompilerJob(IFile file) {
+	public CompilerJob(IFile file, boolean executeLilyPondCompile) {
 		super(MessageFormat.format("Compiling {0}", file.getFullPath().toString()));
 		setProperty(IProgressConstants.ICON_PROPERTY, Activator.getImageDescriptor("icons/compiler/Command.png")); //$NON-NLS-1$
 		this.file = file;
+		this.executeLilyPondCompile=executeLilyPondCompile;
 	}
 
 	@Override
 	protected IStatus run(final IProgressMonitor monitor) {
 		IStatus returnStatus=Status.OK_STATUS;
 		monitor.beginTask("LilyPond Compilation: "+file.getName(), 4);
-		boolean fullCompile=LilyPondConstants.EXTENSION.equals(file.getFileExtension());
+		boolean fullCompile=LilyPondConstants.EXTENSION.equals(file.getFileExtension()) && executeLilyPondCompile;
 		CompilerConsole console = CompilerConsole.get(file);
 		try {
 			checkCancelled(monitor);
