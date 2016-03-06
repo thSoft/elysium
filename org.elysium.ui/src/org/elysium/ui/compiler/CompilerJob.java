@@ -9,6 +9,7 @@ import java.text.MessageFormat;
 import java.util.List;
 import java.util.Locale;
 import java.util.Map;
+import java.util.concurrent.atomic.AtomicBoolean;
 
 import javax.util.process.OutputProcessor;
 
@@ -52,6 +53,7 @@ public class CompilerJob extends Job {
 	 */
 	private final IFile file;
 	private final boolean executeLilyPondCompile;
+	private static final AtomicBoolean modifyLilyPondPathQuestionDialogIsOpen=new AtomicBoolean(false);
 
 
 	public CompilerJob(IFile file, boolean executeLilyPondCompile) {
@@ -235,12 +237,16 @@ public class CompilerJob extends Job {
 			@Override
 			public void run() {
 				Shell shell = Display.getDefault().getActiveShell();
-				if (MessageDialog.openQuestion(shell, "Warning", "The LilyPond executable path seems to be invalid. Do you want to edit it?")) {
-					String preferencePageId = Activator.getId() + ".preferencePages.Compiler"; //$NON-NLS-1$
-					PreferenceDialog preferenceDialog = PreferencesUtil.createPreferenceDialogOn(shell, preferencePageId, null, null);
-					if (preferenceDialog != null) {
-						preferenceDialog.open();
+				if(!modifyLilyPondPathQuestionDialogIsOpen.get()){
+					modifyLilyPondPathQuestionDialogIsOpen.set(true);
+					if (MessageDialog.openQuestion(shell, "Warning", "The LilyPond executable path seems to be invalid. Do you want to edit it?")) {
+						String preferencePageId = Activator.getId() + ".preferencePages.Compiler"; //$NON-NLS-1$
+						PreferenceDialog preferenceDialog = PreferencesUtil.createPreferenceDialogOn(shell, preferencePageId, null, null);
+						if (preferenceDialog != null) {
+							preferenceDialog.open();
+						}
 					}
+					modifyLilyPondPathQuestionDialogIsOpen.set(false);
 				}
 			}
 
