@@ -11,6 +11,10 @@
       LilyPond IDE for Eclipse
    </description>
 
+   <requires>
+      <import feature="org.eclipse.commons" version="0.2.0" match="greaterOrEqual"/>
+   </requires>
+
    <plugin
          id="org.elysium"
          download-size="0"

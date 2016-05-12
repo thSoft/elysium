@@ -15,7 +15,7 @@ Require-Bundle: org.elysium;visibility:=reexport,
  javax.util;bundle-version="0.0.0",
  org.eclipse.util;bundle-version="0.0.0",
  org.eclipse.ui.views.file;bundle-version="0.1.0",
- org.eclipse.ui.views.pdf;bundle-version="0.1.0",
+ org.eclipse.ui.views.pdf;bundle-version="0.2.0",
  org.eclipse.core.runtime,
  org.eclipse.core.resources,
  org.eclipse.emf.util;bundle-version="0.0.0",
@@ -25,7 +25,7 @@ Require-Bundle: org.elysium;visibility:=reexport,
  org.apache.commons.lang;bundle-version="2.4.0",
  org.eclipse.core.expressions;bundle-version="3.4.0"
 Import-Package: org.apache.log4j
-Bundle-RequiredExecutionEnvironment: JavaSE-1.7
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Export-Package: org.elysium.ui.contentassist.antlr,
  org.elysium.ui.contentassist,
  org.elysium.ui.quickfix,
