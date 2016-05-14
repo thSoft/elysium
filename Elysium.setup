@@ -56,6 +56,9 @@
     <requirement
         name="de.libutzki.xtext.semanticmodeloutline.feature.feature.group"
         optional="true"/>
+    <requirement
+        name="org.eclipse.pde.api.tools.ee.feature.feature.group"
+        optional="true"/>
     <repository
         url="${xtext.release.composite}"/>
     <repository
@@ -188,6 +191,11 @@
       xsi:type="setup:EclipseIniTask"
       option="-Doomph.redirection.elysium"
       value="=https://raw.githubusercontent.com/thSoft/elysium/master/Elysium.setup->${git.clone.elysium.location|uri}/Elysium.setup"
+      vm="true"/>
+  <setupTask
+      xsi:type="setup:EclipseIniTask"
+      option="-Dorg.osgi.framework.bundle.parent"
+      value="=ext"
       vm="true"/>
   <setupTask
       xsi:type="setup.workingsets:WorkingSetTask">
