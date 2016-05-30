@@ -14,11 +14,11 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.ResourceSet;
-import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
 import org.eclipse.xtext.EcoreUtil2;
 import org.eclipse.xtext.resource.IEObjectDescription;
 import org.eclipse.xtext.resource.IResourceDescription;
 import org.eclipse.xtext.resource.IResourceDescriptions;
+import org.eclipse.xtext.resource.XtextResourceSet;
 import org.eclipse.xtext.scoping.IScope;
 import org.eclipse.xtext.scoping.impl.AbstractGlobalScopeProvider;
 import org.eclipse.xtext.scoping.impl.ImportUriGlobalScopeProvider;
@@ -92,7 +92,7 @@ public class LilyPondImportUriGlobalScopeProvider extends AbstractGlobalScopePro
 	};
 
 	protected ResourceSet getResourceSetForImportUriCollection(){
-		return new ResourceSetImpl();
+		return new XtextResourceSet();
 	}
 
 	protected LinkedHashSet<URI> getImportedUris(final Resource resource) {
@@ -100,52 +100,73 @@ public class LilyPondImportUriGlobalScopeProvider extends AbstractGlobalScopePro
 
 			@Override
 			public LinkedHashSet<URI> get() {
-				Set<Resource> resources = getAllImportedResources(resource);
-				for (String defaultInclude : DEFAULT_INCLUDES) {
-					include(resources, defaultInclude);
-				}
-				LinkedHashSet<URI> result = new LinkedHashSet<URI>();
-				for (Resource resource : resources) {
-					result.add(resource.getURI());
-				}
+				Set<String> alreadyProcessedImportUriStrings=new HashSet<String>();
+				Set<Resource> resources = getAllImportedResources(resource, alreadyProcessedImportUriStrings);
+				LinkedHashSet<URI> result = getUris(resources);
+				result.addAll(getDefaultIncludes());
 				return result;
 			}
-
-			private void include(Set<Resource> resources, String importUri) {
-				Include include = LilypondFactory.eINSTANCE.createInclude();
-				include.setImportURI(importUri);
-				String initImportUriString = getImportUriResolver().apply(include);
-				URI initImportUri = URI.createURI(initImportUriString);
-				Resource initResource;
-				try {
-					initResource = getResourceSetForImportUriCollection().getResource(initImportUri, true);
-					resources.add(initResource);
-					resources.addAll(getAllImportedResources(initResource));
-				} catch (Exception e) {
-					throw new RuntimeException(MessageFormat.format("Please make sure your LilyPond installation is valid and its location is specified correctly.", initImportUri.toFileString()), e);
-				}
-			}
-
 		});
+	}
+
+	private LinkedHashSet<URI> getUris(Collection<Resource> resources){
+		LinkedHashSet<URI> result = new LinkedHashSet<URI>();
+		for (Resource resource : resources) {
+			result.add(resource.getURI());
+		}
+		return result;
+	}
+
+	private static LinkedHashSet<URI> ALL_DEFAULT_INCLUDES=null;
+
+	private LinkedHashSet<URI> getDefaultIncludes(){
+		if(ALL_DEFAULT_INCLUDES==null){
+			Set<String> alreadyProcessedImportUriStrings=new HashSet<String>();
+			Set<Resource> resources=new LinkedHashSet<Resource>();
+			ResourceSet rs=getResourceSetForImportUriCollection();
+			for (String defaultInclude : DEFAULT_INCLUDES) {
+				include(resources, defaultInclude, alreadyProcessedImportUriStrings, rs);
+			}
+			ALL_DEFAULT_INCLUDES=getUris(resources);
+		}
+		return ALL_DEFAULT_INCLUDES;
+	}
+
+	private void include(Set<Resource> resources, String importUri, Set<String> alreadyProcessedImportUriStrings, ResourceSet rs) {
+		Include include = LilypondFactory.eINSTANCE.createInclude();
+		include.setImportURI(importUri);
+		String initImportUriString = getImportUriResolver().apply(include);
+		if(!alreadyProcessedImportUriStrings.contains(initImportUriString)){
+			URI initImportUri = URI.createURI(initImportUriString);
+			Resource initResource;
+			try {
+				initResource = rs.getResource(initImportUri, true);
+				resources.add(initResource);
+				resources.addAll(getAllImportedResources(initResource, alreadyProcessedImportUriStrings));
+			} catch (Exception e) {
+				throw new RuntimeException(MessageFormat.format("Please make sure your LilyPond installation is valid and its location is specified correctly.", initImportUri.toFileString()), e);
+			}
+		}
 	}
 
 	/**
 	 * Returns all resources which are (even indirectly) included in the given
 	 * resource.
 	 */
-	protected Set<Resource> getAllImportedResources(Resource resource) {
+	protected Set<Resource> getAllImportedResources(Resource resource, Set<String> alreadyProcessedImportUriStrings) {
 		Set<Resource> result = new HashSet<Resource>();
 		TreeIterator<EObject> iterator = resource.getAllContents();
 		while (iterator.hasNext()) {
 			EObject object = iterator.next();
 			if(object instanceof Include){
 				String importUriString = getImportUriResolver().apply(object);
-				if (importUriString != null) {
+				if (importUriString != null && !alreadyProcessedImportUriStrings.contains(importUriString)) {
+					alreadyProcessedImportUriStrings.add(importUriString);
 					Resource importedResource = EcoreUtil2.getResource(resource, importUriString);
 					if (importedResource != null) {
 						result.add(importedResource);
 						if (resource != importedResource) {
-							result.addAll(getAllImportedResources(importedResource));
+							result.addAll(getAllImportedResources(importedResource, alreadyProcessedImportUriStrings));
 						}
 					}
 				}
