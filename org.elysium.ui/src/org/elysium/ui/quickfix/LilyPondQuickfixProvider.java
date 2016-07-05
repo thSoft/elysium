@@ -51,8 +51,17 @@ public class LilyPondQuickfixProvider extends ChangeToSimilarQuickfixProvider {
 		});
 	}
 
-	@Fix(IssueCodes.NO_VERSION)
-	public void addVersion(final Issue issue, IssueResolutionAcceptor acceptor) {
+	@Fix(IssueCodes.NO_VERSION_ILY)
+	public void addVersionLy(final Issue issue, IssueResolutionAcceptor acceptor) {
+		internalAddVersion(issue, acceptor);
+	}
+
+	@Fix(IssueCodes.NO_VERSION_STANDALONE)
+	public void addVersionIly(final Issue issue, IssueResolutionAcceptor acceptor) {
+		internalAddVersion(issue, acceptor);
+	}
+
+	private void internalAddVersion(final Issue issue, IssueResolutionAcceptor acceptor) {
 		acceptor.accept(issue, "Add \\version statement", null, null, new ISemanticModification() {
 
 			@Override
@@ -69,8 +78,16 @@ public class LilyPondQuickfixProvider extends ChangeToSimilarQuickfixProvider {
 		});
 	}
 
-	@Fix(IssueCodes.UNKNOWN_VARIABLE)
-	public void fixUnknownVariable(final Issue issue, IssueResolutionAcceptor acceptor) {
+	@Fix(IssueCodes.UNKNOWN_VARIABLE_STANDALONE)
+	public void fixUnknownVariableLy(final Issue issue, IssueResolutionAcceptor acceptor) {
+		internalfixUnknownVariable(issue, acceptor);
+	}
+	@Fix(IssueCodes.UNKNOWN_VARIABLE_ILY)
+	public void fixUnknownVariableIly(final Issue issue, IssueResolutionAcceptor acceptor) {
+		internalfixUnknownVariable(issue, acceptor);
+	}
+
+	private void internalfixUnknownVariable(final Issue issue, IssueResolutionAcceptor acceptor) {
 		acceptor.accept(issue, "Create missing variable", null, null, new ISemanticModification() {
 
 			@Override
@@ -90,5 +107,4 @@ public class LilyPondQuickfixProvider extends ChangeToSimilarQuickfixProvider {
 		});
 		createLinkingIssueResolutions(issue, acceptor);
 	}
-
 }

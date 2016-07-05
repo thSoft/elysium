@@ -3,6 +3,8 @@ package org.elysium;
 import java.util.Arrays;
 import java.util.List;
 
+import org.eclipse.emf.ecore.EObject;
+
 public interface LilyPondConstants {
 
 	/**
@@ -30,5 +32,9 @@ public interface LilyPondConstants {
 	String AUDIO_EXTENSION = "midi"; //$NON-NLS-1$
 
 	List<String> COMPILED_EXTENSIONS = Arrays.asList(SCORE_EXTENSION, AUDIO_EXTENSION);
+
+	public static boolean isStandalone(EObject o){
+		return EXTENSION.equals(o.eResource().getURI().fileExtension());
+	}
 
 }

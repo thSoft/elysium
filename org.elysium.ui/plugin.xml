@@ -31,6 +31,9 @@
     <page category="org.elysium.ui.preferencePages.Compiler" class="org.elysium.ui.compiler.updater.preferences.SyntaxUpdaterPreferencePage" id="org.elysium.ui.preferencePages.SyntaxUpdater" name="Syntax Updater">
       <keywordReference id="org.elysium.ui.keywords.LilyPond"/>
     </page>
+    <page category="org.elysium.ui.preferencePages.LilyPond" class="org.elysium.ui.LilyPondExecutableExtensionFactory:org.eclipse.xtext.ui.validation.ValidatorPreferencePage" id="org.elysium.ui.preferencePages.Validation" name="Validation">
+      <keywordReference id="org.elysium.ui.keywords.LilyPond"/>
+    </page>
     <page category="org.elysium.ui.preferencePages.LilyPond" class="org.elysium.ui.wizard.LilyPondNewProjectFileTemplatePreferencePage" id="org.elysium.ui.preferencePages.NewProjectWizard" name="New Project Template">
       <keywordReference id="org.elysium.ui.keywords.LilyPond"/>
     </page>

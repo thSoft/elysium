@@ -43,12 +43,15 @@ public class LilyPondJavaValidator extends AbstractLilyPondJavaValidator {
 
 	@Check
 	public void checkVersion(LilyPond lilyPond) {
-		for (Expression expression : lilyPond.getExpressions()) {
-			if ((expression instanceof Version) || (expression instanceof Include)) {
-				return;
+		String code=LilyPondConstants.isStandalone(lilyPond)?IssueCodes.NO_VERSION_STANDALONE:IssueCodes.NO_VERSION_ILY;
+		if(!isIgnored(code)){
+			for (Expression expression : lilyPond.getExpressions()) {
+				if ((expression instanceof Version) || (expression instanceof Include)) {
+					return;
+				}
 			}
+			addIssue("Version should be specified", getCurrentObject(), LilypondPackage.Literals.LILY_POND__EXPRESSIONS, code);
 		}
-		warning("Version should be specified", LilypondPackage.eINSTANCE.getLilyPond_Expressions(), IssueCodes.NO_VERSION);
 	}
 
 	@Check

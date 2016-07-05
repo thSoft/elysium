@@ -2,7 +2,6 @@ package org.elysium.ui;
 
 import org.eclipse.ui.PlatformUI;
 import org.eclipse.ui.plugin.AbstractUIPlugin;
-import org.eclipse.xtext.linking.ILinkingDiagnosticMessageProvider;
 import org.eclipse.xtext.resource.containers.IAllContainersState;
 import org.eclipse.xtext.ui.LanguageSpecific;
 import org.eclipse.xtext.ui.editor.IURIEditorOpener;
@@ -12,21 +11,25 @@ import org.eclipse.xtext.ui.editor.hyperlinking.IHyperlinkHelper;
 import org.eclipse.xtext.ui.editor.model.IResourceForEditorInputFactory;
 import org.eclipse.xtext.ui.editor.model.ResourceForIEditorInputFactory;
 import org.eclipse.xtext.ui.editor.outline.actions.IOutlineContribution;
+import org.eclipse.xtext.ui.editor.preferences.IPreferenceStoreInitializer;
 import org.eclipse.xtext.ui.editor.quickfix.ISimilarityMatcher;
 import org.eclipse.xtext.ui.editor.syntaxcoloring.IHighlightingConfiguration;
 import org.eclipse.xtext.ui.editor.syntaxcoloring.ISemanticHighlightingCalculator;
 import org.eclipse.xtext.ui.resource.IResourceSetProvider;
 import org.eclipse.xtext.ui.resource.SimpleResourceSetProvider;
 import org.eclipse.xtext.ui.shared.Access;
+import org.eclipse.xtext.ui.validation.AbstractValidatorConfigurationBlock;
 import org.elysium.importuri.ILilyPondPathProvider;
-import org.elysium.linking.LilyPondLinkingDiagnosticMessageProvider;
 import org.elysium.ui.autoedit.LilyPondAutoEditStrategyProvider;
 import org.elysium.ui.hyperlinks.LilyPondHyperlinkHelper;
 import org.elysium.ui.hyperlinks.LilyPondLanguageSpecificURIEditorOpener;
 import org.elysium.ui.outline.FilterIncludesOutlineContribution;
+import org.elysium.ui.preferences.LilyPondValidatorConfigBlock;
+import org.elysium.ui.preferences.LilyPondValidatorPreferenceInitializer;
 import org.elysium.ui.quickfix.LilyPondSimilarityMatcher;
 import org.elysium.ui.syntaxcoloring.LilyPondHighlightingConfiguration;
 import org.elysium.ui.syntaxcoloring.LilyPondSemanticHighlightingCalculator;
+
 import com.google.inject.Binder;
 import com.google.inject.Provider;
 import com.google.inject.name.Names;
@@ -56,8 +59,6 @@ public class LilyPondUiModule extends AbstractLilyPondUiModule {
 		binder.bind(ISemanticHighlightingCalculator.class).to(LilyPondSemanticHighlightingCalculator.class);
 		// Import URI resolution
 		binder.bind(ILilyPondPathProvider.class).to(UiLilyPondPathProvider.class);
-		// Customized linking errors
-		binder.bind(ILinkingDiagnosticMessageProvider.class).to(LilyPondLinkingDiagnosticMessageProvider.class);
 		// Quick fixes
 		binder.bind(ISimilarityMatcher.class).to(LilyPondSimilarityMatcher.class);
 	}
@@ -97,6 +98,14 @@ public class LilyPondUiModule extends AbstractLilyPondUiModule {
 	@Override
 	public Provider<IAllContainersState> provideIAllContainersState() {
 		return Access.getWorkspaceProjectsState();
+	}
+
+	public Class<? extends AbstractValidatorConfigurationBlock> bindValidationConfigurationBlock() {
+		return LilyPondValidatorConfigBlock.class;
+	}
+
+	public void configurePreferenceAccessPreferenceInitializer(Binder binder) {
+		binder.bind(IPreferenceStoreInitializer.class).to(LilyPondValidatorPreferenceInitializer.class);
 	}
 
 }
