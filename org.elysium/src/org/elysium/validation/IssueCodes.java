@@ -27,6 +27,7 @@ public class IssueCodes extends ConfigurableIssueCodesProvider {
 	public static final String UNKNOWN_VARIABLE_STANDALONE = PREFIX + "UNKNOWN_VARIABLE_LY"; //$NON-NLS-1$
 	public static final String DUPLICATE_VARIABLE = PREFIX
 			+ "DUPLICATE_VARIABLE"; //$NON-NLS-1$
+	public static final String VARIABLE_INCLUDE = PREFIX + "VARIABLE_INCLUDE"; //$NON-NLS-1$
 
 	static final PreferenceKey UNKNOWN_VARIABLE_IGNORES_KEY=new PreferenceKey(UNKNOWN_VARIABLE_IGNORES, Joiner.on("\n")
 			.join("discant","freeBass","stdBass"));
@@ -42,6 +43,7 @@ public class IssueCodes extends ConfigurableIssueCodesProvider {
 				.put(create(UNKNOWN_VARIABLE_ILY, Severity.WARNING))
 				.put(create(DUPLICATE_VARIABLE, Severity.WARNING))
 				.put(UNKNOWN_VARIABLE_IGNORES_KEY.getId(), UNKNOWN_VARIABLE_IGNORES_KEY)
+				.put(create(VARIABLE_INCLUDE, Severity.INFO))
 				.build();
 	}
 

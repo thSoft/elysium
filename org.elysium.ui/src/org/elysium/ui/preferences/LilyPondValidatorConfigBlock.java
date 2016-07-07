@@ -41,6 +41,7 @@ public class LilyPondValidatorConfigBlock extends AbstractValidatorConfiguration
 		addComboBox(generalProblems, "no version (.ly)", IssueCodes.NO_VERSION_STANDALONE, defaultIndent, otherErrors, otherErrorLabels);
 		addComboBox(generalProblems, "no version (.ily...)", IssueCodes.NO_VERSION_ILY, defaultIndent, otherErrors, otherErrorLabels);
 		addComboBox(generalProblems, "duplicate variable", IssueCodes.DUPLICATE_VARIABLE, defaultIndent, otherErrors, otherErrorLabels);
+		addComboBox(generalProblems, "include using variable", IssueCodes.VARIABLE_INCLUDE, defaultIndent, otherErrors, otherErrorLabels);
 
 		Composite linkingProblems = createSection("Linking", composite, nColumns);
 		addComboBox(linkingProblems, "unknown variable (.ly)", IssueCodes.UNKNOWN_VARIABLE_STANDALONE, defaultIndent, otherErrors, otherErrorLabels);

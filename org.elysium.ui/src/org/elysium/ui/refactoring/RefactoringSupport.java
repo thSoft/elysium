@@ -75,9 +75,14 @@ public class RefactoringSupport {
 					if (included == null) {
 						return true;
 					} else {
+						//TODO check filtering, or rather use Index if possible!
 						String importUri = include.getImportURI();
-						IPath basePath = includer.getParent().getFullPath();
-						return basePath.append(importUri).equals(included.getFullPath());
+						if(importUri!=null){
+							IPath basePath = includer.getParent().getFullPath();
+							return basePath.append(importUri).equals(included.getFullPath());
+						}else{
+							return false;
+						}
 					}
 				}
 			});
@@ -90,15 +95,17 @@ public class RefactoringSupport {
 
 	public static void addIncludeChange(MultiTextEdit editParent, IFile file, Include include, IPath includedPath, IPath basePath) {
 		String importUri = include.getImportURI();
-		List<INode> nodes = findNodesForFeature(include, LilypondPackage.Literals.INCLUDE__IMPORT_URI);
-		for (INode node : nodes) {
-			if (node.getText().contains(importUri)) {
-				int offset = node.getOffset() + node.getText().indexOf(importUri);
-				int length = importUri.length();
-				String newImportUri = includedPath.makeRelativeTo(basePath).toString();
-				TextEdit edit = new ReplaceEdit(offset, length, newImportUri);
-				editParent.addChild(edit);
-				break;
+		if(importUri!=null){
+			List<INode> nodes = findNodesForFeature(include, LilypondPackage.Literals.INCLUDE__IMPORT_URI);
+			for (INode node : nodes) {
+				if (node.getText().contains(importUri)) {
+					int offset = node.getOffset() + node.getText().indexOf(importUri);
+					int length = importUri.length();
+					String newImportUri = includedPath.makeRelativeTo(basePath).toString();
+					TextEdit edit = new ReplaceEdit(offset, length, newImportUri);
+					editParent.addChild(edit);
+					break;
+				}
 			}
 		}
 	}

@@ -1,6 +1,7 @@
 package org.elysium.validation;
 
 import java.util.Iterator;
+
 import org.eclipse.xtext.nodemodel.ICompositeNode;
 import org.eclipse.xtext.nodemodel.ILeafNode;
 import org.eclipse.xtext.nodemodel.INode;
@@ -55,9 +56,14 @@ public class LilyPondJavaValidator extends AbstractLilyPondJavaValidator {
 	}
 
 	@Check
-	public void checkSelfInclude(Include include) {
-		if (include.getImportURI().equals(include.eResource().getURI().lastSegment())) {
+	public void checkInclude(Include include) {
+		if (include.getImportURI() != null && include.getImportURI().equals(include.eResource().getURI().lastSegment())) {
 			warning("The file may include itself", LilypondPackage.eINSTANCE.getInclude_ImportURI());
+		}
+		String variableIncludeCode = IssueCodes.VARIABLE_INCLUDE;
+		if(!isIgnored(variableIncludeCode) && include.getCommand() != null){
+			addIssue("Includes using variables are not supported by Elysium and may lead to subsequent errors", 
+					getCurrentObject(),  LilypondPackage.Literals.INCLUDE__COMMAND, variableIncludeCode);
 		}
 	}
 
