@@ -6,6 +6,7 @@ import org.eclipse.xtext.resource.containers.IAllContainersState;
 import org.eclipse.xtext.ui.LanguageSpecific;
 import org.eclipse.xtext.ui.editor.IURIEditorOpener;
 import org.eclipse.xtext.ui.editor.IXtextEditorCallback;
+import org.eclipse.xtext.ui.editor.XtextEditor;
 import org.eclipse.xtext.ui.editor.autoedit.AbstractEditStrategyProvider;
 import org.eclipse.xtext.ui.editor.hyperlinking.IHyperlinkHelper;
 import org.eclipse.xtext.ui.editor.model.IResourceForEditorInputFactory;
@@ -107,5 +108,10 @@ public class LilyPondUiModule extends AbstractLilyPondUiModule {
 	public void configurePreferenceAccessPreferenceInitializer(Binder binder) {
 		binder.bind(IPreferenceStoreInitializer.class).to(LilyPondValidatorPreferenceInitializer.class);
 	}
+
+	public Class<? extends XtextEditor> bindEditor() {
+		return LilyPondXtextEditor.class;
+	}
+
 
 }
