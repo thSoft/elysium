@@ -79,17 +79,19 @@ public class LilyPondNamesAreUniqueValidationHelper implements INamesAreUniqueVa
 	protected void createDuplicateNameError(IEObjectDescription description, ValidationMessageAcceptor acceptor) {
 		EObject object = description.getEObjectOrProxy();
 		EStructuralFeature feature = getNameFeature(object);
-		Severity severity=levels.getIssueSeverities(object.eResource()).getSeverity(getErrorCode());
+		String errorCode=getErrorCode();
+		Severity severity=levels.getIssueSeverities(object.eResource()).getSeverity(errorCode);
 
+		String errorMessage=getDuplicateNameErrorMessage(description, feature);
 		switch (severity) {
 		case ERROR:
-			acceptor.acceptError(getDuplicateNameErrorMessage(description, feature), object, feature, ValidationMessageAcceptor.INSIGNIFICANT_INDEX, getErrorCode());
+			acceptor.acceptError(errorMessage, object, feature, ValidationMessageAcceptor.INSIGNIFICANT_INDEX, errorCode);
 			break;
 		case WARNING:
-			acceptor.acceptWarning(getDuplicateNameErrorMessage(description, feature), object, feature, ValidationMessageAcceptor.INSIGNIFICANT_INDEX, getErrorCode());
+			acceptor.acceptWarning(errorMessage, object, feature, ValidationMessageAcceptor.INSIGNIFICANT_INDEX, errorCode);
 			break;
 		case INFO:
-			acceptor.acceptInfo(getDuplicateNameErrorMessage(description, feature), object, feature, ValidationMessageAcceptor.INSIGNIFICANT_INDEX, getErrorCode());
+			acceptor.acceptInfo(errorMessage, object, feature, ValidationMessageAcceptor.INSIGNIFICANT_INDEX, errorCode);
 			break;
 		default:
 			break;

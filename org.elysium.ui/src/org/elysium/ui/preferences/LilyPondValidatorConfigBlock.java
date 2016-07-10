@@ -26,7 +26,7 @@ import org.elysium.validation.IssueCodes;
 public class LilyPondValidatorConfigBlock extends AbstractValidatorConfigurationBlock {
 
 	private static final String[] otherErrors=new String[]{"ignore","info","warning","error"};
-	private static final String[] otherErrorLabels=new String[]{"no Validation","Info","Warning","Error"};
+	private static final String[] otherErrorLabels=new String[]{"Ignore","Info","Warning","Error"};
 
 	LilyPondListEditor noLinkingErrorAssignments;
 	private IPreferenceStore preferenceStore;

@@ -51,12 +51,12 @@ public class LilyPondQuickfixProvider extends ChangeToSimilarQuickfixProvider {
 		});
 	}
 
-	@Fix(IssueCodes.NO_VERSION_ILY)
+	@Fix(IssueCodes.NO_VERSION_STANDALONE)
 	public void addVersionLy(final Issue issue, IssueResolutionAcceptor acceptor) {
 		internalAddVersion(issue, acceptor);
 	}
 
-	@Fix(IssueCodes.NO_VERSION_STANDALONE)
+	@Fix(IssueCodes.NO_VERSION_ILY)
 	public void addVersionIly(final Issue issue, IssueResolutionAcceptor acceptor) {
 		internalAddVersion(issue, acceptor);
 	}
