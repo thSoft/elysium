@@ -167,12 +167,14 @@ public class LilyPondBuilder implements IXtextBuilderParticipant {
 			for (EObject eObject : EcoreUtil2.eAllContentsAsList(eResource)) {
 				if (eObject instanceof Include) {
 					Include include = (Include)eObject;
-					Resource includedEResource = EcoreUtil2.getResource(eResource, include.getImportURI());
-					if (includedEResource != null) {
-						IResource includedResource = ResourceUtils.convertEResourceToPlatformResource(includedEResource);
-						if ((includedResource != null) && (includedResource instanceof IFile)) {
-							IFile includedFile = (IFile)includedResource;
-							result.add(includedFile);
+					if(include.getImportURI() != null){
+						Resource includedEResource = EcoreUtil2.getResource(eResource, include.getImportURI());
+						if (includedEResource != null) {
+							IResource includedResource = ResourceUtils.convertEResourceToPlatformResource(includedEResource);
+							if ((includedResource != null) && (includedResource instanceof IFile)) {
+								IFile includedFile = (IFile)includedResource;
+								result.add(includedFile);
+							}
 						}
 					}
 				}

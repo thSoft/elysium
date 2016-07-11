@@ -38,7 +38,7 @@ Number: value=INT;
 
 SpecialCommand: Include | Version | SourceFileName | SourceFileLine | Markup | MarkupLines | MarkupList | BlockCommand | OutputDefinition | RelativeMusic | TransposedMusic | ModeChange | MusicWithLyrics | NewContext | ContextDef | Other;
 
-Include: "\\" keyword="include" importURI=STRING;
+Include: "\\" keyword="include" (importURI=STRING | => command=UnparsedCommand);
 
 Version: "\\" keyword="version" version=STRING;
 

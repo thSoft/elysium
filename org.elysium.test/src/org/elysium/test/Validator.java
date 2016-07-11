@@ -49,7 +49,7 @@ public class Validator extends LilyPondTest {
 
 	@Test
 	public void noVersion() throws Exception {
-		assertProblem("{}", IssueCodes.NO_VERSION, false);
+		assertProblem("{}", IssueCodes.NO_VERSION_STANDALONE, false);
 	}
 
 }

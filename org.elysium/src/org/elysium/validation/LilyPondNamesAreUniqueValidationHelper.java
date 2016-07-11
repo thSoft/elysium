@@ -2,19 +2,28 @@ package org.elysium.validation;
 
 import java.util.Iterator;
 import java.util.Map;
+
+import javax.inject.Inject;
+
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.ecore.util.EcoreUtil;
+import org.eclipse.xtext.diagnostics.Severity;
 import org.eclipse.xtext.naming.QualifiedName;
 import org.eclipse.xtext.resource.IEObjectDescription;
 import org.eclipse.xtext.util.CancelIndicator;
 import org.eclipse.xtext.util.SimpleAttributeResolver;
 import org.eclipse.xtext.validation.INamesAreUniqueValidationHelper;
+import org.eclipse.xtext.validation.IssueSeveritiesProvider;
 import org.eclipse.xtext.validation.ValidationMessageAcceptor;
+
 import com.google.common.collect.Maps;
 
 public class LilyPondNamesAreUniqueValidationHelper implements INamesAreUniqueValidationHelper {
+
+	@Inject
+	private IssueSeveritiesProvider levels;
 
 	@Override
 	public void checkUniqueNames(Iterable<IEObjectDescription> descriptions, ValidationMessageAcceptor acceptor) {
@@ -70,7 +79,24 @@ public class LilyPondNamesAreUniqueValidationHelper implements INamesAreUniqueVa
 	protected void createDuplicateNameError(IEObjectDescription description, ValidationMessageAcceptor acceptor) {
 		EObject object = description.getEObjectOrProxy();
 		EStructuralFeature feature = getNameFeature(object);
-		acceptor.acceptWarning(getDuplicateNameErrorMessage(description, feature), object, feature, ValidationMessageAcceptor.INSIGNIFICANT_INDEX, getErrorCode());
+		String errorCode=getErrorCode();
+		Severity severity=levels.getIssueSeverities(object.eResource()).getSeverity(errorCode);
+
+		String errorMessage=getDuplicateNameErrorMessage(description, feature);
+		switch (severity) {
+		case ERROR:
+			acceptor.acceptError(errorMessage, object, feature, ValidationMessageAcceptor.INSIGNIFICANT_INDEX, errorCode);
+			break;
+		case WARNING:
+			acceptor.acceptWarning(errorMessage, object, feature, ValidationMessageAcceptor.INSIGNIFICANT_INDEX, errorCode);
+			break;
+		case INFO:
+			acceptor.acceptInfo(errorMessage, object, feature, ValidationMessageAcceptor.INSIGNIFICANT_INDEX, errorCode);
+			break;
+		default:
+			break;
+		}
+
 	}
 
 	/**

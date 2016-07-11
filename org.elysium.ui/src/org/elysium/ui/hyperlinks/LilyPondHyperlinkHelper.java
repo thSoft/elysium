@@ -64,7 +64,10 @@ public class LilyPondHyperlinkHelper extends HyperlinkHelper {
 			// Include -> File
 			if ((object instanceof Include) && NodeModelUtils.findNodesForFeature(object, LilypondPackage.eINSTANCE.getInclude_ImportURI()).contains(node)) {
 				Include include = (Include)object;
-				Resource includedEResource = EcoreUtil2.getResource(xtextResource, include.getImportURI());
+				Resource includedEResource = null;
+				if(include.getImportURI() != null){
+					includedEResource = EcoreUtil2.getResource(xtextResource, include.getImportURI());
+				}
 				URI uriToOpen=null;
 				if(includedEResource!=null){
 					IResource includedResource = ResourceUtils.convertEResourceToPlatformResource(includedEResource);
