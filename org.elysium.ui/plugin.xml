@@ -394,6 +394,13 @@
         </visibleWhen>
       </command>
     </menuContribution>
+    <menuContribution locationURI="popup:#TextEditorContext">
+      <command commandId="org.elysium.ui.commands.RecompileSelected">
+        <visibleWhen checkEnabled="false">
+          <reference definitionId="org.elysium.ui.definitions.EditorOpen"/>
+        </visibleWhen>
+      </command>
+    </menuContribution>
   </extension>
   <extension point="org.eclipse.ui.keywords">
     <keyword id="org.elysium.ui.keywords.LilyPond" label="LilyPond"/>
