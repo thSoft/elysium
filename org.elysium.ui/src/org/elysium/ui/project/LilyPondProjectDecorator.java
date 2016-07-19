@@ -20,7 +20,7 @@ public class LilyPondProjectDecorator extends BaseLabelProvider implements ILigh
 		if (element instanceof IProject) {
 			IProject project = (IProject)element;
 			try {
-				if (project.hasNature(LilyPondNature.ID)) {
+				if (project.isOpen() && project.hasNature(LilyPondNature.ID)) {
 					decoration.addOverlay(ICON, IDecoration.TOP_LEFT);
 				}
 			} catch (CoreException e) {
