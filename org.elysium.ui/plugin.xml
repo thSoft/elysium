@@ -351,6 +351,8 @@
       <viewShortcut id="org.elysium.ui.views.Audio"/>
       <viewShortcut id="org.elysium.ui.views.ScoreLibrary"/>
       <newWizardShortcut id="org.elysium.ui.newWizards.LilyPondProject"/>
+      <showInPart id = "org.elysium.ui.views.Score"/>
+      <showInPart id = "org.elysium.ui.views.Audio"/>
     </perspectiveExtension>
   </extension>
   <extension point="org.eclipse.ui.menus">
@@ -373,6 +375,22 @@
           </with>
         </visibleWhen>
         <command commandId="org.elysium.ui.commands.RecompileSelected"/>
+      </menu>
+    </menuContribution>
+    <menuContribution locationURI="popup:org.elysium.ui.views.ScoreLibrary?after=group.goto">
+      <menu commandId="org.eclipse.ui.navigate.showInQuickMenu"
+          id="org.elysium.ui.showInMenu"
+          label="Show In">
+        <!--dynamic
+          class="org.eclipse.ui.ExtensionFactory:showInContribution"
+          id="org.eclipse.ui.menus.dynamicShowInMenu">
+        </dynamic-->
+        <command commandId="org.eclipse.ui.navigate.showIn">
+              <parameter name="org.eclipse.ui.navigate.showIn.targetId" value="org.elysium.ui.views.Audio"/>
+        </command>
+        <command commandId="org.eclipse.ui.navigate.showIn">
+              <parameter name="org.eclipse.ui.navigate.showIn.targetId" value="org.elysium.ui.views.Score"/>
+        </command>
       </menu>
     </menuContribution>
     <menuContribution locationURI="popup:#TextEditorContext?after=group.open">
