@@ -29,6 +29,7 @@ Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Export-Package: org.elysium.ui.contentassist.antlr,
  org.elysium.ui.contentassist,
  org.elysium.ui.quickfix,
- org.elysium.ui.internal
+ org.elysium.ui.internal,
+ org.elysium.ui.refactoring
 Bundle-Activator: org.elysium.ui.Activator
 Bundle-ActivationPolicy: lazy

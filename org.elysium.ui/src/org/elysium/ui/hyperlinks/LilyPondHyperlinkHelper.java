@@ -62,23 +62,19 @@ public class LilyPondHyperlinkHelper extends HyperlinkHelper {
 			int nodeOffset = node.getOffset();
 			int nodeLength = node.getLength();
 			// Include -> File
-			if ((object instanceof Include) && NodeModelUtils.findNodesForFeature(object, LilypondPackage.eINSTANCE.getInclude_ImportURI()).contains(node)) {
+			if ((object instanceof Include) && NodeModelUtils.findNodesForFeature(object, LilypondPackage.Literals.INCLUDE__IMPORT_URI).contains(node)) {
+				
 				Include include = (Include)object;
-				Resource includedEResource = null;
-				if(include.getImportURI() != null){
-					includedEResource = EcoreUtil2.getResource(xtextResource, include.getImportURI());
-				}
-				URI uriToOpen=null;
-				if(includedEResource!=null){
-					IResource includedResource = ResourceUtils.convertEResourceToPlatformResource(includedEResource);
-					if (includedResource != null) {
-						uriToOpen = includedEResource.getURI();
-					}
-				}
-				if(uriToOpen==null){
-					uriToOpen=URI.createURI(uriResolver.resolve(include));
-					if(!uriToOpen.isFile() || uriToOpen.isRelative()){
-						uriToOpen=null;
+				String includeUri=uriResolver.resolve(include);
+				URI uriToOpen=URI.createURI(includeUri);
+				if(!uriToOpen.isFile() || uriToOpen.isRelative()){
+					uriToOpen=null;
+					Resource includedEResource=EcoreUtil2.getResource(xtextResource, includeUri);
+					if(includedEResource!=null){
+						IResource includedResource = ResourceUtils.convertEResourceToPlatformResource(includedEResource);
+						if (includedResource != null) {
+							uriToOpen = includedEResource.getURI();
+						}
 					}
 				}
 				if(uriToOpen!=null){

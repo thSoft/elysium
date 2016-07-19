@@ -267,35 +267,35 @@
     </menuContribution>
   </extension>
   <extension point="org.eclipse.ui.preferencePages">
-    <page category="org.elysium.ui.preferencePages.LilyPond" class="org.elysium.ui.LilyPondExecutableExtensionFactory:org.eclipse.xtext.ui.refactoring.ui.RefactoringPreferencePage" id="org.elysium.LilyPond.refactoring" name="Refactoring">
+    <page category="org.elysium.ui.preferencePages.LilyPond" class="org.elysium.ui.LilyPondExecutableExtensionFactory:org.elysium.ui.preferences.LilyPondRefactoringPreferencePage" id="org.elysium.LilyPond.refactoring" name="Refactoring">
       <keywordReference id="org.elysium.ui.keywords.LilyPond"/>
     </page>
   </extension>
   <extension point="org.eclipse.ltk.core.refactoring.renameParticipants">
-    <renameParticipant class="org.elysium.ui.refactoring.RenameFileParticipant" id="org.elysium.ui.renameParticipants.File" name="Update LilyPond references">
+    <renameParticipant class="org.elysium.ui.LilyPondExecutableExtensionFactory:org.elysium.ui.refactoring.RenameFileParticipant" id="org.elysium.ui.renameParticipants.File" name="Update LilyPond references">
       <enablement>
         <with variable="element">
           <instanceof value="org.eclipse.core.resources.IFile"/>
         </with>
       </enablement>
     </renameParticipant>
-    <renameParticipant class="org.elysium.ui.refactoring.RenameFolderParticipant" id="org.elysium.ui.renameParticipants.Folder" name="Update LilyPond references">
+    <renameParticipant class="org.elysium.ui.LilyPondExecutableExtensionFactory:org.elysium.ui.refactoring.RenameContainerParticipant" id="org.elysium.ui.renameParticipants.Container" name="Update LilyPond references">
       <enablement>
         <with variable="element">
-          <instanceof value="org.eclipse.core.resources.IFolder"/>
+          <instanceof value="org.eclipse.core.resources.IContainer"/>
         </with>
       </enablement>
     </renameParticipant>
   </extension>
   <extension point="org.eclipse.ltk.core.refactoring.moveParticipants">
-    <moveParticipant class="org.elysium.ui.refactoring.MoveFileParticipant" id="org.elysium.ui.moveParticipants.File" name="Update LilyPond references">
+    <moveParticipant class="org.elysium.ui.LilyPondExecutableExtensionFactory:org.elysium.ui.refactoring.MoveFileParticipant" id="org.elysium.ui.moveParticipants.File" name="Update LilyPond references">
       <enablement>
         <with variable="element">
           <instanceof value="org.eclipse.core.resources.IFile"/>
         </with>
       </enablement>
     </moveParticipant>
-    <moveParticipant class="org.elysium.ui.refactoring.MoveFolderParticipant" id="org.elysium.ui.moveParticipants.Folder" name="Update LilyPond references">
+    <moveParticipant class="org.elysium.ui.LilyPondExecutableExtensionFactory:org.elysium.ui.refactoring.MoveFolderParticipant" id="org.elysium.ui.moveParticipants.Folder" name="Update LilyPond references">
       <enablement>
         <with variable="element">
           <instanceof value="org.eclipse.core.resources.IFolder"/>
@@ -304,17 +304,17 @@
     </moveParticipant>
   </extension>
   <extension point="org.eclipse.ltk.core.refactoring.deleteParticipants">
-    <deleteParticipant class="org.elysium.ui.refactoring.DeleteFileParticipant" id="org.elysium.ui.deleteParticipants.File" name="Update LilyPond references">
+    <deleteParticipant class="org.elysium.ui.LilyPondExecutableExtensionFactory:org.elysium.ui.refactoring.DeleteFileParticipant" id="org.elysium.ui.deleteParticipants.File" name="Update LilyPond references">
       <enablement>
         <with variable="element">
           <instanceof value="org.eclipse.core.resources.IFile"/>
         </with>
       </enablement>
     </deleteParticipant>
-    <deleteParticipant class="org.elysium.ui.refactoring.DeleteFolderParticipant" id="org.elysium.ui.deleteParticipants.Folder" name="Update LilyPond references">
+    <deleteParticipant class="org.elysium.ui.LilyPondExecutableExtensionFactory:org.elysium.ui.refactoring.DeleteContainerParticipant" id="org.elysium.ui.deleteParticipants.Container" name="Update LilyPond references">
       <enablement>
         <with variable="element">
-          <instanceof value="org.eclipse.core.resources.IFolder"/>
+          <instanceof value="org.eclipse.core.resources.IContainer"/>
         </with>
       </enablement>
     </deleteParticipant>

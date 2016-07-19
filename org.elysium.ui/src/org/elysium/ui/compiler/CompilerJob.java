@@ -19,7 +19,6 @@ import org.eclipse.core.resources.IResource;
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.core.runtime.IStatus;
-import org.eclipse.core.runtime.NullProgressMonitor;
 import org.eclipse.core.runtime.OperationCanceledException;
 import org.eclipse.core.runtime.Status;
 import org.eclipse.core.runtime.jobs.Job;
@@ -178,7 +177,7 @@ public class CompilerJob extends Job {
 			} else {
 				updateSyntax(monitor, console);
 				try {
-					file.refreshLocal(0, new NullProgressMonitor());
+					file.refreshLocal(0, monitor);
 				} catch (CoreException e) {
 					Activator.logError("Couldn't refresh file, try to refresh it manually", e);
 				}
