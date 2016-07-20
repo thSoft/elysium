@@ -370,7 +370,7 @@ class GrammarRegressions {
 
 	@Test
 	def void hyphenAfterCommand() {
-		//TODO is f the command for f-1? 
+		//TODO is f the command or f-1? 
 		'''{ c-\f-1 }'''.parseWithoutErrors
 	}
 
@@ -413,5 +413,14 @@ class GrammarRegressions {
 	@Test
 	def void clef() {
 		'''{ \clef treble }'''.parseWithoutErrors
+	}
+
+	@Test
+	//regression test for #86
+	def void referenceInInclude() throws Exception {
+		'''
+			foo = "foo"
+			\include \foo
+		'''.parseWithoutErrors
 	}
 }

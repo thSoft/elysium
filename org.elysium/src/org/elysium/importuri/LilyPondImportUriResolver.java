@@ -72,10 +72,10 @@ public class LilyPondImportUriResolver extends ImportUriResolver {
 	//turn absolute uris that are actually located within the workspace into platform URIS
 	private LilyPondImportUri potentialPlatformURI(org.eclipse.emf.common.util.URI resourceURI, String originalImportUri, String resolvedUriString, boolean fromSearchPath){
 		String uriString=resolvedUriString;
-		URI uri=URI.create(resolvedUriString);
+		org.eclipse.emf.common.util.URI uri = org.eclipse.emf.common.util.URI.createURI(resolvedUriString);
 		LilyPondImportUri.Type type=fromSearchPath?LilyPondImportUri.Type.searchPath:LilyPondImportUri.Type.relative;
 		boolean inWorkspace=true;
-		if(uri.isAbsolute()){
+		if(Platform.isRunning() && !uri.isRelative()){
 			if(URI.create(originalImportUri).isAbsolute()){
 				type=LilyPondImportUri.Type.absolute;
 			}
