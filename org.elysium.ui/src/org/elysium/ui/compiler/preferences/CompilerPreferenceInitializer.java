@@ -27,7 +27,9 @@ public class CompilerPreferenceInitializer extends AbstractPreferenceInitializer
 		preferenceStore.setDefault(CompilerPreferenceConstants.PARALLEL_COMPILES.name(), 5);
 
 		preferenceStore.setDefault(CompilerPreferenceConstants.COMPILE_DURING_BUILD.name(), true);
-	}
+
+		preferenceStore.setDefault(CompilerPreferenceConstants.DELETE_ELYSIUM_MARKERS.name(), true);
+}
 
 
 	private String getDefaultLilypondPath() {

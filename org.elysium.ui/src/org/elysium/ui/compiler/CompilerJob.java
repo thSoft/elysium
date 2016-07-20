@@ -52,14 +52,16 @@ public class CompilerJob extends Job {
 	 */
 	private final IFile file;
 	private final boolean executeLilyPondCompile;
+	private boolean deleteMarkers;
 	private static final AtomicBoolean modifyLilyPondPathQuestionDialogIsOpen=new AtomicBoolean(false);
 
 
-	public CompilerJob(IFile file, boolean executeLilyPondCompile) {
+	public CompilerJob(IFile file, boolean executeLilyPondCompile, boolean deleteMarkers) {
 		super(MessageFormat.format("Compiling {0}", file.getFullPath().toString()));
 		setProperty(IProgressConstants.ICON_PROPERTY, Activator.getImageDescriptor("icons/compiler/Command.png")); //$NON-NLS-1$
 		this.file = file;
 		this.executeLilyPondCompile=executeLilyPondCompile;
+		this.deleteMarkers=deleteMarkers;
 	}
 
 	@Override
@@ -183,12 +185,14 @@ public class CompilerJob extends Job {
 				}
 			}
 		}
-		// Delete problem markers
-		try {
-			file.deleteMarkers(IMarker.PROBLEM, true, IResource.DEPTH_ZERO);
-		} catch (CoreException e) {
-			Activator.logError("Couldn't delete problem markers", e);
-		}
+		if(deleteMarkers){
+			// Delete problem markers
+			try {
+				file.deleteMarkers(IMarker.PROBLEM, true, IResource.DEPTH_ZERO);
+			} catch (CoreException e) {
+				Activator.logError("Couldn't delete problem markers", e);
+			}
+		}	
 		monitor.worked(1);
 	}
 
