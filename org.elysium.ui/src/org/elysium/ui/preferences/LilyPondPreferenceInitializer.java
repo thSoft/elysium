@@ -9,7 +9,7 @@ import org.eclipse.xtext.validation.ConfigurableIssueCodesProvider;
 import com.google.inject.Inject;
 
 @SuppressWarnings("restriction")
-public class LilyPondValidatorPreferenceInitializer implements IPreferenceStoreInitializer{
+public class LilyPondPreferenceInitializer implements IPreferenceStoreInitializer{
 
 	@Inject
 	private ConfigurableIssueCodesProvider issueCodes;
@@ -21,5 +21,7 @@ public class LilyPondValidatorPreferenceInitializer implements IPreferenceStoreI
 		for (PreferenceKey preference : issueCodes.getConfigurableIssueCodes().values()) {
 			store.setDefault(preference.getId(), preference.getDefaultValue());
 		}
+		store.setDefault(LilyPondRefactoringPreferencePage.REFACTORING_WARN_SEARCHPATH, true);
+		store.setDefault(LilyPondRefactoringPreferencePage.REFACTORING_WARN_VARIABLE_INCLUDE, true);
 	}
 }

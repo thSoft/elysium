@@ -25,6 +25,8 @@ public class IssueCodes extends ConfigurableIssueCodesProvider {
 	public static final String UNKNOWN_VARIABLE_IGNORES = PREFIX + "UNKNOWN_VARIABLE_IGNORES"; //$NON-NLS-1$
 	public static final String UNKNOWN_VARIABLE_ILY = PREFIX + "UNKNOWN_VARIABLE_ILY"; //$NON-NLS-1$
 	public static final String UNKNOWN_VARIABLE_STANDALONE = PREFIX + "UNKNOWN_VARIABLE_LY"; //$NON-NLS-1$
+	public static final String UNRESOLVABLE_INCLUDE_STANDALONE = PREFIX + "UNRESOLVABLE_INCLUDE_LY"; //$NON-NLS-1$
+	public static final String UNRESOLVABLE_INCLUDE_ILY = PREFIX + "UNRESOLVABLE_INCLUDE_ILY"; //$NON-NLS-1$
 	public static final String DUPLICATE_VARIABLE = PREFIX
 			+ "DUPLICATE_VARIABLE"; //$NON-NLS-1$
 	public static final String VARIABLE_INCLUDE = PREFIX + "VARIABLE_INCLUDE"; //$NON-NLS-1$
@@ -44,6 +46,8 @@ public class IssueCodes extends ConfigurableIssueCodesProvider {
 				.put(create(DUPLICATE_VARIABLE, Severity.WARNING))
 				.put(UNKNOWN_VARIABLE_IGNORES_KEY.getId(), UNKNOWN_VARIABLE_IGNORES_KEY)
 				.put(create(VARIABLE_INCLUDE, Severity.INFO))
+				.put(create(UNRESOLVABLE_INCLUDE_STANDALONE, Severity.ERROR))
+				.put(create(UNRESOLVABLE_INCLUDE_ILY, Severity.ERROR))
 				.build();
 	}
 

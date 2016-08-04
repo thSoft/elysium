@@ -27,9 +27,13 @@ public class OutdatedDecorator extends BaseLabelProvider implements ILightweight
 		if (element instanceof IResource) {
 			IResource resource = (IResource)element;
 			try {
-				if (resource.exists() && (resource.findMarkers(MarkerTypes.OUTDATED, true, IResource.DEPTH_ZERO).length > 0)) {
-					decoration.addOverlay(ICON, IDecoration.TOP_RIGHT);
-				}
+				if (resource.exists()){
+					if(resource.getType()==IResource.PROJECT && !resource.getProject().isOpen()){
+						//do nothing, closed project need not be decorated
+					}else if((resource.findMarkers(MarkerTypes.OUTDATED, true, IResource.DEPTH_ZERO).length > 0)) {
+						decoration.addOverlay(ICON, IDecoration.TOP_RIGHT);
+					}
+				} 
 			} catch (CoreException e) {
 				Activator.logError("Couldn't query outdated marker", e);
 			}

@@ -267,35 +267,35 @@
     </menuContribution>
   </extension>
   <extension point="org.eclipse.ui.preferencePages">
-    <page category="org.elysium.ui.preferencePages.LilyPond" class="org.elysium.ui.LilyPondExecutableExtensionFactory:org.eclipse.xtext.ui.refactoring.ui.RefactoringPreferencePage" id="org.elysium.LilyPond.refactoring" name="Refactoring">
+    <page category="org.elysium.ui.preferencePages.LilyPond" class="org.elysium.ui.LilyPondExecutableExtensionFactory:org.elysium.ui.preferences.LilyPondRefactoringPreferencePage" id="org.elysium.LilyPond.refactoring" name="Refactoring">
       <keywordReference id="org.elysium.ui.keywords.LilyPond"/>
     </page>
   </extension>
   <extension point="org.eclipse.ltk.core.refactoring.renameParticipants">
-    <renameParticipant class="org.elysium.ui.refactoring.RenameFileParticipant" id="org.elysium.ui.renameParticipants.File" name="Update LilyPond references">
+    <renameParticipant class="org.elysium.ui.LilyPondExecutableExtensionFactory:org.elysium.ui.refactoring.RenameFileParticipant" id="org.elysium.ui.renameParticipants.File" name="Update LilyPond references">
       <enablement>
         <with variable="element">
           <instanceof value="org.eclipse.core.resources.IFile"/>
         </with>
       </enablement>
     </renameParticipant>
-    <renameParticipant class="org.elysium.ui.refactoring.RenameFolderParticipant" id="org.elysium.ui.renameParticipants.Folder" name="Update LilyPond references">
+    <renameParticipant class="org.elysium.ui.LilyPondExecutableExtensionFactory:org.elysium.ui.refactoring.RenameContainerParticipant" id="org.elysium.ui.renameParticipants.Container" name="Update LilyPond references">
       <enablement>
         <with variable="element">
-          <instanceof value="org.eclipse.core.resources.IFolder"/>
+          <instanceof value="org.eclipse.core.resources.IContainer"/>
         </with>
       </enablement>
     </renameParticipant>
   </extension>
   <extension point="org.eclipse.ltk.core.refactoring.moveParticipants">
-    <moveParticipant class="org.elysium.ui.refactoring.MoveFileParticipant" id="org.elysium.ui.moveParticipants.File" name="Update LilyPond references">
+    <moveParticipant class="org.elysium.ui.LilyPondExecutableExtensionFactory:org.elysium.ui.refactoring.MoveFileParticipant" id="org.elysium.ui.moveParticipants.File" name="Update LilyPond references">
       <enablement>
         <with variable="element">
           <instanceof value="org.eclipse.core.resources.IFile"/>
         </with>
       </enablement>
     </moveParticipant>
-    <moveParticipant class="org.elysium.ui.refactoring.MoveFolderParticipant" id="org.elysium.ui.moveParticipants.Folder" name="Update LilyPond references">
+    <moveParticipant class="org.elysium.ui.LilyPondExecutableExtensionFactory:org.elysium.ui.refactoring.MoveFolderParticipant" id="org.elysium.ui.moveParticipants.Folder" name="Update LilyPond references">
       <enablement>
         <with variable="element">
           <instanceof value="org.eclipse.core.resources.IFolder"/>
@@ -304,17 +304,17 @@
     </moveParticipant>
   </extension>
   <extension point="org.eclipse.ltk.core.refactoring.deleteParticipants">
-    <deleteParticipant class="org.elysium.ui.refactoring.DeleteFileParticipant" id="org.elysium.ui.deleteParticipants.File" name="Update LilyPond references">
+    <deleteParticipant class="org.elysium.ui.LilyPondExecutableExtensionFactory:org.elysium.ui.refactoring.DeleteFileParticipant" id="org.elysium.ui.deleteParticipants.File" name="Update LilyPond references">
       <enablement>
         <with variable="element">
           <instanceof value="org.eclipse.core.resources.IFile"/>
         </with>
       </enablement>
     </deleteParticipant>
-    <deleteParticipant class="org.elysium.ui.refactoring.DeleteFolderParticipant" id="org.elysium.ui.deleteParticipants.Folder" name="Update LilyPond references">
+    <deleteParticipant class="org.elysium.ui.LilyPondExecutableExtensionFactory:org.elysium.ui.refactoring.DeleteContainerParticipant" id="org.elysium.ui.deleteParticipants.Container" name="Update LilyPond references">
       <enablement>
         <with variable="element">
-          <instanceof value="org.eclipse.core.resources.IFolder"/>
+          <instanceof value="org.eclipse.core.resources.IContainer"/>
         </with>
       </enablement>
     </deleteParticipant>
@@ -351,6 +351,8 @@
       <viewShortcut id="org.elysium.ui.views.Audio"/>
       <viewShortcut id="org.elysium.ui.views.ScoreLibrary"/>
       <newWizardShortcut id="org.elysium.ui.newWizards.LilyPondProject"/>
+      <showInPart id = "org.elysium.ui.views.Score"/>
+      <showInPart id = "org.elysium.ui.views.Audio"/>
     </perspectiveExtension>
   </extension>
   <extension point="org.eclipse.ui.menus">
@@ -375,6 +377,18 @@
         <command commandId="org.elysium.ui.commands.RecompileSelected"/>
       </menu>
     </menuContribution>
+    <menuContribution locationURI="popup:org.elysium.ui.views.ScoreLibrary?after=group.goto">
+      <menu commandId="org.eclipse.ui.navigate.showInQuickMenu"
+          id="org.elysium.ui.showInMenu"
+          label="Show In">
+        <command commandId="org.eclipse.ui.navigate.showIn">
+              <parameter name="org.eclipse.ui.navigate.showIn.targetId" value="org.elysium.ui.views.Audio"/>
+        </command>
+        <command commandId="org.eclipse.ui.navigate.showIn">
+              <parameter name="org.eclipse.ui.navigate.showIn.targetId" value="org.elysium.ui.views.Score"/>
+        </command>
+      </menu>
+    </menuContribution>
     <menuContribution locationURI="popup:#TextEditorContext?after=group.open">
       <command commandId="org.elysium.ui.commands.Validate" style="push" tooltip="Trigger expensive validation">
         <visibleWhen checkEnabled="false">
@@ -389,6 +403,13 @@
     </menuContribution>
     <menuContribution locationURI="popup:#TextEditorContext?endof=group.find">
       <command commandId="org.eclipse.xtext.ui.editor.FindReferences">
+        <visibleWhen checkEnabled="false">
+          <reference definitionId="org.elysium.ui.definitions.EditorOpen"/>
+        </visibleWhen>
+      </command>
+    </menuContribution>
+    <menuContribution locationURI="popup:#TextEditorContext">
+      <command commandId="org.elysium.ui.commands.RecompileSelected">
         <visibleWhen checkEnabled="false">
           <reference definitionId="org.elysium.ui.definitions.EditorOpen"/>
         </visibleWhen>

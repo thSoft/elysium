@@ -26,7 +26,7 @@ import org.elysium.ui.hyperlinks.LilyPondHyperlinkHelper;
 import org.elysium.ui.hyperlinks.LilyPondLanguageSpecificURIEditorOpener;
 import org.elysium.ui.outline.FilterIncludesOutlineContribution;
 import org.elysium.ui.preferences.LilyPondValidatorConfigBlock;
-import org.elysium.ui.preferences.LilyPondValidatorPreferenceInitializer;
+import org.elysium.ui.preferences.LilyPondPreferenceInitializer;
 import org.elysium.ui.quickfix.LilyPondSimilarityMatcher;
 import org.elysium.ui.syntaxcoloring.LilyPondHighlightingConfiguration;
 import org.elysium.ui.syntaxcoloring.LilyPondSemanticHighlightingCalculator;
@@ -106,7 +106,7 @@ public class LilyPondUiModule extends AbstractLilyPondUiModule {
 	}
 
 	public void configurePreferenceAccessPreferenceInitializer(Binder binder) {
-		binder.bind(IPreferenceStoreInitializer.class).to(LilyPondValidatorPreferenceInitializer.class);
+		binder.bind(IPreferenceStoreInitializer.class).to(LilyPondPreferenceInitializer.class);
 	}
 
 	public Class<? extends XtextEditor> bindEditor() {

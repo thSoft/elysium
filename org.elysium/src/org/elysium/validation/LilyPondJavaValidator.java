@@ -2,10 +2,13 @@ package org.elysium.validation;
 
 import java.util.Iterator;
 
+import org.eclipse.emf.common.util.URI;
+import org.eclipse.xtext.EcoreUtil2;
 import org.eclipse.xtext.nodemodel.ICompositeNode;
 import org.eclipse.xtext.nodemodel.ILeafNode;
 import org.eclipse.xtext.nodemodel.INode;
 import org.eclipse.xtext.nodemodel.util.NodeModelUtils;
+import org.eclipse.xtext.scoping.impl.ImportUriResolver;
 import org.eclipse.xtext.validation.Check;
 import org.elysium.LilyPondConstants;
 import org.elysium.lilypond.Command;
@@ -15,10 +18,15 @@ import org.elysium.lilypond.LilyPond;
 import org.elysium.lilypond.LilypondPackage;
 import org.elysium.lilypond.Version;
 
+import com.google.inject.Inject;
+
 /**
  * Validation rules for the LilyPond language.
  */
 public class LilyPondJavaValidator extends AbstractLilyPondJavaValidator {
+
+	@Inject
+	private ImportUriResolver importUriResolver;
 
 	public static Iterator<ILeafNode> getHiddenTokensAfterBackslash(Command object) {
 		ICompositeNode node = NodeModelUtils.getNode(object);
@@ -65,6 +73,13 @@ public class LilyPondJavaValidator extends AbstractLilyPondJavaValidator {
 			addIssue("Includes using variables are not supported by Elysium and may lead to subsequent errors", 
 					getCurrentObject(),  LilypondPackage.Literals.INCLUDE__COMMAND, variableIncludeCode);
 		}
-	}
 
+		String unresolvableIncludeCode=LilyPondConstants.isStandalone(include)?IssueCodes.UNRESOLVABLE_INCLUDE_STANDALONE:IssueCodes.UNRESOLVABLE_INCLUDE_ILY;
+		if(include.getImportURI()!=null && !isIgnored(unresolvableIncludeCode)){
+			String resolved = importUriResolver.resolve(include);
+			if (!EcoreUtil2.isValidUri(include, URI.createURI(resolved))) {
+				addIssue("Include could not be resolved", getCurrentObject(), LilypondPackage.Literals.INCLUDE__IMPORT_URI, unresolvableIncludeCode);
+			}
+		}
+	}
 }

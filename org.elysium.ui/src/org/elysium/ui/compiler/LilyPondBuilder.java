@@ -68,15 +68,16 @@ public class LilyPondBuilder implements IXtextBuilderParticipant {
 		}
 		ResourceSet rs=new ResourceSetImpl();
 		boolean doLilyPondCompile=preferences.getBoolean(CompilerPreferenceConstants.COMPILE_DURING_BUILD.name());
-		compile(filesToCompile, rs, doLilyPondCompile);
+		boolean doDeleteMarkersIfCompilerIsInactive=preferences.getBoolean(CompilerPreferenceConstants.DELETE_ELYSIUM_MARKERS.name());
+		compile(filesToCompile, rs, doLilyPondCompile, doLilyPondCompile || doDeleteMarkersIfCompilerIsInactive);
 		removeOutdatedMarkers(filesMarkedAsOutdated, rs);
 	}
 
 	public static void compile(Set<IFile> files) {
-		compile(files, new ResourceSetImpl(), true);
+		compile(files, new ResourceSetImpl(), true, true);
 	}
 
-	private static void compile(Set<IFile> files, ResourceSet resourceSetToUse, boolean executeLilyPondCompilation) {
+	private static void compile(Set<IFile> files, ResourceSet resourceSetToUse, boolean executeLilyPondCompilation, boolean deleteMarkers) {
 		int maxParallelCalls = Activator.getInstance().getPreferenceStore().getInt(CompilerPreferenceConstants.PARALLEL_COMPILES.name());
 		addAllIncludingFiles(files,resourceSetToUse);
 		List<IFile> sortedFiles=new ArrayList<IFile>(files);
@@ -87,7 +88,7 @@ public class LilyPondBuilder implements IXtextBuilderParticipant {
 			}
 		});
 		for (IFile file : sortedFiles) {
-			CompilerJob compilerJob = new CompilerJob(file, executeLilyPondCompilation);
+			CompilerJob compilerJob = new CompilerJob(file, executeLilyPondCompilation, deleteMarkers);
 			Job[] oldCompilerJobs = Job.getJobManager().find(compilerJob);
 			for (Job oldCompilerJob : oldCompilerJobs) {
 				oldCompilerJob.cancel();

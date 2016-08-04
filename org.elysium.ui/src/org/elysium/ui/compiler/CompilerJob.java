@@ -19,7 +19,6 @@ import org.eclipse.core.resources.IResource;
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.core.runtime.IStatus;
-import org.eclipse.core.runtime.NullProgressMonitor;
 import org.eclipse.core.runtime.OperationCanceledException;
 import org.eclipse.core.runtime.Status;
 import org.eclipse.core.runtime.jobs.Job;
@@ -53,14 +52,16 @@ public class CompilerJob extends Job {
 	 */
 	private final IFile file;
 	private final boolean executeLilyPondCompile;
+	private boolean deleteMarkers;
 	private static final AtomicBoolean modifyLilyPondPathQuestionDialogIsOpen=new AtomicBoolean(false);
 
 
-	public CompilerJob(IFile file, boolean executeLilyPondCompile) {
+	public CompilerJob(IFile file, boolean executeLilyPondCompile, boolean deleteMarkers) {
 		super(MessageFormat.format("Compiling {0}", file.getFullPath().toString()));
 		setProperty(IProgressConstants.ICON_PROPERTY, Activator.getImageDescriptor("icons/compiler/Command.png")); //$NON-NLS-1$
 		this.file = file;
 		this.executeLilyPondCompile=executeLilyPondCompile;
+		this.deleteMarkers=deleteMarkers;
 	}
 
 	@Override
@@ -178,18 +179,20 @@ public class CompilerJob extends Job {
 			} else {
 				updateSyntax(monitor, console);
 				try {
-					file.refreshLocal(0, new NullProgressMonitor());
+					file.refreshLocal(0, monitor);
 				} catch (CoreException e) {
 					Activator.logError("Couldn't refresh file, try to refresh it manually", e);
 				}
 			}
 		}
-		// Delete problem markers
-		try {
-			file.deleteMarkers(IMarker.PROBLEM, true, IResource.DEPTH_ZERO);
-		} catch (CoreException e) {
-			Activator.logError("Couldn't delete problem markers", e);
-		}
+		if(deleteMarkers){
+			// Delete problem markers
+			try {
+				file.deleteMarkers(IMarker.PROBLEM, true, IResource.DEPTH_ZERO);
+			} catch (CoreException e) {
+				Activator.logError("Couldn't delete problem markers", e);
+			}
+		}	
 		monitor.worked(1);
 	}
 

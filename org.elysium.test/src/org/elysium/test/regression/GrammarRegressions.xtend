@@ -20,6 +20,7 @@ import org.elysium.lilypond.Reference
 import org.junit.Assert
 import org.junit.Test
 import org.junit.runner.RunWith
+import org.elysium.lilypond.SimpleBlock
 
 @RunWith(XtextRunner)
 @InjectWith(LilyPondInjectorProvider)
@@ -370,8 +371,9 @@ class GrammarRegressions {
 
 	@Test
 	def void hyphenAfterCommand() {
-		//TODO is f the command for f-1? 
-		'''{ c-\f-1 }'''.parseWithoutErrors
+		val model='''{ c-\f-1 }'''.parseWithoutErrors
+		val commandF=(model.expressions.get(0) as SimpleBlock).expressions.get(2)
+		Assert.assertEquals("f", (commandF as Reference).assignment.name)
 	}
 
 	@Test
@@ -413,5 +415,14 @@ class GrammarRegressions {
 	@Test
 	def void clef() {
 		'''{ \clef treble }'''.parseWithoutErrors
+	}
+
+	@Test
+	//regression test for #86
+	def void referenceInInclude() throws Exception {
+		'''
+			foo = "foo"
+			\include \foo
+		'''.parseWithoutErrors
 	}
 }

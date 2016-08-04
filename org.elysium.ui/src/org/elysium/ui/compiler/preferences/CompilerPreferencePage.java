@@ -12,6 +12,7 @@ public class CompilerPreferencePage extends AbstractLilyPondPreferencePage {
 	@Override
 	public void createFieldEditors() {
 		addField(new BooleanFieldEditor(CompilerPreferenceConstants.COMPILE_DURING_BUILD.name(), "LilyPond compilation during build", getFieldEditorParent()));
+		addField(new BooleanFieldEditor(CompilerPreferenceConstants.DELETE_ELYSIUM_MARKERS.name(), "Delete Elysium issues even if compiler is not active", getFieldEditorParent()));
 		addField(new FileFieldEditor(CompilerPreferenceConstants.LILYPOND_PATH.name(), "Path to LilyPond executable", true, getFieldEditorParent()));
 		addField(new BooleanFieldEditor(CompilerPreferenceConstants.DELETE_INTERMEDIATE_FILES.name(), "Delete intermediate files", getFieldEditorParent()));
 		addField(new BooleanFieldEditor(CompilerPreferenceConstants.POINT_AND_CLICK.name(), "Point and click", getFieldEditorParent()));
