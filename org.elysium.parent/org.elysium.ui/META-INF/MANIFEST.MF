@@ -1,0 +1,35 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: LilyPond IDE
+Bundle-Version: 0.5.3.qualifier
+Bundle-SymbolicName: org.elysium.ui; singleton:=true
+Bundle-ActivationPolicy: lazy
+Require-Bundle: org.elysium,
+ org.elysium.ide,
+ org.eclipse.xtext.ui,
+ org.eclipse.xtext.ui.shared,
+ org.eclipse.xtext.ui.codetemplates.ui,
+ org.eclipse.ui.editors;bundle-version="3.5.0",
+ org.eclipse.ui.ide;bundle-version="3.5.0",
+ org.eclipse.ui,
+ org.eclipse.compare,
+ org.eclipse.xtext.builder,
+ org.eclipse.ui.console;bundle-version="3.5.0",
+ javax.util;bundle-version="0.0.0",
+ org.eclipse.util;bundle-version="0.0.0",
+ org.eclipse.ui.views.file;bundle-version="0.1.0",
+ org.eclipse.ui.views.pdf;bundle-version="0.2.0",
+ org.eclipse.core.runtime,
+ org.eclipse.core.resources,
+ org.eclipse.ui.navigator;bundle-version="3.5.0",
+ org.eclipse.ui.views.midi;bundle-version="0.1.0",
+ org.apache.commons.lang;bundle-version="2.4.0",
+ org.eclipse.emf.util;bundle-version="0.0.0",
+ org.eclipse.core.expressions;bundle-version="3.4.0"
+Import-Package: org.apache.log4j
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8
+Export-Package: org.elysium.ui.contentassist,
+ org.elysium.ui.internal,
+ org.elysium.ui.quickfix,
+ org.elysium.ui.refactoring
+Bundle-Activator: org.elysium.ui.Activator
