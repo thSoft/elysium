@@ -235,6 +235,8 @@
   </setupTask>
   <setupTask
       xsi:type="projects:ProjectsBuildTask"
+      filter=""
+      onlyNewProjects="true"
       refresh="true"/>
   <setupTask
       xsi:type="launching:LaunchTask"
