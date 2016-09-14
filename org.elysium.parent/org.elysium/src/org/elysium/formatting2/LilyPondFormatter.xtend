@@ -10,9 +10,19 @@ import org.elysium.lilypond.Assignment
 import org.elysium.lilypond.Expression
 import org.elysium.lilypond.LilyPond
 import org.elysium.services.LilyPondGrammarAccess
+import org.elysium.LilyPondConstants
+import org.elysium.lilypond.Include
+import org.elysium.lilypond.Version
+import org.eclipse.xtext.formatting2.IHiddenRegionFormatter
+import org.eclipse.xtext.formatting2.regionaccess.IComment
+import org.eclipse.xtext.formatting2.internal.MultilineCommentReplacer
+import org.eclipse.xtext.formatting2.internal.SinglelineCodeCommentReplacer
+import org.eclipse.xtext.grammaranalysis.impl.GrammarElementTitleSwitch
+import org.eclipse.emf.ecore.EObject
+import org.eclipse.xtext.formatting2.ITextReplacer
+import org.eclipse.xtext.AbstractRule
+import org.eclipse.xtext.formatting2.internal.SinglelineDocCommentReplacer
 
-//TODO adapt from original LilyPondFormatter
-//use Xtext example DomainmodelFormatter/RuleEngineFormatter for inspiration
 class LilyPondFormatter extends AbstractFormatter2 {
 
 	public static final String[][] BLOCK_KEYWORD_PAIRS = #[#["%{", "%}"], //$NON-NLS-1$ //$NON-NLS-2$ 
@@ -22,60 +32,117 @@ class LilyPondFormatter extends AbstractFormatter2 {
 	@Inject extension LilyPondGrammarAccess
 
 	def dispatch void format(LilyPond lilyPond, extension IFormattableDocument document) {
+		lilyPond.prepend[noSpace].append[noSpace]
+
+// No space
+//		List<Keyword> noSpaceAfter = grammar.findKeywords(LilyPondConstants.BACKSLASH, "#"); //$NON-NLS-1$
+//		for (Keyword keyword : noSpaceAfter) {
+//			config.setNoSpace().after(keyword);
+//		}
+		lilyPond.allRegionsFor.keywords(LilyPondConstants.BACKSLASH, "#").forEach[
+			append[noSpace]
+		]
+
+//		List<Keyword> noSpaceBefore = grammar.findKeywords("'", ",", "(", ")");
+//		for (Keyword keyword : noSpaceBefore) {
+//			config.setNoSpace().before(keyword);
+//		}
+		lilyPond.allRegionsFor.keywords("'", ",", "(", ")").forEach[
+			prepend[noSpace]
+		]
+
+		formatBlocks(lilyPond, document)
+
 		// TODO: format HiddenRegions around keywords, attributes, cross references, etc. 
 		for (Expression expressions : lilyPond.getExpressions()) {
 			expressions.format;
 		}
 	}
 
+	def private void formatBlocks(LilyPond lilyPond, extension IFormattableDocument document){
+// Blocks
+//		for (String[] blockKeywordPair : BLOCK_KEYWORD_PAIRS) {
+//			for (Pair<Keyword, Keyword> pair : grammar.findKeywordPairs(blockKeywordPair[0], blockKeywordPair[1])) {
+//				Keyword first = pair.getFirst();
+//				Keyword second = pair.getSecond();
+//				config.setIndentation(first, second);
+//				config.setLinewrap().after(first);
+//				config.setLinewrap().before(second);
+//				config.setLinewrap().after(second);
+//			}
+//		}
+		BLOCK_KEYWORD_PAIRS.forEach[pair|
+			lilyPond.allRegionsFor.keywordPairs(pair.get(0),pair.get(1))
+			.forEach[keywordPair|
+				val openSemanticObject=keywordPair.key.semanticElement
+				val justBeforeCloseSemanticObject=keywordPair.value.previousSemanticRegion.semanticElement
+//				println(keywordPair.value.nextSemanticRegion.semanticElement)
+				if(openSemanticObject===justBeforeCloseSemanticObject){
+					keywordPair.value.prepend[noSpace]
+				}else{
+					keywordPair.interior[indent]
+					keywordPair.key.append[newLine]
+					keywordPair.value.prepend[newLine]
+				}
+				if(keywordPair.value.nextSemanticRegion!==null){
+					keywordPair.value.append[newLine]
+				}
+			]
+		]
+	}
+
+	def dispatch void format(org.elysium.lilypond.Number number, extension IFormattableDocument document) {
+//		config.setNoSpace().before(grammar.getNumberRule());
+		number.prepend[noSpace]
+	}
+
+	def dispatch void format(Include include, extension IFormattableDocument document) {
+//		config.setLinewrap().after(grammar.getIncludeRule());
+		include.append[newLine]
+	}
+
+	def dispatch void format(Version version, extension IFormattableDocument document) {
+//		config.setLinewrap(2).after(grammar.getVersionRule());
+		version.append[newLines = 2]
+	}
+
 	def dispatch void format(Assignment assignment, extension IFormattableDocument document) {
+//		config.setLinewrap(2).after(grammar.getAssignmentRule());
+		//setNewLines(1,2,2) does not seem to work; if there is no line break yet, 1 insead of 2 are inserted... 
+		assignment.append[newLines = 2; priority=IHiddenRegionFormatter.LOW_PRIORITY]
+
+		assignment.allRegionsFor.keyword(assignmentAccess.equalsSignKeyword_1).surround[oneSpace]
 		// TODO: format HiddenRegions around keywords, attributes, cross references, etc. 
 		assignment.getValue.format;
 	}
-	
-	// TODO: implement for SimpleBlock, SimultaneousBlock, UnparsedBlock, Include, Markup, MarkupLines, MarkupList, MarkupBody, BlockCommand, OutputDefinition, RelativeMusic, Pitch, TransposedMusic, ModeChange, MusicWithLyrics, NewContext, ContextModification, ContextDef, Scheme, SchemeExpression, SchemeList, SchemeBlock
-}
 
-
-//original formatter configuration code
-/*
- 	@Override
-	protected void configureFormatting(FormattingConfig config) {
-		LilyPondGrammarAccess grammar = (LilyPondGrammarAccess)getGrammarAccess();
-		// No space
-		List<Keyword> noSpaceAfter = grammar.findKeywords(LilyPondConstants.BACKSLASH, "#"); //$NON-NLS-1$
-		for (Keyword keyword : noSpaceAfter) {
-			config.setNoSpace().after(keyword);
-		}
-		List<Keyword> noSpaceBefore = grammar.findKeywords("'", ",", "(", ")"); //$NON-NLS-1$ //$NON-NLS-2$ //$NON-NLS-3$ //$NON-NLS-4$
-		for (Keyword keyword : noSpaceBefore) {
-			config.setNoSpace().before(keyword);
-		}
-		config.setNoSpace().before(grammar.getNumberRule());
-		config.setNoSpace().before(grammar.getANY_OTHERRule()); // FIXME doesn't seem to apply
-		// Line wrap
-		config.setLinewrap().after(grammar.getIncludeRule());
-		config.setLinewrap(2).after(grammar.getVersionRule());
-		config.setLinewrap(2).after(grammar.getAssignmentRule());
-//		config.setLinewrap().after(grammar.getPropertyAssignmentRule());
-		// Blocks
-		for (String[] blockKeywordPair : BLOCK_KEYWORD_PAIRS) {
-			for (Pair<Keyword, Keyword> pair : grammar.findKeywordPairs(blockKeywordPair[0], blockKeywordPair[1])) {
-				Keyword first = pair.getFirst();
-				Keyword second = pair.getSecond();
-				config.setIndentation(first, second);
-				config.setLinewrap().after(first);
-				config.setLinewrap().before(second);
-				config.setLinewrap().after(second);
+//TODO comment formatting is not too nice yet
+// Comments
+//		config.setLinewrap(0, 1, 2).before(grammar.getSL_COMMENTRule());
+//		config.setLinewrap(0, 1, 2).before(grammar.getML_COMMENTRule());
+//		config.setLinewrap(0, 1, 1).after(grammar.getML_COMMENTRule());
+//		config.setLinewrap(0, 1, 2).before(grammar.getSCHEME_ML_COMMENTRule());
+//		config.setLinewrap(0, 1, 1).after(grammar.getSCHEME_ML_COMMENTRule());
+	override ITextReplacer createCommentReplacer(IComment comment) {
+		val EObject grammarElement = comment.getGrammarElement()
+		if (grammarElement instanceof AbstractRule) {
+			val String ruleName = grammarElement.getName();
+			if (ruleName.contains("ML_")){
+				val prefix=if(ruleName.startsWith("ML")) "%" else "!"
+				return new MultilineCommentReplacer(comment, prefix.charAt(0));
+			}
+			if (ruleName.contains("SL_")) {
+				val prefix=if(ruleName.startsWith("SL")) "%" else ";;"
+				if (comment.getLineRegions().get(0).getIndentation().getLength() > 0){
+					return new SinglelineDocCommentReplacer(comment, prefix)
+				} else{
+					return new SinglelineCodeCommentReplacer(comment, prefix)
+				}
 			}
 		}
-		// Comments
-		config.setLinewrap(0, 1, 2).before(grammar.getSL_COMMENTRule());
-		config.setLinewrap(0, 1, 2).before(grammar.getML_COMMENTRule());
-		config.setLinewrap(0, 1, 1).after(grammar.getML_COMMENTRule());
-		config.setLinewrap(0, 1, 2).before(grammar.getSCHEME_ML_COMMENTRule());
-		config.setLinewrap(0, 1, 1).after(grammar.getSCHEME_ML_COMMENTRule());
+		val String elementName = new GrammarElementTitleSwitch().showQualified().showRule().doSwitch(grammarElement);
+		throw new IllegalStateException("No " + ITextReplacer.getClass.getSimpleName() + " configured for " + elementName);
 	}
- 
- 
- */
+
+	// TODO: implement for SimpleBlock, SimultaneousBlock, UnparsedBlock, Include, Markup, MarkupLines, MarkupList, MarkupBody, BlockCommand, OutputDefinition, RelativeMusic, Pitch, TransposedMusic, ModeChange, MusicWithLyrics, NewContext, ContextModification, ContextDef, Scheme, SchemeExpression, SchemeList, SchemeBlock
+}
