@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <site>
-   <feature url="features/org.elysium.feature_0.5.2.qualifier.jar" id="org.elysium.feature" version="0.5.2.qualifier">
+   <feature url="features/org.elysium.feature_0.5.3.qualifier.jar" id="org.elysium.feature" version="0.5.3.qualifier">
       <category name="org.musicnotation"/>
    </feature>
    <category-def name="org.musicnotation" label="Music Notation">
