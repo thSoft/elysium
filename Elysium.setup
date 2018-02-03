@@ -44,7 +44,7 @@
       value="http://download.itemis.com/updates/releases/2.1.1/"/>
   <setupTask
       xsi:type="setup.p2:P2Task"
-      id="Xtext stuff"
+      id="xtext-stuff"
       label="Xtext stuff">
     <requirement
         name="org.eclipse.xtext.sdk.feature.group"
