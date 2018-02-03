@@ -127,6 +127,17 @@
           name="de.libutzki.xtext.semanticmodeloutline.feature.feature.group"
           optional="true"/>
       <repositoryList
+          name="Oxygen">
+        <repository
+            url="http://download.eclipse.org/releases/oxygen/"/>
+        <repository
+            url="${xtext.release.composite}"/>
+        <repository
+            url="${antlr-gen.update.site}"/>
+        <repository
+            url="${xtexttools.update.site}"/>
+      </repositoryList>
+      <repositoryList
           name="Mars">
         <repository
             url="http://download.eclipse.org/releases/mars/"/>
