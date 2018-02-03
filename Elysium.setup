@@ -108,7 +108,7 @@
         <value>remoteURI</value>
       </detail>
     </annotation>
-    <description>mondo-utils</description>
+    <description>eclipse-commons</description>
   </setupTask>
   <setupTask
       xsi:type="setup.targlets:TargletTask">
