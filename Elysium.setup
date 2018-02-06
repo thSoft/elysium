@@ -50,6 +50,9 @@
         name="org.eclipse.xtext.sdk.feature.group"
         versionRange="[2.7.0,2.8.0)"/>
     <requirement
+        name="org.eclipse.emf.mwe2.launcher.feature.group"
+        versionRange="[2.7.0,2.8.0)"/>
+    <requirement
         name="de.itemis.xtext.antlr.sdk.feature.group"/>
     <requirement
         name="de.libutzki.xtext.nodemodeloutline.feature.feature.group"
