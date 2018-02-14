@@ -45,7 +45,7 @@ public class LilyPondValidatorConfigBlock extends AbstractValidatorConfiguration
 
 		Composite linkingProblems = createSection("Linking", composite, nColumns);
 		addComboBox(linkingProblems, "unresolvable include (.ly)", IssueCodes.UNRESOLVABLE_INCLUDE_STANDALONE, defaultIndent, otherErrors, otherErrorLabels);
-		addComboBox(linkingProblems, "unresolvable include (.ily)", IssueCodes.UNRESOLVABLE_INCLUDE_ILY, defaultIndent, otherErrors, otherErrorLabels);
+		addComboBox(linkingProblems, "unresolvable include (.ily...)", IssueCodes.UNRESOLVABLE_INCLUDE_ILY, defaultIndent, otherErrors, otherErrorLabels);
 		addComboBox(linkingProblems, "unknown variable (.ly)", IssueCodes.UNKNOWN_VARIABLE_STANDALONE, defaultIndent, otherErrors, otherErrorLabels);
 		addComboBox(linkingProblems, "unknown variable (.ily...)", IssueCodes.UNKNOWN_VARIABLE_ILY, defaultIndent, otherErrors, otherErrorLabels);
 		noLinkingErrorAssignments=new LilyPondListEditor();

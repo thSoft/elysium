@@ -46,8 +46,8 @@ public class IssueCodes extends ConfigurableIssueCodesProvider {
 				.put(create(DUPLICATE_VARIABLE, Severity.WARNING))
 				.put(UNKNOWN_VARIABLE_IGNORES_KEY.getId(), UNKNOWN_VARIABLE_IGNORES_KEY)
 				.put(create(VARIABLE_INCLUDE, Severity.INFO))
-				.put(create(UNRESOLVABLE_INCLUDE_STANDALONE, Severity.ERROR))
-				.put(create(UNRESOLVABLE_INCLUDE_ILY, Severity.ERROR))
+				.put(create(UNRESOLVABLE_INCLUDE_STANDALONE, Severity.IGNORE))
+				.put(create(UNRESOLVABLE_INCLUDE_ILY, Severity.IGNORE))
 				.build();
 	}
 

@@ -51,6 +51,9 @@
         name="org.eclipse.xtext.sdk.feature.group"
         versionRange="[2.10.0,2.11.0)"/>
     <requirement
+        name="org.eclipse.emf.mwe2.launcher.feature.group"
+        versionRange="[2.9.0,2.11.0)"/>
+    <requirement
         name="de.itemis.xtext.antlr.sdk.feature.group"/>
     <requirement
         name="de.libutzki.xtext.nodemodeloutline.feature.feature.group"
@@ -110,7 +113,7 @@
         <value>remoteURI</value>
       </detail>
     </annotation>
-    <description>mondo-utils</description>
+    <description>eclipse-commons</description>
   </setupTask>
   <setupTask
       xsi:type="setup.targlets:TargletTask">
@@ -130,6 +133,17 @@
           optional="true"/>
       <requirement
           name="de.itemis.xtext.antlr.sdk.feature.group"/>
+      <repositoryList
+          name="Oxygen">
+        <repository
+            url="http://download.eclipse.org/releases/oxygen/"/>
+        <repository
+            url="${xtext.release.composite}"/>
+        <repository
+            url="${antlr-gen.update.site}"/>
+        <repository
+            url="${xtexttools.update.site}"/>
+      </repositoryList>
       <repositoryList
           name="Neon">
         <repository
