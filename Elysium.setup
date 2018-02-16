@@ -12,8 +12,8 @@
     xmlns:setup.targlets="http://www.eclipse.org/oomph/setup/targlets/1.0"
     xmlns:setup.workingsets="http://www.eclipse.org/oomph/setup/workingsets/1.0"
     xsi:schemaLocation="http://www.eclipse.org/oomph/setup/git/1.0 http://git.eclipse.org/c/oomph/org.eclipse.oomph.git/plain/setups/models/Git.ecore http://www.eclipse.org/oomph/setup/launching/1.0 http://git.eclipse.org/c/oomph/org.eclipse.oomph.git/plain/setups/models/Launching.ecore http://www.eclipse.org/oomph/predicates/1.0 http://git.eclipse.org/c/oomph/org.eclipse.oomph.git/plain/setups/models/Predicates.ecore http://www.eclipse.org/oomph/setup/projects/1.0 http://git.eclipse.org/c/oomph/org.eclipse.oomph.git/plain/setups/models/Projects.ecore http://www.eclipse.org/oomph/setup/targlets/1.0 http://git.eclipse.org/c/oomph/org.eclipse.oomph.git/plain/setups/models/SetupTarglets.ecore http://www.eclipse.org/oomph/setup/workingsets/1.0 http://git.eclipse.org/c/oomph/org.eclipse.oomph.git/plain/setups/models/SetupWorkingSets.ecore"
-    name="Elysium_210"
-    label="Elysium_210">
+    name="Elysium"
+    label="Elysium">
   <setupTask
       xsi:type="setup:VariableTask"
       name="eclipse.target.platform"
@@ -221,16 +221,6 @@
       xsi:type="setup:EclipseIniTask"
       option="-Doomph.redirection.elysium"
       value="=https://raw.githubusercontent.com/thSoft/elysium/master/Elysium.setup->${git.clone.elysium.location|uri}/Elysium.setup"
-      vm="true"/>
-  <setupTask
-      xsi:type="setup:EclipseIniTask"
-      option="-Doomph.redirection.elysium210"
-      value="=https://raw.githubusercontent.com/nittka/elysium/Xtext210/org.elysium.parent/Elysium.setup->${git.clone.elysium.location|uri}/org.elysium.parent/Elysium.setup"
-      vm="true"/>
-  <setupTask
-      xsi:type="setup:EclipseIniTask"
-      option="-Dorg.osgi.framework.bundle.parent"
-      value="=ext"
       vm="true"/>
   <setupTask
       xsi:type="setup.workingsets:WorkingSetTask">
