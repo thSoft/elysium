@@ -12,13 +12,14 @@
     xmlns:setup.targlets="http://www.eclipse.org/oomph/setup/targlets/1.0"
     xmlns:setup.workingsets="http://www.eclipse.org/oomph/setup/workingsets/1.0"
     xsi:schemaLocation="http://www.eclipse.org/oomph/setup/git/1.0 http://git.eclipse.org/c/oomph/org.eclipse.oomph.git/plain/setups/models/Git.ecore http://www.eclipse.org/oomph/setup/launching/1.0 http://git.eclipse.org/c/oomph/org.eclipse.oomph.git/plain/setups/models/Launching.ecore http://www.eclipse.org/oomph/predicates/1.0 http://git.eclipse.org/c/oomph/org.eclipse.oomph.git/plain/setups/models/Predicates.ecore http://www.eclipse.org/oomph/setup/projects/1.0 http://git.eclipse.org/c/oomph/org.eclipse.oomph.git/plain/setups/models/Projects.ecore http://www.eclipse.org/oomph/setup/targlets/1.0 http://git.eclipse.org/c/oomph/org.eclipse.oomph.git/plain/setups/models/SetupTarglets.ecore http://www.eclipse.org/oomph/setup/workingsets/1.0 http://git.eclipse.org/c/oomph/org.eclipse.oomph.git/plain/setups/models/SetupWorkingSets.ecore"
-    name="Elysium"
-    label="Elysium">
+    name="Elysium_210"
+    label="Elysium_210">
   <setupTask
       xsi:type="setup:VariableTask"
       name="eclipse.target.platform"
-      defaultValue="Luna"
-      storageURI="scope://Workspace"/>
+      defaultValue="Mars"
+      storageURI="scope://Workspace"
+      label=""/>
   <setupTask
       xsi:type="setup:VariableTask"
       type="FILE"
@@ -44,14 +45,14 @@
       value="http://download.itemis.com/updates/releases/2.1.1/"/>
   <setupTask
       xsi:type="setup.p2:P2Task"
-      id="xtext-stuff"
+      id="Xtext.stuff"
       label="Xtext stuff">
     <requirement
         name="org.eclipse.xtext.sdk.feature.group"
-        versionRange="[2.7.0,2.8.0)"/>
+        versionRange="[2.10.0,2.11.0)"/>
     <requirement
         name="org.eclipse.emf.mwe2.launcher.feature.group"
-        versionRange="[2.7.0,2.8.0)"/>
+        versionRange="[2.9.0,2.11.0)"/>
     <requirement
         name="de.itemis.xtext.antlr.sdk.feature.group"/>
     <requirement
@@ -69,12 +70,12 @@
         url="${antlr-gen.update.site}"/>
     <repository
         url="${xtexttools.update.site}"/>
+    <description></description>
   </setupTask>
   <setupTask
       xsi:type="git:GitCloneTask"
       id="git.clone.elysium"
-      remoteURI="thSoft/elysium"
-      checkoutBranch="master">
+      remoteURI="thSoft/elysium">
     <annotation
         source="http://www.eclipse.org/oomph/setup/InducedChoices">
       <detail
@@ -95,7 +96,8 @@
   <setupTask
       xsi:type="git:GitCloneTask"
       id="git.clone.eclipse-commons"
-      remoteURI="thSoft/eclipse-commons">
+      remoteURI="thSoft/eclipse-commons"
+      checkoutBranch="master">
     <annotation
         source="http://www.eclipse.org/oomph/setup/InducedChoices">
       <detail
@@ -120,7 +122,7 @@
         activeRepositoryList="${eclipse.target.platform}">
       <requirement
           name="org.eclipse.xtext.sdk.feature.group"
-          versionRange="[2.7.0,2.8.0)"/>
+          versionRange="[2.10.0,2.11.0)"/>
       <requirement
           name="org.eclipse.platform.feature.group"/>
       <requirement
@@ -129,10 +131,23 @@
       <requirement
           name="de.libutzki.xtext.semanticmodeloutline.feature.feature.group"
           optional="true"/>
+      <requirement
+          name="de.itemis.xtext.antlr.sdk.feature.group"/>
       <repositoryList
           name="Oxygen">
         <repository
             url="http://download.eclipse.org/releases/oxygen/"/>
+        <repository
+            url="${xtext.release.composite}"/>
+        <repository
+            url="${antlr-gen.update.site}"/>
+        <repository
+            url="${xtexttools.update.site}"/>
+      </repositoryList>
+      <repositoryList
+          name="Neon">
+        <repository
+            url="http://download.eclipse.org/releases/neon/"/>
         <repository
             url="${xtext.release.composite}"/>
         <repository
@@ -199,13 +214,18 @@
       xsi:type="setup:ResourceCreationTask"
       excludedTriggers="BOOTSTRAP"
       successor="//@setupTasks.8"
-      content="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; standalone=&quot;no&quot;?>&#xD;&#xA;&lt;launchConfiguration type=&quot;org.eclipse.jdt.junit.launchconfig&quot;>&#xD;&#xA;&lt;listAttribute key=&quot;org.eclipse.debug.core.MAPPED_RESOURCE_PATHS&quot;>&#xD;&#xA;&lt;listEntry value=&quot;/org.elysium.test&quot;/>&#xD;&#xA;&lt;/listAttribute>&#xD;&#xA;&lt;listAttribute key=&quot;org.eclipse.debug.core.MAPPED_RESOURCE_TYPES&quot;>&#xD;&#xA;&lt;listEntry value=&quot;4&quot;/>&#xD;&#xA;&lt;/listAttribute>&#xD;&#xA;&lt;stringAttribute key=&quot;org.eclipse.jdt.junit.CONTAINER&quot; value=&quot;=org.elysium.test&quot;/>&#xD;&#xA;&lt;booleanAttribute key=&quot;org.eclipse.jdt.junit.KEEPRUNNING_ATTR&quot; value=&quot;false&quot;/>&#xD;&#xA;&lt;stringAttribute key=&quot;org.eclipse.jdt.junit.TESTNAME&quot; value=&quot;&quot;/>&#xD;&#xA;&lt;stringAttribute key=&quot;org.eclipse.jdt.junit.TEST_KIND&quot; value=&quot;org.eclipse.jdt.junit.loader.junit4&quot;/>&#xD;&#xA;&lt;stringAttribute key=&quot;org.eclipse.jdt.launching.MAIN_TYPE&quot; value=&quot;&quot;/>&#xD;&#xA;&lt;stringAttribute key=&quot;org.eclipse.jdt.launching.PROJECT_ATTR&quot; value=&quot;org.elysium.test&quot;/>&#xD;&#xA;&lt;stringAttribute key=&quot;org.eclipse.jdt.launching.VM_ARGUMENTS&quot; value=&quot;-Dlilypond.path=${lilypondlocation}&quot;/>&#xD;&#xA;&lt;/launchConfiguration>"
-      targetURL="${git.clone.elysium.location|uri}/org.elysium.test/.launch/Elysium Tests.launch"
+      content="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; standalone=&quot;no&quot;?>&#xA;&lt;launchConfiguration type=&quot;org.eclipse.jdt.junit.launchconfig&quot;>&#xA;&lt;listAttribute key=&quot;org.eclipse.debug.core.MAPPED_RESOURCE_PATHS&quot;>&#xA;&lt;listEntry value=&quot;/org.elysium.tests&quot;/>&#xA;&lt;/listAttribute>&#xA;&lt;listAttribute key=&quot;org.eclipse.debug.core.MAPPED_RESOURCE_TYPES&quot;>&#xA;&lt;listEntry value=&quot;4&quot;/>&#xA;&lt;/listAttribute>&#xA;&lt;stringAttribute key=&quot;org.eclipse.jdt.junit.CONTAINER&quot; value=&quot;=org.elysium.tests&quot;/>&#xA;&lt;booleanAttribute key=&quot;org.eclipse.jdt.junit.KEEPRUNNING_ATTR&quot; value=&quot;false&quot;/>&#xA;&lt;stringAttribute key=&quot;org.eclipse.jdt.junit.TESTNAME&quot; value=&quot;&quot;/>&#xA;&lt;stringAttribute key=&quot;org.eclipse.jdt.junit.TEST_KIND&quot; value=&quot;org.eclipse.jdt.junit.loader.junit4&quot;/>&#xA;&lt;stringAttribute key=&quot;org.eclipse.jdt.launching.MAIN_TYPE&quot; value=&quot;&quot;/>&#xA;&lt;stringAttribute key=&quot;org.eclipse.jdt.launching.PROJECT_ATTR&quot; value=&quot;org.elysium.tests&quot;/>&#xA;&lt;stringAttribute key=&quot;org.eclipse.jdt.launching.VM_ARGUMENTS&quot; value=&quot;-Dlilypond.path=${lilypondlocation}&quot;/>&#xA;&lt;/launchConfiguration>"
+      targetURL="${git.clone.elysium.location|uri}/org.elysium.parent/org.elysium.tests/.launch/Elysium Tests.launch"
       encoding="UTF-8"/>
   <setupTask
       xsi:type="setup:EclipseIniTask"
       option="-Doomph.redirection.elysium"
       value="=https://raw.githubusercontent.com/thSoft/elysium/master/Elysium.setup->${git.clone.elysium.location|uri}/Elysium.setup"
+      vm="true"/>
+  <setupTask
+      xsi:type="setup:EclipseIniTask"
+      option="-Doomph.redirection.elysium210"
+      value="=https://raw.githubusercontent.com/nittka/elysium/Xtext210/org.elysium.parent/Elysium.setup->${git.clone.elysium.location|uri}/org.elysium.parent/Elysium.setup"
       vm="true"/>
   <setupTask
       xsi:type="setup:EclipseIniTask"
@@ -228,12 +248,21 @@
     </workingSet>
   </setupTask>
   <setupTask
+      xsi:type="projects:ProjectsBuildTask"
+      filter=""
+      onlyNewProjects="true"
+      refresh="true"/>
+  <setupTask
       xsi:type="launching:LaunchTask"
       excludedTriggers="MANUAL"
       launcher="/org.elysium/src/org/elysium/GenerateLilyPond.mwe2.launch"/>
   <stream name="master"
       label="master">
     <description>master</description>
+  </stream>
+  <stream name="Xtext210"
+      label="Xtext210">
+    <description>Xtext210</description>
   </stream>
   <description></description>
 </setup:Project>
