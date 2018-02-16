@@ -250,9 +250,5 @@
       label="master">
     <description>master</description>
   </stream>
-  <stream name="Xtext210"
-      label="Xtext210">
-    <description>Xtext210</description>
-  </stream>
   <description></description>
 </setup:Project>
