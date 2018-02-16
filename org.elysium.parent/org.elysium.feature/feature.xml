@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feature
+      id="org.elysium.feature"
+      label="Elysium"
+      version="0.5.3.qualifier"
+      provider-name="Open Source Community"
+      plugin="org.elysium.branding"
+      license-feature="org.eclipse.platform">
+
+   <description url="http://elysium.thsoft.hu">
+      LilyPond IDE for Eclipse
+   </description>
+
+   <requires>
+      <import feature="org.eclipse.commons" version="0.2.0" match="greaterOrEqual"/>
+   </requires>
+
+   <plugin
+         id="org.elysium"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="org.elysium.ide"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="org.elysium.ui"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="org.elysium.branding"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"/>
+
+</feature>
