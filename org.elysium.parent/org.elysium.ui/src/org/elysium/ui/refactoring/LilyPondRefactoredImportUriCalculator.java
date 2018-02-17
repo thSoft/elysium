@@ -5,7 +5,10 @@ import org.eclipse.core.runtime.IPath;
 import org.eclipse.core.runtime.Path;
 import org.elysium.importuri.LilyPondImportUri;
 
-class LilyPondRefactoredImportUriCalculator {
+//if package private - maven build fails due to
+//https://stackoverflow.com/questions/36100552/illegalaccesserror-when-using-a-public-method-reference-of-a-package-private-cla
+//making the class public is least effort with little/no negative effect
+public class LilyPondRefactoredImportUriCalculator {
 
 	//source file parent location before refactoring
 	private IPath source;
