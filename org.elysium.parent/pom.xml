@@ -7,7 +7,7 @@
 	<packaging>pom</packaging>
 
 	<properties>
-		<tycho-version>0.23.1</tycho-version>
+		<tycho-version>0.25.0</tycho-version>
 		<xtextVersion>2.10.0</xtextVersion>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<maven.compiler.source>1.8</maven.compiler.source>
@@ -19,10 +19,10 @@
 		<module>org.elysium.ui</module>
 		<module>org.elysium.target</module>
 		<module>org.elysium.branding</module>
-		<module>org.elysium.feature</module>
-		<module>org.elysium.repository</module>
 		<module>org.elysium.tests</module>
 		<module>org.elysium.ui.tests</module>
+		<module>org.elysium.feature</module>
+		<module>org.elysium.repository</module>
 	</modules>
 	<build>
 		<plugins>
@@ -150,10 +150,9 @@
 								<includes>
 									<include>**/*</include>
 								</includes>
-								<directory>${basedir}/xtend-gen</directory>
-								<includes>
-									<include>**/*</include>
-								</includes>
+								<excludes>
+									<exclude>.gitignore</exclude>
+								</excludes>
 							</fileset>
 						</filesets>
 					</configuration>
