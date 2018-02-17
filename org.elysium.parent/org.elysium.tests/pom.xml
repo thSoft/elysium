@@ -9,6 +9,10 @@
 	<artifactId>org.elysium.tests</artifactId>
 	<packaging>eclipse-test-plugin</packaging>
 
+	<properties>
+		<lilypond.path>C:\Programme\LilyPond\usr\bin\lilypond.exe</lilypond.path>
+	</properties>
+
 	<build>
 		<plugins>
 			<plugin>
@@ -20,6 +24,7 @@
 				<artifactId>tycho-surefire-plugin</artifactId>
 				<version>${tycho-version}</version>
 				<configuration>
+					<argLine>-Dlilypond.path=${lilypond.path}</argLine>
 					<failIfNoTests>false</failIfNoTests>
 					<includes>**/*.java</includes>
 				</configuration>
