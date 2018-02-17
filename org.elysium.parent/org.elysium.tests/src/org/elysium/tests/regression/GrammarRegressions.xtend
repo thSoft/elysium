@@ -360,13 +360,16 @@ class GrammarRegressions {
 
 	@Test
 	def void assignmentIncluded() {
-		val filename = "1 foo.ly";
-		Files.writeStringIntoFile(filename, ASSIGNMENT);
-		'''
-			\include "«filename»"
-			«REFERENCE»
-		'''.parseWithoutErrors
-		new File(filename).delete();
+		val filename = "target/1 foo.ly";
+		try{
+			Files.writeStringIntoFile(filename, "abc = #1");
+			'''
+				\include "«filename»"
+				\abc
+			'''.parseWithoutErrors
+		}finally{
+			new File(filename).delete();
+		}
 	}
 
 	@Test
