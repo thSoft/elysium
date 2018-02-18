@@ -277,9 +277,6 @@
             name="org.eclipse.xtext.sdk.feature.group"
             versionRange="[2.7.0,2.8.0)"/>
         <requirement
-            name="org.eclipse.xtext.sdk.feature.group"
-            versionRange="[2.10.0,2.11.0)"/>
-        <requirement
             name="org.eclipse.platform.feature.group"/>
         <requirement
             name="de.libutzki.xtext.nodemodeloutline.feature.feature.group"
