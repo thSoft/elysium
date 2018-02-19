@@ -9,12 +9,29 @@
 	<artifactId>org.elysium.tests</artifactId>
 	<packaging>eclipse-test-plugin</packaging>
 
-	<properties>
-		<lilypond.path>C:\Programme\LilyPond\usr\bin\lilypond.exe</lilypond.path>
-	</properties>
-
 	<build>
 		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-enforcer-plugin</artifactId>
+				<version>3.0.0-M1</version>
+				<executions>
+					<execution>
+						<id>enforce-property</id>
+						<goals>
+							<goal>enforce</goal>
+						</goals>
+						<configuration>
+							<rules>
+								<requireProperty>
+									<property>lilypond.path</property>
+								</requireProperty>
+							</rules>
+							<fail>true</fail>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
 			<plugin>
 				<groupId>org.eclipse.xtend</groupId>
 				<artifactId>xtend-maven-plugin</artifactId>
@@ -26,7 +43,9 @@
 				<configuration>
 					<argLine>-Dlilypond.path=${lilypond.path}</argLine>
 					<failIfNoTests>false</failIfNoTests>
-					<includes>**/*.java</includes>
+					<includes>
+						<include>**/*.java</include>
+					</includes>
 				</configuration>
 			</plugin>
 		</plugins>
