@@ -25,6 +25,9 @@ import org.elysium.validation.IssueCodes;
 @SuppressWarnings("restriction")
 public class LilyPondValidatorConfigBlock extends AbstractValidatorConfigurationBlock {
 
+	private static final String[] linkingErrors=new String[]{"ignore","warning","error"};
+	private static final String[] linkingErrorLabels=new String[]{"Ignore","Warning","Error"};
+
 	private static final String[] otherErrors=new String[]{"ignore","info","warning","error"};
 	private static final String[] otherErrorLabels=new String[]{"Ignore","Info","Warning","Error"};
 
@@ -46,8 +49,8 @@ public class LilyPondValidatorConfigBlock extends AbstractValidatorConfiguration
 		Composite linkingProblems = createSection("Linking", composite, nColumns);
 		addComboBox(linkingProblems, "unresolvable include (.ly)", IssueCodes.UNRESOLVABLE_INCLUDE_STANDALONE, defaultIndent, otherErrors, otherErrorLabels);
 		addComboBox(linkingProblems, "unresolvable include (.ily...)", IssueCodes.UNRESOLVABLE_INCLUDE_ILY, defaultIndent, otherErrors, otherErrorLabels);
-		addComboBox(linkingProblems, "unknown variable (.ly)", IssueCodes.UNKNOWN_VARIABLE_STANDALONE, defaultIndent, otherErrors, otherErrorLabels);
-		addComboBox(linkingProblems, "unknown variable (.ily...)", IssueCodes.UNKNOWN_VARIABLE_ILY, defaultIndent, otherErrors, otherErrorLabels);
+		addComboBox(linkingProblems, "unknown variable (.ly)", IssueCodes.UNKNOWN_VARIABLE_STANDALONE, defaultIndent, linkingErrors, linkingErrorLabels);
+		addComboBox(linkingProblems, "unknown variable (.ily...)", IssueCodes.UNKNOWN_VARIABLE_ILY, defaultIndent, linkingErrors, linkingErrorLabels);
 		noLinkingErrorAssignments=new LilyPondListEditor();
 		noLinkingErrorAssignments.setPreferenceStore(preferenceStore);
 		noLinkingErrorAssignments.setPreferenceName(IssueCodes.UNKNOWN_VARIABLE_IGNORES);
