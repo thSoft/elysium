@@ -1,5 +1,5 @@
 language: java
 before_install:
-  - sudo apt-get -qq update
-  - sudo apt-get install -y lilypond
+  - wget http://download.linuxaudio.org/lilypond/binaries/linux-64/lilypond-2.18.2-1.linux-64.sh
+  - sh lilypond-2.18.2-1.linux-64.sh
 script: ./build.sh
