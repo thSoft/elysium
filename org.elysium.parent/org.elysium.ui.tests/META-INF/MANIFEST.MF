@@ -1,7 +1,7 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: LilyPond IDE Tests
-Bundle-Version: 0.5.3.qualifier
+Bundle-Version: 0.6.0.qualifier
 Bundle-SymbolicName: org.elysium.ui.tests; singleton:=true
 Bundle-ActivationPolicy: lazy
 Require-Bundle: org.elysium.ui,

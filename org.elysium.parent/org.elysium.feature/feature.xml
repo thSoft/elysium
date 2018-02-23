@@ -2,7 +2,7 @@
 <feature
       id="org.elysium.feature"
       label="Elysium"
-      version="0.5.3.qualifier"
+      version="0.6.0.qualifier"
       provider-name="Open Source Community"
       plugin="org.elysium.branding">
 
