@@ -30,7 +30,7 @@ Workflow {
 			}
 		}
 		language = {
-			name = "org.elysium.lilypond"
+			name = "org.elysium.LilyPond"
 			fileExtensions = "ly,ily,lyi"
 
 			fragment = grammarAccess.GrammarAccessFragment2 {}
