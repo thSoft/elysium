@@ -32,6 +32,22 @@ public class LilyPondImportUriResolver extends ImportUriResolver {
 	@Inject
 	private ILilyPondPathProvider lilyPondPathProvider;
 
+	public static boolean isAbsolute(String uriString) {
+		String normalized = normalizedUriString(uriString);
+		if(normalized != null) {
+			return URI.create(normalized).isAbsolute();
+		}
+		return false;
+	}
+
+	private static String normalizedUriString(String uriString) {
+		if(uriString != null) {
+			return uriString.replace('\\','/');
+		} else {
+			return uriString;
+		}
+	}
+
 	@Override
 	public String resolve(EObject object) {
 		String importUri = super.resolve(object);
@@ -46,7 +62,8 @@ public class LilyPondImportUriResolver extends ImportUriResolver {
 		return importUri;
 	}
 
-	public LilyPondImportUri resolve(org.eclipse.emf.common.util.URI resourceURI, String importUri){
+	public LilyPondImportUri resolve(org.eclipse.emf.common.util.URI resourceURI, String nonNormalizedimportUri){
+		String importUri=normalizedUriString(nonNormalizedimportUri);
 		List<URI> searchUris = Lists.newArrayList(transform(lilyPondPathProvider.getSearchPaths(), new Function<String, URI>() {
 			@Override
 			public URI apply(String path) {
@@ -76,7 +93,7 @@ public class LilyPondImportUriResolver extends ImportUriResolver {
 		LilyPondImportUri.Type type=fromSearchPath?LilyPondImportUri.Type.searchPath:LilyPondImportUri.Type.relative;
 		boolean inWorkspace=true;
 		if(Platform.isRunning() && !uri.isRelative()){
-			if(URI.create(originalImportUri).isAbsolute()){
+			if(isAbsolute(originalImportUri)){
 				type=LilyPondImportUri.Type.absolute;
 			}
 			String platformString = Platform.getLocation().toString();
