@@ -35,7 +35,11 @@ public class LilyPondImportUriResolver extends ImportUriResolver {
 	public static boolean isAbsolute(String uriString) {
 		String normalized = normalizedUriString(uriString);
 		if(normalized != null) {
-			return URI.create(normalized).isAbsolute();
+			try {
+				return URI.create(normalized).isAbsolute();
+			}catch(Exception e) {
+				//ignore for now, spaces in file names cause problems
+			}
 		}
 		return false;
 	}
