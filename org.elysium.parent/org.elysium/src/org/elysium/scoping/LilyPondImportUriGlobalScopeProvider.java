@@ -195,11 +195,7 @@ public class LilyPondImportUriGlobalScopeProvider extends AbstractGlobalScopePro
 	}
 
 	protected IScope createLazyResourceScope(IScope parent, final URI uri, final IResourceDescriptions descriptions, EClass type, final Predicate<IEObjectDescription> filter, boolean ignoreCase) {
-		try {
-			IResourceDescription description=getResourceDescriptionForUri(uri, descriptions);
-			return SelectableBasedScope.createScope(parent, description, filter, type, ignoreCase);
-		}catch(IllegalStateException e) {
-			return parent;
-		}
+		IResourceDescription description=getResourceDescriptionForUri(uri, descriptions);
+		return SelectableBasedScope.createScope(parent, description, filter, type, ignoreCase);
 	}
 }
