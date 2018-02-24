@@ -1,2 +1,2 @@
 cd org.elysium.parent
-mvn integration-test -Dlilypond.path=$(realpath $(which lilypond))
+mvn integration-test -Dlilypond.path=$(readlink "$(which lilypond)")

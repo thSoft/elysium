@@ -2,6 +2,9 @@ language: java
 before_install:
   - wget http://download.linuxaudio.org/lilypond/binaries/linux-64/lilypond-2.18.2-1.linux-64.sh
   - sh lilypond-2.18.2-1.linux-64.sh --batch
-  - sudo apt-get -qq update
-  - sudo apt-get install -y realpath
+  - ln -sfn /home/thsoft/lilypond/usr/bin/lilypond /home/thsoft/bin/lilypond
 script: ./build.sh
+cache:
+  directories:
+  - .autoconf
+  - $HOME/.m2
