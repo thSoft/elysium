@@ -33,23 +33,12 @@ public class LilyPondImportUriResolver extends ImportUriResolver {
 	private ILilyPondPathProvider lilyPondPathProvider;
 
 	public static boolean isAbsolute(String uriString) {
-		String normalized = normalizedUriString(uriString);
-		if(normalized != null) {
-			try {
-				return URI.create(normalized).isAbsolute();
-			}catch(Exception e) {
-				//ignore for now, spaces in file names cause problems
-			}
+		try {
+			return new File(uriString).isAbsolute();
+		}catch(Exception e) {
+			//ignore for now, spaces in file names cause problems
 		}
 		return false;
-	}
-
-	private static String normalizedUriString(String uriString) {
-		if(uriString != null) {
-			return uriString.replace('\\','/');
-		} else {
-			return uriString;
-		}
 	}
 
 	@Override
@@ -66,8 +55,7 @@ public class LilyPondImportUriResolver extends ImportUriResolver {
 		return importUri;
 	}
 
-	public LilyPondImportUri resolve(org.eclipse.emf.common.util.URI resourceURI, String nonNormalizedimportUri){
-		String importUri=normalizedUriString(nonNormalizedimportUri);
+	public LilyPondImportUri resolve(org.eclipse.emf.common.util.URI resourceURI, String importUri){
 		List<URI> searchUris = Lists.newArrayList(transform(lilyPondPathProvider.getSearchPaths(), new Function<String, URI>() {
 			@Override
 			public URI apply(String path) {
