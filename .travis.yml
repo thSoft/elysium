@@ -3,7 +3,9 @@ before_install:
   - wget http://download.linuxaudio.org/lilypond/binaries/linux-64/lilypond-2.18.2-1.linux-64.sh
   - sh lilypond-2.18.2-1.linux-64.sh --batch
   - ln -sfn /home/travis/lilypond/usr/bin/lilypond /home/travis/bin/lilypond
-script: ./build.sh
+  - sudo apt-get -qq update
+  - sudo apt-get install -y realpath
+script: xvfb-run ./build.sh
 cache:
   directories:
   - .autoconf
