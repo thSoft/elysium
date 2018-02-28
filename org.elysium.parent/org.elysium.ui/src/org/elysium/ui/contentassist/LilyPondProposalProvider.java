@@ -10,6 +10,7 @@ import org.eclipse.core.resources.IResource;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.util.ResourceUtils;
 import org.eclipse.xtext.Assignment;
+import org.eclipse.xtext.RuleCall;
 import org.eclipse.xtext.ui.editor.contentassist.ContentAssistContext;
 import org.eclipse.xtext.ui.editor.contentassist.ICompletionProposalAcceptor;
 import org.elysium.LilyPondConstants;
@@ -67,6 +68,24 @@ public class LilyPondProposalProvider extends AbstractLilyPondProposalProvider {
 					acceptor.accept(createCompletionProposal(QUOTE+child+QUOTE, context));
 				}
 			}
+		}
+	}
+
+	@Override
+	public void complete_SchemeValue(EObject model, RuleCall ruleCall, ContentAssistContext context,
+			ICompletionProposalAcceptor acceptor) {
+		try {
+			EObject possibleAssignment = model.eContainer().eContainer();
+			if(possibleAssignment instanceof org.elysium.lilypond.Assignment) {
+				org.elysium.lilypond.Assignment assignemt = (org.elysium.lilypond.Assignment) possibleAssignment;
+				if("midiInstrument".equals(assignemt.getName())) {
+					for (String instrument : MidiInstruments.get()) {
+						acceptor.accept(createCompletionProposal(QUOTE+instrument+QUOTE, context));
+					}
+				}
+			}
+		}catch(Exception e) {
+			//ignore any problems
 		}
 	}
 }
