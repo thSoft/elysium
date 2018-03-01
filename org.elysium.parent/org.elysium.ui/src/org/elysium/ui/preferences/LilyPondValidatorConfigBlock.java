@@ -25,11 +25,11 @@ import org.elysium.validation.IssueCodes;
 @SuppressWarnings("restriction")
 public class LilyPondValidatorConfigBlock extends AbstractValidatorConfigurationBlock {
 
-	private static final String[] linkingErrors=new String[]{"ignore","warning","error"};
-	private static final String[] linkingErrorLabels=new String[]{"Ignore","Warning","Error"};
+	private static final String[] linkingSeverities=new String[]{"ignore","warning","error"};
+	private static final String[] linkingSeverityLabels=new String[]{"Ignore","Warning","Error"};
 
-	private static final String[] otherErrors=new String[]{"ignore","info","warning","error"};
-	private static final String[] otherErrorLabels=new String[]{"Ignore","Info","Warning","Error"};
+	private static final String[] otherSeverities=new String[]{"ignore","info","warning","error"};
+	private static final String[] otherSeverityLabels=new String[]{"Ignore","Info","Warning","Error"};
 
 	LilyPondListEditor noLinkingErrorAssignments;
 	private IPreferenceStore preferenceStore;
@@ -41,17 +41,17 @@ public class LilyPondValidatorConfigBlock extends AbstractValidatorConfiguration
 	protected void fillSettingsPage(Composite composite, int nColumns, int defaultIndent) {
 
 		Composite generalProblems = createSection("General", composite, nColumns);
-		addComboBox(generalProblems, "no version (.ly)", IssueCodes.NO_VERSION_STANDALONE, defaultIndent, otherErrors, otherErrorLabels);
-		addComboBox(generalProblems, "no version (.ily...)", IssueCodes.NO_VERSION_ILY, defaultIndent, otherErrors, otherErrorLabels);
-		addComboBox(generalProblems, "duplicate variable", IssueCodes.DUPLICATE_VARIABLE, defaultIndent, otherErrors, otherErrorLabels);
-		addComboBox(generalProblems, "include using variable", IssueCodes.VARIABLE_INCLUDE, defaultIndent, otherErrors, otherErrorLabels);
+		addComboBox(generalProblems, "no version (.ly)", IssueCodes.NO_VERSION_STANDALONE, defaultIndent, otherSeverities, otherSeverityLabels);
+		addComboBox(generalProblems, "no version (.ily...)", IssueCodes.NO_VERSION_ILY, defaultIndent, otherSeverities, otherSeverityLabels);
+		addComboBox(generalProblems, "duplicate variable", IssueCodes.DUPLICATE_VARIABLE, defaultIndent, otherSeverities, otherSeverityLabels);
+		addComboBox(generalProblems, "include using variable", IssueCodes.VARIABLE_INCLUDE, defaultIndent, otherSeverities, otherSeverityLabels);
 
 		Composite linkingProblems = createSection("Linking", composite, nColumns);
-		addComboBox(linkingProblems, "absolute include", IssueCodes.ABSOLUTE_INCLUDE, defaultIndent, otherErrors, otherErrorLabels);
-		addComboBox(linkingProblems, "unresolvable include (.ly)", IssueCodes.UNRESOLVABLE_INCLUDE_STANDALONE, defaultIndent, otherErrors, otherErrorLabels);
-		addComboBox(linkingProblems, "unresolvable include (.ily...)", IssueCodes.UNRESOLVABLE_INCLUDE_ILY, defaultIndent, otherErrors, otherErrorLabels);
-		addComboBox(linkingProblems, "unknown variable (.ly)", IssueCodes.UNKNOWN_VARIABLE_STANDALONE, defaultIndent, linkingErrors, linkingErrorLabels);
-		addComboBox(linkingProblems, "unknown variable (.ily...)", IssueCodes.UNKNOWN_VARIABLE_ILY, defaultIndent, linkingErrors, linkingErrorLabels);
+		addComboBox(linkingProblems, "absolute include", IssueCodes.ABSOLUTE_INCLUDE, defaultIndent, otherSeverities, otherSeverityLabels);
+		addComboBox(linkingProblems, "unresolvable include (.ly)", IssueCodes.UNRESOLVABLE_INCLUDE_STANDALONE, defaultIndent, otherSeverities, otherSeverityLabels);
+		addComboBox(linkingProblems, "unresolvable include (.ily...)", IssueCodes.UNRESOLVABLE_INCLUDE_ILY, defaultIndent, otherSeverities, otherSeverityLabels);
+		addComboBox(linkingProblems, "unknown variable (.ly)", IssueCodes.UNKNOWN_VARIABLE_STANDALONE, defaultIndent, linkingSeverities, linkingSeverityLabels);
+		addComboBox(linkingProblems, "unknown variable (.ily...)", IssueCodes.UNKNOWN_VARIABLE_ILY, defaultIndent, linkingSeverities, linkingSeverityLabels);
 		noLinkingErrorAssignments=new LilyPondListEditor();
 		noLinkingErrorAssignments.setPreferenceStore(preferenceStore);
 		noLinkingErrorAssignments.setPreferenceName(IssueCodes.UNKNOWN_VARIABLE_IGNORES);

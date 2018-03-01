@@ -33,12 +33,7 @@ public class LilyPondImportUriResolver extends ImportUriResolver {
 	private ILilyPondPathProvider lilyPondPathProvider;
 
 	public static boolean isAbsolute(String uriString) {
-		try {
-			return new File(uriString).isAbsolute();
-		}catch(Exception e) {
-			//ignore for now, spaces in file names cause problems
-		}
-		return false;
+		return new File(uriString).isAbsolute();
 	}
 
 	@Override
