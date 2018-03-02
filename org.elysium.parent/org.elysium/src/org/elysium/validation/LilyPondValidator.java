@@ -11,6 +11,7 @@ import org.eclipse.xtext.nodemodel.util.NodeModelUtils;
 import org.eclipse.xtext.scoping.impl.ImportUriResolver;
 import org.eclipse.xtext.validation.Check;
 import org.elysium.LilyPondConstants;
+import org.elysium.importuri.LilyPondImportUriResolver;
 import org.elysium.lilypond.Command;
 import org.elysium.lilypond.Expression;
 import org.elysium.lilypond.Include;
@@ -76,10 +77,15 @@ public class LilyPondValidator extends AbstractLilyPondValidator {
 
 		String unresolvableIncludeCode=LilyPondConstants.isStandalone(include)?IssueCodes.UNRESOLVABLE_INCLUDE_STANDALONE:IssueCodes.UNRESOLVABLE_INCLUDE_ILY;
 		if(include.getImportURI()!=null && !isIgnored(unresolvableIncludeCode)){
-			String resolved = importUriResolver.resolve(include);
-			if (!EcoreUtil2.isValidUri(include, URI.createURI(resolved))) {
+			URI resolved = URI.createURI(importUriResolver.resolve(include));
+			if (!EcoreUtil2.isValidUri(include, resolved)) {
 				addIssue("Include could not be resolved", getCurrentObject(), LilypondPackage.Literals.INCLUDE__IMPORT_URI, unresolvableIncludeCode);
-			}
+			}else if(!LilyPondConstants.EXTENSIONS.contains(resolved.fileExtension())){
+				warning("Include does not have a known file extension; this may cause unexpected linking errors", LilypondPackage.Literals.INCLUDE__IMPORT_URI);
+ 			}
+		}
+		if(LilyPondImportUriResolver.isAbsolute(include.getImportURI()) && !isIgnored(IssueCodes.ABSOLUTE_INCLUDE)) {
+			addIssue("Include with absolute location", getCurrentObject(), LilypondPackage.Literals.INCLUDE__IMPORT_URI, IssueCodes.ABSOLUTE_INCLUDE);
 		}
 	}
 }

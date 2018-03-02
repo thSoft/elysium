@@ -11,6 +11,7 @@ import org.eclipse.xtext.nodemodel.INode;
  */
 public class LilyPondValueConverterService extends DefaultTerminalConverters {
 
+	private static final IValueConverter<String> STRING_VALUE_CONVERTER = new LilyPondStringValueConverter();
 	private static final IValueConverter<Integer> INT_VALUE_CONVERTER = new org.eclipse.xtext.conversion.impl.INTValueConverter() {
 
 		@Override
@@ -50,6 +51,11 @@ public class LilyPondValueConverterService extends DefaultTerminalConverters {
 	@ValueConverter(rule = "SchemeBooleanValue")
 	public IValueConverter<Boolean> BOOL() {
 		return BOOL_VALUE_CONVERTER;
+	}
+
+	@Override
+	public IValueConverter<String> STRING() {
+		return STRING_VALUE_CONVERTER;
 	}
 
 }

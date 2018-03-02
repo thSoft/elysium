@@ -32,6 +32,10 @@ public class LilyPondImportUriResolver extends ImportUriResolver {
 	@Inject
 	private ILilyPondPathProvider lilyPondPathProvider;
 
+	public static boolean isAbsolute(String uriString) {
+		return new File(uriString).isAbsolute();
+	}
+
 	@Override
 	public String resolve(EObject object) {
 		String importUri = super.resolve(object);
@@ -76,7 +80,7 @@ public class LilyPondImportUriResolver extends ImportUriResolver {
 		LilyPondImportUri.Type type=fromSearchPath?LilyPondImportUri.Type.searchPath:LilyPondImportUri.Type.relative;
 		boolean inWorkspace=true;
 		if(Platform.isRunning() && !uri.isRelative()){
-			if(URI.create(originalImportUri).isAbsolute()){
+			if(isAbsolute(originalImportUri)){
 				type=LilyPondImportUri.Type.absolute;
 			}
 			String platformString = Platform.getLocation().toString();
