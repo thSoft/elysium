@@ -182,6 +182,7 @@
       <includes>
         <contentExtension pattern="org.eclipse.ui.navigator.resourceContent"/>
         <contentExtension pattern="org.eclipse.ui.navigator.resources.filters.startsWithDot"/>
+        <contentExtension pattern="org.eclipse.ui.navigator.resources.filters.closedProject"/>
         <contentExtension pattern="org.eclipse.ui.navigator.resources.linkHelper"/>
         <contentExtension pattern="org.eclipse.ui.navigator.resources.workingSets"/>
         <contentExtension pattern="org.elysium.ui.filters.NonLilyPondProjects"/>
@@ -202,9 +203,14 @@
   <extension point="org.eclipse.ui.navigator.navigatorContent">
     <commonFilter activeByDefault="true" id="org.elysium.ui.filters.NonLilyPondProjects" name="Non-LilyPond projects">
       <filterExpression>
-        <not>
-          <test property="org.eclipse.core.resources.projectNature" value="org.elysium.ui.natures.LilyPond"/>
-        </not>
+        <and>
+          <adapt type="org.eclipse.core.resources.IProject">
+            <test property="org.eclipse.core.resources.open" value="true"/>
+          </adapt>
+          <not>
+            <test property="org.eclipse.core.resources.projectNature" value="org.elysium.ui.natures.LilyPond"/>
+          </not>
+        </and>
       </filterExpression>
     </commonFilter>
     <navigatorContent icon="icons/library/Sorter.png" id="org.elysium.ui.sorters.ByExtension" name="Sort By Extension" sortOnly="true">
