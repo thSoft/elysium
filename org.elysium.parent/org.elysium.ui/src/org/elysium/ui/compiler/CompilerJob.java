@@ -24,6 +24,8 @@ import org.eclipse.core.runtime.Status;
 import org.eclipse.core.runtime.jobs.Job;
 import org.eclipse.jface.dialogs.MessageDialog;
 import org.eclipse.jface.preference.PreferenceDialog;
+import org.eclipse.jface.text.TextSelection;
+import org.eclipse.jface.viewers.ISelection;
 import org.eclipse.swt.widgets.Display;
 import org.eclipse.swt.widgets.Shell;
 import org.eclipse.ui.IEditorPart;
@@ -33,6 +35,7 @@ import org.eclipse.ui.console.IConsoleConstants;
 import org.eclipse.ui.dialogs.PreferencesUtil;
 import org.eclipse.ui.ide.IDE;
 import org.eclipse.ui.progress.IProgressConstants;
+import org.eclipse.ui.texteditor.AbstractTextEditor;
 import org.eclipse.util.EditorUtils;
 import org.eclipse.util.UiUtils;
 import org.elysium.LilyPondConstants;
@@ -165,11 +168,19 @@ public class CompilerJob extends Job {
 
 					@Override
 					public void run() {
+						ISelection selection=null;
+						if(editor instanceof AbstractTextEditor) {
+							selection=((AbstractTextEditor) editor).getSelectionProvider().getSelection();
+						}
 						IWorkbenchPage workbenchPage = UiUtils.getWorkbenchPage();
 						workbenchPage.closeEditor(editor, true);
 						updateSyntax(monitor, console);
 						try {
-							IDE.openEditor(workbenchPage, file);
+							IEditorPart openedEditor = IDE.openEditor(workbenchPage, file);
+							if(openedEditor instanceof AbstractTextEditor && selection!=null && selection instanceof TextSelection) {
+								TextSelection textSelection = (TextSelection)selection;
+								((AbstractTextEditor) openedEditor).selectAndReveal(textSelection.getOffset(),0);
+							}
 						} catch (PartInitException e) {
 							Activator.logError("Couldn't refresh editor, try to reopen it", e);
 						}
@@ -178,11 +189,15 @@ public class CompilerJob extends Job {
 				});
 			} else {
 				updateSyntax(monitor, console);
-				try {
-					file.refreshLocal(0, monitor);
-				} catch (CoreException e) {
-					Activator.logError("Couldn't refresh file, try to refresh it manually", e);
-				}
+//if the file to be compiled is not open, this causes an IllegalArgumentException
+//because our ISchedulingRule does not work with the one created in refreshLocal, no matter wich monitor is passed as argument
+//anyway, after the compilation a project refresh is scheduled, so this refresh is
+//redundant anyway
+//				try {
+//					file.refreshLocal(0, monitor);
+//				} catch (CoreException e) {
+//					Activator.logError("Couldn't refresh file, try to refresh it manually", e);
+//				}
 			}
 		}
 		if(deleteMarkers){
