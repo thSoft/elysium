@@ -5,6 +5,8 @@ import java.util.List;
 
 import org.eclipse.emf.ecore.EObject;
 
+import com.google.common.base.Optional;
+
 public interface LilyPondConstants {
 
 	/**
@@ -32,6 +34,8 @@ public interface LilyPondConstants {
 	String AUDIO_EXTENSION = "midi"; //$NON-NLS-1$
 
 	List<String> COMPILED_EXTENSIONS = Arrays.asList(SCORE_EXTENSION, AUDIO_EXTENSION);
+
+	boolean IS_WINDOWS = Optional.fromNullable(System.getProperty("os.name")).or("another").toLowerCase().contains("win");//$NON-NLS-1$//$NON-NLS-2$//$NON-NLS-3$
 
 	public static boolean isStandalone(EObject o){
 		return EXTENSION.equals(o.eResource().getURI().fileExtension());

@@ -13,6 +13,7 @@ import org.eclipse.core.resources.ResourcesPlugin;
 import org.eclipse.core.runtime.Platform;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.xtext.scoping.impl.ImportUriResolver;
+import org.elysium.LilyPondConstants;
 
 import com.google.common.base.Function;
 import com.google.common.base.Optional;
@@ -26,8 +27,6 @@ import com.google.inject.Inject;
  * Resolves importURIs by first searching in LilyPond's default include path.
  */
 public class LilyPondImportUriResolver extends ImportUriResolver {
-
-	private static final boolean IS_WINDOWS = Optional.fromNullable(System.getProperty("os.name")).or("another").toLowerCase().contains("win");//$NON-NLS-1$//$NON-NLS-2$//$NON-NLS-3$
 
 	@Inject
 	private ILilyPondPathProvider lilyPondPathProvider;
@@ -97,7 +96,7 @@ public class LilyPondImportUriResolver extends ImportUriResolver {
 
 	private URI saferResolve(URI base, String importUri){
 		URI resolvedImportUri = base.resolve(org.eclipse.emf.common.util.URI.encodeOpaquePart(importUri, true));
-		boolean needToHandleAbsoluteWindowsLocation=IS_WINDOWS && resolvedImportUri.getScheme()!=null && !"file".equals(resolvedImportUri.getScheme());//$NON-NLS-1$
+		boolean needToHandleAbsoluteWindowsLocation=LilyPondConstants.IS_WINDOWS && resolvedImportUri.getScheme()!=null && !"file".equals(resolvedImportUri.getScheme());//$NON-NLS-1$
 		if(needToHandleAbsoluteWindowsLocation){
 			return URI.create("file:/"+resolvedImportUri.toString());//$NON-NLS-1$
 		}else{
