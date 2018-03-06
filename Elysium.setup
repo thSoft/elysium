@@ -185,6 +185,10 @@
             optional="true"/>
         <requirement
             name="de.itemis.xtext.antlr.sdk.feature.group"/>
+        <requirement
+            name="org.eclipse.pde.junit.runtime"/>
+        <requirement
+            name="org.eclipse.jdt.junit4.runtime"/>
         <repositoryList
             name="Oxygen">
           <repository
