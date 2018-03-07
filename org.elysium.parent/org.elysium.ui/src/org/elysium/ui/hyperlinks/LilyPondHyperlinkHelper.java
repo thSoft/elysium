@@ -69,17 +69,6 @@ public class LilyPondHyperlinkHelper extends HyperlinkHelper {
 				if(uriToOpen.isFile() && !new File(uriToOpen.toFileString()).exists()) {
 					uriToOpen=null;
 				}
-//TODO remove: there should be only absolute URIs and relative URIs should not be resolved against current resource URI 
-//				if(!uriToOpen.isFile() || uriToOpen.isRelative()){
-//					uriToOpen=null;
-//					Resource includedEResource=EcoreUtil2.getResource(xtextResource, includeUri);
-//					if(includedEResource!=null){
-//						IResource includedResource = ResourceUtils.convertEResourceToPlatformResource(includedEResource);
-//						if (includedResource != null) {
-//							uriToOpen = includedEResource.getURI();
-//						}
-//					}
-//				}
 				if(uriToOpen!=null){
 					int linkOffset = nodeOffset + 1; // Ignore the surrounding quotation marks
 					int linkLength = nodeLength - 2;

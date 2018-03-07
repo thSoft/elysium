@@ -92,36 +92,11 @@ public class LilyPondImportUriResolver extends ImportUriResolver {
 				File importedFile = new File(resolvedImportUri);
 				if (importedFile.exists()) {
 					return resolvedImportUri.toString();
-//				//TODO fileNameCasing is a problem here
-//				//TADA exists although file name is tada
 				}
 			}
 		}
 		return UNRESOLVED_URI_PREFIX+importUri;
 	}
-
-//TODO this may be code interesting for locating absolute file locations in Workspace
-//turn absolute uris that are actually located within the workspace into platform URIS
-//	private LilyPondImportUri potentialPlatformURI(org.eclipse.emf.common.util.URI resourceURI, String originalImportUri, String resolvedUriString, boolean fromSearchPath){
-//		String uriString=resolvedUriString;
-//		org.eclipse.emf.common.util.URI uri = org.eclipse.emf.common.util.URI.createURI(resolvedUriString);
-//		LilyPondImportUri.Type type=fromSearchPath?LilyPondImportUri.Type.searchPath:LilyPondImportUri.Type.relative;
-//		boolean inWorkspace=true;
-//		if(Platform.isRunning() && !uri.isRelative()){
-//			if(isAbsolute(originalImportUri, IS_WINDOWS)){
-//				type=LilyPondImportUri.Type.absolute;
-//			}
-//			String platformString = Platform.getLocation().toString();
-//			int index = uriString.indexOf(platformString);
-//			if(index>=0){
-//				String relative = uriString.substring(index+platformString.length()+1);
-//				uriString = org.eclipse.emf.common.util.URI.createPlatformResourceURI(relative, true).toString();
-//			}else{
-//				inWorkspace=false;
-//			}
-//		}
-//		return new LilyPondImportUri(originalImportUri, uriString, type, inWorkspace);
-//	}
 
 	public static URI saferResolve(URI base, String importUri, boolean isWindows) {
 		URI resolvedImportUri = base.resolve(org.eclipse.emf.common.util.URI.encodeOpaquePart(importUri, true));
@@ -138,27 +113,6 @@ public class LilyPondImportUriResolver extends ImportUriResolver {
 		}
 		return resolvedImportUri;
 	}
-
-//obsolete
-//	private Optional<LilyPondImportUri> getFileUriOutsideWorkspace(org.eclipse.emf.common.util.URI currentResourceUri, String importUri){
-//		if(importUri.contains("..")){//$NON-NLS-1$
-//			if(currentResourceUri!=null && currentResourceUri.isPlatform()){
-//				File currentResourceAsFile = new File(Platform.getLocation()+currentResourceUri.toPlatformString(false));
-//				if (currentResourceAsFile.exists()) {
-//					URI resolvedImportUri = saferResolve(currentResourceAsFile.toURI(), importUri, IS_WINDOWS);
-//					IWorkspaceRoot workspaceRoot= ResourcesPlugin.getWorkspace().getRoot();
-//					IFile[] importedFileFoundInWorkspace = workspaceRoot.findFilesForLocationURI(resolvedImportUri);
-//					if(importedFileFoundInWorkspace.length==0){
-//						File importedFile = new File(resolvedImportUri);
-//						if (importedFile.exists()) {
-//							return Optional.of(new LilyPondImportUri(importUri, resolvedImportUri.toString(), LilyPondImportUri.Type.relative, false));
-//						}
-//					}
-//				}
-//			}
-//		}
-//		return Optional.absent();
-//	}
 
 	public static URI getDefaultSearchUri(String lilypondPath) {
 		return defaultSearchUriCache.getUnchecked(lilypondPath);
