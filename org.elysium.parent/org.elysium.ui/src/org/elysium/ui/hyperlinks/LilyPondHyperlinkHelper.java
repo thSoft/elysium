@@ -1,5 +1,6 @@
 package org.elysium.ui.hyperlinks;
 
+import java.io.File;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -8,7 +9,6 @@ import org.eclipse.core.resources.IFile;
 import org.eclipse.core.resources.IResource;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EObject;
-import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.util.ResourceUtils;
 import org.eclipse.jface.text.Region;
 import org.eclipse.jface.text.hyperlink.IHyperlink;
@@ -21,7 +21,6 @@ import org.eclipse.ui.views.pdf.PdfViewPage;
 import org.eclipse.ui.views.pdf.PdfViewType;
 import org.eclipse.util.DocumentUtils;
 import org.eclipse.util.UiUtils;
-import org.eclipse.xtext.EcoreUtil2;
 import org.eclipse.xtext.nodemodel.ILeafNode;
 import org.eclipse.xtext.nodemodel.util.NodeModelUtils;
 import org.eclipse.xtext.resource.XtextResource;
@@ -67,16 +66,20 @@ public class LilyPondHyperlinkHelper extends HyperlinkHelper {
 				Include include = (Include)object;
 				String includeUri=uriResolver.resolve(include);
 				URI uriToOpen=URI.createURI(includeUri);
-				if(!uriToOpen.isFile() || uriToOpen.isRelative()){
+				if(uriToOpen.isFile() && !new File(uriToOpen.toFileString()).exists()) {
 					uriToOpen=null;
-					Resource includedEResource=EcoreUtil2.getResource(xtextResource, includeUri);
-					if(includedEResource!=null){
-						IResource includedResource = ResourceUtils.convertEResourceToPlatformResource(includedEResource);
-						if (includedResource != null) {
-							uriToOpen = includedEResource.getURI();
-						}
-					}
 				}
+//TODO remove: there should be only absolute URIs and relative URIs should not be resolved against current resource URI 
+//				if(!uriToOpen.isFile() || uriToOpen.isRelative()){
+//					uriToOpen=null;
+//					Resource includedEResource=EcoreUtil2.getResource(xtextResource, includeUri);
+//					if(includedEResource!=null){
+//						IResource includedResource = ResourceUtils.convertEResourceToPlatformResource(includedEResource);
+//						if (includedResource != null) {
+//							uriToOpen = includedEResource.getURI();
+//						}
+//					}
+//				}
 				if(uriToOpen!=null){
 					int linkOffset = nodeOffset + 1; // Ignore the surrounding quotation marks
 					int linkLength = nodeLength - 2;

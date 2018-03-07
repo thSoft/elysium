@@ -15,6 +15,7 @@ import org.eclipse.xtext.xbase.lib.IterableExtensions;
 import org.elysium.LilyPondConstants;
 import org.elysium.importuri.ILilyPondPathProvider;
 import org.elysium.importuri.LilyPondImportUri;
+import org.elysium.importuri.LilyPondImportUri.Type;
 import org.elysium.importuri.LilyPondImportUriResolver;
 import org.elysium.ui.preferences.LilyPondRefactoringPreferencePage;
 
@@ -54,7 +55,11 @@ class LilyPondRefactoringInjects {
 	}
 
 	public LilyPondImportUri resolveImportUri(URI baseURI, String importUri) {
-		return uriResolver.resolve(baseURI, importUri);
+		String resolved=uriResolver.resolve(baseURI, importUri);
+		//TODO this is temporary, so that compile works
+		//LilyPondUri needs to be replaced
+		return new LilyPondImportUri(importUri, resolved, Type.relative, true);
+//		return uriResolver.resolve(baseURI, importUri);
 	}
 
 	public List<String> getSearchPaths() {

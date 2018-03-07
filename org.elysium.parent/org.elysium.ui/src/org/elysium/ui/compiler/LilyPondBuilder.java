@@ -169,6 +169,7 @@ public class LilyPondBuilder implements IXtextBuilderParticipant {
 				if (eObject instanceof Include) {
 					Include include = (Include)eObject;
 					if(include.getImportURI() != null){
+						//TODO use importUriResolver here!!
 						Resource includedEResource = EcoreUtil2.getResource(eResource, include.getImportURI());
 						if (includedEResource != null) {
 							IResource includedResource = ResourceUtils.convertEResourceToPlatformResource(includedEResource);
