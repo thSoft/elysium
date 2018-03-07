@@ -4,11 +4,13 @@ import static org.eclipse.core.resources.IMarker.MESSAGE;
 import static org.eclipse.core.resources.IResource.DEPTH_ZERO;
 import static org.eclipse.core.resources.IResourceDelta.CHANGED;
 import static org.eclipse.core.resources.IResourceDelta.CONTENT;
-import static org.elysium.ui.compiler.LilyPondBuilder.addAllIncludingFiles;
 import static org.elysium.ui.markers.MarkerTypes.OUTDATED;
 import static org.elysium.ui.markers.MarkerTypes.UP_TO_DATE;
 import java.util.HashSet;
 import java.util.Set;
+
+import javax.inject.Inject;
+
 import org.eclipse.core.resources.IFile;
 import org.eclipse.core.resources.IMarker;
 import org.eclipse.core.resources.IResource;
@@ -19,13 +21,17 @@ import org.eclipse.core.resources.IResourceDeltaVisitor;
 import org.eclipse.core.runtime.CoreException;
 import org.elysium.LilyPondConstants;
 import org.elysium.ui.Activator;
+import org.elysium.ui.compiler.LilyPondBuilder;
 
 /**
  * Adds outdated markers to LilyPond files when their contents changed.
  */
 public class OutdatedMarkerAdder implements IResourceChangeListener {
 
-	private static final IResourceDeltaVisitor VISITOR = new IResourceDeltaVisitor() {
+	@Inject
+	private LilyPondBuilder builder;
+
+	private final IResourceDeltaVisitor VISITOR = new IResourceDeltaVisitor() {
 
 		@Override
 		public boolean visit(IResourceDelta delta) throws CoreException {
@@ -35,7 +41,7 @@ public class OutdatedMarkerAdder implements IResourceChangeListener {
 				if ((delta.getFlags() & CONTENT) != 0) {
 					Set<IFile> files = new HashSet<IFile>();
 					files.add((IFile)resource);
-					addAllIncludingFiles(files);
+					builder.addAllIncludingFiles(files);
 					for (IFile file : files) {
 						if (file.findMarkers(UP_TO_DATE, false, DEPTH_ZERO).length != 0) {
 							// The builder signals non-semantic change with this marker
