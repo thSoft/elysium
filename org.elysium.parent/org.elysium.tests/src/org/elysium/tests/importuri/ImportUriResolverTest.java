@@ -60,7 +60,6 @@ public class ImportUriResolverTest {
 		Assert.assertEquals(expectedAbsolute, LilyPondImportUriResolver.isAbsolute(includeString, isWindows));
 	}
 
-	//TODO test resolve with file names including white spaces
 	@Test
 	public void safeResolveWithFileBase() {
 		List<String> bases= ImmutableList.of("file:/some/folder/","file:/some/folder/andfile.ly");
@@ -73,13 +72,20 @@ public class ImportUriResolverTest {
 			assertResolve(base, "otherFolder/file.ly", isWindows, "file:/some/folder/otherFolder/file.ly");
 			assertResolve(base, "../file.ly", !isWindows, "file:/some/file.ly");
 			assertResolve(base, "../file.ly", isWindows, "file:/some/file.ly");
+			assertResolve(base, "../otherFolder/file.ly", !isWindows, "file:/some/otherFolder/file.ly");
+			assertResolve(base, "../otherFolder/file.ly", isWindows, "file:/some/otherFolder/file.ly");
+			assertResolve(base, "../other Folder/fi le.ly", !isWindows, "file:/some/other%20Folder/fi%20le.ly");
+			assertResolve(base, "../other Folder/fi le.ly", isWindows, "file:/some/other%20Folder/fi%20le.ly");
 
 			//windows absolute
 			assertResolve(base, "C:/windowsFolder/file.ly", isWindows, "file:/C:/windowsFolder/file.ly");
+			assertResolve(base, "C:/windows Folder/fi le.ly", isWindows, "file:/C:/windows%20Folder/fi%20le.ly");
 
 			//other absolute
 			assertResolve(base, "file:/unixFolder/file.ly", !isWindows, "file:/unixFolder/file.ly");
 			assertResolve(base, "/unixFolder/file.ly", !isWindows, "file:/unixFolder/file.ly");
+			assertResolve(base, "file:/unix Folder/fi le.ly", !isWindows, "file:/unix%20Folder/fi%20le.ly");
+			assertResolve(base, "/unix Folder/fi le.ly", !isWindows, "file:/unix%20Folder/fi%20le.ly");
 		}
 	}
 
