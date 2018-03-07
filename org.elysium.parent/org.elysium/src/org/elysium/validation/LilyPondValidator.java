@@ -84,7 +84,7 @@ public class LilyPondValidator extends AbstractLilyPondValidator {
 				warning("Include does not have a known file extension; this may cause unexpected linking errors", LilypondPackage.Literals.INCLUDE__IMPORT_URI);
  			}
 		}
-		if(LilyPondImportUriResolver.isAbsolute(include.getImportURI()) && !isIgnored(IssueCodes.ABSOLUTE_INCLUDE)) {
+		if(LilyPondImportUriResolver.isAbsolute(include.getImportURI(), LilyPondConstants.IS_WINDOWS) && !isIgnored(IssueCodes.ABSOLUTE_INCLUDE)) {
 			addIssue("Include with absolute location", getCurrentObject(), LilypondPackage.Literals.INCLUDE__IMPORT_URI, IssueCodes.ABSOLUTE_INCLUDE);
 		}
 	}
