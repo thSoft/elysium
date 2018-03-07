@@ -17,6 +17,7 @@ import org.elysium.LilyPondConstants;
 
 import com.google.common.base.Function;
 import com.google.common.base.Optional;
+import com.google.common.base.Strings;
 import com.google.common.cache.CacheBuilder;
 import com.google.common.cache.CacheLoader;
 import com.google.common.cache.LoadingCache;
@@ -32,7 +33,13 @@ public class LilyPondImportUriResolver extends ImportUriResolver {
 	private ILilyPondPathProvider lilyPondPathProvider;
 
 	public static boolean isAbsolute(String uriString) {
-		return new File(uriString).isAbsolute();
+		if(Strings.isNullOrEmpty(uriString)) {
+			return false;
+		}else if(IS_WINDOWS) {
+			return new File(uriString).isAbsolute();
+		} else {
+			return uriString.startsWith("/") || uriString.startsWith("file:/");//$NON-NLS-1$//$NON-NLS-2$
+		}
 	}
 
 	@Override

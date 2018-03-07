@@ -13,6 +13,7 @@ public class ImportUriResolverTest {
 
 	@Test
 	public void testAbsolute() {
+		checkIsAbsolute(null, false);
 		checkIsAbsolute("", false);
 		checkIsAbsolute("file.ly", false);
 		checkIsAbsolute("fi le.ly", false);
@@ -36,6 +37,10 @@ public class ImportUriResolverTest {
 			checkIsAbsolute("/fi le.ly", true);
 			checkIsAbsolute("/unixfolder/file.ly", true);
 			checkIsAbsolute("/unix folder/fi le.ly", true);
+			checkIsAbsolute("file:/file.ly", true);
+			checkIsAbsolute("file:/fi le.ly", true);
+			checkIsAbsolute("file:/unixfolder/file.ly", true);
+			checkIsAbsolute("file:/unix folder/fi le.ly", true);
 		}
 	}
 
