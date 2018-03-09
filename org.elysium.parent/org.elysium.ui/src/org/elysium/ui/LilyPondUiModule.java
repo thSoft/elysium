@@ -14,7 +14,6 @@ import org.eclipse.xtext.ui.editor.XtextEditor;
 import org.eclipse.xtext.ui.editor.autoedit.AbstractEditStrategyProvider;
 import org.eclipse.xtext.ui.editor.hyperlinking.IHyperlinkHelper;
 import org.eclipse.xtext.ui.editor.model.IResourceForEditorInputFactory;
-import org.eclipse.xtext.ui.editor.model.ResourceForIEditorInputFactory;
 import org.eclipse.xtext.ui.editor.outline.actions.IOutlineContribution;
 import org.eclipse.xtext.ui.editor.preferences.IPreferenceStoreInitializer;
 import org.eclipse.xtext.ui.editor.quickfix.ISimilarityMatcher;
@@ -27,6 +26,7 @@ import org.elysium.importuri.ILilyPondPathProvider;
 import org.elysium.ui.autoedit.LilyPondAutoEditStrategyProvider;
 import org.elysium.ui.hyperlinks.LilyPondHyperlinkHelper;
 import org.elysium.ui.hyperlinks.LilyPondLanguageSpecificURIEditorOpener;
+import org.elysium.ui.hyperlinks.LilyPondResourceForIEditorInputFactory;
 import org.elysium.ui.outline.FilterIncludesOutlineContribution;
 import org.elysium.ui.preferences.LilyPondPreferenceInitializer;
 import org.elysium.ui.preferences.LilyPondValidatorConfigBlock;
@@ -91,7 +91,7 @@ public class LilyPondUiModule extends AbstractLilyPondUiModule {
 
 	@Override
 	public Class<? extends IResourceForEditorInputFactory> bindIResourceForEditorInputFactory() {
-		return ResourceForIEditorInputFactory.class;
+		return LilyPondResourceForIEditorInputFactory.class;
 	}
 
 	@Override
