@@ -7,6 +7,7 @@ import java.util.List;
 
 import org.eclipse.core.resources.IFile;
 import org.eclipse.core.resources.IResource;
+import org.eclipse.core.resources.ResourcesPlugin;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.util.ResourceUtils;
@@ -83,31 +84,29 @@ public class LilyPondHyperlinkHelper extends HyperlinkHelper {
 			}
 			// Source -> Score
 			else {
-				IResource resource = ResourceUtils.convertEResourceToPlatformResource(xtextResource);
-				if (resource != null) {
-					IViewPart view = UiUtils.getWorkbenchPage().findView(ScoreViewType.ID);
-					if (view instanceof FileView) {
-						FileView fileView = (FileView)view;
-						IFileViewType<?> fileViewType = fileView.getType();
-						if (fileViewType instanceof PdfViewType) {
-							PdfViewType pdfViewType = (PdfViewType)fileViewType;
-							PdfViewPage pdfViewPage = pdfViewType.getPage();
-							if (pdfViewPage != null) {
-								for (int page = 1; page <= pdfViewPage.getPageCount(); page++) {
-									PdfAnnotation[] pdfAnnotations = pdfViewPage.getAnnotationsOnPage(page);
-									for (PdfAnnotation pdfAnnotation : pdfAnnotations) {
-										IFile targetFile = pdfAnnotation.file;
-										if (resource.equals(targetFile)) {
-											try {
-												int annotationOffset = DocumentUtils.getOffsetOfPosition(DocumentUtils.getDocumentFromFile(targetFile), pdfAnnotation.lineNumber, pdfAnnotation.columnNumber, 1);
-												if ((nodeOffset <= annotationOffset) && (annotationOffset < (nodeOffset + nodeLength))) { // TODO smarter hyperlink region
-													SourceToScoreHyperlink hyperlink = new SourceToScoreHyperlink(pdfViewPage, pdfAnnotation);
-													hyperlink.setHyperlinkRegion(new Region(nodeOffset, nodeLength));
-													hyperlinks.add(hyperlink);
-												}
-											} catch (Exception e) {
-												Activator.logError("Error while calculating hyperlink offset", e);
+				IViewPart view = UiUtils.getWorkbenchPage().findView(ScoreViewType.ID);
+				if (view instanceof FileView) {
+					FileView fileView = (FileView)view;
+					IFileViewType<?> fileViewType = fileView.getType();
+					if (fileViewType instanceof PdfViewType) {
+						PdfViewType pdfViewType = (PdfViewType)fileViewType;
+						PdfViewPage pdfViewPage = pdfViewType.getPage();
+						List<IResource> resources = getFileForXtextResource(xtextResource);
+						if (pdfViewPage != null && !resources.isEmpty()) {
+							for (int page = 1; page <= pdfViewPage.getPageCount(); page++) {
+								PdfAnnotation[] pdfAnnotations = pdfViewPage.getAnnotationsOnPage(page);
+								for (PdfAnnotation pdfAnnotation : pdfAnnotations) {
+									IFile targetFile = pdfAnnotation.file;
+									if (resources.contains(targetFile)) {
+										try {
+											int annotationOffset = DocumentUtils.getOffsetOfPosition(DocumentUtils.getDocumentFromFile(targetFile), pdfAnnotation.lineNumber, pdfAnnotation.columnNumber, 1);
+											if ((nodeOffset <= annotationOffset) && (annotationOffset < (nodeOffset + nodeLength))) { // TODO smarter hyperlink region
+												SourceToScoreHyperlink hyperlink = new SourceToScoreHyperlink(pdfViewPage, pdfAnnotation);
+												hyperlink.setHyperlinkRegion(new Region(nodeOffset, nodeLength));
+												hyperlinks.add(hyperlink);
 											}
+										} catch (Exception e) {
+											Activator.logError("Error while calculating hyperlink offset", e);
 										}
 									}
 								}
@@ -124,4 +123,19 @@ public class LilyPondHyperlinkHelper extends HyperlinkHelper {
 		}
 	}
 
+	private List<IResource> getFileForXtextResource(XtextResource xtextResource) {
+		List<IResource> result=new ArrayList<>();
+		IResource resource = ResourceUtils.convertEResourceToPlatformResource(xtextResource);
+		if (resource != null) {
+			result.add(resource);
+		} else if(xtextResource.getURI().isFile()) {
+			IFile[] wsResources = ResourcesPlugin.getWorkspace().getRoot().findFilesForLocationURI(java.net.URI.create(xtextResource.getURI().toString()));
+			for (IFile iFile : wsResources) {
+				if(iFile.exists()) {
+					result.add(iFile);
+				}
+			}
+		}
+		return result;
+	}
 }
