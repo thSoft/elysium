@@ -80,7 +80,7 @@ public class CompilerJob extends Job {
 			console.firePropertyChange(this, IConsoleConstants.P_CONSOLE_OUTPUT_COMPLETE, null, false);
 
 			long start = System.currentTimeMillis();
-			preprocess(monitor, console);
+			preprocess(monitor, console, fullCompile);
 
 			checkCancelled(monitor);
 			if (fullCompile){
@@ -155,12 +155,12 @@ public class CompilerJob extends Job {
 		environment.put("LANG", locale.toString()); //$NON-NLS-1$
 	}
 
-	private void preprocess(final IProgressMonitor monitor, final CompilerConsole console) {
+	private void preprocess(final IProgressMonitor monitor, final CompilerConsole console, boolean doCompile) {
 		checkCancelled(monitor);
 		monitor.subTask("updating syntax");
 		// Update syntax if enabled
 		boolean updateSyntax = Activator.getInstance().getPreferenceStore().getBoolean(SyntaxUpdaterPreferenceConstants.UPDATE_SYNTAX.name());
-		if (updateSyntax) {
+		if (doCompile && updateSyntax) {
 			final IEditorPart editor = EditorUtils.getEditorWithFile(file);
 			if (editor != null) {
 				// If the file is open then reopen it
@@ -206,6 +206,8 @@ public class CompilerJob extends Job {
 		try {
 			ProcessBuilder processBuilder = SyntaxUpdaterProcessBuilderFactory.get(file);
 			prepareProcessBuilder(processBuilder);
+			List<String> command = processBuilder.command();
+			command.add(command.size() - 1, "--edit"); //$NON-NLS-1$
 
 			OutputProcessor outputProcessor = new SyntaxUpdaterOutputProcessor(console);
 
