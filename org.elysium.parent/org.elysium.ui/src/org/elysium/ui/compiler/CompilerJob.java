@@ -189,15 +189,6 @@ public class CompilerJob extends Job {
 				});
 			} else {
 				updateSyntax(monitor, console);
-//if the file to be compiled is not open, this causes an IllegalArgumentException
-//because our ISchedulingRule does not work with the one created in refreshLocal, no matter wich monitor is passed as argument
-//anyway, after the compilation a project refresh is scheduled, so this refresh is
-//redundant anyway
-//				try {
-//					file.refreshLocal(0, monitor);
-//				} catch (CoreException e) {
-//					Activator.logError("Couldn't refresh file, try to refresh it manually", e);
-//				}
 			}
 		}
 		if(deleteMarkers){
@@ -215,8 +206,6 @@ public class CompilerJob extends Job {
 		try {
 			ProcessBuilder processBuilder = SyntaxUpdaterProcessBuilderFactory.get(file);
 			prepareProcessBuilder(processBuilder);
-			List<String> command = processBuilder.command();
-			command.add(command.size() - 1, "--edit"); //$NON-NLS-1$
 
 			OutputProcessor outputProcessor = new SyntaxUpdaterOutputProcessor(console);
 
