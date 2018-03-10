@@ -206,8 +206,6 @@ public class CompilerJob extends Job {
 		try {
 			ProcessBuilder processBuilder = SyntaxUpdaterProcessBuilderFactory.get(file);
 			prepareProcessBuilder(processBuilder);
-			List<String> command = processBuilder.command();
-			command.add(command.size() - 1, "--edit"); //$NON-NLS-1$
 
 			OutputProcessor outputProcessor = new SyntaxUpdaterOutputProcessor(console);
 

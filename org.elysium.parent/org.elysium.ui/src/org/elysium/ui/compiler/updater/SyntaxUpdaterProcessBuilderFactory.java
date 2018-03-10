@@ -32,6 +32,7 @@ public class SyntaxUpdaterProcessBuilderFactory {
 		}else{
 			command=createCommandBase(path);
 		}
+		command.add("--edit"); //$NON-NLS-1$
 
 		if (preferenceStore.getBoolean(SyntaxUpdaterPreferenceConstants.FORCE_CURRENT_VERSION.name())) {
 			command.add("--current-version"); //$NON-NLS-1$
