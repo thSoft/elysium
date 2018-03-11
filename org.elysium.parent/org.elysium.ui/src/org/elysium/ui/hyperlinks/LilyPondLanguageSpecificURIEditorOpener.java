@@ -39,12 +39,16 @@ public class LilyPondLanguageSpecificURIEditorOpener extends LanguageSpecificURI
 	@Override
 	public IEditorPart open(URI origUri, EReference crossReference, int indexInList, boolean select) {
 		URI uri = origUri;
+		String fragment = uri.fragment();
 		if(uri.isFile()) {
 			//if it is a file URI first try to find a workspace version of the file
 			IFile[] files = ResourcesPlugin.getWorkspace().getRoot().findFilesForLocationURI(java.net.URI.create(uri.toString()));
 			for (IFile iFile : files) {
 				if(iFile.exists()) {
 					uri=URI.createPlatformResourceURI(iFile.getFullPath().toString(), true);
+					if(fragment!=null) {
+						uri=uri.appendFragment(fragment);
+					}
 				}
 			}
 		}
