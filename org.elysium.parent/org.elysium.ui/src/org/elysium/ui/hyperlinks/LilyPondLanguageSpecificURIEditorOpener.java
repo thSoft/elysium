@@ -2,8 +2,11 @@ package org.elysium.ui.hyperlinks;
 
 import java.io.File;
 import java.text.MessageFormat;
+
 import org.apache.log4j.Logger;
+import org.eclipse.core.resources.IFile;
 import org.eclipse.core.resources.IStorage;
+import org.eclipse.core.resources.ResourcesPlugin;
 import org.eclipse.debug.core.sourcelookup.containers.LocalFileStorage;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.common.util.WrappedException;
@@ -18,6 +21,7 @@ import org.eclipse.xtext.Constants;
 import org.eclipse.xtext.ui.editor.LanguageSpecificURIEditorOpener;
 import org.eclipse.xtext.ui.editor.XtextReadonlyEditorInput;
 import org.eclipse.xtext.ui.editor.utils.EditorUtils;
+
 import com.google.inject.Inject;
 import com.google.inject.name.Named;
 
@@ -33,7 +37,22 @@ public class LilyPondLanguageSpecificURIEditorOpener extends LanguageSpecificURI
 	private String editorID;
 
 	@Override
-	public IEditorPart open(URI uri, EReference crossReference, int indexInList, boolean select) {
+	public IEditorPart open(URI origUri, EReference crossReference, int indexInList, boolean select) {
+		URI uri = origUri;
+		String fragment = uri.fragment();
+		if(uri.isFile()) {
+			//if it is a file URI first try to find a workspace version of the file
+			IFile[] files = ResourcesPlugin.getWorkspace().getRoot().findFilesForLocationURI(java.net.URI.create(uri.toString()));
+			for (IFile iFile : files) {
+				if(iFile.exists()) {
+					uri=URI.createPlatformResourceURI(iFile.getFullPath().toString(), true);
+					if(fragment!=null) {
+						uri=uri.appendFragment(fragment);
+					}
+				}
+			}
+		}
+
 		IEditorPart result = super.open(uri, crossReference, indexInList, select);
 		if (result == null && uri.isFile()) {
 			final String errorMessage = "Error while opening editor part for EMF URI ''{0}''";

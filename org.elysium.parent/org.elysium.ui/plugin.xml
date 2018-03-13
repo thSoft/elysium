@@ -86,17 +86,17 @@
     <command id="org.elysium.ui.commands.RecompileSelected" name="Recompile" categoryId="org.elysium.ui.commandCategories.LilyPond"/>
   </extension>
   <extension point="org.eclipse.ui.handlers">
-    <handler class="org.elysium.ui.compiler.handlers.RecompileEditedHandler" commandId="org.elysium.ui.commands.RecompileEdited">
+    <handler class="org.elysium.ui.LilyPondExecutableExtensionFactory:org.elysium.ui.compiler.handlers.RecompileEditedHandler" commandId="org.elysium.ui.commands.RecompileEdited">
       <activeWhen>
         <reference definitionId="org.elysium.ui.definitions.EditorOpen"/>
       </activeWhen>
     </handler>
-	<handler class="org.elysium.ui.compiler.handlers.RecompileViewedHandler" commandId="org.elysium.ui.commands.RecompileViewed">
+	<handler class="org.elysium.ui.LilyPondExecutableExtensionFactory:org.elysium.ui.compiler.handlers.RecompileViewedHandler" commandId="org.elysium.ui.commands.RecompileViewed">
     <activeWhen>
        <test property="org.elysium.ui.score.ScoreViewVisible"/>
     </activeWhen>
     </handler>
-    <handler class="org.elysium.ui.compiler.handlers.RecompileSelectedHandler" commandId="org.elysium.ui.commands.RecompileSelected">
+    <handler class="org.elysium.ui.LilyPondExecutableExtensionFactory:org.elysium.ui.compiler.handlers.RecompileSelectedHandler" commandId="org.elysium.ui.commands.RecompileSelected">
       <activeWhen>
         <with variable="selection">
           <not>

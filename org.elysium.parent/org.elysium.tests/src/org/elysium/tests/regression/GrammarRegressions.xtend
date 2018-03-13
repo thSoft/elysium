@@ -364,14 +364,15 @@ class GrammarRegressions {
 	@Test
 	def void assignmentIncluded() {
 		val filename = "target/1 foo.ly";
+		val file=new File(filename)
 		try{
 			Files.writeStringIntoFile(filename, "abc = #1");
 			'''
-				\include "«filename»"
+				\include "«file.absoluteFile.canonicalPath»"
 				\abc
 			'''.parseWithoutErrors
 		}finally{
-			new File(filename).delete();
+			file.delete();
 		}
 	}
 

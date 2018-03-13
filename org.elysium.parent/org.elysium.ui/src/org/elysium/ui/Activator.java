@@ -20,8 +20,9 @@ public class Activator extends ElysiumActivator {
 	public void start(BundleContext context) throws Exception {
 		super.start(context);
 		instance = this;
+		OutdatedMarkerAdder outdatedMarkerAdder = getInjector(ORG_ELYSIUM_LILYPOND).getInstance(OutdatedMarkerAdder.class);
 		// Register resource change listeners
-		ResourcesPlugin.getWorkspace().addResourceChangeListener(new OutdatedMarkerAdder(), IResourceChangeEvent.POST_BUILD);
+		ResourcesPlugin.getWorkspace().addResourceChangeListener(outdatedMarkerAdder, IResourceChangeEvent.POST_BUILD);
 	}
 
 	/**

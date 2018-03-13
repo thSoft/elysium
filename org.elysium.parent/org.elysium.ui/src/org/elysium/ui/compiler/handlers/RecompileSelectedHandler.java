@@ -3,6 +3,9 @@ package org.elysium.ui.compiler.handlers;
 import java.util.HashSet;
 import java.util.Set;
 
+import javax.inject.Inject;
+import javax.inject.Provider;
+
 import org.eclipse.core.commands.AbstractHandler;
 import org.eclipse.core.commands.ExecutionEvent;
 import org.eclipse.core.commands.ExecutionException;
@@ -18,6 +21,9 @@ import org.elysium.LilyPondConstants;
 import org.elysium.ui.compiler.LilyPondBuilder;
 
 public class RecompileSelectedHandler extends AbstractHandler {
+
+	@Inject
+	private Provider<LilyPondBuilder> builder;
 
 	@Override
 	public Object execute(ExecutionEvent event) throws ExecutionException {
@@ -46,7 +52,7 @@ public class RecompileSelectedHandler extends AbstractHandler {
 				files.add(file);	
 			}
 		}
-		LilyPondBuilder.compile(files);
+		builder.get().compile(files);
 		return null;
 	}
 

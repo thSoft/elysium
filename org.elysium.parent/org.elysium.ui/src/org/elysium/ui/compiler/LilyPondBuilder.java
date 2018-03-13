@@ -17,8 +17,10 @@ import javax.inject.Inject;
 import org.eclipse.core.resources.IFile;
 import org.eclipse.core.resources.IProject;
 import org.eclipse.core.resources.IResource;
+import org.eclipse.core.resources.ResourcesPlugin;
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IProgressMonitor;
+import org.eclipse.core.runtime.Path;
 import org.eclipse.core.runtime.jobs.ISchedulingRule;
 import org.eclipse.core.runtime.jobs.Job;
 import org.eclipse.emf.common.util.URI;
@@ -31,6 +33,7 @@ import org.eclipse.jface.preference.IPreferenceStore;
 import org.eclipse.xtext.EcoreUtil2;
 import org.eclipse.xtext.builder.IXtextBuilderParticipant;
 import org.eclipse.xtext.resource.IResourceDescription.Delta;
+import org.eclipse.xtext.scoping.impl.ImportUriResolver;
 import org.elysium.LilyPondConstants;
 import org.elysium.lilypond.Include;
 import org.elysium.ui.Activator;
@@ -44,6 +47,8 @@ public class LilyPondBuilder implements IXtextBuilderParticipant {
 	private static final AtomicLong jobCount=new AtomicLong(0);
 	@Inject
 	private IPreferenceStore preferences;
+	@Inject
+	private ImportUriResolver importResolver;
 
 	@Override
 	public void build(final IBuildContext context, IProgressMonitor monitor) throws CoreException {
@@ -73,11 +78,11 @@ public class LilyPondBuilder implements IXtextBuilderParticipant {
 		removeOutdatedMarkers(filesMarkedAsOutdated, rs);
 	}
 
-	public static void compile(Set<IFile> files) {
+	public void compile(Set<IFile> files) {
 		compile(files, new ResourceSetImpl(), true, true);
 	}
 
-	private static void compile(Set<IFile> files, ResourceSet resourceSetToUse, boolean executeLilyPondCompilation, boolean deleteMarkers) {
+	private void compile(Set<IFile> files, ResourceSet resourceSetToUse, boolean executeLilyPondCompilation, boolean deleteMarkers) {
 		int maxParallelCalls = Activator.getInstance().getPreferenceStore().getInt(CompilerPreferenceConstants.PARALLEL_COMPILES.name());
 		addAllIncludingFiles(files,resourceSetToUse);
 		List<IFile> sortedFiles=new ArrayList<IFile>(files);
@@ -100,7 +105,7 @@ public class LilyPondBuilder implements IXtextBuilderParticipant {
 		}
 	}
 
-	private static void removeOutdatedMarkers(final Set<IFile> files, ResourceSet resourceSetToUse) throws CoreException {
+	private void removeOutdatedMarkers(final Set<IFile> files, ResourceSet resourceSetToUse) throws CoreException {
 		addAllIncludingFiles(files, resourceSetToUse);
 		for (IFile file : files) {
 			removeOutdatedMarker(file);
@@ -112,15 +117,17 @@ public class LilyPondBuilder implements IXtextBuilderParticipant {
 	 * Adds all files in the workspace to the given list of files which (even
 	 * indirectly) include any file in the list.
 	 */
-	public static void addAllIncludingFiles(Set<IFile> files) {
+	public void addAllIncludingFiles(Set<IFile> files) {
 		addAllIncludingFiles(files, new ResourceSetImpl());
 	}
 
-	private static void addAllIncludingFiles(Set<IFile> files, ResourceSet resourceSetToUse) {
+	private void addAllIncludingFiles(Set<IFile> files, ResourceSet resourceSetToUse) {
 		Set<IProject> projects = new HashSet<IProject>();
 		for (IFile file : files) {
 			projects.add(file.getProject());
 		}
+		//TODO the project reference is not sufficient,
+		//it may not be set even if there is an include relation
 		for (IProject project : projects) {
 			projects.addAll(Arrays.asList(project.getReferencingProjects()));
 		}
@@ -136,7 +143,7 @@ public class LilyPondBuilder implements IXtextBuilderParticipant {
 	 * Adds the given file to the list of files to build if it (even indirectly)
 	 * includes any of the files to build.
 	 */
-	private static void addIfNecessary(IFile file, Set<IFile> filesToBuild, Set<IFile> directIncludesAlreadyCalculated, ResourceSet resourceSetToUse) {
+	private void addIfNecessary(IFile file, Set<IFile> filesToBuild, Set<IFile> directIncludesAlreadyCalculated, ResourceSet resourceSetToUse) {
 		if (!filesToBuild.contains(file) && LilyPondConstants.EXTENSIONS.contains(file.getFileExtension())) {
 			if(directIncludesAlreadyCalculated.contains(file)){
 				return;
@@ -161,7 +168,7 @@ public class LilyPondBuilder implements IXtextBuilderParticipant {
 	/**
 	 * Returns the files directly included in the given file.
 	 */
-	private static Set<IFile> getIncludedFiles(IFile file, ResourceSet resourceSetToUse) {
+	private Set<IFile> getIncludedFiles(IFile file, ResourceSet resourceSetToUse) {
 		Set<IFile> result = new HashSet<IFile>();
 		Resource eResource = resourceSetToUse.getResource(org.eclipse.emf.common.util.URI.createPlatformResourceURI(file.getFullPath().toString(), true), true);
 		if (eResource != null) {
@@ -169,12 +176,13 @@ public class LilyPondBuilder implements IXtextBuilderParticipant {
 				if (eObject instanceof Include) {
 					Include include = (Include)eObject;
 					if(include.getImportURI() != null){
-						Resource includedEResource = EcoreUtil2.getResource(eResource, include.getImportURI());
-						if (includedEResource != null) {
-							IResource includedResource = ResourceUtils.convertEResourceToPlatformResource(includedEResource);
-							if ((includedResource != null) && (includedResource instanceof IFile)) {
-								IFile includedFile = (IFile)includedResource;
-								result.add(includedFile);
+						String resolved = importResolver.resolve(include);
+						URI uri = URI.createURI(resolved);
+						if(uri.isFile()) {
+							Path path = new Path(uri.toFileString());
+							IFile inclFile = ResourcesPlugin.getWorkspace().getRoot().getFileForLocation(path);
+							if(inclFile!=null && inclFile.exists()) {
+								result.add(inclFile);
 							}
 						}
 					}
