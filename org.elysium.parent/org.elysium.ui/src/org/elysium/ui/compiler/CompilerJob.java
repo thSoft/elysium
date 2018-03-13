@@ -99,8 +99,8 @@ public class CompilerJob extends Job {
 			}
 			monitor.worked(1);
 
-			postprocess(monitor);
 			if(fullCompile){
+				postprocess(monitor);
 				long stop = System.currentTimeMillis();
 
 				float executionTimeInSeconds = (stop - start) / 1000f;
