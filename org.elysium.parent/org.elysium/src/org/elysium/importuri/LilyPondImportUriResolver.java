@@ -29,8 +29,6 @@ import com.google.inject.Inject;
  */
 public class LilyPondImportUriResolver extends ImportUriResolver {
 
-	private static final String UNRESOLVED_URI_PREFIX = "really_did_not_find_include-";
-
 	@Inject
 	private ILilyPondPathProvider lilyPondPathProvider;
 
@@ -44,12 +42,13 @@ public class LilyPondImportUriResolver extends ImportUriResolver {
 		}
 	}
 
-	public static boolean isUnresolved(String resolvedUriString) {
-		return (!Strings.isNullOrEmpty(resolvedUriString) && resolvedUriString.startsWith(UNRESOLVED_URI_PREFIX));
-	}
-
 	@Override
 	public String resolve(EObject object) {
+		LilyPondResolvedUri typed = typedResolve(object);
+		return typed.get();
+	}
+
+	public LilyPondResolvedUri typedResolve(EObject object) {
 		String importUri = super.resolve(object);
 		if (importUri != null) {
 			org.eclipse.emf.common.util.URI currentResourceURI=null;
@@ -66,13 +65,13 @@ public class LilyPondImportUriResolver extends ImportUriResolver {
 					}
 				}
 			}
-			String resolved = resolve(currentResourceURI, importUri);
+			LilyPondResolvedUri resolved = resolve(currentResourceURI, importUri);
 			return resolved;
 		}
-		return importUri;
+		return LilyPondResolvedUri.unresolved(importUri);
 	}
 
-	public String resolve(org.eclipse.emf.common.util.URI resourceURI, String importUri){
+	public LilyPondResolvedUri resolve(org.eclipse.emf.common.util.URI resourceURI, String importUri){
 		List<URI> searchUris = Lists.newArrayList(transform(lilyPondPathProvider.getSearchPaths(), new Function<String, URI>() {
 			@Override
 			public URI apply(String path) {
@@ -91,11 +90,11 @@ public class LilyPondImportUriResolver extends ImportUriResolver {
 			if(resolvedImportUri.isAbsolute()) {
 				File importedFile = new File(resolvedImportUri);
 				if (importedFile.exists()) {
-					return resolvedImportUri.toString();
+					return new LilyPondResolvedUri(resolvedImportUri.toString());
 				}
 			}
 		}
-		return UNRESOLVED_URI_PREFIX+importUri;
+		return LilyPondResolvedUri.unresolved(importUri);
 	}
 
 	public static URI saferResolve(URI base, String importUri, boolean isWindows) {
