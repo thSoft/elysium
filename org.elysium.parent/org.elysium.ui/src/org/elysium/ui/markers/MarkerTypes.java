@@ -18,6 +18,4 @@ public class MarkerTypes {
 
 	public static final String OUTDATED = get("Outdated"); //$NON-NLS-1$
 
-	public static final String UP_TO_DATE = get("UpToDate"); //$NON-NLS-1$
-
 }

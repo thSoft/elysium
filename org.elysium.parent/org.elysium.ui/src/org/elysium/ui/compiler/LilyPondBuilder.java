@@ -1,8 +1,5 @@
 package org.elysium.ui.compiler;
 
-import static org.elysium.ui.compiler.CompilerJob.removeOutdatedMarker;
-import static org.elysium.ui.markers.MarkerTypes.UP_TO_DATE;
-
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
@@ -53,7 +50,6 @@ public class LilyPondBuilder implements IXtextBuilderParticipant {
 	@Override
 	public void build(final IBuildContext context, IProgressMonitor monitor) throws CoreException {
 		Set<IFile> filesToCompile = new HashSet<IFile>();
-		Set<IFile> filesMarkedAsOutdated = new HashSet<IFile>();
 		for (Delta delta : context.getDeltas()) {
 			URI uri = delta.getUri();
 			boolean lilyPond = LilyPondConstants.EXTENSIONS.contains(uri.fileExtension());
@@ -65,8 +61,6 @@ public class LilyPondBuilder implements IXtextBuilderParticipant {
 					boolean descriptionsChanged = delta.haveEObjectDescriptionsChanged();
 					if (resourcesChangedOrCreated && descriptionsChanged) {
 						filesToCompile.add(file);
-					} else {
-						filesMarkedAsOutdated.add(file);
 					}
 				}
 			}
@@ -75,7 +69,6 @@ public class LilyPondBuilder implements IXtextBuilderParticipant {
 		boolean doLilyPondCompile=preferences.getBoolean(CompilerPreferenceConstants.COMPILE_DURING_BUILD.name());
 		boolean doDeleteMarkersIfCompilerIsInactive=preferences.getBoolean(CompilerPreferenceConstants.DELETE_ELYSIUM_MARKERS.name());
 		compile(filesToCompile, rs, doLilyPondCompile, doLilyPondCompile || doDeleteMarkersIfCompilerIsInactive);
-		removeOutdatedMarkers(filesMarkedAsOutdated, rs);
 	}
 
 	public void compile(Set<IFile> files) {
@@ -102,14 +95,6 @@ public class LilyPondBuilder implements IXtextBuilderParticipant {
 			ISchedulingRule parallelExecutionRule=new NumberedQueueSchedulingRule(ruleIndex);
 			compilerJob.setRule(parallelExecutionRule);
 			compilerJob.schedule();
-		}
-	}
-
-	private void removeOutdatedMarkers(final Set<IFile> files, ResourceSet resourceSetToUse) throws CoreException {
-		addAllIncludingFiles(files, resourceSetToUse);
-		for (IFile file : files) {
-			removeOutdatedMarker(file);
-			file.createMarker(UP_TO_DATE); // Prevent readding outdated marker
 		}
 	}
 
