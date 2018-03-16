@@ -22,6 +22,9 @@
 				<configuration>
 					<failIfNoTests>false</failIfNoTests>
 					<useUIHarness>true</useUIHarness>
+					<systemProperties>
+						<lilypond.path>${lilypond.path}</lilypond.path>
+					</systemProperties>
 				</configuration>
 			</plugin>
 			<plugin>
