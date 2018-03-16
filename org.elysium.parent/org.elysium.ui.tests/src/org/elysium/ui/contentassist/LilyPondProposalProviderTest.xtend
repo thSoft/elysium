@@ -1,6 +1,8 @@
 package org.elysium.ui.contentassist
 
+import com.google.common.base.Strings
 import com.google.inject.Injector
+import java.io.File
 import java.io.InputStream
 import javax.inject.Inject
 import javax.inject.Provider
@@ -8,18 +10,16 @@ import org.eclipse.emf.common.util.URI
 import org.eclipse.xtext.junit4.InjectWith
 import org.eclipse.xtext.junit4.XtextRunner
 import org.eclipse.xtext.junit4.ui.ContentAssistProcessorTestBuilder
+import org.eclipse.xtext.junit4.ui.util.IResourcesSetupUtil
 import org.eclipse.xtext.junit4.util.ResourceLoadHelper
 import org.eclipse.xtext.resource.XtextResource
 import org.eclipse.xtext.resource.XtextResourceSet
+import org.elysium.LilyPondConstants
 import org.elysium.ui.tests.LilyPondUiInjectorProvider
+import org.junit.Assert
+import org.junit.Before
 import org.junit.Test
 import org.junit.runner.RunWith
-import org.junit.Before
-import java.io.File
-import org.junit.Assert
-import org.eclipse.xtext.junit4.ui.util.IResourcesSetupUtil
-import org.eclipse.core.runtime.URIUtil
-import org.elysium.LilyPondConstants
 
 @RunWith(typeof(XtextRunner))
 @InjectWith(typeof(LilyPondUiInjectorProvider))
@@ -45,6 +45,10 @@ class LilyPondProposalProviderTest implements ResourceLoadHelper {
 
 	@Test
 	def void testInclude() {
+		Assert.assertFalse(
+			"The lilypond path must be correctly set as system property, otherwise default includes may not be found.", 
+			Strings.isNullOrEmpty(System.getProperty("lilypond.path"))
+		)
 		IResourcesSetupUtil.createProject("test");
 		var file= IResourcesSetupUtil.createFile("test/test.ly", "")
 		IResourcesSetupUtil.createFile("test/folder/include.ly","")
