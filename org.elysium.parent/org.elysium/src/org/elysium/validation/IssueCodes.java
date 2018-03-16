@@ -20,6 +20,8 @@ public class IssueCodes extends ConfigurableIssueCodesProvider {
 	private static final String PREFIX = "org.elysium.lilypond.validation.";//$NON-NLS-1$
 	public static final String HIDDEN_TOKEN_AFTER_BACKSLASH = PREFIX
 			+ "HIDDEN_TOKEN_AFTER_BACKSLASH"; //$NON-NLS-1$
+	public static final String WINDOWS_NORMALIZED_INCLUDE = PREFIX
+			+ "WINDOWS_NORMALIZED_INCLUDE"; //$NON-NLS-1$
 	public static final String NO_VERSION_STANDALONE = PREFIX + "NO_VERSION_LY"; //$NON-NLS-1$
 	public static final String NO_VERSION_ILY = PREFIX + "NO_VERSION_ILY"; //$NON-NLS-1$
 	public static final String UNKNOWN_VARIABLE_IGNORES = PREFIX + "UNKNOWN_VARIABLE_IGNORES"; //$NON-NLS-1$

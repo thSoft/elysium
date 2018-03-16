@@ -90,4 +90,16 @@ public class LilyPondValidator extends AbstractLilyPondValidator {
 			addIssue("Include with absolute location", getCurrentObject(), LilypondPackage.Literals.INCLUDE__IMPORT_URI, IssueCodes.ABSOLUTE_INCLUDE);
 		}
 	}
+
+	@Check
+	public void checkWindowsIncludeNormalized(Include include) {
+		if(LilyPondConstants.IS_WINDOWS && include.getImportURI()!=null) {
+			String includeString = include.getImportURI();
+			if(includeString.startsWith("file:/")) {
+				error("file URIs are not allowed", LilypondPackage.Literals.INCLUDE__IMPORT_URI, 0, IssueCodes.WINDOWS_NORMALIZED_INCLUDE);
+			}else if(includeString.indexOf('\\')>=0){
+				warning("Include should not contain backslash", LilypondPackage.Literals.INCLUDE__IMPORT_URI, 0, IssueCodes.WINDOWS_NORMALIZED_INCLUDE);
+			}
+		}
+	}
 }

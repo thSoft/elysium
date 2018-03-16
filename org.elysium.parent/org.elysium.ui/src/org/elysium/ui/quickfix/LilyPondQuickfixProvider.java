@@ -11,6 +11,7 @@ import org.eclipse.xtext.ui.editor.quickfix.IssueResolutionAcceptor;
 import org.eclipse.xtext.validation.Issue;
 import org.elysium.lilypond.Assignment;
 import org.elysium.lilypond.Command;
+import org.elysium.lilypond.Include;
 import org.elysium.lilypond.LilyPond;
 import org.elysium.lilypond.LilypondFactory;
 import org.elysium.lilypond.Version;
@@ -107,5 +108,25 @@ public class LilyPondQuickfixProvider extends ChangeToSimilarQuickfixProvider {
 
 		});
 		createLinkingIssueResolutions(issue, acceptor);
+	}
+
+	@Fix(IssueCodes.WINDOWS_NORMALIZED_INCLUDE)
+	public void normalizeWindowsInclude(final Issue issue, IssueResolutionAcceptor acceptor) {
+		acceptor.accept(issue, "normalize include", null, null, new ISemanticModification() {
+
+			@Override
+			public void apply(EObject element, IModificationContext context) throws Exception {
+				if (element instanceof Include) {
+					String include = ((Include) element).getImportURI();
+					if(include!=null) {
+						if(include.startsWith("file:/")) {
+							include=include.substring(6);
+						}
+						include=include.replaceAll("\\\\+", "/");
+						((Include) element).setImportURI(include);
+					}
+				}
+			}
+		});
 	}
 }
