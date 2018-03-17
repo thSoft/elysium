@@ -19,11 +19,20 @@ public class RecompileEditedHandler extends AbstractHandler {
 	
 	@Override
 	public Object execute(ExecutionEvent event) throws ExecutionException {
-		IFile currentlyOpenFile = EditorUtils.getCurrentlyOpenFile();
+		IFile currentlyOpenFile = getFile();
 		if (currentlyOpenFile != null) {
 			builder.get().compile(Sets.newHashSet(currentlyOpenFile));
 		}
 		return null;
 	}
 
+	@Override
+	public boolean isEnabled() {
+		return getFile()!=null;
+	}
+
+	private IFile getFile() {
+		IFile currentlyOpenFile = EditorUtils.getCurrentlyOpenFile();
+		return currentlyOpenFile;
+	}
 }

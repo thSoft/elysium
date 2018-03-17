@@ -1,6 +1,7 @@
 package org.elysium.ui.compiler.handlers;
 
 import java.util.HashSet;
+import java.util.Iterator;
 import java.util.Set;
 
 import javax.inject.Inject;
@@ -11,9 +12,12 @@ import org.eclipse.core.commands.ExecutionEvent;
 import org.eclipse.core.commands.ExecutionException;
 import org.eclipse.core.resources.IContainer;
 import org.eclipse.core.resources.IFile;
+import org.eclipse.jface.text.TextSelection;
 import org.eclipse.jface.viewers.ISelection;
 import org.eclipse.jface.viewers.IStructuredSelection;
+import org.eclipse.jface.viewers.StructuredSelection;
 import org.eclipse.ui.IWorkbenchPage;
+import org.eclipse.ui.PlatformUI;
 import org.eclipse.ui.handlers.HandlerUtil;
 import org.eclipse.util.EditorUtils;
 import org.eclipse.util.ResourceUtils;
@@ -58,5 +62,33 @@ public class RecompileSelectedHandler extends AbstractHandler {
 
 	private boolean isLilyPondFile(IFile file){
 		return file!=null && LilyPondConstants.EXTENSIONS.contains(file.getFileExtension());
+	}
+
+	@Override
+	public boolean isEnabled() {
+		ISelection selection = PlatformUI.getWorkbench().getActiveWorkbenchWindow().getSelectionService().getSelection();
+		if(selection instanceof TextSelection) {
+			IFile file=EditorUtils.getCurrentlyOpenFile();
+			return file!=null && isLilyPondFile(file);
+		}else if(selection instanceof StructuredSelection) {
+			Iterator<?> iterator = ((StructuredSelection) selection).iterator();
+			while(iterator.hasNext()) {
+				if(isRecompilable(iterator.next())) {
+					return true;
+				}
+			}
+		}
+		return false;
+	}
+
+	private boolean isRecompilable(Object object) {
+		if(object instanceof IContainer) {
+			return true;
+		} else if(object instanceof IFile) {
+			if(isLilyPondFile((IFile)object)){
+				return true;
+			}
+		}
+		return false;
 	}
 }
