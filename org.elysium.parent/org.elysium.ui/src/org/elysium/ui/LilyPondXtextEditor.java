@@ -1,6 +1,14 @@
 package org.elysium.ui;
 
+import java.io.File;
+import java.net.URI;
+
+import org.eclipse.core.runtime.CoreException;
+import org.eclipse.debug.core.sourcelookup.containers.LocalFileStorage;
+import org.eclipse.ui.IEditorInput;
+import org.eclipse.ui.ide.FileStoreEditorInput;
 import org.eclipse.xtext.ui.editor.XtextEditor;
+import org.eclipse.xtext.ui.editor.XtextReadonlyEditorInput;
 
 import com.google.common.collect.ObjectArrays;
 
@@ -35,5 +43,16 @@ public class LilyPondXtextEditor extends XtextEditor{
 				"org.elysium.LilyPond.refactoring"
 				};
 		return ObjectArrays.concat(superPages, xturtlePages, String.class);
+	}
+
+	@Override
+	protected void doSetInput(IEditorInput input) throws CoreException {
+		IEditorInput inputToSet=input;
+		if(inputToSet instanceof FileStoreEditorInput) {
+			//ensure that files outside the workspace cannot be modified
+			URI uri = ((FileStoreEditorInput) input).getURI();
+			inputToSet=new XtextReadonlyEditorInput(new LocalFileStorage(new File(uri)));
+		}
+		super.doSetInput(inputToSet);
 	}
 }
