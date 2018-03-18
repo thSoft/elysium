@@ -6,12 +6,14 @@ package org.elysium.ui;
 import org.eclipse.ui.PlatformUI;
 import org.eclipse.ui.plugin.AbstractUIPlugin;
 import org.eclipse.xtext.ide.editor.syntaxcoloring.ISemanticHighlightingCalculator;
+import org.eclipse.xtext.resource.ILocationInFileProvider;
 import org.eclipse.xtext.resource.containers.IAllContainersState;
 import org.eclipse.xtext.ui.LanguageSpecific;
 import org.eclipse.xtext.ui.editor.IURIEditorOpener;
 import org.eclipse.xtext.ui.editor.IXtextEditorCallback;
 import org.eclipse.xtext.ui.editor.XtextEditor;
 import org.eclipse.xtext.ui.editor.autoedit.AbstractEditStrategyProvider;
+import org.eclipse.xtext.ui.editor.hover.IEObjectHoverProvider;
 import org.eclipse.xtext.ui.editor.hyperlinking.IHyperlinkHelper;
 import org.eclipse.xtext.ui.editor.model.IResourceForEditorInputFactory;
 import org.eclipse.xtext.ui.editor.outline.actions.IOutlineContribution;
@@ -24,8 +26,10 @@ import org.eclipse.xtext.ui.shared.Access;
 import org.eclipse.xtext.ui.validation.AbstractValidatorConfigurationBlock;
 import org.elysium.importuri.ILilyPondPathProvider;
 import org.elysium.ui.autoedit.LilyPondAutoEditStrategyProvider;
+import org.elysium.ui.hyperlinks.LilyPondEObjectHoverProvider;
 import org.elysium.ui.hyperlinks.LilyPondHyperlinkHelper;
 import org.elysium.ui.hyperlinks.LilyPondLanguageSpecificURIEditorOpener;
+import org.elysium.ui.hyperlinks.LilyPondLocationIfFileProvider;
 import org.elysium.ui.hyperlinks.LilyPondResourceForIEditorInputFactory;
 import org.elysium.ui.outline.FilterIncludesOutlineContribution;
 import org.elysium.ui.preferences.LilyPondPreferenceInitializer;
@@ -114,5 +118,13 @@ public class LilyPondUiModule extends AbstractLilyPondUiModule {
 
 	public Class<? extends XtextEditor> bindEditor() {
 		return LilyPondXtextEditor.class;
+	}
+
+	public Class<? extends ILocationInFileProvider> bindILocationInFileProvider() {
+		return LilyPondLocationIfFileProvider.class;
+	}
+
+	public Class<? extends IEObjectHoverProvider> bindEObjectHoverProvider() {
+		return LilyPondEObjectHoverProvider.class;
 	}
 }
