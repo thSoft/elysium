@@ -35,6 +35,8 @@ public class CompilerProcessBuilderFactory {
 				command.add("--verbose"); //$NON-NLS-1$
 			}
 
+			command.add("-drelative-includes"); //$NON-NLS-1$
+
 			command.add(OptionBuilder.build("midi-extension", LilyPondConstants.AUDIO_EXTENSION)); //$NON-NLS-1$ // On Windows, the default extension is "mid"
 
 			for (String searchPath : UiLilyPondPathProvider.getTheSearchPaths()) {

@@ -3,11 +3,15 @@ package org.elysium.tests;
 import static com.google.common.base.Predicates.not;
 import static com.google.common.collect.Iterables.all;
 
+import org.eclipse.emf.common.util.Diagnostic;
 import org.eclipse.xtext.junit4.validation.AssertableDiagnostics;
+import org.eclipse.xtext.junit4.validation.ValidationTestHelper;
 import org.eclipse.xtext.junit4.validation.AssertableDiagnostics.DiagnosticPredicate;
 import org.eclipse.xtext.resource.XtextResource;
 import org.elysium.validation.IssueCodes;
 import org.junit.Test;
+
+import junit.framework.Assert;
 
 public class Validator extends LilyPondTest {
 
@@ -50,6 +54,16 @@ public class Validator extends LilyPondTest {
 	@Test
 	public void noVersion() throws Exception {
 		assertProblem("{}", IssueCodes.NO_VERSION_STANDALONE, false);
+	}
+
+	@Test
+	public void relativeIncludeOK() throws Exception {
+		validate("\\version \"2.18.0\" #(ly:set-option 'relative-includes #t)").assertOK();
+	}
+
+	@Test
+	public void relativeIncludeWarning() throws Exception {
+		validate("\\version \"2.18.0\" #(ly:set-option 'relative-includes #f)").assertWarning(0, "relative include");
 	}
 
 }

@@ -2,6 +2,7 @@ package org.elysium.validation;
 
 import java.util.Iterator;
 
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.xtext.nodemodel.ICompositeNode;
 import org.eclipse.xtext.nodemodel.ILeafNode;
@@ -16,6 +17,8 @@ import org.elysium.lilypond.Expression;
 import org.elysium.lilypond.Include;
 import org.elysium.lilypond.LilyPond;
 import org.elysium.lilypond.LilypondPackage;
+import org.elysium.lilypond.SchemeExpression;
+import org.elysium.lilypond.SchemeList;
 import org.elysium.lilypond.Version;
 
 import com.google.inject.Inject;
@@ -90,4 +93,22 @@ public class LilyPondValidator extends AbstractLilyPondValidator {
 			addIssue("Include with absolute location", getCurrentObject(), LilypondPackage.Literals.INCLUDE__IMPORT_URI, IssueCodes.ABSOLUTE_INCLUDE);
 		}
 	}
+
+	@Check
+	public void checkSetRelativeInclude(SchemeList list) {
+		EList<SchemeExpression> expressions = list.getExpressions();
+		if(expressions.size()==3) {
+			if(textEquals(expressions.get(0), "ly:set-option")
+				&& textEquals(expressions.get(1), "'relative-includes")
+				&& !textEquals(expressions.get(2), "#t")) {
+				warning("Elysium supports only relative includes. Linking etc. may be broken", LilypondPackage.Literals.SCHEME_LIST__EXPRESSIONS, 2);
+			}
+		}
+	}
+
+	private boolean textEquals(SchemeExpression e, String text) {
+		String t = NodeModelUtils.getNode(e).getText();
+		return t!=null && text.equals(t.trim());
+	}
+
 }
