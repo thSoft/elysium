@@ -11,7 +11,7 @@ import org.eclipse.xtext.util.TextRegion;
 import org.elysium.lilypond.Include;
 import org.elysium.lilypond.LilypondPackage;
 
-public class LilyPondLocationIfFileProvider extends DefaultLocationInFileProvider {
+public class LilyPondLocationInFileProvider extends DefaultLocationInFileProvider {
 
 	@Override
 	public ITextRegion getSignificantTextRegion(EObject obj) {

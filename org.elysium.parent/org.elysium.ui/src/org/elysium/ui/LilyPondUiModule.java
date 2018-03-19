@@ -29,7 +29,7 @@ import org.elysium.ui.autoedit.LilyPondAutoEditStrategyProvider;
 import org.elysium.ui.hyperlinks.LilyPondEObjectHoverProvider;
 import org.elysium.ui.hyperlinks.LilyPondHyperlinkHelper;
 import org.elysium.ui.hyperlinks.LilyPondLanguageSpecificURIEditorOpener;
-import org.elysium.ui.hyperlinks.LilyPondLocationIfFileProvider;
+import org.elysium.ui.hyperlinks.LilyPondLocationInFileProvider;
 import org.elysium.ui.hyperlinks.LilyPondResourceForIEditorInputFactory;
 import org.elysium.ui.outline.FilterIncludesOutlineContribution;
 import org.elysium.ui.preferences.LilyPondPreferenceInitializer;
@@ -121,7 +121,7 @@ public class LilyPondUiModule extends AbstractLilyPondUiModule {
 	}
 
 	public Class<? extends ILocationInFileProvider> bindILocationInFileProvider() {
-		return LilyPondLocationIfFileProvider.class;
+		return LilyPondLocationInFileProvider.class;
 	}
 
 	public Class<? extends IEObjectHoverProvider> bindEObjectHoverProvider() {
