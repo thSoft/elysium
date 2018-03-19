@@ -89,7 +89,8 @@ public class LilyPondProposalProvider extends AbstractLilyPondProposalProvider {
 					for (File file : allFiles) {
 						if(propose(file)) {
 							String name=file.getName();
-							String proposal=mergePrefixAndProposedName(context.getPrefix().substring(1), name);
+							String mergePrefix=context.getPrefix().isEmpty()?"":context.getPrefix().substring(1);
+							String proposal=mergePrefixAndProposedName(mergePrefix, name);
 							createIncludeProposal(proposal, file, context, acceptor);
 						}
 					}
@@ -124,15 +125,15 @@ public class LilyPondProposalProvider extends AbstractLilyPondProposalProvider {
 		String searchPrefix=prefix;
 		if(searchPrefix.length()>0) {
 			searchPrefix=prefix.substring(1);//trim quote
-			//ensure we get the correct parent directory
-			if(searchPrefix.isEmpty() || searchPrefix.endsWith("/")) {
-				searchPrefix=searchPrefix+"X";
-			} else if(searchPrefix.endsWith("..")) {
-				searchPrefix=searchPrefix+"/X";
-			} else if(isWindowsHd(searchPrefix)) {
-				//windows hd 
-				searchPrefix=searchPrefix+"/X";
-			}
+		}
+		//ensure we get the correct parent directory
+		if(searchPrefix.isEmpty() || searchPrefix.endsWith("/")) {
+			searchPrefix=searchPrefix+"X";
+		} else if(searchPrefix.endsWith("..")) {
+			searchPrefix=searchPrefix+"/X";
+		} else if(isWindowsHd(searchPrefix)) {
+			//windows hd 
+			searchPrefix=searchPrefix+"/X";
 		}
 		return searchPrefix;
 	}

@@ -54,6 +54,7 @@ class LilyPondProposalProviderTest implements ResourceLoadHelper {
 		IResourcesSetupUtil.createFile("test/folder/include.ly","")
 		uri=URI.createPlatformResourceURI(file.fullPath.toString, true)
 
+		newBuilder.append('''\include ''').assertProposal('"arabic.ly"')
 		newBuilder.append('''\include "a''').assertProposal('"arabic.ly"')
 		newBuilder.append('''\include "''').assertProposal('"folder/"')
 		newBuilder.append('''\include "f''').assertProposal('"folder/"')
