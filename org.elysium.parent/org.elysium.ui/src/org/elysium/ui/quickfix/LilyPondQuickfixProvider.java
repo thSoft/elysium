@@ -119,8 +119,8 @@ public class LilyPondQuickfixProvider extends ChangeToSimilarQuickfixProvider {
 				if (element instanceof Include) {
 					String include = ((Include) element).getImportURI();
 					if(include!=null) {
-						if(include.startsWith("file:/")) {
-							include=include.substring(6);
+						if(include.startsWith(LilyPondValidator.FILE_URI_PREFIX)) {
+							include=include.replaceFirst(LilyPondValidator.FILE_URI_PREFIX,"");
 						}
 						include=include.replaceAll("\\\\+", "/");
 						((Include) element).setImportURI(include);

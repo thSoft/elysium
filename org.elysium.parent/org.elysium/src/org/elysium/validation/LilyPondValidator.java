@@ -25,6 +25,8 @@ import com.google.inject.Inject;
  */
 public class LilyPondValidator extends AbstractLilyPondValidator {
 
+	public static final String FILE_URI_PREFIX = "file:/";
+
 	@Inject
 	private LilyPondImportUriResolver importUriResolver;
 
@@ -95,9 +97,9 @@ public class LilyPondValidator extends AbstractLilyPondValidator {
 	public void checkWindowsIncludeNormalized(Include include) {
 		if(LilyPondConstants.IS_WINDOWS && include.getImportURI()!=null) {
 			String includeString = include.getImportURI();
-			if(includeString.startsWith("file:/")) {
+			if(includeString.startsWith(FILE_URI_PREFIX)) {
 				error("file URIs are not allowed", LilypondPackage.Literals.INCLUDE__IMPORT_URI, 0, IssueCodes.WINDOWS_NORMALIZED_INCLUDE);
-			}else if(includeString.indexOf('\\')>=0){
+			}else if(includeString.contains("\\")){
 				warning("Include should not contain backslash", LilypondPackage.Literals.INCLUDE__IMPORT_URI, 0, IssueCodes.WINDOWS_NORMALIZED_INCLUDE);
 			}
 		}
