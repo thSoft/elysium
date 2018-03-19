@@ -45,23 +45,35 @@ public class RecompileSelectedHandler extends AbstractHandler {
 					containedFiles.addAll(ResourceUtils.getAllFiles(container));
 				}
 				for (IFile file : containedFiles) {
-					if (isLilyPondFile(file)) {
-						files.add(file);
+					IFile source = getLilyPondSourceFile(file);
+					if(source != null){
+						files.add(source);	
 					}
 				}
 			}
 		} else {
 			IFile file=EditorUtils.getCurrentlyOpenFile();
-			if(isLilyPondFile(file)){
-				files.add(file);	
+			IFile source = getLilyPondSourceFile(file);
+			if(source != null){
+				files.add(source);	
 			}
 		}
 		builder.get().compile(files);
 		return null;
 	}
 
-	private boolean isLilyPondFile(IFile file){
-		return file!=null && LilyPondConstants.EXTENSIONS.contains(file.getFileExtension());
+	private IFile getLilyPondSourceFile(IFile file) {
+		if(file!=null) {
+			if(LilyPondConstants.EXTENSIONS.contains(file.getFileExtension())) {
+				return file;
+			} else if(LilyPondConstants.COMPILED_EXTENSIONS.contains(file.getFileExtension())) {
+				IFile source = ResourceUtils.replaceExtension(file, LilyPondConstants.EXTENSION);
+				if(source.exists()) {
+					return source;
+				}
+			}
+		}
+		return null;
 	}
 
 	@Override
@@ -69,7 +81,7 @@ public class RecompileSelectedHandler extends AbstractHandler {
 		ISelection selection = PlatformUI.getWorkbench().getActiveWorkbenchWindow().getSelectionService().getSelection();
 		if(selection instanceof TextSelection) {
 			IFile file=EditorUtils.getCurrentlyOpenFile();
-			return file!=null && isLilyPondFile(file);
+			return getLilyPondSourceFile(file) != null;
 		}else if(selection instanceof StructuredSelection) {
 			Iterator<?> iterator = ((StructuredSelection) selection).iterator();
 			while(iterator.hasNext()) {
@@ -85,7 +97,7 @@ public class RecompileSelectedHandler extends AbstractHandler {
 		if(object instanceof IContainer) {
 			return true;
 		} else if(object instanceof IFile) {
-			if(isLilyPondFile((IFile)object)){
+			if(getLilyPondSourceFile((IFile)object) != null){
 				return true;
 			}
 		}
