@@ -16,6 +16,7 @@ import org.eclipse.xtext.ui.editor.autoedit.AbstractEditStrategyProvider;
 import org.eclipse.xtext.ui.editor.hover.IEObjectHoverProvider;
 import org.eclipse.xtext.ui.editor.hyperlinking.IHyperlinkHelper;
 import org.eclipse.xtext.ui.editor.model.IResourceForEditorInputFactory;
+import org.eclipse.xtext.ui.editor.model.XtextDocumentProvider;
 import org.eclipse.xtext.ui.editor.outline.actions.IOutlineContribution;
 import org.eclipse.xtext.ui.editor.preferences.IPreferenceStoreInitializer;
 import org.eclipse.xtext.ui.editor.quickfix.ISimilarityMatcher;
@@ -126,5 +127,9 @@ public class LilyPondUiModule extends AbstractLilyPondUiModule {
 
 	public Class<? extends IEObjectHoverProvider> bindEObjectHoverProvider() {
 		return LilyPondEObjectHoverProvider.class;
+	}
+
+	public Class<? extends XtextDocumentProvider> bindDocumentProvider() {
+		return LilyPondXtextDocumentProvider.class;
 	}
 }

@@ -1,14 +1,9 @@
 package org.elysium.ui;
 
-import java.io.File;
-import java.net.URI;
-
-import org.eclipse.core.runtime.CoreException;
-import org.eclipse.debug.core.sourcelookup.containers.LocalFileStorage;
-import org.eclipse.ui.IEditorInput;
-import org.eclipse.ui.ide.FileStoreEditorInput;
+import org.eclipse.core.resources.IResource;
+import org.eclipse.emf.common.util.URI;
+import org.eclipse.ui.IURIEditorInput;
 import org.eclipse.xtext.ui.editor.XtextEditor;
-import org.eclipse.xtext.ui.editor.XtextReadonlyEditorInput;
 
 import com.google.common.collect.ObjectArrays;
 
@@ -46,13 +41,20 @@ public class LilyPondXtextEditor extends XtextEditor{
 	}
 
 	@Override
-	protected void doSetInput(IEditorInput input) throws CoreException {
-		IEditorInput inputToSet=input;
-		if(inputToSet instanceof FileStoreEditorInput) {
-			//ensure that files outside the workspace cannot be modified
-			URI uri = ((FileStoreEditorInput) input).getURI();
-			inputToSet=new XtextReadonlyEditorInput(new LocalFileStorage(new File(uri)));
+	public String getTitleToolTip() {
+		String tooltip=super.getTitleToolTip();
+		IResource resource = getResource();
+		if(resource != null) {
+			return tooltip+ "\n"+ resource.getRawLocation().toString();
+		} else {
+			try {
+				IURIEditorInput input = ((IURIEditorInput) getEditorInput());
+				return input.getName()+"\n"+URI.createURI(input.getURI().toString()).toFileString().replace('\\', '/');
+			} catch (Exception e) {
+				//ignore
+			}
 		}
-		super.doSetInput(inputToSet);
+		return tooltip;
 	}
+
 }
