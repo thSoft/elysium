@@ -5,6 +5,7 @@ package org.elysium.ui;
 
 import org.eclipse.ui.PlatformUI;
 import org.eclipse.ui.plugin.AbstractUIPlugin;
+import org.eclipse.xtext.findReferences.TargetURICollector;
 import org.eclipse.xtext.ide.editor.syntaxcoloring.ISemanticHighlightingCalculator;
 import org.eclipse.xtext.resource.ILocationInFileProvider;
 import org.eclipse.xtext.resource.containers.IAllContainersState;
@@ -31,6 +32,7 @@ import org.elysium.ui.hyperlinks.LilyPondHyperlinkHelper;
 import org.elysium.ui.hyperlinks.LilyPondLanguageSpecificURIEditorOpener;
 import org.elysium.ui.hyperlinks.LilyPondLocationInFileProvider;
 import org.elysium.ui.hyperlinks.LilyPondResourceForIEditorInputFactory;
+import org.elysium.ui.hyperlinks.LilyPondTargetUriCollector;
 import org.elysium.ui.outline.FilterIncludesOutlineContribution;
 import org.elysium.ui.preferences.LilyPondPreferenceInitializer;
 import org.elysium.ui.preferences.LilyPondValidatorConfigBlock;
@@ -75,6 +77,10 @@ public class LilyPondUiModule extends AbstractLilyPondUiModule {
 	public void configureLanguageSpecificURIEditorOpener(Binder binder) {
 		if (PlatformUI.isWorkbenchRunning())
 			binder.bind(IURIEditorOpener.class).annotatedWith(LanguageSpecific.class).to(LilyPondLanguageSpecificURIEditorOpener.class);
+	}
+
+	public Class<? extends TargetURICollector> bindTargetURICollector() {
+		return LilyPondTargetUriCollector.class;
 	}
 
 	@Override
