@@ -3,9 +3,11 @@ package org.elysium.ui;
 import java.io.File;
 import java.net.URI;
 
+import org.eclipse.core.resources.IResource;
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.debug.core.sourcelookup.containers.LocalFileStorage;
 import org.eclipse.ui.IEditorInput;
+import org.eclipse.ui.IStorageEditorInput;
 import org.eclipse.ui.ide.FileStoreEditorInput;
 import org.eclipse.xtext.ui.editor.XtextEditor;
 import org.eclipse.xtext.ui.editor.XtextReadonlyEditorInput;
@@ -54,5 +56,21 @@ public class LilyPondXtextEditor extends XtextEditor{
 			inputToSet=new XtextReadonlyEditorInput(new LocalFileStorage(new File(uri)));
 		}
 		super.doSetInput(inputToSet);
+	}
+
+	@Override
+	public String getTitleToolTip() {
+		String location="";
+		IResource resource = getResource();
+		if(resource != null) {
+			location= resource.getRawLocation().toString();
+		} else {
+			try {
+				location= ((IStorageEditorInput) getEditorInput()).getStorage().getFullPath().toString();
+			} catch (Exception e) {
+				//ignore
+			}
+		}
+		return (super.getTitleToolTip()+"\n"+location).trim();
 	}
 }
