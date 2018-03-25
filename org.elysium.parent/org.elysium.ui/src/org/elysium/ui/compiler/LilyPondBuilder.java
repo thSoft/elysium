@@ -78,14 +78,7 @@ public class LilyPondBuilder implements IXtextBuilderParticipant {
 	private void compile(Set<IFile> files, ResourceSet resourceSetToUse, boolean executeLilyPondCompilation, boolean deleteMarkers) {
 		int maxParallelCalls = Activator.getInstance().getPreferenceStore().getInt(CompilerPreferenceConstants.PARALLEL_COMPILES.name());
 		addAllIncludingFiles(files,resourceSetToUse);
-		List<IFile> sortedFiles=new ArrayList<IFile>(files);
-		Collections.sort(sortedFiles, new Comparator<IFile>() {
-			@Override
-			public int compare(IFile o1, IFile o2) {
-				return o1.getFileExtension().compareTo(o2.getFileExtension());
-			}
-		});
-		for (IFile file : sortedFiles) {
+		for (IFile file : getFilesToCompile(files)) {
 			CompilerJob compilerJob = new CompilerJob(file, executeLilyPondCompilation, deleteMarkers);
 			Job[] oldCompilerJobs = Job.getJobManager().find(compilerJob);
 			for (Job oldCompilerJob : oldCompilerJobs) {
@@ -96,6 +89,23 @@ public class LilyPondBuilder implements IXtextBuilderParticipant {
 			compilerJob.setRule(parallelExecutionRule);
 			compilerJob.schedule();
 		}
+	}
+
+	private List<IFile> getFilesToCompile(Set<IFile> allFiles){
+		List<IFile> sortedFiles=new ArrayList<IFile>();
+		for (IFile iFile : allFiles) {
+			if(LilyPondConstants.EXTENSION.equals(iFile.getFileExtension())){
+				sortedFiles.add(iFile);
+			}
+		}
+		Collections.sort(sortedFiles, new Comparator<IFile>() {
+			@Override
+			public int compare(IFile o1, IFile o2) {
+				return o1.getName().compareTo(o2.getName());
+			}
+		});
+		return sortedFiles;
+
 	}
 
 	/**

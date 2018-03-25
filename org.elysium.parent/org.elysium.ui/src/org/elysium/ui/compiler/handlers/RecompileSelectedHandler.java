@@ -12,6 +12,8 @@ import org.eclipse.core.commands.ExecutionEvent;
 import org.eclipse.core.commands.ExecutionException;
 import org.eclipse.core.resources.IContainer;
 import org.eclipse.core.resources.IFile;
+import org.eclipse.core.resources.IResource;
+import org.eclipse.core.runtime.CoreException;
 import org.eclipse.jface.text.TextSelection;
 import org.eclipse.jface.viewers.ISelection;
 import org.eclipse.jface.viewers.IStructuredSelection;
@@ -64,7 +66,7 @@ public class RecompileSelectedHandler extends AbstractHandler {
 
 	private IFile getLilyPondSourceFile(IFile file) {
 		if(file!=null) {
-			if(LilyPondConstants.EXTENSIONS.contains(file.getFileExtension())) {
+			if(LilyPondConstants.EXTENSION.equals(file.getFileExtension())) {
 				return file;
 			} else if(LilyPondConstants.COMPILED_EXTENSIONS.contains(file.getFileExtension())) {
 				IFile source = ResourceUtils.replaceExtension(file, LilyPondConstants.EXTENSION);
@@ -95,7 +97,16 @@ public class RecompileSelectedHandler extends AbstractHandler {
 
 	private boolean isRecompilable(Object object) {
 		if(object instanceof IContainer) {
-			return true;
+			IContainer container = (IContainer)object;
+			try {
+				for (IResource member : container.members()) {
+					if(isRecompilable(member)) {
+						return true;
+					}
+				}
+			} catch (CoreException e) {
+				//ignore
+			}
 		} else if(object instanceof IFile) {
 			if(getLilyPondSourceFile((IFile)object) != null){
 				return true;
