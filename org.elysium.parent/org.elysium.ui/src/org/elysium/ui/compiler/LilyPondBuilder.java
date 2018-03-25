@@ -1,5 +1,9 @@
 package org.elysium.ui.compiler;
 
+import static org.eclipse.core.resources.IMarker.MESSAGE;
+import static org.eclipse.core.resources.IResource.DEPTH_ZERO;
+import static org.elysium.ui.markers.MarkerTypes.OUTDATED;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
@@ -12,6 +16,7 @@ import java.util.concurrent.atomic.AtomicLong;
 import javax.inject.Inject;
 
 import org.eclipse.core.resources.IFile;
+import org.eclipse.core.resources.IMarker;
 import org.eclipse.core.resources.IProject;
 import org.eclipse.core.resources.IResource;
 import org.eclipse.core.resources.ResourcesPlugin;
@@ -34,6 +39,7 @@ import org.eclipse.xtext.scoping.impl.ImportUriResolver;
 import org.elysium.LilyPondConstants;
 import org.elysium.lilypond.Include;
 import org.elysium.ui.Activator;
+import org.elysium.ui.compiler.outdated.OutdatedDecorator;
 import org.elysium.ui.compiler.preferences.CompilerPreferenceConstants;
 
 /**
@@ -68,16 +74,39 @@ public class LilyPondBuilder implements IXtextBuilderParticipant {
 		ResourceSet rs=new ResourceSetImpl();
 		boolean doLilyPondCompile=preferences.getBoolean(CompilerPreferenceConstants.COMPILE_DURING_BUILD.name());
 		boolean doDeleteMarkersIfCompilerIsInactive=preferences.getBoolean(CompilerPreferenceConstants.DELETE_ELYSIUM_MARKERS.name());
-		compile(filesToCompile, rs, doLilyPondCompile, doLilyPondCompile || doDeleteMarkersIfCompilerIsInactive);
+		compile(filesToCompile, rs, doLilyPondCompile, doLilyPondCompile || doDeleteMarkersIfCompilerIsInactive, true);
+	}
+
+	private void markDirty(Set<IFile> files) {
+		for (IFile iFile : files) {
+			if(LilyPondConstants.EXTENSION.equals(iFile.getFileExtension())) {
+				try {
+					if (iFile.findMarkers(OUTDATED, false, DEPTH_ZERO).length == 0) {
+						IMarker outdatedMarker = iFile.createMarker(OUTDATED);
+						outdatedMarker.setAttribute(MESSAGE, "This file has been changed since it was compiled");
+						// Refresh decorator
+						OutdatedDecorator outdatedDecorator = OutdatedDecorator.getInstance();
+						if (outdatedDecorator != null) {
+							outdatedDecorator.refresh(iFile);
+						}
+					}
+				} catch (CoreException e) {
+					Activator.logError("Couldn't add LilyPond outdated markers", e);
+				}
+			}
+		}
 	}
 
 	public void compile(Set<IFile> files) {
-		compile(files, new ResourceSetImpl(), true, true);
+		compile(files, new ResourceSetImpl(), true, true, false);
 	}
 
-	private void compile(Set<IFile> files, ResourceSet resourceSetToUse, boolean executeLilyPondCompilation, boolean deleteMarkers) {
+	private void compile(Set<IFile> files, ResourceSet resourceSetToUse, boolean executeLilyPondCompilation, boolean deleteMarkers, boolean markDirty) {
 		int maxParallelCalls = Activator.getInstance().getPreferenceStore().getInt(CompilerPreferenceConstants.PARALLEL_COMPILES.name());
 		addAllIncludingFiles(files,resourceSetToUse);
+		if(markDirty) {
+			markDirty(files);
+		}
 		for (IFile file : getFilesToCompile(files)) {
 			CompilerJob compilerJob = new CompilerJob(file, executeLilyPondCompilation, deleteMarkers);
 			Job[] oldCompilerJobs = Job.getJobManager().find(compilerJob);
