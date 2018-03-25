@@ -55,6 +55,9 @@ public class LilyPondBuilder implements IXtextBuilderParticipant {
 
 	@Override
 	public void build(final IBuildContext context, IProgressMonitor monitor) throws CoreException {
+		if(context.getBuildType() != BuildType.INCREMENTAL) {
+			return;
+		}
 		Set<IFile> filesToCompile = new HashSet<IFile>();
 		for (Delta delta : context.getDeltas()) {
 			URI uri = delta.getUri();
