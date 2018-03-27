@@ -1,6 +1,8 @@
 package org.elysium.ui.hyperlinks;
 
 import java.io.File;
+import java.io.IOException;
+import java.nio.file.Files;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -8,9 +10,12 @@ import java.util.List;
 import org.eclipse.core.resources.IFile;
 import org.eclipse.core.resources.IResource;
 import org.eclipse.core.resources.ResourcesPlugin;
+import org.eclipse.core.runtime.CoreException;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.util.ResourceUtils;
+import org.eclipse.jface.text.Document;
+import org.eclipse.jface.text.IDocument;
 import org.eclipse.jface.text.Region;
 import org.eclipse.jface.text.hyperlink.IHyperlink;
 import org.eclipse.ui.IViewPart;
@@ -91,17 +96,21 @@ public class LilyPondHyperlinkHelper extends HyperlinkHelper {
 					if (fileViewType instanceof PdfViewType) {
 						PdfViewType pdfViewType = (PdfViewType)fileViewType;
 						PdfViewPage pdfViewPage = pdfViewType.getPage();
-						List<IResource> resources = getFileForXtextResource(xtextResource);
-						if (pdfViewPage != null && !resources.isEmpty()) {
+						java.net.URI sourceURI = getFileURIForXtextResource(xtextResource);
+						if (pdfViewPage != null && sourceURI != null) {
+							IDocument sourceDocument = null;
 							for (int page = 1; page <= pdfViewPage.getPageCount(); page++) {
+								int indexOnPage = 0;
 								PdfAnnotation[] pdfAnnotations = pdfViewPage.getAnnotationsOnPage(page);
 								for (PdfAnnotation pdfAnnotation : pdfAnnotations) {
-									IFile targetFile = pdfAnnotation.file;
-									if (resources.contains(targetFile)) {
+									if (sourceURI.equals(pdfAnnotation.fileURI)) {
 										try {
-											int annotationOffset = DocumentUtils.getOffsetOfPosition(DocumentUtils.getDocumentFromFile(targetFile), pdfAnnotation.lineNumber, pdfAnnotation.columnNumber, 1);
+											if(sourceDocument == null) {
+												sourceDocument = getDocumentForXtextResource(xtextResource);
+											}
+											int annotationOffset = DocumentUtils.getOffsetOfPosition(sourceDocument, pdfAnnotation.lineNumber, pdfAnnotation.columnNumber, 1);
 											if ((nodeOffset <= annotationOffset) && (annotationOffset < (nodeOffset + nodeLength))) { // TODO smarter hyperlink region
-												SourceToScoreHyperlink hyperlink = new SourceToScoreHyperlink(pdfViewPage, pdfAnnotation);
+												SourceToScoreHyperlink hyperlink = new SourceToScoreHyperlink(pdfViewPage, pdfAnnotation, ++indexOnPage);
 												hyperlink.setHyperlinkRegion(new Region(nodeOffset, nodeLength));
 												hyperlinks.add(hyperlink);
 											}
@@ -123,19 +132,39 @@ public class LilyPondHyperlinkHelper extends HyperlinkHelper {
 		}
 	}
 
-	private List<IResource> getFileForXtextResource(XtextResource xtextResource) {
-		List<IResource> result=new ArrayList<>();
+	private IDocument getDocumentForXtextResource(XtextResource xtextResource) throws CoreException, IOException {
 		IResource resource = ResourceUtils.convertEResourceToPlatformResource(xtextResource);
-		if (resource != null) {
-			result.add(resource);
-		} else if(xtextResource.getURI().isFile()) {
+		if(resource == null && xtextResource.getURI().isFile()) {
 			IFile[] wsResources = ResourcesPlugin.getWorkspace().getRoot().findFilesForLocationURI(java.net.URI.create(xtextResource.getURI().toString()));
 			for (IFile iFile : wsResources) {
 				if(iFile.exists()) {
-					result.add(iFile);
+					resource=iFile;
+					break;
 				}
 			}
+			if(resource == null) {
+				//for workspace external files there is no IFile
+				File file = new File(xtextResource.getURI().toFileString());
+				String content=new String(Files.readAllBytes(file.toPath()));
+				return new Document(content);
+			}
 		}
-		return result;
+		if(resource instanceof IFile) {
+			return DocumentUtils.getDocumentFromFile((IFile)resource);
+		}
+		//should not occur as links are only created for an open editor
+		throw new IllegalStateException("could not obtain document for resource "+xtextResource.getURI());
+	}
+
+	private java.net.URI getFileURIForXtextResource(XtextResource xtextResource) {
+		URI uri = xtextResource.getURI();
+		if(uri.isPlatformResource()) {
+			IResource resource = ResourceUtils.convertEResourceToPlatformResource(xtextResource);
+			uri=org.eclipse.emf.common.util.URI.createFileURI(resource.getLocation().toFile().getAbsolutePath());
+		}
+		if(uri.isFile()) {
+			return java.net.URI.create(uri.toString());
+		}
+		return null;
 	}
 }
