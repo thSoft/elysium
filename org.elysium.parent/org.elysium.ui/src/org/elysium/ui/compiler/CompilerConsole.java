@@ -102,6 +102,15 @@ public class CompilerConsole extends MessageConsole {
 		return result;
 	}
 
+	/**
+	 * Returns the console for the syntax update action.
+	 */
+	public static CompilerConsole getSyntaxUpdateConsole() {
+		CompilerConsole result = ConsoleUtils.getConsole("Syntax update", FACTORY);
+		result.setTerminated(false);
+		return result;
+	}
+
 	private void initCancelAction(){
 		cancelAction = new Action(ProgressMessages.ProgressView_CancelAction) {
 			@Override
