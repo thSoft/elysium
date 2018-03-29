@@ -10,8 +10,6 @@ public class SyntaxUpdaterPreferenceInitializer extends AbstractPreferenceInitia
 	public void initializeDefaultPreferences() {
 		IPreferenceStore preferenceStore = Activator.getInstance().getPreferenceStore();
 
-		preferenceStore.setDefault(SyntaxUpdaterPreferenceConstants.UPDATE_SYNTAX.name(), false);
-
 		preferenceStore.setDefault(SyntaxUpdaterPreferenceConstants.FORCE_CURRENT_VERSION.name(), true);
 	}
 
