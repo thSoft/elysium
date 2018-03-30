@@ -14,9 +14,9 @@ public class SourceToScoreHyperlink extends AbstractHyperlink {
 
 	private final PdfAnnotation pdfAnnotation;
 
-	public SourceToScoreHyperlink(PdfViewPage pdfViewPage, PdfAnnotation pdfAnnotation) {
+	public SourceToScoreHyperlink(PdfViewPage pdfViewPage, PdfAnnotation pdfAnnotation, int indexOnPage) {
 		super();
-		setHyperlinkText(MessageFormat.format("Occurrence on page {0}", pdfAnnotation.page));
+		setHyperlinkText(MessageFormat.format("Occurrence {0} on page {1}", indexOnPage, pdfAnnotation.page));
 		this.pdfViewPage = pdfViewPage;
 		this.pdfAnnotation = pdfAnnotation;
 	}
