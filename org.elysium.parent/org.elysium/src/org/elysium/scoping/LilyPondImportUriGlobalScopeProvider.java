@@ -18,6 +18,7 @@ import org.eclipse.xtext.EcoreUtil2;
 import org.eclipse.xtext.resource.IEObjectDescription;
 import org.eclipse.xtext.resource.IResourceDescription;
 import org.eclipse.xtext.resource.IResourceDescriptions;
+import org.eclipse.xtext.resource.XtextResource;
 import org.eclipse.xtext.resource.XtextResourceSet;
 import org.eclipse.xtext.scoping.IScope;
 import org.eclipse.xtext.scoping.impl.AbstractGlobalScopeProvider;
@@ -30,6 +31,7 @@ import org.elysium.LilyPondConstants;
 import org.elysium.lilypond.Include;
 import org.elysium.lilypond.LilypondFactory;
 
+import com.google.common.base.Joiner;
 import com.google.common.base.Predicate;
 import com.google.common.collect.Lists;
 import com.google.inject.Inject;
@@ -111,8 +113,25 @@ public class LilyPondImportUriGlobalScopeProvider extends AbstractGlobalScopePro
 				Set<String> alreadyProcessedImportUriStrings=new HashSet<String>();
 				Set<Resource> resources = getAllImportedResources(resource, alreadyProcessedImportUriStrings);
 				LinkedHashSet<URI> result = getUris(resources);
+				addNonDefaultIncludesToResourceCache(result);
 				result.addAll(getDefaultIncludes());
 				return result;
+			}
+
+			private void addNonDefaultIncludesToResourceCache(Set<URI> includes) {
+				if(!includes.isEmpty()) {
+					if(resource instanceof XtextResource) {
+						final String includesToCache = (Joiner.on("\n").join(includes));
+						IResourceScopeCache resourceCache = ((XtextResource) resource).getCache();
+						resourceCache.get("allIncludes", resource, new Provider<String>() {
+
+							@Override
+							public String get() {
+								return includesToCache;
+							}
+						});
+					}
+				}
 			}
 		});
 	}
