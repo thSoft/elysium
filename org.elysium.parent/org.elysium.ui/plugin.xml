@@ -182,9 +182,15 @@
       <includes>
         <contentExtension pattern="org.eclipse.ui.navigator.resourceContent"/>
         <contentExtension pattern="org.eclipse.ui.navigator.resources.filters.startsWithDot"/>
+        <contentExtension pattern="org.eclipse.ui.navigator.resources.filters.closedProject"/>
         <contentExtension pattern="org.eclipse.ui.navigator.resources.linkHelper"/>
         <contentExtension pattern="org.eclipse.ui.navigator.resources.workingSets"/>
         <contentExtension pattern="org.elysium.ui.filters.NonLilyPondProjects"/>
+        <contentExtension pattern="org.elysium.ui.filters.midi"/>
+        <contentExtension pattern="org.elysium.ui.filters.pdf"/>
+        <contentExtension pattern="org.elysium.ui.filters.ps"/>
+        <contentExtension pattern="org.elysium.ui.filters.tempfile"/>
+        <contentExtension pattern="org.elysium.ui.filters.lilypondfile"/>
         <contentExtension pattern="org.elysium.ui.sorters.ByExtension"/>
       </includes>
     </viewerContentBinding>
@@ -197,14 +203,58 @@
   <extension point="org.eclipse.ui.navigator.navigatorContent">
     <commonFilter activeByDefault="true" id="org.elysium.ui.filters.NonLilyPondProjects" name="Non-LilyPond projects">
       <filterExpression>
-        <not>
-          <test property="org.eclipse.core.resources.projectNature" value="org.elysium.ui.natures.LilyPond"/>
-        </not>
+        <and>
+          <adapt type="org.eclipse.core.resources.IProject">
+            <test property="org.eclipse.core.resources.open" value="true"/>
+          </adapt>
+          <not>
+            <test property="org.eclipse.core.resources.projectNature" value="org.elysium.ui.natures.LilyPond"/>
+          </not>
+        </and>
       </filterExpression>
     </commonFilter>
     <navigatorContent icon="icons/library/Sorter.png" id="org.elysium.ui.sorters.ByExtension" name="Sort By Extension" sortOnly="true">
       <commonSorter class="org.elysium.ui.library.ByExtensionSorter"/>
     </navigatorContent>
+    <commonFilter id="org.elysium.ui.filters.midi" name="midi-Files" activeByDefault="false">
+       <filterExpression>
+          <adapt type="org.eclipse.core.resources.IResource">
+             <test property="org.eclipse.core.resources.name" value="*.midi"/>
+          </adapt>
+       </filterExpression>
+    </commonFilter>
+    <commonFilter id="org.elysium.ui.filters.pdf" name="pdf-Files" activeByDefault="false">
+       <filterExpression>
+          <adapt type="org.eclipse.core.resources.IResource">
+             <test property="org.eclipse.core.resources.name" value="*.pdf"/>
+          </adapt>
+       </filterExpression>
+    </commonFilter>
+    <commonFilter id="org.elysium.ui.filters.ps" name="ps-Files" activeByDefault="false">
+       <filterExpression>
+          <adapt type="org.eclipse.core.resources.IResource">
+             <test property="org.eclipse.core.resources.name" value="*.ps"/>
+          </adapt>
+       </filterExpression>
+    </commonFilter>
+    <commonFilter id="org.elysium.ui.filters.tempfile" name="temp-Files (*~)" activeByDefault="true">
+       <filterExpression>
+          <adapt type="org.eclipse.core.resources.IResource">
+             <test property="org.eclipse.core.resources.name" value="*~"/>
+          </adapt>
+       </filterExpression>
+    </commonFilter>
+    <commonFilter id="org.elysium.ui.filters.lilypondfile" name="LilyPond-Files" activeByDefault="false">
+       <filterExpression>
+          <adapt type="org.eclipse.core.resources.IResource">
+            <or>
+             <test property="org.eclipse.core.resources.name" value="*.ly"/>
+             <test property="org.eclipse.core.resources.name" value="*.lyi"/>
+             <test property="org.eclipse.core.resources.name" value="*.ily"/>
+            </or>
+          </adapt>
+       </filterExpression>
+    </commonFilter>
   </extension>
   <extension point="org.eclipse.jdt.ui.javaElementFilters">
     <filter id="org.elysium.ui.javaElementFilters.LilyPondProjects" name="LilyPond projects" enabled="true" class="org.elysium.ui.library.LilyPondProjectViewerFilter"/>
