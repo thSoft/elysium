@@ -1,4 +1,4 @@
-package org.elysium.ui.compiler;
+package org.elysium.ui.compiler.updater;
 
 import java.text.MessageFormat;
 import java.util.Collection;
@@ -24,8 +24,9 @@ import org.eclipse.ui.texteditor.AbstractTextEditor;
 import org.eclipse.util.EditorUtils;
 import org.eclipse.util.UiUtils;
 import org.elysium.ui.Activator;
-import org.elysium.ui.compiler.updater.SyntaxUpdaterOutputProcessor;
-import org.elysium.ui.compiler.updater.SyntaxUpdaterProcessBuilderFactory;
+import org.elysium.ui.compiler.CancellableProcessUtils;
+import org.elysium.ui.compiler.CompilerProcessBuilderFactory;
+import org.elysium.ui.compiler.console.LilyPondConsole;
 
 /**
  * A job in which the syntax of a collection of files is updated.
@@ -51,7 +52,7 @@ public class SyntaxUpdaterJob extends Job {
 	protected IStatus run(final IProgressMonitor monitor) {
 		IStatus returnStatus=Status.OK_STATUS;
 		monitor.beginTask("Syntax update", files.size());
-		CompilerConsole console = CompilerConsole.getSyntaxUpdateConsole();
+		LilyPondConsole console = LilyPondConsole.getSyntaxUpdateConsole();
 		try {
 			console.setMonitor(monitor);
 			console.clearConsole();
@@ -83,7 +84,7 @@ public class SyntaxUpdaterJob extends Job {
 		return returnStatus;
 	}
 
-	private void maybeCloseFileAndUpdateSyntax(final IProgressMonitor monitor, final CompilerConsole console, final IFile file) {
+	private void maybeCloseFileAndUpdateSyntax(final IProgressMonitor monitor, final LilyPondConsole console, final IFile file) {
 		final IEditorPart editor = EditorUtils.getEditorWithFile(file);
 		if (editor != null) {
 			// If the file is open then reopen it
@@ -115,7 +116,7 @@ public class SyntaxUpdaterJob extends Job {
 		}
 	}
 
-	private void updateSyntax(IProgressMonitor monitor, CompilerConsole console, IFile file) {
+	private void updateSyntax(IProgressMonitor monitor, LilyPondConsole console, IFile file) {
 		try {
 			ProcessBuilder processBuilder = SyntaxUpdaterProcessBuilderFactory.get(file);
 			CompilerProcessBuilderFactory.prepareProcessBuilder(processBuilder, file);

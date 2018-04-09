@@ -27,6 +27,7 @@ import org.eclipse.ui.dialogs.PreferencesUtil;
 import org.eclipse.ui.progress.IProgressConstants;
 import org.elysium.LilyPondConstants;
 import org.elysium.ui.Activator;
+import org.elysium.ui.compiler.console.LilyPondConsole;
 import org.elysium.ui.compiler.outdated.OutdatedDecorator;
 
 /**
@@ -56,14 +57,14 @@ public class CompilerJob extends Job {
 		IStatus returnStatus=Status.OK_STATUS;
 		monitor.beginTask("LilyPond Compilation: "+file.getName(), 4);
 		boolean fullCompile=LilyPondConstants.EXTENSION.equals(file.getFileExtension()) && executeLilyPondCompile;
-		CompilerConsole console=null;
+		LilyPondConsole console=null;
 		try {
 			long start = System.currentTimeMillis();
 			preprocess(monitor);
 
 			if (fullCompile){
 				checkCancelled(monitor);
-				console = CompilerConsole.get(file);
+				console = LilyPondConsole.getCompilerConsole(file);
 				console.setMonitor(monitor);
 				console.clearConsole();
 				console.firePropertyChange(this, IConsoleConstants.P_CONSOLE_OUTPUT_COMPLETE, null, false);

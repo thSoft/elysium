@@ -21,7 +21,7 @@ import org.eclipse.ui.handlers.HandlerUtil;
 import org.eclipse.util.EditorUtils;
 import org.eclipse.util.ResourceUtils;
 import org.elysium.LilyPondConstants;
-import org.elysium.ui.compiler.SyntaxUpdaterJob;
+import org.elysium.ui.compiler.updater.SyntaxUpdaterJob;
 
 public class UpdateSyntaxSelectedHandler extends AbstractHandler {
 
