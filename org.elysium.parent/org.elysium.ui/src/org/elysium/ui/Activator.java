@@ -1,11 +1,8 @@
 package org.elysium.ui;
 
-import org.eclipse.core.resources.IResourceChangeEvent;
-import org.eclipse.core.resources.ResourcesPlugin;
 import org.eclipse.core.runtime.IStatus;
 import org.eclipse.core.runtime.Status;
 import org.eclipse.jface.resource.ImageDescriptor;
-import org.elysium.ui.compiler.outdated.OutdatedMarkerAdder;
 import org.elysium.ui.internal.ElysiumActivator;
 import org.osgi.framework.BundleContext;
 
@@ -20,9 +17,6 @@ public class Activator extends ElysiumActivator {
 	public void start(BundleContext context) throws Exception {
 		super.start(context);
 		instance = this;
-		OutdatedMarkerAdder outdatedMarkerAdder = getInjector(ORG_ELYSIUM_LILYPOND).getInstance(OutdatedMarkerAdder.class);
-		// Register resource change listeners
-		ResourcesPlugin.getWorkspace().addResourceChangeListener(outdatedMarkerAdder, IResourceChangeEvent.POST_BUILD);
 	}
 
 	/**

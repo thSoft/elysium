@@ -8,6 +8,7 @@ import org.eclipse.core.commands.ExecutionEvent;
 import org.eclipse.core.commands.ExecutionException;
 import org.eclipse.core.resources.IFile;
 import org.eclipse.util.EditorUtils;
+import org.elysium.LilyPondConstants;
 import org.elysium.ui.compiler.LilyPondBuilder;
 
 import com.google.common.collect.Sets;
@@ -19,11 +20,21 @@ public class RecompileEditedHandler extends AbstractHandler {
 	
 	@Override
 	public Object execute(ExecutionEvent event) throws ExecutionException {
-		IFile currentlyOpenFile = EditorUtils.getCurrentlyOpenFile();
+		IFile currentlyOpenFile = getFile();
 		if (currentlyOpenFile != null) {
 			builder.get().compile(Sets.newHashSet(currentlyOpenFile));
 		}
 		return null;
 	}
 
+	@Override
+	public boolean isEnabled() {
+		IFile file = getFile();
+		return file != null && LilyPondConstants.EXTENSION.equals(file.getFileExtension());
+	}
+
+	private IFile getFile() {
+		IFile currentlyOpenFile = EditorUtils.getCurrentlyOpenFile();
+		return currentlyOpenFile;
+	}
 }
