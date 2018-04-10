@@ -1,4 +1,4 @@
-package org.elysium.ui.compiler;
+package org.elysium.ui.compiler.console;
 
 import java.text.MessageFormat;
 
@@ -24,10 +24,10 @@ import org.eclipse.util.ConsoleUtils;
 import org.elysium.ui.Activator;
 
 /**
- * Console for the LilyPond compiler's output.
+ * Console for the LilyPond output.
  */
 @SuppressWarnings("restriction")
-public class CompilerConsole extends MessageConsole {
+public class LilyPondConsole extends MessageConsole {
 
 	private final MessageConsoleStream defaultStream = newMessageStream();
 
@@ -47,7 +47,7 @@ public class CompilerConsole extends MessageConsole {
 	 */
 	private static final Color META_COLOR = new Color(Display.getDefault(), 0, 128, 0);
 
-	private CompilerConsole(String name) {
+	private LilyPondConsole(String name) {
 		super(name, null);
 		metaStream.setColor(META_COLOR);
 		initCancelAction();
@@ -79,25 +79,34 @@ public class CompilerConsole extends MessageConsole {
 		}
 	}
 
-	private static final ConsoleFactory<CompilerConsole> FACTORY = new ConsoleFactory<CompilerConsole>() {
+	private static final ConsoleFactory<LilyPondConsole> FACTORY = new ConsoleFactory<LilyPondConsole>() {
 
 		@Override
-		public CompilerConsole create(String name) {
-			return new CompilerConsole(name);
+		public LilyPondConsole create(String name) {
+			return new LilyPondConsole(name);
 		}
 
 	};
 
 	/**
-	 * Returns the console corresponding to the given file and action.
+	 * Returns the LilyPond compiler console corresponding to the given file.
 	 */
-	public static CompilerConsole get(IFile file) {
+	public static LilyPondConsole getCompilerConsole(IFile file) {
 		if (file == null) {
 			return null;
 		}
 		String path = file.getFullPath().toString();
 		String name = MessageFormat.format("LilyPond Compiler [{0}]", path);
-		CompilerConsole result = ConsoleUtils.getConsole(name, FACTORY);
+		LilyPondConsole result = ConsoleUtils.getConsole(name, FACTORY);
+		result.setTerminated(false);
+		return result;
+	}
+
+	/**
+	 * Returns the console for the syntax update action.
+	 */
+	public static LilyPondConsole getSyntaxUpdateConsole() {
+		LilyPondConsole result = ConsoleUtils.getConsole("Syntax updater", FACTORY);
 		result.setTerminated(false);
 		return result;
 	}
@@ -138,7 +147,7 @@ public class CompilerConsole extends MessageConsole {
 
 	private void close(){
 		viewDiscarded=true;
-		ConsolePlugin.getDefault().getConsoleManager().removeConsoles(new IConsole[]{CompilerConsole.this});
+		ConsolePlugin.getDefault().getConsoleManager().removeConsoles(new IConsole[]{LilyPondConsole.this});
 	}
 
 	private void initCloseAllFinishedAction(){
@@ -147,8 +156,8 @@ public class CompilerConsole extends MessageConsole {
 			public void run() {
 				IConsole[] all = ConsolePlugin.getDefault().getConsoleManager().getConsoles();
 				for (IConsole console : all) {
-					if(console instanceof CompilerConsole){
-						CompilerConsole compilerConsole = (CompilerConsole) console;
+					if(console instanceof LilyPondConsole){
+						LilyPondConsole compilerConsole = (LilyPondConsole) console;
 						if(compilerConsole.isTerminated()){
 							compilerConsole.close();
 						}
@@ -162,7 +171,7 @@ public class CompilerConsole extends MessageConsole {
 		}
 	}
 
-	void setMonitor(IProgressMonitor monitor) {
+	public void setMonitor(IProgressMonitor monitor) {
 		cancelAction.setEnabled(monitor!=null);
 		setTerminated(monitor==null);
 		this.monitor = monitor;

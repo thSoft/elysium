@@ -28,7 +28,7 @@
     <page category="org.elysium.ui.preferencePages.LilyPond" class="org.elysium.ui.compiler.preferences.CompilerPreferencePage" id="org.elysium.ui.preferencePages.Compiler" name="Compiler">
       <keywordReference id="org.elysium.ui.keywords.LilyPond"/>
     </page>
-    <page category="org.elysium.ui.preferencePages.Compiler" class="org.elysium.ui.compiler.updater.preferences.SyntaxUpdaterPreferencePage" id="org.elysium.ui.preferencePages.SyntaxUpdater" name="Syntax Updater">
+    <page category="org.elysium.ui.preferencePages.LilyPond" class="org.elysium.ui.compiler.updater.preferences.SyntaxUpdaterPreferencePage" id="org.elysium.ui.preferencePages.SyntaxUpdater" name="Syntax Updater">
       <keywordReference id="org.elysium.ui.keywords.LilyPond"/>
     </page>
     <page category="org.elysium.ui.preferencePages.LilyPond" class="org.elysium.ui.LilyPondExecutableExtensionFactory:org.eclipse.xtext.ui.validation.ValidatorPreferencePage" id="org.elysium.ui.preferencePages.Validation" name="Validation">
@@ -84,6 +84,7 @@
     <command id="org.elysium.ui.commands.RecompileEdited" name="Recompile Edited" categoryId="org.elysium.ui.commandCategories.LilyPond"/>
 	<command id="org.elysium.ui.commands.RecompileViewed" name="Recompile Viewed" categoryId="org.elysium.ui.commandCategories.LilyPond"/>
     <command id="org.elysium.ui.commands.RecompileSelected" name="Recompile" categoryId="org.elysium.ui.commandCategories.LilyPond"/>
+    <command id="org.elysium.ui.commands.SyntaxUpdateSelected" name="Update Syntax" categoryId="org.elysium.ui.commandCategories.LilyPond"/>
   </extension>
   <extension point="org.eclipse.ui.handlers">
     <handler class="org.elysium.ui.LilyPondExecutableExtensionFactory:org.elysium.ui.compiler.handlers.RecompileEditedHandler" commandId="org.elysium.ui.commands.RecompileEdited">
@@ -97,6 +98,15 @@
     </activeWhen>
     </handler>
     <handler class="org.elysium.ui.LilyPondExecutableExtensionFactory:org.elysium.ui.compiler.handlers.RecompileSelectedHandler" commandId="org.elysium.ui.commands.RecompileSelected">
+      <activeWhen>
+        <with variable="selection">
+          <not>
+            <count value="0"/>
+          </not>
+        </with>
+      </activeWhen>
+    </handler>
+    <handler class="org.elysium.ui.LilyPondExecutableExtensionFactory:org.elysium.ui.compiler.handlers.UpdateSyntaxSelectedHandler" commandId="org.elysium.ui.commands.SyntaxUpdateSelected">
       <activeWhen>
         <with variable="selection">
           <not>
@@ -416,6 +426,7 @@
         </visibleWhen>
         <command commandId="org.elysium.ui.commands.RecompileEdited" style="push"/>
 		<command commandId="org.elysium.ui.commands.RecompileViewed" style="push"/>
+		<command commandId="org.elysium.ui.commands.SyntaxUpdateSelected" style="push"/>
       </menu>
     </menuContribution>
     <menuContribution locationURI="popup:org.elysium.ui.views.ScoreLibrary">
@@ -426,6 +437,7 @@
           </with>
         </visibleWhen>
         <command commandId="org.elysium.ui.commands.RecompileSelected"/>
+        <command commandId="org.elysium.ui.commands.SyntaxUpdateSelected"/>
       </menu>
     </menuContribution>
     <menuContribution locationURI="popup:org.elysium.ui.views.ScoreLibrary?after=group.goto">
@@ -461,6 +473,11 @@
     </menuContribution>
     <menuContribution locationURI="popup:#TextEditorContext">
       <command commandId="org.elysium.ui.commands.RecompileSelected">
+        <visibleWhen checkEnabled="false">
+          <reference definitionId="org.elysium.ui.definitions.EditorOpen"/>
+        </visibleWhen>
+      </command>
+      <command commandId="org.elysium.ui.commands.SyntaxUpdateSelected">
         <visibleWhen checkEnabled="false">
           <reference definitionId="org.elysium.ui.definitions.EditorOpen"/>
         </visibleWhen>

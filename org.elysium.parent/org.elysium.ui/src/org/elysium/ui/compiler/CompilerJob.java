@@ -3,12 +3,8 @@ package org.elysium.ui.compiler;
 import static org.eclipse.core.resources.IResource.DEPTH_ZERO;
 import static org.elysium.ui.markers.MarkerTypes.OUTDATED;
 
-import java.io.File;
 import java.io.IOException;
 import java.text.MessageFormat;
-import java.util.List;
-import java.util.Locale;
-import java.util.Map;
 import java.util.concurrent.atomic.AtomicBoolean;
 
 import javax.util.process.OutputProcessor;
@@ -24,26 +20,15 @@ import org.eclipse.core.runtime.Status;
 import org.eclipse.core.runtime.jobs.Job;
 import org.eclipse.jface.dialogs.MessageDialog;
 import org.eclipse.jface.preference.PreferenceDialog;
-import org.eclipse.jface.text.TextSelection;
-import org.eclipse.jface.viewers.ISelection;
 import org.eclipse.swt.widgets.Display;
 import org.eclipse.swt.widgets.Shell;
-import org.eclipse.ui.IEditorPart;
-import org.eclipse.ui.IWorkbenchPage;
-import org.eclipse.ui.PartInitException;
 import org.eclipse.ui.console.IConsoleConstants;
 import org.eclipse.ui.dialogs.PreferencesUtil;
-import org.eclipse.ui.ide.IDE;
 import org.eclipse.ui.progress.IProgressConstants;
-import org.eclipse.ui.texteditor.AbstractTextEditor;
-import org.eclipse.util.EditorUtils;
-import org.eclipse.util.UiUtils;
 import org.elysium.LilyPondConstants;
 import org.elysium.ui.Activator;
+import org.elysium.ui.compiler.console.LilyPondConsole;
 import org.elysium.ui.compiler.outdated.OutdatedDecorator;
-import org.elysium.ui.compiler.updater.SyntaxUpdaterOutputProcessor;
-import org.elysium.ui.compiler.updater.SyntaxUpdaterProcessBuilderFactory;
-import org.elysium.ui.compiler.updater.preferences.SyntaxUpdaterPreferenceConstants;
 
 /**
  * A job in which a file is compiled.
@@ -72,21 +57,21 @@ public class CompilerJob extends Job {
 		IStatus returnStatus=Status.OK_STATUS;
 		monitor.beginTask("LilyPond Compilation: "+file.getName(), 4);
 		boolean fullCompile=LilyPondConstants.EXTENSION.equals(file.getFileExtension()) && executeLilyPondCompile;
-		CompilerConsole console = CompilerConsole.get(file);
+		LilyPondConsole console=null;
 		try {
-			checkCancelled(monitor);
-			console.setMonitor(monitor);
-			console.clearConsole();
-			console.firePropertyChange(this, IConsoleConstants.P_CONSOLE_OUTPUT_COMPLETE, null, false);
-
 			long start = System.currentTimeMillis();
-			preprocess(monitor, console, fullCompile);
+			preprocess(monitor);
 
-			checkCancelled(monitor);
 			if (fullCompile){
+				checkCancelled(monitor);
+				console = LilyPondConsole.getCompilerConsole(file);
+				console.setMonitor(monitor);
+				console.clearConsole();
+				console.firePropertyChange(this, IConsoleConstants.P_CONSOLE_OUTPUT_COMPLETE, null, false);
 				monitor.subTask("prepare LilyPond processing");
+
 				ProcessBuilder processBuilder = CompilerProcessBuilderFactory.get(file);
-				prepareProcessBuilder(processBuilder);
+				CompilerProcessBuilderFactory.prepareProcessBuilder(processBuilder, file);
 
 				OutputProcessor outputProcessor = new CompilerOutputProcessor(file, console);
 				monitor.worked(1);
@@ -96,27 +81,29 @@ public class CompilerJob extends Job {
 				} catch (IOException e) {
 					handleInvalidExecutablePath();
 				}
-			}
-			monitor.worked(1);
+				monitor.worked(1);
 
-			if(fullCompile){
 				postprocess(monitor);
 				long stop = System.currentTimeMillis();
 
 				float executionTimeInSeconds = (stop - start) / 1000f;
 				console.printMeta(MessageFormat.format("LilyPond terminated in {0} seconds.", executionTimeInSeconds));
+				console.firePropertyChange(this, IConsoleConstants.P_CONSOLE_OUTPUT_COMPLETE, null, true);
+				scheduleProjectRefresh();
+				monitor.done();
 			}
-			console.firePropertyChange(this, IConsoleConstants.P_CONSOLE_OUTPUT_COMPLETE, null, true);
-			scheduleProjectRefresh();
-			monitor.done();
 		} catch(OperationCanceledException e){
-			console.printMeta("Workspace build stopped by user");
+			if(console != null) {
+				console.printMeta("Workspace build stopped by user");
+			}
 			returnStatus=Status.CANCEL_STATUS;
 		}catch (Exception e) {
 			Activator.logError("Workspace build interrupted", e);
 			returnStatus=Status.CANCEL_STATUS;
 		}
-		console.setMonitor(null);
+		if(console != null) {
+			console.setMonitor(null);
+		}
 		return returnStatus;
 	}
 
@@ -142,55 +129,8 @@ public class CompilerJob extends Job {
 		}
 	}
 
-	private void prepareProcessBuilder(ProcessBuilder processBuilder) {
-		File directory = file.getParent().getLocation().toFile();
-		processBuilder.directory(directory);
-
-		List<String> command = processBuilder.command();
-		String filename = file.getName();
-		command.add(filename);
-
-		Map<String, String> environment = processBuilder.environment();
-		Locale locale = Locale.getDefault();
-		environment.put("LANG", locale.toString()); //$NON-NLS-1$
-	}
-
-	private void preprocess(final IProgressMonitor monitor, final CompilerConsole console, boolean doCompile) {
+	private void preprocess(final IProgressMonitor monitor) {
 		checkCancelled(monitor);
-		monitor.subTask("updating syntax");
-		// Update syntax if enabled
-		boolean updateSyntax = Activator.getInstance().getPreferenceStore().getBoolean(SyntaxUpdaterPreferenceConstants.UPDATE_SYNTAX.name());
-		if (doCompile && updateSyntax) {
-			final IEditorPart editor = EditorUtils.getEditorWithFile(file);
-			if (editor != null) {
-				// If the file is open then reopen it
-				Display.getDefault().syncExec(new Runnable() { // Editor operations must happen in UI thread
-
-					@Override
-					public void run() {
-						ISelection selection=null;
-						if(editor instanceof AbstractTextEditor) {
-							selection=((AbstractTextEditor) editor).getSelectionProvider().getSelection();
-						}
-						IWorkbenchPage workbenchPage = UiUtils.getWorkbenchPage();
-						workbenchPage.closeEditor(editor, true);
-						updateSyntax(monitor, console);
-						try {
-							IEditorPart openedEditor = IDE.openEditor(workbenchPage, file);
-							if(openedEditor instanceof AbstractTextEditor && selection!=null && selection instanceof TextSelection) {
-								TextSelection textSelection = (TextSelection)selection;
-								((AbstractTextEditor) openedEditor).selectAndReveal(textSelection.getOffset(),0);
-							}
-						} catch (PartInitException e) {
-							Activator.logError("Couldn't refresh editor, try to reopen it", e);
-						}
-					}
-
-				});
-			} else {
-				updateSyntax(monitor, console);
-			}
-		}
 		if(deleteMarkers){
 			// Delete problem markers
 			try {
@@ -200,19 +140,6 @@ public class CompilerJob extends Job {
 			}
 		}	
 		monitor.worked(1);
-	}
-
-	private void updateSyntax(IProgressMonitor monitor, CompilerConsole console) {
-		try {
-			ProcessBuilder processBuilder = SyntaxUpdaterProcessBuilderFactory.get(file);
-			prepareProcessBuilder(processBuilder);
-
-			OutputProcessor outputProcessor = new SyntaxUpdaterOutputProcessor(console);
-
-			CancellableProcessUtils.runCancellableProcess(processBuilder, outputProcessor, monitor, "update syntax "+file.getName());
-		} catch (Exception e) {
-			Activator.logError("Couldn't update syntax before compiling", e);
-		}
 	}
 
 	private void postprocess(IProgressMonitor monitor) {

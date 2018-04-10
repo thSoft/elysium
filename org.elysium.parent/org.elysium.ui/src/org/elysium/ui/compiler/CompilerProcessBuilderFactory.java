@@ -1,14 +1,19 @@
 package org.elysium.ui.compiler;
 
+import java.io.File;
 import java.text.MessageFormat;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
+import java.util.Map;
+
 import org.eclipse.core.resources.IFile;
 import org.eclipse.jface.preference.IPreferenceStore;
 import org.elysium.LilyPondConstants;
 import org.elysium.ui.Activator;
 import org.elysium.ui.UiLilyPondPathProvider;
 import org.elysium.ui.compiler.preferences.CompilerPreferenceConstants;
+
 import com.google.common.collect.Lists;
 
 /**
@@ -76,6 +81,19 @@ public class CompilerProcessBuilderFactory {
 			return new StringBuilder("-d"); //$NON-NLS-1$
 		}
 
+	}
+
+	public static void prepareProcessBuilder(ProcessBuilder processBuilder, IFile file) {
+		File directory = file.getParent().getLocation().toFile();
+		processBuilder.directory(directory);
+
+		List<String> command = processBuilder.command();
+		String filename = file.getName();
+		command.add(filename);
+
+		Map<String, String> environment = processBuilder.environment();
+		Locale locale = Locale.getDefault();
+		environment.put("LANG", locale.toString()); //$NON-NLS-1$
 	}
 
 }

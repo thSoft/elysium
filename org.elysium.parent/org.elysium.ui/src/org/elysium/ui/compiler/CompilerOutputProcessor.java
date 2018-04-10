@@ -6,6 +6,7 @@ import org.eclipse.core.resources.IMarker;
 import org.eclipse.core.resources.IResource;
 import org.eclipse.core.runtime.CoreException;
 import org.elysium.ui.Activator;
+import org.elysium.ui.compiler.console.LilyPondConsole;
 import org.elysium.ui.compiler.problems.ProblemHyperlinkAdder;
 import org.elysium.ui.compiler.problems.ProblemParser;
 import org.elysium.ui.markers.MarkerAttributes;
@@ -24,9 +25,9 @@ public class CompilerOutputProcessor implements OutputProcessor {
 	/**
 	 * The console to which the compiler's output is written.
 	 */
-	private final CompilerConsole console;
+	private final LilyPondConsole console;
 
-	public CompilerOutputProcessor(IFile file, CompilerConsole console) {
+	public CompilerOutputProcessor(IFile file, LilyPondConsole console) {
 		this.file = file;
 		this.console = console;
 	}
