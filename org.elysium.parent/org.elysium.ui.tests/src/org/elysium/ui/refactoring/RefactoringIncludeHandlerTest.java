@@ -20,7 +20,7 @@ public class RefactoringIncludeHandlerTest {
 	@Test
 	public void testRenameMoveFileRelative1(){
 		setSource("project/");
-		currentImportUri = new LilyPondImportUri("otherDir/include.ly", "ignore", LilyPondImportUri.Type.relative, true);
+		currentImportUri = new LilyPondImportUri("otherDir/include.ly", "ignore", LilyPondImportUri.Type.relative);
 		assertNewUri("otherDir/include2.ly", "project/otherDir/include.ly", "project/otherDir/include2.ly");
 		assertNewUri("otherDir2/include.ly", "project/otherDir/include.ly", "project/otherDir2/include.ly");
 		assertNewUri("../otherProject/include.ly", "project/otherDir/include.ly", "otherProject/include.ly");
@@ -32,7 +32,7 @@ public class RefactoringIncludeHandlerTest {
 	@Test
 	public void testRenameMoveFileRelative2(){
 		setSource("project/dir");
-		currentImportUri = new LilyPondImportUri("../otherDir/include.ly", "ignore", LilyPondImportUri.Type.relative, true);
+		currentImportUri = new LilyPondImportUri("../otherDir/include.ly", "ignore", LilyPondImportUri.Type.relative);
 		assertNewUri("../otherDir/include2.ly", "project/otherDir/include.ly", "project/otherDir/include2.ly");
 		assertNewUri("../otherDir2/include.ly", "project/otherDir/include.ly", "project/otherDir2/include.ly");
 		assertNewUri("../../otherProject/include.ly", "project/otherDir/include.ly", "otherProject/include.ly");
@@ -46,7 +46,7 @@ public class RefactoringIncludeHandlerTest {
 	@Test
 	public void testMoveIncludingFileRelative(){
 		String includeLocation= "project/otherDir/include.ly";
-		currentImportUri = new LilyPondImportUri("otherDir/include.ly", "ignore", LilyPondImportUri.Type.relative, true);
+		currentImportUri = new LilyPondImportUri("otherDir/include.ly", "ignore", LilyPondImportUri.Type.relative);
 		setSource("project/","project/dir");
 		assertNewUri("../otherDir/include.ly", includeLocation, includeLocation);
 
@@ -56,7 +56,7 @@ public class RefactoringIncludeHandlerTest {
 		setSource("project/","otherProject/dir");
 		assertNewUri("../../project/otherDir/include.ly", includeLocation, includeLocation);
 
-		currentImportUri = new LilyPondImportUri("../include.ly", "ignore", LilyPondImportUri.Type.relative, true);
+		currentImportUri = new LilyPondImportUri("../include.ly", "ignore", LilyPondImportUri.Type.relative);
 		setSource("project/dir1/dir2","project/dir3");
 		assertNewUri("../include.ly", "project/dir1/include.ly", "project/include.ly");
 		
@@ -65,12 +65,12 @@ public class RefactoringIncludeHandlerTest {
 	@Test
 	public void testRenameMoveFileFromAbsolute(){
 		setSource("project/");
-		currentImportUri = new LilyPondImportUri("/dir/include.ly", "ignore", LilyPondImportUri.Type.absolute, true);
+		currentImportUri = new LilyPondImportUri("/dir/include.ly", "ignore", LilyPondImportUri.Type.absolute);
 		assertNewUri("/dir/include2.ly", "dir/include.ly", "dir/include2.ly");
 		assertNewUri("/otherDir/include.ly", "dir/include.ly", "otherDir/include.ly");
 		assertNewUri("/otherDir/dir/include.ly", "dir/include.ly", "otherDir/dir/include.ly");
 
-		currentImportUri = new LilyPondImportUri("C:/dir/include.ly", "ignore", LilyPondImportUri.Type.absolute, true);
+		currentImportUri = new LilyPondImportUri("C:/dir/include.ly", "ignore", LilyPondImportUri.Type.absolute);
 		assertNewUri("C:/dir/include2.ly", "dir/include.ly", "dir/include2.ly");
 		assertNewUri("C:/otherDir/include.ly", "dir/include.ly", "otherDir/include.ly");
 		assertNewUri("C:/otherDir/dir/include.ly", "dir/include.ly", "otherDir/dir/include.ly");
@@ -79,7 +79,7 @@ public class RefactoringIncludeHandlerTest {
 	@Test
 	public void testMoveIncludingFileAbsolute(){
 		String includeLocation= "ignoreAsNoChange";
-		currentImportUri = new LilyPondImportUri("/project/otherDir/include.ly", "ignore", LilyPondImportUri.Type.absolute, true);
+		currentImportUri = new LilyPondImportUri("/project/otherDir/include.ly", "ignore", LilyPondImportUri.Type.absolute);
 		setSource("project/","project/dir");
 		assertNewUri("/project/otherDir/include.ly", includeLocation, includeLocation);
 
@@ -89,7 +89,7 @@ public class RefactoringIncludeHandlerTest {
 
 	@Test
 	public void testMoveTargetAndIncludingFileAbsolut(){
-		currentImportUri = new LilyPondImportUri("/project/otherDir/include.ly", "ignore", LilyPondImportUri.Type.absolute, true);
+		currentImportUri = new LilyPondImportUri("/project/otherDir/include.ly", "ignore", LilyPondImportUri.Type.absolute);
 		setSource("project/","project/dir");
 		assertNewUri("include.ly", "doesNotMatter", "project/dir/include.ly");
 		assertNewUri("tidum/include.ly", "doesNotMatter", "project/dir/tidum/include.ly");
@@ -99,7 +99,7 @@ public class RefactoringIncludeHandlerTest {
 	@Test
 	public void testSearchPath(){
 		String includeLocation= "ignoreAsNoChange";
-		currentImportUri = new LilyPondImportUri("include.ly", "ignore", LilyPondImportUri.Type.searchPath, true);
+		currentImportUri = new LilyPondImportUri("include.ly", "ignore", LilyPondImportUri.Type.searchPath);
 		setSource("project/","project/dir");
 		assertNewUri("include.ly", includeLocation, includeLocation);
 		setSource("project/dir1/dir2","project2/dir2");

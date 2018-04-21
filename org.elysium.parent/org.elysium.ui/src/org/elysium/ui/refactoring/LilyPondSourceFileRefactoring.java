@@ -10,9 +10,11 @@ import java.util.Map.Entry;
 import java.util.Set;
 
 import org.eclipse.core.resources.IFile;
+import org.eclipse.core.resources.IResource;
 import org.eclipse.core.runtime.IPath;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.resource.Resource;
+import org.eclipse.emf.util.ResourceUtils;
 import org.eclipse.ltk.core.refactoring.CompositeChange;
 import org.eclipse.ltk.core.refactoring.RefactoringStatus;
 import org.eclipse.ltk.core.refactoring.TextChange;
@@ -24,6 +26,7 @@ import org.eclipse.xtext.EcoreUtil2;
 import org.eclipse.xtext.nodemodel.INode;
 import org.eclipse.xtext.nodemodel.util.NodeModelUtils;
 import org.eclipse.xtext.resource.IEObjectDescription;
+import org.eclipse.xtext.resource.IReferenceDescription;
 import org.eclipse.xtext.resource.IResourceDescription;
 import org.elysium.importuri.LilyPondImportUri;
 import org.elysium.lilypond.Include;
@@ -31,8 +34,12 @@ import org.elysium.lilypond.LilypondPackage;
 import org.elysium.ui.refactoring.LilyPondRefactoringDelegate.Operation;
 
 import com.google.common.base.Optional;
-import com.google.common.collect.Sets;
 
+/**
+ * (include) update of a single source file
+ * 
+ *  based on the index information for that source and the refactoring information
+ * */
 class LilyPondSourceFileRefactoring {
 
 	private IResourceDescription desc;
@@ -49,8 +56,26 @@ class LilyPondSourceFileRefactoring {
 	}
 
 	private Set<URI> getResolvedIncludes() {
-		URI baseURI = desc.getURI();
-		if(includes==null){
+		if(rootRefactoring.getOperation() == Operation.delete) {
+			//for delete return all transitive includes
+			//deleted ws file may be included via a non-ws file
+			Set<URI> result = new HashSet<>();
+			Iterator<IReferenceDescription> refs = desc.getReferenceDescriptions().iterator();
+			while(refs.hasNext()) {
+				IReferenceDescription ref = refs.next();
+				if(ref.getEReference() == null) {
+					result.add(ref.getTargetEObjectUri());
+				}
+			}
+			return result;
+		} else if(includes == null){
+			URI baseURI = desc.getURI();
+			if(baseURI.isPlatform()) {
+				IResource resource = ResourceUtils.findPlatformResource(baseURI);
+				if(resource != null) {
+					baseURI=org.eclipse.emf.common.util.URI.createFileURI(resource.getLocation().toFile().getAbsolutePath());
+				}
+			}
 			includes=new HashMap<LilyPondImportUri, URI>();
 			Iterator<IEObjectDescription> roots = desc.getExportedObjectsByType(
 					LilypondPackage.Literals.LILY_POND).iterator();
@@ -73,21 +98,19 @@ class LilyPondSourceFileRefactoring {
 	}
 
 	private boolean refactoredMyself(){
-		return rootRefactoring.getRefactoredFiles().contains(getURI());
+		return rootRefactoring.getRefactoredFilesPlatformURIs().contains(getURI());
 	}
 
 	private Set<URI> getIncludedRefactoredFiles(){
-		Set<URI> includes=getResolvedIncludes();
-		Set<URI> includedRefactored=Sets.intersection(rootRefactoring.getRefactoredFiles(), includes);
-		return includedRefactored;
+		return rootRefactoring.getRefactoredFilesPlatformURIS(getResolvedIncludes());
 	}
 
 	private boolean existsVariableInclude() {
 		if(hasVariableInlcude()){
 			String myProject = extractProject(desc.getURI());
-			for (URI uri : rootRefactoring.getRefactoredFiles()) {
+			for (URI uri : rootRefactoring.getRefactoredFilesPlatformURIs()) {
 				String otherProject = extractProject(uri);
-				if(otherProject!=null &&otherProject.equals(myProject)){
+				if(otherProject != null && otherProject.equals(myProject)){
 					return true;
 				}
 			}
@@ -179,7 +202,7 @@ class LilyPondSourceFileRefactoring {
 				List<IPath> includedFiles= rootRefactoring.getFilePaths(getIncludedRefactoredFiles());
 				if(!includedFiles.isEmpty()){
 					for (IPath included : includedFiles) {
-						status.addWarning(MessageFormat.format("{0} includes {1}", including, included));
+						status.addWarning(MessageFormat.format("{0} (transitively) includes {1}", including, included));
 					}
 				}
 				checkVariableInclude(status);

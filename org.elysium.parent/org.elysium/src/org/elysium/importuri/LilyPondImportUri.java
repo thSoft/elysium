@@ -13,13 +13,11 @@ public class LilyPondImportUri {
 	private String originalUri;
 	private String uri;
 	private Type type;
-	private boolean inWorkspace;
 
-	public LilyPondImportUri(String originalUri, String uri, Type type, boolean inWorkspace) {
+	public LilyPondImportUri(String originalUri, String uri, Type type) {
 		this.originalUri=originalUri;
 		this.uri=uri;
 		this.type=type;
-		this.inWorkspace=inWorkspace;
 	}
 
 	public String getUri() {
@@ -32,7 +30,7 @@ public class LilyPondImportUri {
 
 	@Override
 	public String toString() {
-		return Objects.toStringHelper(this).add("type", type.toString()).add("inWS", inWorkspace).add("resolved", uri).toString();
+		return Objects.toStringHelper(this).add("type", type.toString()).add("resolved", uri).toString();
 	}
 
 	public Type getType() {

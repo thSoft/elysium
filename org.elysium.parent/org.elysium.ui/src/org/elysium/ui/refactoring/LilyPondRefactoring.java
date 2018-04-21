@@ -4,6 +4,7 @@ import java.io.File;
 import java.text.MessageFormat;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
@@ -42,6 +43,7 @@ class LilyPondRefactoring {
 	LilyPondRefactoringInjects support;
 
 	private Map<URI, IFile> platformURItoFileOfRefactorTargets=new HashMap<URI, IFile>();
+	private Map<URI, URI> fileURItoPlatformURIOfRefactorTargets=new HashMap<URI, URI>();
 	private Map<IResource, RefactoringArguments> argumentsMap=new HashMap<IResource, RefactoringArguments>();
 	private List<IContainer> refactoredContainers=new ArrayList<IContainer>();
 	private final Operation operation;
@@ -57,6 +59,8 @@ class LilyPondRefactoring {
 			checkArgumentType(arguments);
 			URI uri=URI.createPlatformResourceURI(file.getFullPath().toString(), true);
 			platformURItoFileOfRefactorTargets.put(uri, file);
+			URI fileURI = org.eclipse.emf.common.util.URI.createFileURI(file.getLocation().toFile().getAbsolutePath());
+			fileURItoPlatformURIOfRefactorTargets.put(fileURI, uri);
 			argumentsMap.put(file, arguments);
 		}else if(support.isCompiled(file)){
 			compiledFilesRefactorTargets.add(file);
@@ -106,13 +110,30 @@ class LilyPondRefactoring {
 		return operation;
 	}
 
-	public Set<URI> getRefactoredFiles(){
+	public Set<URI> getRefactoredFilesPlatformURIs(){
 		return platformURItoFileOfRefactorTargets.keySet();
 	}
 
-	public List<IPath> getFilePaths(Set<URI> uris){
+	public Set<URI> getRefactoredFilesPlatformURIS(Set<URI> fileURIsOfIncludes){
+		Set<URI> result = new HashSet<>();
+		for (URI fileUri : fileURIsOfIncludes) {
+			if(!fileUri.isFile()) {
+				throw new IllegalStateException("include is not a file URI: "+fileUri);
+			}
+			URI platformUri = fileURItoPlatformURIOfRefactorTargets.get(fileUri);
+			if(platformUri != null) {
+				result.add(platformUri);
+			}
+		}
+		return result;
+	}
+
+	public List<IPath> getFilePaths(Set<URI> platformUris){
 		List<IPath> result=new ArrayList<IPath>();
-		for (URI uri : uris) {
+		for (URI uri : platformUris) {
+			if(!uri.isPlatform()) {
+				throw new IllegalStateException("platform uri expected "+uri);
+			}
 			IFile file = platformURItoFileOfRefactorTargets.get(uri);
 			if(file!=null){
 				result.add(file.getFullPath());
@@ -127,7 +148,7 @@ class LilyPondRefactoring {
 		CompositeChange result = new CompositeChange(operation.toString()+ " compiled Files");
 		for (IFile file : platformURItoFileOfRefactorTargets.values()) {
 			if(!monitor.isCanceled()){
-				apply(file, result);
+				applyForCompiled(file, result);
 			}
 		}
 		if(result.getChildren().length==0){
@@ -137,7 +158,7 @@ class LilyPondRefactoring {
 		}
 	}
 
-	private void apply(IFile source, CompositeChange containerChange) throws CoreException{
+	private void applyForCompiled(IFile source, CompositeChange containerChange) throws CoreException{
 		RefactoringArguments arguments = argumentsMap.get(source);
 		if(arguments!=null){
 			List<IFile> compiledFiles = getCompiled(source);
@@ -184,6 +205,7 @@ class LilyPondRefactoring {
 		}
 	}
 
+	//TODO a score may produce multiple midi-files, they should all be refactored
 	private List<IFile> getCompiled(IFile source) throws CoreException{
 		List<IFile> result=new ArrayList<IFile>();
 		IResource[] siblings = source.getParent().members();
@@ -230,7 +252,11 @@ class LilyPondRefactoring {
 
 	public LilyPondRefactoredImportUriCalculator getNewImportUriCalculator(URI sourceUri, URI resolvedUriToRefactor) {
 		IFile source=asFile(sourceUri);
-		IFile refactorTarget = platformURItoFileOfRefactorTargets.get(resolvedUriToRefactor);
+		URI refactorURI = resolvedUriToRefactor;
+		if(resolvedUriToRefactor.isFile()) {
+			refactorURI = fileURItoPlatformURIOfRefactorTargets.get(resolvedUriToRefactor);
+		}
+		IFile refactorTarget = platformURItoFileOfRefactorTargets.get(refactorURI);
 		if(refactorTarget==null){
 			return new LilyPondRefactoredImportUriCalculator(source, getDestination(source));
 		}else{
@@ -243,6 +269,7 @@ class LilyPondRefactoring {
 		if(file!=null){
 			return file;
 		}else{
+			//TODO use util method for obtaining the file
 			return ResourcesPlugin.getWorkspace().getRoot().getFile(new Path(platformUri.toPlatformString(true)));
 		}
 	}

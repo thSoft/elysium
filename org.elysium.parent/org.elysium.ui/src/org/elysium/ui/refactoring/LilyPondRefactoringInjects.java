@@ -56,10 +56,12 @@ class LilyPondRefactoringInjects {
 	}
 
 	public LilyPondImportUri resolveImportUri(URI baseURI, String importUri) {
+		boolean absolute=LilyPondImportUriResolver.isAbsolute(importUri, LilyPondConstants.IS_WINDOWS);
 		LilyPondResolvedUri resolved=uriResolver.resolve(baseURI, importUri);
 		//TODO this is temporary, so that compile works
 		//LilyPondUri needs to be replaced
-		return new LilyPondImportUri(importUri, resolved.get(), Type.relative, true);
+		//TODO search path include is relevant!!
+		return new LilyPondImportUri(importUri, resolved.get(), absolute?Type.absolute:Type.relative);
 	}
 
 	public List<String> getSearchPaths() {

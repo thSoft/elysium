@@ -1,6 +1,7 @@
 package org.elysium.ui.refactoring;
 
 import org.eclipse.core.resources.IFile;
+import org.eclipse.core.resources.IResource;
 import org.eclipse.core.runtime.IPath;
 import org.eclipse.core.runtime.Path;
 import org.elysium.importuri.LilyPondImportUri;
@@ -19,12 +20,12 @@ public class LilyPondRefactoredImportUriCalculator {
 	//include location after refactoring
 	private IPath targetDestination;
 
-	public LilyPondRefactoredImportUriCalculator(IFile source, IFile sourceDestiation) {
-		this(source.getParent().getFullPath(), sourceDestiation.getParent().getFullPath(), new Path(""), new Path(""));
+	public LilyPondRefactoredImportUriCalculator(IFile source, IFile sourceDestination) {
+		this(source.getParent().getLocation(), destPath(source.getParent(), sourceDestination.getParent()), new Path(""), new Path(""));
 	}
 
-	public LilyPondRefactoredImportUriCalculator(IFile source, IFile sourceDestiation, IFile target, IFile targetDestination) {
-		this(source.getParent().getFullPath(), sourceDestiation.getParent().getFullPath(), target.getFullPath(), targetDestination.getFullPath());
+	public LilyPondRefactoredImportUriCalculator(IFile source, IFile sourceDestination, IFile target, IFile targetDestination) {
+		this(source.getParent().getLocation(), destPath(source.getParent(), sourceDestination.getParent()), target.getLocation(), destPath(target, targetDestination));
 	}
 
 	public LilyPondRefactoredImportUriCalculator(IPath sourceContainer, IPath sourceContainerDestiation, IPath target, IPath targetDestination) {
@@ -32,6 +33,20 @@ public class LilyPondRefactoredImportUriCalculator {
 		this.sourceDestiation=sourceContainerDestiation;
 		this.target=target;
 		this.targetDestination=targetDestination;
+		//TODO adapt tests to absolute locaion and write more of them (windows/unix)
+	}
+
+	//when renaming a project, the sorceDestination parent location is null causing an NPE
+	private static IPath destPath(IResource res, IResource resDestination) {
+		IPath result=resDestination.getLocation();
+		if(result == null) {
+			if(res.getWorkspace() == resDestination.getWorkspace()) {
+				IPath wsPath = res.getProject().getLocation().removeLastSegments(1);
+				IPath destPath = resDestination.getFullPath();
+				result=wsPath.append(destPath);
+			}
+		}
+		return result;
 	}
 
 	/**
@@ -55,6 +70,8 @@ public class LilyPondRefactoredImportUriCalculator {
 		}
 	}
 
+	//TODO ggf. kann relative Navigation vereinfacht werden
+	//../goIntoSameFolderAgain/include.ily -> include.ily
 	private String handleRelative(LilyPondImportUri importUri) {
 		if(sourceDestiation.isPrefixOf(targetDestination)){
 			return targetDestination.makeRelativeTo(sourceDestiation).toString();
