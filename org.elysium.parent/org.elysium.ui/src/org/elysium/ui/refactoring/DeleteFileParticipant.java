@@ -16,6 +16,7 @@ public class DeleteFileParticipant extends DeleteParticipant {
 
 	@Inject
 	LilyPondRefactoringInjects injects;
+	LilyPondRefactoringDelegate delegate;
 
 	private IFile sourceFile;
 
@@ -32,12 +33,13 @@ public class DeleteFileParticipant extends DeleteParticipant {
 
 	@Override
 	public RefactoringStatus checkConditions(IProgressMonitor pm, CheckConditionsContext context) throws OperationCanceledException {
-		LilyPondRefactoringDelegate.get(Operation.delete, context, injects).addFileToRefactor(sourceFile , getArguments());
+		delegate=LilyPondRefactoringDelegate.get(Operation.delete, context, injects);
+		delegate.addFileToRefactor(sourceFile , getArguments());
 		return new RefactoringStatus();
 	}
 
 	@Override
 	public Change createChange(IProgressMonitor pm) throws CoreException, OperationCanceledException {
-		return null;
+		return delegate.apply(pm);
 	}
 }

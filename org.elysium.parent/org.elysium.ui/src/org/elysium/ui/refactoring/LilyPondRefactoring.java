@@ -29,6 +29,7 @@ import org.eclipse.ltk.core.refactoring.participants.DeleteRefactoring;
 import org.eclipse.ltk.core.refactoring.participants.MoveArguments;
 import org.eclipse.ltk.core.refactoring.participants.RefactoringArguments;
 import org.eclipse.ltk.core.refactoring.participants.RenameArguments;
+import org.eclipse.ltk.core.refactoring.resource.DeleteResourceChange;
 import org.eclipse.ltk.core.refactoring.resource.MoveResourceChange;
 import org.eclipse.ltk.core.refactoring.resource.RenameResourceChange;
 import org.eclipse.ltk.internal.core.refactoring.resource.DeleteResourcesProcessor;
@@ -178,6 +179,8 @@ class LilyPondRefactoring {
 			return compiledChangeWithClosingScoreView(compiled,new RenameResourceChange(compiled.getFullPath(), newName));
 		case move:
 			return compiledChangeWithClosingScoreView(compiled, new MoveResourceChange(compiled, (IContainer)((MoveArguments)arguments).getDestination()));
+		case delete:
+			return compiledChangeWithClosingScoreView(compiled, new DeleteResourceChange(compiled.getFullPath(), true));
 		default:
 			break;
 		}
