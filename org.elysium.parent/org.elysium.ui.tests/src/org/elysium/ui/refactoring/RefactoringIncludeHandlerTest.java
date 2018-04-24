@@ -1,7 +1,6 @@
 package org.elysium.ui.refactoring;
 
 import org.eclipse.core.runtime.Path;
-import org.elysium.importuri.LilyPondImportUri;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;

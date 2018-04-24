@@ -4,7 +4,6 @@ import org.eclipse.core.resources.IFile;
 import org.eclipse.core.resources.IResource;
 import org.eclipse.core.runtime.IPath;
 import org.eclipse.core.runtime.Path;
-import org.elysium.importuri.LilyPondImportUri;
 
 //if package private - maven build fails due to
 //https://stackoverflow.com/questions/36100552/illegalaccesserror-when-using-a-public-method-reference-of-a-package-private-cla
@@ -13,7 +12,7 @@ public class LilyPondRefactoredImportUriCalculator {
 
 	//source file parent location before refactoring
 	private IPath source;
-	//source file parent location before refactoring
+	//source file parent location after refactoring
 	private IPath sourceDestiation;
 	//include location before refactoring
 	private IPath target;
@@ -54,6 +53,7 @@ public class LilyPondRefactoredImportUriCalculator {
 	 * */
 	public String getNewImportUri(LilyPondImportUri importUri){
 		switch(importUri.getType()){
+			case unresolved: return importUri.getOriginalUri();
 			case absolute:return handleAbsolute(importUri);
 			case searchPath:return handelSearchPath(importUri);
 			default:return handleRelative(importUri);

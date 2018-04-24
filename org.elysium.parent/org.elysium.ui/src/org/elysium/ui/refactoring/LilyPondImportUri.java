@@ -1,10 +1,11 @@
-package org.elysium.importuri;
+package org.elysium.ui.refactoring;
 
 import com.google.common.base.Objects;
 
 public class LilyPondImportUri {
 
 	public enum Type{
+		unresolved,
 		relative,
 		absolute,
 		searchPath

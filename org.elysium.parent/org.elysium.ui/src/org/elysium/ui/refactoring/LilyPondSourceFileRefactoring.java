@@ -28,7 +28,6 @@ import org.eclipse.xtext.nodemodel.util.NodeModelUtils;
 import org.eclipse.xtext.resource.IEObjectDescription;
 import org.eclipse.xtext.resource.IReferenceDescription;
 import org.eclipse.xtext.resource.IResourceDescription;
-import org.elysium.importuri.LilyPondImportUri;
 import org.elysium.lilypond.Include;
 import org.elysium.lilypond.LilypondPackage;
 import org.elysium.ui.refactoring.LilyPondRefactoringDelegate.Operation;

@@ -14,11 +14,10 @@ import org.eclipse.xtext.ui.editor.preferences.IPreferenceStoreAccess;
 import org.eclipse.xtext.xbase.lib.IterableExtensions;
 import org.elysium.LilyPondConstants;
 import org.elysium.importuri.ILilyPondPathProvider;
-import org.elysium.importuri.LilyPondImportUri;
-import org.elysium.importuri.LilyPondImportUri.Type;
 import org.elysium.importuri.LilyPondImportUriResolver;
 import org.elysium.importuri.LilyPondResolvedUri;
 import org.elysium.ui.preferences.LilyPondRefactoringPreferencePage;
+import org.elysium.ui.refactoring.LilyPondImportUri.Type;
 
 class LilyPondRefactoringInjects {
 
@@ -56,12 +55,24 @@ class LilyPondRefactoringInjects {
 	}
 
 	public LilyPondImportUri resolveImportUri(URI baseURI, String importUri) {
-		boolean absolute=LilyPondImportUriResolver.isAbsolute(importUri, LilyPondConstants.IS_WINDOWS);
 		LilyPondResolvedUri resolved=uriResolver.resolve(baseURI, importUri);
-		//TODO this is temporary, so that compile works
-		//LilyPondUri needs to be replaced
-		//TODO search path include is relevant!!
-		return new LilyPondImportUri(importUri, resolved.get(), absolute?Type.absolute:Type.relative);
+		Type type;
+		if(!resolved.isResolved()) {
+			type=Type.unresolved;
+		} else {
+			boolean absolute=LilyPondImportUriResolver.isAbsolute(importUri, LilyPondConstants.IS_WINDOWS);
+			if(absolute) {
+				type=Type.absolute;
+			}else {
+				java.net.URI baseOnlyresolved = LilyPondImportUriResolver.saferResolve(java.net.URI.create(baseURI.toString()), importUri, LilyPondConstants.IS_WINDOWS);
+				if(resolved.get().equals(baseOnlyresolved.toString())) {
+					type=Type.relative;
+				} else {
+					type=Type.searchPath;
+				}
+			}
+		}
+		return new LilyPondImportUri(importUri, resolved.get(), type);
 	}
 
 	public List<String> getSearchPaths() {
