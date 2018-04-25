@@ -32,7 +32,6 @@ public class LilyPondRefactoredImportUriCalculator {
 		this.sourceDestiation=sourceContainerDestiation;
 		this.target=target;
 		this.targetDestination=targetDestination;
-		//TODO adapt tests to absolute locaion and write more of them (windows/unix)
 	}
 
 	//when renaming a project, the sorceDestination parent location is null causing an NPE
@@ -89,6 +88,7 @@ public class LilyPondRefactoredImportUriCalculator {
 			//absolute location is still correct
 			return importUri.getOriginalUri();
 		} else if(source.equals(sourceDestiation)){
+			//TODO use target destination directly, as it is already an absolute path?
 			//source is same - emulate navigation of target
 			IPath targetNavigate=targetDestination.makeRelativeTo(target);
 			IPath navigated = origURI.append(targetNavigate);
