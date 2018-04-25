@@ -33,6 +33,7 @@ import org.eclipse.ltk.core.refactoring.resource.DeleteResourceChange;
 import org.eclipse.ltk.core.refactoring.resource.MoveResourceChange;
 import org.eclipse.ltk.core.refactoring.resource.RenameResourceChange;
 import org.eclipse.ltk.internal.core.refactoring.resource.DeleteResourcesProcessor;
+import org.eclipse.util.ResourceUtils;
 import org.elysium.LilyPondConstants;
 import org.elysium.ui.Activator;
 import org.elysium.ui.refactoring.LilyPondRefactoringDelegate.Operation;
@@ -164,7 +165,7 @@ class LilyPondRefactoring {
 		if(arguments!=null){
 			List<IFile> compiledFiles = getCompiled(source);
 			for (IFile compiled : compiledFiles) {
-				Change change = getCompiledChange(compiled, arguments);
+				Change change = getCompiledChange(source, compiled, arguments);
 				if(change!=null){
 					containerChange.add(change);
 				}
@@ -172,10 +173,10 @@ class LilyPondRefactoring {
 		}
 	}
 
-	private Change getCompiledChange(IFile compiled, RefactoringArguments arguments) throws OperationCanceledException, CoreException{
+	private Change getCompiledChange(IFile source, IFile compiled, RefactoringArguments arguments) throws OperationCanceledException, CoreException{
 		switch (operation) {
 		case rename:
-			String newName=Files.getNameWithoutExtension(((RenameArguments)arguments).getNewName())+"."+compiled.getFileExtension();
+			String newName = getNewCompiledFileName(source, compiled, (RenameArguments)arguments);
 			return compiledChangeWithClosingScoreView(compiled,new RenameResourceChange(compiled.getFullPath(), newName));
 		case move:
 			return compiledChangeWithClosingScoreView(compiled, new MoveResourceChange(compiled, (IContainer)((MoveArguments)arguments).getDestination()));
@@ -185,6 +186,16 @@ class LilyPondRefactoring {
 			break;
 		}
 		return null;
+	}
+
+	private String getNewCompiledFileName(IFile source, IFile compiled, RenameArguments arguments) {
+		String newName = Files.getNameWithoutExtension(arguments.getNewName());
+		if(LilyPondConstants.AUDIO_EXTENSION.equals(compiled.getFileExtension())) {
+			String oldBaseName = Files.getNameWithoutExtension(source.getName());
+			return newName+compiled.getName().substring(oldBaseName.length());
+		} else {
+			return newName+"."+compiled.getFileExtension();
+		}
 	}
 
 	private Change compiledChangeWithClosingScoreView(final IFile compiled, Change compileChange){
@@ -208,7 +219,6 @@ class LilyPondRefactoring {
 		}
 	}
 
-	//TODO a score may produce multiple midi-files, they should all be refactored
 	private List<IFile> getCompiled(IFile source) throws CoreException{
 		List<IFile> result=new ArrayList<IFile>();
 		IResource[] siblings = source.getParent().members();
@@ -216,14 +226,36 @@ class LilyPondRefactoring {
 			if(sibling instanceof IFile){
 				IFile siblingFile=(IFile)sibling;
 				if(!compiledFilesRefactorTargets.contains(siblingFile) && support.isCompiled(siblingFile)){
-					boolean siblingCompiledFromSource=source.getFullPath().removeFileExtension().equals(siblingFile.getFullPath().removeFileExtension());
-					if(siblingCompiledFromSource){
-						result.add((IFile) sibling);
+					if(isCompiledFrom(source, siblingFile)){
+						result.add(siblingFile);
 					}
 				}
 			}
 		}
 		return result;
+	}
+
+	private boolean isCompiledFrom(IFile source, IFile compiled) {
+		if(source.getFullPath().removeFileExtension().equals(compiled.getFullPath().removeFileExtension())) {
+			return true;
+		} else if(LilyPondConstants.AUDIO_EXTENSION.equals(compiled.getFileExtension()) && 
+				LilyPondConstants.EXTENSION.equals(source.getFileExtension())){
+			//handle score-1.midi... of score.ly
+			if(source.getParent().getFullPath().equals(compiled.getParent().getFullPath())){
+				String sourceName = Files.getNameWithoutExtension(source.getName());
+				String compiledName = Files.getNameWithoutExtension(compiled.getName());
+				if(compiledName.startsWith(sourceName)) {
+					String suffix=compiledName.substring(sourceName.length());
+					if(suffix.matches("-\\d+")) {
+						IFile sourceWithCounter = ResourceUtils.replaceExtension(compiled, LilyPondConstants.EXTENSION);
+						if(!sourceWithCounter.exists()) {
+							return true;
+						}
+					}
+				}
+			}
+		}
+		return false;
 	}
 
 	private List<String> getChangedSearchFolders() {
