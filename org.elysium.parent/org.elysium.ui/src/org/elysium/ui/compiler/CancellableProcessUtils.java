@@ -45,7 +45,7 @@ public class CancellableProcessUtils {
 			new Thread(new Runnable() {
 				@Override
 				public void run() {
-					BufferedReader reader = new BufferedReader(new InputStreamReader(process.getErrorStream()));
+					BufferedReader reader = new BufferedReader(new InputStreamReader(process.getInputStream()));
 					String line;
 					try {
 						while ((line = reader.readLine()) != null) {

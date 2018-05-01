@@ -51,6 +51,7 @@ public class CompilerProcessBuilderFactory {
 			command.addAll(Lists.newArrayList(preferenceStore.getString(CompilerPreferenceConstants.COMMAND_LINE.name()).split("\\n")));
 		}
 		processBuilder.command(command);
+		processBuilder.redirectErrorStream(true);
 		return processBuilder;
 	}
 
