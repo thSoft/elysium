@@ -94,7 +94,7 @@ public class CompilerProcessBuilderFactory {
 
 		Map<String, String> environment = processBuilder.environment();
 		Locale locale = Locale.getDefault();
-		environment.put("LANG", locale.toString()); //$NON-NLS-1$
+		environment.put("LANG", locale.toString()+".UTF-8"); //$NON-NLS-1$ //$NON-NLS-2$
 	}
 
 }
