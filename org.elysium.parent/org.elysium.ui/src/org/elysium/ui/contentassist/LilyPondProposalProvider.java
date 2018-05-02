@@ -140,7 +140,7 @@ public class LilyPondProposalProvider extends AbstractLilyPondProposalProvider {
 
 	private List<String> getSearchPaths(IResource resource, boolean isAbsolute){
 		List<String> paths = Lists.newArrayList();
-		paths.add(resource.getParent().getLocation().toOSString());
+		paths.add(resource.getLocation().removeLastSegments(1).toOSString());
 		if(!isAbsolute) {
 			paths.add(LilyPondImportUriResolver.getDefaultSearchUri(lilyPondPathProvider.getLilyPondPath()).getPath());
 			paths.addAll(Lists.newArrayList(lilyPondPathProvider.getSearchPaths()));
