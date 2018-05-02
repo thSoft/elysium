@@ -22,7 +22,7 @@ public class DeleteContainerParticipant extends DeleteParticipant {
 	@Override
 	protected boolean initialize(Object element) {
 		folder = (IContainer)element;
-		return true;
+		return !injects.isLinked(folder);
 	}
 
 	@Override

@@ -5,6 +5,7 @@ import java.util.List;
 import javax.inject.Inject;
 
 import org.eclipse.core.resources.IFile;
+import org.eclipse.core.resources.IResource;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.xtext.resource.IResourceDescription;
@@ -89,5 +90,9 @@ class LilyPondRefactoringInjects {
 
 	public boolean isCompiled(IFile file) {
 		return LilyPondConstants.COMPILED_EXTENSIONS.contains(file.getFileExtension());	
+	}
+
+	public boolean isLinked(IResource resource) {
+		return resource.isLinked(IResource.CHECK_ANCESTORS);
 	}
 }

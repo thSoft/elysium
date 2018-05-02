@@ -57,14 +57,17 @@ class LilyPondRefactoring {
 	}
 
 	public void addFileToRefactor(IFile file, RefactoringArguments arguments){
-		if(support.isSource(file)){
+		if(support.isLinked(file)) {
+			//renaming, deleting, moving linked files has no impact on the underlying original file
+			//so we simply ignore them
+		} else if(support.isSource(file)){
 			checkArgumentType(arguments);
 			URI uri=URI.createPlatformResourceURI(file.getFullPath().toString(), true);
 			platformURItoFileOfRefactorTargets.put(uri, file);
 			URI fileURI = org.eclipse.emf.common.util.URI.createFileURI(file.getLocation().toFile().getAbsolutePath());
 			fileURItoPlatformURIOfRefactorTargets.put(fileURI, uri);
 			argumentsMap.put(file, arguments);
-		}else if(support.isCompiled(file)){
+		} else if(support.isCompiled(file)){
 			compiledFilesRefactorTargets.add(file);
 		}
 	}
