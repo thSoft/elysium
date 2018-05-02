@@ -8,8 +8,7 @@ import java.util.concurrent.atomic.AtomicBoolean;
 import javax.util.process.OutputProcessor;
 
 import org.eclipse.core.runtime.IProgressMonitor;
-
-import com.google.common.base.Throwables;
+import org.elysium.ui.Activator;
 
 public class CancellableProcessUtils {
 
@@ -49,24 +48,27 @@ public class CancellableProcessUtils {
 					String line;
 					try {
 						while ((line = reader.readLine()) != null) {
-							if (outputProcessor != null) {
-								outputProcessor.processOutput(line);
-							}
+							doProcessLine(processName, outputProcessor, line);
 						}
 					} catch (IOException e) {
-						Throwables.propagate(e);
+						Activator.logError("console output processing aborted", e);
 					}
 				}
 				
 			}, processName).start();
 			process.waitFor();
-		}catch(RuntimeException e){
-			if(e.getCause() instanceof IOException){
-				throw (IOException)e.getCause();
-			}
-			throw e;
 		}finally{
 			done.set(true);
+		}
+	}
+
+	private static void doProcessLine(String processName, OutputProcessor outputProcessor, String line) {
+		if(outputProcessor != null) {
+			try {
+				outputProcessor.processOutput(line);
+			} catch (Exception e) {
+				Activator.logError(String.format("error processing console output line '%s' for process %s", line, processName), e);
+			}
 		}
 	}
 }
