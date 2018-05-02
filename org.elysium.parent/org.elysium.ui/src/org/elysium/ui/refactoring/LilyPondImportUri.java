@@ -1,7 +1,5 @@
 package org.elysium.ui.refactoring;
 
-import com.google.common.base.Objects;
-
 public class LilyPondImportUri {
 
 	public enum Type{
@@ -31,7 +29,13 @@ public class LilyPondImportUri {
 
 	@Override
 	public String toString() {
-		return Objects.toStringHelper(this).add("type", type.toString()).add("resolved", uri).toString();
+		return new StringBuilder("LilyPondImportUri ")
+			.append("type=")
+			.append(type)
+			.append(", original=")
+			.append(originalUri)
+			.append(", resolved=")
+			.append(uri).toString();
 	}
 
 	public Type getType() {
