@@ -1,8 +1,9 @@
 package org.elysium.ui.compiler.problems;
 
-import static com.google.common.base.Objects.firstNonNull;
 import java.util.Locale;
 import java.util.Map;
+import java.util.Optional;
+
 import org.eclipse.core.resources.IFile;
 import org.eclipse.core.resources.IMarker;
 import org.eclipse.core.resources.IResource;
@@ -14,6 +15,7 @@ import org.elysium.LilyPondConstants;
 import org.elysium.ui.Activator;
 import org.elysium.ui.markers.MarkerAttributes;
 import org.elysium.ui.markers.MarkerTypes;
+
 import com.google.common.collect.ImmutableMap;
 
 /**
@@ -49,7 +51,7 @@ public class ProblemParser {
 	/**
 	 * The string denoting error in the locale used by LilyPond.
 	 */
-	protected static final String ERROR_STRING = firstNonNull(ERROR_STRINGS.get(Locale.getDefault().getLanguage()), "error") + PROBLEM_POSTFIX; //$NON-NLS-1$
+	protected static final String ERROR_STRING = Optional.ofNullable(ERROR_STRINGS.get(Locale.getDefault().getLanguage())).orElse("error") + PROBLEM_POSTFIX; //$NON-NLS-1$
 
 	/**
 	 * Strings with which programming error messages start in the appropriate
@@ -67,7 +69,7 @@ public class ProblemParser {
 	 * The string with which programming error messages start in the locale used
 	 * by LilyPond.
 	 */
-	protected static final String PROGRAMMING_ERROR_PREFIX = firstNonNull(PROGRAMMING_ERROR_PREFIXES.get(Locale.getDefault().getLanguage()), "programming"); //$NON-NLS-1$
+	protected static final String PROGRAMMING_ERROR_PREFIX = Optional.ofNullable(PROGRAMMING_ERROR_PREFIXES.get(Locale.getDefault().getLanguage())).orElse("programming"); //$NON-NLS-1$
 
 	/**
 	 * Strings denoting warning in all locales LilyPond is available in.
@@ -92,7 +94,7 @@ public class ProblemParser {
 	/**
 	 * The string denoting warning in the locale used by LilyPond.
 	 */
-	protected static final String WARNING_STRING = firstNonNull(WARNING_STRINGS.get(Locale.getDefault().getLanguage()), "warning") + PROBLEM_POSTFIX; //$NON-NLS-1$
+	protected static final String WARNING_STRING = Optional.ofNullable(WARNING_STRINGS.get(Locale.getDefault().getLanguage())).orElse("warning") + PROBLEM_POSTFIX; //$NON-NLS-1$
 
 	/**
 	 * @param file the file being compiled
