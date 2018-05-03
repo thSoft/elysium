@@ -70,14 +70,6 @@ public class RefactoringIncludeHandlerTest {
 		assertNewUri("../include.ly", "C:/ws/project/dir1/include.ly", "C:/ws/project/include.ly");
 	}
 
-//	
-//	@Test
-//	public void testSimplifyRelative1(){
-//		setSource("C:/ws/project/");
-//		currentImportUri = new LilyPondImportUri("../project/dir/include.ly", "ignore", LilyPondImportUri.Type.relative);
-//		assertNewUri("dir/include2.ly", "C:/ws/project/dir/include.ly", "C:/ws/project/dir/include2.ly");
-//	}
-
 	@Test
 	public void testRenameMoveFileFromAbsolute(){
 		setSource("C:/ws/project/");

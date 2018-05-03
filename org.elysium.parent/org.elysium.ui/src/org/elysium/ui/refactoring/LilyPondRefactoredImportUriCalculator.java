@@ -13,7 +13,7 @@ public class LilyPondRefactoredImportUriCalculator {
 	//source file parent location before refactoring
 	private IPath source;
 	//source file parent location after refactoring
-	private IPath sourceDestiation;
+	private IPath sourceDestination;
 	//include location before refactoring
 	private IPath target;
 	//include location after refactoring
@@ -29,7 +29,7 @@ public class LilyPondRefactoredImportUriCalculator {
 
 	public LilyPondRefactoredImportUriCalculator(IPath sourceContainer, IPath sourceContainerDestiation, IPath target, IPath targetDestination) {
 		this.source=sourceContainer;
-		this.sourceDestiation=sourceContainerDestiation;
+		this.sourceDestination=sourceContainerDestiation;
 		this.target=target;
 		this.targetDestination=targetDestination;
 	}
@@ -69,13 +69,13 @@ public class LilyPondRefactoredImportUriCalculator {
 		}
 	}
 
-	//TODO ggf. kann relative Navigation vereinfacht werden
+	//TODO navigation may be simplified
 	//../goIntoSameFolderAgain/include.ily -> include.ily
 	private String handleRelative(LilyPondImportUri importUri) {
-		if(sourceDestiation.isPrefixOf(targetDestination)){
-			return targetDestination.makeRelativeTo(sourceDestiation).toString();
+		if(sourceDestination.isPrefixOf(targetDestination)){
+			return targetDestination.makeRelativeTo(sourceDestination).toString();
 		}
-		IPath sourceNavigate = source.makeRelativeTo(sourceDestiation);
+		IPath sourceNavigate = source.makeRelativeTo(sourceDestination);
 		IPath targetNavigate=targetDestination.makeRelativeTo(target);
 		Path origURI = new Path(importUri.getOriginalUri());
 		IPath navigated = sourceNavigate.append(origURI).append(targetNavigate);
@@ -87,7 +87,7 @@ public class LilyPondRefactoredImportUriCalculator {
 		if(target.equals(targetDestination)){
 			//absolute location is still correct
 			return importUri.getOriginalUri();
-		} else if(source.equals(sourceDestiation)){
+		} else if(source.equals(sourceDestination)){
 			//TODO use target destination directly, as it is already an absolute path?
 			//source is same - emulate navigation of target
 			IPath targetNavigate=targetDestination.makeRelativeTo(target);
@@ -95,7 +95,7 @@ public class LilyPondRefactoredImportUriCalculator {
 			return (navigated.toString());
 		}else{
 			//move refactoring has same base destination path, so we can turn the absolute URI into a relative one
-			return targetDestination.makeRelativeTo(sourceDestiation).toString();
+			return targetDestination.makeRelativeTo(sourceDestination).toString();
 		}
 	}
 }

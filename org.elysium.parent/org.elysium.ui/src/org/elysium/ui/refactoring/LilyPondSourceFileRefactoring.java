@@ -101,7 +101,7 @@ class LilyPondSourceFileRefactoring {
 	}
 
 	private Set<URI> getIncludedRefactoredFiles(){
-		return rootRefactoring.getRefactoredFilesPlatformURIS(getResolvedIncludes());
+		return rootRefactoring.getRefactoredFilesPlatformURIs(getResolvedIncludes());
 	}
 
 	private boolean existsVariableInclude() {

@@ -64,7 +64,7 @@ class LilyPondRefactoring {
 			checkArgumentType(arguments);
 			URI uri=URI.createPlatformResourceURI(file.getFullPath().toString(), true);
 			platformURItoFileOfRefactorTargets.put(uri, file);
-			URI fileURI = org.eclipse.emf.common.util.URI.createFileURI(file.getLocation().toFile().getAbsolutePath());
+			URI fileURI = URI.createFileURI(file.getLocation().toFile().getAbsolutePath());
 			fileURItoPlatformURIOfRefactorTargets.put(fileURI, uri);
 			argumentsMap.put(file, arguments);
 		} else if(support.isCompiled(file)){
@@ -119,7 +119,7 @@ class LilyPondRefactoring {
 		return platformURItoFileOfRefactorTargets.keySet();
 	}
 
-	public Set<URI> getRefactoredFilesPlatformURIS(Set<URI> fileURIsOfIncludes){
+	public Set<URI> getRefactoredFilesPlatformURIs(Set<URI> fileURIsOfIncludes){
 		Set<URI> result = new HashSet<>();
 		for (URI fileUri : fileURIsOfIncludes) {
 			if(!fileUri.isFile()) {
