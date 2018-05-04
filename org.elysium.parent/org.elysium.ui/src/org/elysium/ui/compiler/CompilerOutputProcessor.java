@@ -18,9 +18,9 @@ import org.elysium.ui.markers.MarkerTypes;
 public class CompilerOutputProcessor implements OutputProcessor {
 
 	/**
-	 * The file being compiled.
+	 * The problem parser for the file being compiled.
 	 */
-	private final IFile file;
+	private final ProblemParser problemParser;
 
 	/**
 	 * The console to which the compiler's output is written.
@@ -28,14 +28,14 @@ public class CompilerOutputProcessor implements OutputProcessor {
 	private final LilyPondConsole console;
 
 	public CompilerOutputProcessor(IFile file, LilyPondConsole console) {
-		this.file = file;
 		this.console = console;
+		this.problemParser=new ProblemParser(file);
 	}
 
 	@Override
 	public void processOutput(String line) {
 		console.print(line);
-		IMarker problemMarker = ProblemParser.parse(file, line);
+		IMarker problemMarker = problemParser.parse(line);
 		if (problemMarker != null) {
 			// If file already contains problem, delete it
 			try {

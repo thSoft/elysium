@@ -32,6 +32,7 @@ public class ProblemParser {
 	 * Strings denoting error in all locales LilyPond is available in.
 	 */
 	private static final Map<String, String> ERROR_STRINGS = new ImmutableMap.Builder<String, String>()
+		.put("en", "error") //$NON-NLS-1$ //$NON-NLS-2$
 		.put("cs", "chyba") //$NON-NLS-1$ //$NON-NLS-2$
 		.put("da", "fejl") //$NON-NLS-1$ //$NON-NLS-2$
 		.put("de", "Fehler") //$NON-NLS-1$ //$NON-NLS-2$
@@ -49,15 +50,11 @@ public class ProblemParser {
 		.build();
 
 	/**
-	 * The string denoting error in the locale used by LilyPond.
-	 */
-	protected static final String ERROR_STRING = Optional.ofNullable(ERROR_STRINGS.get(Locale.getDefault().getLanguage())).orElse("error") + PROBLEM_POSTFIX; //$NON-NLS-1$
-
-	/**
 	 * Strings with which programming error messages start in the appropriate
 	 * locales LilyPond is available in.
 	 */
 	private static final Map<String, String> PROGRAMMING_ERROR_PREFIXES = new ImmutableMap.Builder<String, String>()
+		.put("en", "programming") //$NON-NLS-1$ //$NON-NLS-2$
 		.put("da", "programmerings") //$NON-NLS-1$ //$NON-NLS-2$
 		.put("fi", "ohjelmointi") //$NON-NLS-1$ //$NON-NLS-2$
 		.put("nl", "programmeer") //$NON-NLS-1$ //$NON-NLS-2$
@@ -66,15 +63,10 @@ public class ProblemParser {
 		.build();
 
 	/**
-	 * The string with which programming error messages start in the locale used
-	 * by LilyPond.
-	 */
-	protected static final String PROGRAMMING_ERROR_PREFIX = Optional.ofNullable(PROGRAMMING_ERROR_PREFIXES.get(Locale.getDefault().getLanguage())).orElse("programming"); //$NON-NLS-1$
-
-	/**
 	 * Strings denoting warning in all locales LilyPond is available in.
 	 */
 	private static final Map<String, String> WARNING_STRINGS = new ImmutableMap.Builder<String, String>()
+		.put("en", "warning") //$NON-NLS-1$ //$NON-NLS-2$
 		.put("cs", "varování") //$NON-NLS-1$ //$NON-NLS-2$
 		.put("da", "advarsel") //$NON-NLS-1$ //$NON-NLS-2$
 		.put("de", "Warnung") //$NON-NLS-1$ //$NON-NLS-2$
@@ -92,84 +84,131 @@ public class ProblemParser {
 		.build();
 
 	/**
-	 * The string denoting warning in the locale used by LilyPond.
+	 * The file being compiled
 	 */
-	protected static final String WARNING_STRING = Optional.ofNullable(WARNING_STRINGS.get(Locale.getDefault().getLanguage())).orElse("warning") + PROBLEM_POSTFIX; //$NON-NLS-1$
+	private final IFile compiledFile;
 
 	/**
-	 * @param file the file being compiled
-	 * @param line the line of the compiler output to parse
+	 * The language passed to the LilyPond compile for localization
 	 */
-	public static IMarker parse(IFile file, String line) {
-		IMarker result = null;
-		// Severity
-		int severity = IMarker.SEVERITY_INFO;
-		int problemStringIndex = -1;
-		int messageIndex = -1;
-		if (((problemStringIndex = line.indexOf(ERROR_STRING)) != -1) && !line.startsWith(PROGRAMMING_ERROR_PREFIX)) {
-			messageIndex = problemStringIndex + ERROR_STRING.length();
-			severity = IMarker.SEVERITY_ERROR;
-		} else if ((problemStringIndex = line.indexOf(WARNING_STRING)) != -1) {
-			messageIndex = problemStringIndex + WARNING_STRING.length();
-			severity = IMarker.SEVERITY_WARNING;
+	private final String language=Locale.getDefault().getLanguage();
+	private static final String FALLBACK_LANGUAGE="en"; //$NON-NLS-1$
+
+	int severity;
+	int problemStringIndex;
+	int messageIndex;
+
+	public ProblemParser(IFile file) {
+		this.compiledFile = file;
+	}
+
+	private void determineIndexesAndSeverity(String line) {
+		severity = IMarker.SEVERITY_INFO;
+		problemStringIndex = -1;
+		messageIndex = -1;
+		determineIndexesAndSeverityByLanguage(line, language);
+		if(severity == IMarker.SEVERITY_INFO) {
+			determineIndexesAndSeverityByLanguage(line, FALLBACK_LANGUAGE);
 		}
-		if (severity != IMarker.SEVERITY_INFO) {
-			try {
-				String info = line.substring(0, problemStringIndex);
-				String[] sections = info.split(":", 4); //$NON-NLS-1$
-				// File
-				String path = sections[0];
-				if ((sections.length >= 1) && (path.length() > 0)) {
-					if (!path.equals(file.getName())) {
-						IResource includedResource = file.getParent().findMember(path);
-						if ((includedResource != null) && (includedResource instanceof IFile)) {
-							file = (IFile)includedResource;
-						} else {
-							return null;
-						}
-					}
+	}
+
+	private String localizedIssueString(Map<String, String> map, String language) {
+		return Optional.ofNullable(map.get(language)).orElse(map.get(FALLBACK_LANGUAGE)) + PROBLEM_POSTFIX;
+	}
+
+	private String getProgrammingErrorPrefix(String language) {
+		return Optional.ofNullable(PROGRAMMING_ERROR_PREFIXES.get(language)).orElse(PROGRAMMING_ERROR_PREFIXES.get(FALLBACK_LANGUAGE));
+	}
+
+	private void determineIndexesAndSeverityByLanguage(String line, String language) {
+		String errorString=localizedIssueString(ERROR_STRINGS, language);
+		if (((problemStringIndex = line.indexOf(errorString)) != -1) 
+				&& !line.startsWith(getProgrammingErrorPrefix(language))) {
+			messageIndex = problemStringIndex + errorString.length();
+			severity = IMarker.SEVERITY_ERROR;
+		} else {
+			String warningString=localizedIssueString(WARNING_STRINGS, language);
+			if ((problemStringIndex = line.indexOf(warningString)) != -1) {
+				messageIndex = problemStringIndex + warningString.length();
+				severity = IMarker.SEVERITY_WARNING;
+			}
+		}
+	}
+
+	private IFile getFileToMark(String[] infoSections) {
+		String path = infoSections[0];
+		if ((infoSections.length >= 1) && (path.length() > 0)) {
+			if (!path.equals(compiledFile.getName())) {
+				//TODO we need to do correct resolution here
+				IResource includedResource = compiledFile.getParent().findMember(path);
+				if ((includedResource != null) && (includedResource instanceof IFile)) {
+					return (IFile)includedResource;
+				} else { 
+					return null;
 				}
-				result = file.createMarker(MarkerTypes.LILYPOND_PROBLEM);
-				result.setAttribute(MarkerAttributes.COMPILER_OUTPUT.name(), line);
-				result.setAttribute(IMarker.SEVERITY, severity);
-				// Message
-				String message = line.substring(messageIndex);
-				if (message.startsWith(PROBLEM_POSTFIX)) { // Fix messages starting with superfluous colon
-					message = message.substring(PROBLEM_POSTFIX.length());
+			}
+		}
+		return compiledFile;
+	}
+
+	private IMarker doCreateMarker(IFile file, String line, String[] sections) {
+		IMarker result = null;
+		try {
+			result = file.createMarker(MarkerTypes.LILYPOND_PROBLEM);
+			result.setAttribute(MarkerAttributes.COMPILER_OUTPUT.name(), line);
+			result.setAttribute(IMarker.SEVERITY, severity);
+			// Message
+			String message = line.substring(messageIndex);
+			if (message.startsWith(PROBLEM_POSTFIX)) { // Fix messages starting with superfluous colon
+				message = message.substring(PROBLEM_POSTFIX.length());
+			}
+			result.setAttribute(IMarker.MESSAGE, message);
+			// Line number
+			if (sections.length >= 2) {
+				int lineNumber = 0; // 0-based
+				try {
+					lineNumber = Math.max(Integer.parseInt(sections[1]) - 1, 0);
+					result.setAttribute(IMarker.LINE_NUMBER, lineNumber + 1);
+				} catch (NumberFormatException e) {
 				}
-				result.setAttribute(IMarker.MESSAGE, message);
-				// Line number
-				if (sections.length >= 2) {
-					int lineNumber = 0; // 0-based
+				// Column number
+				int columnNumber = 0; // 0-based
+				if (sections.length >= 3) {
 					try {
-						lineNumber = Math.max(Integer.parseInt(sections[1]) - 1, 0);
-						result.setAttribute(IMarker.LINE_NUMBER, lineNumber + 1);
+						columnNumber = Integer.parseInt(sections[2]) - 1;
+						result.setAttribute(MarkerAttributes.COLUMN_NUMBER.name(), columnNumber + 1);
 					} catch (NumberFormatException e) {
 					}
-					// Column number
-					int columnNumber = 0; // 0-based
-					if (sections.length >= 3) {
-						try {
-							columnNumber = Integer.parseInt(sections[2]) - 1;
-							result.setAttribute(MarkerAttributes.COLUMN_NUMBER.name(), columnNumber + 1);
-						} catch (NumberFormatException e) {
-						}
-					}
-					// Offset
-					try {
-						IDocument document = DocumentUtils.getDocumentFromFile(file);
-						int offset = DocumentUtils.getOffsetOfPosition(document, lineNumber, columnNumber, LilyPondConstants.TAB_WIDTH);
-						result.setAttribute(IMarker.CHAR_START, offset);
-						result.setAttribute(IMarker.CHAR_END, offset);
-					} catch (BadLocationException e) {
-						Activator.logError("Incorrect location calculation", e);
-					}
 				}
-			} catch (CoreException e) {
-				Activator.logError("Couldn't create LilyPond problem marker", e);
+				// Offset
+				try {
+					IDocument document = DocumentUtils.getDocumentFromFile(file);
+					int offset = DocumentUtils.getOffsetOfPosition(document, lineNumber, columnNumber, LilyPondConstants.TAB_WIDTH);
+					result.setAttribute(IMarker.CHAR_START, offset);
+					result.setAttribute(IMarker.CHAR_END, offset);
+				} catch (BadLocationException e) {
+					Activator.logError("Incorrect location calculation", e);
+				}
 			}
+		} catch (CoreException e) {
+			Activator.logError("Couldn't create LilyPond problem marker", e);
 		}
 		return result;
 	}
 
+	/**
+	 * @param line the line of the compiler output to parse
+	 */
+	public IMarker parse(String line) {
+		determineIndexesAndSeverity(line);
+		if (severity != IMarker.SEVERITY_INFO) {
+			String info = line.substring(0, problemStringIndex);
+			String[] sections = info.split(":", 4); //$NON-NLS-1$
+			IFile file=getFileToMark(sections);
+			if(file != null) {
+				return doCreateMarker(file, line, sections);
+			}
+		}
+		return null;
+	}
 }
