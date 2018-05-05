@@ -1,10 +1,14 @@
 package org.elysium.ui.compiler;
 
 import javax.util.process.OutputProcessor;
+
 import org.eclipse.core.resources.IFile;
 import org.eclipse.core.resources.IMarker;
 import org.eclipse.core.resources.IResource;
 import org.eclipse.core.runtime.CoreException;
+import org.eclipse.ui.console.IHyperlink;
+import org.eclipse.ui.views.pdf.PdfAnnotation;
+import org.eclipse.util.TextEditorUtils;
 import org.elysium.ui.Activator;
 import org.elysium.ui.compiler.console.LilyPondConsole;
 import org.elysium.ui.compiler.problems.ProblemHyperlinkAdder;
@@ -35,10 +39,8 @@ public class CompilerOutputProcessor implements OutputProcessor {
 	@Override
 	public void processOutput(String line) {
 		console.print(line);
-		//TODO the problem parser may find an existing file for an issue even though
-		//it is not in the workspace, so no marker can be added
-		//but a hyperlink to the file may nevertheless be created
 		IMarker problemMarker = problemParser.parse(line);
+		final PdfAnnotation wsExternalIssue =problemParser.getWorkspaceExternalIssue();
 		if (problemMarker != null) {
 			// If file already contains problem, delete it
 			try {
@@ -55,6 +57,23 @@ public class CompilerOutputProcessor implements OutputProcessor {
 			}
 			// Add hyperlink in any case
 			ProblemHyperlinkAdder.add(console, problemMarker, line);
+		} else if(wsExternalIssue != null) {
+			IHyperlink hyperlink=new IHyperlink() {
+				
+				@Override
+				public void linkExited() {}
+				
+				@Override
+				public void linkEntered() {}
+				
+				@Override
+				public void linkActivated() {
+					//TODO if we are really good, we could add an annotation
+					//corresponding to the issue to the editor just opened
+					TextEditorUtils.revealPosition(wsExternalIssue.fileURI, wsExternalIssue.lineNumber, wsExternalIssue.columnNumber, 1);
+				}
+			};
+			ProblemHyperlinkAdder.add(console, hyperlink, line);
 		}
 	}
 

@@ -62,6 +62,10 @@ public class ProblemHyperlinkAdder implements IDocumentPartitioningListener {
 	 */
 	public static void add(TextConsole console, IMarker problemMarker, String line) {
 		MarkerHyperlink hyperlink = new MarkerHyperlink(problemMarker);
+		add(console, hyperlink, line);
+	}
+
+	public static void add(TextConsole console, IHyperlink hyperlink, String line) {
 		// Add hyperlink when its text is already processed in a job by the console's document partitioner
 		ProblemHyperlinkAdder hyperlinkAdder = new ProblemHyperlinkAdder(console, hyperlink, line);
 		console.getDocument().addDocumentPartitioningListener(hyperlinkAdder);

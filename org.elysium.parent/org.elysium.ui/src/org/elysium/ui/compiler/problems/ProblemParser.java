@@ -12,6 +12,7 @@ import org.eclipse.core.resources.ResourcesPlugin;
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.jface.text.BadLocationException;
 import org.eclipse.jface.text.IDocument;
+import org.eclipse.ui.views.pdf.PdfAnnotation;
 import org.eclipse.util.DocumentUtils;
 import org.elysium.LilyPondConstants;
 import org.elysium.ui.Activator;
@@ -99,6 +100,7 @@ public class ProblemParser {
 	int severity;
 	int problemStringIndex;
 	int messageIndex;
+	private PdfAnnotation wsExternalIssueRepresentative;
 
 	public ProblemParser(IFile file) {
 		this.compiledFile = file;
@@ -108,6 +110,7 @@ public class ProblemParser {
 		severity = IMarker.SEVERITY_INFO;
 		problemStringIndex = -1;
 		messageIndex = -1;
+		wsExternalIssueRepresentative=null;
 		boolean lineCanContainIssue=line.indexOf(':') >= 0;
 		if(lineCanContainIssue) {
 			determineIndexesAndSeverityByLanguage(line, language);
@@ -140,6 +143,23 @@ public class ProblemParser {
 		}
 	}
 
+	private void initWorkspaceExternalIssue(File existingFile, String[] infoSections) {
+		PdfAnnotation annotation = new PdfAnnotation();
+		annotation.fileURI = existingFile.toURI();
+		annotation.lineNumber = toNumber(infoSections, 1);
+		annotation.columnNumber = toNumber(infoSections, 2);
+		wsExternalIssueRepresentative=annotation;
+	}
+
+	private int toNumber(String[] infoSections, int index) {
+		try {
+			if(infoSections.length > index) {
+				return Integer.parseInt(infoSections[index]) - 1;
+			}
+		}catch(NumberFormatException e) {}
+		return 0;
+	}
+
 	private IFile getFileToMark(String[] infoSections) {
 		String path = infoSections[0];
 		if ((infoSections.length >= 1) && (path.length() > 0)) {
@@ -156,6 +176,7 @@ public class ProblemParser {
 								return iFile;
 							}
 						}
+						initWorkspaceExternalIssue(maybeAbsoluteFile, infoSections);
 					}
 					return null;
 				}
@@ -235,5 +256,9 @@ public class ProblemParser {
 			}
 		}
 		return null;
+	}
+
+	public PdfAnnotation getWorkspaceExternalIssue() {
+		return wsExternalIssueRepresentative;
 	}
 }
