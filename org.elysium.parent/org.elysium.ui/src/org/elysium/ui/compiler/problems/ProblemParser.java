@@ -92,7 +92,7 @@ public class ProblemParser {
 	 * The language passed to the LilyPond compile for localization
 	 */
 	private final String language=Locale.getDefault().getLanguage();
-	private static final String FALLBACK_LANGUAGE="en"; //$NON-NLS-1$
+	private static final String FALLBACK_LANGUAGE = "en"; //$NON-NLS-1$
 
 	int severity;
 	int problemStringIndex;
@@ -106,9 +106,12 @@ public class ProblemParser {
 		severity = IMarker.SEVERITY_INFO;
 		problemStringIndex = -1;
 		messageIndex = -1;
-		determineIndexesAndSeverityByLanguage(line, language);
-		if(severity == IMarker.SEVERITY_INFO) {
-			determineIndexesAndSeverityByLanguage(line, FALLBACK_LANGUAGE);
+		boolean lineCanContainIssue=line.indexOf(':') >= 0;
+		if(lineCanContainIssue) {
+			determineIndexesAndSeverityByLanguage(line, language);
+			if(severity == IMarker.SEVERITY_INFO) {
+				determineIndexesAndSeverityByLanguage(line, FALLBACK_LANGUAGE);
+			}
 		}
 	}
 
