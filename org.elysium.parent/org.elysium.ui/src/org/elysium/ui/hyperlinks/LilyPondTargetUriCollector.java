@@ -20,7 +20,7 @@ public class LilyPondTargetUriCollector extends TargetURICollector {
 			//so check if file exists in workspace and add as search URI
 			if(uri.isFile()) {
 				String fragment = uri.fragment();
-				//TODO similar findFilesForLocationURI for file URIS is now used in LilyPondProposalProvider, LilyPondHyperlinkHelper, LilyPondLanguageSpecificURIEditorOpener and here
+				//TODO similar findFilesForLocationURI for file URIS is now used in LilyPondProposalProvider, LilyPondHyperlinkHelper, LilyPondLanguageSpecificURIEditorOpener, ProblemParser and here
 				IFile[] files = ResourcesPlugin.getWorkspace().getRoot().findFilesForLocationURI(java.net.URI.create(uri.toString()));
 				for (IFile iFile : files) {
 					if(iFile.exists()) {

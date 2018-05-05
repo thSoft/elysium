@@ -35,6 +35,9 @@ public class CompilerOutputProcessor implements OutputProcessor {
 	@Override
 	public void processOutput(String line) {
 		console.print(line);
+		//TODO the problem parser may find an existing file for an issue even though
+		//it is not in the workspace, so no marker can be added
+		//but a hyperlink to the file may nevertheless be created
 		IMarker problemMarker = problemParser.parse(line);
 		if (problemMarker != null) {
 			// If file already contains problem, delete it

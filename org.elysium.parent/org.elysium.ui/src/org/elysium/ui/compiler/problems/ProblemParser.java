@@ -1,5 +1,6 @@
 package org.elysium.ui.compiler.problems;
 
+import java.io.File;
 import java.util.Locale;
 import java.util.Map;
 import java.util.Optional;
@@ -7,6 +8,7 @@ import java.util.Optional;
 import org.eclipse.core.resources.IFile;
 import org.eclipse.core.resources.IMarker;
 import org.eclipse.core.resources.IResource;
+import org.eclipse.core.resources.ResourcesPlugin;
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.jface.text.BadLocationException;
 import org.eclipse.jface.text.IDocument;
@@ -142,11 +144,19 @@ public class ProblemParser {
 		String path = infoSections[0];
 		if ((infoSections.length >= 1) && (path.length() > 0)) {
 			if (!path.equals(compiledFile.getName())) {
-				//TODO we need to do correct resolution here
 				IResource includedResource = compiledFile.getParent().findMember(path);
 				if ((includedResource != null) && (includedResource instanceof IFile)) {
 					return (IFile)includedResource;
-				} else { 
+				} else {
+					File maybeAbsoluteFile=new File(path);
+					if(maybeAbsoluteFile.exists()) {
+						IFile[] files = ResourcesPlugin.getWorkspace().getRoot().findFilesForLocationURI(maybeAbsoluteFile.toURI());
+						for (IFile iFile : files) {
+							if(iFile.exists()) {
+								return iFile;
+							}
+						}
+					}
 					return null;
 				}
 			}
@@ -199,6 +209,18 @@ public class ProblemParser {
 		return result;
 	}
 
+	private String[] getInfoSections(String info) {
+		if(LilyPondConstants.IS_WINDOWS && info.length() > 2) {
+			//handle windows absolute paths starting with "<HD-Letter>:/"
+			if(info.charAt(1) == ':' && info.charAt(2) == '/') {
+				String[] sections = info.substring(2).split(":", 4);
+				sections[0] = info.substring(0, 2) + sections[0];
+				return sections;
+			}
+		}
+		return info.split(":", 4); //$NON-NLS-1$
+	}
+
 	/**
 	 * @param line the line of the compiler output to parse
 	 */
@@ -206,7 +228,7 @@ public class ProblemParser {
 		determineIndexesAndSeverity(line);
 		if (severity != IMarker.SEVERITY_INFO) {
 			String info = line.substring(0, problemStringIndex);
-			String[] sections = info.split(":", 4); //$NON-NLS-1$
+			String[] sections = getInfoSections(info);
 			IFile file=getFileToMark(sections);
 			if(file != null) {
 				return doCreateMarker(file, line, sections);
