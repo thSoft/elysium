@@ -193,12 +193,8 @@ class LilyPondRefactoring {
 
 	private String getNewCompiledFileName(IFile source, IFile compiled, RenameArguments arguments) {
 		String newName = Files.getNameWithoutExtension(arguments.getNewName());
-		if(LilyPondConstants.AUDIO_EXTENSION.equals(compiled.getFileExtension())) {
-			String oldBaseName = Files.getNameWithoutExtension(source.getName());
-			return newName+compiled.getName().substring(oldBaseName.length());
-		} else {
-			return newName+"."+compiled.getFileExtension();
-		}
+		String oldBaseName = Files.getNameWithoutExtension(source.getName());
+		return newName+compiled.getName().substring(oldBaseName.length());
 	}
 
 	private Change compiledChangeWithClosingScoreView(final IFile compiled, Change compileChange){
@@ -241,15 +237,15 @@ class LilyPondRefactoring {
 	private boolean isCompiledFrom(IFile source, IFile compiled) {
 		if(source.getFullPath().removeFileExtension().equals(compiled.getFullPath().removeFileExtension())) {
 			return true;
-		} else if(LilyPondConstants.AUDIO_EXTENSION.equals(compiled.getFileExtension()) && 
+		} else if(LilyPondConstants.COMPILED_EXTENSIONS.contains(compiled.getFileExtension()) && 
 				LilyPondConstants.EXTENSION.equals(source.getFileExtension())){
-			//handle score-1.midi... of score.ly
+			//handle score-1.midi/score-1.pdf... of score.ly
 			if(source.getParent().getFullPath().equals(compiled.getParent().getFullPath())){
 				String sourceName = Files.getNameWithoutExtension(source.getName());
 				String compiledName = Files.getNameWithoutExtension(compiled.getName());
 				if(compiledName.startsWith(sourceName)) {
 					String suffix=compiledName.substring(sourceName.length());
-					if(suffix.matches("-\\d+")) {
+					if(suffix.matches("(-\\d+){1,2}")) {
 						IFile sourceWithCounter = ResourceUtils.replaceExtension(compiled, LilyPondConstants.EXTENSION);
 						if(!sourceWithCounter.exists()) {
 							return true;
