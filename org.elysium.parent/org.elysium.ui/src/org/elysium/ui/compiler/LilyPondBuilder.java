@@ -105,7 +105,12 @@ public class LilyPondBuilder implements IXtextBuilderParticipant {
 		if(markDirty) {
 			markDirty(files);
 		}
+		boolean showOutdatedMarkersOnContainers=preferences.getBoolean(CompilerPreferenceConstants.ADD_OUTDATED_MARKER_TO_ANCESTORS.name());
+		RefreshProjectJob refreshJob=new RefreshProjectJob(showOutdatedMarkersOnContainers);
 		for (IFile file : getFilesToCompile(files)) {
+			if(executeLilyPondCompilation || deleteMarkers || markDirty) {
+				refreshJob.addFile(file);
+			}
 			CompilerJob compilerJob = new CompilerJob(file, executeLilyPondCompilation, deleteMarkers);
 			Job[] oldCompilerJobs = Job.getJobManager().find(compilerJob);
 			for (Job oldCompilerJob : oldCompilerJobs) {
@@ -115,7 +120,9 @@ public class LilyPondBuilder implements IXtextBuilderParticipant {
 			ISchedulingRule parallelExecutionRule=new NumberedQueueSchedulingRule(ruleIndex);
 			compilerJob.setRule(parallelExecutionRule);
 			compilerJob.schedule();
+			refreshJob.waitFor(compilerJob);
 		}
+		refreshJob.schedule();
 	}
 
 	private List<IFile> getFilesToCompile(Set<IFile> allFiles){
