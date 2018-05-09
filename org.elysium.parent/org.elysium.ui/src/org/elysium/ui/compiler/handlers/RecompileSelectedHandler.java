@@ -1,7 +1,9 @@
 package org.elysium.ui.compiler.handlers;
 
+import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.Iterator;
+import java.util.List;
 import java.util.Set;
 
 import javax.inject.Inject;
@@ -25,14 +27,17 @@ import org.eclipse.util.EditorUtils;
 import org.eclipse.util.ResourceUtils;
 import org.elysium.LilyPondConstants;
 import org.elysium.ui.compiler.LilyPondBuilder;
+import org.elysium.ui.markers.MarkerTypes;
 
 public class RecompileSelectedHandler extends AbstractHandler {
 
 	@Inject
 	private Provider<LilyPondBuilder> builder;
+	private boolean compileOutdatedOnly = false;
 
 	@Override
 	public Object execute(ExecutionEvent event) throws ExecutionException {
+		compileOutdatedOnly = Boolean.parseBoolean(event.getParameter("org.elysium.ui.commands.RecompileSelected.outdatedOnly"));
 		Set<IFile> files = new HashSet<IFile>();
 		IWorkbenchPage activePage = HandlerUtil.getActiveWorkbenchWindow(event).getActivePage();
 		ISelection selection = activePage.getSelection();
@@ -44,7 +49,7 @@ public class RecompileSelectedHandler extends AbstractHandler {
 					containedFiles.add((IFile)element);
 				} else if (element instanceof IContainer) {
 					IContainer container = (IContainer)element;
-					containedFiles.addAll(ResourceUtils.getAllFiles(container));
+					containedFiles.addAll(getFilesToCompileFromContainer(container));
 				}
 				for (IFile file : containedFiles) {
 					IFile source = getLilyPondSourceFile(file);
@@ -62,6 +67,24 @@ public class RecompileSelectedHandler extends AbstractHandler {
 		}
 		builder.get().compile(files);
 		return null;
+	}
+
+	private List<IFile> getFilesToCompileFromContainer(IContainer container){
+		List<IFile> allFiles=ResourceUtils.getAllFiles(container);
+		if(compileOutdatedOnly) {
+			List<IFile> outdated=new ArrayList<>();
+			for (IFile file : allFiles) {
+				try {
+					if(file.findMarkers(MarkerTypes.OUTDATED, false, IResource.DEPTH_ZERO).length>0) {
+						outdated.add(file);
+					}
+				} catch (CoreException e) {
+					//ignore and return all files
+				}
+			}
+			return outdated;
+		}
+		return allFiles;
 	}
 
 	private IFile getLilyPondSourceFile(IFile file) {
