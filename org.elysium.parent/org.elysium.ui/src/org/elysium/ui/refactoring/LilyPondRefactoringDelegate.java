@@ -20,6 +20,11 @@ import org.eclipse.ltk.core.refactoring.participants.ResourceChangeChecker;
 import org.eclipse.xtext.resource.IResourceDescription;
 import org.elysium.ui.Activator;
 
+/**
+ * wrapper for a single refactoring operation
+ * 
+ * ... regardless of the type of refactoring and how many resources are involved
+ * */
 class LilyPondRefactoringDelegate implements IConditionChecker{
 
 	public static final String NAME = "Update LilyPond references";
@@ -119,6 +124,7 @@ class LilyPondRefactoringDelegate implements IConditionChecker{
 		ref.addContainerToRefactor(container, arguments);
 	}
 
+	//TODO call only if new preference says "Do automatic include refactoring"
 	public Change adaptIncludes(IProgressMonitor monitor){
 		if(preChangeAlreadyCreated || monitor.isCanceled()){
 			return null;

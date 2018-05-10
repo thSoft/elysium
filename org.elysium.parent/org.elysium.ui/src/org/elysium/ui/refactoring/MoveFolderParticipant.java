@@ -23,7 +23,7 @@ public class MoveFolderParticipant extends MoveParticipant {
 	@Override
 	protected boolean initialize(Object element) {
 		container = (IContainer)element;
-		return true;
+		return !injects.isLinked(container);
 	}
 
 	@Override

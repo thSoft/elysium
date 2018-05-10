@@ -4,6 +4,7 @@ import java.io.File;
 import java.text.MessageFormat;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
@@ -28,9 +29,11 @@ import org.eclipse.ltk.core.refactoring.participants.DeleteRefactoring;
 import org.eclipse.ltk.core.refactoring.participants.MoveArguments;
 import org.eclipse.ltk.core.refactoring.participants.RefactoringArguments;
 import org.eclipse.ltk.core.refactoring.participants.RenameArguments;
+import org.eclipse.ltk.core.refactoring.resource.DeleteResourceChange;
 import org.eclipse.ltk.core.refactoring.resource.MoveResourceChange;
 import org.eclipse.ltk.core.refactoring.resource.RenameResourceChange;
 import org.eclipse.ltk.internal.core.refactoring.resource.DeleteResourcesProcessor;
+import org.eclipse.util.ResourceUtils;
 import org.elysium.LilyPondConstants;
 import org.elysium.ui.Activator;
 import org.elysium.ui.refactoring.LilyPondRefactoringDelegate.Operation;
@@ -42,6 +45,7 @@ class LilyPondRefactoring {
 	LilyPondRefactoringInjects support;
 
 	private Map<URI, IFile> platformURItoFileOfRefactorTargets=new HashMap<URI, IFile>();
+	private Map<URI, URI> fileURItoPlatformURIOfRefactorTargets=new HashMap<URI, URI>();
 	private Map<IResource, RefactoringArguments> argumentsMap=new HashMap<IResource, RefactoringArguments>();
 	private List<IContainer> refactoredContainers=new ArrayList<IContainer>();
 	private final Operation operation;
@@ -53,12 +57,17 @@ class LilyPondRefactoring {
 	}
 
 	public void addFileToRefactor(IFile file, RefactoringArguments arguments){
-		if(support.isSource(file)){
+		if(support.isLinked(file)) {
+			//renaming, deleting, moving linked files has no impact on the underlying original file
+			//so we simply ignore them
+		} else if(support.isSource(file)){
 			checkArgumentType(arguments);
 			URI uri=URI.createPlatformResourceURI(file.getFullPath().toString(), true);
 			platformURItoFileOfRefactorTargets.put(uri, file);
+			URI fileURI = URI.createFileURI(file.getLocation().toFile().getAbsolutePath());
+			fileURItoPlatformURIOfRefactorTargets.put(fileURI, uri);
 			argumentsMap.put(file, arguments);
-		}else if(support.isCompiled(file)){
+		} else if(support.isCompiled(file)){
 			compiledFilesRefactorTargets.add(file);
 		}
 	}
@@ -106,13 +115,30 @@ class LilyPondRefactoring {
 		return operation;
 	}
 
-	public Set<URI> getRefactoredFiles(){
+	public Set<URI> getRefactoredFilesPlatformURIs(){
 		return platformURItoFileOfRefactorTargets.keySet();
 	}
 
-	public List<IPath> getFilePaths(Set<URI> uris){
+	public Set<URI> getRefactoredFilesPlatformURIs(Set<URI> fileURIsOfIncludes){
+		Set<URI> result = new HashSet<>();
+		for (URI fileUri : fileURIsOfIncludes) {
+			if(!fileUri.isFile()) {
+				throw new IllegalStateException("include is not a file URI: "+fileUri);
+			}
+			URI platformUri = fileURItoPlatformURIOfRefactorTargets.get(fileUri);
+			if(platformUri != null) {
+				result.add(platformUri);
+			}
+		}
+		return result;
+	}
+
+	public List<IPath> getFilePaths(Set<URI> platformUris){
 		List<IPath> result=new ArrayList<IPath>();
-		for (URI uri : uris) {
+		for (URI uri : platformUris) {
+			if(!uri.isPlatform()) {
+				throw new IllegalStateException("platform uri expected "+uri);
+			}
 			IFile file = platformURItoFileOfRefactorTargets.get(uri);
 			if(file!=null){
 				result.add(file.getFullPath());
@@ -127,7 +153,7 @@ class LilyPondRefactoring {
 		CompositeChange result = new CompositeChange(operation.toString()+ " compiled Files");
 		for (IFile file : platformURItoFileOfRefactorTargets.values()) {
 			if(!monitor.isCanceled()){
-				apply(file, result);
+				applyForCompiled(file, result);
 			}
 		}
 		if(result.getChildren().length==0){
@@ -137,12 +163,12 @@ class LilyPondRefactoring {
 		}
 	}
 
-	private void apply(IFile source, CompositeChange containerChange) throws CoreException{
+	private void applyForCompiled(IFile source, CompositeChange containerChange) throws CoreException{
 		RefactoringArguments arguments = argumentsMap.get(source);
 		if(arguments!=null){
 			List<IFile> compiledFiles = getCompiled(source);
 			for (IFile compiled : compiledFiles) {
-				Change change = getCompiledChange(compiled, arguments);
+				Change change = getCompiledChange(source, compiled, arguments);
 				if(change!=null){
 					containerChange.add(change);
 				}
@@ -150,17 +176,25 @@ class LilyPondRefactoring {
 		}
 	}
 
-	private Change getCompiledChange(IFile compiled, RefactoringArguments arguments) throws OperationCanceledException, CoreException{
+	private Change getCompiledChange(IFile source, IFile compiled, RefactoringArguments arguments) throws OperationCanceledException, CoreException{
 		switch (operation) {
 		case rename:
-			String newName=Files.getNameWithoutExtension(((RenameArguments)arguments).getNewName())+"."+compiled.getFileExtension();
+			String newName = getNewCompiledFileName(source, compiled, (RenameArguments)arguments);
 			return compiledChangeWithClosingScoreView(compiled,new RenameResourceChange(compiled.getFullPath(), newName));
 		case move:
 			return compiledChangeWithClosingScoreView(compiled, new MoveResourceChange(compiled, (IContainer)((MoveArguments)arguments).getDestination()));
+		case delete:
+			return compiledChangeWithClosingScoreView(compiled, new DeleteResourceChange(compiled.getFullPath(), true));
 		default:
 			break;
 		}
 		return null;
+	}
+
+	private String getNewCompiledFileName(IFile source, IFile compiled, RenameArguments arguments) {
+		String newName = Files.getNameWithoutExtension(arguments.getNewName());
+		String oldBaseName = Files.getNameWithoutExtension(source.getName());
+		return newName+compiled.getName().substring(oldBaseName.length());
 	}
 
 	private Change compiledChangeWithClosingScoreView(final IFile compiled, Change compileChange){
@@ -191,14 +225,36 @@ class LilyPondRefactoring {
 			if(sibling instanceof IFile){
 				IFile siblingFile=(IFile)sibling;
 				if(!compiledFilesRefactorTargets.contains(siblingFile) && support.isCompiled(siblingFile)){
-					boolean siblingCompiledFromSource=source.getFullPath().removeFileExtension().equals(siblingFile.getFullPath().removeFileExtension());
-					if(siblingCompiledFromSource){
-						result.add((IFile) sibling);
+					if(isCompiledFrom(source, siblingFile)){
+						result.add(siblingFile);
 					}
 				}
 			}
 		}
 		return result;
+	}
+
+	private boolean isCompiledFrom(IFile source, IFile compiled) {
+		if(source.getFullPath().removeFileExtension().equals(compiled.getFullPath().removeFileExtension())) {
+			return true;
+		} else if(LilyPondConstants.COMPILED_EXTENSIONS.contains(compiled.getFileExtension()) && 
+				LilyPondConstants.EXTENSION.equals(source.getFileExtension())){
+			//handle score-1.midi/score-1.pdf... of score.ly
+			if(source.getParent().getFullPath().equals(compiled.getParent().getFullPath())){
+				String sourceName = Files.getNameWithoutExtension(source.getName());
+				String compiledName = Files.getNameWithoutExtension(compiled.getName());
+				if(compiledName.startsWith(sourceName)) {
+					String suffix=compiledName.substring(sourceName.length());
+					if(suffix.matches("(-\\d+){1,2}")) {
+						IFile sourceWithCounter = ResourceUtils.replaceExtension(compiled, LilyPondConstants.EXTENSION);
+						if(!sourceWithCounter.exists()) {
+							return true;
+						}
+					}
+				}
+			}
+		}
+		return false;
 	}
 
 	private List<String> getChangedSearchFolders() {
@@ -230,7 +286,11 @@ class LilyPondRefactoring {
 
 	public LilyPondRefactoredImportUriCalculator getNewImportUriCalculator(URI sourceUri, URI resolvedUriToRefactor) {
 		IFile source=asFile(sourceUri);
-		IFile refactorTarget = platformURItoFileOfRefactorTargets.get(resolvedUriToRefactor);
+		URI refactorURI = resolvedUriToRefactor;
+		if(resolvedUriToRefactor.isFile()) {
+			refactorURI = fileURItoPlatformURIOfRefactorTargets.get(resolvedUriToRefactor);
+		}
+		IFile refactorTarget = platformURItoFileOfRefactorTargets.get(refactorURI);
 		if(refactorTarget==null){
 			return new LilyPondRefactoredImportUriCalculator(source, getDestination(source));
 		}else{
@@ -243,6 +303,7 @@ class LilyPondRefactoring {
 		if(file!=null){
 			return file;
 		}else{
+			//TODO use util method for obtaining the file
 			return ResourcesPlugin.getWorkspace().getRoot().getFile(new Path(platformUri.toPlatformString(true)));
 		}
 	}

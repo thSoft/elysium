@@ -55,7 +55,7 @@ public class LilyPondXtextEditor extends XtextEditor{
 		String tooltip=super.getTitleToolTip();
 		IResource resource = getResource();
 		if(resource != null) {
-			return tooltip+ "\n"+ resource.getRawLocation().toString();
+			return tooltip+ "\n"+ resource.getLocation().toString();
 		} else {
 			try {
 				IURIEditorInput input = ((IURIEditorInput) getEditorInput());

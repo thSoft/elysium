@@ -26,7 +26,7 @@ public class MoveFileParticipant extends MoveParticipant {
 	@Override
 	protected boolean initialize(Object element) {
 		sourceFile = (IFile)element;
-		return injects.isSource(sourceFile);
+		return injects.isSource(sourceFile) && !injects.isLinked(sourceFile);
 	}
 
 	@Override

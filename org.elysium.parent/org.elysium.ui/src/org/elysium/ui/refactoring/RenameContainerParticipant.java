@@ -23,7 +23,7 @@ public class RenameContainerParticipant extends RenameParticipant {
 	@Override
 	protected boolean initialize(Object element) {
 		container = (IContainer)element;
-		return true;
+		return !injects.isLinked(container);
 	}
 
 	@Override
