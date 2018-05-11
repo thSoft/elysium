@@ -32,11 +32,7 @@ import org.eclipse.emf.util.ResourceUtils;
 import org.eclipse.jface.dialogs.MessageDialog;
 import org.eclipse.jface.preference.IPreferenceStore;
 import org.eclipse.swt.widgets.Display;
-import org.eclipse.ui.IEditorReference;
-import org.eclipse.ui.PartInitException;
 import org.eclipse.ui.PlatformUI;
-import org.eclipse.ui.ide.ResourceUtil;
-import org.eclipse.util.EditorUtils;
 import org.eclipse.xtext.builder.IXtextBuilderParticipant;
 import org.eclipse.xtext.resource.IReferenceDescription;
 import org.eclipse.xtext.resource.IResourceDescription;
@@ -44,6 +40,7 @@ import org.eclipse.xtext.resource.IResourceDescription.Delta;
 import org.eclipse.xtext.resource.IResourceDescriptions;
 import org.elysium.LilyPondConstants;
 import org.elysium.ui.Activator;
+import org.elysium.ui.LilyPondPerspective;
 import org.elysium.ui.compiler.outdated.OutdatedDecorator;
 import org.elysium.ui.compiler.preferences.CompilerPreferenceConstants;
 
@@ -151,7 +148,7 @@ public class LilyPondBuilder implements IXtextBuilderParticipant {
 
 	private boolean continueWithOpenFilesDirty(Collection<IFile> filesToCompile) {
 		AtomicBoolean doContinue=new AtomicBoolean(true);
-		List<IFile> allOpenDirtyFiles=getAllOpenDirtyFiles();
+		List<IFile> allOpenDirtyFiles=LilyPondPerspective.getAllOpenDirtyFiles();
 		if(!allOpenDirtyFiles.isEmpty()) {
 			List<String> openDirtyFilesToCompile=new ArrayList<>();
 			Set<IFile> filesInvolvedInCompilation=new HashSet<>(filesToCompile);
@@ -176,22 +173,6 @@ public class LilyPondBuilder implements IXtextBuilderParticipant {
 			}
 		}
 		return doContinue.get();
-	}
-
-	private List<IFile> getAllOpenDirtyFiles(){
-		List<IFile> result=new ArrayList<>();
-		IEditorReference[] editors = EditorUtils.getOpenEditors();
-		for (IEditorReference ref : editors) {
-			if(ref.isDirty()) {
-				try {
-					IFile file = ResourceUtil.getFile(ref.getEditorInput());
-					result.add(file);
-				} catch (PartInitException e) {
-					//ignore
-				}
-			}
-		}
-		return result;
 	}
 
 	private Set<IFile> getTransitivelyIncludedFiles(Collection<IFile> files){

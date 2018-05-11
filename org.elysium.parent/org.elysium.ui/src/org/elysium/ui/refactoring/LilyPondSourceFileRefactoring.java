@@ -1,6 +1,7 @@
 package org.elysium.ui.refactoring;
 
 import java.text.MessageFormat;
+import java.util.Collection;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Iterator;
@@ -222,5 +223,26 @@ class LilyPondSourceFileRefactoring {
 				status.addWarning(MessageFormat.format("{0} - located in the same project as a {1}d file - has an include using variables; updating includes may fail", getUriDisplayString(), rootRefactoring.getOperation()));
 			}
 		}
+	}
+
+	/**
+	 * return refactoring targets contained in the given parameter list
+	 * */
+	public Set<IFile> getRefactoredFiles(List<IFile> filesToCheck) {
+		Collection<IFile> refactoringTargets = rootRefactoring.getRefactoredFiles();
+		Set<IFile>result = new HashSet<>();
+		for (IFile iFile : refactoringTargets) {
+			if(filesToCheck.contains(iFile)) {
+				result.add(iFile);
+			}
+		}
+		IFile me = rootRefactoring.asFile(getURI());
+		if(filesToCheck.contains(me)) {
+			if(getIncludedRefactoredFiles().size() > 0) {
+				//an include in the current file is involved, so the file's includes would have to be modified
+				result.add(me);
+			}
+		}
+		return result;
 	}
 }

@@ -3,6 +3,7 @@ package org.elysium.ui.refactoring;
 import java.io.File;
 import java.text.MessageFormat;
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
@@ -117,6 +118,10 @@ class LilyPondRefactoring {
 
 	public Set<URI> getRefactoredFilesPlatformURIs(){
 		return platformURItoFileOfRefactorTargets.keySet();
+	}
+
+	public Collection<IFile> getRefactoredFiles(){
+		return platformURItoFileOfRefactorTargets.values();
 	}
 
 	public Set<URI> getRefactoredFilesPlatformURIs(Set<URI> fileURIsOfIncludes){
