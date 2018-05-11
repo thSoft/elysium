@@ -58,7 +58,6 @@ class RefreshProjectJob extends Job {
 					protected IStatus run(IProgressMonitor monitor) {
 						try {
 							hasOutdatedMarker(project);
-							//this refresh could replace the one in CompilerJob...
 							project.refreshLocal(IResource.DEPTH_INFINITE, monitor);
 						} catch (CoreException e) {
 							Activator.logError("Couldn't refresh project, please refresh manually", e);
