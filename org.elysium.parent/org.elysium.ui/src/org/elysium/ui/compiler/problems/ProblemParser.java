@@ -12,7 +12,7 @@ import org.eclipse.core.resources.ResourcesPlugin;
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.jface.text.BadLocationException;
 import org.eclipse.jface.text.IDocument;
-import org.eclipse.ui.views.pdf.PdfAnnotation;
+import org.eclipse.ui.console.IHyperlink;
 import org.eclipse.util.DocumentUtils;
 import org.elysium.LilyPondConstants;
 import org.elysium.ui.Activator;
@@ -100,7 +100,7 @@ public class ProblemParser {
 	int severity;
 	int problemStringIndex;
 	int messageIndex;
-	private PdfAnnotation wsExternalIssueRepresentative;
+	private LilyPondWorkspaceExternalHyperlink wsExternalHyperlink;
 
 	public ProblemParser(IFile file) {
 		this.compiledFile = file;
@@ -110,7 +110,7 @@ public class ProblemParser {
 		severity = IMarker.SEVERITY_INFO;
 		problemStringIndex = -1;
 		messageIndex = -1;
-		wsExternalIssueRepresentative=null;
+		wsExternalHyperlink = null;
 		boolean lineCanContainIssue=line.indexOf(':') >= 0;
 		if(lineCanContainIssue) {
 			determineIndexesAndSeverityByLanguage(line, language);
@@ -144,11 +144,9 @@ public class ProblemParser {
 	}
 
 	private void initWorkspaceExternalIssue(File existingFile, String[] infoSections) {
-		PdfAnnotation annotation = new PdfAnnotation();
-		annotation.fileURI = existingFile.toURI();
-		annotation.lineNumber = toNumber(infoSections, 1);
-		annotation.columnNumber = toNumber(infoSections, 2);
-		wsExternalIssueRepresentative=annotation;
+		int line = toNumber(infoSections, 1);
+		int column = toNumber(infoSections, 2);
+		wsExternalHyperlink = new LilyPondWorkspaceExternalHyperlink(existingFile.toURI(), line, column);
 	}
 
 	private int toNumber(String[] infoSections, int index) {
@@ -258,7 +256,7 @@ public class ProblemParser {
 		return null;
 	}
 
-	public PdfAnnotation getWorkspaceExternalIssue() {
-		return wsExternalIssueRepresentative;
+	public IHyperlink getWorkspaceExternalHyperlink() {
+		return wsExternalHyperlink;
 	}
 }
