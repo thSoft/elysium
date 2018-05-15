@@ -1,6 +1,9 @@
 package org.elysium.ui.compiler.problems;
 
 import java.io.File;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
 import java.util.Locale;
 import java.util.Map;
 import java.util.Optional;
@@ -101,6 +104,7 @@ public class ProblemParser {
 	int problemStringIndex;
 	int messageIndex;
 	private LilyPondWorkspaceExternalHyperlink wsExternalHyperlink;
+	private Map<File, List<LilyPondWorkspaceExternalHyperlink>> wsExternalLinks=new HashMap<>();
 
 	public ProblemParser(IFile file) {
 		this.compiledFile = file;
@@ -143,10 +147,19 @@ public class ProblemParser {
 		}
 	}
 
-	private void initWorkspaceExternalIssue(File existingFile, String[] infoSections) {
+	private void initWorkspaceExternalIssue(File existingFile, String lineText, String[] infoSections) {
 		int line = toNumber(infoSections, 1);
 		int column = toNumber(infoSections, 2);
-		wsExternalHyperlink = new LilyPondWorkspaceExternalHyperlink(existingFile.toURI(), line, column);
+		String message = getMessage(lineText);
+		wsExternalHyperlink = new LilyPondWorkspaceExternalHyperlink(existingFile.toURI(), line, column, message,
+				severity);
+		List<LilyPondWorkspaceExternalHyperlink> allFileLinks = wsExternalLinks.get(existingFile);
+		if (allFileLinks == null) {
+			allFileLinks = new ArrayList<>();
+			wsExternalLinks.put(existingFile, allFileLinks);
+		}
+		allFileLinks.add(wsExternalHyperlink);
+		wsExternalHyperlink.setFileLinks(allFileLinks);
 	}
 
 	private int toNumber(String[] infoSections, int index) {
@@ -158,7 +171,7 @@ public class ProblemParser {
 		return 0;
 	}
 
-	private IFile getFileToMark(String[] infoSections) {
+	private IFile getFileToMark(String line, String[] infoSections) {
 		String path = infoSections[0];
 		if ((infoSections.length >= 1) && (path.length() > 0)) {
 			if (!path.equals(compiledFile.getName())) {
@@ -174,13 +187,21 @@ public class ProblemParser {
 								return iFile;
 							}
 						}
-						initWorkspaceExternalIssue(maybeAbsoluteFile, infoSections);
+						initWorkspaceExternalIssue(maybeAbsoluteFile, line, infoSections);
 					}
 					return null;
 				}
 			}
 		}
 		return compiledFile;
+	}
+
+	private String getMessage(String line) {
+		String message = line.substring(messageIndex);
+		if (message.startsWith(PROBLEM_POSTFIX)) { // Fix messages starting with superfluous colon
+			message = message.substring(PROBLEM_POSTFIX.length());
+		}
+		return message;
 	}
 
 	private IMarker doCreateMarker(IFile file, String line, String[] sections) {
@@ -190,10 +211,7 @@ public class ProblemParser {
 			result.setAttribute(MarkerAttributes.COMPILER_OUTPUT.name(), line);
 			result.setAttribute(IMarker.SEVERITY, severity);
 			// Message
-			String message = line.substring(messageIndex);
-			if (message.startsWith(PROBLEM_POSTFIX)) { // Fix messages starting with superfluous colon
-				message = message.substring(PROBLEM_POSTFIX.length());
-			}
+			String message = getMessage(line);
 			result.setAttribute(IMarker.MESSAGE, message);
 			// Line number
 			if (sections.length >= 2) {
@@ -248,7 +266,7 @@ public class ProblemParser {
 		if (severity != IMarker.SEVERITY_INFO) {
 			String info = line.substring(0, problemStringIndex);
 			String[] sections = getInfoSections(info);
-			IFile file=getFileToMark(sections);
+			IFile file=getFileToMark(line, sections);
 			if(file != null) {
 				return doCreateMarker(file, line, sections);
 			}
