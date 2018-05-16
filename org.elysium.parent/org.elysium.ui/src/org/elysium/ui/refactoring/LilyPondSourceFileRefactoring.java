@@ -31,6 +31,7 @@ import org.eclipse.xtext.resource.IReferenceDescription;
 import org.eclipse.xtext.resource.IResourceDescription;
 import org.elysium.lilypond.Include;
 import org.elysium.lilypond.LilypondPackage;
+import org.elysium.ui.preferences.LilyPondRefactoringPreferencePage;
 import org.elysium.ui.refactoring.LilyPondRefactoringDelegate.Operation;
 
 import com.google.common.base.Optional;
@@ -218,7 +219,7 @@ class LilyPondSourceFileRefactoring {
 	}
 
 	private void checkVariableInclude(RefactoringStatus status){
-		if(rootRefactoring.support.warnVariableInclude()){
+		if(rootRefactoring.support.getPreference(LilyPondRefactoringPreferencePage.REFACTORING_WARN_VARIABLE_INCLUDE)){
 			if(existsVariableInclude()){
 				status.addWarning(MessageFormat.format("{0} - located in the same project as a {1}d file - has an include using variables; updating includes may fail", getUriDisplayString(), rootRefactoring.getOperation()));
 			}
