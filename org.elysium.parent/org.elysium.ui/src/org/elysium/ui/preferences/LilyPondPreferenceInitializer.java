@@ -22,6 +22,7 @@ public class LilyPondPreferenceInitializer implements IPreferenceStoreInitialize
 			store.setDefault(preference.getId(), preference.getDefaultValue());
 		}
 		store.setDefault(LilyPondRefactoringPreferencePage.REFACTORING_IS_ENABLED, true);
+		store.setDefault(LilyPondRefactoringPreferencePage.REFACTORING_WARN_DELETE_INCLUDED, true);
 		store.setDefault(LilyPondRefactoringPreferencePage.REFACTORING_WARN_SEARCHPATH, true);
 		store.setDefault(LilyPondRefactoringPreferencePage.REFACTORING_WARN_VARIABLE_INCLUDE, true);
 	}

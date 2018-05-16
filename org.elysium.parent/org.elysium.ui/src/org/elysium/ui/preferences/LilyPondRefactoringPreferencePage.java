@@ -9,12 +9,15 @@ public class LilyPondRefactoringPreferencePage extends RefactoringPreferencePage
 	public static String REFACTORING_IS_ENABLED="LilyPond.Refactoring.enable";
 	public static String REFACTORING_WARN_SEARCHPATH="LilyPond.Refactoring.SearchPathAffected";
 	public static String REFACTORING_WARN_VARIABLE_INCLUDE="LilyPond.Refactoring.VariableInclude";
+	public static String REFACTORING_WARN_DELETE_INCLUDED="LilyPond.Refactoring.DeleteIncluded";
 
 	@Override
 	protected void createFieldEditors() {
 		super.createFieldEditors();
 		addField(new BooleanFieldEditor(REFACTORING_IS_ENABLED,
 				"Enable Lilypond specific refactorings", getFieldEditorParent()));
+		addField(new BooleanFieldEditor(REFACTORING_WARN_DELETE_INCLUDED,
+				"Warn if an indluded file is deleted", getFieldEditorParent()));
 		addField(new BooleanFieldEditor(REFACTORING_WARN_SEARCHPATH,
 				"Warn if a search path is affected by a refactoring", getFieldEditorParent()));
 		addField(new BooleanFieldEditor(REFACTORING_WARN_VARIABLE_INCLUDE,

@@ -198,7 +198,7 @@ class LilyPondSourceFileRefactoring {
 
 	public void addIssues(RefactoringStatus status) {
 		if(rootRefactoring.getOperation()==Operation.delete){
-			if(!refactoredMyself()){
+			if(!refactoredMyself() && rootRefactoring.support.getPreference(LilyPondRefactoringPreferencePage.REFACTORING_WARN_DELETE_INCLUDED)){
 				String including=getUriDisplayString();
 				List<IPath> includedFiles= rootRefactoring.getFilePaths(getIncludedRefactoredFiles());
 				if(!includedFiles.isEmpty()){
