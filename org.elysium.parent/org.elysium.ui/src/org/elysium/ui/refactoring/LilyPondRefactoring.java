@@ -190,7 +190,9 @@ class LilyPondRefactoring {
 		case move:
 			return compiledChangeWithClosingScoreView(compiled, new MoveResourceChange(compiled, (IContainer)((MoveArguments)arguments).getDestination()));
 		case delete:
-			return compiledChangeWithClosingScoreView(compiled, new DeleteResourceChange(compiled.getFullPath(), true));
+			if(support.getPreference(LilyPondRefactoringPreferencePage.REFACTORING_DELETE_COMPILED)) {
+				return compiledChangeWithClosingScoreView(compiled, new DeleteResourceChange(compiled.getFullPath(), true));
+			}
 		default:
 			break;
 		}
