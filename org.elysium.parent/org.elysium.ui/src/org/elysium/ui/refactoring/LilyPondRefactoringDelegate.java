@@ -158,9 +158,9 @@ class LilyPondRefactoringDelegate implements IConditionChecker{
 		ref.addContainerToRefactor(container, arguments);
 	}
 
-	//TODO call only if new preference says "Do automatic include refactoring"
 	public Change adaptIncludes(IProgressMonitor monitor){
-		if(preChangeAlreadyCreated || monitor.isCanceled()){
+		boolean adaptIncludes=refactoringSupport.getPreference(LilyPondRefactoringPreferencePage.REFACTORING_ADAPT_INCLUDES);
+		if(preChangeAlreadyCreated || monitor.isCanceled() || !adaptIncludes){
 			return null;
 		}
 		CompositeChange result = new CompositeChange("\\include statements");

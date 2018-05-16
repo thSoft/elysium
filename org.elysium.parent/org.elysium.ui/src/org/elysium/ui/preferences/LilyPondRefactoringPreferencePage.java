@@ -11,6 +11,7 @@ public class LilyPondRefactoringPreferencePage extends RefactoringPreferencePage
 
 	public static String REFACTORING_IS_ENABLED="LilyPond.Refactoring.enable";
 	public static String REFACTORING_DELETE_COMPILED="LilyPond.Refactoring.DeleteCompiled";
+	public static String REFACTORING_ADAPT_INCLUDES="LilyPond.Refactoring.AdaptIncludes";
 	public static String REFACTORING_WARN_SEARCHPATH="LilyPond.Refactoring.SearchPathAffected";
 	public static String REFACTORING_WARN_VARIABLE_INCLUDE="LilyPond.Refactoring.VariableInclude";
 	public static String REFACTORING_WARN_DELETE_INCLUDED="LilyPond.Refactoring.DeleteIncluded";
@@ -36,6 +37,8 @@ public class LilyPondRefactoringPreferencePage extends RefactoringPreferencePage
 		addField(enabledEditor);
 		dependentFields.add(
 				createBooleanField(REFACTORING_DELETE_COMPILED, "Delete compiled (pdf, midi) when deleting source"));
+		dependentFields.add(
+				createBooleanField(REFACTORING_ADAPT_INCLUDES, "Modify includes pointing to refactored files"));
 		dependentFields.add(
 				createBooleanField(REFACTORING_WARN_DELETE_INCLUDED, "Warn if an indluded file is deleted"));
 		dependentFields.add(
