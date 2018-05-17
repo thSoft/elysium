@@ -85,7 +85,7 @@ public class CompilerProcessBuilderFactory {
 	}
 
 	public static void prepareProcessBuilder(ProcessBuilder processBuilder, IFile file) {
-		File directory = file.getParent().getLocation().toFile();
+		File directory = file.getLocation().removeLastSegments(1).toFile();
 		processBuilder.directory(directory);
 
 		List<String> command = processBuilder.command();
