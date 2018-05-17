@@ -89,7 +89,7 @@ public class CompilerJob extends Job {
 				float executionTimeInSeconds = (stop - start) / 1000f;
 				console.printMeta(MessageFormat.format("LilyPond terminated in {0} seconds.", executionTimeInSeconds));
 				console.firePropertyChange(this, IConsoleConstants.P_CONSOLE_OUTPUT_COMPLETE, null, true);
-				scheduleProjectRefresh();
+				scheduleContainerRefresh();
 				monitor.done();
 			}
 		} catch(OperationCanceledException e){
@@ -107,14 +107,14 @@ public class CompilerJob extends Job {
 		return returnStatus;
 	}
 
-	private void scheduleProjectRefresh(){
-		Job refreshJob = new Job("refresh project") {
+	private void scheduleContainerRefresh(){
+		Job refreshJob = new Job("refresh folder/project") {
 			@Override
 			protected IStatus run(IProgressMonitor monitor) {
 				try {
-					file.getProject().refreshLocal(IResource.DEPTH_INFINITE, monitor);
+					file.getParent().refreshLocal(IResource.DEPTH_ONE, monitor);
 				} catch (CoreException e) {
-					Activator.logError("Couldn't refresh project, please refresh manually", e);
+					Activator.logError("Couldn't refresh file container, please refresh manually", e);
 				}
 				return Status.OK_STATUS;
 			}

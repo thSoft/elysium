@@ -28,6 +28,8 @@ public class CompilerPreferenceInitializer extends AbstractPreferenceInitializer
 
 		preferenceStore.setDefault(CompilerPreferenceConstants.COMPILE_DURING_BUILD.name(), true);
 
+		preferenceStore.setDefault(CompilerPreferenceConstants.ADD_OUTDATED_MARKER_TO_ANCESTORS.name(), false);
+
 		preferenceStore.setDefault(CompilerPreferenceConstants.DELETE_ELYSIUM_MARKERS.name(), true);
 }
 

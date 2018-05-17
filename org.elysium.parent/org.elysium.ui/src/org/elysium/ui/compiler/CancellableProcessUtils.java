@@ -41,7 +41,7 @@ public class CancellableProcessUtils {
 		}, "Canceller for "+processName).start();
 
 		try{
-			new Thread(new Runnable() {
+			Thread consoleThread = new Thread(new Runnable() {
 				@Override
 				public void run() {
 					BufferedReader reader = new BufferedReader(new InputStreamReader(process.getInputStream()));
@@ -55,8 +55,10 @@ public class CancellableProcessUtils {
 					}
 				}
 				
-			}, processName).start();
+			}, processName);
+			consoleThread.start();
 			process.waitFor();
+			consoleThread.join();
 		}finally{
 			done.set(true);
 		}
