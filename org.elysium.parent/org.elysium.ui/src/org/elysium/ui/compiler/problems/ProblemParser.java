@@ -179,21 +179,29 @@ public class ProblemParser {
 				if ((includedResource != null) && (includedResource instanceof IFile)) {
 					return (IFile)includedResource;
 				} else {
-					File maybeAbsoluteFile=new File(path);
-					if(maybeAbsoluteFile.exists()) {
-						IFile[] files = ResourcesPlugin.getWorkspace().getRoot().findFilesForLocationURI(maybeAbsoluteFile.toURI());
+					File file=getFileFromPath(path);
+					if(file.exists()) {
+						IFile[] files = ResourcesPlugin.getWorkspace().getRoot().findFilesForLocationURI(file.toURI());
 						for (IFile iFile : files) {
 							if(iFile.exists()) {
 								return iFile;
 							}
 						}
-						initWorkspaceExternalIssue(maybeAbsoluteFile, line, infoSections);
+						initWorkspaceExternalIssue(file, line, infoSections);
 					}
 					return null;
 				}
 			}
 		}
 		return compiledFile;
+	}
+
+	private File getFileFromPath(String path) {
+		File file=new File(path);
+		if(!file.exists()) {
+			file=compiledFile.getLocation().removeLastSegments(1).append(path).toFile();
+		}
+		return file;
 	}
 
 	private String getMessage(String line) {
