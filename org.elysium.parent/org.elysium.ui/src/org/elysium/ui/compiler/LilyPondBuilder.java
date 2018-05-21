@@ -166,7 +166,7 @@ public class LilyPondBuilder implements IXtextBuilderParticipant {
 								"Continue compilation ignoring unsaved changes",
 								"The compilation involves unsaved files opened in an editor:\n"+
 										Joiner.on(", ").join(openDirtyFilesToCompile)+
-								"\n\nUnsaved changes made to these files are ignored in the compailation. \nDo you want to continue?"));
+								"\n\nUnsaved changes made to these files are ignored in the compilation. \nDo you want to continue?"));
 						
 					}
 				});
