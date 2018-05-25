@@ -1,10 +1,12 @@
 package org.elysium.ui.compiler;
 
 import javax.util.process.OutputProcessor;
+
 import org.eclipse.core.resources.IFile;
 import org.eclipse.core.resources.IMarker;
 import org.eclipse.core.resources.IResource;
 import org.eclipse.core.runtime.CoreException;
+import org.eclipse.ui.console.IHyperlink;
 import org.elysium.ui.Activator;
 import org.elysium.ui.compiler.console.LilyPondConsole;
 import org.elysium.ui.compiler.problems.ProblemHyperlinkAdder;
@@ -18,9 +20,9 @@ import org.elysium.ui.markers.MarkerTypes;
 public class CompilerOutputProcessor implements OutputProcessor {
 
 	/**
-	 * The file being compiled.
+	 * The problem parser for the file being compiled.
 	 */
-	private final IFile file;
+	private final ProblemParser problemParser;
 
 	/**
 	 * The console to which the compiler's output is written.
@@ -28,14 +30,15 @@ public class CompilerOutputProcessor implements OutputProcessor {
 	private final LilyPondConsole console;
 
 	public CompilerOutputProcessor(IFile file, LilyPondConsole console) {
-		this.file = file;
 		this.console = console;
+		this.problemParser=new ProblemParser(file);
 	}
 
 	@Override
 	public void processOutput(String line) {
 		console.print(line);
-		IMarker problemMarker = ProblemParser.parse(file, line);
+		IMarker problemMarker = problemParser.parse(line);
+		IHyperlink wsExternalIssue =problemParser.getWorkspaceExternalHyperlink();
 		if (problemMarker != null) {
 			// If file already contains problem, delete it
 			try {
@@ -52,7 +55,8 @@ public class CompilerOutputProcessor implements OutputProcessor {
 			}
 			// Add hyperlink in any case
 			ProblemHyperlinkAdder.add(console, problemMarker, line);
+		} else if(wsExternalIssue != null) {
+			ProblemHyperlinkAdder.add(console, wsExternalIssue, line);
 		}
 	}
-
 }
