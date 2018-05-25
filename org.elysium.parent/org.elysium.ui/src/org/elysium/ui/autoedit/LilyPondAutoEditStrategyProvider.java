@@ -11,25 +11,30 @@ import org.elysium.formatting2.LilyPondFormatter;
  */
 public class LilyPondAutoEditStrategyProvider extends DefaultAutoEditStrategyProvider {
 
-	private static void accept(IEditStrategyAcceptor acceptor, IAutoEditStrategy strategy) {
+	private static void accept(IEditStrategyAcceptor acceptor, IAutoEditStrategy strategy, String left) {
 		acceptor.accept(strategy, IDocument.DEFAULT_CONTENT_TYPE);
-		acceptor.accept(strategy, TerminalsTokenTypeToPartitionMapper.COMMENT_PARTITION);
+		if(!"{".equals(left)) {//$NON-NLS-1$
+			acceptor.accept(strategy, TerminalsTokenTypeToPartitionMapper.COMMENT_PARTITION);
+		}
+		if("%{".equals(left)) {//$NON-NLS-1$
+			acceptor.accept(strategy, TerminalsTokenTypeToPartitionMapper.SL_COMMENT_PARTITION);
+		}
 	}
 
 	@Override
 	protected void configure(IEditStrategyAcceptor acceptor) {
-		accept(acceptor, defaultIndentLineAutoEditStrategy.get());
+		accept(acceptor, defaultIndentLineAutoEditStrategy.get(), null);
 		for (String[] blockKeywordPair : LilyPondFormatter.BLOCK_KEYWORD_PAIRS) {
-			accept(acceptor, singleLineTerminals.newInstance(blockKeywordPair[0], blockKeywordPair[1]));
-			accept(acceptor, multiLineTerminals.newInstance(blockKeywordPair[0], null, blockKeywordPair[1]));
+			String left=blockKeywordPair[0];
+			accept(acceptor, singleLineTerminals.newInstance(left, blockKeywordPair[1]), left);
+			accept(acceptor, multiLineTerminals.newInstance(left, null, blockKeywordPair[1]), left);
 		}
 		final String[][] brackets = new String[][] { { "[", "]" }, //$NON-NLS-1$ //$NON-NLS-2$
 			{ "\\(", "\\)" }, //$NON-NLS-1$ //$NON-NLS-2$
 			{ "(", ")" } }; //$NON-NLS-1$ //$NON-NLS-2$
 		for (String[] blockKeywordPair : brackets) {
-			accept(acceptor, singleLineTerminals.newInstance(blockKeywordPair[0], blockKeywordPair[1]));
+			accept(acceptor, singleLineTerminals.newInstance(blockKeywordPair[0], blockKeywordPair[1]), null);
 		}
-		accept(acceptor, partitionInsert.newInstance("\"", "\"")); //$NON-NLS-1$ //$NON-NLS-2$
+		accept(acceptor, partitionInsert.newInstance("\"", "\""), null); //$NON-NLS-1$ //$NON-NLS-2$
 	}
-
 }
