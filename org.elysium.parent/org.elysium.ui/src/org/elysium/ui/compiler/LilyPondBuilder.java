@@ -5,12 +5,14 @@ import static org.eclipse.core.resources.IResource.DEPTH_ZERO;
 import static org.elysium.ui.markers.MarkerTypes.OUTDATED;
 
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.HashSet;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Set;
+import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.concurrent.atomic.AtomicLong;
 
 import javax.inject.Inject;
@@ -27,7 +29,10 @@ import org.eclipse.core.runtime.jobs.ISchedulingRule;
 import org.eclipse.core.runtime.jobs.Job;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.util.ResourceUtils;
+import org.eclipse.jface.dialogs.MessageDialog;
 import org.eclipse.jface.preference.IPreferenceStore;
+import org.eclipse.swt.widgets.Display;
+import org.eclipse.ui.PlatformUI;
 import org.eclipse.xtext.builder.IXtextBuilderParticipant;
 import org.eclipse.xtext.resource.IReferenceDescription;
 import org.eclipse.xtext.resource.IResourceDescription;
@@ -35,8 +40,12 @@ import org.eclipse.xtext.resource.IResourceDescription.Delta;
 import org.eclipse.xtext.resource.IResourceDescriptions;
 import org.elysium.LilyPondConstants;
 import org.elysium.ui.Activator;
+import org.elysium.ui.LilyPondPerspective;
 import org.elysium.ui.compiler.outdated.OutdatedDecorator;
 import org.elysium.ui.compiler.preferences.CompilerPreferenceConstants;
+
+import com.google.common.base.Joiner;
+import com.google.common.collect.ImmutableList;
 
 /**
  * Performs automatic incremental build on LilyPond source files.
@@ -138,8 +147,60 @@ public class LilyPondBuilder implements IXtextBuilderParticipant {
 				return o1.getName().compareTo(o2.getName());
 			}
 		});
+		if(!continueWithOpenFilesDirty(sortedFiles)) {
+			return ImmutableList.of();
+		}
 		return sortedFiles;
+	}
 
+	private boolean continueWithOpenFilesDirty(Collection<IFile> filesToCompile) {
+		AtomicBoolean doContinue=new AtomicBoolean(true);
+		List<IFile> allOpenDirtyFiles=LilyPondPerspective.getAllOpenDirtyFiles();
+		if(!allOpenDirtyFiles.isEmpty()) {
+			List<String> openDirtyFilesToCompile=new ArrayList<>();
+			Set<IFile> filesInvolvedInCompilation=new HashSet<>(filesToCompile);
+			filesInvolvedInCompilation.addAll(getTransitivelyIncludedFiles(filesToCompile));
+			for (IFile openDirtyFile : allOpenDirtyFiles) {
+				if(filesInvolvedInCompilation.contains(openDirtyFile)) {
+					openDirtyFilesToCompile.add(openDirtyFile.getName());
+				}
+			}
+			if(!openDirtyFilesToCompile.isEmpty()) {
+				Display.getDefault().syncExec(new Runnable() {
+					@Override
+					public void run() {
+						doContinue.set(MessageDialog.openQuestion(PlatformUI.getWorkbench().getDisplay().getActiveShell(),
+								"Continue compilation ignoring unsaved changes",
+								"The compilation involves unsaved files opened in an editor:\n"+
+										Joiner.on(", ").join(openDirtyFilesToCompile)+
+								"\n\nUnsaved changes made to these files are ignored in the compilation. \nDo you want to continue?"));
+						
+					}
+				});
+			}
+		}
+		return doContinue.get();
+	}
+
+	private Set<IFile> getTransitivelyIncludedFiles(Collection<IFile> files){
+		Set<String> fileURIs=new HashSet<>();
+		for (IFile iFile : files) {
+			fileURIs.add(iFile.getLocationURI().toString());
+			fileURIs.add(URI.createPlatformResourceURI(iFile.getFullPath().toString(), true).toString());
+		}
+		Set<String> includedURI=new HashSet<>();
+		for (IResourceDescription next : getLilyPondDescriptions()) {
+			Iterator<IReferenceDescription> lilyPonds = next.getReferenceDescriptions().iterator();
+			while(lilyPonds.hasNext()) {
+				IReferenceDescription ll = lilyPonds.next();
+				if(ll.getEReference()==null) {
+					if(fileURIs.contains(ll.getSourceEObjectUri().toString())) {
+						includedURI.add(ll.getTargetEObjectUri().toString());
+					}
+				}
+			}
+		}
+		return getFilesForUris(includedURI);
 	}
 
 	/**
@@ -155,12 +216,7 @@ public class LilyPondBuilder implements IXtextBuilderParticipant {
 		}
 
 		Set<String> includingURIs=new HashSet<>();
-
-		IWorkspaceRoot root = ResourcesPlugin.getWorkspace().getRoot();
-
-		Iterator<IResourceDescription> indexIterator = index.getAllResourceDescriptions().iterator();
-		while(indexIterator.hasNext()) {
-			IResourceDescription next = indexIterator.next();
+		for (IResourceDescription next : getLilyPondDescriptions()) {
 			Iterator<IReferenceDescription> lilyPonds = next.getReferenceDescriptions().iterator();
 			while(lilyPonds.hasNext()) {
 				IReferenceDescription ll = lilyPonds.next();
@@ -172,19 +228,38 @@ public class LilyPondBuilder implements IXtextBuilderParticipant {
 			}
 		}
 
-		for (String uriString : includingURIs) {
+		files.addAll(getFilesForUris(includingURIs));
+	}
+
+	private Set<IFile> getFilesForUris(Collection<String> uris){
+		IWorkspaceRoot root = ResourcesPlugin.getWorkspace().getRoot();
+		Set<IFile> result=new HashSet<>();
+		for (String uriString : uris) {
 			URI includingUri = URI.createURI(uriString);
 			if(includingUri.isPlatform()) {
 				IFile file = root.getFile(new Path(includingUri.toPlatformString(true)));
-				files.add(file);
+				result.add(file);
 			}else if(includingUri.isFile()){
 				IFile[] foundFiles = root.findFilesForLocationURI(java.net.URI.create(uriString));
 				for (IFile iFile : foundFiles) {
 					if(iFile.exists()) {
-						files.add(iFile);
+						result.add(iFile);
 					}
 				}
 			}
 		}
+		return result;
+	}
+
+	private List<IResourceDescription> getLilyPondDescriptions(){
+		List<IResourceDescription> result = new ArrayList<>();
+		Iterator<IResourceDescription> indexIterator = index.getAllResourceDescriptions().iterator();
+		while(indexIterator.hasNext()) {
+			IResourceDescription next = indexIterator.next();
+			if(LilyPondConstants.EXTENSIONS.contains(next.getURI().fileExtension())){
+				result.add(next);
+			}
+		}
+		return result;
 	}
 }

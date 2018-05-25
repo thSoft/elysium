@@ -1,7 +1,10 @@
 package org.elysium.ui.refactoring;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 import org.eclipse.core.resources.IContainer;
 import org.eclipse.core.resources.IFile;
@@ -19,6 +22,9 @@ import org.eclipse.ltk.core.refactoring.participants.RefactoringArguments;
 import org.eclipse.ltk.core.refactoring.participants.ResourceChangeChecker;
 import org.eclipse.xtext.resource.IResourceDescription;
 import org.elysium.ui.Activator;
+import org.elysium.ui.LilyPondPerspective;
+
+import com.google.common.base.Joiner;
 
 /**
  * wrapper for a single refactoring operation
@@ -90,8 +96,27 @@ class LilyPondRefactoringDelegate implements IConditionChecker{
 			throws CoreException {
 		initHandlers(monitor);
 		RefactoringStatus result=new RefactoringStatus();
-		addHandlerIssues(result, monitor);
-		ref.addSearchPathAffectedIssues(result);
+		List<String> refactoredOpenDirtyFiles = getRefactoredOpenDirtyFiles();
+		if(refactoredOpenDirtyFiles.isEmpty()) {
+			addHandlerIssues(result, monitor);
+			ref.addSearchPathAffectedIssues(result);
+		}else {
+			result.addFatalError("Refactoring involves open unsaved files: "+Joiner.on(", ").join(refactoredOpenDirtyFiles));
+		}
+		return result;
+	}
+
+	private List<String> getRefactoredOpenDirtyFiles(){
+		Set<IFile> refactoredOpenDirtyFile=new HashSet<>();
+		List<IFile> allOpenDirtyFiles = LilyPondPerspective.getAllOpenDirtyFiles();
+		for (LilyPondSourceFileRefactoring handler : handlers) {
+			refactoredOpenDirtyFile.addAll(handler.getRefactoredFiles(allOpenDirtyFiles));
+		}
+		List<String> result=new ArrayList<>();
+		for (IFile iFile : refactoredOpenDirtyFile) {
+			result.add(iFile.getName());
+		}
+		Collections.sort(result);
 		return result;
 	}
 
