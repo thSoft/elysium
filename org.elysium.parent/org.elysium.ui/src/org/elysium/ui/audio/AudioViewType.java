@@ -3,6 +3,7 @@ package org.elysium.ui.audio;
 import org.eclipse.core.resources.IFile;
 import org.eclipse.ui.views.midi.MidiViewType;
 import org.eclipse.util.ResourceUtils;
+import org.elysium.LilyPondConstants;
 import org.elysium.ui.Activator;
 
 /**
@@ -17,7 +18,16 @@ public class AudioViewType extends MidiViewType {
 	 */
 	@Override
 	public IFile getFile(IFile sourceFile) {
-		return ResourceUtils.replaceExtension(sourceFile, EXTENSION);
+		String replaceExtension = "dontshow"; //$NON-NLS-1$
+		if(mayHaveMatchingMidi(sourceFile)) {
+			replaceExtension = EXTENSION;
+		}
+		return ResourceUtils.replaceExtension(sourceFile, replaceExtension);
+	}
+
+	private boolean mayHaveMatchingMidi(IFile sourceFile) {
+		String extension=sourceFile.getFileExtension();
+		return LilyPondConstants.EXTENSION.equals(extension) || LilyPondConstants.COMPILED_EXTENSIONS.contains(extension);
 	}
 
 }

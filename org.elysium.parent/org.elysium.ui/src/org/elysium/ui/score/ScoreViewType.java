@@ -10,6 +10,7 @@ import org.eclipse.ui.views.pdf.PdfViewPage;
 import org.eclipse.ui.views.pdf.PdfViewType;
 import org.eclipse.util.ResourceUtils;
 import org.eclipse.util.UiUtils;
+import org.elysium.LilyPondConstants;
 import org.elysium.ui.Activator;
 
 /**
@@ -24,7 +25,16 @@ public class ScoreViewType extends PdfViewType {
 	 */
 	@Override
 	public IFile getFile(IFile sourceFile) {
-		return ResourceUtils.replaceExtension(sourceFile, EXTENSION);
+		String replaceExtension = "dontshow"; //$NON-NLS-1$
+		if(mayHaveMatchingPdf(sourceFile)) {
+			replaceExtension = EXTENSION;
+		}
+		return ResourceUtils.replaceExtension(sourceFile, replaceExtension);
+	}
+
+	private boolean mayHaveMatchingPdf(IFile sourceFile) {
+		String extension=sourceFile.getFileExtension();
+		return LilyPondConstants.EXTENSION.equals(extension) || LilyPondConstants.COMPILED_EXTENSIONS.contains(extension);
 	}
 
 	public static IFile getScoreFile() {
