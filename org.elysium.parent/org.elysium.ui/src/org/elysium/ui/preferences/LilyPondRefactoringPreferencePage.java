@@ -40,11 +40,11 @@ public class LilyPondRefactoringPreferencePage extends RefactoringPreferencePage
 		dependentFields.add(
 				createBooleanField(REFACTORING_ADAPT_INCLUDES, "Modify includes pointing to refactored files"));
 		dependentFields.add(
-				createBooleanField(REFACTORING_WARN_DELETE_INCLUDED, "Warn if an indluded file is deleted"));
+				createBooleanField(REFACTORING_WARN_DELETE_INCLUDED, "Warn if an included file is deleted"));
 		dependentFields.add(
 				createBooleanField(REFACTORING_WARN_SEARCHPATH, "Warn if a search path is affected by a refactoring"));
 		dependentFields.add(
-				createBooleanField(REFACTORING_WARN_VARIABLE_INCLUDE, "Warn if a there are variable includes (refactoring not supported)"));
+				createBooleanField(REFACTORING_WARN_VARIABLE_INCLUDE, "Warn if there are variable includes (refactoring not supported)"));
 	}
 
 	private BooleanFieldEditor createBooleanField(String key, String fieldCaption) {
