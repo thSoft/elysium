@@ -1,9 +1,7 @@
 package org.elysium.ui.compiler.handlers;
 
-import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.Iterator;
-import java.util.List;
 import java.util.Set;
 
 import javax.inject.Inject;
@@ -49,7 +47,7 @@ public class RecompileSelectedHandler extends AbstractHandler {
 					containedFiles.add((IFile)element);
 				} else if (element instanceof IContainer) {
 					IContainer container = (IContainer)element;
-					containedFiles.addAll(getFilesToCompileFromContainer(container));
+					containedFiles.addAll(ResourceUtils.getAllFiles(container));
 				}
 				for (IFile file : containedFiles) {
 					IFile source = getLilyPondSourceFile(file);
@@ -65,14 +63,13 @@ public class RecompileSelectedHandler extends AbstractHandler {
 				files.add(source);	
 			}
 		}
-		builder.get().compile(files);
+		builder.get().compile(filterFilesToCompile(files));
 		return null;
 	}
 
-	private List<IFile> getFilesToCompileFromContainer(IContainer container){
-		List<IFile> allFiles=ResourceUtils.getAllFiles(container);
+	private Set<IFile> filterFilesToCompile(Set<IFile> allFiles){
 		if(compileOutdatedOnly) {
-			List<IFile> outdated=new ArrayList<>();
+			Set<IFile> outdated=new HashSet<>();
 			for (IFile file : allFiles) {
 				try {
 					if(file.findMarkers(MarkerTypes.OUTDATED, false, IResource.DEPTH_ZERO).length>0) {
