@@ -25,14 +25,17 @@ import org.eclipse.util.EditorUtils;
 import org.eclipse.util.ResourceUtils;
 import org.elysium.LilyPondConstants;
 import org.elysium.ui.compiler.LilyPondBuilder;
+import org.elysium.ui.markers.MarkerTypes;
 
 public class RecompileSelectedHandler extends AbstractHandler {
 
 	@Inject
 	private Provider<LilyPondBuilder> builder;
+	private boolean compileOutdatedOnly = false;
 
 	@Override
 	public Object execute(ExecutionEvent event) throws ExecutionException {
+		compileOutdatedOnly = Boolean.parseBoolean(event.getParameter("org.elysium.ui.commands.RecompileSelected.outdatedOnly"));
 		Set<IFile> files = new HashSet<IFile>();
 		IWorkbenchPage activePage = HandlerUtil.getActiveWorkbenchWindow(event).getActivePage();
 		ISelection selection = activePage.getSelection();
@@ -60,8 +63,25 @@ public class RecompileSelectedHandler extends AbstractHandler {
 				files.add(source);	
 			}
 		}
-		builder.get().compile(files);
+		builder.get().compile(filterFilesToCompile(files));
 		return null;
+	}
+
+	private Set<IFile> filterFilesToCompile(Set<IFile> allFiles){
+		if(compileOutdatedOnly) {
+			Set<IFile> outdated=new HashSet<>();
+			for (IFile file : allFiles) {
+				try {
+					if(file.findMarkers(MarkerTypes.OUTDATED, false, IResource.DEPTH_ZERO).length>0) {
+						outdated.add(file);
+					}
+				} catch (CoreException e) {
+					//ignore and return all files
+				}
+			}
+			return outdated;
+		}
+		return allFiles;
 	}
 
 	private IFile getLilyPondSourceFile(IFile file) {

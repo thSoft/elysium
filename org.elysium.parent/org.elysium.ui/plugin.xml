@@ -83,7 +83,16 @@
   <extension point="org.eclipse.ui.commands">
     <command id="org.elysium.ui.commands.RecompileEdited" name="Recompile Edited" categoryId="org.elysium.ui.commandCategories.LilyPond"/>
 	<command id="org.elysium.ui.commands.RecompileViewed" name="Recompile Viewed" categoryId="org.elysium.ui.commandCategories.LilyPond"/>
-    <command id="org.elysium.ui.commands.RecompileSelected" name="Recompile" categoryId="org.elysium.ui.commandCategories.LilyPond"/>
+    <command
+          categoryId="org.elysium.ui.commandCategories.LilyPond"
+          id="org.elysium.ui.commands.RecompileSelected"
+          name="Recompile">
+       <commandParameter
+             id="org.elysium.ui.commands.RecompileSelected.outdatedOnly"
+             name="name"
+             optional="true">
+       </commandParameter>
+    </command>
     <command id="org.elysium.ui.commands.SyntaxUpdateSelected" name="Update Syntax" categoryId="org.elysium.ui.commandCategories.LilyPond"/>
   </extension>
   <extension point="org.eclipse.ui.handlers">
@@ -436,7 +445,16 @@
             <equals value="org.elysium.ui.perspectives.LilyPond"/>
           </with>
         </visibleWhen>
-        <command commandId="org.elysium.ui.commands.RecompileSelected"/>
+        <command commandId="org.elysium.ui.commands.RecompileSelected" label="Recompile All"/>
+        <command
+              commandId="org.elysium.ui.commands.RecompileSelected"
+              icon="icons/outdated/Marker.png"
+              label="Recompile Outdated">
+           <parameter
+                 name="org.elysium.ui.commands.RecompileSelected.outdatedOnly"
+                 value="true">
+           </parameter>
+        </command>
         <command commandId="org.elysium.ui.commands.SyntaxUpdateSelected"/>
       </menu>
     </menuContribution>
