@@ -37,6 +37,7 @@ import org.eclipse.ltk.internal.core.refactoring.resource.DeleteResourcesProcess
 import org.eclipse.util.ResourceUtils;
 import org.elysium.LilyPondConstants;
 import org.elysium.ui.Activator;
+import org.elysium.ui.preferences.LilyPondRefactoringPreferencePage;
 import org.elysium.ui.refactoring.LilyPondRefactoringDelegate.Operation;
 
 import com.google.common.io.Files;
@@ -189,7 +190,9 @@ class LilyPondRefactoring {
 		case move:
 			return compiledChangeWithClosingScoreView(compiled, new MoveResourceChange(compiled, (IContainer)((MoveArguments)arguments).getDestination()));
 		case delete:
-			return compiledChangeWithClosingScoreView(compiled, new DeleteResourceChange(compiled.getFullPath(), true));
+			if(support.getPreference(LilyPondRefactoringPreferencePage.REFACTORING_DELETE_COMPILED)) {
+				return compiledChangeWithClosingScoreView(compiled, new DeleteResourceChange(compiled.getFullPath(), true));
+			}
 		default:
 			break;
 		}
@@ -282,7 +285,7 @@ class LilyPondRefactoring {
 	}
 
 	public void addSearchPathAffectedIssues(RefactoringStatus status) {
-		if(support.warnSearchPathAffected()){
+		if(support.getPreference(LilyPondRefactoringPreferencePage.REFACTORING_WARN_SEARCHPATH)){
 			for (String searchFolder : getChangedSearchFolders()) {
 				status.addWarning(MessageFormat.format("search path {0} is affected by the refactoring!", searchFolder));
 			}

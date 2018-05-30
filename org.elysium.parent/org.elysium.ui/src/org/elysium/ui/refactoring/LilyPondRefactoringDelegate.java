@@ -23,6 +23,7 @@ import org.eclipse.ltk.core.refactoring.participants.ResourceChangeChecker;
 import org.eclipse.xtext.resource.IResourceDescription;
 import org.elysium.ui.Activator;
 import org.elysium.ui.LilyPondPerspective;
+import org.elysium.ui.preferences.LilyPondRefactoringPreferencePage;
 
 import com.google.common.base.Joiner;
 
@@ -55,7 +56,7 @@ class LilyPondRefactoringDelegate implements IConditionChecker{
 		//ensure that the same instance is used for the refactoring, even if multiple files and folders are involved
 		LilyPondRefactoringDelegate refactoringDelegate = (LilyPondRefactoringDelegate)context.getChecker(LilyPondRefactoringDelegate.class);
 		if(refactoringDelegate==null){
-			refactoringDelegate=new LilyPondRefactoringDelegate(op, refactorings);
+			refactoringDelegate=createDelegate(op, refactorings);
 			try {
 				context.add(refactoringDelegate);
 				refactoringDelegate.initCompiledFiles(context);
@@ -64,6 +65,14 @@ class LilyPondRefactoringDelegate implements IConditionChecker{
 			}
 		}
 		return refactoringDelegate;
+	}
+
+	private static LilyPondRefactoringDelegate createDelegate(Operation op, LilyPondRefactoringInjects refactorings) {
+		if(refactorings.getPreference(LilyPondRefactoringPreferencePage.REFACTORING_IS_ENABLED)) {
+			return new LilyPondRefactoringDelegate(op, refactorings);
+		} else {
+			return new NullImpl(op, refactorings);
+		}
 	}
 
 	private void initCompiledFiles(CheckConditionsContext context){
@@ -149,9 +158,9 @@ class LilyPondRefactoringDelegate implements IConditionChecker{
 		ref.addContainerToRefactor(container, arguments);
 	}
 
-	//TODO call only if new preference says "Do automatic include refactoring"
 	public Change adaptIncludes(IProgressMonitor monitor){
-		if(preChangeAlreadyCreated || monitor.isCanceled()){
+		boolean adaptIncludes=refactoringSupport.getPreference(LilyPondRefactoringPreferencePage.REFACTORING_ADAPT_INCLUDES);
+		if(preChangeAlreadyCreated || monitor.isCanceled() || !adaptIncludes){
 			return null;
 		}
 		CompositeChange result = new CompositeChange("\\include statements");
@@ -174,6 +183,28 @@ class LilyPondRefactoringDelegate implements IConditionChecker{
 		}else{
 			changeAlreadyCreated=true;
 			return ref.apply(monitor);
+		}
+	}
+
+	private static class NullImpl extends LilyPondRefactoringDelegate{
+		public NullImpl(Operation op, LilyPondRefactoringInjects refactorings) {
+			super(op, refactorings);
+		}
+		@Override
+		public void addContainerToRefactor(IContainer container, RefactoringArguments arguments) {}
+		@Override
+		public void addFileToRefactor(IFile file, RefactoringArguments arguments) {}
+		@Override
+		public Change adaptIncludes(IProgressMonitor monitor) {
+			return null;
+		}
+		@Override
+		public Change apply(IProgressMonitor monitor) throws CoreException {
+			return null;
+		}
+		@Override
+		public RefactoringStatus check(IProgressMonitor monitor) throws CoreException {
+			return new RefactoringStatus();
 		}
 	}
 }

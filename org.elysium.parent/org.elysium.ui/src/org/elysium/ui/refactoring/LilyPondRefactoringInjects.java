@@ -43,12 +43,8 @@ class LilyPondRefactoringInjects {
 		return refactoringResourceSet;
 	}
 
-	public boolean warnSearchPathAffected(){
-		return preferenceStoreAccess.getPreferenceStore().getBoolean(LilyPondRefactoringPreferencePage.REFACTORING_WARN_SEARCHPATH);
-	}
-
-	public boolean warnVariableInclude(){
-		return preferenceStoreAccess.getPreferenceStore().getBoolean(LilyPondRefactoringPreferencePage.REFACTORING_WARN_VARIABLE_INCLUDE);
+	public boolean getPreference(String refactoringPreferenceKey) {
+		return preferenceStoreAccess.getPreferenceStore().getBoolean(refactoringPreferenceKey);
 	}
 
 	public Iterable<IResourceDescription> getAllResourceDescriptions() {
