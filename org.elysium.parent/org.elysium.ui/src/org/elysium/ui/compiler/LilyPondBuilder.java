@@ -108,8 +108,9 @@ public class LilyPondBuilder implements IXtextBuilderParticipant {
 		compile(files, true, true, false);
 	}
 
-	private void compile(Set<IFile> files, boolean executeLilyPondCompilation, boolean deleteMarkers, boolean markDirty) {
+	private void compile(Set<IFile> fileSet, boolean executeLilyPondCompilation, boolean deleteMarkers, boolean markDirty) {
 		int maxParallelCalls = Activator.getInstance().getPreferenceStore().getInt(CompilerPreferenceConstants.PARALLEL_COMPILES.name());
+		Set<IFile> files=new HashSet<>(fileSet);
 		addAllIncludingFiles(files);
 		if(markDirty) {
 			markDirty(files);
