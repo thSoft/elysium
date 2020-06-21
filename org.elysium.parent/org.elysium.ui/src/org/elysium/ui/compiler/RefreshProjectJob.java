@@ -25,17 +25,25 @@ class RefreshProjectJob extends Job {
 
 	private OutdatedDecorator outdatedDecorator = OutdatedDecorator.getInstance();
 	private boolean markContainers;
+	private boolean postCompilationRefresh;
 
-	public RefreshProjectJob(boolean markContainers) {
+	public RefreshProjectJob(boolean markContainers, boolean postCompilationRefresh) {
 		super("refresh projects");
 		this.markContainers=markContainers;
+		this.postCompilationRefresh=postCompilationRefresh;
 	}
 
 	private Set<IProject> projects=new HashSet<>();
+	private Set<IFile> files=new HashSet<>();
 	private List<CompilerJob> jobs=new ArrayList<>();
 
-	public void addFile(IFile file) {
-		projects.add(file.getProject());
+	public void addFile(LilyPondFilesToCompile data) {
+		projects.add(data.getMainFile().getProject());
+		if(postCompilationRefresh) {
+			files.addAll(data.getAllIncludedFiles());
+		}else {
+			files.addAll(data.getChangedFiles());
+		}
 	}
 
 	public void waitFor(CompilerJob compilerJob) {
@@ -70,6 +78,20 @@ class RefreshProjectJob extends Job {
 				refreshJob.schedule();
 			}
 		}
+		Job refreshJob = new Job("refreshing files") {
+			@Override
+			protected IStatus run(IProgressMonitor monitor) {
+				for (IFile file : files) {
+					if (!monitor.isCanceled()) {
+						refreshMarker(file);
+					}
+				}
+				return Status.OK_STATUS;
+			}
+
+		};
+		refreshJob.setRule(null);
+		refreshJob.schedule();
 		return Status.OK_STATUS;
 	}
 

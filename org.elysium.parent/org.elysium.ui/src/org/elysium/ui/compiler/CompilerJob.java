@@ -36,18 +36,18 @@ import org.elysium.ui.compiler.outdated.OutdatedDecorator;
 public class CompilerJob extends Job {
 
 	/**
-	 * The file being compiled.
+	 * data about the file to be compiled as well as its included files and changed files
 	 */
-	private final IFile file;
+	private final LilyPondFilesToCompile data;
 	private final boolean executeLilyPondCompile;
 	private boolean deleteMarkers;
 	private static final AtomicBoolean modifyLilyPondPathQuestionDialogIsOpen=new AtomicBoolean(false);
 
 
-	public CompilerJob(IFile file, boolean executeLilyPondCompile, boolean deleteMarkers) {
-		super(MessageFormat.format("Compiling {0}", file.getFullPath().toString()));
+	public CompilerJob(LilyPondFilesToCompile data, boolean executeLilyPondCompile, boolean deleteMarkers) {
+		super(MessageFormat.format("Compiling {0}", data.getMainFile().getFullPath().toString()));
 		setProperty(IProgressConstants.ICON_PROPERTY, Activator.getImageDescriptor("icons/compiler/Command.png")); //$NON-NLS-1$
-		this.file = file;
+		this.data = data;
 		this.executeLilyPondCompile=executeLilyPondCompile;
 		this.deleteMarkers=deleteMarkers;
 	}
@@ -55,6 +55,7 @@ public class CompilerJob extends Job {
 	@Override
 	protected IStatus run(final IProgressMonitor monitor) {
 		IStatus returnStatus=Status.OK_STATUS;
+		IFile file=data.getMainFile();
 		monitor.beginTask("LilyPond Compilation: "+file.getName(), 4);
 		boolean fullCompile=LilyPondConstants.EXTENSION.equals(file.getFileExtension()) && executeLilyPondCompile;
 		LilyPondConsole console=null;
@@ -112,7 +113,7 @@ public class CompilerJob extends Job {
 			@Override
 			protected IStatus run(IProgressMonitor monitor) {
 				try {
-					file.getParent().refreshLocal(IResource.DEPTH_ONE, monitor);
+					data.getMainFile().getParent().refreshLocal(IResource.DEPTH_ONE, monitor);
 				} catch (CoreException e) {
 					Activator.logError("Couldn't refresh file container, please refresh manually", e);
 				}
@@ -130,11 +131,15 @@ public class CompilerJob extends Job {
 	}
 
 	private void preprocess(final IProgressMonitor monitor) {
-		checkCancelled(monitor);
 		if(deleteMarkers){
 			// Delete problem markers
 			try {
-				file.deleteMarkers(IMarker.PROBLEM, true, IResource.DEPTH_ZERO);
+				checkCancelled(monitor);
+				data.getMainFile().deleteMarkers(IMarker.PROBLEM, true, IResource.DEPTH_ZERO);
+				for (IFile iFile : data.getChangedFiles()) {
+					checkCancelled(monitor);
+					iFile.deleteMarkers(IMarker.PROBLEM, true, IResource.DEPTH_ZERO);
+				}
 			} catch (CoreException e) {
 				Activator.logError("Couldn't delete problem markers", e);
 			}
@@ -146,7 +151,7 @@ public class CompilerJob extends Job {
 		checkCancelled(monitor);
 		monitor.subTask("clean up");
 		try {
-			removeOutdatedMarker(file);
+			removeOutdatedMarker(data.getMainFile());
 		} catch (CoreException e) {
 			Activator.logError("Couldn't remove outdated markers", e);
 		}
@@ -191,7 +196,7 @@ public class CompilerJob extends Job {
 	public boolean belongsTo(Object family) {
 		if (family instanceof CompilerJob) {
 			CompilerJob that = (CompilerJob)family;
-			return file.equals(that.file);
+			return data.getMainFile().equals(that.data.getMainFile());
 		} else {
 			return false;
 		}
