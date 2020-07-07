@@ -105,7 +105,7 @@ public class LilyPondImportUriGlobalScopeProvider extends AbstractGlobalScopePro
 		return new XtextResourceSet();
 	}
 
-	protected LinkedHashSet<URI> getImportedUris(final Resource resource) {
+	public LinkedHashSet<URI> getImportedUris(final Resource resource) {
 		return getCache().get(ImportUriGlobalScopeProvider.class.getName(), resource, new Provider<LinkedHashSet<URI>>() {
 
 			@Override

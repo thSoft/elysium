@@ -17,12 +17,15 @@ import org.eclipse.xtext.resource.XtextResource;
 import org.eclipse.xtext.resource.impl.DefaultReferenceDescription;
 import org.eclipse.xtext.resource.impl.DefaultResourceDescriptionStrategy;
 import org.eclipse.xtext.util.IAcceptor;
+import org.elysium.LilyPondConstants;
 import org.elysium.lilypond.Assignment;
 import org.elysium.lilypond.Include;
 import org.elysium.lilypond.LilyPond;
+import org.elysium.scoping.LilyPondImportUriGlobalScopeProvider;
 
 import com.google.common.base.Joiner;
 import com.google.common.base.Splitter;
+import com.google.inject.Inject;
 import com.google.inject.Provider;
 
 /**
@@ -30,6 +33,9 @@ import com.google.inject.Provider;
  * changed, the file doesn't have to be recompiled.
  */
 public class LilyPondResourceDescriptionStrategy extends DefaultResourceDescriptionStrategy {
+
+	@Inject
+	LilyPondImportUriGlobalScopeProvider scopeProvider;
 
 	@Override
 	//only root assignments are visible to the outside
@@ -87,7 +93,13 @@ public class LilyPondResourceDescriptionStrategy extends DefaultResourceDescript
 		String allIncludes = resource.getCache().get("allIncludes", resource, new Provider<String>() {
 			@Override
 			public String get() {
-				return "";//value should already have been provided by LilyPondImportUriGlobalScopeProvider
+				//includes should already have been calculated by LilyPondImportUriGlobalScopeProvider
+				//if there are none for a ly-file, we do the calculation for marking parent files
+				//as dirty and for removing error markers from included files
+				if(LilyPondConstants.EXTENSION.equals(resource.getURI().fileExtension())) {
+					return Joiner.on("\n").join(scopeProvider.getImportedUris(resource));
+				}
+				return "";
 			}
 		});
 		if(!allIncludes.isEmpty()) {
