@@ -17,7 +17,7 @@
   <setupTask
       xsi:type="setup:VariableTask"
       name="eclipse.target.platform"
-      defaultValue="Mars"
+      defaultValue="2020-12"
       storageURI="scope://Workspace"
       label=""/>
   <setupTask
@@ -122,9 +122,27 @@
       xsi:type="setup:ResourceCreationTask"
       excludedTriggers="BOOTSTRAP"
       predecessor="//@setupTasks.8"
-      content="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; standalone=&quot;no&quot;?>&#xA;&lt;launchConfiguration type=&quot;org.eclipse.jdt.junit.launchconfig&quot;>&#xA;&lt;listAttribute key=&quot;org.eclipse.debug.core.MAPPED_RESOURCE_PATHS&quot;>&#xA;&lt;listEntry value=&quot;/org.elysium.tests&quot;/>&#xA;&lt;/listAttribute>&#xA;&lt;listAttribute key=&quot;org.eclipse.debug.core.MAPPED_RESOURCE_TYPES&quot;>&#xA;&lt;listEntry value=&quot;4&quot;/>&#xA;&lt;/listAttribute>&#xA;&lt;stringAttribute key=&quot;org.eclipse.jdt.junit.CONTAINER&quot; value=&quot;=org.elysium.tests&quot;/>&#xA;&lt;booleanAttribute key=&quot;org.eclipse.jdt.junit.KEEPRUNNING_ATTR&quot; value=&quot;false&quot;/>&#xA;&lt;stringAttribute key=&quot;org.eclipse.jdt.junit.TESTNAME&quot; value=&quot;&quot;/>&#xA;&lt;stringAttribute key=&quot;org.eclipse.jdt.junit.TEST_KIND&quot; value=&quot;org.eclipse.jdt.junit.loader.junit4&quot;/>&#xA;&lt;stringAttribute key=&quot;org.eclipse.jdt.launching.MAIN_TYPE&quot; value=&quot;&quot;/>&#xA;&lt;stringAttribute key=&quot;org.eclipse.jdt.launching.PROJECT_ATTR&quot; value=&quot;org.elysium.tests&quot;/>&#xA;&lt;stringAttribute key=&quot;org.eclipse.jdt.launching.VM_ARGUMENTS&quot; value=&quot;-Dlilypond.path=${lilypondlocation}&quot;/>&#xA;&lt;/launchConfiguration>"
       targetURL="${git.clone.elysium.location|uri}/org.elysium.parent/org.elysium.tests/.launch/Elysium Tests.launch"
-      encoding="UTF-8"/>
+      encoding="UTF-8">
+    <content>
+      &lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot; standalone=&quot;no&quot;?>
+      &lt;launchConfiguration type=&quot;org.eclipse.jdt.junit.launchconfig&quot;>
+      &lt;listAttribute key=&quot;org.eclipse.debug.core.MAPPED_RESOURCE_PATHS&quot;>
+      &lt;listEntry value=&quot;/org.elysium.tests&quot;/>
+      &lt;/listAttribute>
+      &lt;listAttribute key=&quot;org.eclipse.debug.core.MAPPED_RESOURCE_TYPES&quot;>
+      &lt;listEntry value=&quot;4&quot;/>
+      &lt;/listAttribute>
+      &lt;stringAttribute key=&quot;org.eclipse.jdt.junit.CONTAINER&quot; value=&quot;=org.elysium.tests&quot;/>
+      &lt;booleanAttribute key=&quot;org.eclipse.jdt.junit.KEEPRUNNING_ATTR&quot; value=&quot;false&quot;/>
+      &lt;stringAttribute key=&quot;org.eclipse.jdt.junit.TESTNAME&quot; value=&quot;&quot;/>
+      &lt;stringAttribute key=&quot;org.eclipse.jdt.junit.TEST_KIND&quot; value=&quot;org.eclipse.jdt.junit.loader.junit4&quot;/>
+      &lt;stringAttribute key=&quot;org.eclipse.jdt.launching.MAIN_TYPE&quot; value=&quot;&quot;/>
+      &lt;stringAttribute key=&quot;org.eclipse.jdt.launching.PROJECT_ATTR&quot; value=&quot;org.elysium.tests&quot;/>
+      &lt;stringAttribute key=&quot;org.eclipse.jdt.launching.VM_ARGUMENTS&quot; value=&quot;-Dlilypond.path=${lilypondlocation}&quot;/>
+      &lt;/launchConfiguration>
+    </content>
+  </setupTask>
   <setupTask
       xsi:type="setup:EclipseIniTask"
       option="-Doomph.redirection.elysium"
@@ -158,23 +176,23 @@
       label="master">
     <setupTask
         xsi:type="setup.p2:P2Task"
-        id="Xtext.stuff.210"
-        label="Xtext 2.10 specifics">
+        id="Xtext.stuff"
+        label="Xtext">
       <requirement
           name="org.eclipse.xtext.sdk.feature.group"
-          versionRange="[2.10.0,2.11.0)"/>
+          versionRange="[2.24.0,2.25.0)"/>
       <requirement
           name="org.eclipse.emf.mwe2.launcher.feature.group"
-          versionRange="[2.9.0,2.11.0)"/>
+          versionRange="[2.12.0,2.13.0)"/>
     </setupTask>
     <setupTask
         xsi:type="setup.targlets:TargletTask">
       <targlet
-          name="Xtext 2.10"
+          name="Xtext"
           activeRepositoryList="${eclipse.target.platform}">
         <requirement
             name="org.eclipse.xtext.sdk.feature.group"
-            versionRange="[2.10.0,2.11.0)"/>
+            versionRange="[2.24.0,2.25.0)"/>
         <requirement
             name="org.eclipse.platform.feature.group"/>
         <requirement
@@ -255,110 +273,20 @@
           <repository
               url="${xtext.release.composite}"/>
         </repositoryList>
+        <repositoryList
+            name="2020-12">
+          <repository
+              url="http://download.eclipse.org/releases/2020-12/"/>
+          <repository
+              url="${antlr-gen.update.site}"/>
+          <repository
+              url="${xtexttools.update.site}"/>
+          <repository
+              url="${xtext.release.composite}"/>
+        </repositoryList>
       </targlet>
     </setupTask>
     <description>master</description>
-  </stream>
-  <stream name="xtext27"
-      label="xtext27">
-    <setupTask
-        xsi:type="setup.p2:P2Task"
-        id="Xtext.stuff.27"
-        label="Xtext 2.7 specifics">
-      <requirement
-          name="org.eclipse.xtext.sdk.feature.group"
-          versionRange="[2.7.0,2.8.0)"/>
-      <requirement
-          name="org.eclipse.emf.mwe2.launcher.feature.group"
-          versionRange="[2.7.0,2.8.0)"/>
-    </setupTask>
-    <setupTask
-        xsi:type="setup.targlets:TargletTask">
-      <targlet
-          name="Xtext 2.7"
-          activeRepositoryList="${eclipse.target.platform}">
-        <requirement
-            name="org.eclipse.xtext.sdk.feature.group"
-            versionRange="[2.7.0,2.8.0)"/>
-        <requirement
-            name="org.eclipse.platform.feature.group"/>
-        <requirement
-            name="de.libutzki.xtext.nodemodeloutline.feature.feature.group"
-            optional="true"/>
-        <requirement
-            name="de.libutzki.xtext.semanticmodeloutline.feature.feature.group"
-            optional="true"/>
-        <requirement
-            name="de.itemis.xtext.antlr.sdk.feature.group"/>
-        <repositoryList
-            name="Oxygen">
-          <repository
-              url="http://download.eclipse.org/releases/oxygen/"/>
-          <repository
-              url="${antlr-gen.update.site}"/>
-          <repository
-              url="${xtexttools.update.site}"/>
-          <repository
-              url="${xtext.release.composite}"/>
-        </repositoryList>
-        <repositoryList
-            name="Neon">
-          <repository
-              url="http://download.eclipse.org/releases/neon/"/>
-          <repository
-              url="${antlr-gen.update.site}"/>
-          <repository
-              url="${xtexttools.update.site}"/>
-          <repository
-              url="${xtext.release.composite}"/>
-        </repositoryList>
-        <repositoryList
-            name="Mars">
-          <repository
-              url="http://download.eclipse.org/releases/mars/"/>
-          <repository
-              url="${antlr-gen.update.site}"/>
-          <repository
-              url="${xtexttools.update.site}"/>
-          <repository
-              url="${xtext.release.composite}"/>
-        </repositoryList>
-        <repositoryList
-            name="Luna">
-          <repository
-              url="http://download.eclipse.org/releases/luna/"/>
-          <repository
-              url="${antlr-gen.update.site}"/>
-          <repository
-              url="${xtexttools.update.site}"/>
-          <repository
-              url="${xtext.release.composite}"/>
-        </repositoryList>
-        <repositoryList
-            name="Kepler">
-          <repository
-              url="http://download.eclipse.org/releases/kepler/"/>
-          <repository
-              url="${antlr-gen.update.site}"/>
-          <repository
-              url="${xtexttools.update.site}"/>
-          <repository
-              url="${xtext.release.composite}"/>
-        </repositoryList>
-        <repositoryList
-            name="Juno">
-          <repository
-              url="http://download.eclipse.org/releases/juno/"/>
-          <repository
-              url="${antlr-gen.update.site}"/>
-          <repository
-              url="${xtexttools.update.site}"/>
-          <repository
-              url="${xtext.release.composite}"/>
-        </repositoryList>
-      </targlet>
-    </setupTask>
-    <description>pre-Xtext 2.10 branch for checking regression issues</description>
   </stream>
   <description></description>
 </setup:Project>

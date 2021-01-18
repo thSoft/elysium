@@ -75,7 +75,7 @@ Workflow {
 			
 			fragment = ui.compare.CompareFragment2 {}
 
-			fragment= junit.Junit4Fragment2 {}
+			fragment = junit.JUnitFragment {}
 		}
 	}
 }

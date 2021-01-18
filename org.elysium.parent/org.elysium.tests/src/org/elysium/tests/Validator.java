@@ -1,39 +1,35 @@
 package org.elysium.tests;
 
-import static com.google.common.base.Predicates.not;
-import static com.google.common.collect.Iterables.all;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
 
-import org.eclipse.emf.common.util.Diagnostic;
-import org.eclipse.xtext.junit4.validation.AssertableDiagnostics;
-import org.eclipse.xtext.junit4.validation.ValidationTestHelper;
-import org.eclipse.xtext.junit4.validation.AssertableDiagnostics.DiagnosticPredicate;
-import org.eclipse.xtext.resource.XtextResource;
+import java.util.List;
+
+import org.eclipse.xtext.diagnostics.Severity;
+import org.eclipse.xtext.validation.Issue;
+import org.elysium.lilypond.LilyPond;
 import org.elysium.validation.IssueCodes;
 import org.junit.Test;
 
-import junit.framework.Assert;
-
 public class Validator extends LilyPondTest {
 
-	private AssertableDiagnostics validate(String model) throws Exception {
-		XtextResource resource = getResourceFromString(model);
-		return tester.validate(resource.getContents().get(0));
-	}
-
-	private DiagnosticPredicate getPredicate(String issueCode, boolean error) {
-		return error ? AssertableDiagnostics.errorCode(issueCode) : AssertableDiagnostics.warningCode(issueCode);
+	private List<Issue> validate(String model) throws Exception {
+		LilyPond lilyPond = parseHelper.parse(model);
+		return validationTestHelper.validate(lilyPond);
 	}
 
 	private void assertProblem(String model, String issueCode, boolean error) throws Exception {
-		AssertableDiagnostics diagnostics = validate(model);
-		DiagnosticPredicate predicate = getPredicate(issueCode, error);
-		diagnostics.assertAny(predicate);
+		assertTrue(hasProblem(model, issueCode, error));
+	}
+
+	private boolean hasProblem(String model, String issueCode, boolean error) throws Exception {
+		List<Issue> diagnostics = validate(model);
+		Severity severity = error ? Severity.ERROR : Severity.WARNING;
+		return diagnostics.stream().anyMatch(issue -> issue.getCode().equals(issueCode) && issue.getSeverity() == severity);
 	}
 
 	private void assertNoProblem(String model, String issueCode, boolean error) throws Exception {
-		AssertableDiagnostics diagnostics = validate(model);
-		DiagnosticPredicate predicate = getPredicate(issueCode, error);
-		assertTrue(all(diagnostics.getAllDiagnostics(), not(predicate)));
+		assertFalse(hasProblem(model, issueCode, error));
 	}
 
 	@Test
@@ -58,12 +54,13 @@ public class Validator extends LilyPondTest {
 
 	@Test
 	public void relativeIncludeOK() throws Exception {
-		validate("\\version \"2.18.0\" #(ly:set-option 'relative-includes #t)").assertOK();
+		assertTrue(validate("\\version \"2.18.0\" #(ly:set-option 'relative-includes #t)").isEmpty());
 	}
 
 	@Test
 	public void relativeIncludeWarning() throws Exception {
-		validate("\\version \"2.18.0\" #(ly:set-option 'relative-includes #f)").assertWarning(0, "relative include");
+		List<Issue> issues = validate("\\version \"2.18.0\" #(ly:set-option 'relative-includes #f)");
+		assertTrue(issues.stream().anyMatch(issue -> issue.getMessage().contains("relative include")));
 	}
 
 }

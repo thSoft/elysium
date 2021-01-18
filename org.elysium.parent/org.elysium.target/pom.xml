@@ -8,8 +8,4 @@
 	</parent>
 	<artifactId>org.elysium.target</artifactId>
 	<packaging>eclipse-target-definition</packaging>
-
-
-	<dependencies>
-	</dependencies>
 </project>
