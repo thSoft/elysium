@@ -19,16 +19,24 @@ import java.util.Set;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+import javax.inject.Inject;
+import javax.inject.Provider;
 import javax.util.file.FilenameExtensionFilter;
 
 import org.eclipse.emf.common.util.EList;
+import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.xtext.EcoreUtil2;
 import org.eclipse.xtext.diagnostics.Severity;
+import org.eclipse.xtext.testing.util.ParseHelper;
+import org.eclipse.xtext.testing.validation.ValidationTestHelper;
 import org.eclipse.xtext.validation.Issue;
 import org.elysium.LilyPondConstants;
 import org.elysium.lilypond.Assignment;
 import org.elysium.lilypond.LilyPond;
-import org.elysium.tests.LilyPondTest;
+import org.elysium.tests.LilyPondCachingInjectorProvider;
+import org.elysium.tests.LilyPondInjectorProvider;
+import org.junit.After;
+import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
@@ -42,7 +50,18 @@ import com.google.common.collect.Sets;
 import com.google.common.io.Files;
 
 @RunWith(value = Parameterized.class)
-public class Integration extends LilyPondTest {
+public class Integration {
+
+	//as this test is currently running as parametrized test, the default RunWith/InjectWith
+	//mechanism does not apply
+	private static LilyPondInjectorProvider injectorProvider=new LilyPondCachingInjectorProvider();
+
+	@Inject
+	private Provider<ResourceSet> rsProvider;
+	@Inject
+	private ParseHelper<LilyPond> parseHelper;
+	@Inject
+	private ValidationTestHelper validationTestHelper;
 
 	@Parameters(name = "{1}")
 	public static Collection<Object[]> data() {
@@ -81,6 +100,17 @@ public class Integration extends LilyPondTest {
 		}
 	}
 
+	@Before
+	public void setup() {
+		injectorProvider.setupRegistry();
+		injectorProvider.getInjector().injectMembers(this);
+	}
+
+	@After
+	public void teardown() {
+		injectorProvider.restoreRegistry();
+	}
+
 	public Integration(String filePath, String shortFilePath) throws Exception {
 		this.filePath = filePath;
 		this.shortFilePath = shortFilePath;
@@ -93,7 +123,9 @@ public class Integration extends LilyPondTest {
 	private LilyPond ast; // XXX can only be parsed after @Before initialized dependency injection
 
 	private LilyPond parseFile() throws Exception {
-		return parseHelper.parse(fileContents);
+		ResourceSet rs=rsProvider.get();
+		org.eclipse.emf.common.util.URI uri = org.eclipse.emf.common.util.URI.createFileURI(filePath);
+		return parseHelper.parse(fileContents, uri, rs);
 	}
 
 	@Test

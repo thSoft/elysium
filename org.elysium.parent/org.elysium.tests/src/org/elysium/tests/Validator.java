@@ -5,13 +5,28 @@ import static org.junit.Assert.assertTrue;
 
 import java.util.List;
 
+import javax.inject.Inject;
+
 import org.eclipse.xtext.diagnostics.Severity;
+import org.eclipse.xtext.testing.InjectWith;
+import org.eclipse.xtext.testing.XtextRunner;
+import org.eclipse.xtext.testing.util.ParseHelper;
+import org.eclipse.xtext.testing.validation.ValidationTestHelper;
 import org.eclipse.xtext.validation.Issue;
 import org.elysium.lilypond.LilyPond;
 import org.elysium.validation.IssueCodes;
 import org.junit.Test;
+import org.junit.runner.RunWith;
 
-public class Validator extends LilyPondTest {
+@RunWith(XtextRunner.class)
+@InjectWith(LilyPondInjectorProvider.class)
+public class Validator {
+
+	@Inject
+	private ParseHelper<LilyPond> parseHelper;
+	
+	@Inject
+	private ValidationTestHelper validationTestHelper;
 
 	private List<Issue> validate(String model) throws Exception {
 		LilyPond lilyPond = parseHelper.parse(model);
