@@ -17,7 +17,6 @@ import org.elysium.LilyPondConstants;
 import org.elysium.importuri.ILilyPondPathProvider;
 import org.elysium.importuri.LilyPondImportUriResolver;
 import org.elysium.importuri.LilyPondResolvedUri;
-import org.elysium.ui.preferences.LilyPondRefactoringPreferencePage;
 import org.elysium.ui.refactoring.LilyPondImportUri.Type;
 
 class LilyPondRefactoringInjects {

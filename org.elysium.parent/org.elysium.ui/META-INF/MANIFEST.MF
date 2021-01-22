@@ -1,7 +1,7 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: LilyPond IDE
-Bundle-Version: 0.6.1.qualifier
+Bundle-Version: 0.7.0.qualifier
 Bundle-SymbolicName: org.elysium.ui; singleton:=true
 Bundle-ActivationPolicy: lazy
 Require-Bundle: org.elysium,
@@ -27,7 +27,7 @@ Require-Bundle: org.elysium,
  org.eclipse.emf.util;bundle-version="0.0.0",
  org.eclipse.core.expressions;bundle-version="3.4.0"
 Import-Package: org.apache.log4j
-Bundle-RequiredExecutionEnvironment: JavaSE-1.8
+Bundle-RequiredExecutionEnvironment: JavaSE-11
 Export-Package: org.elysium.ui.contentassist,
  org.elysium.ui.internal,
  org.elysium.ui.quickfix,

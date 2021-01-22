@@ -4,7 +4,7 @@
 	<parent>
 		<groupId>org.elysium</groupId>
 		<artifactId>org.elysium.parent</artifactId>
-		<version>0.6.1-SNAPSHOT</version>
+		<version>0.7.0-SNAPSHOT</version>
 	</parent>
 	<artifactId>org.elysium.repository</artifactId>
 	<packaging>eclipse-repository</packaging>

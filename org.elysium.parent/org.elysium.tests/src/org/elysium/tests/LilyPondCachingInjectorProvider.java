@@ -4,61 +4,33 @@ import java.util.concurrent.Callable;
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.TimeUnit;
 
-import javax.inject.Inject;
-
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
-import org.eclipse.xtext.junit4.AbstractXtextTests;
-import org.eclipse.xtext.junit4.validation.ValidatorTester;
 import org.eclipse.xtext.resource.IResourceDescription;
 import org.eclipse.xtext.resource.IResourceDescriptions;
 import org.eclipse.xtext.scoping.IGlobalScopeProvider;
-import org.elysium.LilyPondStandaloneSetup;
+import org.elysium.LilyPondRuntimeModule;
 import org.elysium.scoping.LilyPondImportUriGlobalScopeProvider;
-import org.elysium.validation.LilyPondValidator;
-import org.junit.Before;
-import org.junit.runner.RunWith;
-import org.junit.runners.BlockJUnit4ClassRunner;
 
 import com.google.common.cache.Cache;
 import com.google.common.cache.CacheBuilder;
-import com.google.inject.Guice;
-import com.google.inject.Injector;
 
-@RunWith(BlockJUnit4ClassRunner.class)
-public abstract class LilyPondTest extends AbstractXtextTests {
-
-	@Inject
-	protected ValidatorTester<LilyPondValidator> tester;
-
-	/**
-	 * By default a caching version of the GlobalScopeProvider is used for tests.
-	 * Return false if you want the "production" implementation to be used. 
-	 * */
-	protected boolean useCachingImportUriGlobalScopeProvider(){
-		return true;
-	}
+public class LilyPondCachingInjectorProvider extends LilyPondInjectorProvider {
 
 	@Override
-	@Before
-	public void setUp() throws Exception {
-		super.setUp();
-		with(new LilyPondStandaloneSetup(){
-			public Injector createInjector() {
-				return Guice.createInjector(new org.elysium.LilyPondRuntimeModule(){
-					@Override
-					public Class<? extends IGlobalScopeProvider> bindIGlobalScopeProvider() {
-						if(useCachingImportUriGlobalScopeProvider()){
-							return LilyPondTestImportUriGlobalScopeProvider.class;
-						}else{
-							return super.bindIGlobalScopeProvider();
-						}
-					}
-				});
+	protected LilyPondRuntimeModule createRuntimeModule() {
+		return new org.elysium.LilyPondRuntimeModule(){
+			@Override
+			public Class<? extends IGlobalScopeProvider> bindIGlobalScopeProvider() {
+					return LilyPondTestImportUriGlobalScopeProvider.class;
 			}
-		});
-		injectMembers(this);
+			@Override
+			public ClassLoader bindClassLoaderToInstance() {
+				return LilyPondCachingInjectorProvider.class
+						.getClassLoader();
+			}
+		};
 	}
 
 	/**

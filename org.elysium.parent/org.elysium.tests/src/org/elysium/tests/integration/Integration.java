@@ -5,6 +5,7 @@ import static com.google.common.collect.Iterables.filter;
 import static com.google.common.collect.Lists.newArrayList;
 import static java.lang.Math.min;
 import static javax.util.file.FileUtils.readFileAsString;
+import static org.junit.Assert.fail;
 
 import java.io.File;
 import java.io.IOException;
@@ -18,20 +19,24 @@ import java.util.Set;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+import javax.inject.Inject;
+import javax.inject.Provider;
 import javax.util.file.FilenameExtensionFilter;
 
-import org.eclipse.emf.common.util.Diagnostic;
 import org.eclipse.emf.common.util.EList;
+import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.xtext.EcoreUtil2;
-import org.eclipse.xtext.junit4.validation.AssertableDiagnostics;
-import org.eclipse.xtext.nodemodel.ICompositeNode;
-import org.eclipse.xtext.nodemodel.util.NodeModelUtils;
-import org.eclipse.xtext.resource.XtextResource;
-import org.eclipse.xtext.validation.AbstractValidationDiagnostic;
+import org.eclipse.xtext.diagnostics.Severity;
+import org.eclipse.xtext.testing.util.ParseHelper;
+import org.eclipse.xtext.testing.validation.ValidationTestHelper;
+import org.eclipse.xtext.validation.Issue;
 import org.elysium.LilyPondConstants;
 import org.elysium.lilypond.Assignment;
 import org.elysium.lilypond.LilyPond;
-import org.elysium.tests.LilyPondTest;
+import org.elysium.tests.LilyPondCachingInjectorProvider;
+import org.elysium.tests.LilyPondInjectorProvider;
+import org.junit.After;
+import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
@@ -45,8 +50,18 @@ import com.google.common.collect.Sets;
 import com.google.common.io.Files;
 
 @RunWith(value = Parameterized.class)
-public class Integration extends LilyPondTest {
+public class Integration {
 
+	//as this test is currently running as parametrized test, the default RunWith/InjectWith
+	//mechanism does not apply
+	private static LilyPondInjectorProvider injectorProvider=new LilyPondCachingInjectorProvider();
+
+	@Inject
+	private Provider<ResourceSet> rsProvider;
+	@Inject
+	private ParseHelper<LilyPond> parseHelper;
+	@Inject
+	private ValidationTestHelper validationTestHelper;
 
 	@Parameters(name = "{1}")
 	public static Collection<Object[]> data() {
@@ -85,6 +100,17 @@ public class Integration extends LilyPondTest {
 		}
 	}
 
+	@Before
+	public void setup() {
+		injectorProvider.setupRegistry();
+		injectorProvider.getInjector().injectMembers(this);
+	}
+
+	@After
+	public void teardown() {
+		injectorProvider.restoreRegistry();
+	}
+
 	public Integration(String filePath, String shortFilePath) throws Exception {
 		this.filePath = filePath;
 		this.shortFilePath = shortFilePath;
@@ -97,9 +123,9 @@ public class Integration extends LilyPondTest {
 	private LilyPond ast; // XXX can only be parsed after @Before initialized dependency injection
 
 	private LilyPond parseFile() throws Exception {
-		XtextResource resource = doGetResource(getAsStream(fileContents), org.eclipse.emf.common.util.URI.createFileURI(filePath));
-		LilyPond lilyPondmodel = (LilyPond)resource.getContents().get(0);
-		return lilyPondmodel;
+		ResourceSet rs=rsProvider.get();
+		org.eclipse.emf.common.util.URI uri = org.eclipse.emf.common.util.URI.createFileURI(filePath);
+		return parseHelper.parse(fileContents, uri, rs);
 	}
 
 	@Test
@@ -117,11 +143,11 @@ public class Integration extends LilyPondTest {
 
 	private Iterable<Object> getErrors() throws Exception {
 		EList<org.eclipse.emf.ecore.resource.Resource.Diagnostic> parseErrors = ast.eResource().getErrors();
-		AssertableDiagnostics validationDiagnostics = tester.validate(ast);
-		Iterable<Diagnostic> validationErrors = filter(validationDiagnostics.getAllDiagnostics(), new Predicate<Diagnostic>() {
+		List<Issue> validationDiagnostics = validationTestHelper.validate(ast);
+		Iterable<Issue> validationErrors = filter(validationDiagnostics, new Predicate<Issue>() {
 			@Override
-			public boolean apply(Diagnostic input) {
-				return input.getSeverity() == Diagnostic.ERROR;
+			public boolean apply(Issue input) {
+				return input.getSeverity() == Severity.ERROR;
 			}
 		});
 		return ImmutableSet.copyOf(concat(parseErrors, validationErrors));
@@ -134,12 +160,11 @@ public class Integration extends LilyPondTest {
 				int line = diagnostic.getLine() - 1;
 				int offset = diagnostic.getOffset();
 				printError(lines, diagnostic.getMessage(), line, offset);
-			} else if (error instanceof AbstractValidationDiagnostic) {
-				AbstractValidationDiagnostic diagnostic = (AbstractValidationDiagnostic) error;
-				ICompositeNode node = NodeModelUtils.findActualNodeFor(diagnostic.getSourceEObject());
-				int line = node.getStartLine() - 1;
-				int offset = node.getOffset();
-				printError(lines, diagnostic.getMessage(), line, offset);
+			} else if (error instanceof Issue) {
+				Issue issue = (Issue) error;
+				int line = issue.getLineNumber() - 1;
+				int offset = issue.getOffset();
+				printError(lines, issue.getMessage(), line, offset);
 			}
 		}
 	}
