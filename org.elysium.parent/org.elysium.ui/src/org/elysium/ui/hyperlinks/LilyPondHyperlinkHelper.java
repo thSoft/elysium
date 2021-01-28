@@ -103,7 +103,7 @@ public class LilyPondHyperlinkHelper extends HyperlinkHelper {
 								int indexOnPage = 0;
 								PdfAnnotation[] pdfAnnotations = pdfViewPage.getAnnotationsOnPage(page);
 								for (PdfAnnotation pdfAnnotation : pdfAnnotations) {
-									if (sourceURI.equals(pdfAnnotation.fileURI)) {
+									if (sourceURI.toASCIIString().equals(pdfAnnotation.fileURI.toASCIIString())) {
 										try {
 											if(sourceDocument == null) {
 												sourceDocument = getDocumentForXtextResource(xtextResource);
