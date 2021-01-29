@@ -108,20 +108,26 @@ public class LilyPondBuilder implements IXtextBuilderParticipant {
 		compile(files, true, true, false);
 	}
 
-	private void compile(Set<IFile> fileSet, boolean executeLilyPondCompilation, boolean deleteMarkers, boolean markDirty) {
+	private void compile(Set<IFile> changedFiles, boolean executeLilyPondCompilation, boolean deleteMarkers, boolean markDirty) {
 		int maxParallelCalls = Activator.getInstance().getPreferenceStore().getInt(CompilerPreferenceConstants.PARALLEL_COMPILES.name());
-		Set<IFile> files=new HashSet<>(fileSet);
-		addAllIncludingFiles(files);
+		Set<IFile> allFiles=new HashSet<>(changedFiles);
+		addAllIncludingFiles(allFiles);
 		if(markDirty) {
-			markDirty(files);
+			markDirty(allFiles);
 		}
 		boolean showOutdatedMarkersOnContainers=preferences.getBoolean(CompilerPreferenceConstants.ADD_OUTDATED_MARKER_TO_ANCESTORS.name());
-		RefreshProjectJob refreshJob=new RefreshProjectJob(showOutdatedMarkersOnContainers);
-		for (IFile file : getFilesToCompile(files)) {
-			if(executeLilyPondCompilation || deleteMarkers || markDirty) {
-				refreshJob.addFile(file);
+		RefreshProjectJob refreshJob=new RefreshProjectJob(showOutdatedMarkersOnContainers, executeLilyPondCompilation);
+		for (IFile file : getFilesToCompile(allFiles, executeLilyPondCompilation)) {
+			LilyPondFilesToCompile data=new LilyPondFilesToCompile(file, changedFiles);
+			List<IFile> includedFiles=new ArrayList<>();
+			if(deleteMarkers) {
+				includedFiles.addAll(getTransitivelyIncludedFiles(Collections.singletonList(file)));
+				data.setIncludedFiles(includedFiles);
 			}
-			CompilerJob compilerJob = new CompilerJob(file, executeLilyPondCompilation, deleteMarkers);
+			if(executeLilyPondCompilation || deleteMarkers || markDirty) {
+				refreshJob.addFile(data);
+			}
+			CompilerJob compilerJob = new CompilerJob(data, executeLilyPondCompilation, deleteMarkers);
 			Job[] oldCompilerJobs = Job.getJobManager().find(compilerJob);
 			for (Job oldCompilerJob : oldCompilerJobs) {
 				oldCompilerJob.cancel();
@@ -135,7 +141,7 @@ public class LilyPondBuilder implements IXtextBuilderParticipant {
 		refreshJob.schedule();
 	}
 
-	private List<IFile> getFilesToCompile(Set<IFile> allFiles){
+	private List<IFile> getFilesToCompile(Set<IFile> allFiles, boolean compileEnabled){
 		List<IFile> sortedFiles=new ArrayList<IFile>();
 		for (IFile iFile : allFiles) {
 			if(LilyPondConstants.EXTENSION.equals(iFile.getFileExtension())){
@@ -148,13 +154,17 @@ public class LilyPondBuilder implements IXtextBuilderParticipant {
 				return o1.getName().compareTo(o2.getName());
 			}
 		});
-		if(!continueWithOpenFilesDirty(sortedFiles)) {
+		if(!continueWithOpenFilesDirty(sortedFiles, compileEnabled)) {
 			return ImmutableList.of();
 		}
 		return sortedFiles;
 	}
 
-	private boolean continueWithOpenFilesDirty(Collection<IFile> filesToCompile) {
+	private boolean continueWithOpenFilesDirty(Collection<IFile> filesToCompile, boolean compileEnabled) {
+		if(!compileEnabled) {
+			//if compilation is disabled, only markers are updated
+			return true;
+		}
 		AtomicBoolean doContinue=new AtomicBoolean(true);
 		List<IFile> allOpenDirtyFiles=LilyPondPerspective.getAllOpenDirtyFiles();
 		if(!allOpenDirtyFiles.isEmpty()) {
