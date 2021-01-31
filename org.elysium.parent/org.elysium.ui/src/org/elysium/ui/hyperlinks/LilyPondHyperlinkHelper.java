@@ -98,12 +98,13 @@ public class LilyPondHyperlinkHelper extends HyperlinkHelper {
 						PdfViewPage pdfViewPage = pdfViewType.getPage();
 						java.net.URI sourceURI = getFileURIForXtextResource(xtextResource);
 						if (pdfViewPage != null && sourceURI != null) {
+							String sourceUriString = sourceURI.toASCIIString();
 							IDocument sourceDocument = null;
 							for (int page = 1; page <= pdfViewPage.getPageCount(); page++) {
 								int indexOnPage = 0;
 								PdfAnnotation[] pdfAnnotations = pdfViewPage.getAnnotationsOnPage(page);
 								for (PdfAnnotation pdfAnnotation : pdfAnnotations) {
-									if (sourceURI.equals(pdfAnnotation.fileURI)) {
+									if (sourceUriString.equals(pdfAnnotation.fileURI.toASCIIString())) {
 										try {
 											if(sourceDocument == null) {
 												sourceDocument = getDocumentForXtextResource(xtextResource);
